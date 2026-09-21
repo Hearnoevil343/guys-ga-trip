@@ -555,6 +555,29 @@ const html = `<!doctype html>
   .day-strip .hint { font-size:10px; color:#777; align-self:center; margin-left:4px; display:none; }
   @media (min-width: 700px) { .day-strip .hint { display:inline; } }
 
+  /* ---- overlays control panel (on the map, top-right, below the base-map switcher) ---- */
+  /* Collapsed = a small square icon button only, so it never forces the map's
+     own width wider on a narrow phone screen (the sidebar panel already claims
+     most of the viewport there). Expanded = the full 230px panel; that's a
+     deliberate user tap, same tradeoff the base-map switcher already makes. */
+  .overlay-panel { margin-top:6px; }
+  .overlay-toggle-icon { display:none; width:34px; height:34px; border:1px solid #999; border-radius:6px; background:#fff; font-size:15px; font-weight:700; cursor:pointer; color:#333; box-shadow:0 1px 4px rgba(0,0,0,.4); }
+  .overlay-toggle-icon:hover { background:#e2ecff; }
+  .overlay-panel.collapsed .overlay-toggle-icon { display:block; }
+  .overlay-panel-inner { background:#fff; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.4); font-size:12px; width:230px; max-width:62vw; overflow:hidden; }
+  .overlay-panel.collapsed .overlay-panel-inner { display:none; }
+  .overlay-panel-hd { display:flex; align-items:center; justify-content:space-between; padding:7px 10px; font-weight:700; background:#f4f4f4; border-bottom:1px solid #ddd; }
+  .overlay-toggle { border:1px solid #999; background:#fff; border-radius:3px; width:20px; height:20px; line-height:1; font-size:14px; font-weight:700; cursor:pointer; color:#333; }
+  .overlay-toggle:hover { background:#e2ecff; }
+  .overlay-panel-body { max-height:52vh; overflow-y:auto; padding:2px 0; }
+  .ov-row { padding:6px 10px; border-top:1px solid #eee; }
+  .ov-row:first-child { border-top:none; }
+  .ov-hd { display:flex; align-items:center; gap:6px; cursor:pointer; margin:0; }
+  .ov-hd input { flex:0 0 auto; cursor:pointer; }
+  .ov-swatch { width:12px; height:12px; border-radius:2px; flex:0 0 auto; border:1px solid rgba(0,0,0,.25); }
+  .ov-name { flex:1 1 auto; font-size:12px; }
+  .ov-slider { width:100%; margin:5px 0 1px; }
+
   /* ---- day / leg panel (top of the sidebar) ---- */
   #daySection { border-bottom: 2px solid #ccc; padding-bottom: 8px; margin-bottom: 6px; }
   #daySection h2 { font-size: 14px; margin: 8px 12px 2px; }
@@ -631,16 +654,26 @@ const baseLayers = {
 };
 
 // ---- overlay: USFS land ownership (EDW dynamic map service) ----
+// Its own pane, below the default overlayPane (zIndex 400) that every
+// GeoJSON overlay uses, so the red no-panning zones always draw on top of
+// it no matter what order layers get added/toggled in. A CSS filter on the
+// pane boosts saturation/contrast because the raw EDW tiles render washed
+// out over every base map (reported 2026-09-21).
+map.createPane('usfsPane');
+map.getPane('usfsPane').style.zIndex = 399;
+map.getPane('usfsPane').style.filter = 'saturate(1.7) contrast(1.3) brightness(1.05)';
 let usfsOwnership = null;
 try {
   usfsOwnership = L.esri.dynamicMapLayer({
     url: 'https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_ForestSystemBoundaries_01/MapServer',
-    opacity: 0.45,
+    opacity: 0.75,
+    pane: 'usfsPane',
   });
 } catch (e) { console.warn('USFS ownership layer failed to init', e); }
 
 // ---- overlay: wilderness / no-panning polygons, and trail/route lines, from GeoJSON files ----
 const overlayLayers = {};
+const overlayColors = {};
 const TRAIL_COLORS = { trail: '#8c564b', waterway: '#1f77b4', road: '#555555' };
 let waterOverlay = null;
 for (const layer of DATA.geoLayers) {
@@ -648,6 +681,9 @@ for (const layer of DATA.geoLayers) {
   const isWilderness = /wilderness/i.test(layer.name);
   const isWater = /^water$/i.test(layer.name);
   const isTrails = /trail/i.test(layer.name) && !isWilderness;
+  const isPanningStatus = /^panning-status$/i.test(layer.name);
+  if (isPanningStatus) continue; // handled separately below, split into good/no/no-info overlays
+  if (isWilderness) continue; // folded into the "Panning: no" overlay (panning-status.geojson was seeded from this same data) so the same zones aren't drawn twice
   let gj;
   if (isWater) {
     gj = L.geoJSON(layer.data, {
@@ -692,16 +728,134 @@ for (const layer of DATA.geoLayers) {
   }
   const label = layer.name + (isWilderness ? ' (NO PANNING)' : (isWater ? ' (Creeks & rivers)' : (isTrails ? ' (trails)' : '')));
   overlayLayers[label] = gj;
+  overlayColors[label] = isWilderness ? '#ff0000' : (isWater ? '#1f77b4' : (isTrails ? '#8c564b' : '#888888'));
   if (isWater) waterOverlay = gj;
 }
-
-for (const k in overlayLayers) {
-  // default on: wilderness boundaries, trail lines and creeks are all useful context immediately
-  if (/NO PANNING|trails|Creeks & rivers/i.test(k)) overlayLayers[k].addTo(map);
+if (usfsOwnership) {
+  overlayLayers['USFS land ownership'] = usfsOwnership;
+  overlayColors['USFS land ownership'] = '#2f7d3c';
 }
-if (usfsOwnership) overlayLayers['USFS land ownership'] = usfsOwnership;
 
-const layersControl = L.control.layers(baseLayers, overlayLayers, { collapsed: true }).addTo(map);
+// ---- overlay: panning-status.geojson (research-fed; missing/empty file is fine) ----
+// Split into three overlays by status. "Panning: no" also carries the seed
+// data copied from wilderness.geojson (see the "continue" above), so the old
+// standalone NO-PANNING layer isn't drawn a second time.
+const PANNING_STATUS_META = {
+  good: { label: 'Panning: good', color: '#2e8b3d' },
+  no: { label: 'Panning: no', color: '#cc0000' },
+  unknown: { label: 'Panning: no info', color: '#888888' },
+};
+const panningStatusSrc = DATA.geoLayers.find(l => /^panning-status$/i.test(l.name));
+if (panningStatusSrc && panningStatusSrc.data && Array.isArray(panningStatusSrc.data.features)) {
+  const byStatus = { good: [], no: [], unknown: [] };
+  for (const f of panningStatusSrc.data.features) {
+    const st = (f.properties && PANNING_STATUS_META[f.properties.status]) ? f.properties.status : 'unknown';
+    byStatus[st].push(f);
+  }
+  for (const st of ['good', 'no', 'unknown']) {
+    if (!byStatus[st].length) continue;
+    const meta = PANNING_STATUS_META[st];
+    const fc = { type: 'FeatureCollection', features: byStatus[st] };
+    const gj = L.geoJSON(fc, {
+      style: f => {
+        const isLine = f.geometry && (f.geometry.type === 'LineString' || f.geometry.type === 'MultiLineString');
+        return isLine
+          ? { color: meta.color, weight: 5, opacity: 0.85 }
+          : { color: meta.color, weight: 2, fillColor: meta.color, fillOpacity: 0.28 };
+      },
+      onEachFeature: (f, lyr) => {
+        const p = f.properties || {};
+        let h = '<b>' + escHtml(p.name || meta.label) + '</b>';
+        if (p.reason) h += '<div style="font-size:12px;margin-top:3px;">' + escHtml(p.reason) + '</div>';
+        if (p.source) {
+          const isUrl = p.source.indexOf('http://') === 0 || p.source.indexOf('https://') === 0 || p.source.indexOf('HTTP://') === 0 || p.source.indexOf('HTTPS://') === 0;
+          h += '<div style="font-size:11px;color:#555;margin-top:3px;">' + (isUrl
+            ? '<a href="' + escHtml(p.source) + '" target="_blank" rel="noopener">source</a>'
+            : escHtml(p.source)) + '</div>';
+        }
+        if (p.checked) h += '<div style="font-size:11px;color:#777;margin-top:2px;">Checked: ' + escHtml(p.checked) + '</div>';
+        lyr.bindPopup(h);
+      },
+    });
+    overlayLayers[meta.label] = gj;
+    overlayColors[meta.label] = meta.color;
+  }
+}
+
+// ---- overlay on/off + opacity settings, persisted in localStorage ----
+const OVERLAY_LS_KEY = 'gaGoldTripOverlaySettings.v1';
+let savedOverlaySettings = {};
+try {
+  const raw = localStorage.getItem(OVERLAY_LS_KEY);
+  if (raw) savedOverlaySettings = JSON.parse(raw) || {};
+} catch (e) { savedOverlaySettings = {}; }
+const overlaySettings = {};
+for (const key of Object.keys(overlayLayers)) {
+  // default on: no-panning zones, trail lines and creeks are all useful context immediately
+  const defaultOn = /NO PANNING|trails|Creeks & rivers|Panning: no$/i.test(key);
+  const saved = savedOverlaySettings[key];
+  overlaySettings[key] = {
+    on: saved && typeof saved.on === 'boolean' ? saved.on : defaultOn,
+    opacity: saved && typeof saved.opacity === 'number' ? Math.min(1, Math.max(0, saved.opacity)) : 1,
+  };
+}
+function saveOverlaySettings() {
+  try { localStorage.setItem(OVERLAY_LS_KEY, JSON.stringify(overlaySettings)); } catch (e) { /* non-fatal: private window / blocked storage */ }
+}
+for (const key of Object.keys(overlayLayers)) {
+  if (overlaySettings[key].on) overlayLayers[key].addTo(map);
+  applyLayerOpacity(overlayLayers[key], overlaySettings[key].opacity);
+}
+
+const layersControl = L.control.layers(baseLayers, null, { collapsed: true }).addTo(map);
+
+// ---- Overlays control panel: on/off + opacity slider per overlay ----
+const OverlayPanel = L.Control.extend({
+  options: { position: 'topright' },
+  onAdd: function () {
+    const div = L.DomUtil.create('div', 'overlay-panel' + (window.innerWidth < 700 ? ' collapsed' : ''));
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.disableScrollPropagation(div);
+    let rows = '';
+    const keys = Object.keys(overlayLayers);
+    keys.forEach((key, i) => {
+      const s = overlaySettings[key];
+      const color = overlayColors[key] || '#888888';
+      rows += '<div class="ov-row">' +
+        '<label class="ov-hd"><input type="checkbox" class="ov-toggle" data-i="' + i + '"' + (s.on ? ' checked' : '') + '>' +
+        '<span class="ov-swatch" style="background:' + color + '"></span>' +
+        '<span class="ov-name">' + escHtml(key) + '</span></label>' +
+        '<input type="range" class="ov-slider" data-i="' + i + '" min="0" max="100" step="5" value="' + Math.round(s.opacity * 100) + '">' +
+        '</div>';
+    });
+    div.innerHTML = '<button type="button" class="overlay-toggle-icon" aria-label="Show overlay controls">&#9776;</button>' +
+      '<div class="overlay-panel-inner">' +
+      '<div class="overlay-panel-hd"><span>Overlays</span><button type="button" class="overlay-toggle" aria-label="Collapse overlays panel">&minus;</button></div>' +
+      '<div class="overlay-panel-body">' + rows + '</div>' +
+      '</div>';
+    div.querySelector('.overlay-toggle-icon').addEventListener('click', () => div.classList.remove('collapsed'));
+    div.querySelector('.overlay-toggle').addEventListener('click', () => div.classList.add('collapsed'));
+    div.querySelectorAll('.ov-toggle').forEach(cb => {
+      cb.addEventListener('change', () => {
+        const key = keys[parseInt(cb.getAttribute('data-i'), 10)];
+        overlaySettings[key].on = cb.checked;
+        if (cb.checked) { overlayLayers[key].addTo(map); refreshOverlayStyle(key); }
+        else map.removeLayer(overlayLayers[key]);
+        saveOverlaySettings();
+      });
+    });
+    div.querySelectorAll('.ov-slider').forEach(sl => {
+      sl.addEventListener('input', () => {
+        const key = keys[parseInt(sl.getAttribute('data-i'), 10)];
+        overlaySettings[key].opacity = parseInt(sl.value, 10) / 100;
+        refreshOverlayStyle(key);
+        saveOverlaySettings();
+      });
+    });
+    return div;
+  },
+});
+if (Object.keys(overlayLayers).length) new OverlayPanel().addTo(map);
 
 // ---- markers ----
 function dirLink(lat, lng) {
@@ -981,19 +1135,35 @@ for (const day of DAYS) {
 }
 
 const DIM = 0.25;
-function setLayerOpacity(l, dimmed) {
+// Sets a layer's live opacity to "factor" x its ORIGINAL design opacity/fillOpacity
+// (captured once, lazily, the first time any layer is touched). Used both for the
+// selection-dimming pass and for the overlay panel's per-layer opacity slider, so
+// the two compose: effective = user-chosen slider factor x (DIM when dimmed else 1).
+function applyLayerOpacity(l, factor) {
   try {
-    if (typeof l.eachLayer === 'function') { l.eachLayer(x => setLayerOpacity(x, dimmed)); return; }
+    if (typeof l.eachLayer === 'function') { l.eachLayer(x => applyLayerOpacity(x, factor)); return; }
     if (l._origOpacity === undefined) l._origOpacity = (l.options && l.options.opacity != null) ? l.options.opacity : 1;
     if (l._origFillOpacity === undefined) l._origFillOpacity = (l.options && l.options.fillOpacity != null) ? l.options.fillOpacity : 0.2;
-    if (typeof l.setStyle === 'function') l.setStyle({ opacity: dimmed ? DIM * l._origOpacity : l._origOpacity, fillOpacity: dimmed ? DIM * l._origFillOpacity : l._origFillOpacity });
-    else if (typeof l.setOpacity === 'function') l.setOpacity(dimmed ? DIM * l._origOpacity : l._origOpacity);
+    if (typeof l.setStyle === 'function') l.setStyle({ opacity: factor * l._origOpacity, fillOpacity: factor * l._origFillOpacity });
+    else if (typeof l.setOpacity === 'function') l.setOpacity(factor * l._origOpacity);
   } catch (e) { /* some layer types may not support live opacity — non-fatal */ }
 }
+function setLayerOpacity(l, dimmed) {
+  applyLayerOpacity(l, dimmed ? DIM : 1);
+}
+let backgroundDimmed = false;
+// Re-applies one overlay's style using its current panel opacity setting
+// combined with whatever the current selection-dimming state is.
+function refreshOverlayStyle(key) {
+  const l = overlayLayers[key];
+  if (!l) return;
+  const userOpacity = (overlaySettings[key] && overlaySettings[key].opacity != null) ? overlaySettings[key].opacity : 1;
+  applyLayerOpacity(l, userOpacity * (backgroundDimmed ? DIM : 1));
+}
 function dimBackground(dimmed) {
+  backgroundDimmed = dimmed;
   setLayerOpacity(markerLayer, dimmed);
-  for (const k in overlayLayers) setLayerOpacity(overlayLayers[k], dimmed);
-  if (usfsOwnership) setLayerOpacity(usfsOwnership, dimmed);
+  for (const k in overlayLayers) refreshOverlayStyle(k);
   for (const d in dayOverviewLayers) setLayerOpacity(dayOverviewLayers[d], dimmed);
 }
 function addMinutesClock(hhmm, mins) {
@@ -1074,6 +1244,7 @@ function computeFitPadding() {
   const strip = rectOf('.day-strip');
   const legend = rectOf('#legend');
   const layers = rectOf('.leaflet-control-layers');
+  const overlayPanel = rectOf('.overlay-panel');
   [zoom, strip].forEach(r => {
     if (!r) return;
     left = Math.max(left, r.right - mapRect.left + MARGIN);
@@ -1083,10 +1254,11 @@ function computeFitPadding() {
     left = Math.max(left, legend.right - mapRect.left + MARGIN);
     bottom = Math.max(bottom, mapRect.bottom - legend.top + MARGIN);
   }
-  if (layers) {
-    right = Math.max(right, mapRect.right - layers.left + MARGIN);
-    top = Math.max(top, layers.bottom - mapRect.top + MARGIN);
-  }
+  [layers, overlayPanel].forEach(r => {
+    if (!r) return;
+    right = Math.max(right, mapRect.right - r.left + MARGIN);
+    top = Math.max(top, r.bottom - mapRect.top + MARGIN);
+  });
   // Never let padding eat the whole viewport on a small window.
   const capX = mapRect.width * 0.4, capY = mapRect.height * 0.4;
   return {

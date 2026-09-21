@@ -183,6 +183,63 @@ button count, layer-control labels, per-day leg-row/totals rendering — was re-
 incidentally by clicking through all 7 days again here and stayed clean; not re-asserted line by
 line since nothing in this pass touched that code path.)
 
+### Overlays control panel + panning-status data (2026-09-21, 5th pass)
+
+The map used to hide every overlay (no-panning zones, trails, creeks, USFS land ownership) behind
+Leaflet's collapsed layers icon, with no way to adjust how strong any of them looked. Replaced with
+a dedicated "Overlays" panel (top-right, below the base-map switcher): one row per overlay with an
+on/off checkbox, a color swatch, and a 0-100% opacity slider. It's built generically from whatever
+is in `overlayLayers` at that point in the script, so any new overlay added the same way (assigned
+into `overlayLayers[label]` + `overlayColors[label]`) shows up in the panel automatically — no
+panel code changes needed. On/off + opacity are saved to `localStorage`
+(`gaGoldTripOverlaySettings.v1`, wrapped in try/catch) and restored on reload; defaults (no-panning
+zones, trails, creeks on; USFS off) are unchanged from before. The slider composes with the existing
+day-selection dimming: `refreshOverlayStyle(key)` in `build-map.mjs` applies
+`userOpacity x (DIM if dimmed else 1)` against each layer's original design opacity, so a dimmed
+overlay stays dimmed *relative to* whatever the user set the slider to, not reset to the design
+default. At phone width (`window.innerWidth < 700` when the panel is created) it starts collapsed
+to a small square icon button (`.overlay-toggle-icon`) instead of the full 230px panel, because the
+sidebar already claims most of a narrow viewport and a full-width control would render off-screen —
+tap it to expand. `computeFitPadding()` (the existing marker-collision-avoidance code, ~line 1055)
+now also measures `.overlay-panel`'s rect alongside the layers control so a day's fitBounds still
+keeps markers clear of it.
+
+**USFS land ownership readability fix:** the EDW tile layer rendered washed-out over every base map
+at its old default opacity (0.45). Fixed by (1) raising its default opacity to 0.75 (the panel
+slider still runs 0-100% of that), (2) giving it its own Leaflet pane (`usfsPane`, zIndex 399, just
+below the default `overlayPane` at 400) with a CSS `filter: saturate(1.7) contrast(1.3)
+brightness(1.05)` for extra punch beyond what raw opacity alone can do, and (3) the custom pane's
+lower zIndex means the red no-panning zones (which use the default `overlayPane`) always draw on
+top of it, regardless of which order the two get toggled on in the panel.
+
+**`map/data/panning-status.geojson`** — new, optional (a missing or empty file does not break the
+build). A `FeatureCollection` of `Polygon`/`MultiPolygon`/`LineString`/`MultiLineString` features,
+read by `build-map.mjs` and split into three panel overlays: "Panning: good" (green), "Panning: no"
+(red), "Panning: no info" (grey). Lines draw as thick colored strokes, polygons as filled areas; each
+feature's popup shows `name`, `reason`, `source` (rendered as a clickable link only when it starts
+with `http://`/`https://`, otherwise as plain citation text) and `checked`.
+
+Feature `properties` schema:
+| field | type | notes |
+|---|---|---|
+| `status` | `"good"` \| `"no"` \| `"unknown"` | Required. Anything else (including missing) is treated as `"unknown"` — **never guess "good" or "no"; use "unknown" whenever the answer isn't independently confirmed.** |
+| `name` | string | Short place name, shown as the popup title. |
+| `reason` | string | One short sentence — why this status (e.g. "Wilderness Area — panning banned by federal designation" or "Landowner confirmed panning OK by phone, Sept 2026"). |
+| `source` | string | A URL (linked in the popup) or a plain citation (e.g. "Nominatim/OSM (relation 14582139)", "Phone call w/ ranger district, 2026-09-21"). A good source is something another person could actually check — an official agency page, a dated call/email log, a survey document — not a blog post, a forum comment, or "I think." |
+| `checked` | string (date) | When this status was last verified. Omit rather than invent a date for data you didn't personally verify (the seed features below omit it for exactly this reason). |
+| `seed` | boolean | `true` on features copied in from existing project data rather than freshly researched (see below); omit for freshly researched features. |
+
+**Seeded 2026-09-21:** the file currently holds only the 7 polygons already in
+`map/data/wilderness.geojson` (5 federal Wilderness areas + Vogel/Smithgall state parks), copied in
+as `status: "no"`, `seed: true`, reusing their existing OSM/Nominatim `source` citations. No `"good"`
+features exist yet and none were invented. **The old standalone "NO PANNING" GeoJSON overlay was
+removed** (the loop in `build-map.mjs` now `continue`s past the wilderness layer) — its zones are
+folded into "Panning: no" instead, so the same boundary isn't drawn twice; `wilderness.geojson`
+itself is untouched and still feeds the separate build-time legality guard (the `_insideWilderness`
+banner logic), which is unrelated to this rendering path. A research pass can now add real "good"
+and additional "no"/"unknown" features to `panning-status.geojson` directly — the panel and popups
+need no further changes to pick them up.
+
 ## tools/build_gear_picker.py
 Re-runnable Python (openpyxl; `pip install openpyxl`) builder for `Gear_Picker.xlsx`, the
 Captain's personal interactive gear-selection workbook. Reads all three

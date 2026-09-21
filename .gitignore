@@ -1,0 +1,11 @@
+# Claude session bookkeeping — not trip content
+USAGE_LOG.md
+logs/
+personalization/
+
+# OS / editor cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*.xlsx
+*.tmp

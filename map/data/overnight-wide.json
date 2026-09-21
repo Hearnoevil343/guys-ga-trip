@@ -1,0 +1,249 @@
+[
+  {
+    "id": "three-forks-noontootla",
+    "name": "Three Forks / Noontootla Creek (Benton MacKaye & Appalachian Trail junction)",
+    "rank": 1,
+    "trailhead": {
+      "name": "Three Forks on FS Road 58",
+      "lat": 34.6636,
+      "lng": -84.1842
+    },
+    "camps": [
+      {
+        "name": "Three Forks established camp cluster (exact tent pads unverified)",
+        "lat": 34.6636,
+        "lng": -84.1842
+      }
+    ],
+    "pan_reaches": [
+      {
+        "name": "Noontootla Creek at Three Forks confluence (Stover/Chester/Long Creeks)",
+        "lat": 34.6636,
+        "lng": -84.1842
+      }
+    ],
+    "route_coords": [],
+    "one_way_mi": null,
+    "gain_ft": null,
+    "drive_min_from_vogel": 45,
+    "creek": "Noontootla Creek (Stover, Chester, Long Creeks confluence)",
+    "gold_evidence": "1911 USFS land purchase named 'Rock Creek and Noontootly Creek area' tract (Gennett brothers, Fannin/Gilmer/Lumpkin/Union); thediggings.com Fannin County gold index lists Hackney Placer and Noontootly Creek mining.",
+    "land_status": "Chattahoochee NF, Blue Ridge Ranger District, non-Wilderness. Legality of hand panning on this exact reach not confirmed in writing by USFS; call district before trip.",
+    "hazards": "Creek crossings; Long Creek Falls nearby (slick rock, avoid panning at falls); shared corridor with AT thru-hikers; black bear country.",
+    "pressure": "Three Forks itself is a popular car-camp/thru-hiker waypoint; move upstream/downstream for solitude.",
+    "coord_source": "Trailhead coordinates converted from N34°39.815' W084°11.053' published in N2Backpacking BMT access directions: https://n2backpacking.com/hikes/georgia/benton-mackaye-trail-big-stamp-gap-to-three-forks/",
+    "photos": [
+      {
+        "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Noontootla%20Creek,%20Fannin%20County%20Georgia%20-%20panoramio.jpg?width=640",
+        "page": "https://commons.wikimedia.org/wiki/File:Noontootla_Creek,_Fannin_County_Georgia_-_panoramio.jpg",
+        "credit": "panoramio via Wikimedia Commons, photo at 34.6737,-84.1972 (geosearch near Three Forks)"
+      }
+    ],
+    "sources": [
+      "https://n2backpacking.com/hikes/georgia/benton-mackaye-trail-big-stamp-gap-to-three-forks/",
+      "https://www.backpacker.com/trips/benton-mackaye-trail-springer-mountain-to-three-forks-section-1/",
+      "https://gon.com/hunting/the-story-of-blue-ridge-the-first-wma",
+      "https://thediggings.com/usa/georgia/fannin-ga111/mines?commodity=gold",
+      "https://campflare.com/campground/noontootla-dispersed-area-762"
+    ],
+    "notes": "Top overall pick among the wide-net candidates: strongest creek-specific gold citation, easy grade, established camping, non-Wilderness. Exact hike-in mileage from Three Forks to a private/quiet pan site is unverified."
+  },
+  {
+    "id": "rock-creek-fannin",
+    "name": "Rock Creek dispersed area (Fannin County) — hike upstream from road-end",
+    "rank": 2,
+    "trailhead": {
+      "name": "Rock Creek Dispersed Area / Rock Creek Road",
+      "lat": 34.7214,
+      "lng": -84.1331
+    },
+    "camps": [
+      {
+        "name": "Dispersed site upstream of hatchery/campground cluster (exact site unverified)",
+        "lat": 34.7214,
+        "lng": -84.1331
+      }
+    ],
+    "pan_reaches": [
+      {
+        "name": "Rock Creek upstream of GA DNR Rock Creek hatchery",
+        "lat": 34.7214,
+        "lng": -84.1331
+      }
+    ],
+    "route_coords": [],
+    "one_way_mi": null,
+    "gain_ft": null,
+    "drive_min_from_vogel": 40,
+    "creek": "Rock Creek (Fannin County)",
+    "gold_evidence": "Same 1911 Gennett-tract citation as Three Forks explicitly names 'Rock Creek and Noontootly Creek area of Fannin, Gilmer, Lumpkin and Union counties.'",
+    "land_status": "Chattahoochee NF, part of Blue Ridge WMA (20,900 ac); WMA license/GA Lands Pass may be required for all persons on site — unconfirmed whether this applies to this specific recreation area.",
+    "hazards": "Firearms deer season (WMA hunt calendar may differ from general NF dates); active fish hatchery nearby, respect boundaries.",
+    "pressure": "Popular trout-fishing dispersed camping corridor near the road; better solitude moving away from vehicle sites.",
+    "coord_source": "Campflare listing for Rock Creek Dispersed Area: https://campflare.com/campground/rock-creek-dispersed-area-757",
+    "photos": [],
+    "sources": [
+      "https://campflare.com/campground/rock-creek-dispersed-area-757",
+      "https://gon.com/hunting/the-story-of-blue-ridge-the-first-wma",
+      "https://georgiawildlife.com/blue-ridge-wma"
+    ],
+    "notes": "Fundamentally a drive-to dispersed camping road; to be a true backcountry overnight, park at the end of maintained gravel and hike upstream. Distance to a quiet site is unverified."
+  },
+  {
+    "id": "duncan-ridge-toccoa-river",
+    "name": "Duncan Ridge / Benton MacKaye Trail at Toccoa River suspension bridge",
+    "rank": 4,
+    "trailhead": {
+      "name": "Bryson Gap (approximate access point, coordinates unverified)",
+      "lat": null,
+      "lng": null
+    },
+    "camps": [
+      {
+        "name": "Toccoa River suspension bridge camp cluster (coordinates unverified)",
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "pan_reaches": [
+      {
+        "name": "Toccoa River at the Duncan Ridge Trail suspension bridge crossing",
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "route_coords": [],
+    "one_way_mi": 2.7,
+    "gain_ft": 850,
+    "drive_min_from_vogel": 50,
+    "creek": "Toccoa River",
+    "gold_evidence": "Weak/regional only — no source found naming a specific historic mine or placer directly on the Toccoa River in this drainage; inference from broad Fannin/Union county goldfield context and proximity to the Rock Creek/Noontootly Gennett tract.",
+    "land_status": "Chattahoochee NF, non-Wilderness (Duncan Ridge NRA corridor).",
+    "hazards": "260-ft suspension footbridge crossing (can sway); larger/deeper water than creek candidates.",
+    "pressure": "Moderately popular DRT/BMT waypoint; some thru-hiker/day-hiker traffic.",
+    "coord_source": "No coordinates published in sources found for Bryson Gap trailhead or the bridge camp; one-way mileage and elevation from N2Backpacking route description.",
+    "photos": [],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Duncan_Ridge_Trail",
+      "https://n2backpacking.com/hikes/georgia/benton-mackaye-trail-bryson-gap-to-toccoa-river/"
+    ],
+    "notes": "Great camping/trail logistics but weakest gold citation of the top four candidates. Needs a CalTopo/Gaia GPS check for real coordinates before use."
+  },
+  {
+    "id": "amicalola-creek-dawson-forest",
+    "name": "Amicalola Creek, Dawson Forest WMA (upper NF reaches outside the state park)",
+    "rank": 3,
+    "trailhead": {
+      "name": "Amicalola River Trails access, GA 53 bridge (exact coordinates unverified)",
+      "lat": null,
+      "lng": null
+    },
+    "camps": [],
+    "pan_reaches": [
+      {
+        "name": "Amicalola Creek, Dawson Forest WMA Amicalola tract, above/outside Amicalola Falls State Park boundary (unmapped in this pass)",
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "route_coords": [],
+    "one_way_mi": null,
+    "gain_ft": null,
+    "drive_min_from_vogel": 75,
+    "creek": "Amicalola Creek",
+    "gold_evidence": "Strongest of this batch: historic Missing Link Mine (aka Ellsworth Mine, Magic Mine, Baby Placer, Amicalola Mine, Miller Placer) and Nina Head Placer, both named for this creek/area in Dawson County mining records.",
+    "land_status": "Mixed: Amicalola Falls State Park bans panning; surrounding Dawson Forest WMA (25,500 ac, five tracts incl. an 'Amicalola' tract) is NF/WMA land where standard hand-panning rules should apply. Exact park/WMA boundary along the creek not mapped in this pass — key open question.",
+    "hazards": "Active WMA hunting land, deer season opens Oct 17; must positively confirm being outside state park boundary before panning.",
+    "pressure": "Popular for mountain biking/hiking/tubing near GA 53 river access; lower away from road.",
+    "coord_source": "No precise coordinates found in sources for the GA 53 river-access parking lot or for a specific NF pan reach; general area only.",
+    "photos": [
+      {
+        "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Amicalola%20Falls%20in%20September%202020.jpg?width=640",
+        "page": "https://commons.wikimedia.org/wiki/File:Amicalola_Falls_in_September_2020.jpg",
+        "credit": "Wikimedia Commons, geosearch near Amicalola Falls (34.5669,-84.2450) — falls itself is inside the no-panning state park, shown for area context only"
+      }
+    ],
+    "sources": [
+      "https://gadnr.org/dawson-forest-wma",
+      "https://mountainstewards.org/amicalola-river-trails/",
+      "https://thediggings.com/usa/georgia/dawson-ga085",
+      "https://www.dawsoncountyga.gov/448/History"
+    ],
+    "notes": "Best individual mine citations of any candidate but weakest on route specificity; likely at or beyond the 75-min drive budget. Needs a Dawson Forest WMA office call and a WMA map before use, plus explicit confirmation of the park/WMA boundary."
+  },
+  {
+    "id": "wildcat-creek-rabun",
+    "name": "Wildcat Creek headwaters, Rabun County (Wildcat Road, above Lake Burton)",
+    "rank": 5,
+    "trailhead": {
+      "name": "Wildcat Creek Campground #2 (Upper)",
+      "lat": null,
+      "lng": null
+    },
+    "camps": [
+      {
+        "name": "Dispersed sites at/above Wildcat Creek Campground #2 Upper (coordinates unverified)",
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "pan_reaches": [
+      {
+        "name": "Wildcat Creek, upstream reaches near Wildcat Road dispersed camping",
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "route_coords": [],
+    "one_way_mi": null,
+    "gain_ft": null,
+    "drive_min_from_vogel": 70,
+    "creek": "Wildcat Creek",
+    "gold_evidence": "Rabun County Historical Society documents gold mining on Wildcat Creek on James Stonecypher's land, western shore of Lake Burton, part of a combined $150,000-$250,000 output from Dick's/Moccasin/Wildcat Creek operations countywide.",
+    "land_status": "Chattahoochee NF, Tallulah Ranger District, non-Wilderness. May require hunting/fishing license or GA Lands Pass for all persons on site per nearby WMA-style signage — unconfirmed whether this exact reach is WMA.",
+    "hazards": "Firearms season; creek crossings; narrow gravel access road.",
+    "pressure": "Primitive, less-trafficked relative to the drive-up lower Wildcat Creek Campground #1.",
+    "coord_source": "No precise coordinates published in sources found for the upper campground or creek reach.",
+    "photos": [],
+    "sources": [
+      "https://rabunhistory.org/articles/gold-fever-in-rabun-county-and-northeast-georgia-muddy-creeks-18-pennyweights-and-meager-or-no-profits/",
+      "https://thedyrt.com/camping/georgia/wildcat-2",
+      "https://www.n-georgia.com/wildcat-creek-campground-upper.html"
+    ],
+    "notes": "Documented historic gold workings were near the creek's mouth (now near Lake Burton); unconfirmed whether the upstream dispersed-camping reach overlaps gold-bearing gravel. Near the outer edge of the drive-time budget."
+  },
+  {
+    "id": "moccasin-creek-upper",
+    "name": "Moccasin Creek, upper NF reaches above Moccasin Creek State Park",
+    "rank": 6,
+    "trailhead": {
+      "name": "Not identified in this research pass",
+      "lat": null,
+      "lng": null
+    },
+    "camps": [],
+    "pan_reaches": [
+      {
+        "name": "Upper Moccasin Creek, NF land above the state park boundary (unmapped)",
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "route_coords": [],
+    "one_way_mi": null,
+    "gain_ft": null,
+    "drive_min_from_vogel": 65,
+    "creek": "Moccasin Creek",
+    "gold_evidence": "Same Rabun County Historical Society source as Wildcat Creek: documented gold mining on Moccasin Creek, James Stonecypher's land, western shore of Lake Burton.",
+    "land_status": "Lower creek/Lake Burton confluence is inside Moccasin Creek State Park (panning banned); upper NF reaches plausible but no trailhead or FS road identified.",
+    "hazards": "Not assessed — trailhead unidentified.",
+    "pressure": "Not assessed.",
+    "coord_source": "No coordinates found for any specific upper-creek access point.",
+    "photos": [],
+    "sources": [
+      "https://rabunhistory.org/articles/gold-fever-in-rabun-county-and-northeast-georgia-muddy-creeks-18-pennyweights-and-meager-or-no-profits/",
+      "https://en.wikipedia.org/wiki/Moccasin_Creek_State_Park"
+    ],
+    "notes": "Least trip-ready candidate: real gold citation but no confirmed access point. Not recommended without a follow-up research pass or ranger-district call."
+  }
+]

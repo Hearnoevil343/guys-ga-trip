@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="ga-gold-trip build-map.mjs" xmlns="http://www.topografix.com/GPX/1/1">
+  <wpt lat="34.765883" lon="-83.925416"><name>Vogel State Park — Base Camp (walk-in site P)</name><desc>7485 Vogel State Park Rd, Blairsville, GA 30512. Walk-in tent site P, reached by a short carry from the walk-in loop parking. 2 vehicles at site + overflow parking; 2 tents max at site.</desc></wpt>
+  <wpt lat="34.7658105" lon="-83.9243056"><name>Vogel State Park Visitor Center / Office</name><desc>Inside Vogel State Park off US 19/129. Free backcountry permits and trail maps issued here.</desc></wpt>
+  <wpt lat="34.7658142" lon="-83.9241652"><name>Vogel State Park — Overflow Parking</name><desc>Overflow lot within the park for the 2-vehicle-per-site limit at walk-in site P.</desc></wpt>
+  <wpt lat="34.7638" lon="-83.9263"><name>Coosa Backcountry Trailhead</name><desc>Inside Vogel State Park near cabin #7. Free backcountry permit required, obtained at the visitor center.</desc></wpt>
+  <wpt lat="34.7419965" lon="-83.9227173"><name>Neel Gap / Mountain Crossings at Walasi-Yi</name><desc>US 19/129 at Neel Gap, ~10 min south of Vogel. Outfitter store built over the Appalachian Trail; gear, boots, trail advice, shuttle info.</desc></wpt>
+  <wpt lat="34.8802144" lon="-83.9566621"><name>Ingles (Blairsville groceries)</name><desc>Young Harris Hwy (US 76), Blairsville — closest full grocery store to Vogel.</desc></wpt>
+  <wpt lat="34.8855284" lon="-83.9619224"><name>Union General Hospital (ER)</name><desc>35 Hospital Rd/Circle, Blairsville, GA. 24/7 emergency room.</desc></wpt>
+  <wpt lat="34.8815282" lon="-83.951938"><name>Blue Ridge Ranger District Office (USFS)</name><desc>2042 Highway 515 West, Blairsville, GA 30512. M-F 8:00-4:30, closed federal holidays.</desc></wpt>
+  <wpt lat="34.70556" lon="-83.91778"><name>DeSoto Falls Recreation Area / Frogtown Creek</name><desc>US-129 south from Neel Gap ~4-5 mi to Desoto Falls Recreation Area on the west side of the highway (18 mi north of Dahlonega, 19 mi west of Helen per USFS/trail sources). Paved USFS day-use/campground pull-in, marked entrance off US-129. Short walk (0.3 mi to lower falls, wooden bridge across Frogtown Creek near host site) to reach the creek; campground loops also have creek-front sites.</desc></wpt>
+  <wpt lat="34.76325" lon="-84.06754"><name>Cooper Creek Recreation Area / Cooper Creek</name><desc>From Vogel take US-19/129 toward Blairsville then GA-60 S / Cooper Creek Rd (FS 4) to Cooper Creek Recreation Area on FS 236. Paved-to-gravel FS road, multiple pull-offs; campground/day-use area sits right on the creek.</desc></wpt>
+  <wpt lat="34.78933" lon="-83.78343"><name>Upper Chattahoochee River / FS Road 44 corridor</name><desc>GA-75 S from Helen area to Upper Chattahoochee River Rd (FS 44), ~5 mi gravel road to Upper Chattahoochee River Campground. Numerous pull-offs along FS 44 with short walks to the water; stay BELOW (downstream/north of) the campground and do not continue upstream past the campground gate — that reach enters Mark Trail Wilderness (banned, see excluded entry).</desc></wpt>
+  <wpt lat="34.52777" lon="-83.9594"><name>Yahoola Creek Park</name><desc>1166 Captain McDonald Rd, Dahlonega. Paved county park, parking lot, level walk of a few hundred feet to creek frontage along the park's picnic areas.</desc></wpt>
+  <wpt lat="34.72631" lon="-83.84755"><name>Tesnatee Creek at Tesnatee Gap</name><desc>Richard B. Russell Scenic Hwy (GA-348) east from Vogel/Neel Gap to Tesnatee Gap; roadside pull-off at the gap, short walk down to Tesnatee Creek along Town Creek Rd/AT crossing area.</desc></wpt>
+  <wpt lat="34.70102" lon="-83.79083"><name>Dukes Creek Falls Recreation Area (NF trail, not Smithgall Woods)</name><desc>GA-75 S then Richard Russell/Dukes Creek Rd (FS 44 spur) to the Dukes Creek Falls trailhead. $4/vehicle/day USFS parking fee. 2.5-mile round-trip moderate trail with overlook platforms; leave the maintained trail to reach the creek itself well below/above the falls (steep terrain — falls area itself is not a panning spot).</desc></wpt>
+  <wpt lat="34.86282" lon="-83.99015"><name>Coosa Creek near Blairsville</name><desc>North from Vogel via US-19/129 to Blairsville, then west on local roads (Coosa Creek Rd / GA-180 vicinity) toward the Coosa Bald / Duncan Ridge area. UNVERIFIED exact public drive-up pull-off — the historic Coosa Mine site is described as 'about 4 miles south of Blairsville' (thediggings.com), which may be a different, lower-valley location than this upper-creek OSM point; confirm with a ranger or on-site.</desc></wpt>
+  <wpt lat="34.55794" lon="-84.13104"><name>Nimblewill Creek</name><desc>GA-52 W from Dahlonega ~8 mi to Nimblewill Church Rd, USFS forest road with small pull-offs at creek crossings/fords.</desc></wpt>
+  <wpt lat="34.5724" lon="-84.11301"><name>Jones Creek</name><desc>Continue past Nimblewill Church Rd on the same forest-road system further into Lumpkin Co. backcountry.</desc></wpt>
+  <wpt lat="34.75" lon="-83.79"><name>Boggs Creek (lower, non-Wilderness reach)</name><desc>Boggs Creek Trail / Skitts Mountain vicinity off Richard Russell Scenic Hwy corridor near Helen. Stay on the LOWER/downstream reach — the Boggs Creek Trail leads toward Raven Cliffs Falls and crosses into Raven Cliffs Wilderness (banned) further up.</desc></wpt>
+  <wpt lat="34.4745" lon="-84.02382"><name>Wolf Creek / Auraria historic mining cluster</name><desc>Castleberry Bridge Rd / Auraria Rd area SW of Dahlonega. Exact public creek-frontage pull-off not confirmed this pass — treat as a walk-in exploratory stop near the ghost town; verify public vs. private frontage before digging.</desc></wpt>
+  <wpt lat="34.46203" lon="-83.96187"><name>Upper Chestatee River at US-19 bridge</name><desc>US-19 south of Dahlonega; roadside pull-off near the bridge, short scramble down to a wide gravel bar.</desc></wpt>
+  <wpt lat="34.6798" lon="-83.93712"><name>Waters Creek / Dicks Creek (Chestatee WMA, outside trophy-water boundary)</name><desc>US-19 N from Dahlonega ~13.7 mi to Mt. Pisgah Church Rd (signed Waters Creek Campground), then 2.6 mi to Dicks Creek Falls trailhead.</desc></wpt>
+  <wpt lat="34.82231" lon="-83.86991"><name>Town Creek near Blairsville</name><desc>North from Vogel via US-19/129 to Blairsville, then local roads NE toward the Town Creek community. Specific public pull-off UNVERIFIED — treat as exploratory.</desc></wpt>
+  <wpt lat="34.86901" lon="-83.88207"><name>Owltown Creek / Trackrock Gap area</name><desc>North from Vogel via US-19/129 to Blairsville, then Trackrock Gap Rd (also reaches the Track Rock Gap petroglyph site). Paved-to-gravel county/forest road with pull-offs.</desc></wpt>
+  <wpt lat="34.586" lon="-83.8372"><name>LDMA Loud Mine Camp</name><desc>575 Abb Helton Rd, Cleveland, GA 30528 (5 mi from Cleveland). LDMA (Lost Dutchman's Mining Association) claim on the Loud Mine property, 37 acres in the Dahlonega gold belt with documented stream gold and bench deposits.</desc></wpt>
+  <wpt lat="34.64203" lon="-84.42097"><name>Cartecay River</name><desc>Via GA-52/GA-282 to Ellijay area; multiple public bridge crossings.</desc></wpt>
+  <wpt lat="34.93676" lon="-83.53988"><name>Coleman River Scenic Area</name><desc>Near Tate City in far NE Rabun Co., at the confluence of Coleman River and Tallulah River; 330-acre scenic area, USFS trail access.</desc></wpt>
+  <wpt lat="34.88571" lon="-83.2941"><name>Warwoman Creek / Warwoman Dell</name><desc>East of Clayton via Warwoman Rd; Warwoman Dell Recreation Area is a family day-use site (wooded valley, CCC picnic shelters, waterfall) on the Chattahoochee-Oconee NF.</desc></wpt>
+  <wpt lat="34.83499" lon="-83.6029"><name>Wildcat Creek</name><desc>Near Wildcat Creek Rd, southeast Rabun Co. Exact public pull-off UNVERIFIED.</desc></wpt>
+  <wpt lat="34.45488" lon="-84.22981"><name>Amicalola Creek (below Amicalola Falls SP boundary)</name><desc>Via GA-52/GA-183 vicinity, downstream of Amicalola Falls State Park. Do NOT pan inside the state park itself (banned); use NF or public-road-ROW gravel bars below the park boundary — exact pull-off UNVERIFIED.</desc></wpt>
+  <wpt lat="34.73971" lon="-84.14009"><name>Toccoa River / Deep Hole Recreation Area</name><desc>Via GA-60 N through Suches to Morganton Hwy; USFS day-use area with river access.</desc></wpt>
+  <wpt lat="34.7113" lon="-84.22983"><name>Noontootla Creek (caution — special-regulation trout water)</name><desc>Within Blue Ridge WMA, tributary of the upper Toccoa River.</desc></wpt>
+  <wpt lat="34.92606" lon="-83.26294"><name>Sarah's Creek</name><desc>Far NE Rabun Co., near the NC line. Likely EXCEEDS the 100-min window from Vogel in practice — reach-stretch only.</desc></wpt>
+  <wpt lat="34.5635" lon="-83.9657"><name>Crisson Gold Mine</name><desc>2736 Morrison Moore Pkwy E, 3 mi north of Dahlonega. Paved parking lot, flume/panning sheds on site.</desc></wpt>
+  <wpt lat="34.53702" lon="-83.97313"><name>Consolidated Gold Mine</name><desc>185 Consolidated Gold Mine Rd, Dahlonega. Paved lot, underground mine tour plus surface panning flumes.</desc></wpt>
+  <wpt lat="34.47454" lon="-84.02324"><name>Auraria Ghost Town</name><desc>Castleberry Bridge Rd / Auraria Rd intersection, SW of Dahlonega; old general store and a few crumbling buildings remain, roadside viewing.</desc></wpt>
+  <wpt lat="34.53262" lon="-83.98492"><name>Dahlonega Gold Museum State Historic Site</name><desc>1 Public Square, Dahlonega town square. Museum only — housed in the old Lumpkin County Courthouse.</desc></wpt>
+  <wpt lat="34.56194" lon="-83.98583"><name>Calhoun Mine ruins</name><desc>Near the Crisson Gold Mine vicinity north of Dahlonega — exact public-access trail UNVERIFIED this pass; may require a specific pull-off or be visible only from a road.</desc></wpt>
+  <wpt lat="34.78933" lon="-83.78343"><name>Upper Chattahoochee headwaters above FS-44 campground (Mark Trail Wilderness)</name><desc>N/A — banned</desc></wpt>
+  <wpt lat="34.75" lon="-83.79"><name>Boggs Creek upper reach (Raven Cliffs Wilderness)</name><desc>N/A — banned upstream of the Wilderness boundary</desc></wpt>
+  <wpt lat="34.76294" lon="-83.92843"><name>Vogel State Park streams (all)</name><desc>N/A — banned</desc></wpt>
+  <wpt lat="34.673217" lon="-83.976967"><name>Dockery Lake Trail — campsite at ~3.0 mi (Blood Mountain Wilderness boundary area) — Trailhead</name><desc>Chattahoochee NF, general (non-Wilderness) for the lower ~3+ mi; the trail's upper end crosses into Blood Mountain Wilderness near the AT junction at ~3.55 mi. See build-map.mjs wilderness point-in-polygon check for whether the 3.0-mi campsite itself falls inside the Wilderness polygon.</desc></wpt>
+  <wpt lat="34.7008598" lon="-83.983477"><name>Dockery Lake Trail — campsite at ~3.0 mi (Blood Mountain Wilderness boundary area) — Camp: Grassy backcountry campsite just off-trail at ~3.0 mi (Atlanta Trails mile log)</name></wpt>
+  <wpt lat="34.6786562" lon="-83.978143"><name>Dockery Lake Trail — campsite at ~3.0 mi (Blood Mountain Wilderness boundary area) — Pan: Creek crossings, first cluster ~0.5 mi (five crossings)</name><desc>Belt-level only — no creek-specific gold citation found. Sits within the mapped area of GGS Bulletin 100 (Dahlonega gold belt, northeastern portion), but the bulletin's mine list could not be checked this pass (PDF 403'd). Disclosed as the route's weak point in research/overnight-route-v2.md.</desc></wpt>
+  <wpt lat="34.6915808" lon="-83.9819008"><name>Dockery Lake Trail — campsite at ~3.0 mi (Blood Mountain Wilderness boundary area) — Pan: Wide creek crossing with small waterfalls, ~2.0 mi</name><desc>Belt-level only — no creek-specific gold citation found. Sits within the mapped area of GGS Bulletin 100 (Dahlonega gold belt, northeastern portion), but the bulletin's mine list could not be checked this pass (PDF 403'd). Disclosed as the route's weak point in research/overnight-route-v2.md.</desc></wpt>
+  <wpt lat="34.6979411" lon="-83.9809337"><name>Dockery Lake Trail — campsite at ~3.0 mi (Blood Mountain Wilderness boundary area) — Pan: Crossing cluster ~2.55-2.65 mi</name><desc>Belt-level only — no creek-specific gold citation found. Sits within the mapped area of GGS Bulletin 100 (Dahlonega gold belt, northeastern portion), but the bulletin's mine list could not be checked this pass (PDF 403'd). Disclosed as the route's weak point in research/overnight-route-v2.md.</desc></wpt>
+  <wpt lat="34.7034343" lon="-83.9851662"><name>Dockery Lake Trail — campsite at ~3.0 mi (Blood Mountain Wilderness boundary area) — Pan: Final stream crossing ~3.35 mi, below AT junction</name><desc>Belt-level only — no creek-specific gold citation found. Sits within the mapped area of GGS Bulletin 100 (Dahlonega gold belt, northeastern portion), but the bulletin's mine list could not be checked this pass (PDF 403'd). Disclosed as the route's weak point in research/overnight-route-v2.md.</desc></wpt>
+  <wpt lat="34.70556" lon="-83.91778"><name>DeSoto Falls Recreation Area / Frogtown Creek — backup (short, not a confirmed backcountry overnight) — Trailhead</name><desc>DeSoto Falls sits in a separate 650-acre DeSoto Falls Scenic Area, not inside a Wilderness (Blood Mountain Wilderness and Raven Cliffs Wilderness are both on the other side of US-129 from this gap). Same trailhead/coordinate entry as spots.json id 'desoto-frogtown'.</desc></wpt>
+  <wpt lat="34.6636" lon="-84.1842"><name>Three Forks / Noontootla Creek (Benton MacKaye &amp; Appalachian Trail junction) — Trailhead</name><desc>Chattahoochee NF, Blue Ridge Ranger District, non-Wilderness. Legality of hand panning on this exact reach not confirmed in writing by USFS; call district before trip.</desc></wpt>
+  <wpt lat="34.6636" lon="-84.1842"><name>Three Forks / Noontootla Creek (Benton MacKaye &amp; Appalachian Trail junction) — Camp: Three Forks established camp cluster (exact tent pads unverified)</name></wpt>
+  <wpt lat="34.6636" lon="-84.1842"><name>Three Forks / Noontootla Creek (Benton MacKaye &amp; Appalachian Trail junction) — Pan: Noontootla Creek at Three Forks confluence (Stover/Chester/Long Creeks)</name><desc>1911 USFS land purchase named 'Rock Creek and Noontootly Creek area' tract (Gennett brothers, Fannin/Gilmer/Lumpkin/Union); thediggings.com Fannin County gold index lists Hackney Placer and Noontootly Creek mining.</desc></wpt>
+  <wpt lat="34.7214" lon="-84.1331"><name>Rock Creek dispersed area (Fannin County) — hike upstream from road-end — Trailhead</name><desc>Chattahoochee NF, part of Blue Ridge WMA (20,900 ac); WMA license/GA Lands Pass may be required for all persons on site — unconfirmed whether this applies to this specific recreation area.</desc></wpt>
+  <wpt lat="34.7214" lon="-84.1331"><name>Rock Creek dispersed area (Fannin County) — hike upstream from road-end — Camp: Dispersed site upstream of hatchery/campground cluster (exact site unverified)</name></wpt>
+  <wpt lat="34.7214" lon="-84.1331"><name>Rock Creek dispersed area (Fannin County) — hike upstream from road-end — Pan: Rock Creek upstream of GA DNR Rock Creek hatchery</name><desc>Same 1911 Gennett-tract citation as Three Forks explicitly names 'Rock Creek and Noontootly Creek area of Fannin, Gilmer, Lumpkin and Union counties.'</desc></wpt>
+  <trk><name>Dockery Lake Trail — campsite at ~3.0 mi (Blood Mountain Wilderness boundary area)</name><trkseg>
+      <trkpt lat="34.6760938" lon="-83.975242"></trkpt>
+      <trkpt lat="34.6762204" lon="-83.9752281"></trkpt>
+      <trkpt lat="34.6763416" lon="-83.9751916"></trkpt>
+      <trkpt lat="34.6765005" lon="-83.9751191"></trkpt>
+      <trkpt lat="34.6766056" lon="-83.9750538"></trkpt>
+      <trkpt lat="34.6766812" lon="-83.975026"></trkpt>
+      <trkpt lat="34.6767601" lon="-83.9749988"></trkpt>
+      <trkpt lat="34.6768419" lon="-83.9749431"></trkpt>
+      <trkpt lat="34.6770196" lon="-83.9748587"></trkpt>
+      <trkpt lat="34.6772589" lon="-83.9748171"></trkpt>
+      <trkpt lat="34.6774217" lon="-83.9746964"></trkpt>
+      <trkpt lat="34.6775605" lon="-83.9745975"></trkpt>
+      <trkpt lat="34.6776681" lon="-83.9745918"></trkpt>
+      <trkpt lat="34.6777896" lon="-83.9746213"></trkpt>
+      <trkpt lat="34.6779283" lon="-83.9747367"></trkpt>
+      <trkpt lat="34.6780293" lon="-83.9747905"></trkpt>
+      <trkpt lat="34.6780964" lon="-83.9748501"></trkpt>
+      <trkpt lat="34.6781702" lon="-83.9748895"></trkpt>
+      <trkpt lat="34.6782555" lon="-83.9749447"></trkpt>
+      <trkpt lat="34.6783246" lon="-83.9749577"></trkpt>
+      <trkpt lat="34.6783986" lon="-83.9750106"></trkpt>
+      <trkpt lat="34.6784854" lon="-83.9750365"></trkpt>
+      <trkpt lat="34.6786365" lon="-83.9751406"></trkpt>
+      <trkpt lat="34.6787872" lon="-83.9752671"></trkpt>
+      <trkpt lat="34.6789186" lon="-83.975388"></trkpt>
+      <trkpt lat="34.679037" lon="-83.975464"></trkpt>
+      <trkpt lat="34.6791242" lon="-83.975505"></trkpt>
+      <trkpt lat="34.6791877" lon="-83.9755364"></trkpt>
+      <trkpt lat="34.6792616" lon="-83.9755782"></trkpt>
+      <trkpt lat="34.6793223" lon="-83.9756219"></trkpt>
+      <trkpt lat="34.6793684" lon="-83.9756628"></trkpt>
+      <trkpt lat="34.6794132" lon="-83.9756615"></trkpt>
+      <trkpt lat="34.6794628" lon="-83.9756829"></trkpt>
+      <trkpt lat="34.6795105" lon="-83.9756901"></trkpt>
+      <trkpt lat="34.679581" lon="-83.9756849"></trkpt>
+      <trkpt lat="34.6796437" lon="-83.9756797"></trkpt>
+      <trkpt lat="34.6797005" lon="-83.9756546"></trkpt>
+      <trkpt lat="34.6797975" lon="-83.9756511"></trkpt>
+      <trkpt lat="34.6799074" lon="-83.9757005"></trkpt>
+      <trkpt lat="34.6799784" lon="-83.9758112"></trkpt>
+      <trkpt lat="34.6800206" lon="-83.9759237"></trkpt>
+      <trkpt lat="34.6800268" lon="-83.9760685"></trkpt>
+      <trkpt lat="34.6800109" lon="-83.9761927"></trkpt>
+      <trkpt lat="34.6799805" lon="-83.9762626"></trkpt>
+      <trkpt lat="34.6799434" lon="-83.9763571"></trkpt>
+      <trkpt lat="34.679838" lon="-83.976581"></trkpt>
+      <trkpt lat="34.6796686" lon="-83.9768502"></trkpt>
+      <trkpt lat="34.6795187" lon="-83.9769897"></trkpt>
+      <trkpt lat="34.6791814" lon="-83.9771359"></trkpt>
+      <trkpt lat="34.6789386" lon="-83.9772472"></trkpt>
+      <trkpt lat="34.6786587" lon="-83.9774272"></trkpt>
+      <trkpt lat="34.6785062" lon="-83.9775503"></trkpt>
+      <trkpt lat="34.6783515" lon="-83.9776259"></trkpt>
+      <trkpt lat="34.6783452" lon="-83.9777595"></trkpt>
+      <trkpt lat="34.6784066" lon="-83.9778424"></trkpt>
+      <trkpt lat="34.6785305" lon="-83.9779982"></trkpt>
+      <trkpt lat="34.6786562" lon="-83.978143"></trkpt>
+      <trkpt lat="34.6787684" lon="-83.978246"></trkpt>
+      <trkpt lat="34.6789568" lon="-83.9783353"></trkpt>
+      <trkpt lat="34.6791371" lon="-83.9785185"></trkpt>
+      <trkpt lat="34.6793775" lon="-83.9787948"></trkpt>
+      <trkpt lat="34.6795677" lon="-83.9791529"></trkpt>
+      <trkpt lat="34.6797107" lon="-83.9794355"></trkpt>
+      <trkpt lat="34.6798164" lon="-83.9797094"></trkpt>
+      <trkpt lat="34.6798407" lon="-83.9800581"></trkpt>
+      <trkpt lat="34.6797723" lon="-83.98038"></trkpt>
+      <trkpt lat="34.6796753" lon="-83.9805946"></trkpt>
+      <trkpt lat="34.6795694" lon="-83.9806777"></trkpt>
+      <trkpt lat="34.6793996" lon="-83.9807609"></trkpt>
+      <trkpt lat="34.6792672" lon="-83.9807609"></trkpt>
+      <trkpt lat="34.6792584" lon="-83.9808682"></trkpt>
+      <trkpt lat="34.6793146" lon="-83.9809524"></trkpt>
+      <trkpt lat="34.6793995" lon="-83.9810154"></trkpt>
+      <trkpt lat="34.6795133" lon="-83.9810299"></trkpt>
+      <trkpt lat="34.6796426" lon="-83.9810818"></trkpt>
+      <trkpt lat="34.6797306" lon="-83.9812233"></trkpt>
+      <trkpt lat="34.6797701" lon="-83.9814717"></trkpt>
+      <trkpt lat="34.6798363" lon="-83.9816031"></trkpt>
+      <trkpt lat="34.6799199" lon="-83.9816856"></trkpt>
+      <trkpt lat="34.6801125" lon="-83.9817682"></trkpt>
+      <trkpt lat="34.6802907" lon="-83.981735"></trkpt>
+      <trkpt lat="34.6804321" lon="-83.9816537"></trkpt>
+      <trkpt lat="34.6804818" lon="-83.9816278"></trkpt>
+      <trkpt lat="34.6805454" lon="-83.9815315"></trkpt>
+      <trkpt lat="34.6806281" lon="-83.981351"></trkpt>
+      <trkpt lat="34.680704" lon="-83.981104"></trkpt>
+      <trkpt lat="34.6807097" lon="-83.9808896"></trkpt>
+      <trkpt lat="34.6806877" lon="-83.9807501"></trkpt>
+      <trkpt lat="34.6807361" lon="-83.9805576"></trkpt>
+      <trkpt lat="34.6807424" lon="-83.9803682"></trkpt>
+      <trkpt lat="34.6807141" lon="-83.9800045"></trkpt>
+      <trkpt lat="34.680692" lon="-83.9797955"></trkpt>
+      <trkpt lat="34.6807074" lon="-83.9796605"></trkpt>
+      <trkpt lat="34.6806945" lon="-83.9795124"></trkpt>
+      <trkpt lat="34.6807625" lon="-83.9789859"></trkpt>
+      <trkpt lat="34.680805" lon="-83.9786539"></trkpt>
+      <trkpt lat="34.6808851" lon="-83.9784399"></trkpt>
+      <trkpt lat="34.6809594" lon="-83.9781956"></trkpt>
+      <trkpt lat="34.6809876" lon="-83.9781082"></trkpt>
+      <trkpt lat="34.681044" lon="-83.978022"></trkpt>
+      <trkpt lat="34.681224" lon="-83.9778"></trkpt>
+      <trkpt lat="34.681305" lon="-83.977734"></trkpt>
+      <trkpt lat="34.681497" lon="-83.977407"></trkpt>
+      <trkpt lat="34.681611" lon="-83.977281"></trkpt>
+      <trkpt lat="34.68179" lon="-83.976933"></trkpt>
+      <trkpt lat="34.6818767" lon="-83.9768078"></trkpt>
+      <trkpt lat="34.6820581" lon="-83.9766856"></trkpt>
+      <trkpt lat="34.682166" lon="-83.976598"></trkpt>
+      <trkpt lat="34.6822923" lon="-83.9765009"></trkpt>
+      <trkpt lat="34.6823702" lon="-83.9765171"></trkpt>
+      <trkpt lat="34.6825804" lon="-83.9765486"></trkpt>
+      <trkpt lat="34.6826473" lon="-83.9765907"></trkpt>
+      <trkpt lat="34.6827235" lon="-83.9766128"></trkpt>
+      <trkpt lat="34.682775" lon="-83.9766486"></trkpt>
+      <trkpt lat="34.6828736" lon="-83.9767076"></trkpt>
+      <trkpt lat="34.6829979" lon="-83.9768015"></trkpt>
+      <trkpt lat="34.6831247" lon="-83.9768675"></trkpt>
+      <trkpt lat="34.6832374" lon="-83.9769682"></trkpt>
+      <trkpt lat="34.6833278" lon="-83.9770219"></trkpt>
+      <trkpt lat="34.6833984" lon="-83.9771184"></trkpt>
+      <trkpt lat="34.6836367" lon="-83.9771927"></trkpt>
+      <trkpt lat="34.6838475" lon="-83.9772416"></trkpt>
+      <trkpt lat="34.6840535" lon="-83.9773317"></trkpt>
+      <trkpt lat="34.6841797" lon="-83.9774688"></trkpt>
+      <trkpt lat="34.6843043" lon="-83.977571"></trkpt>
+      <trkpt lat="34.6846161" lon="-83.9778952"></trkpt>
+      <trkpt lat="34.6847307" lon="-83.9779962"></trkpt>
+      <trkpt lat="34.6850735" lon="-83.9781471"></trkpt>
+      <trkpt lat="34.6853812" lon="-83.9782443"></trkpt>
+      <trkpt lat="34.6855656" lon="-83.9783391"></trkpt>
+      <trkpt lat="34.6857868" lon="-83.9784635"></trkpt>
+      <trkpt lat="34.6860076" lon="-83.9786768"></trkpt>
+      <trkpt lat="34.686259" lon="-83.9789504"></trkpt>
+      <trkpt lat="34.6865502" lon="-83.9791757"></trkpt>
+      <trkpt lat="34.6867001" lon="-83.979232"></trkpt>
+      <trkpt lat="34.6868143" lon="-83.9793363"></trkpt>
+      <trkpt lat="34.6869758" lon="-83.9793849"></trkpt>
+      <trkpt lat="34.6871059" lon="-83.9795217"></trkpt>
+      <trkpt lat="34.6872369" lon="-83.9796103"></trkpt>
+      <trkpt lat="34.6874875" lon="-83.979696"></trkpt>
+      <trkpt lat="34.6876882" lon="-83.9797175"></trkpt>
+      <trkpt lat="34.6877715" lon="-83.9797833"></trkpt>
+      <trkpt lat="34.6878757" lon="-83.9802566"></trkpt>
+      <trkpt lat="34.687922" lon="-83.9805275"></trkpt>
+      <trkpt lat="34.688044" lon="-83.9808042"></trkpt>
+      <trkpt lat="34.6881425" lon="-83.9808655"></trkpt>
+      <trkpt lat="34.6883606" lon="-83.980868"></trkpt>
+      <trkpt lat="34.6885902" lon="-83.9809084"></trkpt>
+      <trkpt lat="34.6887667" lon="-83.9809889"></trkpt>
+      <trkpt lat="34.6888368" lon="-83.9810941"></trkpt>
+      <trkpt lat="34.6888509" lon="-83.9812129"></trkpt>
+      <trkpt lat="34.6889044" lon="-83.9813249"></trkpt>
+      <trkpt lat="34.6889505" lon="-83.9814859"></trkpt>
+      <trkpt lat="34.688967" lon="-83.981637"></trkpt>
+      <trkpt lat="34.6890358" lon="-83.9817526"></trkpt>
+      <trkpt lat="34.689249" lon="-83.982265"></trkpt>
+      <trkpt lat="34.6892656" lon="-83.9825398"></trkpt>
+      <trkpt lat="34.6893402" lon="-83.9826542"></trkpt>
+      <trkpt lat="34.6894109" lon="-83.982675"></trkpt>
+      <trkpt lat="34.689458" lon="-83.982621"></trkpt>
+      <trkpt lat="34.689529" lon="-83.982509"></trkpt>
+      <trkpt lat="34.6895611" lon="-83.9824302"></trkpt>
+      <trkpt lat="34.6895855" lon="-83.9823689"></trkpt>
+      <trkpt lat="34.6896775" lon="-83.9820832"></trkpt>
+      <trkpt lat="34.6897988" lon="-83.9819169"></trkpt>
+      <trkpt lat="34.6899859" lon="-83.9818753"></trkpt>
+      <trkpt lat="34.6904948" lon="-83.9817099"></trkpt>
+      <trkpt lat="34.6906016" lon="-83.9815816"></trkpt>
+      <trkpt lat="34.6906986" lon="-83.9814127"></trkpt>
+      <trkpt lat="34.6907802" lon="-83.9813644"></trkpt>
+      <trkpt lat="34.6908736" lon="-83.9813644"></trkpt>
+      <trkpt lat="34.6912346" lon="-83.9816836"></trkpt>
+      <trkpt lat="34.6915808" lon="-83.9819008"></trkpt>
+      <trkpt lat="34.6918813" lon="-83.9820018"></trkpt>
+      <trkpt lat="34.6921123" lon="-83.9819625"></trkpt>
+      <trkpt lat="34.6925203" lon="-83.9818203"></trkpt>
+      <trkpt lat="34.6927805" lon="-83.9816541"></trkpt>
+      <trkpt lat="34.6930738" lon="-83.9815173"></trkpt>
+      <trkpt lat="34.6933583" lon="-83.9814529"></trkpt>
+      <trkpt lat="34.6935691" lon="-83.9815395"></trkpt>
+      <trkpt lat="34.6938345" lon="-83.9816312"></trkpt>
+      <trkpt lat="34.6942463" lon="-83.9816594"></trkpt>
+      <trkpt lat="34.6945801" lon="-83.9816862"></trkpt>
+      <trkpt lat="34.694882" lon="-83.981661"></trkpt>
+      <trkpt lat="34.6950185" lon="-83.9815033"></trkpt>
+      <trkpt lat="34.6951138" lon="-83.9813939"></trkpt>
+      <trkpt lat="34.695149" lon="-83.981284"></trkpt>
+      <trkpt lat="34.695309" lon="-83.981142"></trkpt>
+      <trkpt lat="34.695342" lon="-83.981086"></trkpt>
+      <trkpt lat="34.6956386" lon="-83.9810532"></trkpt>
+      <trkpt lat="34.6959385" lon="-83.9811103"></trkpt>
+      <trkpt lat="34.6960943" lon="-83.9811137"></trkpt>
+      <trkpt lat="34.6962776" lon="-83.9811629"></trkpt>
+      <trkpt lat="34.6964367" lon="-83.9812604"></trkpt>
+      <trkpt lat="34.6966015" lon="-83.9813779"></trkpt>
+      <trkpt lat="34.6968074" lon="-83.9815119"></trkpt>
+      <trkpt lat="34.6969906" lon="-83.9815104"></trkpt>
+      <trkpt lat="34.6971824" lon="-83.9815329"></trkpt>
+      <trkpt lat="34.6974722" lon="-83.9816062"></trkpt>
+      <trkpt lat="34.6976195" lon="-83.9816812"></trkpt>
+      <trkpt lat="34.6977413" lon="-83.9817374"></trkpt>
+      <trkpt lat="34.6978637" lon="-83.9819089"></trkpt>
+      <trkpt lat="34.697941" lon="-83.9820341"></trkpt>
+      <trkpt lat="34.697926" lon="-83.982195"></trkpt>
+      <trkpt lat="34.697913" lon="-83.982267"></trkpt>
+      <trkpt lat="34.697965" lon="-83.9823219"></trkpt>
+      <trkpt lat="34.6980055" lon="-83.9823399"></trkpt>
+      <trkpt lat="34.698023" lon="-83.9823416"></trkpt>
+      <trkpt lat="34.6981083" lon="-83.9823044"></trkpt>
+      <trkpt lat="34.6981449" lon="-83.9822512"></trkpt>
+      <trkpt lat="34.6982022" lon="-83.9821645"></trkpt>
+      <trkpt lat="34.6982321" lon="-83.9820481"></trkpt>
+      <trkpt lat="34.6982475" lon="-83.9819795"></trkpt>
+      <trkpt lat="34.6982412" lon="-83.9818693"></trkpt>
+      <trkpt lat="34.698264" lon="-83.9817605"></trkpt>
+      <trkpt lat="34.6982502" lon="-83.9814828"></trkpt>
+      <trkpt lat="34.6981636" lon="-83.9813027"></trkpt>
+      <trkpt lat="34.6980544" lon="-83.9811256"></trkpt>
+      <trkpt lat="34.6979411" lon="-83.9809337"></trkpt>
+      <trkpt lat="34.6979144" lon="-83.9807946"></trkpt>
+      <trkpt lat="34.6978979" lon="-83.9806542"></trkpt>
+      <trkpt lat="34.6978832" lon="-83.9805346"></trkpt>
+      <trkpt lat="34.697858" lon="-83.9804175"></trkpt>
+      <trkpt lat="34.6978351" lon="-83.980366"></trkpt>
+      <trkpt lat="34.6978169" lon="-83.9802268"></trkpt>
+      <trkpt lat="34.6978205" lon="-83.9801674"></trkpt>
+      <trkpt lat="34.6978157" lon="-83.9800773"></trkpt>
+      <trkpt lat="34.6978317" lon="-83.9800437"></trkpt>
+      <trkpt lat="34.6978469" lon="-83.9799529"></trkpt>
+      <trkpt lat="34.6978895" lon="-83.9798262"></trkpt>
+      <trkpt lat="34.697942" lon="-83.979699"></trkpt>
+      <trkpt lat="34.698001" lon="-83.9796468"></trkpt>
+      <trkpt lat="34.698067" lon="-83.9796219"></trkpt>
+      <trkpt lat="34.6981442" lon="-83.9796138"></trkpt>
+      <trkpt lat="34.6981996" lon="-83.9796361"></trkpt>
+      <trkpt lat="34.6982686" lon="-83.9796437"></trkpt>
+      <trkpt lat="34.6982989" lon="-83.9797271"></trkpt>
+      <trkpt lat="34.6983218" lon="-83.9798142"></trkpt>
+      <trkpt lat="34.6983306" lon="-83.9799781"></trkpt>
+      <trkpt lat="34.698381" lon="-83.9800312"></trkpt>
+      <trkpt lat="34.698481" lon="-83.980194"></trkpt>
+      <trkpt lat="34.698562" lon="-83.9802101"></trkpt>
+      <trkpt lat="34.6986535" lon="-83.9802315"></trkpt>
+      <trkpt lat="34.6987447" lon="-83.980261"></trkpt>
+      <trkpt lat="34.6988887" lon="-83.9803807"></trkpt>
+      <trkpt lat="34.6989814" lon="-83.980453"></trkpt>
+      <trkpt lat="34.6990743" lon="-83.9805375"></trkpt>
+      <trkpt lat="34.6991771" lon="-83.9805938"></trkpt>
+      <trkpt lat="34.6993048" lon="-83.9806879"></trkpt>
+      <trkpt lat="34.699401" lon="-83.9807942"></trkpt>
+      <trkpt lat="34.6994424" lon="-83.9810358"></trkpt>
+      <trkpt lat="34.6994823" lon="-83.9811873"></trkpt>
+      <trkpt lat="34.699672" lon="-83.9814261"></trkpt>
+      <trkpt lat="34.6998329" lon="-83.981587"></trkpt>
+      <trkpt lat="34.6999188" lon="-83.9817003"></trkpt>
+      <trkpt lat="34.699952" lon="-83.9818847"></trkpt>
+      <trkpt lat="34.7000336" lon="-83.9819706"></trkpt>
+      <trkpt lat="34.7000982" lon="-83.9820492"></trkpt>
+      <trkpt lat="34.7001672" lon="-83.9822245"></trkpt>
+      <trkpt lat="34.7002203" lon="-83.9823481"></trkpt>
+      <trkpt lat="34.7002597" lon="-83.9824468"></trkpt>
+      <trkpt lat="34.7003232" lon="-83.9825328"></trkpt>
+      <trkpt lat="34.7003885" lon="-83.9826886"></trkpt>
+      <trkpt lat="34.7004879" lon="-83.9828296"></trkpt>
+      <trkpt lat="34.7005553" lon="-83.9830052"></trkpt>
+      <trkpt lat="34.7006444" lon="-83.983199"></trkpt>
+      <trkpt lat="34.7007518" lon="-83.9833491"></trkpt>
+      <trkpt lat="34.7008598" lon="-83.983477"></trkpt>
+      <trkpt lat="34.7009437" lon="-83.9835734"></trkpt>
+      <trkpt lat="34.7010739" lon="-83.9836473"></trkpt>
+      <trkpt lat="34.7011999" lon="-83.9837838"></trkpt>
+      <trkpt lat="34.7013759" lon="-83.9840454"></trkpt>
+      <trkpt lat="34.7014875" lon="-83.9841169"></trkpt>
+      <trkpt lat="34.7015911" lon="-83.9841521"></trkpt>
+      <trkpt lat="34.70171" lon="-83.9841816"></trkpt>
+      <trkpt lat="34.7018462" lon="-83.9842675"></trkpt>
+      <trkpt lat="34.7020614" lon="-83.9844408"></trkpt>
+      <trkpt lat="34.7022135" lon="-83.984596"></trkpt>
+      <trkpt lat="34.7023344" lon="-83.9846862"></trkpt>
+      <trkpt lat="34.702581" lon="-83.9848253"></trkpt>
+      <trkpt lat="34.7027203" lon="-83.9848714"></trkpt>
+      <trkpt lat="34.7028687" lon="-83.9849052"></trkpt>
+      <trkpt lat="34.7031545" lon="-83.9849734"></trkpt>
+      <trkpt lat="34.7032887" lon="-83.9850495"></trkpt>
+      <trkpt lat="34.7034343" lon="-83.9851662"></trkpt>
+    </trkseg></trk>
+</gpx>

@@ -1,0 +1,502 @@
+{
+  "vogel_basecamp": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Wolf_Creek_-_panoramio.jpg/500px-Wolf_Creek_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Wolf_Creek_-_panoramio.jpg",
+      "credit": "Thomson M — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    }
+  ],
+  "vogel_visitor_center": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Wolf_Creek_-_panoramio.jpg/500px-Wolf_Creek_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Wolf_Creek_-_panoramio.jpg",
+      "credit": "Thomson M — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    }
+  ],
+  "vogel_overflow_parking": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Wolf_Creek_-_panoramio.jpg/500px-Wolf_Creek_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Wolf_Creek_-_panoramio.jpg",
+      "credit": "Thomson M — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    }
+  ],
+  "coosa_backcountry_trailhead": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Wolf_Creek_-_panoramio.jpg/500px-Wolf_Creek_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Wolf_Creek_-_panoramio.jpg",
+      "credit": "Thomson M — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    }
+  ],
+  "neel_gap": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Blood_Mtn%2C_Appalachian_Trial%2C_Spring_-_panoramio.jpg/500px-Blood_Mtn%2C_Appalachian_Trial%2C_Spring_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Blood_Mtn,_Appalachian_Trial,_Spring_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Blood_Mtn%2C_Appalachian_Trial_-_panoramio.jpg/500px-Blood_Mtn%2C_Appalachian_Trial_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Blood_Mtn,_Appalachian_Trial_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Blood_Mtn%2C_Appalachian_Trial_-_panoramio_%281%29.jpg/500px-Blood_Mtn%2C_Appalachian_Trial_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Blood_Mtn,_Appalachian_Trial_-_panoramio_(1).jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    }
+  ],
+  "consolidated_gold_mine": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/2023-05-14_Mine_cart_at_Consolidated_Gold_Mine_Dahlonega_Georgia_USA.jpg/500px-2023-05-14_Mine_cart_at_Consolidated_Gold_Mine_Dahlonega_Georgia_USA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:2023-05-14_Mine_cart_at_Consolidated_Gold_Mine_Dahlonega_Georgia_USA.jpg",
+      "credit": "Clifflandis — CC0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/2023-05-14_Consolidated_Gold_Mine_flooded_mine_shaft.jpg/500px-2023-05-14_Consolidated_Gold_Mine_flooded_mine_shaft.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:2023-05-14_Consolidated_Gold_Mine_flooded_mine_shaft.jpg",
+      "credit": "Clifflandis — CC0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Dahlonega_Mine.jpg/500px-Dahlonega_Mine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Dahlonega_Mine.jpg",
+      "credit": "BakedintheHole — CC0"
+    }
+  ],
+  "crisson_gold_mine": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Sky_Country_Dahlonega%2C_GA_-_panoramio.jpg/500px-Sky_Country_Dahlonega%2C_GA_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Sky_Country_Dahlonega,_GA_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Sky_Country_Dahlonega%2C_GA_-_panoramio_-_Pete_Seabolt.jpg/500px-Sky_Country_Dahlonega%2C_GA_-_panoramio_-_Pete_Seabolt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Sky_Country_Dahlonega,_GA_-_panoramio_-_Pete_Seabolt.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    }
+  ],
+  "dahlonega_gold_museum": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/19-07-097-museum.jpg/500px-19-07-097-museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:19-07-097-museum.jpg",
+      "credit": "Dsdugan — CC0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/19-07-022-museum.jpg/500px-19-07-022-museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:19-07-022-museum.jpg",
+      "credit": "Dsdugan — CC0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/19-07-032-museum.jpg/500px-19-07-032-museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:19-07-032-museum.jpg",
+      "credit": "Dsdugan — CC0"
+    }
+  ],
+  "yahoola_creek_park": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%282%29.jpg/500px-Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_(2).jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%283%29.jpg/500px-Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_(3).jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%284%29.jpg/500px-Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_(4).jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    }
+  ],
+  "blairsville_groceries": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/The_appliances_section_of_a_Home_Depot_store_in_Blairsville%2C_Ga.jpg/500px-The_appliances_section_of_a_Home_Depot_store_in_Blairsville%2C_Ga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:The_appliances_section_of_a_Home_Depot_store_in_Blairsville,_Ga.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/A_Home_Depot_store_in_Blairsville%2C_Ga.jpg/500px-A_Home_Depot_store_in_Blairsville%2C_Ga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:A_Home_Depot_store_in_Blairsville,_Ga.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Union_County_Schools_Central_Office_in_Blairsville%2C_Ga.%2C_on_June_29%2C_2023.jpg/500px-Union_County_Schools_Central_Office_in_Blairsville%2C_Ga.%2C_on_June_29%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Union_County_Schools_Central_Office_in_Blairsville,_Ga.,_on_June_29,_2023.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    }
+  ],
+  "union_general_hospital": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Union_General_Hospital_in_Blairsville%2C_Ga.%2C_on_June_29%2C_2023.jpg/500px-Union_General_Hospital_in_Blairsville%2C_Ga.%2C_on_June_29%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Union_General_Hospital_in_Blairsville,_Ga.,_on_June_29,_2023.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/A_new_three-story_medical_office_building_opened_at_Union_General_Hospital_in_2023.jpg/500px-A_new_three-story_medical_office_building_opened_at_Union_General_Hospital_in_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:A_new_three-story_medical_office_building_opened_at_Union_General_Hospital_in_2023.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/A_modern_medical_ultrasound_scanner.jpg/500px-A_modern_medical_ultrasound_scanner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:A_modern_medical_ultrasound_scanner.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    }
+  ],
+  "blue_ridge_ranger_district": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/A_Wendy%27s_restaurant_in_Blairsville%2C_Georgia.jpg/500px-A_Wendy%27s_restaurant_in_Blairsville%2C_Georgia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:A_Wendy%27s_restaurant_in_Blairsville,_Georgia.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/A_Home_Depot_store_in_Blairsville%2C_Ga.jpg/500px-A_Home_Depot_store_in_Blairsville%2C_Ga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:A_Home_Depot_store_in_Blairsville,_Ga.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/The_appliances_section_of_a_Home_Depot_store_in_Blairsville%2C_Ga.jpg/500px-The_appliances_section_of_a_Home_Depot_store_in_Blairsville%2C_Ga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:The_appliances_section_of_a_Home_Depot_store_in_Blairsville,_Ga.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    }
+  ],
+  "spot_chattahoochee_fs44": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Trail_Horsetrough_Falls_-_panoramio.jpg/500px-Trail_Horsetrough_Falls_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Trail_Horsetrough_Falls_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Head_of_the_Chattahoochee_-_panoramio.jpg/500px-Head_of_the_Chattahoochee_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Head_of_the_Chattahoochee_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/M_3408310_se_17_1_20171004.tif/lossless-page1-500px-M_3408310_se_17_1_20171004.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408310_se_17_1_20171004.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "spot_waters_creek": [],
+  "spot_dicks_creek_falls": [],
+  "spot_cooper_creek": [],
+  "spot_yahoola_creek_crossing": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%282%29.jpg/500px-Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_(2).jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%283%29.jpg/500px-Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_(3).jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%284%29.jpg/500px-Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Yahoola_Creek_Park_-_panoramio_-_Pete_Seabolt_(4).jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    }
+  ],
+  "spot_etowah_river": [],
+  "spot_nimblewill_creek": [],
+  "spot_jones_creek": [],
+  "spot_boggs_creek": [
+    {
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Pinus_strobus_branches.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Pinus_strobus_branches.jpg",
+      "credit": "Davemoser123 — CC BY-SA 4.0"
+    }
+  ],
+  "spot_tesnatee_creek": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Tesnatee_Gap_-_panoramio.jpg/500px-Tesnatee_Gap_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Tesnatee_Gap_-_panoramio.jpg",
+      "credit": "Thomson M — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Richard_B._Russell_Scenic_Highway_ice.JPG/500px-Richard_B._Russell_Scenic_Highway_ice.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Richard_B._Russell_Scenic_Highway_ice.JPG",
+      "credit": "Thomsonmg2000 — CC0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Brass_Town_Bald_from_Richard_B._Russell_-_panoramio.jpg/500px-Brass_Town_Bald_from_Richard_B._Russell_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Brass_Town_Bald_from_Richard_B._Russell_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    }
+  ],
+  "spot_wolf_creek_auraria": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/M_3408440_ne_16_1_20170819.tif/lossless-page1-500px-M_3408440_ne_16_1_20170819.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408440_ne_16_1_20170819.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/M_3408440_ne_16_060_20220111.tif/lossless-page1-500px-M_3408440_ne_16_060_20220111.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408440_ne_16_060_20220111.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "spot_chestatee_us19": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/M_3408333_nw_17_060_20220110.tif/lossless-page1-500px-M_3408333_nw_17_060_20220110.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408333_nw_17_060_20220110.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/M_3408333_nw_17_1_20170908.tif/lossless-page1-500px-M_3408333_nw_17_1_20170908.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408333_nw_17_1_20170908.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "spot_frogtown_creek": [
+    {
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Pinus_strobus_branches.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "page": "https://commons.wikimedia.org/wiki/File:Pinus_strobus_branches.jpg",
+      "credit": "Davemoser123 — CC BY-SA 4.0"
+    }
+  ],
+  "desoto-frogtown": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Brasstown_Bald_Visitor_Information_Center_2020.jpg/500px-Brasstown_Bald_Visitor_Information_Center_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Brasstown_Bald_Visitor_Information_Center_2020.jpg",
+      "credit": "Fredlyfish4 — CC BY-SA 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/M_3408310_sw_17_060_20220110.tif/lossless-page1-500px-M_3408310_sw_17_060_20220110.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408310_sw_17_060_20220110.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/M_3408310_sw_17_1_20170903.tif/lossless-page1-500px-M_3408310_sw_17_1_20170903.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408310_sw_17_1_20170903.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "cooper-creek": [],
+  "coosa-creek-blairsville": [],
+  "nimblewill-creek": [],
+  "jones-creek": [],
+  "boggs-creek": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Chattahoohee_National_Forest_-_panoramio.jpg/500px-Chattahoohee_National_Forest_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Chattahoohee_National_Forest_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Double_Culvert_Branch_in_Chattahoochee_NF_-_panoramio.jpg/500px-Double_Culvert_Branch_in_Chattahoochee_NF_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Double_Culvert_Branch_in_Chattahoochee_NF_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    }
+  ],
+  "wolf-creek-auraria": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/M_3408440_ne_16_060_20220111.tif/lossless-page1-500px-M_3408440_ne_16_060_20220111.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408440_ne_16_060_20220111.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/M_3408440_ne_16_1_20170819.tif/lossless-page1-500px-M_3408440_ne_16_1_20170819.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408440_ne_16_1_20170819.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "chestatee-us19-bridge": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/M_3408333_nw_17_060_20220110.tif/lossless-page1-500px-M_3408333_nw_17_060_20220110.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408333_nw_17_060_20220110.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/M_3408333_nw_17_1_20170908.tif/lossless-page1-500px-M_3408333_nw_17_1_20170908.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408333_nw_17_1_20170908.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "waters-dicks-creek": [],
+  "town-creek-blairsville": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/19-26-213-hardman.jpg/500px-19-26-213-hardman.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:19-26-213-hardman.jpg",
+      "credit": "Dsdugan — CC0"
+    }
+  ],
+  "owltown-trackrock": [],
+  "persimmon-creek": [],
+  "ldma-loud-mine": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/M_3408326_nw_17_060_20220110.tif/lossless-page1-500px-M_3408326_nw_17_060_20220110.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408326_nw_17_060_20220110.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/M_3408326_nw_17_1_20170903.tif/lossless-page1-500px-M_3408326_nw_17_1_20170903.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408326_nw_17_1_20170903.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "cartecay-river": [],
+  "coleman-river": [],
+  "warwoman-creek": [],
+  "wildcat-creek": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/M_3408312_nw_17_060_20220110.tif/lossless-page1-500px-M_3408312_nw_17_060_20220110.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408312_nw_17_060_20220110.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/M_3408312_nw_17_1_20170903.tif/lossless-page1-500px-M_3408312_nw_17_1_20170903.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408312_nw_17_1_20170903.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "amicalola-creek": [],
+  "deep-hole-toccoa": [],
+  "noontootla-creek": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/High_House_%2821386615552%29.jpg/500px-High_House_%2821386615552%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:High_House_(21386615552).jpg",
+      "credit": "Thomson20192 — CC0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/M_3408423_nw_16_060_20220110.tif/lossless-page1-500px-M_3408423_nw_16_060_20220110.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408423_nw_16_060_20220110.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/M_3408423_nw_16_1_20170927.tif/lossless-page1-500px-M_3408423_nw_16_1_20170927.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408423_nw_16_1_20170927.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "owl-creek-helen": [],
+  "sarahs-creek": [],
+  "crisson-gold-mine": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Sky_Country_Dahlonega%2C_GA_-_panoramio.jpg/500px-Sky_Country_Dahlonega%2C_GA_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Sky_Country_Dahlonega,_GA_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Sky_Country_Dahlonega%2C_GA_-_panoramio_-_Pete_Seabolt.jpg/500px-Sky_Country_Dahlonega%2C_GA_-_panoramio_-_Pete_Seabolt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Sky_Country_Dahlonega,_GA_-_panoramio_-_Pete_Seabolt.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    }
+  ],
+  "auraria-ghost-town": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/M_3408440_ne_16_060_20220111.tif/lossless-page1-500px-M_3408440_ne_16_060_20220111.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408440_ne_16_060_20220111.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/M_3408440_ne_16_1_20170819.tif/lossless-page1-500px-M_3408440_ne_16_1_20170819.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408440_ne_16_1_20170819.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "dahlonega-gold-museum": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/19-07-022-museum.jpg/500px-19-07-022-museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:19-07-022-museum.jpg",
+      "credit": "Dsdugan — CC0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/19-07-032-museum.jpg/500px-19-07-032-museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:19-07-032-museum.jpg",
+      "credit": "Dsdugan — CC0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/19-07-097-museum.jpg/500px-19-07-097-museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:19-07-097-museum.jpg",
+      "credit": "Dsdugan — CC0"
+    }
+  ],
+  "upper-chatt-wilderness": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Head_of_the_Chattahoochee_-_panoramio.jpg/500px-Head_of_the_Chattahoochee_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Head_of_the_Chattahoochee_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Trail_Horsetrough_Falls_-_panoramio.jpg/500px-Trail_Horsetrough_Falls_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Trail_Horsetrough_Falls_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/M_3408310_se_17_1_20171004.tif/lossless-page1-500px-M_3408310_se_17_1_20171004.tif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:M_3408310_se_17_1_20171004.tif",
+      "credit": "NOAA Office for Coastal Management / The USDA-FSA Aerial Photography Field office (crediting while reuse is desired as Courtesy Attribution) — Public domain"
+    }
+  ],
+  "boggs-creek-wilderness": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Chattahoohee_National_Forest_-_panoramio.jpg/500px-Chattahoohee_National_Forest_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Chattahoohee_National_Forest_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Double_Culvert_Branch_in_Chattahoochee_NF_-_panoramio.jpg/500px-Double_Culvert_Branch_in_Chattahoochee_NF_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Double_Culvert_Branch_in_Chattahoochee_NF_-_panoramio.jpg",
+      "credit": "Pete Seabolt — CC BY 3.0"
+    }
+  ],
+  "smithgall-dukes": [],
+  "vogel-state-park": [
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Wolf_Creek_-_panoramio.jpg/500px-Wolf_Creek_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Wolf_Creek_-_panoramio.jpg",
+      "credit": "Thomson M — CC BY 3.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_01.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    },
+    {
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg/500px-Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "page": "https://commons.wikimedia.org/wiki/File:Vogel_State_Park%27s_new_visitors_center_in_north_Georgia_02.jpg",
+      "credit": "Harrison Keely — CC BY 4.0"
+    }
+  ],
+  "blood-mtn-wolf-creek": [],
+  "dawson-forest-atlanta-tract": [],
+  "gold-n-gem-grubbin": []
+}

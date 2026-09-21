@@ -1,0 +1,68 @@
+{
+  "schema": "itinerary-v1",
+  "note": "Draft day plan for the Oct 15-21 2026 trip, Vogel State Park base camp. Each stop reuses an existing point/overnight id from map/data/*.json where one exists (lat/lng pulled from that entry at build time); stops without an existing id carry their own lat/lng and a coord_source. This is a planning layer, toggle-able in the map as 'Itinerary'.",
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-10-15",
+      "label": "Thu Oct 15 — Arrive, DeSoto Falls / Frogtown Creek",
+      "stops": [
+        { "ref": "vogel_basecamp", "note": "Arrive, set up base camp" },
+        { "ref": "desoto-frogtown", "note": "Afternoon panning stop, Frogtown Creek" }
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-10-16",
+      "label": "Fri Oct 16 — Dahlonega",
+      "stops": [
+        { "ref": "consolidated-gold-mine", "note": "Underground tour + flume panning" },
+        { "ref": "dahlonega-gold-museum", "note": "Gold Museum State Historic Site" },
+        { "ref": "yahoola-park", "note": "Yahoola Creek Park — most gold-storied creek in the district" }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-10-17",
+      "label": "Sat Oct 17 — Cooper Creek Recreation Area (north side, away from Gold Rush Days crowds)",
+      "stops": [
+        { "ref": "cooper-creek", "note": "Deer season opens today — blaze orange required. Dahlonega's Gold Rush Days festival is downtown; stay north at Cooper Creek to avoid the crowds." }
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-10-18",
+      "label": "Sun Oct 18 — GA-348 loop: Tesnatee Gap, Upper Chattahoochee FS-44, Dukes Creek Falls",
+      "stops": [
+        { "ref": "tesnatee-gap", "note": "Tesnatee Creek at Tesnatee Gap" },
+        { "ref": "upper-chatt-fs44", "note": "Upper Chattahoochee River / FS Road 44 corridor reach, stay below Mark Trail Wilderness boundary" },
+        { "ref": "dukes-creek-falls", "note": "Dukes Creek Falls Recreation Area, NF side only — do not cross into Smithgall Woods State Park" }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-10-19",
+      "label": "Mon Oct 19 — Hike in: Three Forks / Noontootla Creek (overnight)",
+      "stops": [
+        { "ref": "three-forks-noontootla", "note": "Hike in and camp, primary overnight route. Backup: Dockery Lake Trail." }
+      ]
+    },
+    {
+      "day": 6,
+      "date": "2026-10-20",
+      "label": "Tue Oct 20 — Overnight at Three Forks / Noontootla Creek",
+      "stops": [
+        { "ref": "three-forks-noontootla", "note": "Second night, pan Noontootla Creek at the Three Forks confluence. Backup: Dockery Lake Trail campsite ~3.0 mi." }
+      ]
+    },
+    {
+      "day": 7,
+      "date": "2026-10-21",
+      "label": "Wed Oct 21 — Pack out",
+      "stops": [
+        { "ref": "three-forks-noontootla", "note": "Hike out" },
+        { "ref": "vogel_basecamp", "note": "Break camp, depart" }
+      ]
+    }
+  ]
+}

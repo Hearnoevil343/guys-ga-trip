@@ -1,0 +1,185 @@
+[
+  {
+    "id": "vogel_basecamp",
+    "name": "Vogel State Park — Base Camp (walk-in site P)",
+    "type": "base_camp",
+    "tier": 1,
+    "lat": 34.765883,
+    "lng": -83.925416,
+    "parking": {
+      "lat": 34.765883,
+      "lng": -83.925416
+    },
+    "coord_source": "gastateparks.org/Vogel published park GPS (\"GPS: N 34.765883 | W -083.925416\"), fetched 2026-09-21 — replaces the earlier OSM polygon-centroid guess with the park's own address point. Still not the exact walk-in site P pad; the park's trail map PDF (/sites/default/files/parks/pdf/trailmaps/Vogel_TrailMap.pdf) may show site-level detail but was not machine-readable this pass.",
+    "coord_confidence": "medium",
+    "drive_min_from_vogel": 0,
+    "access": "7485 Vogel State Park Rd, Blairsville, GA 30512. Walk-in tent site P, reached by a short carry from the walk-in loop parking. 2 vehicles at site + overflow parking; 2 tents max at site.",
+    "legality": "State park — no gold panning/prospecting/rock collecting anywhere inside Vogel boundaries.",
+    "gold_record": null,
+    "pressure": null,
+    "target_tips": null,
+    "fees": "$5/vehicle parking (ParkPass) + campsite fee (confirm current rate at booking/office).",
+    "photos": [],
+    "sources": [
+      "reservations.gastateparks.org",
+      "research/rules-safety.md"
+    ],
+    "notes": "Only the walk-in loop's general area could be geocoded from public sources; the specific site-P pad was not independently located this pass. Confirm exact pad location at check-in."
+  },
+  {
+    "id": "vogel_visitor_center",
+    "name": "Vogel State Park Visitor Center / Office",
+    "type": "visitor_center",
+    "tier": 1,
+    "lat": 34.7658105,
+    "lng": -83.9243056,
+    "coord_source": "OSM building=office node (opening_hours 08:00-17:00, matching park office hours) inside the Vogel State Park polygon, from api.openstreetmap.org/api/0.6/map small-bbox fetch 2026-09-21 (ODbL) — a real tagged office building, not explicitly labeled 'visitor center' in the OSM data, but the only office-hours building found inside the park boundary near the cabin cluster.",
+    "coord_confidence": "medium",
+    "drive_min_from_vogel": 2,
+    "access": "Inside Vogel State Park off US 19/129. Free backcountry permits and trail maps issued here.",
+    "legality": "N/A",
+    "gold_record": null,
+    "pressure": null,
+    "target_tips": "Pick up the free Coosa Backcountry Trail permit + printed trail map here before hiking out.",
+    "fees": null,
+    "photos": [],
+    "sources": [
+      "research/overnight-route.md"
+    ],
+    "notes": "Coordinate reused from the park polygon centroid; actual office building position not separately confirmed."
+  },
+  {
+    "id": "vogel_overflow_parking",
+    "name": "Vogel State Park — Overflow Parking",
+    "type": "parking",
+    "tier": 2,
+    "lat": 34.7658142,
+    "lng": -83.9241652,
+    "coord_source": "OSM amenity=parking node (access=customers, fee=yes, paved) immediately next to the office building node above, from api.openstreetmap.org/api/0.6/map small-bbox fetch 2026-09-21 (ODbL) — the main day-use/office lot; a second nearby paved lot exists at 34.7665094,-83.9234522 if this one is full. Not confirmed as the specific overflow lot for walk-in site P.",
+    "coord_confidence": "medium",
+    "drive_min_from_vogel": 1,
+    "access": "Overflow lot within the park for the 2-vehicle-per-site limit at walk-in site P.",
+    "legality": "N/A",
+    "gold_record": null,
+    "pressure": null,
+    "target_tips": null,
+    "fees": "Included in park parking fee.",
+    "photos": [],
+    "sources": [
+      "PLAN.md"
+    ],
+    "notes": "Exact overflow-lot location not separately geocoded; using park centroid. Confirm at check-in."
+  },
+  {
+    "id": "coosa_backcountry_trailhead",
+    "name": "Coosa Backcountry Trailhead",
+    "type": "overnight_trailhead",
+    "tier": 1,
+    "lat": 34.7638,
+    "lng": -83.9263,
+    "coord_source": "research/overnight-route.md citing atlantatrails.com (GPS ~34.7638,-83.9263, near cabin #7)",
+    "coord_confidence": "medium",
+    "drive_min_from_vogel": 0,
+    "access": "Inside Vogel State Park near cabin #7. Free backcountry permit required, obtained at the visitor center.",
+    "legality": "Backcountry trail; camping only at the designated Coosa/Wolf Creek backcountry campsite.",
+    "gold_record": null,
+    "pressure": "Low — permit-only backcountry trail, far less trafficked than the AT/Blood Mountain corridor nearby.",
+    "target_tips": "Recommended overnight route: hike Coosa Backcountry Trail to the Wolf Creek/Coosa Creek confluence camp, pan Wolf/Coosa Creek gravel bars.",
+    "fees": "$10 Vogel parking fee; free backcountry permit.",
+    "photos": [],
+    "sources": [
+      "https://www.atlantatrails.com/hiking-trails/vogel-state-park-coosa-backcountry-trail/",
+      "http://www.georgiatrails.com/gt/coosa_backcountry_trail"
+    ],
+    "notes": "Wilderness-boundary status of the Wolf Creek segment (Coosa Bald Scenic Area vs. Blood Mountain Wilderness) is UNVERIFIED — call Blue Ridge Ranger District before relying on this route for panning."
+  },
+  {
+    "id": "neel_gap",
+    "name": "Neel Gap / Mountain Crossings at Walasi-Yi",
+    "type": "town_supplies",
+    "tier": 2,
+    "lat": 34.7419965,
+    "lng": -83.9227173,
+    "coord_source": "Nominatim (Byron Herbert Reece Memorial Trailhead Parking, at Neel Gap on US 19/129)",
+    "coord_confidence": "medium",
+    "drive_min_from_vogel": 10,
+    "access": "US 19/129 at Neel Gap, ~10 min south of Vogel. Outfitter store built over the Appalachian Trail; gear, boots, trail advice, shuttle info.",
+    "legality": "N/A",
+    "gold_record": null,
+    "pressure": null,
+    "target_tips": "Good stop to double-check pack fit/boots before the overnight leg.",
+    "fees": null,
+    "photos": [],
+    "sources": [
+      "https://www.mountaincrossings.com/"
+    ],
+    "notes": "Geocoded to the AT trailhead parking at Neel Gap, immediately adjacent to the Mountain Crossings store; not the store's own address point."
+  },
+  {
+    "id": "blairsville_groceries",
+    "name": "Ingles (Blairsville groceries)",
+    "type": "town_supplies",
+    "tier": 2,
+    "lat": 34.8802144,
+    "lng": -83.9566621,
+    "coord_source": "Nominatim (Ingles, Young Harris Highway, Blairsville, GA — exact match)",
+    "coord_confidence": "high",
+    "drive_min_from_vogel": 15,
+    "access": "Young Harris Hwy (US 76), Blairsville — closest full grocery store to Vogel.",
+    "legality": "N/A",
+    "gold_record": null,
+    "pressure": null,
+    "target_tips": "Last resupply point before heading into the backcountry or out to Dahlonega.",
+    "fees": null,
+    "photos": [],
+    "sources": [
+      "Nominatim/OSM"
+    ],
+    "notes": null
+  },
+  {
+    "id": "union_general_hospital",
+    "name": "Union General Hospital (ER)",
+    "type": "hospital",
+    "tier": 1,
+    "lat": 34.8855284,
+    "lng": -83.9619224,
+    "coord_source": "Nominatim (35 Hospital Circle, Blairsville, GA — 'Union General Health Systems', exact address match)",
+    "coord_confidence": "high",
+    "drive_min_from_vogel": 18,
+    "access": "35 Hospital Rd/Circle, Blairsville, GA. 24/7 emergency room.",
+    "legality": "N/A",
+    "gold_record": null,
+    "pressure": null,
+    "target_tips": "Nearest ER to Vogel — phone (706) 745-2111.",
+    "fees": null,
+    "photos": [],
+    "sources": [
+      "research/rules-safety.md"
+    ],
+    "notes": null
+  },
+  {
+    "id": "blue_ridge_ranger_district",
+    "name": "Blue Ridge Ranger District Office (USFS)",
+    "type": "ranger_station",
+    "tier": 2,
+    "lat": 34.8815282,
+    "lng": -83.951938,
+    "coord_source": "Address from fs.usda.gov (2042 Highway 515 West, Blairsville, GA 30512); Nominatim could not resolve the exact house number, snapped to the nearest matching road (GA-515 / Young Harris Highway) instead",
+    "coord_confidence": "low",
+    "drive_min_from_vogel": 16,
+    "access": "2042 Highway 515 West, Blairsville, GA 30512. M-F 8:00-4:30, closed federal holidays.",
+    "legality": "N/A — covers the Vogel/Blood Mountain/Suches area; call before the trip to confirm panning rules, stream closures, Wilderness tool rules, fire restrictions.",
+    "gold_record": null,
+    "pressure": null,
+    "target_tips": "Phone (706) 745-6928 — call ahead per research/rules-safety.md open items.",
+    "fees": null,
+    "photos": [],
+    "sources": [
+      "https://www.fs.usda.gov/r08/chattahoochee-oconee/offices/blue-ridge-ranger-district",
+      "research/rules-safety.md"
+    ],
+    "notes": "Coordinate is road-interpolated, not the exact building — confirm with a map app before relying on it to navigate there."
+  }
+]

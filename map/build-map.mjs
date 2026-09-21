@@ -23,7 +23,8 @@ let points = [];        // flat array of point-schema objects (core.json, spots.
 let overnights = [];    // array of overnight-schema objects (overnight-*.json)
 let geoLayers = [];     // [{name, data(FeatureCollection)}]
 let photoCache = {};    // id -> [{thumb,page,credit}]
-let itinerary = null;   // itinerary-v1 schema object (itinerary.json)
+let itinerary = null;   // itinerary-v1 schema object (itinerary.json) — superseded by days-v1, kept loaded but unrendered
+let daysData = null;    // days-v1 schema object (days.json) — the real day-by-day route
 
 function isPointArray(arr) {
   return Array.isArray(arr) && arr.length > 0 && typeof arr[0].lat === 'number' && typeof arr[0].lng === 'number' && !arr[0].trailhead;
@@ -39,6 +40,7 @@ for (const f of files) {
 
   if (f === 'photo-cache.json') { photoCache = raw; continue; }
   if (raw && raw.schema === 'itinerary-v1') { itinerary = raw; continue; }
+  if (raw && raw.schema === 'days-v1') { daysData = raw; continue; }
 
   if (f.endsWith('.geojson') || (raw && raw.type === 'FeatureCollection')) {
     geoLayers.push({ name: path.basename(f, path.extname(f)), data: raw });
@@ -47,6 +49,35 @@ for (const f of files) {
   if (isOvernightArray(raw)) { overnights = overnights.concat(raw); continue; }
   if (isPointArray(raw)) { points = points.concat(raw.map(p => ({ ...p, __src: f }))); continue; }
   console.warn('skip (unrecognized shape):', f);
+}
+
+// ---------------------------------------------------------------------------
+// 1b. Chain-consistency assertion for days.json: the end of day N must be the
+//     same place as the start of day N+1. _build_days.mjs already checks this
+//     at generation time, but the BUILD re-asserts it against whatever
+//     days.json actually is on disk right now, in case it was hand-edited.
+// ---------------------------------------------------------------------------
+function haversineMetersBuild(lat1, lng1, lat2, lng2) {
+  const R = 6371000, toRad = d => d * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1), dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+if (daysData && Array.isArray(daysData.days)) {
+  const days = daysData.days.slice().sort((a, b) => a.day - b.day);
+  let chainOk = true;
+  for (let i = 0; i < days.length - 1; i++) {
+    const end = days[i].end, start = days[i + 1].start;
+    if (!end || !start || typeof end.lat !== 'number' || typeof start.lat !== 'number') continue;
+    const d = haversineMetersBuild(end.lat, end.lng, start.lat, start.lng);
+    if (end.ref !== start.ref || d > 5) {
+      chainOk = false;
+      console.warn(`WARNING: days.json chain break — day ${days[i].day} end (${end.ref}) is ${d.toFixed(0)} m from day ${days[i + 1].day} start (${start.ref}).`);
+    }
+  }
+  console.log(chainOk ? `days.json chain check OK across ${days.length} day(s).` : 'days.json chain check FAILED — see warnings above.');
+} else {
+  console.warn('No days.json (schema days-v1) loaded — the day-chaining map layer will be empty.');
 }
 
 // Drop entries with unresolved/null coordinates (some source files are still
@@ -212,6 +243,36 @@ for (const o of overnights) {
   }
 }
 
+// Run the same point-in-polygon legality guard against water.geojson: for
+// each creek/river feature, tag it with the name of any wilderness/state-park
+// polygon that contains AT LEAST ONE vertex of its line geometry (a creek can
+// cross a boundary; a partial hit still means part of that reach is inside a
+// no-panning area, which matters just as much as a fully-enclosed point).
+const waterLayers = geoLayers.filter(g => /^water$/i.test(g.name));
+let waterHitCount = 0;
+for (const layer of waterLayers) {
+  for (const f of (layer.data && layer.data.features) || []) {
+    const lines = f.geometry.type === 'MultiLineString' ? f.geometry.coordinates
+      : f.geometry.type === 'LineString' ? [f.geometry.coordinates] : [];
+    let hitName = null, hitVerts = 0, totalVerts = 0;
+    for (const line of lines) {
+      for (const [lng, lat] of line) {
+        totalVerts++;
+        const hit = insideWilderness(lat, lng);
+        if (hit) { hitVerts++; if (!hitName) hitName = hit; }
+      }
+    }
+    f.properties._insideWilderness = hitName;
+    f.properties._insideWildernessFraction = totalVerts ? hitVerts / totalVerts : 0;
+    if (hitName) {
+      waterHitCount++;
+      const frac = totalVerts ? Math.round(100 * hitVerts / totalVerts) : 0;
+      console.log(`  Water feature "${f.properties.name}": ${frac}% of its mapped length falls INSIDE ${hitName}.`);
+    }
+  }
+}
+console.log(`Legality guard (water): checked ${waterLayers.reduce((n, g) => n + ((g.data && g.data.features) || []).length, 0)} creek/river feature(s), ${waterHitCount} with at least one vertex inside a no-panning boundary.`);
+
 // ---------------------------------------------------------------------------
 // 4. GPX export — every point + every overnight trailhead/camp/pan_reach as a
 //    waypoint, plus route_coords as a track, for Gaia GPS / CalTopo / OnX.
@@ -235,6 +296,28 @@ for (const o of overnights) {
     const pts = o.route_coords.map(([lat, lng]) => `      <trkpt lat="${lat}" lon="${lng}"></trkpt>`).join('\n');
     gpxTracks.push(`  <trk><name>${gpxEscape(o.name)}</name><trkseg>\n${pts}\n    </trkseg></trk>`);
   }
+}
+// Day routes: one GPX track per day, one trkseg per drive/walk leg (in order),
+// so the real day-by-day chain is usable offline in Gaia GPS / CalTopo / OnX.
+if (daysData && Array.isArray(daysData.days)) {
+  let dayTracksAdded = 0, dayTracksSkipped = [];
+  for (const day of daysData.days.slice().sort((a, b) => a.day - b.day)) {
+    const segs = [];
+    for (const leg of day.legs || []) {
+      if ((leg.type !== 'drive' && leg.type !== 'walk') || !Array.isArray(leg.coords) || leg.coords.length < 2) continue;
+      const pts = leg.coords.map(([lat, lng]) => `      <trkpt lat="${lat}" lon="${lng}"></trkpt>`).join('\n');
+      segs.push(`    <trkseg>\n${pts}\n    </trkseg>`);
+    }
+    if (segs.length) {
+      const name = `Day ${day.day}`;
+      const desc = `${day.date} — ${day.title}`;
+      gpxTracks.push(`  <trk><name>${gpxEscape(name)}</name><desc>${gpxEscape(desc)}</desc>\n${segs.join('\n')}\n  </trk>`);
+      dayTracksAdded++;
+    } else {
+      dayTracksSkipped.push(day.day);
+    }
+  }
+  console.log(`Added ${dayTracksAdded} day track(s) to trip.gpx (of ${daysData.days.length} days).` + (dayTracksSkipped.length ? ` Day(s) with no drive/walk legs, so no track: ${dayTracksSkipped.join(', ')}.` : ''));
 }
 const gpx = `<?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="ga-gold-trip build-map.mjs" xmlns="http://www.topografix.com/GPX/1/1">
@@ -273,7 +356,7 @@ const dataBlock = {
   points, overnights,
   geoLayers: geoLayers.map(g => ({ name: g.name, data: g.data })),
   typeStyle: TYPE_STYLE, overnightStyle: OVERNIGHT_STYLE, vogel: VOGEL,
-  itinerary,
+  itinerary, days: daysData,
 };
 const DATA_JSON = JSON.stringify(dataBlock);
 
@@ -309,6 +392,39 @@ const html = `<!doctype html>
   #legend { position:absolute; bottom:16px; left:16px; z-index:1000; background:#fff; padding:8px 10px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.4); font-size:12px; max-height: 40vh; overflow-y:auto; }
   #legend h4 { margin:0 0 4px; font-size:12px; }
   #legend div { margin: 1px 0; }
+
+  /* ---- day strip control (on the map) ---- */
+  .day-strip { background:#fff; padding:6px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.4); display:flex; gap:4px; }
+  .day-strip button { border:1px solid #999; background:#f4f4f4; border-radius:4px; padding:5px 9px; font-size:12px; cursor:pointer; font-weight:600; color:#333; }
+  .day-strip button:hover { background:#e2ecff; }
+  .day-strip button.active { background:#2255aa; color:#fff; border-color:#2255aa; }
+  .day-strip .hint { font-size:10px; color:#777; align-self:center; margin-left:4px; display:none; }
+  @media (min-width: 700px) { .day-strip .hint { display:inline; } }
+
+  /* ---- day / leg panel (top of the sidebar) ---- */
+  #daySection { border-bottom: 2px solid #ccc; padding-bottom: 8px; margin-bottom: 6px; }
+  #daySection h2 { font-size: 14px; margin: 8px 12px 2px; }
+  #daySection .day-sub { font-size: 11px; color:#555; margin: 0 12px 6px; }
+  #dayHint { font-size: 12px; color: #777; margin: 6px 12px; font-style: italic; }
+  .leg-list { list-style:none; margin:0; padding: 0 12px; }
+  .leg-row { display:flex; align-items:flex-start; gap:7px; padding:6px 0; border-bottom:1px dashed #ddd; font-size:12px; }
+  .leg-row .ic { flex: 0 0 20px; font-size:15px; text-align:center; }
+  .leg-row .body { flex: 1 1 auto; }
+  .leg-row .lbl { font-weight:600; }
+  .leg-row .meta { color:#666; font-size:11px; margin-top:1px; }
+  .approx-tag { display:inline-block; background:#fff3cd; color:#7a5b00; border:1px solid #e6c260; border-radius:3px; padding:0 4px; font-size:10px; font-weight:700; margin-left:5px; }
+  .gravel-tag { display:inline-block; background:#e3edff; color:#1a4a8a; border:1px solid #9fc2ff; border-radius:3px; padding:0 4px; font-size:10px; font-weight:700; margin-left:5px; }
+  .day-nav-row { display:flex; align-items:center; gap:6px; margin:8px 12px 2px; }
+  .day-nav-row h3 { margin:0; flex:1 1 auto; font-size:14px; }
+  .panel-nav-btn { flex:0 0 auto; border:1px solid #999; background:#f4f4f4; border-radius:4px; padding:4px 8px; font-size:11px; font-weight:700; cursor:pointer; color:#333; white-space:nowrap; }
+  .panel-nav-btn:hover { background:#e2ecff; }
+  .cross-check-note { margin:6px 12px; padding:6px 8px; background:#fff3cd; border:1px solid #e6c260; border-radius:5px; font-size:11px; color:#7a5b00; }
+  .day-totals { margin: 8px 12px 4px; padding: 7px 8px; background:#eef4ff; border-radius:5px; font-size:12px; line-height:1.5; }
+  .day-totals b { display:block; font-size:12px; margin-bottom:2px; }
+  .chain-btn { display:block; width:100%; margin-top:6px; padding:7px 8px; background:#2255aa; color:#fff; border:none; border-radius:4px; font-size:12px; font-weight:700; cursor:pointer; text-align:center; }
+  .chain-btn:hover { background:#173d7a; }
+  .chain-btn.back { background:#555; }
+  .chain-btn.back:hover { background:#333; }
 </style>
 </head>
 <body>
@@ -317,6 +433,12 @@ const html = `<!doctype html>
   <div id="panel">
     <h1>GA Gold Trip — Oct 15&ndash;21 2026</h1>
     <div class="sub">Vogel State Park base camp, Blairsville GA. Click a marker or list item for details.</div>
+    <div id="daySection">
+      <h2>Day plan</h2>
+      <div class="day-sub">Pick a day on the map (top-left) or below to see its real route, distances and times.</div>
+      <div id="dayHint">No day selected — showing every day's route at once. Pick a day for turn-by-turn legs and totals.</div>
+      <div id="dayBody"></div>
+    </div>
     <input id="searchbox" placeholder="Search by name...">
     <div id="filters"></div>
     <ul id="list"></ul>
@@ -366,12 +488,32 @@ try {
 // ---- overlay: wilderness / no-panning polygons, and trail/route lines, from GeoJSON files ----
 const overlayLayers = {};
 const TRAIL_COLORS = { trail: '#8c564b', waterway: '#1f77b4', road: '#555555' };
+let waterOverlay = null;
 for (const layer of DATA.geoLayers) {
   if (!layer.data || !layer.data.features) continue;
   const isWilderness = /wilderness/i.test(layer.name);
+  const isWater = /^water$/i.test(layer.name);
   const isTrails = /trail/i.test(layer.name) && !isWilderness;
   let gj;
-  if (isTrails) {
+  if (isWater) {
+    gj = L.geoJSON(layer.data, {
+      style: f => {
+        const inside = f.properties && f.properties._insideWilderness;
+        return { color: inside ? '#b30000' : '#1f77b4', weight: 3.5, opacity: 0.9, dashArray: null };
+      },
+      onEachFeature: (f, lyr) => {
+        const name = (f.properties && (f.properties.label || f.properties.name)) || layer.name;
+        lyr.bindTooltip(name, { sticky: true });
+        let h = '';
+        if (f.properties && f.properties._insideWilderness) {
+          const pct = Math.round((f.properties._insideWildernessFraction || 0) * 100);
+          h += wildernessBanner(f.properties._insideWilderness) + '<div style="font-size:11px;color:#900;margin-bottom:4px;">~' + pct + '% of this mapped reach falls inside the boundary.</div>';
+        }
+        h += '<b>' + escHtml(name) + '</b>' + (f.properties && f.properties.coord_source ? '<div style="font-size:11px;color:#555;margin-top:4px;">' + escHtml(f.properties.coord_source) + '</div>' : '');
+        lyr.bindPopup(h);
+      },
+    });
+  } else if (isTrails) {
     gj = L.geoJSON(layer.data, {
       style: f => {
         const cat = (f.properties && f.properties.category) || 'trail';
@@ -394,13 +536,14 @@ for (const layer of DATA.geoLayers) {
       },
     });
   }
-  const label = layer.name + (isWilderness ? ' (NO PANNING)' : (isTrails ? ' (trails)' : ''));
+  const label = layer.name + (isWilderness ? ' (NO PANNING)' : (isWater ? ' (Creeks & rivers)' : (isTrails ? ' (trails)' : '')));
   overlayLayers[label] = gj;
+  if (isWater) waterOverlay = gj;
 }
 
 for (const k in overlayLayers) {
-  // default on: wilderness boundaries and trail lines are both useful context immediately
-  if (/NO PANNING|trails/i.test(k)) overlayLayers[k].addTo(map);
+  // default on: wilderness boundaries, trail lines and creeks are all useful context immediately
+  if (/NO PANNING|trails|Creeks & rivers/i.test(k)) overlayLayers[k].addTo(map);
 }
 if (usfsOwnership) overlayLayers['USFS land ownership'] = usfsOwnership;
 
@@ -525,45 +668,312 @@ for (const o of DATA.overnights) {
   }
 }
 
-// ---- itinerary layer: toggleable, numbered day-by-day markers + connecting lines ----
-const ITINERARY_COLORS = ['#e6194b','#3cb44b','#4363d8','#f58231','#911eb4','#46f0f0','#f032e6'];
-if (DATA.itinerary && Array.isArray(DATA.itinerary.days)) {
-  const itineraryLayer = L.layerGroup();
-  const pointsById = {};
-  for (const p of DATA.points) pointsById[p.id] = { lat: p.lat, lng: p.lng, name: p.name };
-  for (const o of DATA.overnights) pointsById[o.id] = o.trailhead ? { lat: o.trailhead.lat, lng: o.trailhead.lng, name: o.name } : null;
+// ---- day-by-day route: real drive/walk legs + click-through day chaining ----
+// Replaces the old crow-flies "Itinerary" layer. Each day is built as two
+// parallel Leaflet layers: an "overview" line (always on the map, dims with
+// everything else) and a "highlight" version (styled by leg type, with
+// direction arrows and start/end chain markers) that's only shown for the
+// currently selected day.
+const DAY_COLORS = ['#e6194b', '#3cb44b', '#4363d8', '#f58231', '#911eb4', '#009999', '#f032e6'];
+const DRIVE_COLOR = '#4a4a4a';
+const WALK_COLOR = '#e6550d';
+const LEG_ICONS = { drive: '🚗', walk: '🥾', pan: '⛏️', tour: '🏛️' };
+const DAYS = (DATA.days && Array.isArray(DATA.days.days)) ? DATA.days.days.slice().sort((a, b) => a.day - b.day) : [];
 
-  for (const day of DATA.itinerary.days) {
-    const color = ITINERARY_COLORS[(day.day - 1) % ITINERARY_COLORS.length];
-    const coords = [];
-    let n = 0;
-    for (const stop of day.stops) {
-      const ref = stop.ref && pointsById[stop.ref];
-      const lat = ref ? ref.lat : stop.lat;
-      const lng = ref ? ref.lng : stop.lng;
-      if (typeof lat !== 'number' || typeof lng !== 'number') continue;
-      n++;
-      coords.push([lat, lng]);
-      const label = (ref && ref.name) || stop.name || stop.ref || '?';
-      const icon = L.divIcon({
-        html: '<div style="background:' + color + ';color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.5);">' + n + '</div>',
-        className: '', iconSize: [24,24], iconAnchor: [12,12], popupAnchor: [0,-12],
-      });
-      const m = L.marker([lat, lng], { icon });
-      let h = '<h3>Day ' + day.day + ' — ' + escHtml(day.label) + '</h3>';
-      h += row('Date', day.date);
-      h += row('Stop', label);
-      h += row('Note', stop.note);
-      m.bindPopup(h);
-      m.addTo(itineraryLayer);
+function bearingDeg(lat1, lng1, lat2, lng2) {
+  const toRad = d => d * Math.PI / 180, toDeg = r => r * 180 / Math.PI;
+  const y = Math.sin(toRad(lng2 - lng1)) * Math.cos(toRad(lat2));
+  const x = Math.cos(toRad(lat1)) * Math.sin(toRad(lat2)) - Math.sin(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.cos(toRad(lng2 - lng1));
+  return (toDeg(Math.atan2(y, x)) + 360) % 360;
+}
+function pointAtFraction(coords, frac) {
+  if (coords.length < 2) return null;
+  const segLen = [];
+  let total = 0;
+  for (let i = 0; i < coords.length - 1; i++) { const d = map.distance(coords[i], coords[i + 1]); segLen.push(d); total += d; }
+  if (total === 0) return { latlng: coords[0], bearing: 0 };
+  const target = frac * total;
+  let acc = 0;
+  for (let i = 0; i < segLen.length; i++) {
+    if (acc + segLen[i] >= target || i === segLen.length - 1) {
+      const t = segLen[i] > 0 ? Math.min(1, Math.max(0, (target - acc) / segLen[i])) : 0;
+      const a = coords[i], b = coords[i + 1];
+      return { latlng: [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t], bearing: bearingDeg(a[0], a[1], b[0], b[1]) };
     }
-    if (coords.length > 1) {
-      L.polyline(coords, { color, weight: 3, opacity: 0.7, dashArray: '4,6' }).addTo(itineraryLayer);
+    acc += segLen[i];
+  }
+  return { latlng: coords[coords.length - 1], bearing: 0 };
+}
+function arrowMarker(latlng, bearing, color) {
+  const icon = L.divIcon({
+    html: '<div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:13px solid ' + color + ';transform:rotate(' + bearing.toFixed(1) + 'deg);filter:drop-shadow(0 0 1px #fff);"></div>',
+    className: '', iconSize: [14, 14], iconAnchor: [7, 7],
+  });
+  return L.marker(latlng, { icon, interactive: false, keyboard: false });
+}
+// className carries a real CSS class (day-start-marker / day-end-marker) so
+// both the app and tests can find these reliably, instead of matching on the
+// glyph text — that broke down for the "hub" marker below, which has to
+// answer to both.
+const startIcon = L.divIcon({
+  html: '<div style="background:#2ca02c;color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.6);">&#9654;</div>',
+  className: 'day-start-marker', iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -15],
+});
+const endIcon = L.divIcon({
+  html: '<div style="background:#b30000;color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:15px;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.6);">&#127937;</div>',
+  className: 'day-end-marker', iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -15],
+});
+// Bug fix: when a day's start and end are the SAME physical point (every
+// day that loops back to Vogel — days 1-4 and 7), separate start/end
+// markers land exactly on top of each other. Whichever was added to the
+// DOM last (end) permanently covered the other, so the start marker/back
+// button was never clickable by a real mouse click even though it existed
+// and its popup logic worked. Fixed by merging them into one "hub" marker
+// carrying BOTH classes and BOTH chain buttons whenever they coincide.
+const hubIcon = L.divIcon({
+  html: '<div style="background:linear-gradient(135deg,#2ca02c 50%,#b30000 50%);color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.6);letter-spacing:-1px;">&#9654;&#127937;</div>',
+  className: 'day-start-marker day-end-marker', iconSize: [32, 32], iconAnchor: [16, 16], popupAnchor: [0, -16],
+});
+const SAME_SPOT_M = 15; // meters — Vogel's own coordinate is stable to well under this across days
+
+function buildDayLayers(day) {
+  const color = DAY_COLORS[(day.day - 1) % DAY_COLORS.length];
+  const overview = L.layerGroup();
+  const highlight = L.layerGroup();
+  const bounds = L.latLngBounds([[day.start.lat, day.start.lng], [day.end.lat, day.end.lng]]);
+  for (const leg of (day.legs || [])) {
+    if ((leg.type === 'drive' || leg.type === 'walk') && Array.isArray(leg.coords) && leg.coords.length > 1) {
+      leg.coords.forEach(c => bounds.extend(c));
+      L.polyline(leg.coords, { color, weight: 3, opacity: 0.75 }).addTo(overview);
+      const isApprox = leg.geometry_confidence === 'approximate';
+      const baseColor = leg.type === 'drive' ? DRIVE_COLOR : WALK_COLOR;
+      const isRetimed = leg.type === 'drive' && leg.timing_confidence === 'estimated';
+      const pl = L.polyline(leg.coords, {
+        color: baseColor, weight: leg.type === 'drive' ? 4 : 6, opacity: 0.95, dashArray: isApprox ? '3,8' : null,
+      }).addTo(highlight);
+      let popupHtml = '<b>' + escHtml(leg.label) + '</b>' + row('Type', leg.type) + row('Distance', leg.miles + ' mi');
+      if (isRetimed) {
+        popupHtml += row('Time (gravel est.)', leg.minutes + ' min') + row('OSRM raw time', leg.minutes_osrm_raw + ' min');
+      } else {
+        popupHtml += row('Time', leg.minutes + ' min');
+      }
+      popupHtml += (leg.gain_ft ? row('Gain', leg.gain_ft + ' ft') : '');
+      if (isApprox) popupHtml += '<div style="font-size:11px;color:#7a5b00;margin-top:4px;"><b>~ approximate geometry.</b> ' + escHtml(leg.source || '') + '</div>';
+      else if (isRetimed) popupHtml += '<div style="font-size:11px;color:#1a4a8a;margin-top:4px;"><b>~ gravel-speed estimate.</b> ' + escHtml(leg.timing_model || '') + '</div>';
+      else popupHtml += '<div style="font-size:11px;color:#555;margin-top:4px;">' + escHtml(leg.source || '') + '</div>';
+      pl.bindPopup(popupHtml);
+      [0.33, 0.66].forEach(f => { const r = pointAtFraction(leg.coords, f); if (r) arrowMarker(r.latlng, r.bearing, baseColor).addTo(highlight); });
     }
   }
-  itineraryLayer.addTo(map);
-  layersControl.addOverlay(itineraryLayer, 'Itinerary (Oct 15-21 draft plan)');
+  const sameSpot = map.distance([day.start.lat, day.start.lng], [day.end.lat, day.end.lng]) < SAME_SPOT_M;
+  const backBtn = day.day > 1 ? '<button class="chain-btn back" onclick="selectDay(' + (day.day - 1) + ')">&larr; Day ' + (day.day - 1) + ' ended here</button>' : '';
+  const fwdBtn = day.day < DAYS.length ? '<button class="chain-btn" onclick="selectDay(' + (day.day + 1) + ')">Day ' + (day.day + 1) + ' starts here &rarr;</button>' : '';
+  if (sameSpot) {
+    const hubM = L.marker([day.start.lat, day.start.lng], { icon: hubIcon });
+    let hh = '<h3>Day ' + day.day + ' starts &amp; ends here</h3>' + row('Where', day.start.label) + row('Start time', day.start.time) +
+      '<div style="font-size:11px;color:#555;margin:3px 0;">Same spot both ends of the day.</div>' + backBtn + fwdBtn;
+    hubM.bindPopup(hh);
+    hubM.addTo(highlight);
+  } else {
+    const startM = L.marker([day.start.lat, day.start.lng], { icon: startIcon });
+    startM.bindPopup('<h3>Day ' + day.day + ' starts here</h3>' + row('Where', day.start.label) + row('Time', day.start.time) + backBtn);
+    startM.addTo(highlight);
+    const endM = L.marker([day.end.lat, day.end.lng], { icon: endIcon });
+    endM.bindPopup('<h3>Day ' + day.day + ' ends here</h3>' + row('Where', day.end.label) + fwdBtn);
+    endM.addTo(highlight);
+  }
+  return { overview, highlight, bounds };
 }
+
+const dayOverviewLayers = {}, dayHighlightLayers = {}, dayBoundsById = {};
+for (const day of DAYS) {
+  const built = buildDayLayers(day);
+  dayOverviewLayers[day.day] = built.overview;
+  dayHighlightLayers[day.day] = built.highlight;
+  dayBoundsById[day.day] = built.bounds;
+  built.overview.addTo(map); // default "All" view: every day's real route visible at once
+}
+
+const DIM = 0.25;
+function setLayerOpacity(l, dimmed) {
+  try {
+    if (typeof l.eachLayer === 'function') { l.eachLayer(x => setLayerOpacity(x, dimmed)); return; }
+    if (l._origOpacity === undefined) l._origOpacity = (l.options && l.options.opacity != null) ? l.options.opacity : 1;
+    if (l._origFillOpacity === undefined) l._origFillOpacity = (l.options && l.options.fillOpacity != null) ? l.options.fillOpacity : 0.2;
+    if (typeof l.setStyle === 'function') l.setStyle({ opacity: dimmed ? DIM * l._origOpacity : l._origOpacity, fillOpacity: dimmed ? DIM * l._origFillOpacity : l._origFillOpacity });
+    else if (typeof l.setOpacity === 'function') l.setOpacity(dimmed ? DIM * l._origOpacity : l._origOpacity);
+  } catch (e) { /* some layer types may not support live opacity — non-fatal */ }
+}
+function dimBackground(dimmed) {
+  setLayerOpacity(markerLayer, dimmed);
+  for (const k in overlayLayers) setLayerOpacity(overlayLayers[k], dimmed);
+  if (usfsOwnership) setLayerOpacity(usfsOwnership, dimmed);
+  for (const d in dayOverviewLayers) setLayerOpacity(dayOverviewLayers[d], dimmed);
+}
+function addMinutesClock(hhmm, mins) {
+  if (!hhmm) return null;
+  const parts = hhmm.split(':').map(Number);
+  let total = ((parts[0] * 60 + parts[1] + mins) % 1440 + 1440) % 1440;
+  return String(Math.floor(total / 60)).padStart(2, '0') + ':' + String(total % 60).padStart(2, '0');
+}
+function renderDayPanel(n) {
+  const body = document.getElementById('dayBody');
+  const hint = document.getElementById('dayHint');
+  if (n == null) { hint.style.display = ''; body.innerHTML = ''; return; }
+  hint.style.display = 'none';
+  const day = DAYS.find(d => d.day === n);
+  if (!day) { body.innerHTML = ''; return; }
+  let driveMi = 0, walkMi = 0, gainFt = 0, totalMin = 0, approxCount = 0, retimedCount = 0, rows = '';
+  for (const leg of (day.legs || [])) {
+    totalMin += leg.minutes || 0;
+    const ic = LEG_ICONS[leg.type] || '•';
+    const meta = [];
+    const isRetimed = leg.type === 'drive' && leg.timing_confidence === 'estimated';
+    if (leg.type === 'drive') {
+      driveMi += leg.miles;
+      meta.push(leg.miles + ' mi', leg.minutes + ' min' + (isRetimed ? ' (OSRM said ' + leg.minutes_osrm_raw + ')' : ''));
+    } else if (leg.type === 'walk') {
+      walkMi += leg.miles; gainFt += (leg.gain_ft || 0);
+      meta.push(leg.miles + ' mi', leg.minutes + ' min'); if (leg.gain_ft) meta.push('+' + leg.gain_ft + ' ft');
+    } else meta.push(leg.minutes + ' min');
+    const isApprox = leg.geometry_confidence === 'approximate';
+    if (isApprox) approxCount++;
+    if (isRetimed) retimedCount++;
+    rows += '<li class="leg-row"><span class="ic">' + ic + '</span><span class="body"><span class="lbl">' + escHtml(leg.label) + '</span>' +
+      (isApprox ? '<span class="approx-tag">~ approx</span>' : '') + (isRetimed ? '<span class="gravel-tag">gravel &mdash; est.</span>' : '') +
+      '<div class="meta">' + meta.join(' &middot; ') + '</div></span></li>';
+  }
+  const endClock = addMinutesClock(day.start.time, totalMin);
+  const prevBtn = n > 1 ? '<button class="panel-nav-btn" onclick="selectDay(' + (n - 1) + ')">&larr; Day ' + (n - 1) + '</button>' : '';
+  const nextBtn = n < DAYS.length ? '<button class="panel-nav-btn" onclick="selectDay(' + (n + 1) + ')">Day ' + (n + 1) + ' &rarr;</button>' : '';
+  let html = '<div class="day-nav-row">' + prevBtn + '<h3>Day ' + day.day + ' &mdash; ' + escHtml(day.title) + '</h3>' + nextBtn + '</div>';
+  html += '<div class="day-sub">' + escHtml(day.date) + (day.start.time ? ' &middot; starts ' + day.start.time : '') + '</div>';
+  html += '<ul class="leg-list">' + rows + '</ul>';
+  html += '<div class="day-totals"><b>Day totals</b>Drive: ' + driveMi.toFixed(1) + ' mi &nbsp;|&nbsp; Walk: ' + walkMi.toFixed(2) + ' mi &nbsp;|&nbsp; Ascent: ' + Math.round(gainFt) + ' ft<br>Elapsed: ' + totalMin + ' min (' + (totalMin / 60).toFixed(1) + ' hr)' +
+    (day.start.time ? ' from ' + day.start.time + (endClock ? ' to ~' + endClock : '') : '') +
+    (approxCount ? '<br><span style="color:#7a5b00;">' + approxCount + ' leg(s) use approximate geometry — dashed on the map.</span>' : '') + '</div>';
+  if (retimedCount) {
+    let note = retimedCount + ' drive leg(s) on this day include a gravel-speed estimate (15 mph assumed on unpaved/track roads) rather than OSRM’s routed time — see "gravel — est." above.';
+    if (day.day === 4) note += ' Recommend a Google Maps cross-check for this GA-348 loop before relying on the schedule.';
+    if (day.day === 5 || day.day === 6) note += ' Recommend a Google Maps cross-check for the Vogel ↔ Three Forks drive before relying on the schedule.';
+    html += '<div class="cross-check-note">' + note + '</div>';
+  }
+  body.innerHTML = html;
+}
+function updateDayStripActive(n) {
+  document.querySelectorAll('.day-strip button').forEach(btn => {
+    const d = btn.getAttribute('data-day');
+    btn.classList.toggle('active', (n == null && d === 'all') || (n != null && d === String(n)));
+  });
+}
+// Measure the actual on-screen rectangles of the map overlays that can sit
+// on top of markers (day strip + zoom control top-left, layers control
+// top-right, legend bottom-left) and turn them into fitBounds padding, so a
+// day's start/end markers never land underneath one of them. Bug: a fixed
+// padding guess left the Day 5 end marker (bottom-left, under the legend)
+// unclickable by a real mouse click even though the popup/chain logic was
+// fine — computeFitPadding() re-measures every time in case the legend's
+// height changed (it grows with the layer count) or the viewport was resized.
+function computeFitPadding() {
+  const mapRect = document.getElementById('map').getBoundingClientRect();
+  const MARGIN = 24;
+  let left = 30, top = 30, right = 30, bottom = 30;
+  function rectOf(sel) {
+    const el = document.querySelector(sel);
+    if (!el) return null;
+    const r = el.getBoundingClientRect();
+    return (r.width > 0 || r.height > 0) ? r : null;
+  }
+  const zoom = rectOf('.leaflet-control-zoom');
+  const strip = rectOf('.day-strip');
+  const legend = rectOf('#legend');
+  const layers = rectOf('.leaflet-control-layers');
+  [zoom, strip].forEach(r => {
+    if (!r) return;
+    left = Math.max(left, r.right - mapRect.left + MARGIN);
+    top = Math.max(top, r.bottom - mapRect.top + MARGIN);
+  });
+  if (legend) {
+    left = Math.max(left, legend.right - mapRect.left + MARGIN);
+    bottom = Math.max(bottom, mapRect.bottom - legend.top + MARGIN);
+  }
+  if (layers) {
+    right = Math.max(right, mapRect.right - layers.left + MARGIN);
+    top = Math.max(top, layers.bottom - mapRect.top + MARGIN);
+  }
+  // Never let padding eat the whole viewport on a small window.
+  const capX = mapRect.width * 0.4, capY = mapRect.height * 0.4;
+  return {
+    paddingTopLeft: [Math.min(left, capX), Math.min(top, capY)],
+    paddingBottomRight: [Math.min(right, capX), Math.min(bottom, capY)],
+  };
+}
+
+let selectedDay = null;
+function selectDay(n) {
+  if (selectedDay === n) return;
+  if (selectedDay != null && dayHighlightLayers[selectedDay]) {
+    map.removeLayer(dayHighlightLayers[selectedDay]);
+    if (dayOverviewLayers[selectedDay]) dayOverviewLayers[selectedDay].addTo(map);
+  }
+  selectedDay = n;
+  dimBackground(true);
+  if (dayOverviewLayers[n]) map.removeLayer(dayOverviewLayers[n]);
+  if (dayHighlightLayers[n]) {
+    dayHighlightLayers[n].addTo(map);
+    // Bring this day's start/end/arrow markers above any pre-existing marker
+    // that happens to sit at the same real-world point (e.g. the overnight
+    // route's own trailhead/camp marker at Three Forks) so the chain button
+    // is always the one on top and clickable.
+    dayHighlightLayers[n].eachLayer(l => { if (typeof l.setZIndexOffset === 'function') l.setZIndexOffset(2000); });
+  }
+  const b = dayBoundsById[n];
+  if (b && b.isValid()) {
+    const pad = computeFitPadding();
+    map.fitBounds(b, { paddingTopLeft: pad.paddingTopLeft, paddingBottomRight: pad.paddingBottomRight, maxZoom: 15 });
+  }
+  renderDayPanel(n);
+  updateDayStripActive(n);
+}
+function selectAllDays() {
+  if (selectedDay != null) {
+    if (dayHighlightLayers[selectedDay]) map.removeLayer(dayHighlightLayers[selectedDay]);
+    if (dayOverviewLayers[selectedDay]) dayOverviewLayers[selectedDay].addTo(map);
+  }
+  selectedDay = null;
+  dimBackground(false);
+  renderDayPanel(null);
+  updateDayStripActive(null);
+}
+
+const DayStrip = L.Control.extend({
+  options: { position: 'topleft' },
+  onAdd: function () {
+    const div = L.DomUtil.create('div', 'day-strip');
+    L.DomEvent.disableClickPropagation(div);
+    let html = '<button data-day="all" class="active">All</button>';
+    for (const day of DAYS) html += '<button data-day="' + day.day + '">' + day.day + '</button>';
+    html += '<span class="hint">&larr;&rarr; keys step days</span>';
+    div.innerHTML = html;
+    div.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const d = btn.getAttribute('data-day');
+        if (d === 'all') selectAllDays(); else selectDay(parseInt(d, 10));
+      });
+    });
+    return div;
+  },
+});
+if (DAYS.length) new DayStrip().addTo(map);
+
+document.addEventListener('keydown', e => {
+  if (!DAYS.length || (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight')) return;
+  const tag = (document.activeElement && document.activeElement.tagName) || '';
+  if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+  const cur = selectedDay == null ? 0 : selectedDay;
+  if (e.key === 'ArrowRight') { const nxt = Math.min(DAYS.length, cur + 1); selectDay(nxt); }
+  else { const prv = cur - 1; if (prv >= 1) selectDay(prv); else selectAllDays(); }
+});
 
 // ---- legend ----
 const legendEl = document.getElementById('legend');
@@ -573,6 +983,13 @@ for (const t of Array.from(allTypes).sort()) {
   legendHtml += '<div><span class="legend-sw" style="background:' + s.color + '"></span>' + s.label + '</div>';
 }
 legendHtml += '<div style="margin-top:4px;"><span class="legend-sw" style="background:#ff0000;opacity:.5;border-radius:2px;"></span>Wilderness / no-panning area</div>';
+legendHtml += '<div><span class="legend-sw" style="background:#1f77b4;border-radius:2px;"></span>Creeks &amp; rivers</div>';
+if (DAYS.length) {
+  legendHtml += '<div style="margin-top:4px;font-weight:600;">Selected-day route:</div>';
+  legendHtml += '<div><span class="legend-sw" style="background:' + DRIVE_COLOR + ';border-radius:2px;"></span>Drive leg</div>';
+  legendHtml += '<div><span class="legend-sw" style="background:' + WALK_COLOR + ';border-radius:2px;"></span>Walk leg</div>';
+  legendHtml += '<div><span class="legend-sw" style="background:repeating-linear-gradient(90deg,#7a5b00 0 3px,transparent 3px 7px);border-radius:2px;"></span>~ approximate geometry (dashed)</div>';
+}
 legendEl.innerHTML = legendHtml;
 
 // ---- side panel: filters + search + list ----

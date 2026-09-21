@@ -1,53 +1,1699 @@
 [
-  {"category":"stove","role":"group canister stove","tier":"budget","brand":"BRS","model":"BRS-3000T","weight_oz":0.9,"weight_note":"spec 25g/0.88oz; real-world with case ~1.0oz — widely confirmed by owners, lightest canister stove sold","price_usd":14.99,"price_url":"https://www.walmart.com/ip/911283406","used_price_range":"$10-13 (rarely resold, cheap enough people just buy new)","where_to_buy":["Amazon","Walmart","AliExpress"],"community_verdict":"The r/Ultralight/backpacking go-to budget stove for years; QC varies canister to canister (some arms crack) but at this price most consider it disposable/spare-worthy. Weak in wind, fine for a sheltered Oct GA camp.","verdict_sources":["https://www.backpacker.com/gear/ultralight-backpacking-canister-stove-brs-3000t/","https://www.walmart.com/ip/911283406"],"pros":["Absurdly light","Cheap enough to carry a spare"],"cons":["Flimsy pot supports","No wind protection/simmer control","QC variance reported"],"oct_ga_fit":"Fine for boiling water at a sheltered site; pair with a windscreen for cold mornings","beginner_score":3,"shared_split":6,"notes":"Group's single stove — his cost share $2.50 (1/6 of $14.99)"},
-  {"category":"stove","role":"group canister stove","tier":"value","brand":"Soto","model":"WindMaster (4Flex)","weight_oz":3.5,"weight_note":"stove 2.5oz + 4Flex 4-arm pot stand ~1oz, per Soto spec, matches independent reviews","price_usd":64.95,"price_url":"https://www.rei.com/product/128793/soto-windmaster-stove","used_price_range":"$40-50 (GearTrade/eBay)","where_to_buy":["REI","Amazon","Moosejaw"],"community_verdict":"Frequently cited on r/Ultralight as the stove people upgrade to and stop thinking about — genuinely wind-resistant micro-regulator burns clean in temps that choke a BRS. Best-in-class for cold/breezy fall camping.","verdict_sources":["https://www.rei.com/product/128793/soto-windmaster-stove"],"pros":["Excellent wind performance","Simmer control actually works","Reliable in cold"],"cons":["3-4x the price of a BRS","Still needs separate pot"],"oct_ga_fit":"Best pick of the three for low-30s mornings and any breeze at elevation","beginner_score":4,"shared_split":6,"notes":"Group's stove — his cost share $10.83"},
-  {"category":"stove","role":"group integrated stove system","tier":"premium","brand":"Jetboil","model":"Stash","weight_oz":7.1,"weight_note":"full kit (stove + 0.8L pot + optional stabilizer), per Jetboil spec — matches Halfway Anywhere 2025 PCT survey listing","price_usd":154.95,"price_url":"https://www.jetboil.com/products/stash-cooking-system","used_price_range":"$100-130 used","where_to_buy":["REI","Jetboil.com","Backcountry"],"community_verdict":"Rated the highest-scoring stove in the 2025 PCT Hiker Survey (790 respondents) — integrated system boils fast, is wind-resistant, and needs no separate pot, which is why serious hikers upgrade to it despite the price.","verdict_sources":["https://www.halfwayanywhere.com/trails/pacific-crest-trail/pct-hiker-survey-2025/"],"pros":["Fastest boil times","Very wind-resistant","All-in-one — no separate pot needed"],"cons":["Pricey","Less ideal for actual cooking (boil-only design)","Titanium pot not great for simmering rice etc."],"oct_ga_fit":"Overkill for one overnight but the clear 'never think about it again' pick if the group upgrades later","beginner_score":4,"shared_split":6,"notes":"If chosen, replaces the separate pot line too — group share $25.83"},
-  {"category":"cook pot","role":"group pot","tier":"budget","brand":"IMUSA / generic","model":"Aluminum camp pot ~1.5qt","weight_oz":6.0,"weight_note":"typical stamped-aluminum camp pot weight; EST from category norms, not individually spec-verified this session","price_usd":11.99,"price_url":"https://www.walmart.com/browse/camping-cookware","used_price_range":"$5-8","where_to_buy":["Walmart","Amazon"],"community_verdict":"Not titanium, but for one overnight with 6 people sharing meal-boiling duty, a $12 aluminum pot boils water exactly as well and nobody on r/WildernessBackpacking says non-UL pots matter for a single trip.","verdict_sources":["https://www.reddit.com/r/WildernessBackpacking/"],"pros":["Cheap","Good capacity for group boiling"],"cons":["Heavier than titanium","No insulated handle"],"oct_ga_fit":"Fine — group cooking is car-camp-adjacent for most meals, only the overnight leg needs it carried","beginner_score":5,"shared_split":6,"notes":"Group share $2.00"},
-  {"category":"cook pot","role":"group pot","tier":"value","brand":"TOAKS","model":"750ml Titanium Pot (POT-750-RS)","weight_oz":4.1,"weight_note":"TOAKS spec 4.1oz/116g, widely confirmed in reviews","price_usd":33.95,"price_url":"https://www.toakoutdoors.com/products/toaks-titanium-750ml-pot-with-bail-handle","used_price_range":"$22-28","where_to_buy":["Amazon","Walmart","REI","Toaks direct"],"community_verdict":"The default r/Ultralight pot recommendation — Treeline Review and multiple forums note near-zero quality difference between TOAKS, Snow Peak, and Evernew at this size, but TOAKS is consistently cheapest and easiest to find.","verdict_sources":["https://www.treelinereview.com/gearreviews/best-backpacking-cookpots","https://rokslide.com/forums/threads/titanium-mug-evernew-vs-toaks-vs-snow-peak.249715/"],"pros":["Very light","Boils 2 ramen packs","Nests with other TOAKS cookware"],"cons":["Bare handles get hot — needs potholder/glove","No insulation"],"oct_ga_fit":"Good group-boil size for 6 people's hot drinks/rehydrated meals on the overnight","beginner_score":4,"shared_split":6,"notes":"Group share $5.66"},
-  {"category":"cook pot","role":"group pot","tier":"premium","brand":"Evernew","model":"Titanium UL Pasta Pot (ECA267)","weight_oz":3.5,"weight_note":"manufacturer spec ~100g/3.5oz for the 0.9L pasta pot; increasingly hard to find due to reduced US distribution","price_usd":54.99,"price_url":"https://www.evernew-outdoor.jp/","used_price_range":"$35-45 (limited US stock)","where_to_buy":["Evernew Japan direct","occasional REI/Backcountry stock","eBay"],"community_verdict":"Long-time favorite among serious UL hikers for its insulated handles and slightly better pour spout; Treeline Review calls it a runner-up 'Best Upgrade' pick, but flags Evernew has cut back US distribution, making it harder to buy than TOAKS in 2026.","verdict_sources":["https://www.treelinereview.com/gearreviews/best-backpacking-cookpots"],"pros":["Insulated handles","Very light for the size","Good pour design"],"cons":["Hard to find in the US now","Pricier for marginal weight savings over TOAKS"],"oct_ga_fit":"Nice-to-have, not worth chasing down for one trip","beginner_score":3,"shared_split":6,"notes":"Group share $9.17 — flag as possibly discontinued/limited in US retail as of 2026"},
-  {"category":"fuel","role":"isobutane canister","tier":"budget","brand":"Coleman","model":"PowerMax 100g canister","weight_oz":7.4,"weight_note":"100g fuel + canister, ~7.4oz total per typical 100g canister spec","price_usd":5.97,"price_url":"https://www.walmart.com/browse/camping-fuel","used_price_range":"n/a (consumable)","where_to_buy":["Walmart","Amazon","Target"],"community_verdict":"Generic-brand isobutane/propane blend canisters perform identically to name brands for most people in above-freezing temps — the community consensus (r/Ultralight) is fuel brand matters far less than blend ratio and how cold it gets.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Cheap","Widely available"],"cons":["Blend ratio (butane-heavy) performs worse below ~20°F — not an issue for low-30s GA nights"],"oct_ga_fit":"One 100g canister easily covers 6 people boiling water twice for one overnight","beginner_score":5,"shared_split":6,"notes":"Group share $1.00 for one canister; carry a partial backup"},
-  {"category":"fuel","role":"isobutane canister","tier":"value","brand":"MSR","model":"IsoPro 8oz/227g canister","weight_oz":13.7,"weight_note":"manufacturer spec, 227g fuel","price_usd":10.95,"price_url":"https://www.rei.com/product/807823/msr-isopro-fuel","used_price_range":"n/a (consumable)","where_to_buy":["REI","MSR direct","Amazon"],"community_verdict":"MSR IsoPro's 80/20 isobutane/propane blend is a frequently cited 'just buy this' pick on r/Ultralight for reliable cold performance without paying JetBoil-brand prices.","verdict_sources":["https://www.rei.com/product/807823/msr-isopro-fuel"],"pros":["Reliable blend","Widely stocked at REI for last-minute buys"],"cons":["More fuel than one overnight needs — buy the smaller size instead"],"oct_ga_fit":"Good if also fueling car-camp stove runs; otherwise the 100g/4oz size is right-sized","beginner_score":5,"shared_split":6,"notes":"Group share $1.83; consider the 4oz can instead ($6-7) to match actual need"},
-  {"category":"fuel","role":"isobutane canister","tier":"premium","brand":"MSR","model":"IsoPro (same blend, cold-weather use case)","weight_oz":7.6,"weight_note":"4oz/113g canister spec","price_usd":6.95,"price_url":"https://www.rei.com/product/807823/msr-isopro-fuel","used_price_range":"n/a (consumable)","where_to_buy":["REI","MSR direct"],"community_verdict":"There isn't a meaningfully 'premium' canister fuel — community consensus is spend on the stove, not the gas. Listed here as the right-sized, reliable-blend option rather than a true upgrade tier.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Right size for a 6-person overnight","Reliable cold-blend"],"cons":["Same chemistry as the 'value' pick, just smaller"],"oct_ga_fit":"Matches the actual fuel need without hauling excess weight","beginner_score":5,"shared_split":6,"notes":"Group share $1.16; fuel is not a category worth upgrading — put the money into the stove instead"},
-  {"category":"eating utensil/cup","role":"personal spork/cup","tier":"budget","brand":"generic","model":"Titanium long-handled spork","weight_oz":0.6,"weight_note":"typical spec for generic Ti sporks sold on Amazon","price_usd":7.99,"price_url":"https://www.amazon.com/s?k=titanium+long+spork","used_price_range":"n/a","where_to_buy":["Amazon"],"community_verdict":"r/Ultralight consensus is any titanium long spoon/spork works fine; brand doesn't matter at this size, and many people just use a plastic spoon from home for free.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Cheap","Reaches bottom of freeze-dried meal pouches"],"cons":["Generic ones sometimes have sharp stamped edges"],"oct_ga_fit":"Fine — no functional need to spend more","beginner_score":5,"shared_split":1,"notes":"Personal item, no shared cost"},
-  {"category":"eating utensil/cup","role":"personal spork/cup","tier":"value","brand":"Sea to Summit","model":"Alpha Light Long Spoon","weight_oz":0.6,"weight_note":"manufacturer spec 17g/0.6oz","price_usd":9.95,"price_url":"https://www.seatosummit.com/products/alpha-light-long-spoon","used_price_range":"n/a","where_to_buy":["REI","Amazon","Sea to Summit direct"],"community_verdict":"Frequently recommended alongside TOAKS as a 'just buy once, forget about it' utensil — anodized colors help avoid losing it at camp, a small but often-mentioned plus in gear threads.","verdict_sources":["https://www.rei.com/product/885422/sea-to-summit-alpha-light-long-spoon"],"pros":["Smooth edges, no sharp stamping","Bright color, easy to spot"],"cons":["Spoon only, no fork tines"],"oct_ga_fit":"Good all-around pick","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"eating utensil/cup","role":"personal spork/cup","tier":"premium","brand":"Snow Peak","model":"Titanium Spork","weight_oz":0.6,"weight_note":"manufacturer spec ~17g","price_usd":14.50,"price_url":"https://www.snowpeak.com/products/spork-single-eat-105","used_price_range":"n/a","where_to_buy":["REI","Snow Peak direct","Backcountry"],"community_verdict":"The 'endgame' pick mostly for brand loyalty and fit/finish — functionally near-identical to the value pick, cited in gear threads as a nicer-feeling but not meaningfully better option.","verdict_sources":["https://www.rei.com/product/812345/snow-peak-titanium-spork"],"pros":["Nice fit and finish","Durable"],"cons":["Costs 45% more than the value pick for no functional gain"],"oct_ga_fit":"No real advantage for this trip over the value pick","beginner_score":5,"shared_split":1,"notes":"Skip this upgrade — put the money toward the water filter or bag instead"},
-  {"category":"water filter","role":"group filter","tier":"budget","brand":"Sawyer","model":"Squeeze (SP2129)","weight_oz":3.0,"weight_note":"Sawyer spec ~3oz for filter alone","price_usd":29.96,"price_url":"https://www.sawyer.com/products/squeeze-filter","used_price_range":"$18-22","where_to_buy":["REI","Amazon","Walmart","Sawyer direct"],"community_verdict":"The single most-used water filter on both the PCT and AT hiker surveys for years running; cheap, proven, 0.1-micron hollow-fiber removes bacteria/protozoa. IMPORTANT for this trip: Sawyer confirms freezing after first use can crack the membrane — must sleep with it in the bag on the low-30s night.","verdict_sources":["https://www.sawyer.com/faqs","https://backpackinglight.com/forums/topic/72830/"],"pros":["Cheap","Field-proven","Backflushable"],"cons":["Freezes and cracks if wetted and left out below 32°F — real risk on this trip's overnight night","Flow slows without regular backflushing"],"oct_ga_fit":"Works, but must be kept in a jacket pocket by day and in the sleeping bag at night per Sawyer's own guidance","beginner_score":4,"shared_split":6,"notes":"Group share $5.00"},
-  {"category":"water filter","role":"group filter","tier":"value","brand":"Katadyn","model":"BeFree 1.0L","weight_oz":2.3,"weight_note":"Katadyn spec 2.3oz filter+pouch","price_usd":44.95,"price_url":"https://www.katadyn.com/us/us/8018648-befree-1-0l","used_price_range":"$25-32","where_to_buy":["REI","Katadyn direct","Backcountry"],"community_verdict":"Popular 'bops for the price' pick for its much faster flow rate than Sawyer Squeeze — widely praised in threads for how little effort it takes to fill; complaints center on the soft flask pouch's durability over long-term use, less of a concern for a 6-day trip.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Fast flow, minimal squeeze effort","Light"],"cons":["Pouch material less durable long-term","Same freezing risk as any hollow-fiber filter — needs the same cold-night handling"],"oct_ga_fit":"Great for quickly refilling 6 people's bottles at a creek stop","beginner_score":4,"shared_split":6,"notes":"Group share $7.49; still needs to sleep in the bag on the cold night"},
-  {"category":"water filter","role":"group filter","tier":"premium","brand":"Grayl","model":"GeoPress","weight_oz":15.9,"weight_note":"manufacturer spec 15.9oz/450g — notably heavier than squeeze filters","price_usd":89.95,"price_url":"https://grayl.com/products/geopress","used_price_range":"$55-65","where_to_buy":["REI","Grayl direct","Backcountry"],"community_verdict":"Press-purify design (not just filter — removes viruses too) makes it a favorite for group water duty since one person can process a full 24oz for the group in ~10 seconds with no waiting or squeezing; the tradeoff cited constantly in reviews is the weight, which is why UL purists skip it but group/family trips like this often prefer it.","verdict_sources":["https://www.cleverhiker.com/backpacking/best-water-filters/"],"pros":["Fast, no squeezing needed for a group","Purifies (viruses too), good if sourcing sketchy water","No freeze-crack risk when stored empty/dry"],"cons":["Much heavier than a Sawyer/BeFree","Bulkier to pack"],"oct_ga_fit":"Good option specifically because it's shared among 6 — one GeoPress refills bottles fast at a single creek stop, and it's less fragile in cold than hollow-fiber filters if drained and dried","beginner_score":5,"shared_split":6,"notes":"Group share $14.99 — best pick if the group wants only ONE filter to manage vs risking a frozen Sawyer"},
-  {"category":"water bottles/bladders","role":"personal bottle","tier":"budget","brand":"Smartwater","model":"1L reused disposable bottle","weight_oz":1.6,"weight_note":"empty bottle weight, widely cited in UL community measurements","price_usd":1.50,"price_url":"https://www.walmart.com/ip/smartwater-1-liter/","used_price_range":"n/a (buy new, reuse)","where_to_buy":["any gas station/grocery"],"community_verdict":"The famous r/Ultralight hack — the narrow-mouth bottle fits Sawyer Squeeze threads directly, is tougher than most disposable bottles, and costs pennies; considered genuinely 'good enough,' not just a cheap compromise, by most of the community.","verdict_sources":["https://en.wikipedia.org/wiki/Glaceau_Smartwater","https://www.reddit.com/r/Ultralight/"],"pros":["Nearly free","Threads fit Sawyer filters directly","Tough enough for a season or two"],"cons":["Not reusable indefinitely — degrades with repeated squeeze/freeze cycles"],"oct_ga_fit":"Bring 2 per person; fine for the trip length","beginner_score":5,"shared_split":1,"notes":"Buy a couple extra full ones at a gas station the day before — cheapest water-carry system that exists"},
-  {"category":"water bottles/bladders","role":"personal bottle","tier":"value","brand":"HydraPak","model":"Stow 1L collapsible bottle","weight_oz":1.4,"weight_note":"manufacturer spec 1.4oz","price_usd":21.95,"price_url":"https://hydrapak.com/products/stow","used_price_range":"$12-16","where_to_buy":["REI","HydraPak direct","Amazon"],"community_verdict":"Praised in gear roundups for collapsing flat when empty (packs smaller than a Smartwater) while being far more durable and reusable than a disposable bottle — a common upgrade once people get tired of Smartwater bottles splitting.","verdict_sources":["https://slickdeals.net/f/19025173-14-hydrapak-stow-collapsible-backpacking-water-bottle-1-liter"],"pros":["Packs flat empty","Durable, reusable season after season","Wide mouth for easy filling/cleaning"],"cons":["Pricier than the free/near-free budget option"],"oct_ga_fit":"Good middle ground for a reusable system","beginner_score":4,"shared_split":1,"notes":""},
-  {"category":"water bottles/bladders","role":"personal bottle","tier":"premium","brand":"CNOC","model":"Vecto 2L","weight_oz":3.6,"weight_note":"manufacturer spec ~3.6oz for the 2L bag","price_usd":27.95,"price_url":"https://cnocoutdoors.com/products/vecto-2l-water-container","used_price_range":"$16-20","where_to_buy":["CNOC direct","Garage Grown Gear","Amazon"],"community_verdict":"The r/Ultralight favorite for anyone using a squeeze/gravity filter — the wide-mouth bag opens flat for easy dirty-water scooping from a shallow creek and screws directly onto a Sawyer/BeFree, which a Smartwater bottle can't do as cleanly for gravity setups.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Easy to scoop water from shallow sources","Doubles as a gravity-feed reservoir","Wide mouth, easy to clean/dry (mildew resistance)"],"cons":["Bulkier than a bottle when full","Costlier than needed for a 1-night trip"],"oct_ga_fit":"Nice if the group's water filter setup benefits from a wide-mouth scoop bag at a shallow gravel-bar creek","beginner_score":3,"shared_split":1,"notes":"Only worth it if pairing with the Sawyer/BeFree filter tiers above"},
-  {"category":"food storage","role":"group bear storage (backcountry night)","tier":"budget","brand":"DIY","model":"PCT-style bear hang kit (rope + stuff sack + carabiner)","weight_oz":6.0,"weight_note":"typical DIY kit weight — 50ft of paracord/Zpacks cord + food sack; EST from common DIY builds","price_usd":15.00,"price_url":"https://www.rei.com/c/paracord","used_price_range":"n/a","where_to_buy":["REI (rope/sack)","Amazon"],"community_verdict":"SectionHiker and Trek forum threads on Southeast/AT bear storage note hangs are still common where Ursacks/canisters aren't required, but effectiveness is inconsistent since Southeastern black bears in high-traffic areas are increasingly food-conditioned and skilled at defeating poor hangs.","verdict_sources":["https://sectionhiker.com/igbc-approved-bag-bag-and-bear-canister-comparison/","https://thetrek.co/appalachian-trail/food-storage-for-8-days-bear-bag-vs-bear-canister/"],"pros":["Nearly free if rope is already owned","No weight penalty beyond cordage"],"cons":["Effectiveness depends entirely on execution (right branch, right height/distance)","Community increasingly skeptical of hangs vs. Ursack/canister in bear-dense areas"],"oct_ga_fit":"Workable in Chattahoochee NF backcountry but riskier than an Ursack given known bear activity — only recommended if the group is confident finding a proper hang tree","beginner_score":2,"shared_split":6,"notes":"Group share $2.50 — lowest cost, highest skill requirement"},
-  {"category":"food storage","role":"group bear storage (backcountry night)","tier":"value","brand":"Ursack","model":"Major XL (with OPSak liner)","weight_oz":10.8,"weight_note":"Ursack Major ~7.8oz + OPSak liner ~1oz + typical XL upsizing; Ursack Major listed at 8.8oz in category roundups, XL slightly more","price_usd":109.90,"price_url":"https://ursack.com/products/ursack-major","used_price_range":"$55-70","where_to_buy":["Ursack direct","REI","Amazon"],"community_verdict":"CleverHiker and AT/PCT gear guides flag Ursack Major as the go-to lightweight, IGBC-listed alternative to hard canisters, especially favored where allowed (much of the Southeast). Community strongly recommends pairing with an OPSak odor liner since bears will still chew/crush contents even if they can't get in.","verdict_sources":["https://www.cleverhiker.com/backpacking/best-bear-canisters/","https://thetrek.co/bear-canisters-ursacks-or-bear-bags-on-the-appalachian-trail/"],"pros":["Much lighter/more packable than a hard canister","IGBC-approved","No tree/hang skill required — tie to a solid trunk"],"cons":["Not critter/rodent-proof (mice can chew in)","Contents can be crushed even though bears can't extract them","Not accepted in every jurisdiction (fine for GA NF backcountry)"],"oct_ga_fit":"Best real-world match for this trip — Southeast forums consistently cite Ursack as what most GA/AT-area backpackers actually carry over hard canisters","beginner_score":4,"shared_split":6,"notes":"Group share $18.32; this is the pick most aligned with what experienced Southeast hikers use"},
-  {"category":"food storage","role":"group bear storage (backcountry night)","tier":"premium","brand":"BearVault","model":"BV500","weight_oz":41.0,"weight_note":"manufacturer/retailer spec ~2lb 9oz (41oz)","price_usd":99.95,"price_url":"https://www.bearvault.com/product/bv500/","used_price_range":"$55-70","where_to_buy":["REI","BearVault direct","Backcountry"],"community_verdict":"CleverHiker's long-term top pick for hard canisters after 100k miles of testing — bear- AND rodent-proof, doubles as a camp stool, and is required gear in many national parks. Serious hikers who've had a hang or Ursack fail (or who hike areas that mandate canisters) upgrade to this.","verdict_sources":["https://www.cleverhiker.com/backpacking/best-bear-canisters/"],"pros":["Fully bear- and rodent-proof","See-through body, easy to check contents","Required-gear compliant everywhere"],"cons":["Much heavier and bulkier than Ursack","Awkward to pack inside a smaller 45-55L bag"],"oct_ga_fit":"Overkill for one GA overnight where Ursack is the community norm, but the right call if the group ever backpacks somewhere canisters are mandated","beginner_score":4,"shared_split":6,"notes":"Group share $16.66; not necessary for this specific trip"},
-  {"category":"headlamp","role":"personal headlamp","tier":"budget","brand":"Petzl","model":"Tikkina","weight_oz":2.9,"weight_note":"Petzl spec 82g/2.9oz including batteries","price_usd":19.95,"price_url":"https://www.petzl.com/US/en/Sport/headlamps/TIKKINA","used_price_range":"$10-14","where_to_buy":["REI","Petzl direct","Amazon","Walmart"],"community_verdict":"CleverHiker's budget pick — 250 lumens is plenty for camp chores and short trail walking, and Petzl's reliability at this price beats generic no-name headlamps that show up in gear-fail threads.","verdict_sources":["https://www.cleverhiker.com/backpacking/best-hiking-backpacking-camping-headlamps/"],"pros":["Reliable brand at low price","Simple one-button operation"],"cons":["AAA batteries only, no rechargeable option","Lower max brightness"],"oct_ga_fit":"Fine for camp/tent use and a short evening walk","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"headlamp","role":"personal headlamp","tier":"value","brand":"Black Diamond","model":"Spot 400","weight_oz":3.0,"weight_note":"Black Diamond spec ~90g/3.2oz with batteries; commonly listed ~3oz","price_usd":44.95,"price_url":"https://www.blackdiamondequipment.com/en_US/spot-400-headlamp-BD6206.html","used_price_range":"$22-28","where_to_buy":["REI","Black Diamond direct","Amazon","Backcountry"],"community_verdict":"CleverHiker's overall Best Overall pick for 2026 — 400 lumens, fully waterproof (IPX8), and consistently the headlamp recommended across gear forums as the best balance of price and performance.","verdict_sources":["https://www.cleverhiker.com/backpacking/best-hiking-backpacking-camping-headlamps/"],"pros":["Fully waterproof","Great lumens-per-dollar","Red night-vision mode"],"cons":["AAA only (no built-in rechargeable)"],"oct_ga_fit":"Great all-around choice, handles rain/dew without concern","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"headlamp","role":"personal headlamp","tier":"premium","brand":"Nitecore","model":"NU25 (rechargeable)","weight_oz":1.75,"weight_note":"Nitecore spec ~48g/1.7oz — notably lighter than AAA headlamps since it's built-in rechargeable","price_usd":54.95,"price_url":"https://flashlight.nitecore.com/product/nu25","used_price_range":"$32-40","where_to_buy":["Nitecore direct","Amazon","REI"],"community_verdict":"A frequent r/Ultralight 'this is what I switched to' headlamp — much lighter than AAA competitors since there's no battery compartment bulk, USB-C rechargeable (pairs well with the power bank tier below), and 400 lumens is plenty.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Lightest of the three","USB-C rechargeable, no spare batteries needed","Compact"],"cons":["No swappable batteries if it dies mid-trip — needs the power bank as backup"],"oct_ga_fit":"Good pairing with a power bank for a no-cell-signal trip where recharging via bank is the only option","beginner_score":4,"shared_split":1,"notes":"Bring the power bank to recharge it if the trip runs long"},
-  {"category":"power bank","role":"personal power bank","tier":"budget","brand":"Anker","model":"PowerCore Slim 10000","weight_oz":6.3,"weight_note":"Anker spec ~180g/6.3oz","price_usd":23.99,"price_url":"https://www.anker.com/products/a1229-powercore-slim-10000","used_price_range":"$14-18","where_to_buy":["Anker direct","Amazon","Target"],"community_verdict":"Cited as the budget-conscious pick in 2026 power bank roundups — Anker's build quality and long warranty make it the safe cheap choice even though it's heavier than dedicated UL banks.","verdict_sources":["https://www.cleverhiker.com/backpacking/best-power-banks/"],"pros":["Reliable, well-reviewed brand","18-month warranty"],"cons":["3+ oz heavier than the UL-focused options"],"oct_ga_fit":"Enough capacity to recharge a phone ~2x and a headlamp once for the trip length","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"power bank","role":"personal power bank","tier":"value","brand":"Nitecore","model":"NB10000 Gen 3","weight_oz":5.1,"weight_note":"Nitecore spec ~144g/5.1oz","price_usd":54.95,"price_url":"https://flashlight.nitecore.com/product/nb10000-gen3","used_price_range":"$32-40","where_to_buy":["Nitecore direct","Amazon","REI"],"community_verdict":"Repeatedly named the best weight-to-capacity power bank for thru-hikers in 2026 gear roundups — real 10,000mAh in a genuinely light shell, widely recommended over generic banks that overstate capacity.","verdict_sources":["https://www.cleverhiker.com/backpacking/best-power-banks/","https://www.adventurealan.com/best-backpacking-battery-pack/"],"pros":["Best-in-class weight for real 10,000mAh","Dual USB-C"],"cons":["Costs more than double the budget pick"],"oct_ga_fit":"Solid for the group's phones/inReach/headlamps over the trip length","beginner_score":4,"shared_split":1,"notes":""},
-  {"category":"power bank","role":"personal power bank","tier":"premium","brand":"Nitecore","model":"NB10000 Gen 4","weight_oz":5.0,"weight_note":"manufacturer press release claims 143g/5.0oz with improved IPX7 rating","price_usd":59.95,"price_url":"https://flashlight.nitecore.com/product/nb10000-gen4","used_price_range":"n/a (new for 2026)","where_to_buy":["Nitecore direct","Amazon"],"community_verdict":"The newest Gen4 release (announced Feb 2026) shaves a bit more weight and adds better waterproofing over Gen3 — early gear-roundup mentions call it a marginal but real upgrade for anyone buying new in 2026.","verdict_sources":["https://tools.prnewswire.com/en-us/live/20823/release/20260205EN78486"],"pros":["Lightest Nitecore 10K bank yet","Improved water resistance (IPX7)"],"cons":["New model — less track record than Gen3","Small gain over Gen3 for the price difference"],"oct_ga_fit":"Nice-to-have but Gen3 (value tier) is functionally the same for this trip","beginner_score":4,"shared_split":1,"notes":"Not a meaningful upgrade for a 6-day trip — Gen3 is the better value"},
-  {"category":"satellite messenger","role":"group satellite messenger","tier":"budget","brand":"Garmin","model":"inReach Mini 2 (weekly rental)","weight_oz":3.5,"weight_note":"Garmin spec 3.5oz for the device itself; rental means no ownership weight/cost beyond the trip","price_usd":100.00,"price_url":"https://www.outfittersatellite.com/pages/garmin-inreach-mini-2-rentals","used_price_range":"n/a (rental)","where_to_buy":["Outfitter Satellite","REI rental (select stores)"],"community_verdict":"Renting for a single trip is the community-recommended move for occasional backpackers — Hunt Talk and gear forums consistently say buying a $300-350 device plus a monthly plan doesn't pencil out for a once-or-twice-a-year trip.","verdict_sources":["https://www.outfittersatellite.com/pages/garmin-inreach-mini-2-rentals","https://www.hunttalk.com/threads/garmin-inreach-or-zoleo.328342/"],"pros":["No upfront device cost","No ongoing subscription commitment","Full inReach 2-way messaging + SOS"],"cons":["Costs about as much as buying a cheaper device if the group hikes again soon","Rental logistics (shipping/return window) need planning ahead"],"oct_ga_fit":"Ideal for a one-off trip — no cell signal in the Chattahoochee backcountry makes this non-negotiable, but ownership isn't justified for occasional use","beginner_score":4,"shared_split":6,"notes":"Group share $16.67 — matches existing plan in gear.md"},
-  {"category":"satellite messenger","role":"group satellite messenger","tier":"value","brand":"ZOLEO","model":"Satellite Communicator","weight_oz":5.4,"weight_note":"ZOLEO manufacturer spec ~155g/5.4oz","price_usd":199.99,"price_url":"https://www.zoleo.com/products/zoleo-satellite-communicator","used_price_range":"$110-140","where_to_buy":["ZOLEO direct","REI","Amazon"],"community_verdict":"Cheaper device than any current Garmin, and its Basic plan ($20/mo) is the least expensive ongoing subscription among the three; AdventureAlan and Hunt Talk threads note ZOLEO's dedicated phone number is the easiest for non-hiker family members to text back and forth with.","verdict_sources":["https://www.adventurealan.com/best-satellite-communicator-zoleo-vs-inreach/","https://www.hunttalk.com/threads/garmin-inreach-or-zoleo.328342/"],"pros":["Lowest device price of real 2-way satellite communicators","Dedicated phone number, easiest for non-outdoorsy contacts","Cheapest monthly plan"],"cons":["No standalone screen — fully dependent on a paired phone app","Weaker standalone navigation features than Garmin"],"oct_ga_fit":"Works fine for SOS + check-in texting on the overnight; phone-dependent is an acceptable tradeoff since the group has phones anyway","beginner_score":4,"shared_split":6,"notes":"Group share $33.33 if bought outright for this trip only — buy used or via a return-window purchase to cut this down"},
-  {"category":"satellite messenger","role":"group satellite messenger","tier":"premium","brand":"Garmin","model":"inReach Mini 2 (owned, Safety plan)","weight_oz":3.5,"weight_note":"Garmin spec 3.5oz","price_usd":349.99,"price_url":"https://www.rei.com/product/208257/garmin-inreach-mini-2","used_price_range":"$220-260","where_to_buy":["REI","Garmin direct","Backcountry"],"community_verdict":"The most-recommended standalone satellite device across r/Ultralight, r/WildernessBackpacking, and hunting forums — has its own GPS/mapping screen (via paired app or on compatible watches), longest track record, and the Safety plan (~$14.95/mo, pause/cancel anytime) makes ownership reasonable for a group that expects to keep doing backcountry trips.","verdict_sources":["https://www.treelinereview.com/gearreviews/garmin-inreach-mini-2-review","https://www.hunttalk.com/threads/garmin-inreach-or-zoleo.328342/"],"pros":["Best track record/reliability reputation","Standalone tracking + SOS without phone dependency","Flexible monthly plan, cancel between trips"],"cons":["Highest device price of the three tiers","Tiny screen, mostly used paired to a phone anyway"],"oct_ga_fit":"The right buy if the group plans more backcountry trips beyond this one — otherwise renting (budget tier) is more cost-effective for a single trip","beginner_score":4,"shared_split":6,"notes":"Group share $58.33 to buy outright; note price rose from ~$300 to $349.99 at REI as of this search — confirm current price before buying"},
-  {"category":"phone navigation app","role":"personal navigation app","tier":"budget","brand":"CalTopo","model":"Free account + printed topo","weight_oz":0,"weight_note":"n/a — software; printed map ~1oz on paper","price_usd":0,"price_url":"https://caltopo.com/","used_price_range":"n/a","where_to_buy":["caltopo.com"],"community_verdict":"CalTopo's free tier covers everything needed to plan and print a route (topo, forest service roads, property boundaries); community consensus across backpacking forums is print-and-carry beats relying on any phone app alone in a no-signal area, since a printed map never dies or loses GPS lock.","verdict_sources":["https://backpackinglight.com/forums/topic/navigation-apps-are-changing-all-the-time-have-you-compared-them-recently/"],"pros":["Completely free","No battery dependency once printed","Excellent free layer selection (USFS roads, slope angle, etc.)"],"cons":["Printed map isn't updated live","No crowd-sourced trail conditions"],"oct_ga_fit":"Print + laminate before leaving cell range — matches the existing plan's recommendation exactly","beginner_score":3,"shared_split":1,"notes":"Pairs well with a phone app as backup for the person carrying the satellite messenger"},
-  {"category":"phone navigation app","role":"personal navigation app","tier":"value","brand":"Gaia GPS","model":"Premium subscription","weight_oz":0,"weight_note":"n/a — software","price_usd":39.99,"price_url":"https://www.gaiagps.com/premium/","used_price_range":"n/a","where_to_buy":["gaiagps.com","App Store","Google Play"],"community_verdict":"Named the deepest map-layer / most reliable offline app in 2026 hiking-app comparisons — a common pick among backpackers who want more than a printed map but don't need FarOut's thru-hike-specific crowd data.","verdict_sources":["https://hikinglifes.com/Guides%20and%20Tips/from-free-to-pro-13-best-gps-navigation-tools-for-hikers.html","https://exploroff.com/hiking-guides/hiking-gps-apps"],"pros":["Deep offline map layer options (USFS, slope angle, satellite)","Rock-solid offline GPS tracking"],"cons":["Annual subscription","Overkill feature set for a single short trip"],"oct_ga_fit":"Good backup to the printed map if someone already has it or wants ongoing use beyond this trip","beginner_score":4,"shared_split":1,"notes":""},
-  {"category":"phone navigation app","role":"personal navigation app","tier":"premium","brand":"FarOut","model":"Regional trail guide (per-trail purchase)","weight_oz":0,"weight_note":"n/a — software","price_usd":14.99,"price_url":"https://faroutguides.com/","used_price_range":"n/a","where_to_buy":["faroutguides.com","App Store","Google Play"],"community_verdict":"The clear favorite among long-distance/thru-hikers for crowd-sourced water source, campsite, and trail-condition comments layered directly on the map — Trek/CleverHiker roundups consistently call it the most useful app for real-time trail intel where signal is unavailable (offline once downloaded).","verdict_sources":["https://thetrek.co/comparing-gps-platforms-for-hiking-and-backpacking/"],"pros":["Crowd-sourced water/campsite comments, huge value in a dry/uncertain water year","Fully offline once the region is downloaded"],"cons":["Coverage and comment density depends on how popular the specific trail is — a lesser-used GA forest road route may have sparse crowd data","One-time per-region purchase, not a universal subscription"],"oct_ga_fit":"Worth checking if the specific GA route/trail has FarOut coverage before buying — if it's an obscure forest road not in their database, Gaia or CalTopo is the better spend","beginner_score":4,"shared_split":1,"notes":"Verify trail coverage exists for the specific route before purchasing"},
-  {"category":"knife/multitool","role":"personal knife","tier":"budget","brand":"Opinel","model":"No.8 Carbon/Stainless folding knife","weight_oz":1.6,"weight_note":"Opinel spec ~45g/1.6oz for the No.8","price_usd":19.95,"price_url":"https://www.opinel-usa.com/products/no-08-stainless-steel","used_price_range":"$10-14","where_to_buy":["Opinel direct","REI","Amazon"],"community_verdict":"A classic minimalist pick referenced across backpacking gear lists for decades — simple, sharp, reliable lockback, no bells and whistles, and far lighter than most multitools.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Very light","Takes and holds a good edge","Cheap"],"cons":["No additional tools (no pliers/scissors)","Carbon steel version needs oiling to avoid rust"],"oct_ga_fit":"Enough for food prep and gear repairs; not a multitool if pliers are needed for other camp tasks","beginner_score":4,"shared_split":1,"notes":""},
-  {"category":"knife/multitool","role":"personal knife","tier":"value","brand":"Leatherman","model":"Wingman","weight_oz":7.2,"weight_note":"Leatherman spec 7.2oz/204g","price_usd":44.95,"price_url":"https://www.leatherman.com/wingman-832524.html","used_price_range":"$28-35","where_to_buy":["Leatherman direct","REI","Amazon","Walmart"],"community_verdict":"Frequently cited as the best value multitool for campers/car-camp-adjacent trips — has pliers, scissors, and a full driver set at a fraction of the price of Leatherman's premium line, with the same 25-year warranty.","verdict_sources":["https://www.reddit.com/r/CampingGear/"],"pros":["Real pliers and scissors, not just a knife blade","25-year Leatherman warranty","Good price for the tool count"],"cons":["Heavier than a plain folding knife","Outside-accessible blade only (spring-loaded tools need two hands)"],"oct_ga_fit":"Good all-rounder for base camp tasks (firewood, cooking, gear fixes) as well as the overnight","beginner_score":4,"shared_split":1,"notes":""},
-  {"category":"knife/multitool","role":"personal knife","tier":"premium","brand":"Leatherman","model":"Skeletool CX","weight_oz":5.0,"weight_note":"Leatherman spec 5.0oz/142g","price_usd":99.95,"price_url":"https://www.leatherman.com/skeletool-cx-832180.html","used_price_range":"$65-80","where_to_buy":["Leatherman direct","REI","Backcountry"],"community_verdict":"The multitool serious backpackers upgrade to — stripped-down tool selection (knife, pliers, bit driver, bottle opener) keeps weight down versus a full-size multitool while keeping the tools people actually use; widely recommended on r/Ultralight over bulkier all-in-one tools.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Lighter than most full multitools","One-hand-opening knife blade","Premium materials (carbon fiber scales, S30V-ish blade steel line)"],"cons":["Fewer tools than the Wingman (no scissors)","Pricier"],"oct_ga_fit":"Great if the Captain wants one tool to keep long-term across future trips","beginner_score":4,"shared_split":1,"notes":""},
-  {"category":"first aid kit","role":"group first aid (overnight-size)","tier":"budget","brand":"DIY","model":"Build-your-own kit (gauze, tape, meds, moleskin, blister care)","weight_oz":4.0,"weight_note":"EST — typical DIY minimal kit weight for group use; not individually itemized/weighed this session","price_usd":22.00,"price_url":"https://www.rei.com/c/first-aid","used_price_range":"n/a","where_to_buy":["Walmart","CVS/pharmacy","REI (component pieces)"],"community_verdict":"Backcountry-gear blogs and r/Ultralight consistently argue a DIY kit tailored to the actual trip (group size, trip length, known allergies) beats a generic prepackaged kit for both cost-per-use and relevance — the tradeoff is time spent assembling it correctly.","verdict_sources":["https://www.goodreads.com/author_blog_posts/19476964-gear-list-backpacking-first-aid-kit-for-soloists-groups"],"pros":["Cheapest per real supply included","Exactly matches the group's actual needs/allergies"],"cons":["Requires research/assembly time","Easy to forget something a commercial kit wouldn't"],"oct_ga_fit":"Workable for an experienced group member willing to assemble it properly ahead of time","beginner_score":2,"shared_split":6,"notes":"Group share $3.67 — riskiest tier for a first-time group unless someone has real first-aid knowledge"},
-  {"category":"first aid kit","role":"group first aid (overnight-size)","tier":"value","brand":"Adventure Medical Kits","model":"Ultralight/Watertight .7","weight_oz":4.4,"weight_note":"AMK spec 4.4oz","price_usd":31.95,"price_url":"https://adventuremedicalkits.com/products/ultralight-watertight-7","used_price_range":"$18-24","where_to_buy":["REI","AMK direct","Amazon","Backcountry"],"community_verdict":"A frequently recommended 'good enough, don't overthink it' commercial kit for small groups — pre-organized, waterproof pouch, and covers the common injury scenarios (blisters, cuts, minor sprains) without excess bulk.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Pre-organized and labeled — fast to use under stress","Waterproof pouch","Reasonably light for what's included"],"cons":["Contents skew toward minor injuries, not built for 6 people over multiple days"],"oct_ga_fit":"A reasonable base kit but consider supplementing with extra blister care/meds given the group size of 6","beginner_score":4,"shared_split":6,"notes":"Group share $5.33"},
-  {"category":"first aid kit","role":"group first aid (overnight-size)","tier":"premium","brand":"Adventure Medical Kits","model":"Mountain Series Explorer","weight_oz":16.0,"weight_note":"AMK spec/listing; built for 4 people/7 days per AMK product description, oversized for 6/1-night but most complete","price_usd":74.95,"price_url":"https://adventuremedicalkits.com/products/mountain-series-medical-kit-explorer","used_price_range":"$45-55","where_to_buy":["REI","Target","AMK direct"],"community_verdict":"Same kit already selected for base camp in the existing trip plan — the community-recommended 'built for a group' commercial option, with enough supplies and instructions (including a mini field guide) to handle more than blister care.","verdict_sources":["https://adventuremedicalkits.com/products/mountain-series-medical-kit-explorer"],"pros":["Actually sized for a group over multiple days","Includes basic trauma/wound care beyond blister-level injuries","Includes a first-aid field guide"],"cons":["Heavy/bulky for carrying on the overnight leg specifically — better suited to stay at base camp"],"oct_ga_fit":"Keep this one at base camp (as the existing plan does) and carry the value-tier AMK Ultralight .7 on the overnight leg","beginner_score":4,"shared_split":6,"notes":"Group share $12.49 — matches existing gear.md pick for base camp"},
-  {"category":"toiletries/trowel","role":"personal trowel + hygiene kit","tier":"budget","brand":"Coghlan's","model":"Plastic trowel + basic hygiene bag","weight_oz":2.0,"weight_note":"typical plastic trowel weight ~1.5oz + small TP/sanitizer bag ~0.5oz, EST from category norms","price_usd":8.00,"price_url":"https://www.rei.com/c/first-aid","used_price_range":"n/a","where_to_buy":["Walmart","Amazon","REI"],"community_verdict":"Plenty of forum posts note a $4 plastic trowel digs a perfectly adequate 6-8in cathole — no functional need for titanium unless weight-obsessed; LNT compliance matters far more than trowel material.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Cheap","Digs a fine cathole in GA's loamy forest soil"],"cons":["Bulkier/heavier than titanium options","Plastic can crack on rocky ground"],"oct_ga_fit":"Fine for one overnight in soft forest soil","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"toiletries/trowel","role":"personal trowel + hygiene kit","tier":"value","brand":"GSI Outdoors","model":"Cathole Trowel","weight_oz":2.4,"weight_note":"manufacturer spec ~2.4oz","price_usd":9.95,"price_url":"https://www.gsioutdoors.com/cathole-trowel","used_price_range":"$5-7","where_to_buy":["REI","GSI direct","Amazon"],"community_verdict":"A commonly recommended mid-price trowel — serrated edge handles roots better than a smooth plastic trowel, and it's cheap enough that the upgrade over budget is easy to justify.","verdict_sources":["https://www.rei.com/product/752345/gsi-outdoors-cathole-trowel"],"pros":["Serrated edge cuts through roots","Durable enough for repeated trips"],"cons":["Marginal weight/price difference from budget tier"],"oct_ga_fit":"Good middle choice","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"toiletries/trowel","role":"personal trowel + hygiene kit","tier":"premium","brand":"TheTentLab","model":"The Deuce of Spades #2 (titanium)","weight_oz":0.6,"weight_note":"manufacturer spec ~17g/0.6oz for the #2 model","price_usd":24.95,"price_url":"https://www.thetentlab.com/collections/the-deuce","used_price_range":"$16-20","where_to_buy":["TheTentLab direct","REI","Garage Grown Gear"],"community_verdict":"The single most-referenced trowel upgrade on r/Ultralight — practically a meme at this point ('the Deuce'), titanium build is nearly indestructible at a fraction of the weight of any plastic trowel.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Extremely light","Very durable titanium build","Small enough to disappear in a pack pocket"],"cons":["Costs 2-3x a plain plastic trowel for a functionally similar hole"],"oct_ga_fit":"Nice but not necessary for one trip — worth it if this becomes a recurring hobby","beginner_score":4,"shared_split":1,"notes":""},
-  {"category":"trekking poles","role":"personal trekking poles","tier":"budget","brand":"TrailBuddy","model":"Aluminum adjustable trekking poles (pair)","weight_oz":18.0,"weight_note":"typical aluminum adjustable pole pair weight per category comparisons; EST from category norms","price_usd":35.99,"price_url":"https://www.amazon.com/s?k=trailbuddy+trekking+poles","used_price_range":"$15-22","where_to_buy":["Amazon","Walmart"],"community_verdict":"Cited in trekking pole roundups as an acceptable entry-level aluminum pole — heavier than carbon options but more impact-resistant (aluminum bends rather than snaps), which some beginners prefer for a first trip.","verdict_sources":["https://camplabx.com/reviews/best-trekking-poles/"],"pros":["Cheap","Aluminum bends instead of snapping under side load"],"cons":["Noticeably heavier than carbon options"],"oct_ga_fit":"Fine for a 3-5 mile trail with moderate elevation change","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"trekking poles","role":"personal trekking poles","tier":"value","brand":"Cascade Mountain Tech","model":"Carbon Fiber Quick Lock (pair)","weight_oz":8.1,"weight_note":"per CleverHiker/OutdoorGearLab testing, 8.1oz for the pair","price_usd":51.98,"price_url":"https://www.cleverhiker.com/backpacking/cascade-mountain-tech-carbon-fiber-quick-lock-review/","used_price_range":"$28-38","where_to_buy":["Costco","Amazon","Cascade Mountain Tech direct"],"community_verdict":"Repeatedly called out as the best budget carbon pole — cork grips and tungsten tips usually found on $100+ poles, and performs close to premium carbon poles for a fraction of the price; the known knock is quick-lock levers occasionally slipping under heavy load, per CleverHiker and Andrew Skurka's long-term reviews.","verdict_sources":["https://www.cleverhiker.com/backpacking/cascade-mountain-tech-carbon-fiber-quick-lock-review/","https://andrewskurka.com/cascade-mountain-tech-quick-lock-trekking-poles-review/"],"pros":["Genuinely light carbon shaft at aluminum-budget pricing","Cork grips, tungsten carbide tips"],"cons":["Lever locks can slip under load — check tension before descents"],"oct_ga_fit":"Great pick for moderate GA trail terrain; check lock tension before the trip","beginner_score":4,"shared_split":1,"notes":""},
-  {"category":"trekking poles","role":"personal trekking poles","tier":"premium","brand":"Black Diamond","model":"Distance Carbon Z (pair)","weight_oz":10.9,"weight_note":"Black Diamond spec ~10.9oz/310g per pair (folding Z-pole design)","price_usd":189.95,"price_url":"https://www.blackdiamondequipment.com/en_US/distance-carbon-z-trekking-poles-BD1125.html","used_price_range":"$110-140","where_to_buy":["REI","Black Diamond direct","Backcountry"],"community_verdict":"A common endgame upgrade cited on r/Ultralight — folding Z-pole design packs down small (good for stowing when panning/using hands), and the fixed-length carbon shaft is both light and reliably rigid, avoiding the lock-slip complaints leveled at budget quick-lock poles.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Folds very small — easy to stash while panning","Reliable, no lock-slip issue","Genuinely light"],"cons":["Expensive","Fixed length per pole size (less adjustable than telescoping poles)"],"oct_ga_fit":"Nice if poles need to be quickly stowed for creek panning work, but not required for this trip","beginner_score":3,"shared_split":1,"notes":""},
-  {"category":"sit pad","role":"personal sit pad","tier":"budget","brand":"DIY","model":"Cut piece of leftover closed-cell foam pad","weight_oz":1.0,"weight_note":"EST — small cut piece of CCF foam, typical DIY weight","price_usd":0,"price_url":"https://www.rei.com/c/sleeping-pads","used_price_range":"n/a","where_to_buy":["scrap from any CCF sleeping pad"],"community_verdict":"A near-universal r/Ultralight DIY move — cut a small rectangle off a cheap CCF foam pad (or a leftover packaging foam scrap) instead of buying a dedicated sit pad; costs nothing and works identically.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Free if any CCF foam is on hand","Zero functional downside vs. a bought pad"],"cons":["Less polished/finished edges than a purpose-made pad"],"oct_ga_fit":"Perfectly fine for sitting on cold/wet ground at the creek or camp","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"sit pad","role":"personal sit pad","tier":"value","brand":"Therm-a-Rest","model":"Z Seat","weight_oz":2.0,"weight_note":"Therm-a-Rest spec 2oz/56g","price_usd":19.95,"price_url":"https://www.thermarest.com/sleeping-pads/accessories/z-seat/09632.html","used_price_range":"$10-14","where_to_buy":["REI","Therm-a-Rest direct","Amazon"],"community_verdict":"The classic, most-owned dedicated sit pad in the backpacking community — reflective aluminized coating adds a bit of ground insulation, folds compactly, and rarely gets 'upgraded away from' even by serious UL hikers.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Reflective layer adds real ground insulation","Compact accordion fold","Durable"],"cons":["Costs money for something a foam scrap does for free"],"oct_ga_fit":"Good for sitting on cold/wet gravel bars while panning","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"sit pad","role":"personal sit pad","tier":"premium","brand":"Gossamer Gear","model":"1/8in Thinlight Foam Pad (full torso, multi-use)","weight_oz":2.8,"weight_note":"Gossamer Gear spec ~2.8oz for the torso-length piece","price_usd":22.50,"price_url":"https://www.gossamergear.com/products/thinlight-foam-pad","used_price_range":"$12-16","where_to_buy":["Gossamer Gear direct","Garage Grown Gear"],"community_verdict":"The multi-use pick long-distance UL hikers reach for — a full torso-length pad that doubles as a frameless-pack stiffener/frame sheet AND a sit pad/extra sleeping insulation, rather than carrying a dedicated single-purpose sit pad.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Multi-use — pack frame, sit pad, extra sleep insulation","Full torso length gives more usable sitting/kneeling area"],"cons":["Not a true 'premium' single-purpose product — only worth it if also using a frameless pack"],"oct_ga_fit":"Most useful if the pack chosen is frameless and benefits from a stiffener; otherwise the Z Seat (value tier) is simpler for this trip","beginner_score":3,"shared_split":1,"notes":""},
-  {"category":"camp shoes","role":"personal camp/creek shoes","tier":"budget","brand":"generic","model":"Foam slide sandals","weight_oz":6.0,"weight_note":"typical foam slide pair weight, EST from category norms","price_usd":9.99,"price_url":"https://www.walmart.com/browse/shoes","used_price_range":"n/a","where_to_buy":["Walmart","Target","Amazon"],"community_verdict":"Cheap foam slides show up constantly in camp-shoe threads as the 'why spend more' option for just giving your feet a break at camp — functional but not great for wet, uneven creek terrain.","verdict_sources":["https://www.reddit.com/r/CampingGear/"],"pros":["Very cheap","Lets feet dry out and breathe at camp"],"cons":["Poor traction on wet rocks/gravel","Not secure enough for creek walking"],"oct_ga_fit":"Fine for around the tent, not recommended for the creek itself (use the dedicated neoprene-sock+sneaker creek setup instead)","beginner_score":4,"shared_split":1,"notes":"Keep separate from the Kit 3 creek-panning footwear already planned"},
-  {"category":"camp shoes","role":"personal camp/creek shoes","tier":"value","brand":"Crocs","model":"Classic Clog","weight_oz":12.0,"weight_note":"typical Crocs Classic Clog pair weight per size, widely cited around 11-13oz","price_usd":49.99,"price_url":"https://www.crocs.com/p/classic-clog/10001.html","used_price_range":"$18-25","where_to_buy":["Crocs direct","REI","Amazon","DSW"],"community_verdict":"An extremely common sight at trail camps and thru-hiker resupply stops — secure heel strap option, decent tread, and comfortable enough to wear for hours at camp; frequently the top community 'bops for the price' camp shoe pick across UL and general backpacking forums.","verdict_sources":["https://www.reddit.com/r/Ultralight/","https://www.reddit.com/r/backpacking/"],"pros":["Comfortable, breathable","Secure with the heel strap down","Iconic on-trail camp shoe"],"cons":["Heavier/bulkier than minimalist sandals","Tread is mediocre on wet rock compared to purpose-built water sandals"],"oct_ga_fit":"Good for base camp and around the tent after the panning-specific footwear comes off","beginner_score":5,"shared_split":1,"notes":""},
-  {"category":"camp shoes","role":"personal camp/creek shoes","tier":"premium","brand":"Xero Shoes","model":"Z-Trail sandal","weight_oz":8.8,"weight_note":"Xero Shoes spec ~8.8oz per pair (size-dependent)","price_usd":69.99,"price_url":"https://xeroshoes.com/shop/z-trail-mens/","used_price_range":"$35-45","where_to_buy":["Xero Shoes direct","REI","Amazon"],"community_verdict":"The minimalist-sandal pick serious UL/thru-hikers reach for over Crocs — lighter, better secured with adjustable straps, and grippier tread for wet creek rock, at the cost of less cushioning than Crocs for just lounging at camp.","verdict_sources":["https://www.reddit.com/r/Ultralight/"],"pros":["Lighter than Crocs","Adjustable straps stay secure on uneven creek terrain","Better wet-rock traction"],"cons":["Minimal cushioning — less comfortable than Crocs for just relaxing at camp","Pricier"],"oct_ga_fit":"Good dual-purpose option for both camp lounging and light creek wading (though the dedicated neoprene-sock setup in Kit 3 is still better for extended cold-water panning)","beginner_score":4,"shared_split":1,"notes":""}
+  {
+    "category": "stove",
+    "role": "group canister stove",
+    "tier": "budget",
+    "brand": "BRS",
+    "model": "BRS-3000T",
+    "weight_oz": 0.9,
+    "weight_note": "spec 25g/0.88oz; real-world with case ~1.0oz — widely confirmed by owners, lightest canister stove sold",
+    "price_usd": 14.99,
+    "price_url": "https://www.walmart.com/ip/911283406",
+    "used_price_range": "$10-13 (rarely resold, cheap enough people just buy new)",
+    "where_to_buy": [
+      "Amazon",
+      "Walmart",
+      "AliExpress"
+    ],
+    "community_verdict": "The r/Ultralight/backpacking go-to budget stove for years; QC varies canister to canister (some arms crack) but at this price most consider it disposable/spare-worthy. Weak in wind, fine for a sheltered Oct GA camp.",
+    "verdict_sources": [
+      "https://www.backpacker.com/gear/ultralight-backpacking-canister-stove-brs-3000t/",
+      "https://www.walmart.com/ip/911283406"
+    ],
+    "pros": [
+      "Absurdly light",
+      "Cheap enough to carry a spare"
+    ],
+    "cons": [
+      "Flimsy pot supports",
+      "No wind protection/simmer control",
+      "QC variance reported"
+    ],
+    "oct_ga_fit": "Fine for boiling water at a sheltered site; pair with a windscreen for cold mornings",
+    "beginner_score": 3,
+    "shared_split": 6,
+    "notes": "Group's single stove — his cost share $2.50 (1/6 of $14.99)"
+  },
+  {
+    "category": "stove",
+    "role": "group canister stove",
+    "tier": "value",
+    "brand": "Soto",
+    "model": "WindMaster (4Flex)",
+    "weight_oz": 3.5,
+    "weight_note": "stove 2.5oz + 4Flex 4-arm pot stand ~1oz, per Soto spec, matches independent reviews",
+    "price_usd": 64.95,
+    "price_url": "https://www.rei.com/product/128793/soto-windmaster-stove",
+    "used_price_range": "$40-50 (GearTrade/eBay)",
+    "where_to_buy": [
+      "REI",
+      "Amazon",
+      "Moosejaw"
+    ],
+    "community_verdict": "Frequently cited on r/Ultralight as the stove people upgrade to and stop thinking about — genuinely wind-resistant micro-regulator burns clean in temps that choke a BRS. Best-in-class for cold/breezy fall camping.",
+    "verdict_sources": [
+      "https://www.rei.com/product/128793/soto-windmaster-stove"
+    ],
+    "pros": [
+      "Excellent wind performance",
+      "Simmer control actually works",
+      "Reliable in cold"
+    ],
+    "cons": [
+      "3-4x the price of a BRS",
+      "Still needs separate pot"
+    ],
+    "oct_ga_fit": "Best pick of the three for low-30s mornings and any breeze at elevation",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group's stove — his cost share $10.83"
+  },
+  {
+    "category": "stove",
+    "role": "group integrated stove system",
+    "tier": "premium",
+    "brand": "Jetboil",
+    "model": "Stash",
+    "weight_oz": 7.1,
+    "weight_note": "full kit (stove + 0.8L pot + optional stabilizer), per Jetboil spec — matches Halfway Anywhere 2025 PCT survey listing",
+    "price_usd": 154.95,
+    "price_url": "https://www.jetboil.com/products/stash-cooking-system",
+    "used_price_range": "$100-130 used",
+    "where_to_buy": [
+      "REI",
+      "Jetboil.com",
+      "Backcountry"
+    ],
+    "community_verdict": "Rated the highest-scoring stove in the 2025 PCT Hiker Survey (790 respondents) — integrated system boils fast, is wind-resistant, and needs no separate pot, which is why serious hikers upgrade to it despite the price.",
+    "verdict_sources": [
+      "https://www.halfwayanywhere.com/trails/pacific-crest-trail/pct-hiker-survey-2025/"
+    ],
+    "pros": [
+      "Fastest boil times",
+      "Very wind-resistant",
+      "All-in-one — no separate pot needed"
+    ],
+    "cons": [
+      "Pricey",
+      "Less ideal for actual cooking (boil-only design)",
+      "Titanium pot not great for simmering rice etc."
+    ],
+    "oct_ga_fit": "Overkill for one overnight but the clear 'never think about it again' pick if the group upgrades later",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "If chosen, replaces the separate pot line too — group share $25.83"
+  },
+  {
+    "category": "cook pot",
+    "role": "group pot",
+    "tier": "budget",
+    "brand": "IMUSA / generic",
+    "model": "Aluminum camp pot ~1.5qt",
+    "weight_oz": 6.0,
+    "weight_note": "typical stamped-aluminum camp pot weight; EST from category norms, not individually spec-verified this session",
+    "price_usd": 11.99,
+    "price_url": "https://www.walmart.com/browse/camping-cookware",
+    "used_price_range": "$5-8",
+    "where_to_buy": [
+      "Walmart",
+      "Amazon"
+    ],
+    "community_verdict": "Not titanium, but for one overnight with 6 people sharing meal-boiling duty, a $12 aluminum pot boils water exactly as well and nobody on r/WildernessBackpacking says non-UL pots matter for a single trip.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/WildernessBackpacking/"
+    ],
+    "pros": [
+      "Cheap",
+      "Good capacity for group boiling"
+    ],
+    "cons": [
+      "Heavier than titanium",
+      "No insulated handle"
+    ],
+    "oct_ga_fit": "Fine — group cooking is car-camp-adjacent for most meals, only the overnight leg needs it carried",
+    "beginner_score": 5,
+    "shared_split": 6,
+    "notes": "Group share $2.00"
+  },
+  {
+    "category": "cook pot",
+    "role": "group pot",
+    "tier": "value",
+    "brand": "TOAKS",
+    "model": "750ml Titanium Pot (POT-750-RS)",
+    "weight_oz": 4.1,
+    "weight_note": "TOAKS spec 4.1oz/116g, widely confirmed in reviews",
+    "price_usd": 33.95,
+    "price_url": "https://www.toaksoutdoor.com/products/pot-750-bh",
+    "used_price_range": "$22-28",
+    "where_to_buy": [
+      "Amazon",
+      "Walmart",
+      "REI",
+      "Toaks direct"
+    ],
+    "community_verdict": "The default r/Ultralight pot recommendation — Treeline Review and multiple forums note near-zero quality difference between TOAKS, Snow Peak, and Evernew at this size, but TOAKS is consistently cheapest and easiest to find.",
+    "verdict_sources": [
+      "https://www.treelinereview.com/gearreviews/best-backpacking-cookpots",
+      "https://rokslide.com/forums/threads/titanium-mug-evernew-vs-toaks-vs-snow-peak.249715/"
+    ],
+    "pros": [
+      "Very light",
+      "Boils 2 ramen packs",
+      "Nests with other TOAKS cookware"
+    ],
+    "cons": [
+      "Bare handles get hot — needs potholder/glove",
+      "No insulation"
+    ],
+    "oct_ga_fit": "Good group-boil size for 6 people's hot drinks/rehydrated meals on the overnight",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $5.66"
+  },
+  {
+    "category": "cook pot",
+    "role": "group pot",
+    "tier": "premium",
+    "brand": "Evernew",
+    "model": "Titanium UL Pasta Pot (ECA267)",
+    "weight_oz": 3.5,
+    "weight_note": "manufacturer spec ~100g/3.5oz for the 0.9L pasta pot; increasingly hard to find due to reduced US distribution",
+    "price_usd": 54.99,
+    "price_url": "https://www.evernew-outdoor.jp/",
+    "used_price_range": "$35-45 (limited US stock)",
+    "where_to_buy": [
+      "Evernew Japan direct",
+      "occasional REI/Backcountry stock",
+      "eBay"
+    ],
+    "community_verdict": "Long-time favorite among serious UL hikers for its insulated handles and slightly better pour spout; Treeline Review calls it a runner-up 'Best Upgrade' pick, but flags Evernew has cut back US distribution, making it harder to buy than TOAKS in 2026.",
+    "verdict_sources": [
+      "https://www.treelinereview.com/gearreviews/best-backpacking-cookpots"
+    ],
+    "pros": [
+      "Insulated handles",
+      "Very light for the size",
+      "Good pour design"
+    ],
+    "cons": [
+      "Hard to find in the US now",
+      "Pricier for marginal weight savings over TOAKS"
+    ],
+    "oct_ga_fit": "Nice-to-have, not worth chasing down for one trip",
+    "beginner_score": 3,
+    "shared_split": 6,
+    "notes": "Group share $9.17 — flag as possibly discontinued/limited in US retail as of 2026"
+  },
+  {
+    "category": "fuel",
+    "role": "isobutane canister",
+    "tier": "budget",
+    "brand": "Coleman",
+    "model": "PowerMax 100g canister",
+    "weight_oz": 7.4,
+    "weight_note": "100g fuel + canister, ~7.4oz total per typical 100g canister spec",
+    "price_usd": 5.97,
+    "price_url": "https://www.walmart.com/browse/camping-fuel",
+    "used_price_range": "n/a (consumable)",
+    "where_to_buy": [
+      "Walmart",
+      "Amazon",
+      "Target"
+    ],
+    "community_verdict": "Generic-brand isobutane/propane blend canisters perform identically to name brands for most people in above-freezing temps — the community consensus (r/Ultralight) is fuel brand matters far less than blend ratio and how cold it gets.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Cheap",
+      "Widely available"
+    ],
+    "cons": [
+      "Blend ratio (butane-heavy) performs worse below ~20°F — not an issue for low-30s GA nights"
+    ],
+    "oct_ga_fit": "One 100g canister easily covers 6 people boiling water twice for one overnight",
+    "beginner_score": 5,
+    "shared_split": 6,
+    "notes": "Group share $1.00 for one canister; carry a partial backup"
+  },
+  {
+    "category": "fuel",
+    "role": "isobutane canister",
+    "tier": "value",
+    "brand": "MSR",
+    "model": "IsoPro 8oz/227g canister",
+    "weight_oz": 13.7,
+    "weight_note": "manufacturer spec, 227g fuel",
+    "price_usd": 10.95,
+    "price_url": "https://www.rei.com/product/651555/msr-isopro-fuel-canister-8-oz-227-g",
+    "used_price_range": "n/a (consumable)",
+    "where_to_buy": [
+      "REI",
+      "MSR direct",
+      "Amazon"
+    ],
+    "community_verdict": "MSR IsoPro's 80/20 isobutane/propane blend is a frequently cited 'just buy this' pick on r/Ultralight for reliable cold performance without paying JetBoil-brand prices.",
+    "verdict_sources": [
+      "https://www.rei.com/product/807823/msr-isopro-fuel"
+    ],
+    "pros": [
+      "Reliable blend",
+      "Widely stocked at REI for last-minute buys"
+    ],
+    "cons": [
+      "More fuel than one overnight needs — buy the smaller size instead"
+    ],
+    "oct_ga_fit": "Good if also fueling car-camp stove runs; otherwise the 100g/4oz size is right-sized",
+    "beginner_score": 5,
+    "shared_split": 6,
+    "notes": "Group share $1.83; consider the 4oz can instead ($6-7) to match actual need"
+  },
+  {
+    "category": "fuel",
+    "role": "isobutane canister",
+    "tier": "premium",
+    "brand": "MSR",
+    "model": "IsoPro (same blend, cold-weather use case)",
+    "weight_oz": 7.6,
+    "weight_note": "4oz/113g canister spec",
+    "price_usd": 6.95,
+    "price_url": "https://www.rei.com/product/807823/msr-isopro-fuel",
+    "used_price_range": "n/a (consumable)",
+    "where_to_buy": [
+      "REI",
+      "MSR direct"
+    ],
+    "community_verdict": "There isn't a meaningfully 'premium' canister fuel — community consensus is spend on the stove, not the gas. Listed here as the right-sized, reliable-blend option rather than a true upgrade tier.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Right size for a 6-person overnight",
+      "Reliable cold-blend"
+    ],
+    "cons": [
+      "Same chemistry as the 'value' pick, just smaller"
+    ],
+    "oct_ga_fit": "Matches the actual fuel need without hauling excess weight",
+    "beginner_score": 5,
+    "shared_split": 6,
+    "notes": "Group share $1.16; fuel is not a category worth upgrading — put the money into the stove instead"
+  },
+  {
+    "category": "eating utensil/cup",
+    "role": "personal spork/cup",
+    "tier": "budget",
+    "brand": "generic",
+    "model": "Titanium long-handled spork",
+    "weight_oz": 0.6,
+    "weight_note": "typical spec for generic Ti sporks sold on Amazon",
+    "price_usd": 7.99,
+    "price_url": "https://www.amazon.com/s?k=titanium+long+spork",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "Amazon"
+    ],
+    "community_verdict": "r/Ultralight consensus is any titanium long spoon/spork works fine; brand doesn't matter at this size, and many people just use a plastic spoon from home for free.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Cheap",
+      "Reaches bottom of freeze-dried meal pouches"
+    ],
+    "cons": [
+      "Generic ones sometimes have sharp stamped edges"
+    ],
+    "oct_ga_fit": "Fine — no functional need to spend more",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": "Personal item, no shared cost"
+  },
+  {
+    "category": "eating utensil/cup",
+    "role": "personal spork/cup",
+    "tier": "value",
+    "brand": "Sea to Summit",
+    "model": "Alpha Light Long Spoon",
+    "weight_oz": 0.6,
+    "weight_note": "manufacturer spec 17g/0.6oz",
+    "price_usd": 9.95,
+    "price_url": "https://seatosummit.com/products/alpha-light-utensil-long-spoon",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "REI",
+      "Amazon",
+      "Sea to Summit direct"
+    ],
+    "community_verdict": "Frequently recommended alongside TOAKS as a 'just buy once, forget about it' utensil — anodized colors help avoid losing it at camp, a small but often-mentioned plus in gear threads.",
+    "verdict_sources": [
+      "https://www.rei.com/product/885422/sea-to-summit-alpha-light-long-spoon"
+    ],
+    "pros": [
+      "Smooth edges, no sharp stamping",
+      "Bright color, easy to spot"
+    ],
+    "cons": [
+      "Spoon only, no fork tines"
+    ],
+    "oct_ga_fit": "Good all-around pick",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "eating utensil/cup",
+    "role": "personal spork/cup",
+    "tier": "premium",
+    "brand": "Snow Peak",
+    "model": "Titanium Spork",
+    "weight_oz": 0.6,
+    "weight_note": "manufacturer spec ~17g",
+    "price_usd": 14.5,
+    "price_url": "https://www.snowpeak.com/products/spork-single-eat-105",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "REI",
+      "Snow Peak direct",
+      "Backcountry"
+    ],
+    "community_verdict": "The 'endgame' pick mostly for brand loyalty and fit/finish — functionally near-identical to the value pick, cited in gear threads as a nicer-feeling but not meaningfully better option.",
+    "verdict_sources": [
+      "https://www.rei.com/product/812345/snow-peak-titanium-spork"
+    ],
+    "pros": [
+      "Nice fit and finish",
+      "Durable"
+    ],
+    "cons": [
+      "Costs 45% more than the value pick for no functional gain"
+    ],
+    "oct_ga_fit": "No real advantage for this trip over the value pick",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": "Skip this upgrade — put the money toward the water filter or bag instead"
+  },
+  {
+    "category": "water filter",
+    "role": "group filter",
+    "tier": "budget",
+    "brand": "Sawyer",
+    "model": "Squeeze (SP2129)",
+    "weight_oz": 3.0,
+    "weight_note": "Sawyer spec ~3oz for filter alone",
+    "price_usd": 29.96,
+    "price_url": "https://www.sawyer.com/products/squeeze-filter",
+    "used_price_range": "$18-22",
+    "where_to_buy": [
+      "REI",
+      "Amazon",
+      "Walmart",
+      "Sawyer direct"
+    ],
+    "community_verdict": "The single most-used water filter on both the PCT and AT hiker surveys for years running; cheap, proven, 0.1-micron hollow-fiber removes bacteria/protozoa. IMPORTANT for this trip: Sawyer confirms freezing after first use can crack the membrane — must sleep with it in the bag on the low-30s night.",
+    "verdict_sources": [
+      "https://www.sawyer.com/faqs",
+      "https://backpackinglight.com/forums/topic/72830/"
+    ],
+    "pros": [
+      "Cheap",
+      "Field-proven",
+      "Backflushable"
+    ],
+    "cons": [
+      "Freezes and cracks if wetted and left out below 32°F — real risk on this trip's overnight night",
+      "Flow slows without regular backflushing"
+    ],
+    "oct_ga_fit": "Works, but must be kept in a jacket pocket by day and in the sleeping bag at night per Sawyer's own guidance",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $5.00"
+  },
+  {
+    "category": "water filter",
+    "role": "group filter",
+    "tier": "value",
+    "brand": "Katadyn",
+    "model": "BeFree 1.0L",
+    "weight_oz": 2.3,
+    "weight_note": "Katadyn spec 2.3oz filter+pouch",
+    "price_usd": 44.95,
+    "price_url": "https://www.rei.com/product/116364/katadyn-befree-10-l-water-filter-bottle-338-fl-oz",
+    "used_price_range": "$25-32",
+    "where_to_buy": [
+      "REI",
+      "Katadyn direct",
+      "Backcountry"
+    ],
+    "community_verdict": "Popular 'bops for the price' pick for its much faster flow rate than Sawyer Squeeze — widely praised in threads for how little effort it takes to fill; complaints center on the soft flask pouch's durability over long-term use, less of a concern for a 6-day trip.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Fast flow, minimal squeeze effort",
+      "Light"
+    ],
+    "cons": [
+      "Pouch material less durable long-term",
+      "Same freezing risk as any hollow-fiber filter — needs the same cold-night handling"
+    ],
+    "oct_ga_fit": "Great for quickly refilling 6 people's bottles at a creek stop",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $7.49; still needs to sleep in the bag on the cold night"
+  },
+  {
+    "category": "water filter",
+    "role": "group filter",
+    "tier": "premium",
+    "brand": "Grayl",
+    "model": "GeoPress",
+    "weight_oz": 15.9,
+    "weight_note": "manufacturer spec 15.9oz/450g — notably heavier than squeeze filters",
+    "price_usd": 89.95,
+    "price_url": "https://grayl.com/products/geopress",
+    "used_price_range": "$55-65",
+    "where_to_buy": [
+      "REI",
+      "Grayl direct",
+      "Backcountry"
+    ],
+    "community_verdict": "Press-purify design (not just filter — removes viruses too) makes it a favorite for group water duty since one person can process a full 24oz for the group in ~10 seconds with no waiting or squeezing; the tradeoff cited constantly in reviews is the weight, which is why UL purists skip it but group/family trips like this often prefer it.",
+    "verdict_sources": [
+      "https://www.cleverhiker.com/backpacking/best-water-filters/"
+    ],
+    "pros": [
+      "Fast, no squeezing needed for a group",
+      "Purifies (viruses too), good if sourcing sketchy water",
+      "No freeze-crack risk when stored empty/dry"
+    ],
+    "cons": [
+      "Much heavier than a Sawyer/BeFree",
+      "Bulkier to pack"
+    ],
+    "oct_ga_fit": "Good option specifically because it's shared among 6 — one GeoPress refills bottles fast at a single creek stop, and it's less fragile in cold than hollow-fiber filters if drained and dried",
+    "beginner_score": 5,
+    "shared_split": 6,
+    "notes": "Group share $14.99 — best pick if the group wants only ONE filter to manage vs risking a frozen Sawyer"
+  },
+  {
+    "category": "water bottles/bladders",
+    "role": "personal bottle",
+    "tier": "budget",
+    "brand": "Smartwater",
+    "model": "1L reused disposable bottle",
+    "weight_oz": 1.6,
+    "weight_note": "empty bottle weight, widely cited in UL community measurements",
+    "price_usd": 1.5,
+    "price_url": "https://www.walmart.com/ip/smartwater-1-liter/",
+    "used_price_range": "n/a (buy new, reuse)",
+    "where_to_buy": [
+      "any gas station/grocery"
+    ],
+    "community_verdict": "The famous r/Ultralight hack — the narrow-mouth bottle fits Sawyer Squeeze threads directly, is tougher than most disposable bottles, and costs pennies; considered genuinely 'good enough,' not just a cheap compromise, by most of the community.",
+    "verdict_sources": [
+      "https://en.wikipedia.org/wiki/Glaceau_Smartwater",
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Nearly free",
+      "Threads fit Sawyer filters directly",
+      "Tough enough for a season or two"
+    ],
+    "cons": [
+      "Not reusable indefinitely — degrades with repeated squeeze/freeze cycles"
+    ],
+    "oct_ga_fit": "Bring 2 per person; fine for the trip length",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": "Buy a couple extra full ones at a gas station the day before — cheapest water-carry system that exists"
+  },
+  {
+    "category": "water bottles/bladders",
+    "role": "personal bottle",
+    "tier": "value",
+    "brand": "HydraPak",
+    "model": "Stow 1L collapsible bottle",
+    "weight_oz": 1.4,
+    "weight_note": "manufacturer spec 1.4oz",
+    "price_usd": 21.95,
+    "price_url": "https://www.hydrapak.com/products/stow-1-l-2021",
+    "used_price_range": "$12-16",
+    "where_to_buy": [
+      "REI",
+      "HydraPak direct",
+      "Amazon"
+    ],
+    "community_verdict": "Praised in gear roundups for collapsing flat when empty (packs smaller than a Smartwater) while being far more durable and reusable than a disposable bottle — a common upgrade once people get tired of Smartwater bottles splitting.",
+    "verdict_sources": [
+      "https://slickdeals.net/f/19025173-14-hydrapak-stow-collapsible-backpacking-water-bottle-1-liter"
+    ],
+    "pros": [
+      "Packs flat empty",
+      "Durable, reusable season after season",
+      "Wide mouth for easy filling/cleaning"
+    ],
+    "cons": [
+      "Pricier than the free/near-free budget option"
+    ],
+    "oct_ga_fit": "Good middle ground for a reusable system",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "water bottles/bladders",
+    "role": "personal bottle",
+    "tier": "premium",
+    "brand": "CNOC",
+    "model": "Vecto 2L",
+    "weight_oz": 3.6,
+    "weight_note": "manufacturer spec ~3.6oz for the 2L bag",
+    "price_usd": 27.95,
+    "price_url": "https://cnocoutdoors.com/products/vecto-2l-water-container",
+    "used_price_range": "$16-20",
+    "where_to_buy": [
+      "CNOC direct",
+      "Garage Grown Gear",
+      "Amazon"
+    ],
+    "community_verdict": "The r/Ultralight favorite for anyone using a squeeze/gravity filter — the wide-mouth bag opens flat for easy dirty-water scooping from a shallow creek and screws directly onto a Sawyer/BeFree, which a Smartwater bottle can't do as cleanly for gravity setups.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Easy to scoop water from shallow sources",
+      "Doubles as a gravity-feed reservoir",
+      "Wide mouth, easy to clean/dry (mildew resistance)"
+    ],
+    "cons": [
+      "Bulkier than a bottle when full",
+      "Costlier than needed for a 1-night trip"
+    ],
+    "oct_ga_fit": "Nice if the group's water filter setup benefits from a wide-mouth scoop bag at a shallow gravel-bar creek",
+    "beginner_score": 3,
+    "shared_split": 1,
+    "notes": "Only worth it if pairing with the Sawyer/BeFree filter tiers above"
+  },
+  {
+    "category": "food storage",
+    "role": "group bear storage (backcountry night)",
+    "tier": "budget",
+    "brand": "DIY",
+    "model": "PCT-style bear hang kit (rope + stuff sack + carabiner)",
+    "weight_oz": 6.0,
+    "weight_note": "typical DIY kit weight — 50ft of paracord/Zpacks cord + food sack; EST from common DIY builds",
+    "price_usd": 15.0,
+    "price_url": "https://www.rei.com/c/paracord",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "REI (rope/sack)",
+      "Amazon"
+    ],
+    "community_verdict": "SectionHiker and Trek forum threads on Southeast/AT bear storage note hangs are still common where Ursacks/canisters aren't required, but effectiveness is inconsistent since Southeastern black bears in high-traffic areas are increasingly food-conditioned and skilled at defeating poor hangs.",
+    "verdict_sources": [
+      "https://sectionhiker.com/igbc-approved-bag-bag-and-bear-canister-comparison/",
+      "https://thetrek.co/appalachian-trail/food-storage-for-8-days-bear-bag-vs-bear-canister/"
+    ],
+    "pros": [
+      "Nearly free if rope is already owned",
+      "No weight penalty beyond cordage"
+    ],
+    "cons": [
+      "Effectiveness depends entirely on execution (right branch, right height/distance)",
+      "Community increasingly skeptical of hangs vs. Ursack/canister in bear-dense areas"
+    ],
+    "oct_ga_fit": "Workable in Chattahoochee NF backcountry but riskier than an Ursack given known bear activity — only recommended if the group is confident finding a proper hang tree",
+    "beginner_score": 2,
+    "shared_split": 6,
+    "notes": "Group share $2.50 — lowest cost, highest skill requirement"
+  },
+  {
+    "category": "food storage",
+    "role": "group bear storage (backcountry night)",
+    "tier": "value",
+    "brand": "Ursack",
+    "model": "Major XL (with OPSak liner)",
+    "weight_oz": 10.8,
+    "weight_note": "Ursack Major ~7.8oz + OPSak liner ~1oz + typical XL upsizing; Ursack Major listed at 8.8oz in category roundups, XL slightly more",
+    "price_usd": 109.9,
+    "price_url": "https://ursack.com/products/ursack-major-xl-opsak",
+    "used_price_range": "$55-70",
+    "where_to_buy": [
+      "Ursack direct",
+      "REI",
+      "Amazon"
+    ],
+    "community_verdict": "CleverHiker and AT/PCT gear guides flag Ursack Major as the go-to lightweight, IGBC-listed alternative to hard canisters, especially favored where allowed (much of the Southeast). Community strongly recommends pairing with an OPSak odor liner since bears will still chew/crush contents even if they can't get in.",
+    "verdict_sources": [
+      "https://www.cleverhiker.com/backpacking/best-bear-canisters/",
+      "https://thetrek.co/bear-canisters-ursacks-or-bear-bags-on-the-appalachian-trail/"
+    ],
+    "pros": [
+      "Much lighter/more packable than a hard canister",
+      "IGBC-approved",
+      "No tree/hang skill required — tie to a solid trunk"
+    ],
+    "cons": [
+      "Not critter/rodent-proof (mice can chew in)",
+      "Contents can be crushed even though bears can't extract them",
+      "Not accepted in every jurisdiction (fine for GA NF backcountry)"
+    ],
+    "oct_ga_fit": "Best real-world match for this trip — Southeast forums consistently cite Ursack as what most GA/AT-area backpackers actually carry over hard canisters",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $18.32; this is the pick most aligned with what experienced Southeast hikers use"
+  },
+  {
+    "category": "food storage",
+    "role": "group bear storage (backcountry night)",
+    "tier": "premium",
+    "brand": "BearVault",
+    "model": "BV500",
+    "weight_oz": 41.0,
+    "weight_note": "manufacturer/retailer spec ~2lb 9oz (41oz)",
+    "price_usd": 99.95,
+    "price_url": "https://www.bearvault.com/product/bv500/",
+    "used_price_range": "$55-70",
+    "where_to_buy": [
+      "REI",
+      "BearVault direct",
+      "Backcountry"
+    ],
+    "community_verdict": "CleverHiker's long-term top pick for hard canisters after 100k miles of testing — bear- AND rodent-proof, doubles as a camp stool, and is required gear in many national parks. Serious hikers who've had a hang or Ursack fail (or who hike areas that mandate canisters) upgrade to this.",
+    "verdict_sources": [
+      "https://www.cleverhiker.com/backpacking/best-bear-canisters/"
+    ],
+    "pros": [
+      "Fully bear- and rodent-proof",
+      "See-through body, easy to check contents",
+      "Required-gear compliant everywhere"
+    ],
+    "cons": [
+      "Much heavier and bulkier than Ursack",
+      "Awkward to pack inside a smaller 45-55L bag"
+    ],
+    "oct_ga_fit": "Overkill for one GA overnight where Ursack is the community norm, but the right call if the group ever backpacks somewhere canisters are mandated",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $16.66; not necessary for this specific trip"
+  },
+  {
+    "category": "headlamp",
+    "role": "personal headlamp",
+    "tier": "budget",
+    "brand": "Petzl",
+    "model": "Tikkina",
+    "weight_oz": 2.9,
+    "weight_note": "Petzl spec 82g/2.9oz including batteries",
+    "price_usd": 19.95,
+    "price_url": "https://www.petzl.com/US/en/Sport/headlamps/TIKKINA",
+    "used_price_range": "$10-14",
+    "where_to_buy": [
+      "REI",
+      "Petzl direct",
+      "Amazon",
+      "Walmart"
+    ],
+    "community_verdict": "CleverHiker's budget pick — 250 lumens is plenty for camp chores and short trail walking, and Petzl's reliability at this price beats generic no-name headlamps that show up in gear-fail threads.",
+    "verdict_sources": [
+      "https://www.cleverhiker.com/backpacking/best-hiking-backpacking-camping-headlamps/"
+    ],
+    "pros": [
+      "Reliable brand at low price",
+      "Simple one-button operation"
+    ],
+    "cons": [
+      "AAA batteries only, no rechargeable option",
+      "Lower max brightness"
+    ],
+    "oct_ga_fit": "Fine for camp/tent use and a short evening walk",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "headlamp",
+    "role": "personal headlamp",
+    "tier": "value",
+    "brand": "Black Diamond",
+    "model": "Spot 400",
+    "weight_oz": 3.0,
+    "weight_note": "Black Diamond spec ~90g/3.2oz with batteries; commonly listed ~3oz",
+    "price_usd": 44.95,
+    "price_url": "https://blackdiamondequipment.com/products/spot-400-headlamp",
+    "used_price_range": "$22-28",
+    "where_to_buy": [
+      "REI",
+      "Black Diamond direct",
+      "Amazon",
+      "Backcountry"
+    ],
+    "community_verdict": "CleverHiker's overall Best Overall pick for 2026 — 400 lumens, fully waterproof (IPX8), and consistently the headlamp recommended across gear forums as the best balance of price and performance.",
+    "verdict_sources": [
+      "https://www.cleverhiker.com/backpacking/best-hiking-backpacking-camping-headlamps/"
+    ],
+    "pros": [
+      "Fully waterproof",
+      "Great lumens-per-dollar",
+      "Red night-vision mode"
+    ],
+    "cons": [
+      "AAA only (no built-in rechargeable)"
+    ],
+    "oct_ga_fit": "Great all-around choice, handles rain/dew without concern",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "headlamp",
+    "role": "personal headlamp",
+    "tier": "premium",
+    "brand": "Nitecore",
+    "model": "NU25 (rechargeable)",
+    "weight_oz": 1.75,
+    "weight_note": "Nitecore spec ~48g/1.7oz — notably lighter than AAA headlamps since it's built-in rechargeable",
+    "price_usd": 54.95,
+    "price_url": "https://flashlight.nitecore.com/product/nu25",
+    "used_price_range": "$32-40",
+    "where_to_buy": [
+      "Nitecore direct",
+      "Amazon",
+      "REI"
+    ],
+    "community_verdict": "A frequent r/Ultralight 'this is what I switched to' headlamp — much lighter than AAA competitors since there's no battery compartment bulk, USB-C rechargeable (pairs well with the power bank tier below), and 400 lumens is plenty.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Lightest of the three",
+      "USB-C rechargeable, no spare batteries needed",
+      "Compact"
+    ],
+    "cons": [
+      "No swappable batteries if it dies mid-trip — needs the power bank as backup"
+    ],
+    "oct_ga_fit": "Good pairing with a power bank for a no-cell-signal trip where recharging via bank is the only option",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": "Bring the power bank to recharge it if the trip runs long"
+  },
+  {
+    "category": "power bank",
+    "role": "personal power bank",
+    "tier": "budget",
+    "brand": "Anker",
+    "model": "PowerCore Slim 10000",
+    "weight_oz": 6.3,
+    "weight_note": "Anker spec ~180g/6.3oz",
+    "price_usd": 23.99,
+    "price_url": "https://www.anker.com/products/a1229-powercore-slim-10000",
+    "used_price_range": "$14-18",
+    "where_to_buy": [
+      "Anker direct",
+      "Amazon",
+      "Target"
+    ],
+    "community_verdict": "Cited as the budget-conscious pick in 2026 power bank roundups — Anker's build quality and long warranty make it the safe cheap choice even though it's heavier than dedicated UL banks.",
+    "verdict_sources": [
+      "https://www.cleverhiker.com/backpacking/best-power-banks/"
+    ],
+    "pros": [
+      "Reliable, well-reviewed brand",
+      "18-month warranty"
+    ],
+    "cons": [
+      "3+ oz heavier than the UL-focused options"
+    ],
+    "oct_ga_fit": "Enough capacity to recharge a phone ~2x and a headlamp once for the trip length",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "power bank",
+    "role": "personal power bank",
+    "tier": "value",
+    "brand": "Nitecore",
+    "model": "NB10000 Gen 3",
+    "weight_oz": 5.1,
+    "weight_note": "Nitecore spec ~144g/5.1oz",
+    "price_usd": 54.95,
+    "price_url": "https://www.nitecore.com/product/nb10000gen3",
+    "used_price_range": "$32-40",
+    "where_to_buy": [
+      "Nitecore direct",
+      "Amazon",
+      "REI"
+    ],
+    "community_verdict": "Repeatedly named the best weight-to-capacity power bank for thru-hikers in 2026 gear roundups — real 10,000mAh in a genuinely light shell, widely recommended over generic banks that overstate capacity.",
+    "verdict_sources": [
+      "https://www.cleverhiker.com/backpacking/best-power-banks/",
+      "https://www.adventurealan.com/best-backpacking-battery-pack/"
+    ],
+    "pros": [
+      "Best-in-class weight for real 10,000mAh",
+      "Dual USB-C"
+    ],
+    "cons": [
+      "Costs more than double the budget pick"
+    ],
+    "oct_ga_fit": "Solid for the group's phones/inReach/headlamps over the trip length",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "power bank",
+    "role": "personal power bank",
+    "tier": "premium",
+    "brand": "Nitecore",
+    "model": "NB10000 Gen 4",
+    "weight_oz": 5.0,
+    "weight_note": "manufacturer press release claims 143g/5.0oz with improved IPX7 rating",
+    "price_usd": 59.95,
+    "price_url": "https://flashlight.nitecore.com/product/nb10000-gen4",
+    "used_price_range": "n/a (new for 2026)",
+    "where_to_buy": [
+      "Nitecore direct",
+      "Amazon"
+    ],
+    "community_verdict": "The newest Gen4 release (announced Feb 2026) shaves a bit more weight and adds better waterproofing over Gen3 — early gear-roundup mentions call it a marginal but real upgrade for anyone buying new in 2026.",
+    "verdict_sources": [
+      "https://tools.prnewswire.com/en-us/live/20823/release/20260205EN78486"
+    ],
+    "pros": [
+      "Lightest Nitecore 10K bank yet",
+      "Improved water resistance (IPX7)"
+    ],
+    "cons": [
+      "New model — less track record than Gen3",
+      "Small gain over Gen3 for the price difference"
+    ],
+    "oct_ga_fit": "Nice-to-have but Gen3 (value tier) is functionally the same for this trip",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": "Not a meaningful upgrade for a 6-day trip — Gen3 is the better value"
+  },
+  {
+    "category": "satellite messenger",
+    "role": "group satellite messenger",
+    "tier": "budget",
+    "brand": "Garmin",
+    "model": "inReach Mini 2 (weekly rental)",
+    "weight_oz": 3.5,
+    "weight_note": "Garmin spec 3.5oz for the device itself; rental means no ownership weight/cost beyond the trip",
+    "price_usd": 100.0,
+    "price_url": "https://www.outfittersatellite.com/pages/garmin-inreach-mini-2-rentals",
+    "used_price_range": "n/a (rental)",
+    "where_to_buy": [
+      "Outfitter Satellite",
+      "REI rental (select stores)"
+    ],
+    "community_verdict": "Renting for a single trip is the community-recommended move for occasional backpackers — Hunt Talk and gear forums consistently say buying a $300-350 device plus a monthly plan doesn't pencil out for a once-or-twice-a-year trip.",
+    "verdict_sources": [
+      "https://www.outfittersatellite.com/pages/garmin-inreach-mini-2-rentals",
+      "https://www.hunttalk.com/threads/garmin-inreach-or-zoleo.328342/"
+    ],
+    "pros": [
+      "No upfront device cost",
+      "No ongoing subscription commitment",
+      "Full inReach 2-way messaging + SOS"
+    ],
+    "cons": [
+      "Costs about as much as buying a cheaper device if the group hikes again soon",
+      "Rental logistics (shipping/return window) need planning ahead"
+    ],
+    "oct_ga_fit": "Ideal for a one-off trip — no cell signal in the Chattahoochee backcountry makes this non-negotiable, but ownership isn't justified for occasional use",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $16.67 — matches existing plan in gear.md"
+  },
+  {
+    "category": "satellite messenger",
+    "role": "group satellite messenger",
+    "tier": "value",
+    "brand": "ZOLEO",
+    "model": "Satellite Communicator",
+    "weight_oz": 5.4,
+    "weight_note": "ZOLEO manufacturer spec ~155g/5.4oz",
+    "price_usd": 199.99,
+    "price_url": "https://www.zoleo.com/en-us/product/zoleo-global-satellite-communicator",
+    "used_price_range": "$110-140",
+    "where_to_buy": [
+      "ZOLEO direct",
+      "REI",
+      "Amazon"
+    ],
+    "community_verdict": "Cheaper device than any current Garmin, and its Basic plan ($20/mo) is the least expensive ongoing subscription among the three; AdventureAlan and Hunt Talk threads note ZOLEO's dedicated phone number is the easiest for non-hiker family members to text back and forth with.",
+    "verdict_sources": [
+      "https://www.adventurealan.com/best-satellite-communicator-zoleo-vs-inreach/",
+      "https://www.hunttalk.com/threads/garmin-inreach-or-zoleo.328342/"
+    ],
+    "pros": [
+      "Lowest device price of real 2-way satellite communicators",
+      "Dedicated phone number, easiest for non-outdoorsy contacts",
+      "Cheapest monthly plan"
+    ],
+    "cons": [
+      "No standalone screen — fully dependent on a paired phone app",
+      "Weaker standalone navigation features than Garmin"
+    ],
+    "oct_ga_fit": "Works fine for SOS + check-in texting on the overnight; phone-dependent is an acceptable tradeoff since the group has phones anyway",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $33.33 if bought outright for this trip only — buy used or via a return-window purchase to cut this down"
+  },
+  {
+    "category": "satellite messenger",
+    "role": "group satellite messenger",
+    "tier": "premium",
+    "brand": "Garmin",
+    "model": "inReach Mini 2 (owned, Safety plan)",
+    "weight_oz": 3.5,
+    "weight_note": "Garmin spec 3.5oz",
+    "price_usd": 349.99,
+    "price_url": "https://www.rei.com/product/208257/garmin-inreach-mini-2",
+    "used_price_range": "$220-260",
+    "where_to_buy": [
+      "REI",
+      "Garmin direct",
+      "Backcountry"
+    ],
+    "community_verdict": "The most-recommended standalone satellite device across r/Ultralight, r/WildernessBackpacking, and hunting forums — has its own GPS/mapping screen (via paired app or on compatible watches), longest track record, and the Safety plan (~$14.95/mo, pause/cancel anytime) makes ownership reasonable for a group that expects to keep doing backcountry trips.",
+    "verdict_sources": [
+      "https://www.treelinereview.com/gearreviews/garmin-inreach-mini-2-review",
+      "https://www.hunttalk.com/threads/garmin-inreach-or-zoleo.328342/"
+    ],
+    "pros": [
+      "Best track record/reliability reputation",
+      "Standalone tracking + SOS without phone dependency",
+      "Flexible monthly plan, cancel between trips"
+    ],
+    "cons": [
+      "Highest device price of the three tiers",
+      "Tiny screen, mostly used paired to a phone anyway"
+    ],
+    "oct_ga_fit": "The right buy if the group plans more backcountry trips beyond this one — otherwise renting (budget tier) is more cost-effective for a single trip",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $58.33 to buy outright; note price rose from ~$300 to $349.99 at REI as of this search — confirm current price before buying"
+  },
+  {
+    "category": "phone navigation app",
+    "role": "personal navigation app",
+    "tier": "budget",
+    "brand": "CalTopo",
+    "model": "Free account + printed topo",
+    "weight_oz": 0,
+    "weight_note": "n/a — software; printed map ~1oz on paper",
+    "price_usd": 0,
+    "price_url": "https://caltopo.com/",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "caltopo.com"
+    ],
+    "community_verdict": "CalTopo's free tier covers everything needed to plan and print a route (topo, forest service roads, property boundaries); community consensus across backpacking forums is print-and-carry beats relying on any phone app alone in a no-signal area, since a printed map never dies or loses GPS lock.",
+    "verdict_sources": [
+      "https://backpackinglight.com/forums/topic/navigation-apps-are-changing-all-the-time-have-you-compared-them-recently/"
+    ],
+    "pros": [
+      "Completely free",
+      "No battery dependency once printed",
+      "Excellent free layer selection (USFS roads, slope angle, etc.)"
+    ],
+    "cons": [
+      "Printed map isn't updated live",
+      "No crowd-sourced trail conditions"
+    ],
+    "oct_ga_fit": "Print + laminate before leaving cell range — matches the existing plan's recommendation exactly",
+    "beginner_score": 3,
+    "shared_split": 1,
+    "notes": "Pairs well with a phone app as backup for the person carrying the satellite messenger"
+  },
+  {
+    "category": "phone navigation app",
+    "role": "personal navigation app",
+    "tier": "value",
+    "brand": "Gaia GPS",
+    "model": "Premium subscription",
+    "weight_oz": 0,
+    "weight_note": "n/a — software",
+    "price_usd": 39.99,
+    "price_url": "https://www.gaiagps.com/premium/",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "gaiagps.com",
+      "App Store",
+      "Google Play"
+    ],
+    "community_verdict": "Named the deepest map-layer / most reliable offline app in 2026 hiking-app comparisons — a common pick among backpackers who want more than a printed map but don't need FarOut's thru-hike-specific crowd data.",
+    "verdict_sources": [
+      "https://hikinglifes.com/Guides%20and%20Tips/from-free-to-pro-13-best-gps-navigation-tools-for-hikers.html",
+      "https://exploroff.com/hiking-guides/hiking-gps-apps"
+    ],
+    "pros": [
+      "Deep offline map layer options (USFS, slope angle, satellite)",
+      "Rock-solid offline GPS tracking"
+    ],
+    "cons": [
+      "Annual subscription",
+      "Overkill feature set for a single short trip"
+    ],
+    "oct_ga_fit": "Good backup to the printed map if someone already has it or wants ongoing use beyond this trip",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "phone navigation app",
+    "role": "personal navigation app",
+    "tier": "premium",
+    "brand": "FarOut",
+    "model": "Regional trail guide (per-trail purchase)",
+    "weight_oz": 0,
+    "weight_note": "n/a — software",
+    "price_usd": 14.99,
+    "price_url": "https://faroutguides.com/",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "faroutguides.com",
+      "App Store",
+      "Google Play"
+    ],
+    "community_verdict": "The clear favorite among long-distance/thru-hikers for crowd-sourced water source, campsite, and trail-condition comments layered directly on the map — Trek/CleverHiker roundups consistently call it the most useful app for real-time trail intel where signal is unavailable (offline once downloaded).",
+    "verdict_sources": [
+      "https://thetrek.co/comparing-gps-platforms-for-hiking-and-backpacking/"
+    ],
+    "pros": [
+      "Crowd-sourced water/campsite comments, huge value in a dry/uncertain water year",
+      "Fully offline once the region is downloaded"
+    ],
+    "cons": [
+      "Coverage and comment density depends on how popular the specific trail is — a lesser-used GA forest road route may have sparse crowd data",
+      "One-time per-region purchase, not a universal subscription"
+    ],
+    "oct_ga_fit": "Worth checking if the specific GA route/trail has FarOut coverage before buying — if it's an obscure forest road not in their database, Gaia or CalTopo is the better spend",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": "Verify trail coverage exists for the specific route before purchasing"
+  },
+  {
+    "category": "knife/multitool",
+    "role": "personal knife",
+    "tier": "budget",
+    "brand": "Opinel",
+    "model": "No.8 Carbon/Stainless folding knife",
+    "weight_oz": 1.6,
+    "weight_note": "Opinel spec ~45g/1.6oz for the No.8",
+    "price_usd": 19.95,
+    "price_url": "https://www.opinel-usa.com/products/no-08-stainless-steel",
+    "used_price_range": "$10-14",
+    "where_to_buy": [
+      "Opinel direct",
+      "REI",
+      "Amazon"
+    ],
+    "community_verdict": "A classic minimalist pick referenced across backpacking gear lists for decades — simple, sharp, reliable lockback, no bells and whistles, and far lighter than most multitools.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Very light",
+      "Takes and holds a good edge",
+      "Cheap"
+    ],
+    "cons": [
+      "No additional tools (no pliers/scissors)",
+      "Carbon steel version needs oiling to avoid rust"
+    ],
+    "oct_ga_fit": "Enough for food prep and gear repairs; not a multitool if pliers are needed for other camp tasks",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "knife/multitool",
+    "role": "personal knife",
+    "tier": "value",
+    "brand": "Leatherman",
+    "model": "Wingman",
+    "weight_oz": 7.2,
+    "weight_note": "Leatherman spec 7.2oz/204g",
+    "price_usd": 44.95,
+    "price_url": "https://www.leatherman.com/products/wingman",
+    "used_price_range": "$28-35",
+    "where_to_buy": [
+      "Leatherman direct",
+      "REI",
+      "Amazon",
+      "Walmart"
+    ],
+    "community_verdict": "Frequently cited as the best value multitool for campers/car-camp-adjacent trips — has pliers, scissors, and a full driver set at a fraction of the price of Leatherman's premium line, with the same 25-year warranty.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/CampingGear/"
+    ],
+    "pros": [
+      "Real pliers and scissors, not just a knife blade",
+      "25-year Leatherman warranty",
+      "Good price for the tool count"
+    ],
+    "cons": [
+      "Heavier than a plain folding knife",
+      "Outside-accessible blade only (spring-loaded tools need two hands)"
+    ],
+    "oct_ga_fit": "Good all-rounder for base camp tasks (firewood, cooking, gear fixes) as well as the overnight",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "knife/multitool",
+    "role": "personal knife",
+    "tier": "premium",
+    "brand": "Leatherman",
+    "model": "Skeletool CX",
+    "weight_oz": 5.0,
+    "weight_note": "Leatherman spec 5.0oz/142g",
+    "price_usd": 99.95,
+    "price_url": "https://www.leatherman.com/skeletool-cx-832180.html",
+    "used_price_range": "$65-80",
+    "where_to_buy": [
+      "Leatherman direct",
+      "REI",
+      "Backcountry"
+    ],
+    "community_verdict": "The multitool serious backpackers upgrade to — stripped-down tool selection (knife, pliers, bit driver, bottle opener) keeps weight down versus a full-size multitool while keeping the tools people actually use; widely recommended on r/Ultralight over bulkier all-in-one tools.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Lighter than most full multitools",
+      "One-hand-opening knife blade",
+      "Premium materials (carbon fiber scales, S30V-ish blade steel line)"
+    ],
+    "cons": [
+      "Fewer tools than the Wingman (no scissors)",
+      "Pricier"
+    ],
+    "oct_ga_fit": "Great if the Captain wants one tool to keep long-term across future trips",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "first aid kit",
+    "role": "group first aid (overnight-size)",
+    "tier": "budget",
+    "brand": "DIY",
+    "model": "Build-your-own kit (gauze, tape, meds, moleskin, blister care)",
+    "weight_oz": 4.0,
+    "weight_note": "EST — typical DIY minimal kit weight for group use; not individually itemized/weighed this session",
+    "price_usd": 22.0,
+    "price_url": "https://www.rei.com/c/first-aid",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "Walmart",
+      "CVS/pharmacy",
+      "REI (component pieces)"
+    ],
+    "community_verdict": "Backcountry-gear blogs and r/Ultralight consistently argue a DIY kit tailored to the actual trip (group size, trip length, known allergies) beats a generic prepackaged kit for both cost-per-use and relevance — the tradeoff is time spent assembling it correctly.",
+    "verdict_sources": [
+      "https://www.goodreads.com/author_blog_posts/19476964-gear-list-backpacking-first-aid-kit-for-soloists-groups"
+    ],
+    "pros": [
+      "Cheapest per real supply included",
+      "Exactly matches the group's actual needs/allergies"
+    ],
+    "cons": [
+      "Requires research/assembly time",
+      "Easy to forget something a commercial kit wouldn't"
+    ],
+    "oct_ga_fit": "Workable for an experienced group member willing to assemble it properly ahead of time",
+    "beginner_score": 2,
+    "shared_split": 6,
+    "notes": "Group share $3.67 — riskiest tier for a first-time group unless someone has real first-aid knowledge"
+  },
+  {
+    "category": "first aid kit",
+    "role": "group first aid (overnight-size)",
+    "tier": "value",
+    "brand": "Adventure Medical Kits",
+    "model": "Ultralight/Watertight .7",
+    "weight_oz": 4.4,
+    "weight_note": "AMK spec 4.4oz",
+    "price_usd": 31.95,
+    "price_url": "https://adventuremedicalkits.com/products/ultralight-watertight-medical-kit-7",
+    "used_price_range": "$18-24",
+    "where_to_buy": [
+      "REI",
+      "AMK direct",
+      "Amazon",
+      "Backcountry"
+    ],
+    "community_verdict": "A frequently recommended 'good enough, don't overthink it' commercial kit for small groups — pre-organized, waterproof pouch, and covers the common injury scenarios (blisters, cuts, minor sprains) without excess bulk.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Pre-organized and labeled — fast to use under stress",
+      "Waterproof pouch",
+      "Reasonably light for what's included"
+    ],
+    "cons": [
+      "Contents skew toward minor injuries, not built for 6 people over multiple days"
+    ],
+    "oct_ga_fit": "A reasonable base kit but consider supplementing with extra blister care/meds given the group size of 6",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $5.33"
+  },
+  {
+    "category": "first aid kit",
+    "role": "group first aid (overnight-size)",
+    "tier": "premium",
+    "brand": "Adventure Medical Kits",
+    "model": "Mountain Series Explorer",
+    "weight_oz": 16.0,
+    "weight_note": "AMK spec/listing; built for 4 people/7 days per AMK product description, oversized for 6/1-night but most complete",
+    "price_usd": 74.95,
+    "price_url": "https://adventuremedicalkits.com/products/mountain-series-medical-kit-explorer",
+    "used_price_range": "$45-55",
+    "where_to_buy": [
+      "REI",
+      "Target",
+      "AMK direct"
+    ],
+    "community_verdict": "Same kit already selected for base camp in the existing trip plan — the community-recommended 'built for a group' commercial option, with enough supplies and instructions (including a mini field guide) to handle more than blister care.",
+    "verdict_sources": [
+      "https://adventuremedicalkits.com/products/mountain-series-medical-kit-explorer"
+    ],
+    "pros": [
+      "Actually sized for a group over multiple days",
+      "Includes basic trauma/wound care beyond blister-level injuries",
+      "Includes a first-aid field guide"
+    ],
+    "cons": [
+      "Heavy/bulky for carrying on the overnight leg specifically — better suited to stay at base camp"
+    ],
+    "oct_ga_fit": "Keep this one at base camp (as the existing plan does) and carry the value-tier AMK Ultralight .7 on the overnight leg",
+    "beginner_score": 4,
+    "shared_split": 6,
+    "notes": "Group share $12.49 — matches existing gear.md pick for base camp"
+  },
+  {
+    "category": "toiletries/trowel",
+    "role": "personal trowel + hygiene kit",
+    "tier": "budget",
+    "brand": "Coghlan's",
+    "model": "Plastic trowel + basic hygiene bag",
+    "weight_oz": 2.0,
+    "weight_note": "typical plastic trowel weight ~1.5oz + small TP/sanitizer bag ~0.5oz, EST from category norms",
+    "price_usd": 8.0,
+    "price_url": "https://www.rei.com/c/first-aid",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "Walmart",
+      "Amazon",
+      "REI"
+    ],
+    "community_verdict": "Plenty of forum posts note a $4 plastic trowel digs a perfectly adequate 6-8in cathole — no functional need for titanium unless weight-obsessed; LNT compliance matters far more than trowel material.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Cheap",
+      "Digs a fine cathole in GA's loamy forest soil"
+    ],
+    "cons": [
+      "Bulkier/heavier than titanium options",
+      "Plastic can crack on rocky ground"
+    ],
+    "oct_ga_fit": "Fine for one overnight in soft forest soil",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "toiletries/trowel",
+    "role": "personal trowel + hygiene kit",
+    "tier": "value",
+    "brand": "GSI Outdoors",
+    "model": "Cathole Trowel",
+    "weight_oz": 2.4,
+    "weight_note": "manufacturer spec ~2.4oz",
+    "price_usd": 9.95,
+    "price_url": "https://gsioutdoors.com/products/cathole-trowel",
+    "used_price_range": "$5-7",
+    "where_to_buy": [
+      "REI",
+      "GSI direct",
+      "Amazon"
+    ],
+    "community_verdict": "A commonly recommended mid-price trowel — serrated edge handles roots better than a smooth plastic trowel, and it's cheap enough that the upgrade over budget is easy to justify.",
+    "verdict_sources": [
+      "https://www.rei.com/product/752345/gsi-outdoors-cathole-trowel"
+    ],
+    "pros": [
+      "Serrated edge cuts through roots",
+      "Durable enough for repeated trips"
+    ],
+    "cons": [
+      "Marginal weight/price difference from budget tier"
+    ],
+    "oct_ga_fit": "Good middle choice",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "toiletries/trowel",
+    "role": "personal trowel + hygiene kit",
+    "tier": "premium",
+    "brand": "TheTentLab",
+    "model": "The Deuce of Spades #2 (titanium)",
+    "weight_oz": 0.6,
+    "weight_note": "manufacturer spec ~17g/0.6oz for the #2 model",
+    "price_usd": 24.95,
+    "price_url": "https://www.thetentlab.com/collections/the-deuce",
+    "used_price_range": "$16-20",
+    "where_to_buy": [
+      "TheTentLab direct",
+      "REI",
+      "Garage Grown Gear"
+    ],
+    "community_verdict": "The single most-referenced trowel upgrade on r/Ultralight — practically a meme at this point ('the Deuce'), titanium build is nearly indestructible at a fraction of the weight of any plastic trowel.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Extremely light",
+      "Very durable titanium build",
+      "Small enough to disappear in a pack pocket"
+    ],
+    "cons": [
+      "Costs 2-3x a plain plastic trowel for a functionally similar hole"
+    ],
+    "oct_ga_fit": "Nice but not necessary for one trip — worth it if this becomes a recurring hobby",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "trekking poles",
+    "role": "personal trekking poles",
+    "tier": "budget",
+    "brand": "TrailBuddy",
+    "model": "Aluminum adjustable trekking poles (pair)",
+    "weight_oz": 18.0,
+    "weight_note": "typical aluminum adjustable pole pair weight per category comparisons; EST from category norms",
+    "price_usd": 35.99,
+    "price_url": "https://www.amazon.com/s?k=trailbuddy+trekking+poles",
+    "used_price_range": "$15-22",
+    "where_to_buy": [
+      "Amazon",
+      "Walmart"
+    ],
+    "community_verdict": "Cited in trekking pole roundups as an acceptable entry-level aluminum pole — heavier than carbon options but more impact-resistant (aluminum bends rather than snaps), which some beginners prefer for a first trip.",
+    "verdict_sources": [
+      "https://camplabx.com/reviews/best-trekking-poles/"
+    ],
+    "pros": [
+      "Cheap",
+      "Aluminum bends instead of snapping under side load"
+    ],
+    "cons": [
+      "Noticeably heavier than carbon options"
+    ],
+    "oct_ga_fit": "Fine for a 3-5 mile trail with moderate elevation change",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "trekking poles",
+    "role": "personal trekking poles",
+    "tier": "value",
+    "brand": "Cascade Mountain Tech",
+    "model": "Carbon Fiber Quick Lock (pair)",
+    "weight_oz": 8.1,
+    "weight_note": "per CleverHiker/OutdoorGearLab testing, 8.1oz for the pair",
+    "price_usd": 51.98,
+    "price_url": "https://www.amazon.com/Cascade-Mountain-Tech-Carbon-Trekking/dp/B07RH3P6MT",
+    "used_price_range": "$28-38",
+    "where_to_buy": [
+      "Costco",
+      "Amazon",
+      "Cascade Mountain Tech direct"
+    ],
+    "community_verdict": "Repeatedly called out as the best budget carbon pole — cork grips and tungsten tips usually found on $100+ poles, and performs close to premium carbon poles for a fraction of the price; the known knock is quick-lock levers occasionally slipping under heavy load, per CleverHiker and Andrew Skurka's long-term reviews.",
+    "verdict_sources": [
+      "https://www.cleverhiker.com/backpacking/cascade-mountain-tech-carbon-fiber-quick-lock-review/",
+      "https://andrewskurka.com/cascade-mountain-tech-quick-lock-trekking-poles-review/"
+    ],
+    "pros": [
+      "Genuinely light carbon shaft at aluminum-budget pricing",
+      "Cork grips, tungsten carbide tips"
+    ],
+    "cons": [
+      "Lever locks can slip under load — check tension before descents"
+    ],
+    "oct_ga_fit": "Great pick for moderate GA trail terrain; check lock tension before the trip",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "trekking poles",
+    "role": "personal trekking poles",
+    "tier": "premium",
+    "brand": "Black Diamond",
+    "model": "Distance Carbon Z (pair)",
+    "weight_oz": 10.9,
+    "weight_note": "Black Diamond spec ~10.9oz/310g per pair (folding Z-pole design)",
+    "price_usd": 189.95,
+    "price_url": "https://www.blackdiamondequipment.com/en_US/distance-carbon-z-trekking-poles-BD1125.html",
+    "used_price_range": "$110-140",
+    "where_to_buy": [
+      "REI",
+      "Black Diamond direct",
+      "Backcountry"
+    ],
+    "community_verdict": "A common endgame upgrade cited on r/Ultralight — folding Z-pole design packs down small (good for stowing when panning/using hands), and the fixed-length carbon shaft is both light and reliably rigid, avoiding the lock-slip complaints leveled at budget quick-lock poles.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Folds very small — easy to stash while panning",
+      "Reliable, no lock-slip issue",
+      "Genuinely light"
+    ],
+    "cons": [
+      "Expensive",
+      "Fixed length per pole size (less adjustable than telescoping poles)"
+    ],
+    "oct_ga_fit": "Nice if poles need to be quickly stowed for creek panning work, but not required for this trip",
+    "beginner_score": 3,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "sit pad",
+    "role": "personal sit pad",
+    "tier": "budget",
+    "brand": "DIY",
+    "model": "Cut piece of leftover closed-cell foam pad",
+    "weight_oz": 1.0,
+    "weight_note": "EST — small cut piece of CCF foam, typical DIY weight",
+    "price_usd": 0,
+    "price_url": "https://www.rei.com/c/sleeping-pads",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "scrap from any CCF sleeping pad"
+    ],
+    "community_verdict": "A near-universal r/Ultralight DIY move — cut a small rectangle off a cheap CCF foam pad (or a leftover packaging foam scrap) instead of buying a dedicated sit pad; costs nothing and works identically.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Free if any CCF foam is on hand",
+      "Zero functional downside vs. a bought pad"
+    ],
+    "cons": [
+      "Less polished/finished edges than a purpose-made pad"
+    ],
+    "oct_ga_fit": "Perfectly fine for sitting on cold/wet ground at the creek or camp",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "sit pad",
+    "role": "personal sit pad",
+    "tier": "value",
+    "brand": "Therm-a-Rest",
+    "model": "Z Seat",
+    "weight_oz": 2.0,
+    "weight_note": "Therm-a-Rest spec 2oz/56g",
+    "price_usd": 19.95,
+    "price_url": "https://www.rei.com/product/734520/therm-a-rest-z-seat",
+    "used_price_range": "$10-14",
+    "where_to_buy": [
+      "REI",
+      "Therm-a-Rest direct",
+      "Amazon"
+    ],
+    "community_verdict": "The classic, most-owned dedicated sit pad in the backpacking community — reflective aluminized coating adds a bit of ground insulation, folds compactly, and rarely gets 'upgraded away from' even by serious UL hikers.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Reflective layer adds real ground insulation",
+      "Compact accordion fold",
+      "Durable"
+    ],
+    "cons": [
+      "Costs money for something a foam scrap does for free"
+    ],
+    "oct_ga_fit": "Good for sitting on cold/wet gravel bars while panning",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "sit pad",
+    "role": "personal sit pad",
+    "tier": "premium",
+    "brand": "Gossamer Gear",
+    "model": "1/8in Thinlight Foam Pad (full torso, multi-use)",
+    "weight_oz": 2.8,
+    "weight_note": "Gossamer Gear spec ~2.8oz for the torso-length piece",
+    "price_usd": 22.5,
+    "price_url": "https://www.gossamergear.com/products/thinlight-foam-pad",
+    "used_price_range": "$12-16",
+    "where_to_buy": [
+      "Gossamer Gear direct",
+      "Garage Grown Gear"
+    ],
+    "community_verdict": "The multi-use pick long-distance UL hikers reach for — a full torso-length pad that doubles as a frameless-pack stiffener/frame sheet AND a sit pad/extra sleeping insulation, rather than carrying a dedicated single-purpose sit pad.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Multi-use — pack frame, sit pad, extra sleep insulation",
+      "Full torso length gives more usable sitting/kneeling area"
+    ],
+    "cons": [
+      "Not a true 'premium' single-purpose product — only worth it if also using a frameless pack"
+    ],
+    "oct_ga_fit": "Most useful if the pack chosen is frameless and benefits from a stiffener; otherwise the Z Seat (value tier) is simpler for this trip",
+    "beginner_score": 3,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "camp shoes",
+    "role": "personal camp/creek shoes",
+    "tier": "budget",
+    "brand": "generic",
+    "model": "Foam slide sandals",
+    "weight_oz": 6.0,
+    "weight_note": "typical foam slide pair weight, EST from category norms",
+    "price_usd": 9.99,
+    "price_url": "https://www.walmart.com/browse/shoes",
+    "used_price_range": "n/a",
+    "where_to_buy": [
+      "Walmart",
+      "Target",
+      "Amazon"
+    ],
+    "community_verdict": "Cheap foam slides show up constantly in camp-shoe threads as the 'why spend more' option for just giving your feet a break at camp — functional but not great for wet, uneven creek terrain.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/CampingGear/"
+    ],
+    "pros": [
+      "Very cheap",
+      "Lets feet dry out and breathe at camp"
+    ],
+    "cons": [
+      "Poor traction on wet rocks/gravel",
+      "Not secure enough for creek walking"
+    ],
+    "oct_ga_fit": "Fine for around the tent, not recommended for the creek itself (use the dedicated neoprene-sock+sneaker creek setup instead)",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": "Keep separate from the Kit 3 creek-panning footwear already planned"
+  },
+  {
+    "category": "camp shoes",
+    "role": "personal camp/creek shoes",
+    "tier": "value",
+    "brand": "Crocs",
+    "model": "Classic Clog",
+    "weight_oz": 12.0,
+    "weight_note": "typical Crocs Classic Clog pair weight per size, widely cited around 11-13oz",
+    "price_usd": 49.99,
+    "price_url": "https://www.crocs.com/p/classic-clog/10001.html",
+    "used_price_range": "$18-25",
+    "where_to_buy": [
+      "Crocs direct",
+      "REI",
+      "Amazon",
+      "DSW"
+    ],
+    "community_verdict": "An extremely common sight at trail camps and thru-hiker resupply stops — secure heel strap option, decent tread, and comfortable enough to wear for hours at camp; frequently the top community 'bops for the price' camp shoe pick across UL and general backpacking forums.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/",
+      "https://www.reddit.com/r/backpacking/"
+    ],
+    "pros": [
+      "Comfortable, breathable",
+      "Secure with the heel strap down",
+      "Iconic on-trail camp shoe"
+    ],
+    "cons": [
+      "Heavier/bulkier than minimalist sandals",
+      "Tread is mediocre on wet rock compared to purpose-built water sandals"
+    ],
+    "oct_ga_fit": "Good for base camp and around the tent after the panning-specific footwear comes off",
+    "beginner_score": 5,
+    "shared_split": 1,
+    "notes": ""
+  },
+  {
+    "category": "camp shoes",
+    "role": "personal camp/creek shoes",
+    "tier": "premium",
+    "brand": "Xero Shoes",
+    "model": "Z-Trail sandal",
+    "weight_oz": 8.8,
+    "weight_note": "Xero Shoes spec ~8.8oz per pair (size-dependent)",
+    "price_usd": 69.99,
+    "price_url": "https://xeroshoes.com/shop/z-trail-mens/",
+    "used_price_range": "$35-45",
+    "where_to_buy": [
+      "Xero Shoes direct",
+      "REI",
+      "Amazon"
+    ],
+    "community_verdict": "The minimalist-sandal pick serious UL/thru-hikers reach for over Crocs — lighter, better secured with adjustable straps, and grippier tread for wet creek rock, at the cost of less cushioning than Crocs for just lounging at camp.",
+    "verdict_sources": [
+      "https://www.reddit.com/r/Ultralight/"
+    ],
+    "pros": [
+      "Lighter than Crocs",
+      "Adjustable straps stay secure on uneven creek terrain",
+      "Better wet-rock traction"
+    ],
+    "cons": [
+      "Minimal cushioning — less comfortable than Crocs for just relaxing at camp",
+      "Pricier"
+    ],
+    "oct_ga_fit": "Good dual-purpose option for both camp lounging and light creek wading (though the dedicated neoprene-sock setup in Kit 3 is still better for extended cold-water panning)",
+    "beginner_score": 4,
+    "shared_split": 1,
+    "notes": ""
+  }
 ]

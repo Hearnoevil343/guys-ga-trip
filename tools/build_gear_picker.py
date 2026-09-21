@@ -22,7 +22,7 @@ from openpyxl.utils import get_column_letter
 from openpyxl.chart import BarChart, Reference
 from openpyxl.comments import Comment
 
-ROOT = Path(r"E:\dev\ga-gold-trip")
+ROOT = Path(__file__).resolve().parent.parent
 RESEARCH = ROOT / "research"
 OUT_XLSX = ROOT / "Gear_Picker.xlsx"
 DOWNLOADS = Path.home() / "Downloads" / "Gear_Picker.xlsx"

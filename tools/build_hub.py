@@ -10,7 +10,7 @@ import html
 import re
 from pathlib import Path
 
-ROOT = Path(r"E:\dev\ga-gold-trip")
+ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "index.html"
 
 # --- buy list table from BUY_LIST.md ---------------------------------------

@@ -12,7 +12,7 @@ Output: E:\\dev\\ga-gold-trip\\BUY_LIST.md
 import openpyxl
 from pathlib import Path
 
-ROOT = Path(r"E:\dev\ga-gold-trip")
+ROOT = Path(__file__).resolve().parent.parent
 XLSX = ROOT / "Gear_Picker.xlsx"
 OUT = ROOT / "BUY_LIST.md"
 

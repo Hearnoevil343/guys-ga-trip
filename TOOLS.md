@@ -28,18 +28,160 @@ near the Fannin Co. dispersed area, and the Coosa Backcountry Trail loop from Vo
 extraction script is `research/_build_trails.mjs` (depends on cached `research/_osm_*.xml` dumps
 that were deleted after use — re-fetch the same bboxes to rerun it).
 
-`build-map.mjs` now also: (1) loads `map/data/itinerary.json` (schema `itinerary-v1`) as a
-toggleable "Itinerary" layer — numbered day markers + a dashed connecting line per day, resolving
-each stop's `ref` against an existing point/overnight id; (2) runs a build-time point-in-polygon
-legality guard (ray-casting, handles Polygon/MultiPolygon) for every point and every overnight
-trailhead/camp/pan_reach against `wilderness.geojson`, logging every hit to the build console and
-tagging matched entries with `_insideWilderness` so their popup shows a red "INSIDE
-WILDERNESS/STATE PARK — NO PANNING" banner. **Finding from this guard:** the Dockery Lake Trail
-~3.0-mi campsite, and its pan reaches at ~2.0 mi and ~2.55-2.65 mi, fall INSIDE Blood Mountain
-Wilderness per the OSM-derived boundary (the ~0.5-mi crossing does not) — this contradicts
+`build-map.mjs` also: runs a build-time point-in-polygon legality guard (ray-casting, handles
+Polygon/MultiPolygon) for every point and every overnight trailhead/camp/pan_reach against
+`wilderness.geojson`, logging every hit to the build console and tagging matched entries with
+`_insideWilderness` so their popup shows a red "INSIDE WILDERNESS/STATE PARK — NO PANNING"
+banner (as of the map-rework pass, this guard also runs against every `water.geojson` line
+feature — see below). **Finding from this guard:** the Dockery Lake Trail ~3.0-mi campsite, and
+its pan reaches at ~2.0 mi and ~2.55-2.65 mi, fall INSIDE Blood Mountain Wilderness per the
+OSM-derived boundary (the ~0.5-mi crossing does not) — this contradicts
 `research/overnight-route-v2.md`'s guess that the campsite sits below the boundary; treat Dockery
-Lake as backup-only for camping/panning until confirmed against a survey-grade boundary. Three
-Forks/Noontootla and Rock Creek overnight pan reaches are both outside all mapped polygons.
+Lake as backup-only for camping/panning until confirmed against a survey-grade boundary.
+
+### Map rework pass (2026-09-21, 3rd pass) — real day-by-day route + water layer
+
+The old "Itinerary" layer (numbered markers + straight dashed lines between day stops) is
+**removed**. It drew the wrong overnight (the only route with geometry was the Dockery Lake
+*backup*, whose campsite the legality guard flags as inside Blood Mountain Wilderness) and every
+day-to-day line was crow-flies, not a real road or trail. Replaced with a day-chaining route built
+from real routing/trail data — see below. `map/data/itinerary.json` is still read (harmless) but
+no longer rendered; it remains the source of truth for which stops belong to which day.
+
+**Day 5/6/7 contradiction resolved:** `itinerary.json` gave two full nights at Three Forks (day 5
+*and* day 6); the trip's plan is one overnight, Mon Oct 19 → Tue Oct 20. Resolved as: Day 5 = Vogel
+→ drive → hike in → camp. Day 6 = wake at camp → pan → hike out → drive back to Vogel. Day 7 =
+Vogel, break camp, depart. Encoded directly in `map/data/days.json`'s day 5/6/7 entries.
+
+**New data files:**
+- `map/data/days.json` (schema `days-v1`) — the real day-by-day route: each day is an ordered
+  chain of `drive`/`walk`/`pan`/`tour` legs. `drive` and `walk` legs carry real `coords`
+  ([lat,lng] pairs), `miles`, `minutes`, and `geometry_confidence` (`"exact"` for real
+  OSRM/OSM-way geometry, `"approximate"` for any straight-line stitch — see honesty notes below).
+  `start`/`end` on each day carry an explicit `lat`/`lng` taken directly from the first/last leg's
+  real coordinate (not a separate ref lookup), so the map's start/end markers always sit exactly
+  on the drawn line, and so the day-chain assertion (day N `end` must equal day N+1 `start`) can
+  compare real coordinates, not just id strings. Built by `map/data/_build_days.mjs`.
+- `map/data/water.geojson` — creek/river line geometry, split out of `trails.geojson` (which
+  had crept into holding both). Noontootla Creek and Rock Creek were moved over as-is (same OSM
+  geometry as before); Frogtown, Cooper, Yahoola, and the Upper Chattahoochee (near FS-44) were
+  newly fetched from OSM and added. **Tesnatee Creek could not be found** — no OSM way tagged
+  `waterway=stream|river` with a name matching "Tesnatee" turned up in bboxes up to ±0.03° around
+  Tesnatee Gap (checked both up- and down-slope of the gap); an unnamed stream is nearby and used
+  as a proxy target for the day-4 walk leg only, clearly caveated — no geometry was invented for
+  the water layer itself. Built by `map/data/_build_water.mjs`; `trails.geojson` now holds only
+  trail/road features.
+- `map/data/_lib.mjs` — shared helpers for both one-off builders above: cached fetch, OSM XML
+  parsing, haversine/resampling, Tobler's function, OSRM/opentopodata/OSM wrappers.
+
+**Network dependencies, added this pass (verified working 2026-09-21):**
+- **OSRM public demo** (`router.project-osrm.org/route/v1/driving/...`) — real driving routes
+  for every `drive` leg (geometry, distance, duration).
+- **`api.opentopodata.org/v1/aster30m`** — elevation (ASTER 30m dataset, i.e. ~30m horizontal
+  resolution — coarse but real) sampled every ~100m along each `walk` leg, used for the Tobler
+  walking-time model below. 100 locations/call, 1 call/sec; batched and capped accordingly.
+- `api.openstreetmap.org/api/0.6/map` was already in use (see `research/_build_trails.mjs` from
+  the prior pass); this pass adds a generic small-bbox path/waterway finder in `_lib.mjs` used by
+  both new builders.
+- **Dead — do not use:** all Overpass API mirrors (overpass-api.de, kumi.systems,
+  openstreetmap.ru, maps.mail.ru) and `api.open-elevation.com`. Tested 2026-09-21, unreachable.
+  Retrying them wastes turns; use the endpoints above instead.
+- All network responses are cached to `map/data/_cache/` (gitignored) so re-runs of either builder
+  are instant and free after the first fetch. Delete that folder to force a refetch.
+
+**Walking-time model (`map/data/days.json`'s `assumptions` block):** Tobler's hiking function,
+`W = 6 * exp(-3.5 * abs(slope + 0.05))` km/h, applied per ~100m elevation-sampled segment along
+each walk leg's real geometry, then derated by `group_factor` (0.85, six people move slower than
+one) and by `pack_factor` (0.85, loaded pack — day 5/6 hike-in/out only) or `daypack_factor` (1.0,
+everything else). **Implementation note / ambiguity resolved:** the task brief said to "multiply
+[time] by group_factor," which taken literally would make a slower group finish faster — physically
+backwards. Implemented instead as `kmh_effective = kmh_tobler * group_factor * pack_or_daypack`
+(i.e. the factor derates speed, so time increases), matching the brief's own stated intent ("six
+people move slower than one"). Minutes are rounded to the nearest 5.
+
+**Honesty rule applied throughout:** every `drive`/`walk` leg's `geometry_confidence` is `"exact"`
+only when its `coords` are real routed/mapped geometry end-to-end; any leg with so much as a
+straight-line stitch at one end is `"approximate"`, and the map draws it dashed with a "~ approx"
+tag in the leg panel. The Three Forks/Noontootla overnight (day 5/6 hike) uses real AT/Benton
+MacKaye Trail geometry already in `trails.geojson`, cut at a ~0.3-mi mark chosen to move away from
+the road/AT-thru-hiker corridor per that route's own pressure notes — the trail *shape* is real,
+but the exact backcountry tent pad was never independently surveyed in the source data (it
+originally just repeated the trailhead coordinate for trailhead/camp/pan_reach alike — **a
+separate research pass is finding a real replacement coordinate**; when it lands, re-run
+`_build_days.mjs` after updating the cut/target). `map/data/overnight-wide.json`'s
+`three-forks-noontootla` entry was patched with the same real `route_coords`/`one_way_mi`/
+`gain_ft` (was `[]`/`null`/`null`), with a dated note explaining the fix.
+
+**Drive-timing bug and fix (2026-09-21, 4th pass):** the first map-rework pass only flagged slow
+OSRM legs with a blanket caution; the coordinator chased it down and confirmed OSRM's *routes* are
+correct but its **duration** on gravel/track roads defaults to walking pace (3.1 mph on Noontoola
+Road and Blue Ridge Road near Three Forks; 4.4 mph on Poplar Stump Road; 3.1 mph on Chattahoochee
+River Road near FS-44) — a truck on real maintained FS gravel runs 15-25 mph. Fixed properly, by
+road surface, not a blanket floor: every `drive` leg is now fetched from OSRM with `steps=true`,
+grouped into named road segments, and each segment's real OSM way is looked up
+(`api.openstreetmap.org` small-bbox, nearest way within 150m, name match preferred) and classified
+by its `highway`/`surface` tags — **paved** (`surface=asphalt|paved|concrete`, or
+`highway=primary|secondary|tertiary|residential`) trusts OSRM's own duration; **unpaved/track**
+(`surface=gravel|dirt|unpaved|compacted|ground`, or `highway=track|unclassified` with no paved
+surface tag) is re-timed at a flat, deliberately conservative **15 mph**; **undeterminable** (no
+OSM way found nearby) keeps OSRM's duration unless OSRM's own implied speed was already under 10
+mph, in which case it's also re-timed at 15 mph but flagged confidence `'low'`. Distance is never
+touched — only duration, and only per segment. Every drive leg keeps **both** numbers:
+`minutes` (adjusted) and `minutes_osrm_raw` (OSRM's original), plus `timing_model` (a plain-English
+explanation) and a full `retimed_steps` audit array (per-segment name/ref, surface tag, OSRM mph
+vs. mph used, confidence) — anyone can audit exactly what changed and why. `timing_confidence` on
+the leg is `'estimated'` if anything was re-timed, else `'exact'`. The assumption (15 mph, and the
+whole classification rule) lives in `days.json`'s `assumptions.drive_timing_model` as well as here.
+Full before/after: Vogel↔Three Forks 191→111 min each way; Day 4's Tesnatee→Upper-Chattahoochee
+155→61 min and Upper-Chattahoochee→Dukes 141→42 min; Day 3's Cooper Creek legs actually ticked up a
+touch (58→59, 57→59 — OSRM had already guessed close to 15 mph on Mulky Gap Road, and flat-15 is
+marginally more conservative than OSRM's own 15.4-15.5 mph there). Day 4's elapsed time dropped
+from 10.9 hr to 7.7 hr; Day 5/6 drive time dropped enough that the overnight is clearly feasible
+instead of looking implausible. **Surfaced in the UI:** a re-timed drive leg gets a "gravel — est."
+tag next to its time in the leg panel (plus the raw OSRM time in parentheses) and in its map popup
+(which also shows `timing_model`); any day containing a re-timed leg gets a one-line panel note
+recommending a Google Maps cross-check, calling out the Vogel↔Three Forks drive (days 5/6) and the
+GA-348 loop (day 4) by name.
+
+**Click-occlusion bug and fix (2026-09-21, 4th pass):** the coordinator's own click at the Day 5 end
+marker's real screen position (bottom-left, under the legend, at a 1280×720 viewport) hit the
+legend's "Hospital / ER" row instead of the marker — `fitBounds`'s fixed `padding:[40,40]` didn't
+account for any of the map's own overlay chrome (zoom control + day strip top-left, layers control
+top-right, legend bottom-left), so a day's start/end marker could land right under one of them.
+Fixed two ways, both live: (1) `computeFitPadding()` measures the actual on-screen
+`getBoundingClientRect()` of `.leaflet-control-zoom`, `.day-strip`, `.leaflet-control-layers` and
+`#legend` every time a day is selected and turns that into Leaflet's `paddingTopLeft`/
+`paddingBottomRight` `fitBounds` options, so it stays correct if the legend grows (it lists more
+rows now) or the viewport resizes; (2) the day panel's title row now always has "← Day N-1" /
+"Day N+1 →" buttons that call the same `selectDay()` the map popup buttons do — a chaining path
+that can never be occluded by map chrome because it isn't on the map. **A second, related bug**
+turned up while re-testing with real coordinate clicks instead of `element.click()`/dispatched
+events (the very gap that let this slip through the first time): on every day that starts and ends
+at the same point (days 1-4 and 7 — all Vogel-to-Vogel loops), the separate start and end markers
+rendered exactly on top of each other, and the later-added end marker permanently covered the
+start marker — its back-chain button was unreachable by any real click even though its popup logic
+was fine. Fixed by detecting when `start`/`end` are within 15m and rendering ONE merged "hub"
+marker (half-green/half-red, both chain buttons in one popup) instead of two stacked pins; the
+start/end markers also now carry real CSS classes (`day-start-marker`/`day-end-marker`, the hub
+carries both) instead of being found by matching glyph text, which is what let the hub case be
+verified cleanly.
+
+**Status:** active, working as of 2026-09-21 (4th pass — coordinator-reported bug fixes).
+`node map/build-map.mjs` exits clean. Playwright via the same throwaway-install pattern (see below)
+was used for a **real-coordinate-click** re-verification at 1280×720 (matching the coordinator's
+repro): for every day 1-7, `document.elementFromPoint()` at each start/end (or hub) marker's own
+bounding-box center returns that same marker — i.e. nothing occludes it — confirmed for all 7 days
+including the 5 hub-marker days; `page.mouse.click()` (not a locator/dispatched-event click) at the
+Day 1 end marker's real screen position opened its popup and a real click on its "Day 2 starts
+here →" button advanced the day strip to day 2, the same for the Day 5 end marker (backcountry
+camp) → day 6, and the Day 6 start marker's "← Day 5 ended here" button back to day 5; the Day 1
+hub marker (start==end at Vogel) opened correctly and showed the forward chain button; both new
+panel nav buttons (tested from Day 3/4) correctly stepped the day; "gravel — est." tags and the
+cross-check note were confirmed present on days 4/5/6; zero console errors/pageerrors throughout.
+`map/screenshot.png` was refreshed from this pass. (The prior pass's verification — day strip
+button count, layer-control labels, per-day leg-row/totals rendering — was re-exercised
+incidentally by clicking through all 7 days again here and stayed clean; not re-asserted line by
+line since nothing in this pass touched that code path.)
 
 ## tools/build_gear_picker.py
 Re-runnable Python (openpyxl; `pip install openpyxl`) builder for `Gear_Picker.xlsx`, the
@@ -68,6 +210,12 @@ verification pass, then `node_modules`/`package.json`/`package-lock.json` were m
 `E:\to-delete\ga-gold-trip\` afterward (never delete directly per GOTCHAS; the Captain empties
 `to-delete` periodically). Reinstall the same way (`npm init -y && npm install playwright && npx
 playwright install chromium`) for the next browser check, then move it back out when done.
+
+**Reused 2026-09-21 (map rework pass):** the throwaway install and cached Chromium binary from
+this pass were both still sitting where they were left (`E:\to-delete\ga-gold-trip\node_modules`
++ `%LOCALAPPDATA%\ms-playwright\chromium-1243`) — moved back in, used for the map's headless
+verification, moved back out. No reinstall/redownload needed; check there first before running
+`npm install` again.
 
 **Bug fixed 2026-09-21 (2nd pass):** `norm_item()`'s `where_to_buy`/`verdict_sources`/`pros`/`cons`
 fields assumed list input and did `", ".join(...)` — the hardcoded `SLEEP_30F` block (his

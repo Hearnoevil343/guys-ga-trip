@@ -10,21 +10,130 @@
     },
     "camps": [
       {
-        "name": "Three Forks established camp cluster (exact tent pads unverified)",
-        "lat": 34.6636,
-        "lng": -84.1842
+        "name": "Backcountry camp ~0.30 mi up the real AT/Benton MacKaye Trail from the FS-58 trailhead (exact tent pad unverified — see notes)",
+        "lat": 34.6661623,
+        "lng": -84.1805195
       }
     ],
     "pan_reaches": [
       {
-        "name": "Noontootla Creek at Three Forks confluence (Stover/Chester/Long Creeks)",
-        "lat": 34.6636,
-        "lng": -84.1842
+        "name": "Noontootla Creek corridor near the backcountry camp (~0.30 mi up-trail)",
+        "lat": 34.6661623,
+        "lng": -84.1805195
       }
     ],
-    "route_coords": [],
-    "one_way_mi": null,
-    "gain_ft": null,
+    "route_coords": [
+      [
+        34.6633166,
+        -84.1843362
+      ],
+      [
+        34.6633712,
+        -84.1842478
+      ],
+      [
+        34.663394,
+        -84.1841939
+      ],
+      [
+        34.6634207,
+        -84.1841497
+      ],
+      [
+        34.6634816,
+        -84.1840956
+      ],
+      [
+        34.6635004,
+        -84.1840984
+      ],
+      [
+        34.6638145,
+        -84.1839136
+      ],
+      [
+        34.6639243,
+        -84.1838676
+      ],
+      [
+        34.6639912,
+        -84.1838511
+      ],
+      [
+        34.6640607,
+        -84.1838047
+      ],
+      [
+        34.6642238,
+        -84.183654
+      ],
+      [
+        34.664433,
+        -84.1833905
+      ],
+      [
+        34.6648579,
+        -84.1830095
+      ],
+      [
+        34.6650274,
+        -84.1828425
+      ],
+      [
+        34.6651374,
+        -84.1827183
+      ],
+      [
+        34.6653493,
+        -84.1824151
+      ],
+      [
+        34.6654455,
+        -84.1821779
+      ],
+      [
+        34.6655397,
+        -84.1819027
+      ],
+      [
+        34.6655942,
+        -84.1817506
+      ],
+      [
+        34.6656348,
+        -84.1816354
+      ],
+      [
+        34.665642,
+        -84.1815059
+      ],
+      [
+        34.665701,
+        -84.1813721
+      ],
+      [
+        34.6657783,
+        -84.1812307
+      ],
+      [
+        34.6658869,
+        -84.1810954
+      ],
+      [
+        34.6659631,
+        -84.1809471
+      ],
+      [
+        34.6660474,
+        -84.1807345
+      ],
+      [
+        34.6661623,
+        -84.1805195
+      ]
+    ],
+    "one_way_mi": 0.3,
+    "gain_ft": 49,
     "drive_min_from_vogel": 45,
     "creek": "Noontootla Creek (Stover, Chester, Long Creeks confluence)",
     "gold_evidence": "1911 USFS land purchase named 'Rock Creek and Noontootly Creek area' tract (Gennett brothers, Fannin/Gilmer/Lumpkin/Union); thediggings.com Fannin County gold index lists Hackney Placer and Noontootly Creek mining.",
@@ -46,7 +155,7 @@
       "https://thediggings.com/usa/georgia/fannin-ga111/mines?commodity=gold",
       "https://campflare.com/campground/noontootla-dispersed-area-762"
     ],
-    "notes": "Top overall pick among the wide-net candidates: strongest creek-specific gold citation, easy grade, established camping, non-Wilderness. Exact hike-in mileage from Three Forks to a private/quiet pan site is unverified."
+    "notes": "Top overall pick among the wide-net candidates: strongest creek-specific gold citation, easy grade, established camping, non-Wilderness. Exact hike-in mileage from Three Forks to a private/quiet pan site is unverified. UPDATED 2026-09-21 (map rework pass): route_coords/one_way_mi/gain_ft were null/empty; filled in from real OSM AT/Benton MacKaye Trail geometry at Three Forks (see trails.geojson + map/data/days.json day 5/6 hike legs). The camp/pan_reach coordinate is a ~0.3-mi cut along that real trail chosen to move away from the FS-58/AT-thru-hiker corridor per this file's own pressure note, NOT an independently surveyed campsite — confirm on the ground or with a district ranger before relying on it. UPDATED 2026-09-21 (map rework pass): route_coords/one_way_mi/gain_ft were null/empty; filled in from real OSM AT/Benton MacKaye Trail geometry at Three Forks (see trails.geojson + map/data/days.json day 5/6 hike legs). The camp/pan_reach coordinate is a ~0.3-mi cut along that real trail chosen to move away from the FS-58/AT-thru-hiker corridor per this file's own pressure note, NOT an independently surveyed campsite — confirm on the ground or with a district ranger before relying on it. UPDATED 2026-09-21 (map rework pass): route_coords/one_way_mi/gain_ft were null/empty; filled in from real OSM AT/Benton MacKaye Trail geometry at Three Forks (see trails.geojson + map/data/days.json day 5/6 hike legs). The camp/pan_reach coordinate is a ~0.3-mi cut along that real trail chosen to move away from the FS-58/AT-thru-hiker corridor per this file's own pressure note, NOT an independently surveyed campsite — confirm on the ground or with a district ranger before relying on it."
   },
   {
     "id": "rock-creek-fannin",

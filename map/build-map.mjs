@@ -100,58 +100,166 @@ if (droppedPoints.length) console.log(`  Skipped ${droppedPoints.length} point(s
 if (droppedOvernights.length) console.log(`  Skipped ${droppedOvernights.length} overnight route(s) with no resolved coordinates: ${droppedOvernights.map(o => o.id).join(', ')}`);
 
 // ---------------------------------------------------------------------------
-// 2. Fill in missing photos from Wikimedia Commons geosearch (build-time),
-//    caching results in map/data/photo-cache.json so re-runs are fast/free.
+// 2. Fill in missing photos from Wikimedia Commons — VERIFIED BY NAME, not
+//    proximity. The old approach used geosearch ("any image within 1.5km"),
+//    which attached whatever was physically nearest with zero subject check:
+//    a Home Depot on the Ingles grocery marker, a Wendy's on the ranger
+//    district office, identical photos duplicated across four separate Vogel
+//    points. No photo beats a wrong photo, so: search Commons by the spot's
+//    own name, keep a candidate only if its file title or categories share a
+//    real (non-generic) token with the spot's name/creek, and dedupe so no
+//    image is ever used by more than one spot on the whole site. The cache
+//    is REBUILT FROM SCRATCH this pass (not patched) — the old cache's
+//    entries were produced by the flawed method and its keys had drifted
+//    from current point ids (e.g. 'crisson_gold_mine' vs the live
+//    'crisson-gold-mine'), so trusting old entries would keep the bugs.
 // ---------------------------------------------------------------------------
-async function geosearchPhotos(lat, lng) {
-  try {
-    const gsUrl = 'https://commons.wikimedia.org/w/api.php?' + new URLSearchParams({
-      action: 'query', list: 'geosearch', gscoord: `${lat}|${lng}`, gsradius: '1500',
-      gsnamespace: '6', gslimit: '3', format: 'json',
-    });
-    const gsRes = await fetch(gsUrl, { headers: { 'User-Agent': UA } });
-    const gsJson = await gsRes.json();
-    const results = (gsJson.query && gsJson.query.geosearch) || [];
-    if (!results.length) return [];
-    const iiUrl = 'https://commons.wikimedia.org/w/api.php?' + new URLSearchParams({
-      action: 'query', titles: results.map(r => r.title).join('|'), prop: 'imageinfo',
-      iiprop: 'url|extmetadata', iiurlwidth: '480', format: 'json',
-    });
-    const iiRes = await fetch(iiUrl, { headers: { 'User-Agent': UA } });
-    const iiJson = await iiRes.json();
-    const pages = (iiJson.query && iiJson.query.pages) || {};
-    const out = [];
-    for (const pid in pages) {
-      const p = pages[pid];
-      if (p.imageinfo && p.imageinfo[0]) {
-        const ii = p.imageinfo[0];
-        const artist = ii.extmetadata && ii.extmetadata.Artist ? String(ii.extmetadata.Artist.value).replace(/<[^>]+>/g, '') : '';
-        const lic = ii.extmetadata && ii.extmetadata.LicenseShortName ? ii.extmetadata.LicenseShortName.value : 'Wikimedia Commons';
-        out.push({ thumb: ii.thumburl || ii.url, page: ii.descriptionurl, credit: (artist ? artist + ' — ' : '') + lic });
-      }
+const PHOTO_STOPWORDS = new Set([
+  'the', 'a', 'an', 'of', 'at', 'in', 'on', 'near', 'and', 'or', 'to', 'from', 'into', 'area', 'areas',
+  'creek', 'river', 'road', 'rd', 'trail', 'trailhead', 'park', 'georgia', 'ga', 'recreation',
+  'falls', 'lake', 'mine', 'mines', 'gold', 'camp', 'campground', 'campsite', 'state', 'national',
+  'forest', 'museum', 'historic', 'site', 'sites', 'mountain', 'mtn', 'gap', 'county', 'north', 'south',
+  'east', 'west', 'upper', 'lower', 'access', 'scenic', 'highway', 'hwy', 'wma', 'nf', 'usfs', 'fs',
+  'district', 'ranger', 'office', 'station', 'center', 'centre', 'visitor', 'overlook', 'wilderness',
+  'branch', 'fork', 'crossing', 'bridge', 'loop', 'general', 'store', 'stores', 'parking', 'lot', 'club',
+]);
+function coreName(name) {
+  return String(name || '').split(/[—(/]/)[0].trim();
+}
+function significantTokens(...texts) {
+  const toks = new Set();
+  for (const t of texts) {
+    if (!t) continue;
+    for (const w of String(t).toLowerCase().replace(/['’]/g, '').split(/[^a-z0-9]+/)) {
+      if (w.length >= 4 && !PHOTO_STOPWORDS.has(w)) toks.add(w);
     }
-    return out;
-  } catch (e) {
-    console.warn('  photo geosearch failed for', lat, lng, e.message);
-    return [];
   }
+  return toks;
+}
+function tokensMatchText(text, tokens) {
+  const t = String(text || '').toLowerCase();
+  for (const tok of tokens) if (t.includes(tok)) return true;
+  return false;
 }
 
+// Common north-GA place names are ambiguous nationally (there's a Wolf Creek
+// in Colorado, a Wildcat Creek in Indiana, a "Union General Hospital" in
+// Louisiana and a Civil War one in Maryland) — a title/category token match
+// alone isn't enough to prove it's OUR Wolf Creek. Two extra guards: (1) bias
+// the search query itself toward Georgia with the spot's own county (or
+// Union County for the core.json/Blairsville-area points, which carry no
+// county field), and (2) when a candidate has Commons {{Location}} geodata,
+// require it to actually be near the spot — reject it outright if it's
+// geotagged somewhere far away, rather than trusting the name alone.
+const MAX_PHOTO_KM = 40; // generous — a river/creek photo may be taken miles from this exact access point
+function haversineKmBuild(lat1, lng1, lat2, lng2) { return haversineMetersBuild(lat1, lng1, lat2, lng2) / 1000; }
+// A subject-name match alone isn't proof of LOCATION — there's a Wolf Creek
+// in Colorado, a Wildcat Creek in Indiana, a "Union General Hospital" in
+// Louisiana. Require a Georgia signal too: either the candidate has Commons
+// {{Location}} geodata and it's actually near the spot, or (no geodata is
+// common for building/business photos) its title/categories mention this
+// region by name. Rejects out-of-state namesakes without needing the search
+// query itself to carry "County Georgia", which was tried first and starved
+// out too many good in-state matches that don't happen to say "county."
+// Deliberately region-specific, not just "georgia" — this trip is the north
+// GA mountains specifically, and a bare "Georgia" category (near-universal on
+// Commons for anything in the state) let through a Wildcat Creek near Atlanta
+// that has nothing to do with Rabun County's Wildcat Creek 70+ miles away.
+// "union"/"white" alone are excluded too — they false-matched Civil War
+// "Union Army" hospital photos, not Union County.
+const GA_SIGNAL = ['chattahoochee', 'lumpkin county', 'union county', 'white county', 'fannin county',
+  'gilmer county', 'dawson county', 'towns county', 'rabun county', 'dahlonega', 'blairsville', 'helen, ga',
+  'suches', 'cleveland, ga', 'vogel', 'blood mountain', 'blue ridge, ga', 'blue ridge mountains',
+  'north georgia'];
+function hasGaSignal(text) {
+  const t = String(text || '').toLowerCase();
+  return GA_SIGNAL.some(sig => t.includes(sig));
+}
+// Hard veto regardless of any token/GA-signal match: an explicit OTHER state
+// name or a ", XX" state abbreviation that isn't GA is strong evidence this
+// is a same-named place somewhere else entirely (caught a "GA Neel Gap"-
+// style false match for an Ingles store that was actually in Hayesville, NC).
+const OTHER_STATE_NAME = /\b(North Carolina|South Carolina|Tennessee|Alabama|Florida|Virginia|Louisiana|Colorado|Oregon|Indiana|Kentucky|Mississippi|Texas|Nevada|Utah|Arizona|New Mexico|Maryland|Pennsylvania|Ohio|New York|Washington|Illinois|Wisconsin|Michigan|Nebraska)\b/i;
+const OTHER_STATE_ABBR = /,\s*(AL|AK|AZ|AR|CA|CO|CT|DE|FL|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY)\b/;
+function mentionsOtherState(text) {
+  if (!text) return false;
+  if (OTHER_STATE_NAME.test(text)) return true;
+  if (OTHER_STATE_ABBR.test(text) && !/,\s*GA\b/i.test(text)) return true;
+  return false;
+}
+
+async function searchVerifiedPhotos(spot) {
+  const cName = coreName(spot.name);
+  const tokens = significantTokens(cName, spot.stream);
+  if (!tokens.size) return [];
+  const url = 'https://commons.wikimedia.org/w/api.php?' + new URLSearchParams({
+    action: 'query', generator: 'search', gsrsearch: cName + ' filetype:bitmap', gsrnamespace: '6',
+    gsrlimit: '8', prop: 'imageinfo|categories|coordinates', iiprop: 'url|extmetadata', iiurlwidth: '480',
+    cllimit: '30', format: 'json',
+  });
+  let json;
+  try {
+    const res = await fetch(url, { headers: { 'User-Agent': UA } });
+    json = await res.json();
+  } catch (e) {
+    console.warn('  photo search failed for', spot.id, e.message);
+    return [];
+  }
+  const pages = Object.values((json.query && json.query.pages) || {});
+  const out = [];
+  for (const p of pages) {
+    if (!p.imageinfo || !p.imageinfo[0]) continue;
+    const catText = (p.categories || []).map(c => c.title).join(' ');
+    if (!tokensMatchText(p.title, tokens) && !tokensMatchText(catText, tokens)) continue; // subject check
+    if (mentionsOtherState(p.title) || mentionsOtherState(catText)) { console.log(`    (rejected "${p.title}" — names a different US state)`); continue; }
+    let geoOk = null; // null = no geodata to check
+    if (Array.isArray(p.coordinates) && p.coordinates[0]) {
+      const d = haversineKmBuild(spot.lat, spot.lng, p.coordinates[0].lat, p.coordinates[0].lon);
+      geoOk = d <= MAX_PHOTO_KM;
+      if (!geoOk) { console.log(`    (rejected "${p.title}" — geotagged ${d.toFixed(0)}km away, not this Georgia feature)`); continue; }
+    }
+    if (geoOk === null && !hasGaSignal(p.title) && !hasGaSignal(catText)) {
+      console.log(`    (rejected "${p.title}" — name matched but no Georgia/region signal and no geodata to confirm location)`);
+      continue;
+    }
+    const ii = p.imageinfo[0];
+    const artist = ii.extmetadata && ii.extmetadata.Artist ? String(ii.extmetadata.Artist.value).replace(/<[^>]+>/g, '') : '';
+    const lic = ii.extmetadata && ii.extmetadata.LicenseShortName ? ii.extmetadata.LicenseShortName.value : 'Wikimedia Commons';
+    out.push({ thumb: ii.thumburl || ii.url, page: ii.descriptionurl, credit: (artist ? artist + ' — ' : '') + lic });
+  }
+  return out;
+}
+
+const usedPhotoPages = new Set(); // global dedupe across the WHOLE site
+for (const p of points) for (const ph of (p.photos || [])) if (ph.page) usedPhotoPages.add(ph.page);
+
+photoCache = {}; // full rebuild — see comment above
 let cacheDirty = false;
+let photoStats = { kept: 0, droppedNoMatch: 0, droppedDupe: 0, skippedOwn: 0 };
 for (const p of points) {
   const hasOwnPhotos = Array.isArray(p.photos) && p.photos.length > 0;
-  if (hasOwnPhotos) continue;
-  if (photoCache[p.id]) { p.photos = photoCache[p.id]; continue; }
-  console.log('  fetching Commons photos for', p.id);
-  const photos = await geosearchPhotos(p.lat, p.lng);
-  photoCache[p.id] = photos;
-  p.photos = photos;
+  if (hasOwnPhotos) { photoStats.skippedOwn++; continue; } // pre-curated in spots.json/core.json — out of this pass's scope, already verified by hand
+  console.log('  searching verified Commons photo for', p.id, '(query: "' + coreName(p.name) + '")');
+  const candidates = await searchVerifiedPhotos(p);
+  const kept = [];
+  let dupeSeen = 0, noMatchCount = candidates.length;
+  for (const c of candidates) {
+    if (usedPhotoPages.has(c.page)) { dupeSeen++; continue; }
+    kept.push(c);
+    usedPhotoPages.add(c.page);
+    if (kept.length >= 3) break;
+  }
+  photoCache[p.id] = kept;
+  p.photos = kept;
   cacheDirty = true;
-  await new Promise(r => setTimeout(r, 350));
+  if (kept.length) { photoStats.kept += kept.length; console.log('    -> kept', kept.length, 'verified photo(s)'); }
+  else if (dupeSeen) { photoStats.droppedDupe++; console.log('    -> all', dupeSeen, 'matching candidate(s) already used by another spot — left blank rather than duplicate'); }
+  else { photoStats.droppedNoMatch++; console.log('    -> no candidate matched the name — left blank (no photo beats a wrong photo)'); }
+  await new Promise(r => setTimeout(r, 500));
 }
 if (cacheDirty) {
   fs.writeFileSync(path.join(DATA_DIR, 'photo-cache.json'), JSON.stringify(photoCache, null, 2));
-  console.log('Updated photo-cache.json');
+  console.log(`Rebuilt photo-cache.json: ${Object.keys(photoCache).length} live point id(s), ${photoStats.skippedOwn} pre-curated (untouched), ${photoStats.kept} verified photo(s) kept, ${photoStats.droppedNoMatch} spot(s) left blank (no name match), ${photoStats.droppedDupe} spot(s) left blank (only match(es) already used elsewhere).`);
 }
 
 // ---------------------------------------------------------------------------
@@ -351,6 +459,52 @@ const TYPE_STYLE = {
   'other':              { color: '#555555', icon: '📍', label: 'Other' },
 };
 const OVERNIGHT_STYLE = { color: '#8c564b', icon: '🎒', label: 'Overnight route' };
+
+// ---------------------------------------------------------------------------
+// 4b. Marker-collision guard: two (or more) points at effectively the same
+//     coordinate (e.g. a pan spot and its own no-panning exclusion note —
+//     upper-chatt-fs44/upper-chatt-wilderness, boggs-creek/boggs-creek-
+//     wilderness, both exact-duplicate coordinates) would render as stacked
+//     markers where a click only ever reaches whichever was added to the DOM
+//     last — the same class of bug fixed for the day start/end markers.
+//     Cluster any points within COLLISION_M of each other (transitively, via
+//     union-find) and tag them with a shared _mergeGroupId so the client
+//     renders ONE marker per group with every member's info in one popup,
+//     instead of stacking pins. Asserted below: every distinct group ends up
+//     >= COLLISION_M from every other group's representative point.
+// ---------------------------------------------------------------------------
+const COLLISION_M = 15;
+{
+  const parent = points.map((_, i) => i);
+  function find(x) { while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x]; } return x; }
+  function union(a, b) { const ra = find(a), rb = find(b); if (ra !== rb) parent[ra] = rb; }
+  for (let i = 0; i < points.length; i++) {
+    for (let j = i + 1; j < points.length; j++) {
+      if (haversineMetersBuild(points[i].lat, points[i].lng, points[j].lat, points[j].lng) < COLLISION_M) union(i, j);
+    }
+  }
+  const byRoot = {};
+  points.forEach((p, i) => { const r = find(i); (byRoot[r] = byRoot[r] || []).push(p); });
+  const groups = Object.values(byRoot);
+  for (const g of groups) { const gid = g[0].id; for (const p of g) p._mergeGroupId = gid; }
+  const collided = groups.filter(g => g.length > 1);
+  if (collided.length) {
+    console.log(`Marker-collision guard: merged ${collided.length} group(s) of points within ${COLLISION_M}m into single markers:`);
+    for (const g of collided) console.log('  - ' + g.map(p => p.id).join(' + ') + ` (${g.length} points, same marker)`);
+  } else {
+    console.log(`Marker-collision guard: no two points within ${COLLISION_M}m of each other.`);
+  }
+  // Assert: no two DIFFERENT groups' representative points are themselves
+  // within COLLISION_M (i.e. the clustering actually resolved everything).
+  let assertFail = false;
+  for (let i = 0; i < groups.length; i++) {
+    for (let j = i + 1; j < groups.length; j++) {
+      const d = haversineMetersBuild(groups[i][0].lat, groups[i][0].lng, groups[j][0].lat, groups[j][0].lng);
+      if (d < COLLISION_M) { assertFail = true; console.warn(`  ASSERTION FAILED: groups ${groups[i][0].id} and ${groups[j][0].id} still ${d.toFixed(1)}m apart after merge.`); }
+    }
+  }
+  console.log(assertFail ? 'Marker-collision assertion FAILED — see warnings above.' : `Marker-collision assertion OK: ${groups.length} distinct rendered marker position(s) for ${points.length} point(s).`);
+}
 
 const dataBlock = {
   points, overnights,
@@ -613,13 +767,45 @@ function iconFor(styleKey) {
   });
 }
 
-for (const p of DATA.points) {
-  allTypes.add(p._type);
-  const m = L.marker([p.lat, p.lng], { icon: iconFor(p._type) }).bindPopup(popupHtml(p));
-  m.__type = p._type;
-  m.__point = p;
+// Points within COLLISION_M of each other were pre-grouped at build time
+// (_mergeGroupId) so a pan spot and its own no-panning exclusion note (e.g.
+// upper-chatt-fs44 / upper-chatt-wilderness, boggs-creek / boggs-creek-
+// wilderness — both exact-duplicate coordinates) render as ONE marker with
+// every group member's popup stacked in it, instead of two stacked pins
+// where only the top one is ever clickable.
+function mergedIcon(members) {
+  if (members.length === 2) {
+    const s0 = DATA.typeStyle[members[0]._type] || DATA.typeStyle.other;
+    const s1 = DATA.typeStyle[members[1]._type] || DATA.typeStyle.other;
+    return L.divIcon({
+      html: '<div style="background:linear-gradient(135deg,' + s0.color + ' 50%,' + s1.color + ' 50%);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.5);">' + s0.icon + '</div>',
+      className: '', iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14],
+    });
+  }
+  return L.divIcon({
+    html: '<div style="background:#555;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.5);">' + members.length + '</div>',
+    className: '', iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14],
+  });
+}
+const pointsByGroup = {};
+for (const p of DATA.points) { const gid = p._mergeGroupId || p.id; (pointsByGroup[gid] = pointsByGroup[gid] || []).push(p); }
+for (const gid in pointsByGroup) {
+  const members = pointsByGroup[gid];
+  const first = members[0];
+  let m;
+  if (members.length > 1) {
+    let h = '<div style="font-size:11px;color:#555;font-weight:700;margin-bottom:4px;">' + members.length + ' entries at this point:</div>';
+    h += members.map(popupHtml).join('<hr style="margin:8px 0;border:none;border-top:1px solid #ccc;">');
+    m = L.marker([first.lat, first.lng], { icon: mergedIcon(members) }).bindPopup(h);
+    m.__type = first._type;
+  } else {
+    m = L.marker([first.lat, first.lng], { icon: iconFor(first._type) }).bindPopup(popupHtml(first));
+    m.__type = first._type;
+  }
+  m.__point = first;
+  m.__types = members.map(p => p._type); // full membership, for category filtering (Places tab)
   m.addTo(markerLayer);
-  markersById[p.id] = m;
+  for (const p of members) { allTypes.add(p._type); markersById[p.id] = m; }
 }
 
 // overnight routes: trailhead / camps / pan reaches as markers + polyline

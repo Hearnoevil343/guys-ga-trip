@@ -1,0 +1,1532 @@
+[
+ {
+  "id": "10305919",
+  "name": "Welsh Post Office",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.97231,
+  "lng": -83.886,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305919"
+ },
+ {
+  "id": "10305921",
+  "name": "E.R. Brown Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.97231,
+  "lng": -83.886,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305921"
+ },
+ {
+  "id": "10305920",
+  "name": "Struby",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.97231,
+  "lng": -83.886,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305920"
+ },
+ {
+  "id": "10305922",
+  "name": "Placer Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.97231,
+  "lng": -83.886,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305922"
+ },
+ {
+  "id": "10084692",
+  "name": "Murdock Vein Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.97231,
+  "lng": -83.886,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084692"
+ },
+ {
+  "id": "10084696",
+  "name": "Hooper &amp; Berong Prospect",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.96261,
+  "lng": -83.64159,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084696"
+ },
+ {
+  "id": "10084693",
+  "name": "Gum Log/J.H. Brown/Brown/Placer Mines",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.96261,
+  "lng": -83.95823,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084693"
+ },
+ {
+  "id": "10143738",
+  "name": "Newton Placer Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.95291,
+  "lng": -83.61519,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10143738"
+ },
+ {
+  "id": "10305891",
+  "name": "Kerby Prospect",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.95011,
+  "lng": -83.8541,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305891"
+ },
+ {
+  "id": "10100543",
+  "name": "Malden Prospect",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.95011,
+  "lng": -83.8541,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10100543"
+ },
+ {
+  "id": "10305831",
+  "name": "Eller Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.94731,
+  "lng": -83.66659,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305831"
+ },
+ {
+  "id": "10084695",
+  "name": "Wills Creek Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.94731,
+  "lng": -83.66659,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084695"
+ },
+ {
+  "id": "10305830",
+  "name": "Skeet Hooper",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.94731,
+  "lng": -83.66659,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305830"
+ },
+ {
+  "id": "10144254",
+  "name": "Moore Girl's Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.94451,
+  "lng": -83.49569,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10144254"
+ },
+ {
+  "id": "10305832",
+  "name": "Chastain (Branch) Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.94181,
+  "lng": -83.63179,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305832"
+ },
+ {
+  "id": "10305833",
+  "name": "Smith Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.94181,
+  "lng": -83.63179,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305833"
+ },
+ {
+  "id": "10084697",
+  "name": "Newton Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.94181,
+  "lng": -83.63179,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084697"
+ },
+ {
+  "id": "10305911",
+  "name": "Teague",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.93622,
+  "lng": -84.08601,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305911"
+ },
+ {
+  "id": "10305917",
+  "name": "Stannick",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.93622,
+  "lng": -84.08601,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305917"
+ },
+ {
+  "id": "10083740",
+  "name": "Martin Mining Property",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.93622,
+  "lng": -84.08601,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083740"
+ },
+ {
+  "id": "10305871",
+  "name": "Bentley Mine",
+  "stat": "Prospect",
+  "codes": "AU AG",
+  "lat": 34.93481,
+  "lng": -83.49429,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305871"
+ },
+ {
+  "id": "10084717",
+  "name": "Moore Girl Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.93481,
+  "lng": -83.49429,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084717"
+ },
+ {
+  "id": "10305870",
+  "name": "Barclay Mine",
+  "stat": "Prospect",
+  "codes": "AU AG",
+  "lat": 34.93481,
+  "lng": -83.49429,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305870"
+ },
+ {
+  "id": "10144176",
+  "name": "Barclay Gold Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.92681,
+  "lng": -83.56269,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10144176"
+ },
+ {
+  "id": "10083739",
+  "name": "Mauney Prospect",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.92092,
+  "lng": -84.03741,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083739"
+ },
+ {
+  "id": "10067505",
+  "name": "Tom Coward Gap Prospect",
+  "stat": "Past Producer",
+  "codes": "FE_PYR CU AU",
+  "lat": 34.91682,
+  "lng": -83.58319,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10067505"
+ },
+ {
+  "id": "10305834",
+  "name": "Ross Mine",
+  "stat": "Unknown",
+  "codes": "AU",
+  "lat": 34.90572,
+  "lng": -83.9166,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305834"
+ },
+ {
+  "id": "10305836",
+  "name": "Lot 184 Mine",
+  "stat": "Unknown",
+  "codes": "AU",
+  "lat": 34.90572,
+  "lng": -83.9166,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305836"
+ },
+ {
+  "id": "10084698",
+  "name": "Killian Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.90572,
+  "lng": -83.9166,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084698"
+ },
+ {
+  "id": "10084701",
+  "name": "Wellborn-Robinson Property",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.89732,
+  "lng": -83.9916,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084701"
+ },
+ {
+  "id": "10084722",
+  "name": "J.G. Welborn",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.89182,
+  "lng": -83.48319,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084722"
+ },
+ {
+  "id": "10305890",
+  "name": "Legal Tender Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.87512,
+  "lng": -83.9499,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305890"
+ },
+ {
+  "id": "10084728",
+  "name": "Butt Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.87512,
+  "lng": -83.9499,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084728"
+ },
+ {
+  "id": "10083732",
+  "name": "Hackney Placer",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.86682,
+  "lng": -84.35551,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083732"
+ },
+ {
+  "id": "10084719",
+  "name": "Powell Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.86122,
+  "lng": -83.56659,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084719"
+ },
+ {
+  "id": "10083738",
+  "name": "No Name",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.84872,
+  "lng": -84.07351,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083738"
+ },
+ {
+  "id": "10305872",
+  "name": "Smith Property",
+  "stat": "Prospect",
+  "codes": "AU AG",
+  "lat": 34.83622,
+  "lng": -83.58319,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305872"
+ },
+ {
+  "id": "10305873",
+  "name": "Stonesypher Mine",
+  "stat": "Prospect",
+  "codes": "AU AG",
+  "lat": 34.83622,
+  "lng": -83.58319,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305873"
+ },
+ {
+  "id": "10084720",
+  "name": "Reaves Mine",
+  "stat": "Past Producer",
+  "codes": "AU AG",
+  "lat": 34.83622,
+  "lng": -83.58319,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084720"
+ },
+ {
+  "id": "10084699",
+  "name": "Coosa Creek Placer Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.82092,
+  "lng": -83.9749,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084699"
+ },
+ {
+  "id": "10084700",
+  "name": "Crumley Creek",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.81952,
+  "lng": -83.9221,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084700"
+ },
+ {
+  "id": "10240673",
+  "name": "Coosa Creek Gold Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.80842,
+  "lng": -83.9563,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10240673"
+ },
+ {
+  "id": "10305864",
+  "name": "Robert Brooks Placer",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.80572,
+  "lng": -83.59429,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305864"
+ },
+ {
+  "id": "10305862",
+  "name": "Hood",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.80572,
+  "lng": -83.59429,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305862"
+ },
+ {
+  "id": "10305863",
+  "name": "M.F. Wilson",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.80572,
+  "lng": -83.59429,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305863"
+ },
+ {
+  "id": "10084713",
+  "name": "L. Wilson Placer",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.80572,
+  "lng": -83.59429,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084713"
+ },
+ {
+  "id": "10305866",
+  "name": "Soque River Placer",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.77512,
+  "lng": -83.60549,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305866"
+ },
+ {
+  "id": "10305875",
+  "name": "Williams Placer",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.77512,
+  "lng": -83.60549,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305875"
+ },
+ {
+  "id": "10084714",
+  "name": "T. Wood Placer",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.77512,
+  "lng": -83.60549,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084714"
+ },
+ {
+  "id": "10305865",
+  "name": "Kennedy Placer",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.77512,
+  "lng": -83.60549,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305865"
+ },
+ {
+  "id": "10305868",
+  "name": "U.S. Forest Service Lands Placers",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.77512,
+  "lng": -83.60549,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305868"
+ },
+ {
+  "id": "10305869",
+  "name": "Wilson, Fred Placers",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.77512,
+  "lng": -83.60549,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305869"
+ },
+ {
+  "id": "60000968",
+  "name": "Habersham County Occurrences",
+  "stat": "Occurrence",
+  "codes": "AU ZN CU PB PGE_PT",
+  "lat": 34.75012,
+  "lng": -83.49989,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=60000968"
+ },
+ {
+  "id": "10191944",
+  "name": "Glen Comyn Gold Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.74652,
+  "lng": -83.68799,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10191944"
+ },
+ {
+  "id": "10305908",
+  "name": "Holt",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.74182,
+  "lng": -84.41662,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305908"
+ },
+ {
+  "id": "10305909",
+  "name": "Turkey Pen",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.74182,
+  "lng": -84.41662,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305909"
+ },
+ {
+  "id": "10305910",
+  "name": "Whitaker",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.74182,
+  "lng": -84.41662,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305910"
+ },
+ {
+  "id": "10083736",
+  "name": "White Path",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.74182,
+  "lng": -84.41662,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083736"
+ },
+ {
+  "id": "10143948",
+  "name": "White Path Quarry",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.74122,
+  "lng": -84.41772,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10143948"
+ },
+ {
+  "id": "10084707",
+  "name": "Ls Prade Placer(Shelton Mine; K &amp; M Berron)",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.73622,
+  "lng": -83.56379,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084707"
+ },
+ {
+  "id": "10084715",
+  "name": "Bright Evans Property",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.73622,
+  "lng": -83.50679,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084715"
+ },
+ {
+  "id": "10083733",
+  "name": "Noontootly Creek",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.73342,
+  "lng": -84.22071,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083733"
+ },
+ {
+  "id": "10192071",
+  "name": "Wade Allenis Gold Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.72652,
+  "lng": -84.23321,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10192071"
+ },
+ {
+  "id": "10083734",
+  "name": "Mccloud Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.71122,
+  "lng": -84.20551,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083734"
+ },
+ {
+  "id": "10305849",
+  "name": "Stovall Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.70842,
+  "lng": -83.68459,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305849"
+ },
+ {
+  "id": "10305846",
+  "name": "Franklin &amp; Glenn",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.70842,
+  "lng": -83.68459,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305846"
+ },
+ {
+  "id": "10305847",
+  "name": "Monroe Lowlands",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.70842,
+  "lng": -83.68459,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305847"
+ },
+ {
+  "id": "10084703",
+  "name": "Lumsden Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.70842,
+  "lng": -83.68459,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084703"
+ },
+ {
+  "id": "10305845",
+  "name": "Jones",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.70842,
+  "lng": -83.68459,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305845"
+ },
+ {
+  "id": "10305848",
+  "name": "York",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.70842,
+  "lng": -83.68459,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305848"
+ },
+ {
+  "id": "10305852",
+  "name": "Childs Placer",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.70842,
+  "lng": -83.68459,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305852"
+ },
+ {
+  "id": "10192306",
+  "name": "Conley Vein",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.70482,
+  "lng": -83.7332,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10192306"
+ },
+ {
+  "id": "10216515",
+  "name": "Childs Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.70402,
+  "lng": -83.68799,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10216515"
+ },
+ {
+  "id": "10119840",
+  "name": "Lot 10  Gold Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.70342,
+  "lng": -83.66989,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10119840"
+ },
+ {
+  "id": "10119655",
+  "name": "Ashbury Property",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.70072,
+  "lng": -83.7738,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10119655"
+ },
+ {
+  "id": "10120209",
+  "name": "Henderson Property",
+  "stat": "Occurrence",
+  "codes": "AU",
+  "lat": 34.70012,
+  "lng": -83.7685,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10120209"
+ },
+ {
+  "id": "10192203",
+  "name": "Reaves Property",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.69732,
+  "lng": -83.738,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10192203"
+ },
+ {
+  "id": "10216835",
+  "name": "Deans Vein",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.69732,
+  "lng": -83.738,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10216835"
+ },
+ {
+  "id": "10305853",
+  "name": "Hamby",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305853"
+ },
+ {
+  "id": "10305855",
+  "name": "Plattsburg (England)",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305855"
+ },
+ {
+  "id": "10305850",
+  "name": "Frazier",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305850"
+ },
+ {
+  "id": "10305854",
+  "name": "Martin",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305854"
+ },
+ {
+  "id": "10305856",
+  "name": "Richardson",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305856"
+ },
+ {
+  "id": "10305857",
+  "name": "Thompson",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305857"
+ },
+ {
+  "id": "10305859",
+  "name": "Gayton Plac",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305859"
+ },
+ {
+  "id": "10084704",
+  "name": "Nichols Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084704"
+ },
+ {
+  "id": "10305851",
+  "name": "Franco-American",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305851"
+ },
+ {
+  "id": "10305858",
+  "name": "White-Mcghee Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68622,
+  "lng": -83.7388,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305858"
+ },
+ {
+  "id": "10084710",
+  "name": "Bell Davis Property",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.68202,
+  "lng": -83.63049,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084710"
+ },
+ {
+  "id": "10144092",
+  "name": "Reynolds Vein",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.68092,
+  "lng": -83.738,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10144092"
+ },
+ {
+  "id": "10119648",
+  "name": "Mcneer Placers",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.67732,
+  "lng": -83.6991,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10119648"
+ },
+ {
+  "id": "10084709",
+  "name": "C.T. Willbanks",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.67512,
+  "lng": -83.53459,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084709"
+ },
+ {
+  "id": "10192053",
+  "name": "Yonah Vein Lot 92",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.67512,
+  "lng": -83.7485,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10192053"
+ },
+ {
+  "id": "60000969",
+  "name": "White County Occurrences",
+  "stat": "Occurrence",
+  "codes": "AU W PGE_PT",
+  "lat": 34.66682,
+  "lng": -83.7499,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=60000969"
+ },
+ {
+  "id": "10083737",
+  "name": "Cartecay Mine (Lucky Eight)",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.66682,
+  "lng": -84.36522,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083737"
+ },
+ {
+  "id": "10168282",
+  "name": "White Co Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.66432,
+  "lng": -83.7241,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10168282"
+ },
+ {
+  "id": "10265888",
+  "name": "Thompson Vein",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.66342,
+  "lng": -83.736,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10265888"
+ },
+ {
+  "id": "10306012",
+  "name": "Thompson",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.66342,
+  "lng": -83.736,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10306012"
+ },
+ {
+  "id": "10083735",
+  "name": "Unknown",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.64592,
+  "lng": -84.33601,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083735"
+ },
+ {
+  "id": "10084708",
+  "name": "Nichols Placer",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.63762,
+  "lng": -83.46239,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084708"
+ },
+ {
+  "id": "10305837",
+  "name": "Will Hood",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.63072,
+  "lng": -83.7763,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305837"
+ },
+ {
+  "id": "10305844",
+  "name": "Cox Bottom Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.63072,
+  "lng": -83.7763,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305844"
+ },
+ {
+  "id": "10305838",
+  "name": "Old T. Leadford",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.63072,
+  "lng": -83.7763,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305838"
+ },
+ {
+  "id": "10305840",
+  "name": "Mingo",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.63072,
+  "lng": -83.7763,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305840"
+ },
+ {
+  "id": "10305841",
+  "name": "Glover",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.63072,
+  "lng": -83.7763,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305841"
+ },
+ {
+  "id": "10084702",
+  "name": "Baker &amp; Son Placer",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.63072,
+  "lng": -83.7763,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084702"
+ },
+ {
+  "id": "10305839",
+  "name": "Oliver",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.63072,
+  "lng": -83.7763,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305839"
+ },
+ {
+  "id": "10305842",
+  "name": "Flennigen",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.63072,
+  "lng": -83.7763,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305842"
+ },
+ {
+  "id": "10305843",
+  "name": "Bells",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.63072,
+  "lng": -83.7763,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305843"
+ },
+ {
+  "id": "10106479",
+  "name": "Reaves",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10106479"
+ },
+ {
+  "id": "10305877",
+  "name": "Blake (Sprague)",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305877"
+ },
+ {
+  "id": "10305878",
+  "name": "Poland",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305878"
+ },
+ {
+  "id": "10305880",
+  "name": "Lewis",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305880"
+ },
+ {
+  "id": "10305883",
+  "name": "Loud Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305883"
+ },
+ {
+  "id": "10305884",
+  "name": "Old Courtney Placer",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305884"
+ },
+ {
+  "id": "10084711",
+  "name": "Twiner/T.G. Edwards",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.65409,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084711"
+ },
+ {
+  "id": "10305879",
+  "name": "Matthews Lot",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305879"
+ },
+ {
+  "id": "10305881",
+  "name": "Henderson",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305881"
+ },
+ {
+  "id": "10305876",
+  "name": "Atkinson",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305876"
+ },
+ {
+  "id": "10305889",
+  "name": "Etries",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61822,
+  "lng": -83.8235,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305889"
+ },
+ {
+  "id": "10084706",
+  "name": "H. Woods",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.61122,
+  "lng": -83.51799,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084706"
+ },
+ {
+  "id": "10084712",
+  "name": "Chatman Estate",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.58542,
+  "lng": -83.63319,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084712"
+ },
+ {
+  "id": "10305861",
+  "name": "Elrod, T.",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.58542,
+  "lng": -83.63319,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305861"
+ },
+ {
+  "id": "10192297",
+  "name": "Garnet Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.58432,
+  "lng": -83.8955,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10192297"
+ },
+ {
+  "id": "10119282",
+  "name": "Jumbo Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.57592,
+  "lng": -83.9102,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10119282"
+ },
+ {
+  "id": "10119266",
+  "name": "Cavender Creek Prospect",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.57072,
+  "lng": -83.9121,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10119266"
+ },
+ {
+  "id": "10305885",
+  "name": "Cora Lee Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.56952,
+  "lng": -83.9221,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305885"
+ },
+ {
+  "id": "10305886",
+  "name": "Garnet",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.56952,
+  "lng": -83.9221,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305886"
+ },
+ {
+  "id": "10305887",
+  "name": "Jumbo",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.56952,
+  "lng": -83.9221,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305887"
+ },
+ {
+  "id": "10144060",
+  "name": "Ralston  Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.56952,
+  "lng": -84.02101,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10144060"
+ },
+ {
+  "id": "10084725",
+  "name": "Cavender's Creek",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.56952,
+  "lng": -83.9221,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084725"
+ },
+ {
+  "id": "10305888",
+  "name": "R.C. Wood",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.56952,
+  "lng": -83.9221,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305888"
+ },
+ {
+  "id": "10084727",
+  "name": "Ashbury Property",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.56682,
+  "lng": -83.8596,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084727"
+ },
+ {
+  "id": "10192145",
+  "name": "Cora Lee Prospect",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.56572,
+  "lng": -83.9138,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10192145"
+ },
+ {
+  "id": "10240697",
+  "name": "Crisson Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.55732,
+  "lng": -83.9668,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10240697"
+ },
+ {
+  "id": "10215827",
+  "name": "Boyd's Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.55482,
+  "lng": -83.9538,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10215827"
+ },
+ {
+  "id": "10168655",
+  "name": "Mary Henry Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.54542,
+  "lng": -83.9727,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10168655"
+ },
+ {
+  "id": "10192330",
+  "name": "Rider Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.54232,
+  "lng": -83.998,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10192330"
+ },
+ {
+  "id": "10168670",
+  "name": "Yahoola Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.54182,
+  "lng": -83.9705,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10168670"
+ },
+ {
+  "id": "10289615",
+  "name": "Lawrence Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.54072,
+  "lng": -83.981,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10289615"
+ },
+ {
+  "id": "10143991",
+  "name": "Tahloneka Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.53842,
+  "lng": -83.9649,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10143991"
+ },
+ {
+  "id": "10144096",
+  "name": "Consolidated Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.53822,
+  "lng": -83.9705,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10144096"
+ },
+ {
+  "id": "10143648",
+  "name": "Arnold Consolidated Gold Mines",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.53732,
+  "lng": -83.9682,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10143648"
+ },
+ {
+  "id": "10215939",
+  "name": "Hand Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.53652,
+  "lng": -83.9693,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10215939"
+ },
+ {
+  "id": "10192114",
+  "name": "Singleton Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.53592,
+  "lng": -83.9674,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10192114"
+ },
+ {
+  "id": "10265211",
+  "name": "Free Jim Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.53482,
+  "lng": -83.9724,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10265211"
+ },
+ {
+  "id": "10083765",
+  "name": "Tahloneka Branch (Winfield Branch)",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.53122,
+  "lng": -84.0041,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10083765"
+ },
+ {
+  "id": "10168511",
+  "name": "Ivey Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52982,
+  "lng": -83.9988,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10168511"
+ },
+ {
+  "id": "10143899",
+  "name": "Lockhart Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52872,
+  "lng": -83.9621,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10143899"
+ },
+ {
+  "id": "10265446",
+  "name": "Gordon Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52652,
+  "lng": -84.0127,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10265446"
+ },
+ {
+  "id": "10118784",
+  "name": "Capps Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52652,
+  "lng": -83.993,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10118784"
+ },
+ {
+  "id": "10241005",
+  "name": "Findley Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52542,
+  "lng": -83.9668,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10241005"
+ },
+ {
+  "id": "10191914",
+  "name": "Bowen Lot",
+  "stat": "Occurrence",
+  "codes": "AU",
+  "lat": 34.52482,
+  "lng": -83.9888,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10191914"
+ },
+ {
+  "id": "10192006",
+  "name": "Griscom Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52432,
+  "lng": -83.9718,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10192006"
+ },
+ {
+  "id": "10240720",
+  "name": "Bast Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52432,
+  "lng": -83.9688,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10240720"
+ },
+ {
+  "id": "10144366",
+  "name": "Fish Trap Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52372,
+  "lng": -83.9874,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10144366"
+ },
+ {
+  "id": "10265831",
+  "name": "Crown Mountain Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52292,
+  "lng": -83.9849,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10265831"
+ },
+ {
+  "id": "10216485",
+  "name": "Columbia Mine",
+  "stat": "Past Producer",
+  "codes": "AU AG",
+  "lat": 34.52292,
+  "lng": -83.9796,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10216485"
+ },
+ {
+  "id": "10290215",
+  "name": "Preacher Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52292,
+  "lng": -83.976,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10290215"
+ },
+ {
+  "id": "10084726",
+  "name": "Findley Mine Et Al. (Mines In the Dahlonega District)",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52232,
+  "lng": -83.9846,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084726"
+ },
+ {
+  "id": "10144033",
+  "name": "Boly Field Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52202,
+  "lng": -83.9427,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10144033"
+ },
+ {
+  "id": "10215747",
+  "name": "Beers Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.52072,
+  "lng": -83.9402,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10215747"
+ },
+ {
+  "id": "10191645",
+  "name": "Old Columbia Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.51432,
+  "lng": -83.966,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10191645"
+ },
+ {
+  "id": "10168564",
+  "name": "Crown Mountain",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.50982,
+  "lng": -83.9802,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10168564"
+ },
+ {
+  "id": "10168240",
+  "name": "Barlow Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.50952,
+  "lng": -84.0093,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10168240"
+ },
+ {
+  "id": "10215725",
+  "name": "Dry Hollow Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.50932,
+  "lng": -83.9485,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10215725"
+ },
+ {
+  "id": "10305867",
+  "name": "J. Loudermilk (J. Perkins)",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.50842,
+  "lng": -83.64159,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305867"
+ },
+ {
+  "id": "10084705",
+  "name": "Crow Heirs Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.50842,
+  "lng": -83.64159,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10084705"
+ },
+ {
+  "id": "10305860",
+  "name": "Crow (L.W. Bowen) Mine",
+  "stat": "Prospect",
+  "codes": "AU",
+  "lat": 34.50842,
+  "lng": -83.64159,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10305860"
+ },
+ {
+  "id": "10216407",
+  "name": "Chestatee Mine",
+  "stat": "Past Producer",
+  "codes": "AU",
+  "lat": 34.50232,
+  "lng": -83.9593,
+  "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10216407"
+ }
+]

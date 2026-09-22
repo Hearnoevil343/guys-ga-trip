@@ -1,0 +1,4201 @@
+[
+ {
+  "name": "Logan Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 198,
+  "way_ids": [
+   "43861889",
+   "43861902",
+   "43862423",
+   "43862774",
+   "43863217"
+  ]
+ },
+ {
+  "name": "Tigue Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 38,
+  "way_ids": [
+   "43862069"
+  ]
+ },
+ {
+  "name": "West Seabolt Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 72,
+  "way_ids": [
+   "43862203",
+   "43862601",
+   "43863092"
+  ]
+ },
+ {
+  "name": "Bryant Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 127,
+  "way_ids": [
+   "43862207",
+   "43862604",
+   "43862625",
+   "43862690",
+   "43863249",
+   "43864013",
+   "43864232",
+   "43864567",
+   "43865322"
+  ]
+ },
+ {
+  "name": "Cooper Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 491,
+  "way_ids": [
+   "43862229",
+   "43862429",
+   "43862504",
+   "43862700",
+   "43863866",
+   "43863928",
+   "43864070",
+   "43864184",
+   "43864732",
+   "43864981",
+   "43865236",
+   "43865289"
+  ]
+ },
+ {
+  "name": "Flat Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 59,
+  "way_ids": [
+   "43862264"
+  ]
+ },
+ {
+  "name": "Burnett Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 311,
+  "way_ids": [
+   "43862297",
+   "43862444",
+   "43862491",
+   "43862969",
+   "43863689",
+   "43865452",
+   "43862020",
+   "496940383",
+   "496940384"
+  ]
+ },
+ {
+  "name": "Board Camp Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 127,
+  "way_ids": [
+   "43863282",
+   "43863643"
+  ]
+ },
+ {
+  "name": "Helton Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 187,
+  "way_ids": [
+   "43863919",
+   "43807609",
+   "43815967",
+   "1340874477",
+   "1340874478",
+   "1340874479",
+   "1340874480"
+  ]
+ },
+ {
+  "name": "Turkey Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 173,
+  "way_ids": [
+   "43864247"
+  ]
+ },
+ {
+  "name": "Jarrard Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 219,
+  "way_ids": [
+   "43864960",
+   "43862025",
+   "43862788",
+   "43863551"
+  ]
+ },
+ {
+  "name": "Garrett Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 68,
+  "way_ids": [
+   "43865281"
+  ]
+ },
+ {
+  "name": "Blood Mountain Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 219,
+  "way_ids": [
+   "33165754"
+  ]
+ },
+ {
+  "name": "Wolf Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 414,
+  "way_ids": [
+   "43809120",
+   "43841117",
+   "43843015",
+   "43811147",
+   "43818263",
+   "43823591",
+   "43842947",
+   "43843049",
+   "1313153992",
+   "1313153993",
+   "43809881",
+   "43816524",
+   "43820562"
+  ]
+ },
+ {
+  "name": "West Fork Wolf Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 229,
+  "way_ids": [
+   "43809861",
+   "43817378",
+   "43817394",
+   "43846059",
+   "43850815",
+   "43810353",
+   "43816087"
+  ]
+ },
+ {
+  "name": "Burnett Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 104,
+  "way_ids": [
+   "43810233",
+   "43812141",
+   "1313153989",
+   "1313153990"
+  ]
+ },
+ {
+  "name": "Calf Stump Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 224,
+  "way_ids": [
+   "43840899"
+  ]
+ },
+ {
+  "name": "Slaughter Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 111,
+  "way_ids": [
+   "43863183",
+   "43864913",
+   "43865225",
+   "43865558"
+  ]
+ },
+ {
+  "name": "East Seabolt Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 46,
+  "way_ids": [
+   "43863978"
+  ]
+ },
+ {
+  "name": "Frady Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 75,
+  "way_ids": [
+   "43807470"
+  ]
+ },
+ {
+  "name": "Shanty Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 67,
+  "way_ids": [
+   "43818839",
+   "43823887",
+   "1039536653",
+   "1039536654"
+  ]
+ },
+ {
+  "name": "Lance Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 100,
+  "way_ids": [
+   "43818864",
+   "1100699251",
+   "1100699252"
+  ]
+ },
+ {
+  "name": "Miller Cove Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 98,
+  "way_ids": [
+   "43809293",
+   "43811400",
+   "43820244",
+   "1271193148",
+   "1271193149"
+  ]
+ },
+ {
+  "name": "West Fork Coosa Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 209,
+  "way_ids": [
+   "43810247",
+   "43816729",
+   "43818667",
+   "43819144",
+   "43842035"
+  ]
+ },
+ {
+  "name": "Hicks Gap Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 47,
+  "way_ids": [
+   "43810274",
+   "43812495",
+   "43818104"
+  ]
+ },
+ {
+  "name": "Mulky Gap Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 78,
+  "way_ids": [
+   "43811151",
+   "43820128"
+  ]
+ },
+ {
+  "name": "Gillespie Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 80,
+  "way_ids": [
+   "43811165",
+   "43819766",
+   "43849735"
+  ]
+ },
+ {
+  "name": "East Fork Coosa Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 801,
+  "way_ids": [
+   "43816436",
+   "43847756",
+   "43850722",
+   "43809521",
+   "43810114",
+   "43810334",
+   "43819347",
+   "43841363",
+   "43841364",
+   "43850079"
+  ]
+ },
+ {
+  "name": "Stewart Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 30,
+  "way_ids": [
+   "43818236"
+  ]
+ },
+ {
+  "name": "Coosa Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 85,
+  "way_ids": [
+   "43819126",
+   "43848660"
+  ]
+ },
+ {
+  "name": "Jones Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 38,
+  "way_ids": [
+   "43849288"
+  ]
+ },
+ {
+  "name": "Wildcat Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 159,
+  "way_ids": [
+   "43808952",
+   "43819646"
+  ]
+ },
+ {
+  "name": "Fortenberry Creek",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 276,
+  "way_ids": [
+   "43810161",
+   "43811538",
+   "43817416",
+   "43817772",
+   "43818489",
+   "43818769",
+   "43820235",
+   "43820542",
+   "43841542",
+   "43807804",
+   "43809339",
+   "43817193",
+   "43841659"
+  ]
+ },
+ {
+  "name": "Nottely River",
+  "category": "waterway:river",
+  "ref": null,
+  "points": 324,
+  "way_ids": [
+   "43811123",
+   "43808926",
+   "43811068",
+   "43818710",
+   "43819476",
+   "43842069",
+   "43849940"
+  ]
+ },
+ {
+  "name": "Roaring Fork",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 183,
+  "way_ids": [
+   "43817382",
+   "43845957"
+  ]
+ },
+ {
+  "name": "Wilson Branch",
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 94,
+  "way_ids": [
+   "43808019",
+   "43812016",
+   "43824170",
+   "43847599"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "43862019"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "43862050"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 145,
+  "way_ids": [
+   "43862357"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "43862369"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "43862501"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 28,
+  "way_ids": [
+   "43862519"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 10,
+  "way_ids": [
+   "43862703"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 61,
+  "way_ids": [
+   "43862849"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 17,
+  "way_ids": [
+   "43863274"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 39,
+  "way_ids": [
+   "43863289"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 44,
+  "way_ids": [
+   "43863334"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 14,
+  "way_ids": [
+   "43863399"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "43863596"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 64,
+  "way_ids": [
+   "43863900"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 10,
+  "way_ids": [
+   "43864117"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 23,
+  "way_ids": [
+   "43864243"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 18,
+  "way_ids": [
+   "43864580"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 81,
+  "way_ids": [
+   "43865018"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 14,
+  "way_ids": [
+   "43865167"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 13,
+  "way_ids": [
+   "43865168"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 21,
+  "way_ids": [
+   "43865284"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 30,
+  "way_ids": [
+   "43865496"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 27,
+  "way_ids": [
+   "43865571"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "43865619"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 19,
+  "way_ids": [
+   "43865663"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 25,
+  "way_ids": [
+   "43811221"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 22,
+  "way_ids": [
+   "43812415"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "43812778"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 47,
+  "way_ids": [
+   "43815477"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 53,
+  "way_ids": [
+   "43817296"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "43819193"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 108,
+  "way_ids": [
+   "43819241"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 89,
+  "way_ids": [
+   "43841803"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "43850012"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "43863022"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "43863345"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 37,
+  "way_ids": [
+   "43864162"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "43864189"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 14,
+  "way_ids": [
+   "43864323"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 61,
+  "way_ids": [
+   "43864747"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 34,
+  "way_ids": [
+   "43865032"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "43865509"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 70,
+  "way_ids": [
+   "43865715"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1296380192"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 26,
+  "way_ids": [
+   "43809593"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 72,
+  "way_ids": [
+   "43818250"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 34,
+  "way_ids": [
+   "43822949"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 58,
+  "way_ids": [
+   "43842018"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 29,
+  "way_ids": [
+   "43806710"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 67,
+  "way_ids": [
+   "43807071"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 47,
+  "way_ids": [
+   "43807280"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 24,
+  "way_ids": [
+   "43816222"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 42,
+  "way_ids": [
+   "43816485"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 20,
+  "way_ids": [
+   "43818212"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 55,
+  "way_ids": [
+   "43818846"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 71,
+  "way_ids": [
+   "43820740"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 125,
+  "way_ids": [
+   "43824334"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "43824620"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 56,
+  "way_ids": [
+   "43840956"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43807795"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 19,
+  "way_ids": [
+   "43808851"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 176,
+  "way_ids": [
+   "43809177"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 47,
+  "way_ids": [
+   "43809461"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 13,
+  "way_ids": [
+   "43811403"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 43,
+  "way_ids": [
+   "43812487"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 40,
+  "way_ids": [
+   "43815287"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "43816196"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 86,
+  "way_ids": [
+   "43816982"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "43817636"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 26,
+  "way_ids": [
+   "43818151"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 65,
+  "way_ids": [
+   "43818277"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 49,
+  "way_ids": [
+   "43818470"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 24,
+  "way_ids": [
+   "43818657"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43818702"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "43818714"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 44,
+  "way_ids": [
+   "43823849"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 34,
+  "way_ids": [
+   "43823950"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "43823975"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "43824033"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43824252"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 42,
+  "way_ids": [
+   "43824346"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 56,
+  "way_ids": [
+   "43840756"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 43,
+  "way_ids": [
+   "43841227"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 43,
+  "way_ids": [
+   "43842102"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 93,
+  "way_ids": [
+   "43842229"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 26,
+  "way_ids": [
+   "43842373"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 49,
+  "way_ids": [
+   "43842545"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 66,
+  "way_ids": [
+   "43842865"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 42,
+  "way_ids": [
+   "43843011"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43848368"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43848538"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 43,
+  "way_ids": [
+   "43849824"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 51,
+  "way_ids": [
+   "43849887"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43807336"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 75,
+  "way_ids": [
+   "43808887"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43809196"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 49,
+  "way_ids": [
+   "43811839"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 34,
+  "way_ids": [
+   "43812003"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43812364"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 66,
+  "way_ids": [
+   "43815268"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 18,
+  "way_ids": [
+   "43817832"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43820303"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 76,
+  "way_ids": [
+   "43820551"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "43841009"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 65,
+  "way_ids": [
+   "43841813"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 66,
+  "way_ids": [
+   "43842650"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 29,
+  "way_ids": [
+   "43848360"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1039536661"
+  ]
+ },
+ {
+  "name": null,
+  "category": "waterway:stream",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1039536662"
+  ]
+ },
+ {
+  "name": "Duncan Ridge Road",
+  "category": "highway:track",
+  "ref": "FS 39",
+  "points": 686,
+  "way_ids": [
+   "9503501"
+  ]
+ },
+ {
+  "name": "Rocky Mountain Road",
+  "category": "highway:track",
+  "ref": null,
+  "points": 27,
+  "way_ids": [
+   "9503880"
+  ]
+ },
+ {
+  "name": "Turkey Creek Trail",
+  "category": "highway:path",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "9510140"
+  ]
+ },
+ {
+  "name": "Cooper Creek Road",
+  "category": "highway:unclassified",
+  "ref": "FS 33",
+  "points": 749,
+  "way_ids": [
+   "9510895",
+   "9510896",
+   "492152445",
+   "979700639"
+  ]
+ },
+ {
+  "name": "Duncan Ridge Trail",
+  "category": "highway:path",
+  "ref": "FS Trail 4",
+  "points": 1427,
+  "way_ids": [
+   "31279812",
+   "389310570",
+   "389312825"
+  ]
+ },
+ {
+  "name": "Burnett Creek Road",
+  "category": "highway:track",
+  "ref": "FS 261",
+  "points": 326,
+  "way_ids": [
+   "389314309"
+  ]
+ },
+ {
+  "name": "Flatland-Cooper Connector",
+  "category": "highway:path",
+  "ref": null,
+  "points": 31,
+  "way_ids": [
+   "496581932"
+  ]
+ },
+ {
+  "name": "Etheridge Drive",
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "496977750"
+  ]
+ },
+ {
+  "name": "Mart Helton Branch B Road",
+  "category": "highway:track",
+  "ref": "FS 33B",
+  "points": 147,
+  "way_ids": [
+   "497023974",
+   "498878208"
+  ]
+ },
+ {
+  "name": "Flatland Road",
+  "category": "highway:service",
+  "ref": "FS 637",
+  "points": 101,
+  "way_ids": [
+   "606490465",
+   "606490472"
+  ]
+ },
+ {
+  "name": "Cemetery Ridge",
+  "category": "highway:path",
+  "ref": null,
+  "points": 66,
+  "way_ids": [
+   "977582330"
+  ]
+ },
+ {
+  "name": "Burnett Creek Trail",
+  "category": "highway:path",
+  "ref": null,
+  "points": 155,
+  "way_ids": [
+   "977582332"
+  ]
+ },
+ {
+  "name": "Bryant Creek Trail",
+  "category": "highway:path",
+  "ref": null,
+  "points": 153,
+  "way_ids": [
+   "977999436"
+  ]
+ },
+ {
+  "name": "Roaring Fork Trail",
+  "category": "highway:path",
+  "ref": null,
+  "points": 114,
+  "way_ids": [
+   "978262922"
+  ]
+ },
+ {
+  "name": "Board Camp Creek Road",
+  "category": "highway:track",
+  "ref": null,
+  "points": 33,
+  "way_ids": [
+   "9502672"
+  ]
+ },
+ {
+  "name": "Calf Stomp Road",
+  "category": "highway:track",
+  "ref": "FS 108",
+  "points": 239,
+  "way_ids": [
+   "9507484",
+   "506811160",
+   "506811166"
+  ]
+ },
+ {
+  "name": "West Wolf Creek Road",
+  "category": "highway:track",
+  "ref": "FS 107",
+  "points": 234,
+  "way_ids": [
+   "9509420"
+  ]
+ },
+ {
+  "name": "Appalachian Trail",
+  "category": "highway:footway",
+  "ref": null,
+  "points": 845,
+  "way_ids": [
+   "26962806",
+   "26962822",
+   "26962819",
+   "886370941",
+   "1346025500",
+   "1346025501",
+   "1346025502",
+   "1346026444"
+  ]
+ },
+ {
+  "name": "Bear Hair Gap Trail",
+  "category": "highway:path",
+  "ref": null,
+  "points": 362,
+  "way_ids": [
+   "30099191"
+  ]
+ },
+ {
+  "name": "Outlook Trail",
+  "category": "highway:path",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "30100087"
+  ]
+ },
+ {
+  "name": "Slaughter Creek Trail",
+  "category": "highway:path",
+  "ref": "FS Trail 141",
+  "points": 612,
+  "way_ids": [
+   "31275591",
+   "477334792",
+   "477334800"
+  ]
+ },
+ {
+  "name": "Coosa Backcountry",
+  "category": "highway:path",
+  "ref": "FS Trail 111",
+  "points": 989,
+  "way_ids": [
+   "31275599"
+  ]
+ },
+ {
+  "name": "Lake Winfield Scott",
+  "category": "highway:path",
+  "ref": "FS Trail 143",
+  "points": 61,
+  "way_ids": [
+   "31275616",
+   "422728615",
+   "422728616",
+   "422728617",
+   "422737702",
+   "422737703"
+  ]
+ },
+ {
+  "name": "Sosebee Cove Connector",
+  "category": "highway:path",
+  "ref": "FS Trail 21A",
+  "points": 13,
+  "way_ids": [
+   "31275676"
+  ]
+ },
+ {
+  "name": "Sosebee Cove",
+  "category": "highway:path;service",
+  "ref": "FS Trail 21",
+  "points": 49,
+  "way_ids": [
+   "31275715",
+   "1100699249",
+   "1100699250"
+  ]
+ },
+ {
+  "name": "Woods Hole Shelter Spur",
+  "category": "highway:path",
+  "ref": "FS Trail 81",
+  "points": 84,
+  "way_ids": [
+   "31275747"
+  ]
+ },
+ {
+  "name": "Freeman Trail",
+  "category": "highway:footway",
+  "ref": "FS Trail 1A",
+  "points": 383,
+  "way_ids": [
+   "31275923"
+  ]
+ },
+ {
+  "name": "Coosa Backcountry Trail",
+  "category": "highway:path",
+  "ref": "FS Trail 111",
+  "points": 394,
+  "way_ids": [
+   "322318951",
+   "370113794"
+  ]
+ },
+ {
+  "name": "Jarrard Gap Trail",
+  "category": "highway:path",
+  "ref": "FS Trail 141",
+  "points": 23,
+  "way_ids": [
+   "351475884"
+  ]
+ },
+ {
+  "name": "Bear Hair Gap Trail / Coosa Backcountry Trail",
+  "category": "highway:path",
+  "ref": null,
+  "points": 76,
+  "way_ids": [
+   "370125652",
+   "1395465393"
+  ]
+ },
+ {
+  "name": "Coosa Backcountry / Duncan Ridge Trail",
+  "category": "highway:path",
+  "ref": "FS Trail 4;FS Trail 111",
+  "points": 492,
+  "way_ids": [
+   "389307384",
+   "420393467"
+  ]
+ },
+ {
+  "name": "Authorized Vehicles Only",
+  "category": "highway:track",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "422730926"
+  ]
+ },
+ {
+  "name": "Slaughter Creek Road access",
+  "category": "highway:path",
+  "ref": null,
+  "points": 17,
+  "way_ids": [
+   "422731168"
+  ]
+ },
+ {
+  "name": "Camp Trail",
+  "category": "highway:path",
+  "ref": null,
+  "points": 17,
+  "way_ids": [
+   "422737275",
+   "422737276",
+   "422737278"
+  ]
+ },
+ {
+  "name": "Campsite",
+  "category": "highway:path",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "477334789"
+  ]
+ },
+ {
+  "name": "Lake Winfield Scott Road",
+  "category": "highway:unclassified",
+  "ref": "FS 37",
+  "points": 61,
+  "way_ids": [
+   "496939792"
+  ]
+ },
+ {
+  "name": "Wolf Pen Gap Road",
+  "category": "highway:secondary",
+  "ref": "GA 180",
+  "points": 596,
+  "way_ids": [
+   "512353911",
+   "1395638338"
+  ]
+ },
+ {
+  "name": "Trail to spring at White Oak Stomp",
+  "category": "highway:footway",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "694299538"
+  ]
+ },
+ {
+  "name": "Vogel State Park Road",
+  "category": "highway:unclassified",
+  "ref": null,
+  "points": 59,
+  "way_ids": [
+   "9505782",
+   "1313153995",
+   "1313153996"
+  ]
+ },
+ {
+  "name": "Byron Herbert Reece Trail",
+  "category": "highway:footway",
+  "ref": "FS Trail 112",
+  "points": 129,
+  "way_ids": [
+   "31275614",
+   "1546307073"
+  ]
+ },
+ {
+  "name": "Trahlyta Lake Trail",
+  "category": "highway:footway",
+  "ref": null,
+  "points": 83,
+  "way_ids": [
+   "393462742",
+   "1107821578",
+   "1107821579",
+   "1107821581",
+   "1107821583"
+  ]
+ },
+ {
+  "name": "Heathers Hill",
+  "category": "highway:service",
+  "ref": null,
+  "points": 10,
+  "way_ids": [
+   "9501410"
+  ]
+ },
+ {
+  "name": "Dogwood Road",
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "9503968"
+  ]
+ },
+ {
+  "name": "Davis Drive",
+  "category": "highway:service",
+  "ref": null,
+  "points": 19,
+  "way_ids": [
+   "9504773"
+  ]
+ },
+ {
+  "name": "Mulky Gap Road",
+  "category": "highway:unclassified",
+  "ref": "FS 4",
+  "points": 536,
+  "way_ids": [
+   "9506511",
+   "510516351"
+  ]
+ },
+ {
+  "name": "McDaniel Drive",
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "9506915"
+  ]
+ },
+ {
+  "name": "Snapper Drive",
+  "category": "highway:service",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "9507653"
+  ]
+ },
+ {
+  "name": "Duncan Ridge Conn",
+  "category": "highway:unclassified",
+  "ref": null,
+  "points": 125,
+  "way_ids": [
+   "9509274"
+  ]
+ },
+ {
+  "name": "Ashee Overlook",
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "9510952"
+  ]
+ },
+ {
+  "name": "Robertson Circle",
+  "category": "highway:unclassified",
+  "ref": null,
+  "points": 82,
+  "way_ids": [
+   "9511116"
+  ]
+ },
+ {
+  "name": "Spencer Road",
+  "category": "highway:track",
+  "ref": "FS 4D",
+  "points": 158,
+  "way_ids": [
+   "389318104"
+  ]
+ },
+ {
+  "name": "Cory Ann Lane",
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "653295475"
+  ]
+ },
+ {
+  "name": "Coyote Ridge",
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "1271197039"
+  ]
+ },
+ {
+  "name": "Bowers Road",
+  "category": "highway:unclassified",
+  "ref": "FS 298",
+  "points": 47,
+  "way_ids": [
+   "9502770",
+   "588507058"
+  ]
+ },
+ {
+  "name": "Moon Ridge",
+  "category": "highway:track",
+  "ref": null,
+  "points": 14,
+  "way_ids": [
+   "300883296"
+  ]
+ },
+ {
+  "name": "Hard Rock Road",
+  "category": "highway:track",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "300883426"
+  ]
+ },
+ {
+  "name": "Big Grassy Knob Road",
+  "category": "highway:track",
+  "ref": null,
+  "points": 63,
+  "way_ids": [
+   "506811155"
+  ]
+ },
+ {
+  "name": "Fortenberry Road",
+  "category": "highway:track",
+  "ref": "FS 395",
+  "points": 94,
+  "way_ids": [
+   "588507059"
+  ]
+ },
+ {
+  "name": "Georgia Lane",
+  "category": "highway:service",
+  "ref": null,
+  "points": 38,
+  "way_ids": [
+   "9509778"
+  ]
+ },
+ {
+  "name": "C W Mason Drive",
+  "category": "highway:service",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "9510658"
+  ]
+ },
+ {
+  "name": "Pappys Plaza",
+  "category": "highway:service",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "326452043"
+  ]
+ },
+ {
+  "name": "Lamar Drive",
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "439901887"
+  ]
+ },
+ {
+  "name": "Creekmont Summit",
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "535545883"
+  ]
+ },
+ {
+  "name": "Out The Ridge Road",
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "535545885"
+  ]
+ },
+ {
+  "name": "Loyd Drive",
+  "category": "highway:service",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "583611776"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": "FS 637",
+  "points": 155,
+  "way_ids": [
+   "9509350"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 34,
+  "way_ids": [
+   "389317021"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 24,
+  "way_ids": [
+   "389318114"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "419810261"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "496581933"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 13,
+  "way_ids": [
+   "496581934"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:unclassified",
+  "ref": "FS 33A",
+  "points": 12,
+  "way_ids": [
+   "496589359"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 14,
+  "way_ids": [
+   "496977747"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "496977752"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "496986854"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "497021387"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "497021388"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "497023973"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "497275344"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "497277969"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 21,
+  "way_ids": [
+   "497278037"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "503314867"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "588452802"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "588454631"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "588454632"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 38,
+  "way_ids": [
+   "118592104"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "420390697"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "420390698"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "420402397"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "420402398"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "420402400"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "420402403"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "420402404"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "420402406"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 17,
+  "way_ids": [
+   "422728618"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "422728619"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "422728620"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "422728621"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 13,
+  "way_ids": [
+   "422730931"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "422730932"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "422730933"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "422730934"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "422730935"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "477327842"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 18,
+  "way_ids": [
+   "477334786"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "477334826"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1296380193"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1395638339"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 19,
+  "way_ids": [
+   "1395638340"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 57,
+  "way_ids": [
+   "1546306916"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "1546306918"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 22,
+  "way_ids": [
+   "1546306919"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1548355471"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 27,
+  "way_ids": [
+   "9500978"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "9501802"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 19,
+  "way_ids": [
+   "9501806"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "9501999"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "9502002"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "143512816"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "203427937"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "203427938"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 14,
+  "way_ids": [
+   "300885561"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 40,
+  "way_ids": [
+   "300885562"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "393013952"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "393013953"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "393013954"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "393463253"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "393463254"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "393721826"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "393734840"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 10,
+  "way_ids": [
+   "393840037"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "420402401"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:track",
+  "ref": null,
+  "points": 122,
+  "way_ids": [
+   "527159768"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "648543749"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "886370942"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "886370943"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "1107821580"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "1158216445"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 13,
+  "way_ids": [
+   "1158216446"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1158216460"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1158216461"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1158216462"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1158216463"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "1313153991"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:unclassified",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "1313153994"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "1313153997"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "1313153998"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "1313153999"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1313154000"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "1313154001"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1346026443"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1356991861"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1356991862"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1430087119"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1430087129"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1430087131"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:footway",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1430087132"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": null,
+  "points": 18,
+  "way_ids": [
+   "1546306917"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "9501524"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "9501782"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "9501783"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 22,
+  "way_ids": [
+   "9509045"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "9510404"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "524146126"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "653293619"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653293621"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653293622"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "653293623"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "653294246"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 20,
+  "way_ids": [
+   "653294250"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653294652"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653294653"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 13,
+  "way_ids": [
+   "653294655"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "653294656"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "653295466"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653295467"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "653295468"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653295469"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653295470"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653295471"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653295472"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "653295473"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "653296070"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "653296072"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 13,
+  "way_ids": [
+   "653296076"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 16,
+  "way_ids": [
+   "653296077"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "653296080"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653296081"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "653296082"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "653296083"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "653296084"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "653296085"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "653296087"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653302183"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "653797109"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "1271195643"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "1271197604"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "1271197605"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1271197606"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1547940048"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1547940049"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "1547940050"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1547940051"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "9501053"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "9501089"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "9501181"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "9501368"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": "USGS topo;needs to be GPSd",
+  "points": 17,
+  "way_ids": [
+   "300883682"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 14,
+  "way_ids": [
+   "653296071"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1324939898"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "1324939899"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "1324939900"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "1324939901"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1324939902"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1324939903"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1324939904"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1324939905"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "1324939906"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1324939907"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "1324939908"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 20,
+  "way_ids": [
+   "1363608293"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1363608296"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "1363608297"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 10,
+  "way_ids": [
+   "1363608298"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "1363608299"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "1363608306"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1363608307"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "1363608308"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1363608309"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "1363608310"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1363608311"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 13,
+  "way_ids": [
+   "1363608312"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 10,
+  "way_ids": [
+   "1363608314"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "1363608315"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 17,
+  "way_ids": [
+   "1363608316"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "1363608317"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1363608318"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "1392547344"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 17,
+  "way_ids": [
+   "1392547345"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1392547346"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1392547347"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "1548042425"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "1548042426"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "9500891"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 14,
+  "way_ids": [
+   "9500947"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "9500982"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "9500987"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "9501006"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 10,
+  "way_ids": [
+   "9501076"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "9501078"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "9501096"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "9501358"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:path",
+  "ref": "USGS topo;needs to be GPSd",
+  "points": 22,
+  "way_ids": [
+   "300882334"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "480518985"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 15,
+  "way_ids": [
+   "619918006"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "619918007"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "619918008"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "619918009"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "619918010"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "651856415"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "651856753"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "651856755"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 61,
+  "way_ids": [
+   "653465158"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "653465159"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "653465160"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 9,
+  "way_ids": [
+   "653465161"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 10,
+  "way_ids": [
+   "653465165"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "653465166"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653465167"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "653627019"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653628446"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653628447"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653628448"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "653628449"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653628450"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "653628451"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 12,
+  "way_ids": [
+   "653628452"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653628453"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "653628454"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653628455"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "653628456"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653628457"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653628458"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653628459"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 4,
+  "way_ids": [
+   "653628460"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "653633972"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 11,
+  "way_ids": [
+   "653633975"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 10,
+  "way_ids": [
+   "653633977"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "653633978"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "653633984"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "653633985"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 31,
+  "way_ids": [
+   "653633999"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 13,
+  "way_ids": [
+   "653634010"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "653634011"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 2,
+  "way_ids": [
+   "653634012"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "653636710"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653636712"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 8,
+  "way_ids": [
+   "653640029"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653640053"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 5,
+  "way_ids": [
+   "653640056"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 3,
+  "way_ids": [
+   "1332734152"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 7,
+  "way_ids": [
+   "1392548124"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 27,
+  "way_ids": [
+   "1525993210"
+  ]
+ },
+ {
+  "name": null,
+  "category": "highway:service",
+  "ref": null,
+  "points": 6,
+  "way_ids": [
+   "1548206353"
+  ]
+ }
+]

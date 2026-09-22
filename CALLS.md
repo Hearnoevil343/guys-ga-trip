@@ -4,7 +4,23 @@ Parked 2026-09-21. Nothing here blocks building the map or the plan, but the
 first one decides whether the overnight happens where we've drawn it.
 
 ## 1. Blue Ridge Ranger District — 706-745-6928  ← most important
-The order that governs the overnight. Ask by name:
+
+**Added 2026-09-21 — the backcountry route is now East Fork Coosa Creek (Union Co.),
+see `research\backcountry-route-design.md`. Ask these first:**
+- Is hand panning OK on the **East Fork of Coosa Creek** above the private boundary
+  (upstream of ~34.8064, -83.9598) and on **West Fork Wolf Creek**? Any local exception
+  to the general rule, including inside **Coosa Bald National Scenic Area**?
+- Dispersed camping beside the East Fork near the Jones Branch confluence, and at the
+  Coosa Backcountry Trail crossing of West Fork Wolf Creek — any order or setback?
+- Is **Bowers Road (FS 298)** open to the public across the private stretch to
+  **Owltown Gap**, and can a truck be left overnight there?
+- Are **FS 107, FS 108 (Calf Stomp Rd) and Big Grassy Knob Road** gated or open to
+  vehicles in October?
+- Which WMA covers Coosa Creek / Coosa Bald, and are there hunts Oct 17-20?
+- ~~Is panning actually prohibited in designated Wilderness?~~ **ANSWERED — confirmed by the Captain, 2026-09-21: yes, panning is banned in designated Wilderness.** No official USFS page states this (still true), but it no longer needs a ranger call.
+
+The Three Forks questions below only matter if we fall back to Noontootla.
+The order that governs that overnight. Ask by name:
 
 > "Campfire, Camping, and Horse Restrictions at FS Road 58 and Chester &
 > Noontootla Creeks"
@@ -31,10 +47,15 @@ The order that governs the overnight. Ask by name:
 - Confirm walk-in site P booking, Thu Oct 15 1 PM – Wed Oct 21 noon.
 - Confirm 2 vehicles / 2 tents / 6 people at the site, and overflow parking.
 - Current campsite and ParkPass rates.
+- **Coosa Backcountry Trail:** is an overnight permit required, where do we get it, and
+  can we walk out from site P leaving both vehicles at the site for 3 nights?
 
 ## 3. Georgia DNR / Wildlife Resources
+- **Confirm the firearms deer opener date.** "Oct 17" has no primary source (DNR pages
+  blocked our fetch 2026-09-21). Wear orange regardless. Does the orange rule apply to
+  non-hunters?
 - Blue Ridge WMA: anything the group needs while camping/panning during
-  firearms deer season (opens **Oct 17** — blaze orange).
+  firearms deer season.
 - Noontootla and its tributaries are artificial-lures-only, 16" minimum,
   mandatory-release wild trout water. Does that carry any streambed
   restriction that affects panning?

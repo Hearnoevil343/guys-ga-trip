@@ -240,6 +240,67 @@ banner logic), which is unrelated to this rendering path. A research pass can no
 and additional "no"/"unknown" features to `panning-status.geojson` directly — the panel and popups
 need no further changes to pick them up.
 
+### East Fork Coosa Creek backcountry route + route variants (2026-09-21, 6th pass)
+
+`research/backcountry-route-design.md` (the "long"/"short" backcountry design) is now built into
+`map/data/days.json` by **`map/data/_build_backcountry.mjs`** (re-runnable: `node
+map/data/_build_backcountry.mjs`). **Run order matters:** `_build_days.mjs` regenerates days.json
+from scratch with NO variants; `_build_backcountry.mjs` must always run immediately after it (see
+the loud warning comment at the top of `_build_days.mjs`) or the variants get silently wiped.
+`_build_backcountry.mjs` is itself idempotent/re-runnable on its own — it reads its days-1/2/3/4/7
+baseline from the "short" variant's array (always pristine) rather than top-level `days` (which
+after the first run *is* the "long" variant and would double-append the Fri-shuttle legs / lose
+days 3-4 if re-read as the baseline).
+
+**Schema addition:** `days.json` gained a top-level `variants` array,
+`[{id:"long"|"short", label, days:[...7 days]}]`; top-level `days` is set to the "long" variant's
+days for back-compat with anything (older code, GPX) that only knows the single-route shape.
+`build-map.mjs`'s chain-consistency assertion, the wilderness point-in-polygon legality guard, and
+`trip.gpx` export were all extended to run across every variant, not just top-level `days`.
+
+**Geometry:** the Coosa Backcountry Trail's 4 OSM name-variant segments (see
+`research/_coosa_osm.geojson`) are chain-merged at build time into one continuous 12.935mi loop,
+oriented to the Vogel trailhead, and cut at the survey mile-markers from
+`research/coosa-geometry-survey.md` Task 6 (Burnett Gap 1.02mi, WOLF-X/FS107 crossing 3.37mi,
+Locust Stake Gap 4.71mi, Calf Stomp Gap 5.91mi — Calf Stomp Gap's cut agrees with the design doc's
+explicit coordinate within 35m). Calf Stomp Road (FS108), Big Grassy Knob Road, Duncan Ridge Conn
+and Bowers Road (FS298) are real OSM ways, snapped at their real intersections (all within ~0.3m
+of the design's named junction coordinates except CAMP-C, whose creek-confluence point sits ~76m
+off Duncan Ridge Conn — the one >30m straight-line stitch on the route, flagged
+`geometry_confidence:"approximate"` and reported). `_lib.mjs` gained two new reusable helpers for
+this: `pointAtDistanceMeters`/`pointAtMiles` (interpolated cut point at a given distance along a
+polyline) and `chainMergeSegments` (greedy endpoint-matching merge of disjoint OSM way segments).
+
+**New pan-leg fields** (per the design doc's "what done looks like" section, text copied verbatim
+from `backcountry-route-design.md` — never paraphrased): `state:"amber"`,
+`legality.panning`/`legality.camping` (`{state, text, source_url}`), `gold`
+(`{record, pressure, geology, sources[]}`), `water`, `bears`, `fires`. Legs/days depending on an
+UNCONFIRMED access item (Bowers Road/FS298, Big Grassy Knob Road, Calf Stomp Road/FS108, FS107) get
+`access_confidence:"unconfirmed"`. The optional layover day (Oct 19, "long" only) gets
+`optional:true` + `optional_note`.
+
+**`map/build-map.mjs` UI additions:** a variant selector lives inside the existing day-strip control
+(same box, a row above the day-number buttons — not a new floating element, so the existing
+`computeFitPadding()` marker-collision-avoidance code already covers it) and persists the choice to
+`localStorage` (`gaGoldTripVariant.v1`); switching variants rebuilds the day layers/day-strip/day
+panel in place (`applyVariant()`). Pan legs show an amber "unverified" chip in the leg panel; tapping
+it toggles a detail block (panning/camping legality + source link, gold record/pressure/geology,
+water, bears, fires) — progressive disclosure, nothing new floating over the map. Unconfirmed-access
+legs get an amber `.access-tag` next to the existing "~ approx"/"gravel — est." tags; optional days
+get a blue "optional" tag plus their note rendered under the day title.
+
+**Verified 2026-09-21:** `node map/build-map.mjs` exits clean (chain check OK for top-level + both
+variants; wilderness point-in-polygon guard checked 3 distinct day start/end points + 10 pan legs
+across both variants, zero hits other than Vogel basecamp itself trivially being inside Vogel State
+Park). Playwright (same throwaway-install pattern as below — reused, then moved back to
+`E:\to-delete\ga-gold-trip\`) confirmed: 0 console/page errors; both variants' day-strip buttons (1-7)
+render; every day in both variants renders legs with distance/time metadata; amber unverified chips
+present and their detail toggles open/close correctly with the real legality text; access-tags appear
+only on Bowers/Big-Grassy/Calf-Stomp/FS107 legs; the optional tag appears only on "long" day 5; the
+variant choice survives a full page reload via localStorage; Day 4 (long)'s start/end markers are not
+occluded (`document.elementFromPoint()` at their real screen center hits the marker itself).
+`map/screenshot_backcountry.png` holds a screenshot from this pass.
+
 ## tools/build_gear_picker.py
 Re-runnable Python (openpyxl; `pip install openpyxl`) builder for `Gear_Picker.xlsx`, the
 Captain's personal interactive gear-selection workbook. Reads all three
@@ -294,3 +355,14 @@ penny, modulo per-row rounding).
 
 **Status:** built 2026-09-21 (2nd pass), matches Gear_Picker.xlsx's default total ($2,490.25 vs.
 $2,490.26 — 1-cent rounding from summing already-rounded per-item shares).
+
+## tools/build_rundown.py
+Regenerates `RUNDOWN.html` from `RUNDOWN.md` (keeps the old file's `<style>` block; TOC rebuilt from
+`## N.` headings). **Run:** `python tools/build_rundown.py` from the project root; needs `pip install
+markdown`. Written 2026-09-21 (no generator existed; the old html was hand-made). The `.warn`/`.note`
+callout boxes are not produced — bold lead-ins render as plain paragraphs.
+
+**Phone check 2026-09-21:** map at 390px was unusable (300px sidebar left a 90px map, Compare button
+hidden). Added a `@media (max-width:700px)` block in `build-map.mjs` (map on top 50vh, panel below,
+legend lifted above the panel). Playwright throwaway install used and moved back to
+`E:\to-delete\ga-gold-trip\node_modules`.

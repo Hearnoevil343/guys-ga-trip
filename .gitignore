@@ -13,4 +13,16 @@ desktop.ini
 # Cached network responses (OSRM / OSM API / opentopodata) for map/data/_build_*.mjs —
 # re-fetchable, not trip content; see TOOLS.md.
 map/data/_cache/
+research/_cache_gis/
+research/_cache_nominatim/
+
+# Debug/scratch screenshots from map verification passes — not trip content.
+map/screenshot_backcountry.png
+
+# Raw saved HTML pages from source verification — re-fetchable, not trip
+# content; one carried a live third-party secret (Azure Bot key embedded in
+# a gov site's page), so these stay local. Findings are captured in the
+# research/*.md summaries instead.
+research/_v_*.html
+research/_b19.html
 .claude/

@@ -37,7 +37,7 @@ Base camp: Vogel State Park, walk-in site P. 6 adults (4 newer campers). This is
 
 **5 phone calls to make before the trip** (full scripts in §10):
 1. **Vogel State Park — 706-745-2628** — confirm walk-in site P vehicle count/parking, second-tent policy, current ParkPass fee, and firewood rules.
-2. **Blue Ridge Ranger District — 706-745-6928** — confirm current hand-panning rules, any stream closures, and legality of the Three Forks/Noontootla panning reach.
+2. **Blue Ridge Ranger District — 706-745-6928** — confirm current hand-panning rules, any stream closures, and panning/camping/road access on East Fork Coosa Creek and West Fork Wolf Creek (questions in `CALLS.md` #1).
 3. **GA DNR Wildlife Resources Division — 770-535-5498** — confirm WMA hunt calendar for the trip week and any trout-stream restrictions.
 4. **Consolidated Gold Mine — 706-864-8473** — ask if their most veteran guide (possibly Greg Sheppard) is working the week of Oct 15–21, and get current tour pricing.
 5. **Lumpkin County Parks & Rec — 706-864-3622** — confirm panning is still a tolerated activity at Yahoola Creek Park.
@@ -50,6 +50,8 @@ Base camp: Vogel State Park, walk-in site P. 6 adults (4 newer campers). This is
 
 All drive times are estimated from Vogel State Park (7485 Vogel State Park Rd, Blairsville) and are **not live-routed** — add a buffer for mountain roads, and re-check day-of if you have signal.
 
+Every day below now budgets real time for breakfast/lunch/dinner and for camp setup/breakdown (first night at Vogel ~60–90 min; a backcountry camp ~45 min each way) — see the map's day panel and Compare view for the minute-by-minute breakdown; none of the added time pushes a day past ~11 active hours or dinner past dark.
+
 ### Thu Oct 15 — Arrive, set camp, first pan
 - **1:00 PM:** Arrive Vogel, check in, haul gear to walk-in site P.
 - **2:00–4:00 PM:** Set up base camp (tents, bear-proof food hang on the site's steel posts, kitchen area).
@@ -61,28 +63,29 @@ All drive times are estimated from Vogel State Park (7485 Vogel State Park Rd, B
 ### Fri Oct 16 — Dahlonega in costume
 - **Morning:** Prospector outfits on. Drive to Dahlonega (~25–30 min via US-19/129).
 - **Consolidated Gold Mine** (185 Consolidated Gold Mine Rd) — underground tour + panning, ask for the veteran guide (see §5, §10). No reservation needed for a group of 6.
-- **Dahlonega Gold Museum** (1 Public Square) — indoor, pairs well with lunch on the square.
+- **Lunch, downtown Dahlonega** — right after the mine tour, before the museum. Pick a spot on the square when you're there (Consolidated is a few minutes' drive from downtown; the museum is on the square, so lunch first keeps everything walkable from there); nothing pre-booked. ~1 hr.
+- **Dahlonega Gold Museum** (1 Public Square) — indoor, walkable from lunch.
 - **Yahoola Creek Park** (1166 Captain McDonald Rd) — the "4,000 miners" creek; free public panning.
 - **Dinner** in town — Foothill Grill, Bear Necessities Cafe, or Picnic Cafe (all casual, good for a group of 6).
 - **Rain/backup:** This whole day is already the rain-day pick — Consolidated is underground and the museum is indoor.
 
-### Sat Oct 17 — North side, away from crowds
+### Sat Oct 17 — North side, away from crowds (short option; the long option starts the hike today — see §3)
 - Today is Gold Rush Days (~200k people) and muzzleloader-to-firearms handoff day — stay north/away from Dahlonega.
 - **Morning:** **Cooper Creek Recreation Area** (~40 min via US-19/129 then GA-60 S/Cooper Creek Rd) for panning.
 - **Midday:** Resupply run in **Blairsville** (~10–15 min from Vogel) — Ingles Markets, gas, ice, firewood.
-- **Afternoon:** Overnight-gear shakedown at camp — pack the backpacks you'll carry Mon–Tue, test the tent you'll pitch at Three Forks, check the water filter and stove. **Blaze orange from today on**, since firearms season opens today.
+- **Afternoon:** Overnight-gear shakedown at camp — pack the backpacks you'll carry to the East Fork Coosa Creek camp, test the tent, check the water filter and stove. **Blaze orange from today on**, since firearms season opens today.
 - **Optional:** anyone who wants the festival can shuttle into Dahlonega for a short morning visit (park at a shuttle lot, go early, be out by early afternoon).
 - **Rain/backup:** Do the gear shakedown under cover first, then a short Vogel-area hike (no panning inside the park — it's banned park-wide, see §7).
 
-### Sun Oct 18 — GA-348 loop, early start
+### Sun Oct 18 — GA-348 loop, early start (short option; the long option hikes to East Fork Coosa Creek today — see §3)
 - **Early morning:** Drive the **Richard B. Russell Scenic Hwy (GA-348)** loop before crowds build.
 - **Tesnatee Gap / Tesnatee Creek** (~22 min) — closest option besides Frogtown, roadside pull-off.
 - **Upper Chattahoochee / FS-44 road reach** (~38 min via GA-75 to FS-44 gravel road) — stop at the campground gate; do **not** continue upstream past it, that's Mark Trail Wilderness (banned).
 - **Dukes Creek Falls, NF side only** (~38 min) — $4/vehicle USFS fee, 2.5-mi round-trip trail; pan above the falls trailhead, well clear of the boardwalk. Do **not** cross into Smithgall Woods State Park (banned, different property).
 - **Rain/backup:** Consolidated Gold Mine (if not already done) or a Vogel-area hike (Bear Hair Gap Trail).
 
-### Mon Oct 19 – Tue Oct 20 — The overnight (Three Forks / Noontootla Creek)
-Full detail in §3. Short version: drive ~45 min to the Three Forks trailhead on FS Road 58, hike in, camp, pan, hike out, back to Vogel by Tuesday afternoon/evening. **Blaze orange required** — firearms season is in full swing.
+### Mon Oct 19 – Tue Oct 20 — The overnight (East Fork Coosa Creek, short option)
+Full detail and the 4-day long option in §3. Short version: drive to Owltown Gap, walk in on Bowers Road, camp at the Jones Branch confluence, pan, walk out Tuesday, drive to Vogel. **Blaze orange required.**
 - **Rain/backup for this leg:** if weather turns genuinely unsafe (flash-flood risk in narrow gorges), fall back to a shorter day-trip pan at Cooper Creek or Frogtown and skip the overnight rather than camp in a flash-flood-prone drainage.
 
 ### Wed Oct 21 — Pack out
@@ -191,52 +194,45 @@ Drive times and coordinates below are pulled from `map/data/spots.json` (the mos
 
 ---
 
-## 3. The overnight
+## 3. The overnight — East Fork Coosa Creek (two options)
 
-**Trip-lead decision:** PRIMARY is Three Forks/Noontootla Creek. BACKUP is Rock Creek dispersed area (Fannin). Best dates: Mon–Tue Oct 19–20. This overrides all three research files' internal rankings (see §12 for why).
+**Nothing in this section is ranger-confirmed. Every creek stop is AMBER on the map.** Full spec and sources: `research/backcountry-route-design.md`. Open the map and tap **Compare** in the variant selector for the two options side by side (numbers come straight from `map/data/days.json`).
 
-### PRIMARY — Three Forks / Noontootla Creek
+### Why this drainage
+**Gold record (primary source):** Georgia Geological Survey Bulletin 19, S.P. Jones, 1909, pp. 237-239: "the deposits have been mined from near the headwaters of the stream high up on a mountain side, for a distance of several miles ... The entire output of the Coosa Creek placers has been variously estimated at from a half to a million pennyweights of gold. ... its purity is as great as .980." Also: "The placers along Coosa Creek have yielded large amounts of gold and the mountain slopes of that region deserve careful prospecting." USGS MRDS: Coosa Creek Placer Mine, Past Producer, deposit size Medium (dep_id 10084699). Upper-creek gold is in "the bed of the creek only" — work bedrock cracks and bend insides, not banks.
 
-**Drive route from Vogel:** North on US-19/129 to Suches (GA-60), then the Aska Road corridor toward Blue Ridge: Aska Rd 13.5 mi to its end, right on Newport Rd 4.5 mi, left on Doublehead Gap Rd, cross a concrete bridge, continue gravel 0.3 mi to FS Road 58, turn right (east) 5.3 mi to Three Forks. Gravel FS road; high clearance recommended for the last stretch, but trucks are fine. **Drive time ~45 min (estimated, not live-routed — budget extra for gravel).**
+**Pan only on the Forest Service reaches.** East Fork Coosa Creek is National Forest from its source down to 34.80637, -83.95980 (2.54 creek-miles); below that it is private for most of the way to the mouth. West Fork Coosa Creek and the mainstem are private. West Fork Wolf Creek is National Forest from its source to 34.79131, -83.91724. **Do not go below 34.80637, -83.95980 on the East Fork.**
 
-**Trailhead/parking:** No formal lot — park along FS Road 58 at Three Forks itself. Coordinates: **34.6636, -84.1842** (converted from a published trailhead-access writeup).
+**No record for West Fork Wolf Creek** — it is a geological-inference test pan only (between the Coosa Creek placers and Bulletin 19's "placer deposits near Crumley Creek"). No modern panning write-up was found for the East Fork either (one search pass, unconfirmed).
 
-**Mile-by-mile notes:** Three Forks is the confluence of Stover, Chester, and Long Creeks, which join here to form Noontootla Creek — this is also an AT/Benton MacKaye Trail junction. Exact one-way mileage to a quiet, private-feeling pan site is **UNVERIFIED** (~1–2 mi estimated) — this is a short, easy overnight well within the group's comfortable pace. You can hike a short way up the AT/BMT to get off the road-accessible cluster, or walk along Noontootla Creek itself (FS 58 parallels part of it) to a quieter gravel bar.
+Noontootla / Three Forks was dropped: it has a record (Bulletin 19 pp. 277-278) but the named lots are downstream and mostly private, the National Forest reach is upstream of the gold, camping there depends on the FS-58 order we cannot obtain, and it is a 111-minute drive each way.
 
-**Camp location:** Established campsites cluster right at Three Forks — this spot gets car-camping and thru-hiker traffic, so for more solitude, camp a short distance upstream or downstream of the confluence rather than right at the junction. No separately marked backcountry tent-pad coordinates were found — treat the trailhead coordinates as the general area and pick a site on arrival.
+### Option A — "long": 4 days (3 without the layover), Sat Oct 17 – Tue Oct 20
+All with full packs except the layover. Numbers below are from `days.json`.
+- **Sat Oct 17 — Vogel → West Fork Wolf Creek.** Coosa Backcountry Trail counter-clockwise from site P via Burnett Gap; 3.53 mi walking. Pan 3 h at/below the crossing. Camp at the crossing. (Replaces the Cooper Creek day.)
+- **Sun Oct 18 — West Fork Wolf Creek → East Fork Coosa Creek.** Over Locust Stake Gap and Calf Stomp Gap (big climb), down Big Grassy Knob Road, then upstream beside the creek to camp at the Jones Branch confluence; 5.24 mi walking, +1,668 ft in total. Pan 1.5 h at the Roaring Fork confluence and 1.5 h at camp. (Replaces the GA-348 loop day.)
+- **Mon Oct 19 — layover, OPTIONAL** (drop it for the 3-day version). Daypack. Pan the Jones Branch reach 3 h and the upper "bed of the creek only" reach 2 h. Nearly all panning: 0.12 mi of walking.
+- **Tue Oct 20 — out to Owltown Gap.** 2.29 mi. Pan 1.5 h at the boundary stop (last public water). Drive to Vogel, 8.7 mi / 18 min. Night at Vogel; Wed Oct 21 unchanged.
+- **Shuttle:** Fri evening, stage truck 2 at Owltown Gap (two trucks out, one back; 18 min each way).
 
-**Water sources:** Three Forks/Noontootla Creek — reliable, perennial. Treat all water before drinking (filter or chemical treatment).
+### Option B — "short": 2 days / 1 night, Mon Oct 19 – Tue Oct 20
+Oct 15–18 stay as planned in §1 (Cooper Creek Sat, GA-348 loop Sun).
+- **Mon Oct 19.** Drive both trucks Vogel → Owltown Gap; leave truck 1 there. Truck 2 is staged at the West Fork Wolf Creek crossing on FS 107 beforehand — **only if FS 107 is open (UNCONFIRMED).** Walk Owltown Gap → Bowers Road → boundary stop (pan 1.5 h) → Roaring Fork (pan 1.5 h) → camp at the Jones Branch confluence; 2.29 mi. Pan at camp 1.5 h.
+- **Tue Oct 20.** Pan at camp 2 h. Walk out via Big Grassy Knob Road (up), Calf Stomp Gap and the Coosa Backcountry Trail clockwise to truck 2; 5.24 mi. Drive to Vogel.
+- **Fallback if FS 107 is gated:** walk back out Bowers Road to Owltown Gap instead (2.3 mi) — then only one truck spot is needed.
 
-**Pan reaches:** The Three Forks confluence itself, and Noontootla Creek downstream of it. Avoid panning right at Long Creek Falls — slick rock, not a great pan spot anyway.
-
-**Gold record:** The U.S. Forest Service's very first Georgia land purchase (1911) was a 31,000-acre tract from the Gennett brothers named explicitly for the "**Rock Creek and Noontootly Creek area**" of Fannin/Gilmer/Lumpkin/Union counties. A separate mining-claims index lists a "Hackney Placer" and mining specifically along "Noontootly Creek." This is the strongest creek-specific gold citation of any overnight candidate researched.
-
-**Timed 2-day schedule (Mon Oct 19 – Tue Oct 20):**
-- **Mon, ~9:30 AM:** Depart Vogel (allow drive + trailhead prep, arrive Three Forks ~10:15–10:30 AM).
-- **Late morning:** Hike in to camp (short, easy — well under the group's comfortable daily pace).
-- **Early–mid afternoon:** Set up camp, then start panning Noontootla Creek gravel bars.
-- **~5:00–5:30 PM:** Stop panning to leave daylight margin for firewood, water treatment, and site setup — sunset is around 7:10 PM in mid-October and nights are cold (30s–40s°F).
-- **Tue, first light–10:00 AM:** Morning panning session (best light, coldest water, least-disturbed gravel after overnight settling).
-- **~10:30–11:00 AM:** Break camp, Leave No Trace, hike out.
-- **Early–mid afternoon:** Back at the trucks, drive to Vogel.
-
-**Bail-out option:** Hike back out the way you came to FS Road 58 and drive out — there's no long committing loop here, so a bail-out is short at any point on the route.
-
-**Hazards:** Creek crossings; Long Creek Falls nearby (avoid panning there — slick rock); shared corridor with AT thru-hikers in October (mostly southbound finishers, moderate traffic); standard black-bear country — hang or canister your food; firearms deer season is open the whole time you're out there — everyone in blaze orange.
-
-**Legality:** Chattahoochee NF, Blue Ridge Ranger District, standard non-Wilderness land — Blood Mountain/Mark Trail Wilderness boundaries are well north/east of this drainage. Hand panning should be legal under standard NF rules, but **no district-specific written confirmation was found for this exact reach — call Blue Ridge RD (706-745-6928) before the trip.**
+### Rules that apply (all AMBER)
+- **Panning:** "Recreational panning for gold in most stream beds is allowed. Special permission, permits, or fees are not required as long as significant stream disturbance does not occur and when only a small hand shovel or trowel and a pan are used. In-stream sluices and suction dredges are NOT allowed." — USFS Chattahoochee-Oconee FAQ (https://www.fs.usda.gov/r08/chattahoochee-oconee/about-area/faqs). "Most stream beds" is not creek-specific: no ranger has confirmed this creek. Call Blue Ridge RD 706-745-6928.
+- **Camping:** dispersed camping on general National Forest land. The Forest Supervisor's Orders page lists no order naming Coosa Creek, Coosa Bald, Calf Stomp, Wolf Creek or Duncan Ridge. The Coosa Bald National Scenic Area statute (16 USC 460ggg-1) withdraws the area from mineral leasing only; it is silent on camping and panning. Forest-wide order CO-08-03-00-26-01: max 8 people / 2 vehicles per site and a food-storage rule (agent-read, wording UNCONFIRMED). 14-day stay limit. Coosa Backcountry Trail overnight permit from Vogel: UNCONFIRMED — ask Vogel 706-745-2628.
+- **WMA / hunting:** which WMA covers Coosa Creek is UNCONFIRMED. The firearms deer opener date is UNCONFIRMED (Georgia DNR pages blocked our fetch) — wear orange regardless.
+- **Water:** the creek at every camp; treat it. **Bears:** no canister order applies (AT order CO-16-02 is Mar 1-Jun 1, Jarrard-Neel Gap only); hang food or use canisters. **Fires:** stoves only.
+- **Access UNCONFIRMED (call-gated):** Bowers Road (FS 298) crosses private land between 34.8064 and Owltown Gap — confirm it is open to the public and that a truck can be left at Owltown Gap. Whether Big Grassy Knob Road / FS 108 / FS 107 are gated is unknown.
+- **Vehicles:** the group has 3 vehicles, 2 of them Ford F-150s (off-road capable) — the two F-150s can shuttle all six people to/from either trailhead in a single run, no second trip needed, and both can handle the FS roads themselves. Whether the specific gates (Bowers Road/FS 298, FS 107, FS 108, Big Grassy Knob Road) are open is still a ranger call, not a vehicle-capability question — see the access-unconfirmed note above and CALLS.md #1.
 
 ### BACKUP — Rock Creek dispersed area (Fannin Co.)
 
 - **Distance/access:** ~35–45 min via GA-180/US-19-129 to Suches, then GA-60 N; Skeenah Gap Rd south 7.8 mi, left on Hwy 60 S 3.4 mi, right on Rock Creek Rd (gravel, follows the creek past the GA DNR Rock Creek trout hatchery).
 - **Legality caveat:** This is fundamentally a **drive-to dispersed camping road**, not a hike-in trailhead — to make it a true backcountry overnight, park where the maintained gravel ends and hike upstream (distance **UNVERIFIED**, likely 1–3 mi). It sits within Blue Ridge WMA (20,900 ac) — a WMA license or GA Lands Pass may be required for everyone on-site even if not hunting; **confirm this applies here specifically.**
-- **Gold record strength:** Same strong citation as the primary — the same 1911 Gennett tract is named "Rock Creek **and** Noontootly Creek area."
-
-### Why the Coosa Backcountry Trail is not the gold route
-
-The Coosa Backcountry Trail (trailhead inside Vogel itself, near cabin #7) was the top pick in the earliest overnight research — zero drive time, a documented historic producer nearby (the Coosa Mine, reportedly $2M+ in gold). **That pick has been corrected:** the trail does **not** actually touch Coosa Creek, and no documented gold has been found along the trail itself — the historic Coosa Mine is a separate location about 4 miles south of Blairsville, off the trail entirely, with **UNVERIFIED public/legal access status**. The trail does cross Wolf Creek and Wolf Branch Creek, and its eastern ~1.25 miles (the stretch toward the AT/Blood Mountain summit) sits inside **Blood Mountain Wilderness**, where panning is banned outright.
-
-**Bottom line:** the Coosa Backcountry Trail is still a good hike — free permit from the Vogel visitor center, ~12.7-mi full loop (too long for this group's pace) or a shorter out-and-back — but it is not a panning destination. List it as a plain-hike option only, for anyone who wants a day off from creek work.
 
 ---
 
@@ -340,8 +336,8 @@ This is **flakes, not nuggets.** Georgia placer gold in this belt is mostly fine
 | Land type | Panning allowed? | Notes |
 |---|---|---|
 | National Forest (Chattahoochee-Oconee, general) | **Yes** — hand pan + small trowel/shovel only | No permit needed for casual panning. No sluice boxes, suction dredges, or motorized equipment. No bank digging — streambed/gravel only. |
-| Designated Wilderness (Blood Mountain, Mark Trail, Raven Cliffs) | **No** | Explicitly banned per the Chattahoochee-Oconee NF FAQ: "Any stream in a Wilderness Area... is off limits." |
-| National Scenic River corridors | **No** | Same FAQ language as Wilderness. |
+| Designated Wilderness (Blood Mountain, Mark Trail, Raven Cliffs) | **No** | **Confirmed banned** — confirmed by the Captain, 2026-09-21. (No official USFS page states this directly: the Chattahoochee-Oconee NF FAQ's Wilderness exclusion is written for fossils, and the national Rockhounding Guide only says collecting "may or may not be allowed" — the Captain's confirmation settles it for this trip regardless.) |
+| National Scenic River corridors | **No** | Same status as Wilderness: treat as banned, unconfirmed by any official page. |
 | Georgia state parks (Vogel, Smithgall Woods, Amicalola Falls, Moccasin Creek SP) | **No** | State parks do not permit gold panning, prospecting, or rock/mineral collecting anywhere on their land — this includes Vogel itself. |
 | National Scenic Area (e.g., Coosa Bald, DeSoto Falls Scenic Area) | **Likely yes** | Not statutory Wilderness or a Scenic River corridor, so the general NF rule should apply — but this is an inference from the FAQ's wording, not an explicit statement. Confirm with the ranger district for any specific Scenic Area reach. |
 | WMA land (Chestatee, Blue Ridge, Cooper's Creek, Dawson Forest) | **Mixed** | General hand-panning rule should still apply on non-Wilderness WMA streambeds, but a WMA license/GA Lands Pass may be required for all persons on-site even non-hunters — confirm per WMA. The City-of-Atlanta-owned tract of Dawson Forest specifically bans panning by ordinance. |
@@ -354,7 +350,7 @@ This is **flakes, not nuggets.** Georgia placer gold in this belt is mostly fine
 - Vogel State Park itself is not huntable and hunting isn't permitted inside the park boundary — but nearly every panning/overnight destination on this list is National Forest or WMA land where hunting is legal during the trip window.
 
 ### Bear / food storage
-Food storage is required practice, not optional, given confirmed bear presence. At Vogel's walk-in site P, use the steel bear-proof hang posts provided at the site — never leave food, coolers, or trash out overnight or in a tent. At the backcountry overnight (Three Forks or backup), hang food or use a bear-resistant bag/canister (the gear list includes an Ursack for this). Note: the AT's mandatory hard-sided-canister rule between Jarrard Gap and Neel Gap only applies March 1–June 1, so it does **not** legally apply to this trip — but bear-resistant storage is still standard practice given rising bear activity.
+Food storage is required practice, not optional, given confirmed bear presence. At Vogel's walk-in site P, use the steel bear-proof hang posts provided at the site — never leave food, coolers, or trash out overnight or in a tent. At the backcountry overnight (East Fork Coosa Creek or backup), hang food or use a bear-resistant bag/canister (the gear list includes an Ursack for this). Note: the AT's mandatory hard-sided-canister rule between Jarrard Gap and Neel Gap only applies March 1–June 1, so it does **not** legally apply to this trip — but bear-resistant storage is still standard practice given rising bear activity.
 
 ### Cold-water safety
 Creek water in October is cold (likely 50s°F, unverified from a direct source but a safe planning assumption). Insulated waterproof gloves are not optional for real panning sessions — bare hands go numb fast and dropped gear/slips follow. Neoprene socks under old sneakers/water shoes (not hiking boots — boots hold water and don't dry). Change into dry socks and shoes immediately after any creek session, even a short one — wet feet plus 30s°F nights is the single biggest way to get miserably cold on this trip.
@@ -440,7 +436,7 @@ Insulated gloves are not optional — dip, work fast, dry and rewarm between pan
 - Also ask: "Is gold panning or rock collecting allowed anywhere inside park boundaries?" (Expected answer: no — confirm this before anyone tries it at the lake or on a park trail crossing.)
 
 **Blue Ridge Ranger District — 706-745-6928**
-- Script: "We're a group of 6 doing recreational hand-panning (pan + trowel, no sluice/dredge) at several Chattahoochee National Forest sites the week of Oct 15–21, plus a backcountry overnight at Three Forks/Noontootla Creek off FS Road 58 Oct 19–20. Can you confirm current panning rules, whether there are any active stream closures or trout-spawning restrictions in that window, and whether the Three Forks/Noontootla reach and the Coosa Creek/Coosa Bald area are open to hand panning outside any Wilderness boundary?"
+- Script: "We're a group of 6 doing recreational hand-panning (pan + trowel, no sluice/dredge) at several Chattahoochee National Forest sites the week of Oct 15–21, plus a backcountry overnight on the East Fork of Coosa Creek (above the private boundary near 34.8064, -83.9598) and West Fork Wolf Creek, Oct 17–20. Can you confirm current panning rules, whether there are any active stream closures in that window, and whether those reaches and the Coosa Bald area are open to hand panning? Is Bowers Road (FS 298) open to the public to Owltown Gap, and are FS 107 / FS 108 / Big Grassy Knob Road gated?"
 - Also ask about current fire restrictions/burn-ban status for camping.
 
 **GA DNR Wildlife Resources Division — 770-535-5498**
@@ -485,7 +481,7 @@ Figures pulled from `dahlonega.md` (activity pricing) and `gear.md` (gear pricin
 
 **`research/spots-v2.md`** — Breadth pass adding ~25 spots, the Frogtown Creek correction (confirmed Tier A via USFS), Tier A/B/C/X structure, excluded-spots list with reasons — this is the basis for the tiered table in §2, cross-checked against `map/data/spots.json`.
 
-**`research/verification.md`** — Fact-check pass resolving the muzzleloader-vs-firearms date confusion, the Coosa Backcountry Trail/Blood Mountain Wilderness boundary question, Wilderness panning ban (confirmed via the USFS FAQ), trout-closure question (resolved to "no seasonal closure" for most designated trout water), and Yahoola Creek public-access confirmation.
+**`research/verification.md`** — Fact-check pass resolving the muzzleloader-vs-firearms date confusion, the Coosa Backcountry Trail/Blood Mountain Wilderness boundary question, Wilderness panning ban (confirmed by the Captain, 2026-09-21 — no official page states it; see research/legality-verified-2026-09-21.md for the research trail that could not settle it independently), trout-closure question (resolved to "no seasonal closure" for most designated trout water), and Yahoola Creek public-access confirmation.
 
 **`research/overnight-route.md`** — First overnight pass; originally recommended the Coosa Backcountry Trail as primary (later corrected — see trip-lead override in §3).
 
@@ -511,7 +507,7 @@ Figures pulled from `dahlonega.md` (activity pricing) and `gear.md` (gear pricin
 
 ### UNVERIFIED items the Captain should double-check before the trip
 1. Vogel walk-in site P's actual vehicle capacity and second-tent policy (the trip-lead numbers above — 2 vehicles + overflow, 2 tents — should still be confirmed against what the park itself says at check-in).
-2. Whether hand panning is legal on the specific Three Forks/Noontootla reach — no district-specific written confirmation was found in any research pass.
+2. Whether hand panning is legal on East Fork Coosa Creek and West Fork Wolf Creek, whether Bowers Road / FS 107 / FS 108 are open, and the firearms deer opener date — none has a ranger or DNR confirmation (`CALLS.md`).
 3. Whether the Dockery Lake Trail's 3.0-mi backup campsite sits outside the Blood Mountain Wilderness boundary.
 4. Public/legal access status of the historic Coosa Mine site ~4 mi south of Blairsville.
 5. Whether panning is separately restricted for non-anglers inside the Chestatee WMA (Waters Creek/Dicks Creek).

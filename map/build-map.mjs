@@ -63,8 +63,7 @@ function haversineMetersBuild(lat1, lng1, lat2, lng2) {
   const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(a));
 }
-if (daysData && Array.isArray(daysData.days)) {
-  const days = daysData.days.slice().sort((a, b) => a.day - b.day);
+function checkChain(days, label) {
   let chainOk = true;
   for (let i = 0; i < days.length - 1; i++) {
     const end = days[i].end, start = days[i + 1].start;
@@ -72,10 +71,17 @@ if (daysData && Array.isArray(daysData.days)) {
     const d = haversineMetersBuild(end.lat, end.lng, start.lat, start.lng);
     if (end.ref !== start.ref || d > 5) {
       chainOk = false;
-      console.warn(`WARNING: days.json chain break — day ${days[i].day} end (${end.ref}) is ${d.toFixed(0)} m from day ${days[i + 1].day} start (${start.ref}).`);
+      console.warn(`WARNING: days.json [${label}] chain break — day ${days[i].day} end (${end.ref}) is ${d.toFixed(0)} m from day ${days[i + 1].day} start (${start.ref}).`);
     }
   }
-  console.log(chainOk ? `days.json chain check OK across ${days.length} day(s).` : 'days.json chain check FAILED — see warnings above.');
+  console.log(chainOk ? `days.json [${label}] chain check OK across ${days.length} day(s).` : `days.json [${label}] chain check FAILED — see warnings above.`);
+  return chainOk;
+}
+if (daysData && Array.isArray(daysData.days)) {
+  checkChain(daysData.days.slice().sort((a, b) => a.day - b.day), 'top-level');
+  if (Array.isArray(daysData.variants)) {
+    for (const variant of daysData.variants) checkChain((variant.days || []).slice().sort((a, b) => a.day - b.day), variant.id);
+  }
 } else {
   console.warn('No days.json (schema days-v1) loaded — the day-chaining map layer will be empty.');
 }
@@ -351,6 +357,43 @@ for (const o of overnights) {
   }
 }
 
+// Same guard against every days.json pan leg + day start/end/camp point,
+// across ALL variants (the backcountry route's WOLF-X/CAMP-C/etc. camps and
+// pan stops included) — these sit near Coosa Bald National Scenic Area and
+// Blood Mountain Wilderness, so this is exactly the case the guard exists for.
+if (daysData) {
+  const variantSets = Array.isArray(daysData.variants) && daysData.variants.length
+    ? daysData.variants
+    : [{ id: 'top-level', days: daysData.days || [] }];
+  const seen = new Set();
+  let dayPointsChecked = 0, dayPanChecked = 0;
+  for (const variant of variantSets) {
+    for (const day of (variant.days || [])) {
+      for (const pt of [day.start, day.end]) {
+        if (!pt || typeof pt.lat !== 'number') continue;
+        const key = pt.ref + '@' + pt.lat.toFixed(6) + ',' + pt.lng.toFixed(6);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        dayPointsChecked++;
+        checkAndTag(pt, `[${variant.id}] Day ${day.day} ${pt === day.start ? 'start' : 'end'} — ${pt.label}`);
+      }
+      for (const leg of (day.legs || [])) {
+        if (leg.type !== 'pan' || typeof leg.lat !== 'number') continue;
+        dayPanChecked++;
+        checkAndTag(leg, `[${variant.id}] Day ${day.day} pan leg — ${leg.label}`);
+      }
+    }
+  }
+  const backcountryHits = wildernessHits.filter(h => h.startsWith('['));
+  console.log(`Legality guard (days.json, all variants): checked ${dayPointsChecked} distinct day start/end point(s) + ${dayPanChecked} pan leg(s).`);
+  if (backcountryHits.length) {
+    console.log(`  INSIDE a no-panning boundary (${backcountryHits.length}):`);
+    for (const h of backcountryHits) console.log('   - ' + h);
+  } else {
+    console.log('  No days.json start/end/pan point fell inside a mapped Wilderness/state-park polygon.');
+  }
+}
+
 // Run the same point-in-polygon legality guard against water.geojson: for
 // each creek/river feature, tag it with the name of any wilderness/state-park
 // polygon that contains AT LEAST ONE vertex of its line geometry (a creek can
@@ -426,6 +469,35 @@ if (daysData && Array.isArray(daysData.days)) {
     }
   }
   console.log(`Added ${dayTracksAdded} day track(s) to trip.gpx (of ${daysData.days.length} days).` + (dayTracksSkipped.length ? ` Day(s) with no drive/walk legs, so no track: ${dayTracksSkipped.join(', ')}.` : ''));
+
+  // Also emit any OTHER variant's days whose geometry differs from what's
+  // already in the top-level `days` track above (top-level mirrors the
+  // "long" variant — see _build_backcountry.mjs) — chiefly the "short"
+  // variant's own day 2/19/20 (different legs than long's) and day 3/4
+  // (Cooper Creek / GA-348 loop, which "long" drops entirely). Day 1/7 are
+  // byte-identical between variants, so skipped here to avoid pure dupes.
+  if (Array.isArray(daysData.variants)) {
+    let variantTracksAdded = 0;
+    for (const variant of daysData.variants) {
+      if (variant.id === 'long') continue; // identical to the top-level loop above
+      for (const day of (variant.days || []).slice().sort((a, b) => a.day - b.day)) {
+        if (day.date === '2026-10-15' || day.date === '2026-10-21') continue; // day 1 / day 7, shared verbatim
+        const segs = [];
+        for (const leg of day.legs || []) {
+          if ((leg.type !== 'drive' && leg.type !== 'walk') || !Array.isArray(leg.coords) || leg.coords.length < 2) continue;
+          const pts = leg.coords.map(([lat, lng]) => `      <trkpt lat="${lat}" lon="${lng}"></trkpt>`).join('\n');
+          segs.push(`    <trkseg>\n${pts}\n    </trkseg>`);
+        }
+        if (segs.length) {
+          const name = `Day ${day.day} (${variant.label})`;
+          const desc = `${day.date} — ${day.title}`;
+          gpxTracks.push(`  <trk><name>${gpxEscape(name)}</name><desc>${gpxEscape(desc)}</desc>\n${segs.join('\n')}\n  </trk>`);
+          variantTracksAdded++;
+        }
+      }
+    }
+    if (variantTracksAdded) console.log(`Added ${variantTracksAdded} additional day track(s) from non-"long" variant(s) to trip.gpx.`);
+  }
 }
 const gpx = `<?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="ga-gold-trip build-map.mjs" xmlns="http://www.topografix.com/GPX/1/1">
@@ -526,6 +598,12 @@ const html = `<!doctype html>
   #app { display:flex; height:100vh; width:100vw; }
   #map { flex: 1 1 auto; height: 100%; }
   #panel { width: 340px; min-width: 300px; max-width: 40vw; height: 100%; overflow-y: auto; background:#fafafa; border-left:1px solid #ccc; box-sizing:border-box; }
+  @media (max-width: 700px) {
+    #app { flex-direction:column; }
+    #map { flex:none; width:100%; height:50vh; }
+    #legend { bottom:calc(50vh + 8px) !important; left:8px !important; max-height:22vh !important; }
+    #panel { width:100%; min-width:0; max-width:100%; height:50vh; border-left:0; border-top:1px solid #ccc; }
+  }
   #panel h1 { font-size: 16px; margin: 10px 12px 4px; }
   #panel .sub { font-size: 12px; color:#555; margin: 0 12px 8px; }
   #filters { margin: 0 12px 8px; }
@@ -547,13 +625,34 @@ const html = `<!doctype html>
   #legend h4 { margin:0 0 4px; font-size:12px; }
   #legend div { margin: 1px 0; }
 
+  /* permanent centered label on every "Panning: no" polygon */
+  .no-panning-label { background:#cc0000; color:#fff; font-weight:800; font-size:10px; letter-spacing:.3px; padding:1px 5px; border:1px solid #fff; border-radius:3px; box-shadow:0 1px 3px rgba(0,0,0,.5); white-space:nowrap; }
+  .no-panning-label::before { display:none; }
+
   /* ---- day strip control (on the map) ---- */
-  .day-strip { background:#fff; padding:6px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.4); display:flex; gap:4px; }
+  .day-strip { background:#fff; padding:6px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:5px; }
+  .day-strip .day-row { display:flex; gap:4px; flex-wrap:wrap; }
   .day-strip button { border:1px solid #999; background:#f4f4f4; border-radius:4px; padding:5px 9px; font-size:12px; cursor:pointer; font-weight:600; color:#333; }
   .day-strip button:hover { background:#e2ecff; }
   .day-strip button.active { background:#2255aa; color:#fff; border-color:#2255aa; }
   .day-strip .hint { font-size:10px; color:#777; align-self:center; margin-left:4px; display:none; }
   @media (min-width: 700px) { .day-strip .hint { display:inline; } }
+  /* Variant selector: same box as the day strip (not a separate floating
+     control), a row above the day-number buttons. */
+  .day-strip .variant-row { display:flex; gap:4px; border-bottom:1px solid #ddd; padding-bottom:5px; }
+  .day-strip .variant-row button { flex:1 1 auto; background:#fff; border:1px solid #999; border-radius:4px; padding:5px 7px; font-size:11px; font-weight:700; cursor:pointer; color:#333; }
+  .day-strip .variant-row button:hover { background:#e2ecff; }
+  .day-strip .variant-row button.active { background:#2ca02c; color:#fff; border-color:#2ca02c; }
+  .day-strip .variant-row button.cmp { flex:0 0 auto; background:#fff8e1; border-color:#c9a227; }
+  .cmp-wrap { overflow-x:auto; }
+  .cmp-tbl { border-collapse:collapse; width:100%; font-size:11px; }
+  .cmp-tbl th, .cmp-tbl td { border:1px solid #ddd; padding:4px 5px; vertical-align:top; text-align:left; }
+  .cmp-tbl th { background:#f3f3f3; }
+  .cmp-tbl td.lbl { font-weight:700; background:#fafafa; white-space:nowrap; }
+  .cmp-tbl tr.tot td { background:#eef5ff; font-weight:700; }
+  .cmp-tbl details { margin-top:3px; }
+  .cmp-tbl summary { cursor:pointer; color:#7a5b00; font-weight:700; }
+  .cmp-note { font-size:11px; color:#555; margin:5px 0; }
 
   /* ---- overlays control panel (on the map, top-right, below the base-map switcher) ---- */
   /* Collapsed = a small square icon button only, so it never forces the map's
@@ -586,11 +685,24 @@ const html = `<!doctype html>
   .leg-list { list-style:none; margin:0; padding: 0 12px; }
   .leg-row { display:flex; align-items:flex-start; gap:7px; padding:6px 0; border-bottom:1px dashed #ddd; font-size:12px; }
   .leg-row .ic { flex: 0 0 20px; font-size:15px; text-align:center; }
+  .step-num { flex: 0 0 16px; height:16px; line-height:16px; text-align:center; border-radius:50%; background:#2255aa; color:#fff; font-size:10px; font-weight:800; margin-top:1px; }
   .leg-row .body { flex: 1 1 auto; }
   .leg-row .lbl { font-weight:600; }
   .leg-row .meta { color:#666; font-size:11px; margin-top:1px; }
   .approx-tag { display:inline-block; background:#fff3cd; color:#7a5b00; border:1px solid #e6c260; border-radius:3px; padding:0 4px; font-size:10px; font-weight:700; margin-left:5px; }
   .gravel-tag { display:inline-block; background:#e3edff; color:#1a4a8a; border:1px solid #9fc2ff; border-radius:3px; padding:0 4px; font-size:10px; font-weight:700; margin-left:5px; }
+  .access-tag { display:inline-block; background:#fff3cd; color:#7a5b00; border:1px solid #e6c260; border-radius:3px; padding:0 4px; font-size:10px; font-weight:700; margin-left:5px; }
+  .optional-tag { display:inline-block; background:#e3edff; color:#1a4a8a; border:1px solid #9fc2ff; border-radius:3px; padding:0 4px; font-size:10px; font-weight:700; margin-left:5px; text-transform:uppercase; }
+  .unverified-chip { display:inline-block; background:#fff3cd; color:#7a5b00; border:1px solid #e6c260; border-radius:9px; padding:0 6px; font-size:10px; font-weight:700; margin-left:5px; cursor:pointer; }
+  .unverified-chip:hover { background:#ffe9a8; }
+  .leg-row.pan-row { cursor:pointer; }
+  .leg-detail { display:none; margin:6px 0 2px; padding:7px 8px; background:#fffaf0; border:1px solid #e6c260; border-radius:5px; font-size:11px; line-height:1.45; }
+  .leg-detail.open { display:block; }
+  .leg-detail .ld-row { margin:0 0 6px; }
+  .leg-detail .ld-row:last-child { margin-bottom:0; }
+  .leg-detail .ld-lbl { font-weight:700; color:#7a5b00; display:block; margin-bottom:1px; }
+  .leg-detail a { color:#1a4a8a; }
+  .optional-note { margin:2px 12px 6px; padding:5px 8px; background:#e3edff; border:1px solid #9fc2ff; border-radius:5px; font-size:11px; color:#1a4a8a; }
   .day-nav-row { display:flex; align-items:center; gap:6px; margin:8px 12px 2px; }
   .day-nav-row h3 { margin:0; flex:1 1 auto; font-size:14px; }
   .panel-nav-btn { flex:0 0 auto; border:1px solid #999; background:#f4f4f4; border-radius:4px; padding:4px 8px; font-size:11px; font-weight:700; cursor:pointer; color:#333; white-space:nowrap; }
@@ -756,11 +868,17 @@ if (panningStatusSrc && panningStatusSrc.data && Array.isArray(panningStatusSrc.
     if (!byStatus[st].length) continue;
     const meta = PANNING_STATUS_META[st];
     const fc = { type: 'FeatureCollection', features: byStatus[st] };
+    // "Panning: no" zones get a stronger, solid outline + fill (they were
+    // getting lost against brown terrain basemaps at the old 0.28/weight-2
+    // style) plus a permanent small centered "NO PANNING" label on every
+    // polygon feature, on by default (see overlaySettings defaultOn below).
+    const isNo = st === 'no';
     const gj = L.geoJSON(fc, {
       style: f => {
         const isLine = f.geometry && (f.geometry.type === 'LineString' || f.geometry.type === 'MultiLineString');
-        return isLine
-          ? { color: meta.color, weight: 5, opacity: 0.85 }
+        if (isLine) return { color: meta.color, weight: 5, opacity: 0.85 };
+        return isNo
+          ? { color: meta.color, weight: 3, opacity: 1, fillColor: meta.color, fillOpacity: 0.4 }
           : { color: meta.color, weight: 2, fillColor: meta.color, fillOpacity: 0.28 };
       },
       onEachFeature: (f, lyr) => {
@@ -775,6 +893,12 @@ if (panningStatusSrc && panningStatusSrc.data && Array.isArray(panningStatusSrc.
         }
         if (p.checked) h += '<div style="font-size:11px;color:#777;margin-top:2px;">Checked: ' + escHtml(p.checked) + '</div>';
         lyr.bindPopup(h);
+        const isLineFeature = f.geometry && (f.geometry.type === 'LineString' || f.geometry.type === 'MultiLineString');
+        if (isNo && !isLineFeature) {
+          lyr.bindTooltip('NO PANNING', {
+            permanent: true, direction: 'center', className: 'no-panning-label', interactive: false,
+          });
+        }
       },
     });
     overlayLayers[meta.label] = gj;
@@ -1017,8 +1141,31 @@ for (const o of DATA.overnights) {
 const DAY_COLORS = ['#e6194b', '#3cb44b', '#4363d8', '#f58231', '#911eb4', '#009999', '#f032e6'];
 const DRIVE_COLOR = '#4a4a4a';
 const WALK_COLOR = '#e6550d';
-const LEG_ICONS = { drive: '🚗', walk: '🥾', pan: '⛏️', tour: '🏛️' };
-const DAYS = (DATA.days && Array.isArray(DATA.days.days)) ? DATA.days.days.slice().sort((a, b) => a.day - b.day) : [];
+const LEG_ICONS = { drive: '🚗', walk: '🥾', pan: '⛏️', tour: '🏛️', camp: '⛺', meal: '🍽️' };
+// ---- route variants ("long"/"short" backcountry options) ----
+// DATA.days.variants is [{id,label,days:[...]}]; top-level DATA.days.days
+// mirrors the "long" variant for anything (older code, GPX) that only knows
+// the old single-route shape. Falls back to that top-level shape if no
+// variants array exists at all (keeps this file working on an older days.json).
+const VARIANTS = (DATA.days && Array.isArray(DATA.days.variants) && DATA.days.variants.length) ? DATA.days.variants : null;
+const VARIANT_LS_KEY = 'gaGoldTripVariant.v1';
+function loadVariantChoice() {
+  if (!VARIANTS) return null;
+  try {
+    const saved = localStorage.getItem(VARIANT_LS_KEY);
+    if (saved && VARIANTS.some(v => v.id === saved)) return saved;
+  } catch (e) { /* private window / blocked storage */ }
+  return VARIANTS[0].id;
+}
+let currentVariantId = loadVariantChoice();
+function daysForCurrentVariant() {
+  if (VARIANTS) {
+    const v = VARIANTS.find(x => x.id === currentVariantId) || VARIANTS[0];
+    return v.days.slice().sort((a, b) => a.day - b.day);
+  }
+  return (DATA.days && Array.isArray(DATA.days.days)) ? DATA.days.days.slice().sort((a, b) => a.day - b.day) : [];
+}
+let DAYS = daysForCurrentVariant();
 
 function bearingDeg(lat1, lng1, lat2, lng2) {
   const toRad = d => d * Math.PI / 180, toDeg = r => r * 180 / Math.PI;
@@ -1055,26 +1202,142 @@ function arrowMarker(latlng, bearing, color) {
 // both the app and tests can find these reliably, instead of matching on the
 // glyph text — that broke down for the "hub" marker below, which has to
 // answer to both.
-const startIcon = L.divIcon({
-  html: '<div style="background:#2ca02c;color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.6);">&#9654;</div>',
-  className: 'day-start-marker', iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -15],
-});
-const endIcon = L.divIcon({
-  html: '<div style="background:#b30000;color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:15px;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.6);">&#127937;</div>',
-  className: 'day-end-marker', iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -15],
-});
-// Bug fix: when a day's start and end are the SAME physical point (every
-// day that loops back to Vogel — days 1-4 and 7), separate start/end
-// markers land exactly on top of each other. Whichever was added to the
-// DOM last (end) permanently covered the other, so the start marker/back
-// button was never clickable by a real mouse click even though it existed
-// and its popup logic worked. Fixed by merging them into one "hub" marker
-// carrying BOTH classes and BOTH chain buttons whenever they coincide.
-const hubIcon = L.divIcon({
-  html: '<div style="background:linear-gradient(135deg,#2ca02c 50%,#b30000 50%);color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.6);letter-spacing:-1px;">&#9654;&#127937;</div>',
-  className: 'day-start-marker day-end-marker', iconSize: [32, 32], iconAnchor: [16, 16], popupAnchor: [0, -16],
-});
-const SAME_SPOT_M = 15; // meters — Vogel's own coordinate is stable to well under this across days
+// Numbered step markers: a day's ordered stops (start -> each pan/waypoint/
+// camp -> end) each get one marker showing its step number, so marker "N"
+// always equals step N in the day panel's leg list. Start/end keep their
+// green/red (or split "hub" gradient when they're the same physical point)
+// so the direction is still obvious at a glance; every marker built by
+// stepIcon() keeps the real day-start-marker/day-end-marker CSS classes
+// wherever it plays that role, for the existing click/occlusion tests.
+function stepIcon(n, variant) {
+  const size = variant === 'hub' ? 32 : (variant === 'mid' ? 27 : 30);
+  const bg = variant === 'start' ? '#2ca02c'
+    : variant === 'end' ? '#b30000'
+    : variant === 'hub' ? 'linear-gradient(135deg,#2ca02c 50%,#b30000 50%)'
+    : '#2255aa';
+  const cls = 'day-step-marker' +
+    (variant === 'start' || variant === 'hub' ? ' day-start-marker' : '') +
+    (variant === 'end' || variant === 'hub' ? ' day-end-marker' : '');
+  return L.divIcon({
+    html: '<div style="background:' + bg + ';color:#fff;border-radius:50%;width:' + size + 'px;height:' + size + 'px;display:flex;align-items:center;justify-content:center;font-size:' + (size >= 30 ? 14 : 12) + 'px;font-weight:800;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.6);">' + n + '</div>',
+    className: cls, iconSize: [size, size], iconAnchor: [size / 2, size / 2], popupAnchor: [0, -size / 2],
+  });
+}
+const SAME_SPOT_M = 15; // meters — Vogel's own coordinate is stable to well under this across days; also the step-merge threshold below
+
+// ref (from_ref/to_ref/start.ref/end.ref) -> a friendly place name, so a
+// numbered stop's label reads "Consolidated Gold Mine" rather than a raw
+// leg-label fragment. Rebuilt on every variant switch (DAYS changes).
+let REF_LABELS = {};
+function buildRefLabels() {
+  const labels = {};
+  for (const p of DATA.points) labels[p.id] = p.name;
+  for (const o of DATA.overnights) { labels[o.id] = o.name; labels[o.id + '-trailhead'] = o.name + ' (Trailhead)'; }
+  for (const d of DAYS) {
+    if (d.start && d.start.ref && !labels[d.start.ref]) labels[d.start.ref] = d.start.label;
+    if (d.end && d.end.ref && !labels[d.end.ref]) labels[d.end.ref] = d.end.label;
+  }
+  return labels;
+}
+// Best-effort human label for where a drive/walk leg ends: prefer a known
+// ref's real name, else fall back to the tail of the leg's own label text
+// (e.g. "Vogel to Consolidated Gold Mine" -> "Consolidated Gold Mine").
+function destLabelFor(leg) {
+  if (leg.to_ref && REF_LABELS[leg.to_ref]) return REF_LABELS[leg.to_ref];
+  const label = leg.label || '';
+  const idx = label.lastIndexOf(' to ');
+  return idx >= 0 ? (label.slice(idx + 4).trim() || label) : label;
+}
+// Walks a day's legs IN CHAIN ORDER (start -> each leg's own place -> end),
+// merging any point within SAME_SPOT_M of the previous one into the same
+// numbered step (so a leg's end == the next leg's start counts once, and a
+// tour/pan leg with no coordinates of its own — it happened wherever the
+// group already was — attaches to that same stop instead of minting a new
+// number). Returns {steps, legStepNumber}: legStepNumber[i] is the step
+// number leg i belongs to (its own stop for pan/tour, its arrival stop for
+// drive/walk), so the day panel can show the same number as the map marker.
+function buildDaySteps(day) {
+  const steps = [];
+  const legs = day.legs || [];
+  const legStepNumber = new Array(legs.length).fill(null);
+  function distM(aLat, aLng, bLat, bLng) { return map.distance([aLat, aLng], [bLat, bLng]); }
+  function pushOrMerge(lat, lng, label, entry) {
+    const last = steps[steps.length - 1];
+    if (last && distM(last.lat, last.lng, lat, lng) < SAME_SPOT_M) { last.entries.push(entry); return steps.length - 1; }
+    steps.push({ lat, lng, label, entries: [entry], flags: [] });
+    return steps.length - 1;
+  }
+  let cur = { lat: day.start.lat, lng: day.start.lng };
+  pushOrMerge(cur.lat, cur.lng, day.start.label, { kind: 'start' });
+  legs.forEach((leg, legIdx) => {
+    let idx;
+    if ((leg.type === 'drive' || leg.type === 'walk') && Array.isArray(leg.coords) && leg.coords.length) {
+      const endC = leg.coords[leg.coords.length - 1];
+      cur = { lat: endC[0], lng: endC[1] };
+      idx = pushOrMerge(cur.lat, cur.lng, destLabelFor(leg), { kind: leg.type, leg, legIdx });
+    } else if (leg.type === 'pan' || leg.type === 'tour') {
+      if (typeof leg.lat === 'number') cur = { lat: leg.lat, lng: leg.lng };
+      idx = pushOrMerge(cur.lat, cur.lng, leg.label, { kind: leg.type, leg, legIdx });
+    } else {
+      idx = steps.length - 1;
+      if (idx >= 0) steps[idx].entries.push({ kind: leg.type || 'other', leg, legIdx });
+    }
+    legStepNumber[legIdx] = idx != null && idx >= 0 ? idx + 1 : null;
+    // An unconfirmed-access drive/walk leg also flags the stop it LEFT FROM
+    // (not just its arrival's own polyline popup / leg-panel tag), so e.g.
+    // the truck staged/retrieved at Owltown Gap shows the flag right on
+    // that numbered marker, not just on the drive line elsewhere on the map.
+    if ((leg.type === 'drive' || leg.type === 'walk') && leg.access_confidence === 'unconfirmed' && leg.access_note) {
+      let departIdx = 0;
+      for (let j = legIdx - 1; j >= 0; j--) { if (legStepNumber[j] != null) { departIdx = legStepNumber[j] - 1; break; } }
+      if (idx != null && departIdx !== idx) {
+        const flags = steps[departIdx].flags;
+        if (!flags.some(f => f.text === leg.access_note)) flags.push({ text: leg.access_note });
+      }
+    }
+  });
+  // Merge the final "end" into the START step (not just whichever step a
+  // route happened to end nearest to) whenever start/end are the canonical
+  // same point — an OSRM-snapped drive arrival can sit ~10s of meters off
+  // the exact basecamp pin, which would otherwise fail the normal adjacent-
+  // step merge check and leave two markers stacked exactly on top of each
+  // other at Vogel (same click-occlusion bug the start/end hub fix already
+  // solved once for the old two-marker system).
+  if (steps.length && distM(steps[0].lat, steps[0].lng, day.end.lat, day.end.lng) < SAME_SPOT_M) {
+    steps[0].entries.push({ kind: 'end' });
+  } else {
+    pushOrMerge(day.end.lat, day.end.lng, day.end.label, { kind: 'end' });
+  }
+  steps.forEach((s, i) => { s.n = i + 1; });
+  return { steps, legStepNumber };
+}
+// Popup body (no heading) for one numbered stop: pan legs keep their full
+// existing detail (amber "unverified" chip + panLegDetailHtml — legality,
+// gold, water, bears, fires), tour legs show what/how-long, and any
+// departure-flagged access note renders as the same amber UNCONFIRMED banner
+// used on the route-line popups.
+function stepPopupBody(step) {
+  let h = '';
+  const flagTexts = (step.flags || []).map(f => f.text); // departure-side flags collected in buildDaySteps
+  for (const e of step.entries) {
+    if (e.kind === 'pan') {
+      h += '<div style="margin:4px 0 2px;"><span class="unverified-chip">amber &middot; unverified</span></div>' + panLegDetailHtml(e.leg);
+    } else if (e.kind === 'tour') {
+      h += row('Activity', e.leg.label) + (e.leg.minutes ? row('Duration', e.leg.minutes + ' min') : '');
+    } else if (e.kind === 'drive' || e.kind === 'walk') {
+      h += '<div style="font-size:11px;color:#666;margin:2px 0;">Route in: ' + escHtml(e.leg.label) + '</div>';
+      // This leg's OWN arrival is this stop — surface its access flag here
+      // too, not just on its polyline popup elsewhere on the map.
+      if (e.leg.access_confidence === 'unconfirmed' && e.leg.access_note && !flagTexts.includes(e.leg.access_note)) {
+        flagTexts.push(e.leg.access_note);
+      }
+    }
+  }
+  for (const text of flagTexts) {
+    h += '<div style="background:#fff3cd;color:#7a5b00;border:1px solid #e6c260;border-radius:4px;padding:5px 7px;margin-top:5px;font-size:11px;"><b>UNCONFIRMED:</b> ' + escHtml(text) + '</div>';
+  }
+  return h;
+}
 
 function buildDayLayers(day) {
   const color = DAY_COLORS[(day.day - 1) % DAY_COLORS.length];
@@ -1101,38 +1364,76 @@ function buildDayLayers(day) {
       if (isApprox) popupHtml += '<div style="font-size:11px;color:#7a5b00;margin-top:4px;"><b>~ approximate geometry.</b> ' + escHtml(leg.source || '') + '</div>';
       else if (isRetimed) popupHtml += '<div style="font-size:11px;color:#1a4a8a;margin-top:4px;"><b>~ gravel-speed estimate.</b> ' + escHtml(leg.timing_model || '') + '</div>';
       else popupHtml += '<div style="font-size:11px;color:#555;margin-top:4px;">' + escHtml(leg.source || '') + '</div>';
+      if (leg.access_confidence === 'unconfirmed' && leg.access_note) {
+        popupHtml += '<div style="background:#fff3cd;color:#7a5b00;border:1px solid #e6c260;border-radius:4px;padding:5px 7px;margin-top:5px;font-size:11px;"><b>UNCONFIRMED:</b> ' + escHtml(leg.access_note) + '</div>';
+      }
       pl.bindPopup(popupHtml);
       [0.33, 0.66].forEach(f => { const r = pointAtFraction(leg.coords, f); if (r) arrowMarker(r.latlng, r.bearing, baseColor).addTo(highlight); });
     }
   }
-  const sameSpot = map.distance([day.start.lat, day.start.lng], [day.end.lat, day.end.lng]) < SAME_SPOT_M;
+  // Numbered steps: start (1) -> each pan stop/waypoint/camp -> end (N),
+  // built from the day's own leg chain — replaces the old "start+end only"
+  // markers, which is what made every actual stop the day visits look
+  // dimmed/greyed-out along with the rest of the map.
+  const { steps, legStepNumber } = buildDaySteps(day);
+  steps.forEach(s => bounds.extend([s.lat, s.lng]));
   const backBtn = day.day > 1 ? '<button class="chain-btn back" onclick="selectDay(' + (day.day - 1) + ')">&larr; Day ' + (day.day - 1) + ' ended here</button>' : '';
   const fwdBtn = day.day < DAYS.length ? '<button class="chain-btn" onclick="selectDay(' + (day.day + 1) + ')">Day ' + (day.day + 1) + ' starts here &rarr;</button>' : '';
-  if (sameSpot) {
-    const hubM = L.marker([day.start.lat, day.start.lng], { icon: hubIcon });
-    let hh = '<h3>Day ' + day.day + ' starts &amp; ends here</h3>' + row('Where', day.start.label) + row('Start time', day.start.time) +
+  const startStep = steps[0];
+  // The "end" entry is merged directly into startStep.entries whenever
+  // start/end coincide (see buildDaySteps) — check for that entry rather
+  // than assuming the END of the steps array is the end (a loop day with
+  // stops in between, e.g. the CAMP-C layover, would otherwise mislabel its
+  // last real intermediate stop as the red "day ends here" marker).
+  const isHub = startStep.entries.some(e => e.kind === 'end');
+  const midFrom = 1;
+  const midTo = isHub ? steps.length : steps.length - 1; // exclusive upper bound
+  if (isHub) {
+    const hubM = L.marker([startStep.lat, startStep.lng], { icon: stepIcon(startStep.n, 'hub') });
+    let hh = '<h3>Step ' + startStep.n + ' &mdash; Day ' + day.day + ' starts &amp; ends here</h3>' + row('Where', startStep.label) + row('Start time', day.start.time) +
+      stepPopupBody(startStep) +
       '<div style="font-size:11px;color:#555;margin:3px 0;">Same spot both ends of the day.</div>' + backBtn + fwdBtn;
     hubM.bindPopup(hh);
     hubM.addTo(highlight);
   } else {
-    const startM = L.marker([day.start.lat, day.start.lng], { icon: startIcon });
-    startM.bindPopup('<h3>Day ' + day.day + ' starts here</h3>' + row('Where', day.start.label) + row('Time', day.start.time) + backBtn);
+    const endStep = steps[steps.length - 1];
+    const startM = L.marker([startStep.lat, startStep.lng], { icon: stepIcon(startStep.n, 'start') });
+    startM.bindPopup('<h3>Step ' + startStep.n + ' &mdash; Day ' + day.day + ' starts here</h3>' + row('Where', startStep.label) + row('Time', day.start.time) + stepPopupBody(startStep) + backBtn);
     startM.addTo(highlight);
-    const endM = L.marker([day.end.lat, day.end.lng], { icon: endIcon });
-    endM.bindPopup('<h3>Day ' + day.day + ' ends here</h3>' + row('Where', day.end.label) + fwdBtn);
+    const endM = L.marker([endStep.lat, endStep.lng], { icon: stepIcon(endStep.n, 'end') });
+    endM.bindPopup('<h3>Step ' + endStep.n + ' &mdash; Day ' + day.day + ' ends here</h3>' + row('Where', endStep.label) + stepPopupBody(endStep) + fwdBtn);
     endM.addTo(highlight);
   }
-  return { overview, highlight, bounds };
+  // Intermediate numbered stops (everything between start and end/hub).
+  for (let i = midFrom; i < midTo; i++) {
+    const s = steps[i];
+    const m = L.marker([s.lat, s.lng], { icon: stepIcon(s.n, 'mid') });
+    m.bindPopup('<h3>Step ' + s.n + ' &mdash; ' + escHtml(s.label || '') + '</h3>' + stepPopupBody(s));
+    m.addTo(highlight);
+  }
+  return { overview, highlight, bounds, steps, legStepNumber };
 }
 
-const dayOverviewLayers = {}, dayHighlightLayers = {}, dayBoundsById = {};
-for (const day of DAYS) {
-  const built = buildDayLayers(day);
-  dayOverviewLayers[day.day] = built.overview;
-  dayHighlightLayers[day.day] = built.highlight;
-  dayBoundsById[day.day] = built.bounds;
-  built.overview.addTo(map); // default "All" view: every day's real route visible at once
+const dayOverviewLayers = {}, dayHighlightLayers = {}, dayBoundsById = {}, dayLegStepNumberById = {};
+function clearDayLayers() {
+  for (const k in dayOverviewLayers) { map.removeLayer(dayOverviewLayers[k]); delete dayOverviewLayers[k]; }
+  for (const k in dayHighlightLayers) { map.removeLayer(dayHighlightLayers[k]); delete dayHighlightLayers[k]; }
+  for (const k in dayBoundsById) delete dayBoundsById[k];
+  for (const k in dayLegStepNumberById) delete dayLegStepNumberById[k];
 }
+function rebuildDayLayers() {
+  clearDayLayers();
+  REF_LABELS = buildRefLabels(); // depends on DAYS, which may have just changed (variant switch)
+  for (const day of DAYS) {
+    const built = buildDayLayers(day);
+    dayOverviewLayers[day.day] = built.overview;
+    dayHighlightLayers[day.day] = built.highlight;
+    dayBoundsById[day.day] = built.bounds;
+    dayLegStepNumberById[day.day] = built.legStepNumber;
+    built.overview.addTo(map); // default "All" view: every day's real route visible at once
+  }
+}
+rebuildDayLayers();
 
 const DIM = 0.25;
 // Sets a layer's live opacity to "factor" x its ORIGINAL design opacity/fillOpacity
@@ -1172,6 +1473,43 @@ function addMinutesClock(hhmm, mins) {
   let total = ((parts[0] * 60 + parts[1] + mins) % 1440 + 1440) % 1440;
   return String(Math.floor(total / 60)).padStart(2, '0') + ':' + String(total % 60).padStart(2, '0');
 }
+// Progressive-disclosure detail block for a pan leg: panning/camping
+// legality (state + text + source link), gold record/pressure/geology,
+// water, bears. Hidden by default; the "unverified" chip on the leg row
+// (or the row itself) toggles it open — see toggleLegDetail().
+function panLegDetailHtml(leg) {
+  const legality = leg.legality || {};
+  const rowsHtml = [];
+  function block(lbl, inner) { if (inner) rowsHtml.push('<div class="ld-row"><span class="ld-lbl">' + escHtml(lbl) + '</span>' + inner + '</div>'); }
+  if (legality.panning) {
+    block('Panning legality (' + escHtml(legality.panning.state || 'unconfirmed') + ')',
+      escHtml(legality.panning.text || '') + (legality.panning.source_url ? ' <a href="' + escHtml(legality.panning.source_url) + '" target="_blank" rel="noopener">source</a>' : ''));
+  }
+  if (legality.camping) {
+    block('Camping legality (' + escHtml(legality.camping.state || 'unconfirmed') + ')',
+      escHtml(legality.camping.text || '') + (legality.camping.source_url ? ' <a href="' + escHtml(legality.camping.source_url) + '" target="_blank" rel="noopener">source</a>' : ''));
+  }
+  if (leg.gold) {
+    block('Gold record', escHtml(leg.gold.record || ''));
+    block('Gold pressure', escHtml(leg.gold.pressure || ''));
+    block('Geology', escHtml(leg.gold.geology || ''));
+    if (Array.isArray(leg.gold.sources) && leg.gold.sources.length) {
+      block('Sources', leg.gold.sources.map(s => (s.indexOf('http://') === 0 || s.indexOf('https://') === 0) ? '<a href="' + escHtml(s) + '" target="_blank" rel="noopener">' + escHtml(s) + '</a>' : escHtml(s)).join('<br>'));
+    }
+  }
+  block('Water', leg.water ? escHtml(leg.water) : '');
+  block('Bears', leg.bears ? escHtml(leg.bears) : '');
+  block('Fires', leg.fires ? escHtml(leg.fires) : '');
+  if (leg.access_note) block('Access', escHtml(leg.access_note));
+  if (leg.note) block('Note', escHtml(leg.note));
+  return rowsHtml.join('');
+}
+function toggleLegDetail(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('open');
+}
+window.toggleLegDetail = toggleLegDetail;
+
 function renderDayPanel(n) {
   const body = document.getElementById('dayBody');
   const hint = document.getElementById('dayHint');
@@ -1180,7 +1518,7 @@ function renderDayPanel(n) {
   const day = DAYS.find(d => d.day === n);
   if (!day) { body.innerHTML = ''; return; }
   let driveMi = 0, walkMi = 0, gainFt = 0, totalMin = 0, approxCount = 0, retimedCount = 0, rows = '';
-  for (const leg of (day.legs || [])) {
+  day.legs.forEach((leg, legIdx) => {
     totalMin += leg.minutes || 0;
     const ic = LEG_ICONS[leg.type] || '•';
     const meta = [];
@@ -1193,20 +1531,41 @@ function renderDayPanel(n) {
       meta.push(leg.miles + ' mi', leg.minutes + ' min'); if (leg.gain_ft) meta.push('+' + leg.gain_ft + ' ft');
     } else meta.push(leg.minutes + ' min');
     const isApprox = leg.geometry_confidence === 'approximate';
+    const isUnconfirmedAccess = leg.access_confidence === 'unconfirmed';
     if (isApprox) approxCount++;
     if (isRetimed) retimedCount++;
-    rows += '<li class="leg-row"><span class="ic">' + ic + '</span><span class="body"><span class="lbl">' + escHtml(leg.label) + '</span>' +
+    const isPan = leg.type === 'pan';
+    const detailId = 'legdetail-' + day.day + '-' + legIdx;
+    const rowClass = 'leg-row' + (isPan ? ' pan-row' : '');
+    const rowClick = isPan ? ' onclick="toggleLegDetail(&quot;' + detailId + '&quot;)"' : '';
+    const stepNums = dayLegStepNumberById[day.day] || [];
+    const stepN = stepNums[legIdx];
+    const stepBadge = stepN != null ? '<span class="step-num" title="Marker ' + stepN + ' on the map">' + stepN + '</span>' : '';
+    rows += '<li class="' + rowClass + '"' + rowClick + '>' + stepBadge + '<span class="ic">' + ic + '</span><span class="body"><span class="lbl">' + escHtml(leg.label) + '</span>' +
       (isApprox ? '<span class="approx-tag">~ approx</span>' : '') + (isRetimed ? '<span class="gravel-tag">gravel &mdash; est.</span>' : '') +
-      '<div class="meta">' + meta.join(' &middot; ') + '</div></span></li>';
-  }
+      (isUnconfirmedAccess ? '<span class="access-tag" title="' + escHtml(leg.access_note || '') + '">~ access unconfirmed</span>' : '') +
+      (isPan ? '<span class="unverified-chip">amber &middot; unverified &#9662;</span>' : '') +
+      '<div class="meta">' + meta.join(' &middot; ') + '</div>' +
+      (isPan ? '<div class="leg-detail" id="' + detailId + '">' + panLegDetailHtml(leg) + '</div>' : '') +
+      '</span></li>';
+  });
   const endClock = addMinutesClock(day.start.time, totalMin);
   const prevBtn = n > 1 ? '<button class="panel-nav-btn" onclick="selectDay(' + (n - 1) + ')">&larr; Day ' + (n - 1) + '</button>' : '';
-  const nextBtn = n < DAYS.length ? '<button class="panel-nav-btn" onclick="selectDay(' + (n + 1) + ')">Day ' + (n + 1) + ' &rarr;</button>' : '';
-  let html = '<div class="day-nav-row">' + prevBtn + '<h3>Day ' + day.day + ' &mdash; ' + escHtml(day.title) + '</h3>' + nextBtn + '</div>';
+  const nextIdx = DAYS.findIndex(d => d.day === n) + 1;
+  const nextBtn = nextIdx < DAYS.length ? '<button class="panel-nav-btn" onclick="selectDay(' + DAYS[nextIdx].day + ')">Day ' + DAYS[nextIdx].day + ' &rarr;</button>' : '';
+  const optionalTag = day.optional ? '<span class="optional-tag">optional</span>' : '';
+  let html = '<div class="day-nav-row">' + prevBtn + '<h3>Day ' + day.day + ' &mdash; ' + escHtml(day.title) + optionalTag + '</h3>' + nextBtn + '</div>';
   html += '<div class="day-sub">' + escHtml(day.date) + (day.start.time ? ' &middot; starts ' + day.start.time : '') + '</div>';
+  if (day.optional && day.optional_note) html += '<div class="optional-note"><b>Optional:</b> ' + escHtml(day.optional_note) + '</div>';
+  if (day.note) html += '<div class="optional-note">' + escHtml(day.note) + '</div>';
+  if (day.fallback_note) html += '<div class="optional-note"><b>Fallback:</b> ' + escHtml(day.fallback_note) + '</div>';
   html += '<ul class="leg-list">' + rows + '</ul>';
-  html += '<div class="day-totals"><b>Day totals</b>Drive: ' + driveMi.toFixed(1) + ' mi &nbsp;|&nbsp; Walk: ' + walkMi.toFixed(2) + ' mi &nbsp;|&nbsp; Ascent: ' + Math.round(gainFt) + ' ft<br>Elapsed: ' + totalMin + ' min (' + (totalMin / 60).toFixed(1) + ' hr)' +
+  const activeHrs = totalMin / 60;
+  const overLong = activeHrs > 11;
+  html += '<div class="day-totals"><b>Day totals</b>Drive: ' + driveMi.toFixed(1) + ' mi &nbsp;|&nbsp; Walk: ' + walkMi.toFixed(2) + ' mi &nbsp;|&nbsp; Ascent: ' + Math.round(gainFt) + ' ft<br>' +
+    'Active hours: <span' + (overLong ? ' style="color:#7a5b00;font-weight:700;"' : '') + '>' + activeHrs.toFixed(1) + ' hr</span> (' + totalMin + ' min)' +
     (day.start.time ? ' from ' + day.start.time + (endClock ? ' to ~' + endClock : '') : '') +
+    (overLong ? '<br><span style="background:#fff3cd;color:#7a5b00;border:1px solid #e6c260;border-radius:4px;padding:3px 6px;display:inline-block;margin-top:3px;">&#9888; over 11h active — long day, check the schedule</span>' : '') +
     (approxCount ? '<br><span style="color:#7a5b00;">' + approxCount + ' leg(s) use approximate geometry — dashed on the map.</span>' : '') + '</div>';
   if (retimedCount) {
     let note = retimedCount + ' drive leg(s) on this day include a gravel-speed estimate (15 mph assumed on unpaved/track roads) rather than OSRM’s routed time — see "gravel — est." above.';
@@ -1216,12 +1575,9 @@ function renderDayPanel(n) {
   }
   body.innerHTML = html;
 }
-function updateDayStripActive(n) {
-  document.querySelectorAll('.day-strip button').forEach(btn => {
-    const d = btn.getAttribute('data-day');
-    btn.classList.toggle('active', (n == null && d === 'all') || (n != null && d === String(n)));
-  });
-}
+// updateDayStripActive() is defined further down, right after the DayStrip
+// control (it needs to scope its selector to just the day-number row, not
+// the variant-row buttons that live in the same control box).
 // Measure the actual on-screen rectangles of the map overlays that can sit
 // on top of markers (day strip + zoom control top-left, layers control
 // top-right, legend bottom-left) and turn them into fitBounds padding, so a
@@ -1304,33 +1660,136 @@ function selectAllDays() {
   updateDayStripActive(null);
 }
 
+// Variant switch (task: "lives with the day strip/day panel, not floating
+// over the map, remembers the choice in localStorage, re-renders days for
+// the chosen variant"). Lives in the SAME control box as the day-number
+// strip below it, as one more row — no new floating element, so
+// computeFitPadding()'s existing .day-strip measurement already covers it.
+function renderDayRow(container) {
+  let html = '<button data-day="all" class="' + (selectedDay == null ? 'active' : '') + '">All</button>';
+  for (const day of DAYS) html += '<button data-day="' + day.day + '" class="' + (selectedDay === day.day ? 'active' : '') + '">' + day.day + (day.optional ? '*' : '') + '</button>';
+  html += '<span class="hint">&larr;&rarr; keys step days' + (DAYS.some(d => d.optional) ? ' &middot; * optional' : '') + '</span>';
+  container.innerHTML = html;
+  container.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const d = btn.getAttribute('data-day');
+      if (d === 'all') selectAllDays(); else selectDay(parseInt(d, 10));
+    });
+  });
+}
+function renderVariantRow(container) {
+  if (!VARIANTS) { container.style.display = 'none'; return; }
+  let html = '';
+  for (const v of VARIANTS) html += '<button data-variant="' + escHtml(v.id) + '" class="' + (v.id === currentVariantId ? 'active' : '') + '" title="' + escHtml(v.label) + '">' + escHtml(v.label) + '</button>';
+  if (VARIANTS.length > 1) html += '<button class="cmp" data-compare="1" title="Compare the backcountry options side by side">Compare</button>';
+  container.innerHTML = html;
+  container.querySelectorAll('button[data-variant]').forEach(btn => {
+    btn.addEventListener('click', () => applyVariant(btn.getAttribute('data-variant')));
+  });
+  container.querySelectorAll('button[data-compare]').forEach(btn => btn.addEventListener('click', showCompare));
+}
+// Side-by-side compare (one tap from the variant row). Every number is summed
+// from DATA.days.variants at load time — nothing is typed in here. Rows are the
+// calendar dates on which the variants' legs differ; identical days are omitted.
+function cmpSummarize(day) {
+  const r = { walkMi: 0, gain: 0, walkMin: 0, driveMi: 0, driveMin: 0, panMin: 0, panN: 0, campMealMin: 0, acc: [], notes: [], title: day.title };
+  for (const l of day.legs) {
+    if (l.type === 'walk') { r.walkMi += l.miles; r.gain += (l.gain_ft || 0); r.walkMin += l.minutes; }
+    else if (l.type === 'drive') { r.driveMi += l.miles; r.driveMin += l.minutes; }
+    else if (l.type === 'pan') { r.panMin += l.minutes; r.panN++; }
+    else if (l.type === 'camp' || l.type === 'meal') { r.campMealMin += (l.minutes || 0); }
+    if (l.access_confidence === 'unconfirmed' && l.access_note && !r.acc.includes(l.access_note)) r.acc.push(l.access_note);
+  }
+  r.accLegs = day.legs.filter(l => l.access_confidence === 'unconfirmed').length;
+  if (day.optional_note) r.notes.push('Optional: ' + day.optional_note);
+  if (day.note && day.optional) r.notes.push(day.note);
+  if (day.fallback_note) r.notes.push('Fallback: ' + day.fallback_note);
+  r.sig = day.title + '|' + day.legs.map(l => l.type + l.label + (l.miles || '') + l.minutes).join(';');
+  return r;
+}
+function cmpCell(r) {
+  if (!r) return '<td>&mdash; (no day)</td>';
+  let h = '<td><b>' + escHtml(r.title) + '</b><br>Walk ' + r.walkMi.toFixed(2) + ' mi &middot; +' + Math.round(r.gain) + ' ft &middot; ' + r.walkMin + ' min' +
+    '<br>Pan ' + (r.panMin / 60).toFixed(1) + ' h (' + r.panN + ' stop' + (r.panN === 1 ? '' : 's') + ')' +
+    '<br>Drive ' + r.driveMi.toFixed(1) + ' mi &middot; ' + r.driveMin + ' min' +
+    (r.campMealMin ? '<br>Camp &amp; meals ' + r.campMealMin + ' min' : '');
+  const q = [];
+  if (r.panN) q.push(r.panN + ' pan stop' + (r.panN === 1 ? '' : 's') + ' amber (no ranger confirmation)');
+  if (r.accLegs) q.push(r.accLegs + ' leg' + (r.accLegs === 1 ? '' : 's') + ' access unconfirmed');
+  if (q.length || r.notes.length) {
+    h += '<details><summary>Open questions (' + (q.length + r.notes.length) + ')</summary>' +
+      q.map(x => '<div>&bull; ' + escHtml(x) + '</div>').join('') +
+      r.acc.map(x => '<div>&bull; ' + escHtml(x) + '</div>').join('') +
+      r.notes.map(x => '<div>&bull; ' + escHtml(x) + '</div>').join('') + '</details>';
+  }
+  return h + '</td>';
+}
+function showCompare() {
+  if (!VARIANTS || VARIANTS.length < 2) return;
+  if (selectedDay != null && dayHighlightLayers[selectedDay]) map.removeLayer(dayHighlightLayers[selectedDay]);
+  selectedDay = null; dimBackground(false); updateDayStripActive(null);
+  const by = VARIANTS.map(v => { const m = {}; for (const d of v.days) m[d.date] = cmpSummarize(d); return m; });
+  const dates = Array.from(new Set(by.flatMap(m => Object.keys(m)))).sort().filter(dt => new Set(by.map(m => m[dt] ? m[dt].sig : '')).size > 1);
+  const tot = by.map(() => ({ walkMi: 0, gain: 0, walkMin: 0, panMin: 0, driveMi: 0, driveMin: 0, campMealMin: 0 }));
+  let html = '<div class="day-nav-row"><h3>Compare &mdash; days that differ</h3></div><div class="cmp-note">Same on both: everything else (Oct 15, 16, 21 unless shown). Amber = nothing confirmed by a ranger.</div><div class="cmp-wrap"><table class="cmp-tbl"><tr><th></th>' + VARIANTS.map(v => '<th>' + escHtml(v.label) + '</th>').join('') + '</tr>';
+  for (const dt of dates) {
+    html += '<tr><td class="lbl">' + escHtml(dt.slice(5)) + '</td>';
+    by.forEach((m, i) => { html += cmpCell(m[dt]); const r = m[dt]; if (r) for (const k in tot[i]) tot[i][k] += r[k]; });
+    html += '</tr>';
+  }
+  html += '<tr class="tot"><td class="lbl">Total (these days)</td>' + tot.map(t => '<td>Walk ' + t.walkMi.toFixed(2) + ' mi &middot; +' + Math.round(t.gain) + ' ft &middot; ' + t.walkMin + ' min<br>Pan ' + (t.panMin / 60).toFixed(1) + ' h<br>Drive ' + t.driveMi.toFixed(1) + ' mi &middot; ' + t.driveMin + ' min<br>Camp &amp; meals ' + t.campMealMin + ' min</td>').join('') + '</tr></table></div>';
+  document.getElementById('dayHint').style.display = 'none';
+  document.getElementById('dayBody').innerHTML = html;
+  document.getElementById('dayBody').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+let dayStripDayRowEl = null, dayStripVariantRowEl = null;
+function applyVariant(id) {
+  if (VARIANTS && !VARIANTS.some(v => v.id === id)) return;
+  if (id === currentVariantId) return;
+  currentVariantId = id;
+  try { localStorage.setItem(VARIANT_LS_KEY, id); } catch (e) { /* private window / blocked storage */ }
+  if (selectedDay != null && dayHighlightLayers[selectedDay]) map.removeLayer(dayHighlightLayers[selectedDay]);
+  selectedDay = null;
+  DAYS = daysForCurrentVariant();
+  rebuildDayLayers();
+  dimBackground(false);
+  if (dayStripDayRowEl) renderDayRow(dayStripDayRowEl);
+  if (dayStripVariantRowEl) renderVariantRow(dayStripVariantRowEl);
+  renderDayPanel(null);
+}
 const DayStrip = L.Control.extend({
   options: { position: 'topleft' },
   onAdd: function () {
     const div = L.DomUtil.create('div', 'day-strip');
     L.DomEvent.disableClickPropagation(div);
-    let html = '<button data-day="all" class="active">All</button>';
-    for (const day of DAYS) html += '<button data-day="' + day.day + '">' + day.day + '</button>';
-    html += '<span class="hint">&larr;&rarr; keys step days</span>';
-    div.innerHTML = html;
-    div.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const d = btn.getAttribute('data-day');
-        if (d === 'all') selectAllDays(); else selectDay(parseInt(d, 10));
-      });
-    });
+    dayStripVariantRowEl = L.DomUtil.create('div', 'variant-row', div);
+    dayStripDayRowEl = L.DomUtil.create('div', 'day-row', div);
+    renderVariantRow(dayStripVariantRowEl);
+    renderDayRow(dayStripDayRowEl);
     return div;
   },
 });
 if (DAYS.length) new DayStrip().addTo(map);
 
+function updateDayStripActive(n) {
+  document.querySelectorAll('.day-strip .day-row button').forEach(btn => {
+    const d = btn.getAttribute('data-day');
+    btn.classList.toggle('active', (n == null && d === 'all') || (n != null && d === String(n)));
+  });
+}
+
 document.addEventListener('keydown', e => {
   if (!DAYS.length || (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight')) return;
   const tag = (document.activeElement && document.activeElement.tagName) || '';
   if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-  const cur = selectedDay == null ? 0 : selectedDay;
-  if (e.key === 'ArrowRight') { const nxt = Math.min(DAYS.length, cur + 1); selectDay(nxt); }
-  else { const prv = cur - 1; if (prv >= 1) selectDay(prv); else selectAllDays(); }
+  const cur = selectedDay == null ? 0 : DAYS.findIndex(d => d.day === selectedDay) + 1;
+  if (e.key === 'ArrowRight') {
+    const nxtIdx = Math.min(DAYS.length, cur + 1) - 1;
+    if (nxtIdx >= 0 && nxtIdx < DAYS.length) selectDay(DAYS[nxtIdx].day);
+  } else {
+    const prvIdx = cur - 2;
+    if (prvIdx >= 0) selectDay(DAYS[prvIdx].day); else selectAllDays();
+  }
 });
 
 // ---- legend ----

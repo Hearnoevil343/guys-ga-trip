@@ -356,6 +356,23 @@ penny, modulo per-row rounding).
 **Status:** built 2026-09-21 (2nd pass), matches Gear_Picker.xlsx's default total ($2,490.25 vs.
 $2,490.26 — 1-cent rounding from summing already-rounded per-item shares).
 
+## tools/build_gear_checkin.py
+Re-runnable Python (stdlib only) builder for `gear-checkin.html` — a static, phone-first,
+no-server page each guy opens (linked from `trip-map.html` and `index.html`'s "Gear check-in"
+tab) to tick personal gear he's bringing (mirrors the Picker rows in `build_gear_picker.py`),
+tick group items he's covering (first aid, stove(s), fuel canisters w/ qty, filter, backup
+tablets, Ursack, sat messenger, pot, base-camp propane/coolers), add free-text extras, then
+"Download my list" (.txt) or "Email to Captain" (mailto, falls back to download if the body
+would exceed ~1800 chars). Report sections: Personal gear bringing / Personal gaps (recommended
+items left unticked) / Group items covering / Group gaps / Extras. All data/JS is inlined in the
+one HTML file — edit the `PERSONAL_KITS`/`GROUP_ITEMS` lists in the script, not the generated
+HTML, then re-run.
+
+**Run:** `python tools/build_gear_checkin.py`
+
+**Status:** built 2026-09-21, no dependencies. Not yet browser-verified — check at 390px width,
+tick a few items, confirm the downloaded .txt and mailto body look right before relying on it.
+
 ## tools/build_rundown.py
 Regenerates `RUNDOWN.html` from `RUNDOWN.md` (keeps the old file's `<style>` block; TOC rebuilt from
 `## N.` headings). **Run:** `python tools/build_rundown.py` from the project root; needs `pip install

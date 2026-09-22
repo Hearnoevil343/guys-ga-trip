@@ -247,7 +247,7 @@ Oct 15–18 stay as planned in §1 (Cooper Creek Sat, GA-348 loop Sun).
 ### Tier C spots (distance-stretch, use only if the closer list falls through)
 Cartecay River (Gilmer, ~85 min, thin gold record), Coleman River Scenic Area (Rabun, ~90 min, panning status in a Scenic Area unconfirmed), Warwoman Creek/Dell (Rabun, ~95 min, forum-only source), Wildcat Creek — the drive-up version, not the overnight headwaters (Rabun, ~90 min, no record found), Amicalola Creek below the falls SP boundary (~60 min, stay clear of the park line), Toccoa River/Deep Hole (Fannin, ~65 min, gold record unverified), Owl Creek near Helen (~35 min, single 2011 forum mention, no coordinates), Sarah's Creek (Rabun, ~100 min, past the practical drive limit), Calhoun Mine ruins (history stop, ~42 min, access unverified — look, don't dig).
 
-**Explicitly not recommended:** Noontootla Creek as a drive-up panning target (special-regulation trout fishery — courtesy caution even though it's not a legal ban; you'll already be here for the overnight, just be extra careful about streambank disturbance).
+**Explicitly not recommended:** Noontootla Creek as a drive-up panning target (special-regulation trout fishery — courtesy caution even though it's not a legal ban; it's the backup overnight location if East Fork Coosa Creek falls through, so streambank disturbance there matters even more).
 
 ### Club claims / pay-to-pan day operations
 - **LDMA Loud Mine Camp** (575 Abb Helton Rd, Cleveland, ~48 min): Private club claim on documented rich stream/bench-deposit ground. Normally requires LDMA membership, but their public **"Gold Diggin's Spooktacular" event runs Oct 13–17, 2026** (paid registration, capped at 75 participants) — overlaps the first two days of your trip. Different tool rules may apply on a club claim (possibly sluice/highbanker allowed) — confirm equipment rules for the event specifically before counting on this.
@@ -407,6 +407,34 @@ Full detail and the priced CSV breakdown live in `research/gear.md` — this sec
 **Group items already covered — don't duplicate:** tent poles/stakes (coordinate with your tentmate), stove/pot/fuel, water filter, bear-resistant food storage, group first aid kit, rented satellite messenger, classifiers, snuffer bottles, vials, canopy, coolers, camp chairs, lanterns, firewood.
 
 **Bring yourself:** medications, sunscreen/bug spray, phone + charging cable, cash for gas/firewood.
+
+### Kitchen & water
+
+All figures below are **estimates** — sized generously (6 people, 3 nights) as a buying/packing
+buffer, not a measured burn rate. Confirm against the actual variant/day count once picked.
+
+- **Backcountry stove fuel (isobutane canisters):** budget roughly 1 oz of fuel per person per
+  day for two boils (hot breakfast + rehydrated dinner; lunch is no-cook). For 6 people × 3
+  nights that's ≈18 oz of fuel — **buy four 8 oz (230g) canisters** (32 oz total) for a real
+  safety margin against cold-weather inefficiency and one cook group running hot. Split across 2
+  backcountry stoves (2 people can share a boil) so a single canister failure doesn't strand the
+  group.
+- **Water — liters/person/day:** plan **3–4 L per person per day** (drinking + rehydrating meals
+  + coffee/cocoa), toward the low end if it's cool and low-exertion, the high end on hike-in/out
+  days. For 6 people × 3 nights that's **54–72 L filtered/treated** over the stretch — nobody
+  carries that; refill from the creek continuously instead.
+- **Filter + backup:** primary filter is the shared Sawyer Squeeze (see gear list). Carry
+  **backup purification tablets (Aquatabs or Potable Aqua)** in case the filter clogs or
+  freezes — cheap, packs flat, already on the gear-checkin "group items" list.
+- **Simple 3-night backcountry meal plan** (label estimates — swap for whatever's on sale/on
+  hand; per-person, no-cook lunches keep the stove load down):
+  - **Night 1 dinner:** dehydrated backpacking meal (e.g. Mountain House) + hot drink.
+  - **Day 2 breakfast:** instant oatmeal + coffee/cocoa.
+  - **Day 2 lunch:** tortilla wraps w/ tuna or peanut butter, jerky, trail mix (no cook).
+  - **Day 2 dinner:** dehydrated backpacking meal + hot drink.
+  - **Day 3 breakfast:** instant oatmeal + coffee/cocoa.
+  - **Day 3 lunch (hike-out):** tortilla wraps + jerky/trail mix, eaten on the move (no cook).
+  - Snacks throughout: trail mix, bars, jerky — no cooking required.
 
 ### Cold-water panning tips (recap)
 Insulated gloves are not optional — dip, work fast, dry and rewarm between pans. **Trail runners + 3mm neoprene socks beat boots for creek work** (boots hold water and don't dry); use water shoes/old sneakers. Kneel on a foam pad or folded tarp scrap, not bare gravel. **Waders are not needed** — all panning here is shin-deep hand work with a pan. Keep a strict two-bag system in your pack: one dry bag that never leaves the tent vestibule wet-handed (sleep clothes, bag, base layer), one wet bag for anything that touched the creek (gloves, socks, pan). Line your pack with a contractor-bag liner. Reserve one pair of wool socks that is only ever worn dry, inside the sleeping bag. **Garrett Gravity Trap 14" is the community-favorite pan.** **Food storage = Ursack** (Southeast standard).

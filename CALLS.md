@@ -13,7 +13,8 @@ see `research\backcountry-route-design.md`. Ask these first:**
 - Dispersed camping beside the East Fork near the Jones Branch confluence, and at the
   Coosa Backcountry Trail crossing of West Fork Wolf Creek — any order or setback?
 - Is **Bowers Road (FS 298)** open to the public across the private stretch to
-  **Owltown Gap**, and can a truck be left overnight there?
+  **Owltown Gap**, and can a truck be left there Fri Oct 16 evening through
+  Tue Oct 20 (4 nights, not a single overnight)?
 - Are **FS 107, FS 108 (Calf Stomp Rd) and Big Grassy Knob Road** gated or open to
   vehicles in October?
 - Which WMA covers Coosa Creek / Coosa Bald, and are there hunts Oct 17-20?
@@ -75,10 +76,6 @@ The order that governs that overnight. Ask by name:
 ---
 
 ## Open questions that are ours, not a ranger's
-- **Does the overnight stay at Three Forks?** Research says keep it, but be
-  clear-eyed: Long, Stover and Chester Creeks have **no creek-specific gold
-  record**. That night is about the hike and the camp. The documented gold is
-  at Yahoola on Day 2.
 - Cane Creek (Auraria) has the best creek-specific gold citation found —
   Upper/Lower Cane Creek Mines, Barlow Mine — but its public access runs
   through Camp Glisson, a private retreat centre. Worth a call only if we want

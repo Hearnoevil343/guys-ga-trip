@@ -1,6 +1,14 @@
 // _build_days.mjs — one-off builder for map/data/days.json (schema days-v1).
 // Run: node map/data/_build_days.mjs
 //
+// *** WARNING — VARIANTS ***: this script REGENERATES days.json from scratch
+// (all 7 days, no `variants`). map/data/_build_backcountry.mjs layers the
+// East Fork Coosa Creek backcountry route on top as a top-level `variants`
+// array (["long","short"]) and resets top-level `days` to the "long"
+// variant. Running THIS script after that silently wipes `variants` back
+// out. Always run `node map/data/_build_backcountry.mjs` again immediately
+// after this one if you need both. See TOOLS.md.
+//
 // Builds the real day-by-day route: drive legs from OSRM, walk legs from real
 // OSM trail/path geometry where one exists (falling back to an honestly-
 // flagged straight line where it doesn't), walking times from Tobler's
@@ -19,7 +27,7 @@ import { fileURLToPath } from 'node:url';
 import {
   fetchOSRMRouteSteps, fetchOSMBBox, fetchElevationsMeters,
   resampleAlong, computeWalkTiming, haversineMeters, metersToMiles,
-  classifySurface, findRoadTagsNear,
+  classifySurface, findRoadTagsNear, mealLeg, campLeg,
 } from './_lib.mjs';
 
 const GRAVEL_MPH = 15; // conservative real-world FS-gravel speed in a truck; see TOOLS.md
@@ -231,6 +239,7 @@ async function driveLeg(label, fromId, toId) {
 async function buildDay1() {
   console.log('Day 1: DeSoto Falls / Frogtown Creek');
   const legs = [];
+  legs.push(campLeg('Set up base camp at Vogel State Park (first night — more tents/gear than a backcountry camp)', 75));
   legs.push(await driveLeg('Vogel to DeSoto Falls', 'vogel_basecamp', 'desoto-frogtown'));
   const w = await buildCreekWalk({
     labelPrefix: 'Parking to Frogtown Creek', parkingLat: REFS['desoto-frogtown'].lat, parkingLng: REFS['desoto-frogtown'].lng,
@@ -239,6 +248,7 @@ async function buildDay1() {
   legs.push(...w.legs);
   legs.push({ type: 'pan', at_ref: 'desoto-frogtown', label: 'Pan Frogtown Creek' + (w.panCaveat ? ' (approximate reach)' : ''), minutes: 150 });
   legs.push(await driveLeg('DeSoto Falls back to Vogel', 'desoto-frogtown', 'vogel_basecamp'));
+  legs.push(mealLeg('Dinner at camp', 60));
   return {
     day: 1, date: '2026-10-15', title: 'Arrive, set camp, DeSoto Falls / Frogtown Creek',
     start: { ref: 'vogel_basecamp', label: REFS.vogel_basecamp.label, lat: REFS.vogel_basecamp.lat, lng: REFS.vogel_basecamp.lng, time: '13:00' },
@@ -253,9 +263,11 @@ async function buildDay1() {
 async function buildDay2() {
   console.log('Day 2: Dahlonega');
   const legs = [];
+  legs.push(mealLeg('Breakfast at camp', 40));
   legs.push(await driveLeg('Vogel to Consolidated Gold Mine', 'vogel_basecamp', 'consolidated-gold-mine'));
   legs.push({ type: 'tour', at_ref: 'consolidated-gold-mine', label: 'Underground mine tour + flume panning', minutes: 120 });
   legs.push(await driveLeg('Consolidated Gold Mine to Gold Museum', 'consolidated-gold-mine', 'dahlonega-gold-museum'));
+  legs.push(mealLeg('Lunch in downtown Dahlonega — pick a spot on the square', 60));
   legs.push({ type: 'tour', at_ref: 'dahlonega-gold-museum', label: 'Dahlonega Gold Museum State Historic Site', minutes: 75 });
   legs.push(await driveLeg('Gold Museum to Yahoola Creek Park', 'dahlonega-gold-museum', 'yahoola-park'));
   const w = await buildCreekWalk({
@@ -265,6 +277,7 @@ async function buildDay2() {
   legs.push(...w.legs);
   legs.push({ type: 'pan', at_ref: 'yahoola-park', label: 'Pan Yahoola Creek', minutes: 120 });
   legs.push(await driveLeg('Yahoola Creek Park back to Vogel', 'yahoola-park', 'vogel_basecamp'));
+  legs.push(mealLeg('Dinner at camp', 60));
   return {
     day: 2, date: '2026-10-16', title: 'Dahlonega — mine tour, museum, Yahoola Creek',
     start: { ref: 'vogel_basecamp', label: REFS.vogel_basecamp.label, lat: REFS.vogel_basecamp.lat, lng: REFS.vogel_basecamp.lng, time: '08:30' },
@@ -279,9 +292,12 @@ async function buildDay2() {
 async function buildDay3() {
   console.log('Day 3: Cooper Creek Recreation Area');
   const legs = [];
+  legs.push(mealLeg('Breakfast at camp', 40));
   legs.push(await driveLeg('Vogel to Cooper Creek Recreation Area', 'vogel_basecamp', 'cooper-creek'));
   legs.push({ type: 'pan', at_ref: 'cooper-creek', label: 'Pan Cooper Creek (north side, away from Gold Rush Days crowds; blaze orange — deer season opens today)', minutes: 240 });
+  legs.push(mealLeg('Trail lunch at Cooper Creek', 30));
   legs.push(await driveLeg('Cooper Creek back to Vogel', 'cooper-creek', 'vogel_basecamp'));
+  legs.push(mealLeg('Dinner at camp', 60));
   return {
     day: 3, date: '2026-10-17', title: 'Cooper Creek Recreation Area',
     start: { ref: 'vogel_basecamp', label: REFS.vogel_basecamp.label, lat: REFS.vogel_basecamp.lat, lng: REFS.vogel_basecamp.lng, time: '08:30' },
@@ -296,6 +312,7 @@ async function buildDay3() {
 async function buildDay4() {
   console.log('Day 4: GA-348 loop');
   const legs = [];
+  legs.push(mealLeg('Breakfast at camp', 40));
   legs.push(await driveLeg('Vogel to Tesnatee Gap', 'vogel_basecamp', 'tesnatee-gap'));
   const w1 = await buildCreekWalk({
     labelPrefix: 'Gap pull-off to Tesnatee Creek', parkingLat: REFS['tesnatee-gap'].lat, parkingLng: REFS['tesnatee-gap'].lng,
@@ -310,6 +327,7 @@ async function buildDay4() {
   });
   legs.push(...w2.legs);
   legs.push({ type: 'pan', at_ref: 'upper-chatt-fs44', label: 'Pan Upper Chattahoochee River (stay below Mark Trail Wilderness boundary)', minutes: 90 });
+  legs.push(mealLeg('Trail lunch near Upper Chattahoochee FS-44', 30));
   legs.push(await driveLeg('Upper Chattahoochee FS-44 to Dukes Creek Falls', 'upper-chatt-fs44', 'dukes-creek-falls'));
   const w3 = await buildCreekWalk({
     labelPrefix: 'Trailhead toward Dukes Creek', parkingLat: REFS['dukes-creek-falls'].lat, parkingLng: REFS['dukes-creek-falls'].lng,
@@ -318,6 +336,7 @@ async function buildDay4() {
   legs.push(...w3.legs);
   legs.push({ type: 'pan', at_ref: 'dukes-creek-falls', label: 'Pan Dukes Creek — NF side only, do not cross into Smithgall Woods State Park', minutes: 90 });
   legs.push(await driveLeg('Dukes Creek Falls back to Vogel', 'dukes-creek-falls', 'vogel_basecamp'));
+  legs.push(mealLeg('Dinner at camp', 60));
   return {
     day: 4, date: '2026-10-18', title: 'GA-348 loop: Tesnatee Gap, Upper Chattahoochee, Dukes Creek Falls',
     start: { ref: 'vogel_basecamp', label: REFS.vogel_basecamp.label, lat: REFS.vogel_basecamp.lat, lng: REFS.vogel_basecamp.lng, time: '08:30' },

@@ -1,0 +1,18 @@
+{
+  "notes": "Task 5 lookups. 'source' cites where the coordinate came from. hometownlocator.com pages explicitly cite a 'GNIS Feature Detail Report' for each entry (fid = their internal id, distinct from the USGS GNIS Feature ID itself, which those pages did not expose in fetched text).",
+  "results": [
+    { "name": "Wellborn Mountain", "lat": 34.8670324, "lng": -83.9551859, "elevFt": null, "source": "Nominatim (nominatim.openstreetmap.org/search), OSM node 358718505, natural=peak, Union County GA", "inBbox": false, "note": "lat 34.867 is NORTH of the study bbox (max lat 34.835) — outside the surveyed area." },
+    { "name": "Owltown Gap", "lat": 34.8117559, "lng": -83.9493539, "elevFt": 2228, "source": "Wikipedia \"List of mountain passes in Georgia (U.S. state)\" (GNIS-derived coordinate/elevation) + hometownlocator.com GNIS Feature Detail Report (fid 329117), cross-confirmed — both give the identical coordinate.", "inBbox": true },
+    { "name": "Owl Town Gap", "lat": 34.8117559, "lng": -83.9493539, "elevFt": 2228, "source": "Same feature as \"Owltown Gap\" (alt spelling).", "inBbox": true },
+    { "name": "Calf Stomp Gap", "lat": 34.7862007, "lng": -83.9537995, "elevFt": 3268, "source": "hometownlocator.com GNIS Feature Detail Report (fid 327323) for lat/lng; Natural Atlas (naturalatlas.com/gaps/calf-stomp-1743566) gives elevation 3268 ft and the identical coordinate (34.7862007,-83.9537995) — cross-confirmed.", "inBbox": true },
+    { "name": "Locust Stake Gap", "lat": 34.7925898, "lng": -83.9399096, "elevFt": null, "source": "hometownlocator.com GNIS Feature Detail Report (fid 328602)", "inBbox": true },
+    { "name": "Burnett Gap", "lat": 34.7681459, "lng": -83.9393548, "elevFt": null, "source": "hometownlocator.com GNIS Feature Detail Report (fid 327293)", "inBbox": true },
+    { "name": "Coosa Bald", "lat": 34.7789785, "lng": -83.9635224, "elevFt": null, "source": "Nominatim (nominatim.openstreetmap.org/search), OSM node 358711770, natural=peak, Union County GA", "inBbox": true },
+    { "name": "Wolfpen Gap", "lat": 34.764, "lng": -83.9521, "elevFt": 3260, "source": "Wikipedia \"List of mountain passes in Georgia (U.S. state)\" (coordinate given as 34°45'50\"N 83°57'08\"W / 34.764,-83.9521); described there as \"SR 180 / FR 39 west of Vogel State Park\".", "inBbox": true },
+    { "name": "Wildcat Gap", "lat": null, "lng": null, "elevFt": null, "source": "NOT FOUND. Checked: Nominatim (multiple query variants), OSM tagged nodes in all 6 fetched bbox tiles, and the full Union County GA gap gazetteer (108 GNIS-derived gap records on hometownlocator.com, checked in full) — no feature named \"Wildcat Gap\" appears. The nearby named features are \"Wildcat Knob\" (OSM node 358718561, natural=peak, gnis:feature_id=333424, 34.7687010,-83.9571335, ele 1197m/3927ft per OSM) and \"Wildcat Branch\" (creek). Reported as not found per task instructions; Wildcat Knob's coordinate is used only as an explicitly-labeled proxy in task 6 distance table.", "inBbox": true }
+  ],
+  "crumleyCreek": {
+    "found": false,
+    "note": "No 'Crumley Creek' way exists in the OSM pull for this bbox (0 features). A general web search found a 'Crumley Creek' (with Upper Crumley Creek Falls) in White County GA, Sautee Nacoochee area, roughly 25 miles east of this study area — a different creek, outside the bbox. No Crumley Creek was found in or near Union County / the Coosa Bald study area. Reported as not found; no coordinate invented."
+  }
+}

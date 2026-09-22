@@ -272,10 +272,81 @@ export function minDistToWayMeters(lat, lng, coordsLatLng) {
 }
 // Nearest vertex (its own [lat,lng]) on a way's polyline to a point.
 export function nearestVertexOnWay(lat, lng, coordsLatLng) {
-  let best = null, bestD = Infinity;
-  for (const c of coordsLatLng) {
+  let best = null, bestD = Infinity, bestIndex = -1;
+  coordsLatLng.forEach((c, i) => {
     const d = haversineMeters(lat, lng, c[0], c[1]);
-    if (d < bestD) { bestD = d; best = c; }
+    if (d < bestD) { bestD = d; best = c; bestIndex = i; }
+  });
+  return { point: best, distM: bestD, index: bestIndex };
+}
+
+// ---------------------------------------------------------------------------
+// Generic polyline-stitching helpers, added for map/data/_build_backcountry.mjs
+// (real OSM trail/road ways that must be chained/cut at real points) but
+// reusable by any future one-off builder.
+// ---------------------------------------------------------------------------
+
+// Interpolated point at targetMeters along a polyline (from index 0).
+// Returns { index, t, point, cumM }; if targetMeters exceeds the polyline's
+// length, clamps to the last point.
+export function pointAtDistanceMeters(coordsLatLng, targetMeters) {
+  let cum = 0;
+  for (let i = 0; i < coordsLatLng.length - 1; i++) {
+    const d = haversineMeters(coordsLatLng[i][0], coordsLatLng[i][1], coordsLatLng[i + 1][0], coordsLatLng[i + 1][1]);
+    if (cum + d >= targetMeters) {
+      const t = d > 0 ? (targetMeters - cum) / d : 0;
+      const a = coordsLatLng[i], b = coordsLatLng[i + 1];
+      return { index: i, t, point: [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t], cumM: targetMeters };
+    }
+    cum += d;
   }
-  return { point: best, distM: bestD };
+  return { index: coordsLatLng.length - 1, t: 0, point: coordsLatLng[coordsLatLng.length - 1], cumM: cum };
+}
+export function pointAtMiles(coordsLatLng, miles) { return pointAtDistanceMeters(coordsLatLng, miles * 1609.344); }
+
+// Greedily chain-merge disjoint [lat,lng] polylines end-to-end (trying both
+// orientations of each) into as few continuous chains as possible, within
+// toleranceM of any endpoint match. Returns { chain, leftover } for the
+// single-chain case (first segment's growth) — leftover holds any segments
+// that never matched within tolerance (caller should treat that as a real
+// gap, not silently drop it).
+export function chainMergeSegments(segments, toleranceM = 40) {
+  const segs = segments.map(s => s.slice());
+  let chain = segs.shift();
+  while (segs.length) {
+    let bestI = -1, bestKind = null, bestD = Infinity;
+    for (let i = 0; i < segs.length; i++) {
+      const s = segs[i];
+      const dStartStart = haversineMeters(chain[0][0], chain[0][1], s[0][0], s[0][1]);
+      const dStartEnd = haversineMeters(chain[0][0], chain[0][1], s[s.length - 1][0], s[s.length - 1][1]);
+      const dEndStart = haversineMeters(chain[chain.length - 1][0], chain[chain.length - 1][1], s[0][0], s[0][1]);
+      const dEndEnd = haversineMeters(chain[chain.length - 1][0], chain[chain.length - 1][1], s[s.length - 1][0], s[s.length - 1][1]);
+      const m = Math.min(dStartStart, dStartEnd, dEndStart, dEndEnd);
+      if (m < bestD) {
+        bestD = m; bestI = i;
+        bestKind = m === dStartStart ? 'startstart' : m === dStartEnd ? 'startend' : m === dEndStart ? 'endstart' : 'endend';
+      }
+    }
+    if (bestD > toleranceM) break;
+    const s = segs.splice(bestI, 1)[0];
+    if (bestKind === 'startstart') chain = s.slice().reverse().concat(chain);
+    else if (bestKind === 'startend') chain = s.concat(chain);
+    else if (bestKind === 'endstart') chain = chain.concat(s);
+    else chain = chain.concat(s.slice().reverse());
+  }
+  return { chain, leftover: segs };
+}
+
+// ---------------------------------------------------------------------------
+// Non-moving time legs (meals, camp setup/breakdown). No coords/lat/lng on
+// purpose: build-map.mjs's buildDaySteps() only mints a new numbered map step
+// for drive/walk (coords) or pan/tour (lat/lng) legs — anything else falls
+// into its catch-all branch and just attaches to whichever step is already
+// current, so these show up in the day panel leg list (icon + label + time)
+// without creating a map marker or breaking the chain-position numbering.
+export function mealLeg(label, minutes) {
+  return { type: 'meal', label, minutes };
+}
+export function campLeg(label, minutes) {
+  return { type: 'camp', label, minutes };
 }

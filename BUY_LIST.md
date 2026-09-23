@@ -10,8 +10,8 @@ Every price cell is the FULL price; shared items also show your per-person share
 
 | Set | Personal total | Group total (whole group) | Group per-person share | Gear grand total per person |
 |---|---|---|---|---|
-| **Solid** | $2,099.60 | $1,192.98 | $211.18 | $2,310.78 |
-| **Budget** | $1,355.45 | $947.42 | $170.27 | $1,525.72 |
+| **Solid** | $2,111.60 | $1,200.26 | $212.40 | $2,324.00 |
+| **Budget** | $1,364.45 | $950.20 | $170.74 | $1,535.19 |
 
 Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kept at Value tier because the cheapest tier is flagged unsafe/unreliable in its own sourced verdict): hiking footwear (thrifted $0 mesh trail runner is a cold-water-wading beginner-caution pick -> Merrell Moab 3, verified live price $100.93 on sale), bear-proof food storage (DIY bear-hang, beginner_score 2 -> Ursack Major XL), first aid kit (DIY kit, beginner_score 2, 'riskiest tier for a first-time group' -> AMK Ultralight .7), and blaze-orange vest (its own Value tier, verified live price $13.51, is still cheaper than its Budget tier at $16.96 for equal compliance -- picked the cheaper-and-safe option; the vest's earlier $8.50 figure was simply a stale/wrong price, not a split calculation).
 
@@ -69,11 +69,12 @@ Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Defa
 
 ### 2. Overnight / backcountry: personal (Solid)
 
-**Overnight / backcountry: personal -- personal $1,828.02 + group share $0.00 (group total $0.00) = $1,828.02/person**
+**Overnight / backcountry: personal -- personal $1,840.02 + group share $0.00 (group total $0.00) = $1,840.02/person**
 
 | Order first? | Item | Required? | Tier | Pick | Price | Where | Link |
 |---|---|---|---|---|---|---|---|
 | 2-4 weeks -- cottage-made, order first | Pack liner (waterproof) | must | Value | Litesmith Nylofume Pack Liner Bag | $2.49 | Litesmith (direct), Amazon | [buy](https://www.litesmith.com/nylofume-pack-liner-bags/) |
+| 3-7 days -- Amazon/generic | Personal toiletries/hygiene kit | must | Value | Generic Small toiletry bag + biodegradable wipes | $9.00 | Amazon, REI | [buy](https://www.amazon.com/s?k=biodegradable+camp+wipes+travel+toiletry+kit) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Backpack, 40-60L | must | Value | REI Co-op Flash 55 | $229.00 | REI | [buy](https://www.rei.com/product/236975/rei-co-op-flash-55-pack-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Base layer top+bottom (doubles as sleep layer) | must | Value | Smartwool Classic Thermal Merino Base Layer (top + bottom) | $95.00 | REI, Smartwool.com, Backcountry | [buy](https://www.rei.com/product/174769/smartwool-classic-thermal-merino-crew-base-layer-top-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Dry sack (sleep system) | must | Value | Sea to Summit Ultra-Sil Dry Bag - Set of 3 | $69.95 | REI, Sea to Summit, Walmart, Backcountry | [buy](https://www.rei.com/product/218733/sea-to-summit-ultra-sil-dry-bag-set-of-3) |
@@ -101,8 +102,8 @@ Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Defa
 |---|---|---|---|---|---|---|---|
 | SOL Emergency Bivvy -- Survive Outdoors Longer (SOL) Emergency Bivvy with Rescue Whistle and Tinder Cord | personal (6 people) | 6 | $25.50 | $25.50 | $25.50 | REI | [buy](https://www.rei.com/product/199053/sol-emergency-bivvy-with-rescue-whistle-and-tinder-cord) |
 | _One per person for the backcountry overnight; also includes a rescue whistle, so no separate whistle line needed for those who buy this._ | | | | | | | |
-| Pack towel / bandana -- Rainleaf Microfiber pack towel, medium + cotton bandana | personal (6 people) | 6 | $9.99 | $9.99 | $9.99 | Amazon | [buy](https://www.amazon.com/Rainleaf-Microfiber-Towel-Perfect-Sports/dp/B01BOKA5UQ) |
-| _Per person, quick-dry towel._ | | | | | | | |
+| Pack towel / bandana -- Rainleaf Microfiber pack towel, 48in + cotton bandana | personal (6 people) | 6 | $12.99 | $12.99 | $12.99 | Amazon | [buy](https://www.amazon.com/Rainleaf-Microfiber-Perfect-Travel-Sports/dp/B07Z1MN695) |
+| _Per person, quick-dry towel. Original medium-size listing (B01BOKA5UQ) is dead; this in-stock 48in Rainleaf towel is the live replacement, verified 2026-09-23._ | | | | | | | |
 
 ### 3. Overnight / backcountry: shared (Solid)
 
@@ -114,20 +115,20 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 | Order first? | Item | Required? | Tier | Pick | Full price | Split | Your share | Where | Link |
 |---|---|---|---|---|---|---|---|---|---|
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Bear-proof food storage (group/shared item) | must | Value | Ursack Major XL (with OPSak liner) | $149.95 | (/6) | your share $24.99 | Ursack direct, REI, Amazon | [buy](https://ursack.com/products/ursack-major-xl-opsak) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Cathole trowel (shared, split 6) | must | Value | GSI Outdoors Cathole Trowel | $7.95 | (/6) | your share $1.33 | REI, GSI direct, Amazon | [buy](https://gsioutdoors.com/products/cathole-trowel) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Cook pot (group/shared item) | must | Value | TOAKS 750ml Titanium Pot with Bail Handle (POT-750-BH) | $30.00 | (/6) | your share $5.00 | Amazon, Walmart, REI, Toaks direct | [buy](https://www.toaksoutdoor.com/products/pot-750-bh) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | First aid kit (group/shared item, overnight-size) | must | Value | Adventure Medical Kits Ultralight/Watertight .7 | $44.99 | (/6) | your share $7.50 | REI, AMK direct, Amazon, Backcountry | [buy](https://adventuremedicalkits.com/products/ultralight-watertight-medical-kit-7) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fuel canister (group/shared item) | must | Value | MSR IsoPro 8oz/227g canister | $6.95 | (/6) | your share $1.16 | REI, MSR direct, Amazon | [buy](https://www.rei.com/product/651555/msr-isopro-fuel-canister-8-oz-227-g) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Satellite messenger (group/shared item) | must | Value | ZOLEO Satellite Communicator | $199.00 | (/6) | your share $33.17 | ZOLEO direct, REI, Amazon | [buy](https://www.zoleo.com/en-us/product/zoleo-global-satellite-communicator) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Stove (group/shared item) | must | Value | Soto WindMaster (4Flex) | $69.95 | (/6) | your share $11.66 | REI, Amazon, Moosejaw | [buy](https://www.rei.com/product/177954/soto-windmaster-stove-with-4flex-pot-support) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Trowel + hygiene kit | must | Value | GSI Outdoors Cathole Trowel | $7.95 | (/6) | your share $1.33 | REI, GSI direct, Amazon | [buy](https://gsioutdoors.com/products/cathole-trowel) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water filter (group/shared item) | must | Value | Katadyn BeFree 1.0L | $44.95 | (/6) | your share $7.49 | REI, Katadyn direct, Backcountry | [buy](https://www.rei.com/product/116364/katadyn-befree-10-l-water-filter-bottle-338-fl-oz) |
 
 | Item | Personal/Shared | Qty | Unit price | Full price | Your share | Where | Link |
 |---|---|---|---|---|---|---|---|
 | National Geographic Chattahoochee-Oconee National Forest paper map -- National Geographic Trails Illustrated #777 (Blue Ridge, Chattahoochee) or #778 (Tallulah, Cheohah, Chattooga) | shared | 2 | $14.95 | $29.90 (2 x $14.95) | your share $9.97 (/3) | REI | [buy](https://www.rei.com/product/108883/national-geographic-blue-ridge-chattahoochee-national-forest-trail-map) |
-| _Two paper maps for the group (~1 per pair) as GPS/phone backup._ | | | | | | | |
+| _2 for the group, ÷3 -- one per pair as GPS/phone backup._ | | | | | | | |
 | Suunto A-10 baseplate compass -- Suunto A-10 | shared | 2 | $21.99 | $43.98 (2 x $21.99) | your share $14.66 (/3) | REI | [buy](https://www.rei.com/product/810470/suunto-a-10-compass) |
-| _Two compasses for the group, paired with the paper maps._ | | | | | | | |
+| _2 for the group, ÷3 -- paired with the paper maps._ | | | | | | | |
 | Repair kit: Tenacious Tape, Therm-a-Rest pad patch kit, duct tape, zip ties -- GEAR AID / Therm-a-Rest Tenacious Tape 3x20in + Permanent Pad Repair Kit + duct tape roll + zip ties | shared | 1 | $24.00 | $24.00 | your share $4.00 (/6) | REI/Amazon | [buy](https://www.rei.com/product/883893/gear-aid-tenacious-tape-repair-tape) |
 | _One group repair kit: ~$8 tape + ~$8 pad patch kit + ~$5 duct tape + ~$3 zip ties._ | | | | | | | |
 | Paracord 100ft -- HERCULES Type III 550 paracord, 100ft | shared | 1 | $8.49 | $8.49 | your share $1.42 (/6) | Amazon | [buy](https://www.amazon.com/HERCULES-Paracord-Parachute-White-Survival/dp/B0BD1526GF) |
@@ -135,7 +136,7 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 
 ### 4. Panning gear (Solid)
 
-**Panning gear -- personal $99.70 + group share $36.48 (group total $218.85) = $136.18/person**
+**Panning gear -- personal $99.70 + group share $37.70 (group total $226.13) = $137.40/person**
 
 | Order first? | Item | Required? | Tier | Pick | Price | Where | Link |
 |---|---|---|---|---|---|---|---|
@@ -158,7 +159,7 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 
 | Item | Personal/Shared | Qty | Unit price | Full price | Your share | Where | Link |
 |---|---|---|---|---|---|---|---|
-| Tweezers + magnetic pickup tool + spray bottle for panning -- WeiTus / SE / Equate Stainless precision straight tweezers + SE 30in telescoping magnetic pickup tool + Equate 8oz spray bottle | shared | 1 | $21.97 | $21.97 | your share $3.66 (/6) | Amazon (tweezers, ~$7) + Amazon (SE telescoping magnetic pickup tool https://www.amazon.com/SE-8036TM-NEW-Telescoping-Magnetic-Capacity/dp/B000RB3XBA, ~$9) + Walmart (Equate 8oz spray bottle https://www.walmart.com/ip/Equate-8-oz-Plastic-Spraybottle/192243842, ~$3) | [buy](https://www.amazon.com/WeiTus-Stainless-Precision-Straight-Tweezers/dp/B01MXIVEGD) |
+| Tweezers + magnetic pickup tool + spray bottle for panning -- WeiTus / SE / Equate Stainless precision straight tweezers + SE 30in telescoping magnetic pickup tool + Equate 8oz spray bottle | shared | 1 | $29.25 | $29.25 | your share $4.88 (/6) | Amazon (tweezers, $20.00) + Amazon (SE telescoping magnetic pickup tool https://www.amazon.com/SE-8036TM-NEW-Telescoping-Magnetic-Capacity/dp/B000RB3XBA, $8.25) + Walmart (Equate 8oz spray bottle https://www.walmart.com/ip/Equate-8-oz-Plastic-Spraybottle/192243842, $1.00) -- verified live prices 2026-09-23 | [buy](https://www.amazon.com/WeiTus-Stainless-Precision-Straight-Tweezers/dp/B01MXIVEGD) |
 | _Fine-gold pickup and black-sand magnet separation, one shared set at the pan station; three separate exact-product links combined into one line total (tweezers + magnetic wand + spray bottle)._ | | | | | | | |
 
 ## Budget picks -- sections 1-4 (gear)
@@ -200,12 +201,13 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 
 ### 2. Overnight / backcountry: personal (Budget)
 
-**Overnight / backcountry: personal -- personal $1,205.92 + group share $0.00 (group total $0.00) = $1,205.92/person**
+**Overnight / backcountry: personal -- personal $1,214.92 + group share $0.00 (group total $0.00) = $1,214.92/person**
 
 | Order first? | Item | Required? | Tier | Pick | Price | Where | Link |
 |---|---|---|---|---|---|---|---|
 | 3-7 days -- Amazon/generic | Dry sack (sleep system) | must | Budget | Generic Ziploc freezer bags + a cheap nylon stuff sack (or reused packaging bags) | $12.00 | Walmart, Amazon, already at home | [buy](https://www.amazon.com/dp/B0028CXKQE) |
 | 3-7 days -- Amazon/generic | Pack liner (waterproof) | must | Budget | Generic Compactor/contractor trash bag (heavy-duty, unscented) | $10.00 | Any grocery/hardware store, Amazon, Walmart | [buy](https://www.amazon.com/dp/B07SM88VVF) |
+| 3-7 days -- Amazon/generic | Personal toiletries/hygiene kit | must | Budget | Generic Travel-size toothbrush, toothpaste, TP, hand sanitizer | $6.00 | Walmart, Amazon | [buy](https://www.walmart.com/ip/Equate-Travel-Size-Toiletry-Kit/) |
 | 3-7 days -- Amazon/generic | Warm hat / beanie | must | Budget | Generic Fleece-lined knit beanie | $10.00 | Walmart, Amazon, thrift stores | [buy](https://www.amazon.com/Wmcaps-Winter-Beanie-Hats-for-Men-Women-Fleece-Lined-Beanie-Soft-Warm-Knit-Hat-Ski-Stocking-Cuffed-Cap/dp/B0BBZZZH84) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Backpack, 40-60L | must | Budget | Osprey Rook 65 (men's) / Renn 65 (women's) | $205.00 | REI, Osprey.com, Backcountry | [buy](https://www.rei.com/product/231463/osprey-rook-65-pack-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Base layer top+bottom (doubles as sleep layer) | must | Budget | Merino.tech Men's/Women's Long Sleeve Base Layer Set | $100.00 | Amazon, Merino.tech | [buy](https://merino.tech/products/men-250-base-layer-set-wool-clothing) |
@@ -232,12 +234,12 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 |---|---|---|---|---|---|---|---|
 | SOL Emergency Bivvy -- Survive Outdoors Longer (SOL) Emergency Bivvy with Rescue Whistle and Tinder Cord | personal (6 people) | 6 | $25.50 | $25.50 | $25.50 | REI | [buy](https://www.rei.com/product/199053/sol-emergency-bivvy-with-rescue-whistle-and-tinder-cord) |
 | _One per person for the backcountry overnight; also includes a rescue whistle, so no separate whistle line needed for those who buy this._ | | | | | | | |
-| Pack towel / bandana -- Rainleaf Microfiber pack towel, medium + cotton bandana | personal (6 people) | 6 | $9.99 | $9.99 | $9.99 | Amazon | [buy](https://www.amazon.com/Rainleaf-Microfiber-Towel-Perfect-Sports/dp/B01BOKA5UQ) |
-| _Per person, quick-dry towel._ | | | | | | | |
+| Pack towel / bandana -- Rainleaf Microfiber pack towel, 48in + cotton bandana | personal (6 people) | 6 | $12.99 | $12.99 | $12.99 | Amazon | [buy](https://www.amazon.com/Rainleaf-Microfiber-Perfect-Travel-Sports/dp/B07Z1MN695) |
+| _Per person, quick-dry towel. Original medium-size listing (B01BOKA5UQ) is dead; this in-stock 48in Rainleaf towel is the live replacement, verified 2026-09-23._ | | | | | | | |
 
 ### 3. Overnight / backcountry: shared (Budget)
 
-**Overnight / backcountry: shared -- personal $0.00 + group share $99.83 (group total $524.92) = $99.83/person**
+**Overnight / backcountry: shared -- personal $0.00 + group share $99.08 (group total $520.42) = $99.08/person**
 
 
 _Shared (group) items -- price shown is the full group price; your share is per-person._
@@ -245,20 +247,20 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 | Order first? | Item | Required? | Tier | Pick | Full price | Split | Your share | Where | Link |
 |---|---|---|---|---|---|---|---|---|---|
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Bear-proof food storage (group/shared item) | must | Value | Ursack Major XL (with OPSak liner) | $149.95 | (/6) | your share $24.99 | Ursack direct, REI, Amazon | [buy](https://ursack.com/products/ursack-major-xl-opsak) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Cathole trowel (shared, split 6) | must | Budget | Coghlan's Backpackers Trowel | $4.25 | (/6) | your share $0.71 | Walmart, Amazon, REI | [buy](https://www.walmart.com/ip/Coghlan-S-Backpackers-Trowel/23233743) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Cook pot (group/shared item) | must | Budget | IMUSA A004-025001 Aluminum Sauce Pan, 1-Quart | $12.99 | (/6) | your share $2.17 | Walmart, Amazon | [buy](https://www.amazon.com/IMUSA-A004-025001-Aluminum-1-Quart-Silver/dp/B0018E9UV2) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | First aid kit (group/shared item, overnight-size) | must | Value | Adventure Medical Kits Ultralight/Watertight .7 | $44.99 | (/6) | your share $7.50 | REI, AMK direct, Amazon, Backcountry | [buy](https://adventuremedicalkits.com/products/ultralight-watertight-medical-kit-7) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fuel canister (group/shared item) | must | Budget | Coleman Butane/Propane Mix Fuel, 7.75oz (220g) | $5.97 | (/6) | your share $1.00 | Walmart, Amazon, Target | [buy](https://www.walmart.com/ip/Coleman-Butane-Propane-Mix-Fuel-7-75oz/20595064) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Satellite messenger (group/shared item) | must | Budget | Garmin inReach Mini 2 (weekly rental) | $100.00 | (/6) | your share $16.67 | Outfitter Satellite, REI rental (select stores) | [buy](https://www.outfittersatellite.com/pages/garmin-inreach-mini-2-rentals) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Stove (group/shared item) | must | Budget | Soto Amicus Stove Cookset Combo | $49.95 | (/6) | your share $8.33 | REI, Amazon, Soto direct | [buy](https://www.rei.com/product/149091/soto-amicus-stove-cookset-combo) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Trowel + hygiene kit | must | Budget | Coghlan's Backpackers Trowel + basic hygiene bag | $8.75 | (/6) | your share $1.46 | Walmart, Amazon, REI | [buy](https://www.walmart.com/ip/Coghlan-S-Backpackers-Trowel/23233743) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water filter (group/shared item) | must | Budget | Sawyer Squeeze (SP2129) | $45.95 | (/6) | your share $7.66 | REI, Amazon, Walmart, Sawyer direct | [buy](https://www.rei.com/product/103050/sawyer-squeeze-water-filter-system) |
 
 | Item | Personal/Shared | Qty | Unit price | Full price | Your share | Where | Link |
 |---|---|---|---|---|---|---|---|
 | National Geographic Chattahoochee-Oconee National Forest paper map -- National Geographic Trails Illustrated #777 (Blue Ridge, Chattahoochee) or #778 (Tallulah, Cheohah, Chattooga) | shared | 2 | $14.95 | $29.90 (2 x $14.95) | your share $9.97 (/3) | REI | [buy](https://www.rei.com/product/108883/national-geographic-blue-ridge-chattahoochee-national-forest-trail-map) |
-| _Two paper maps for the group (~1 per pair) as GPS/phone backup._ | | | | | | | |
+| _2 for the group, ÷3 -- one per pair as GPS/phone backup._ | | | | | | | |
 | Suunto A-10 baseplate compass -- Suunto A-10 | shared | 2 | $21.99 | $43.98 (2 x $21.99) | your share $14.66 (/3) | REI | [buy](https://www.rei.com/product/810470/suunto-a-10-compass) |
-| _Two compasses for the group, paired with the paper maps._ | | | | | | | |
+| _2 for the group, ÷3 -- paired with the paper maps._ | | | | | | | |
 | Repair kit: Tenacious Tape, Therm-a-Rest pad patch kit, duct tape, zip ties -- GEAR AID / Therm-a-Rest Tenacious Tape 3x20in + Permanent Pad Repair Kit + duct tape roll + zip ties | shared | 1 | $24.00 | $24.00 | your share $4.00 (/6) | REI/Amazon | [buy](https://www.rei.com/product/883893/gear-aid-tenacious-tape-repair-tape) |
 | _One group repair kit: ~$8 tape + ~$8 pad patch kit + ~$5 duct tape + ~$3 zip ties._ | | | | | | | |
 | Paracord 100ft -- HERCULES Type III 550 paracord, 100ft | shared | 1 | $8.49 | $8.49 | your share $1.42 (/6) | Amazon | [buy](https://www.amazon.com/HERCULES-Paracord-Parachute-White-Survival/dp/B0BD1526GF) |
@@ -266,7 +268,7 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 
 ### 4. Panning gear (Budget)
 
-**Panning gear -- personal $59.59 + group share $18.09 (group total $108.48) = $77.68/person**
+**Panning gear -- personal $59.59 + group share $19.31 (group total $115.76) = $78.90/person**
 
 | Order first? | Item | Required? | Tier | Pick | Price | Where | Link |
 |---|---|---|---|---|---|---|---|
@@ -288,7 +290,7 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 
 | Item | Personal/Shared | Qty | Unit price | Full price | Your share | Where | Link |
 |---|---|---|---|---|---|---|---|
-| Tweezers + magnetic pickup tool + spray bottle for panning -- WeiTus / SE / Equate Stainless precision straight tweezers + SE 30in telescoping magnetic pickup tool + Equate 8oz spray bottle | shared | 1 | $21.97 | $21.97 | your share $3.66 (/6) | Amazon (tweezers, ~$7) + Amazon (SE telescoping magnetic pickup tool https://www.amazon.com/SE-8036TM-NEW-Telescoping-Magnetic-Capacity/dp/B000RB3XBA, ~$9) + Walmart (Equate 8oz spray bottle https://www.walmart.com/ip/Equate-8-oz-Plastic-Spraybottle/192243842, ~$3) | [buy](https://www.amazon.com/WeiTus-Stainless-Precision-Straight-Tweezers/dp/B01MXIVEGD) |
+| Tweezers + magnetic pickup tool + spray bottle for panning -- WeiTus / SE / Equate Stainless precision straight tweezers + SE 30in telescoping magnetic pickup tool + Equate 8oz spray bottle | shared | 1 | $29.25 | $29.25 | your share $4.88 (/6) | Amazon (tweezers, $20.00) + Amazon (SE telescoping magnetic pickup tool https://www.amazon.com/SE-8036TM-NEW-Telescoping-Magnetic-Capacity/dp/B000RB3XBA, $8.25) + Walmart (Equate 8oz spray bottle https://www.walmart.com/ip/Equate-8-oz-Plastic-Spraybottle/192243842, $1.00) -- verified live prices 2026-09-23 | [buy](https://www.amazon.com/WeiTus-Stainless-Precision-Straight-Tweezers/dp/B01MXIVEGD) |
 | _Fine-gold pickup and black-sand magnet separation, one shared set at the pan station; three separate exact-product links combined into one line total (tweezers + magnetic wand + spray bottle)._ | | | | | | | |
 
 ## Consumables
@@ -367,5 +369,5 @@ Backcountry rations (6 people x 3 nights) plus the base-camp grocery list. Same 
 
 | Set | Gear grand total/person | Consumables/person | Food/person | Trip total/person |
 |---|---|---|---|---|
-| **Solid** | $2,310.78 | $112.57 | $77.50 | $2,500.85 |
-| **Budget** | $1,525.72 | $112.57 | $77.50 | $1,715.79 |
+| **Solid** | $2,324.00 | $112.57 | $77.50 | $2,514.07 |
+| **Budget** | $1,535.19 | $112.57 | $77.50 | $1,725.26 |

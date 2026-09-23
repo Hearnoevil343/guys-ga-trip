@@ -1304,14 +1304,14 @@
         "notes": "Group share $12.49 — matches existing gear.md pick for base camp"
     },
     {
-        "category": "toiletries/trowel",
-        "role": "personal trowel + hygiene kit",
+        "category": "cathole_trowel",
+        "role": "shared cathole trowel",
         "tier": "budget",
         "brand": "Coghlan's",
-        "model": "Backpackers Trowel + basic hygiene bag",
-        "weight_oz": 2.0,
-        "weight_note": "typical plastic trowel weight ~1.5oz + small TP/sanitizer bag ~0.5oz, EST from category norms",
-        "price_usd": 8.75,
+        "model": "Backpackers Trowel",
+        "weight_oz": 1.5,
+        "weight_note": "typical plastic trowel weight ~1.5oz",
+        "price_usd": 4.25,
         "price_url": "https://www.walmart.com/ip/Coghlan-S-Backpackers-Trowel/23233743",
         "used_price_range": "n/a",
         "where_to_buy": [
@@ -1334,11 +1334,11 @@
         "oct_ga_fit": "Fine for one overnight in soft forest soil",
         "beginner_score": 5,
         "shared_split": 6,
-        "notes": ""
+        "notes": "Split 6 ways (shared cathole trowel, carried on the overnight leg)"
     },
     {
-        "category": "toiletries/trowel",
-        "role": "personal trowel + hygiene kit",
+        "category": "cathole_trowel",
+        "role": "shared cathole trowel",
         "tier": "value",
         "brand": "GSI Outdoors",
         "model": "Cathole Trowel",
@@ -1366,11 +1366,11 @@
         "oct_ga_fit": "Good middle choice",
         "beginner_score": 5,
         "shared_split": 6,
-        "notes": ""
+        "notes": "Split 6 ways (shared cathole trowel, carried on the overnight leg)"
     },
     {
-        "category": "toiletries/trowel",
-        "role": "personal trowel + hygiene kit",
+        "category": "cathole_trowel",
+        "role": "shared cathole trowel",
         "tier": "premium",
         "brand": "TheTentLab",
         "model": "The DirtSaw Deuce #2 Trowel",
@@ -1399,7 +1399,92 @@
         "oct_ga_fit": "Nice but not necessary for one trip — worth it if this becomes a recurring hobby",
         "beginner_score": 4,
         "shared_split": 6,
-        "notes": ""
+        "notes": "Split 6 ways (shared cathole trowel, carried on the overnight leg)"
+    },
+    {
+        "category": "toiletries",
+        "role": "personal toiletries/hygiene kit",
+        "tier": "budget",
+        "brand": "Generic",
+        "model": "Travel-size toothbrush, toothpaste, TP, hand sanitizer",
+        "weight_oz": 3.5,
+        "weight_note": "small personal hygiene bag, EST from category norms",
+        "price_usd": 6.0,
+        "price_url": "https://www.walmart.com/ip/Equate-Travel-Size-Toiletry-Kit/",
+        "used_price_range": "n/a",
+        "where_to_buy": [
+            "Walmart",
+            "Amazon"
+        ],
+        "community_verdict": "Basic drugstore/travel-size toiletries are all a single overnight needs -- no reason to spend more.",
+        "verdict_sources": [],
+        "pros": [
+            "Cheap",
+            "Covers the one overnight fine"
+        ],
+        "cons": [
+            "Travel sizes only, not a full-size refill"
+        ],
+        "oct_ga_fit": "Plenty for one night out",
+        "beginner_score": 5,
+        "shared_split": 1,
+        "notes": "Personal, full price -- each hiker buys/packs their own"
+    },
+    {
+        "category": "toiletries",
+        "role": "personal toiletries/hygiene kit",
+        "tier": "value",
+        "brand": "Generic",
+        "model": "Small toiletry bag + biodegradable wipes",
+        "weight_oz": 4.0,
+        "weight_note": "small personal hygiene bag with wipes, EST from category norms",
+        "price_usd": 9.0,
+        "price_url": "https://www.amazon.com/s?k=biodegradable+camp+wipes+travel+toiletry+kit",
+        "used_price_range": "n/a",
+        "where_to_buy": [
+            "Amazon",
+            "REI"
+        ],
+        "community_verdict": "Adding biodegradable wipes is a common r/backpacking upgrade over toothbrush-only for a sweaty overnight.",
+        "verdict_sources": [],
+        "pros": [
+            "Wipes help with the one-night no-shower stretch"
+        ],
+        "cons": [
+            "Slightly heavier/bulkier than the bare minimum"
+        ],
+        "oct_ga_fit": "Good middle choice",
+        "beginner_score": 5,
+        "shared_split": 1,
+        "notes": "Personal, full price -- each hiker buys/packs their own"
+    },
+    {
+        "category": "toiletries",
+        "role": "personal toiletries/hygiene kit",
+        "tier": "premium",
+        "brand": "Generic",
+        "model": "Ultralight toiletry kit + pack towel wipes + sunscreen/lip balm travel set",
+        "weight_oz": 5.0,
+        "weight_note": "fuller personal hygiene kit, EST from category norms",
+        "price_usd": 15.0,
+        "price_url": "https://www.rei.com/c/travel-toiletry-bags",
+        "used_price_range": "n/a",
+        "where_to_buy": [
+            "REI",
+            "Amazon"
+        ],
+        "community_verdict": "A fuller kit for anyone who wants more than the bare minimum; not required for a one-night trip.",
+        "verdict_sources": [],
+        "pros": [
+            "Most complete personal kit"
+        ],
+        "cons": [
+            "Overkill for a single overnight"
+        ],
+        "oct_ga_fit": "Nice but not necessary for one overnight",
+        "beginner_score": 4,
+        "shared_split": 1,
+        "notes": "Personal, full price -- each hiker buys/packs their own"
     },
     {
         "category": "trekking poles",

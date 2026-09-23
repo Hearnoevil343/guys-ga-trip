@@ -89,10 +89,9 @@ SECTION_TITLES = {
 # (see the info-only row added to the extras "B" data).
 #
 # No personal item may be split; no shared item may appear in a personal
-# section. UNSURE / flagged for the user: "toiletries/trowel" bundles a
-# shared cathole trowel with personal hygiene items (toothbrush-adjacent
-# stuff) in a single priced line -- kept as shared here since the trowel is
-# the priced/split part, but the hygiene contents are really personal.
+# section. 2026-09-23: the old bundled "toiletries/trowel" line was split
+# into a personal toiletries line (full price, "toiletries" key) and a
+# shared cathole trowel line (split 6, "cathole_trowel" key).
 # ----------------------------------------------------------------------------
 
 # Picker `key` (category) -> gear section.
@@ -119,11 +118,11 @@ KEY_SECTION = {
     "headlamp": SECTION_OVERNIGHT_PERSONAL,
     "power bank": SECTION_OVERNIGHT_PERSONAL,
     "knife/multitool": SECTION_OVERNIGHT_PERSONAL,
-    # toiletries/trowel bundles a cathole trowel (shared per the 2026-09-23
-    # personal/shared rule below) with personal hygiene items in one line --
-    # kept here as shared since the trowel is the priced/split part of the
-    # bundle; see "UNSURE" note in buy_data.py's categorization comment.
-    "toiletries/trowel": SECTION_OVERNIGHT_SHARED,
+    # 2026-09-23: split the old bundled "toiletries/trowel" line into two --
+    # personal toiletries (each hiker buys their own, full price) and the
+    # shared cathole trowel (split 6, stated on the page).
+    "toiletries": SECTION_OVERNIGHT_PERSONAL,
+    "cathole_trowel": SECTION_OVERNIGHT_SHARED,
     # Overnight Pack kit -- shared
     "tent_shelter": SECTION_OVERNIGHT_PERSONAL,  # 2026-09-23: each hiker carries/buys his own tent, not split
     "stove": SECTION_OVERNIGHT_SHARED,

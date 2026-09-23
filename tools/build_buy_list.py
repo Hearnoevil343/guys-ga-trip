@@ -88,6 +88,7 @@ for r in range(2, picker.max_row + 1):
         "brand": opt["brand"], "model": opt["model"], "price": opt["price"],
         "per_person_price": per_person_price, "split": split, "price_url": opt["price_url"],
         "where_to_buy": opt["where_to_buy"], "lead_days": days, "lead_label": lead_label,
+        "section": bd.KEY_SECTION.get(key, bd.SECTION_OVERNIGHT_SHARED),
     })
 
 
@@ -157,6 +158,7 @@ for r in range(2, picker.max_row + 1):
         "brand": opt["brand"], "model": opt["model"], "price": opt["price"],
         "per_person_price": per_person_price, "split": split, "price_url": opt["price_url"],
         "where_to_buy": opt["where_to_buy"], "lead_days": days, "lead_label": lead_label,
+        "section": bd.KEY_SECTION.get(key, bd.SECTION_OVERNIGHT_SHARED),
     })
 
 # Inject the DEFAULT_TEMP (30F) Budget bag+pad into the Budget list. Budget
@@ -178,56 +180,77 @@ budget_grand_total_per_person = round(budget_personal_total + budget_group_per_p
 
 def render_gear_table(personal_rows, group_rows):
     out = []
-    out.append("### Personal items (full price -- each guy buys his own)")
-    out.append("")
-    out.append("| Order first? | Item | Required? | Tier | Pick | Price | Where | Link |")
-    out.append("|---|---|---|---|---|---|---|---|")
-    for r in personal_rows:
-        link = f"[buy]({r['price_url']})" if r["price_url"] else "--"
-        out.append(
-            f"| {r['lead_label']} | {r['label']} | {r['required']} | {r['tier']} | "
-            f"{r['brand']} {r['model']} | ${r['price']:.2f} | "
-            f"{r['where_to_buy']} | {link} |"
-        )
-    out.append("")
-    out.append("### Group / shared gear (one purchase for the group -- split shown per item)")
-    out.append("")
-    out.append("| Order first? | Item | Required? | Tier | Pick | Group total | Split | Per-person share | Where | Link |")
-    out.append("|---|---|---|---|---|---|---|---|---|---|")
-    for r in group_rows:
-        link = f"[buy]({r['price_url']})" if r["price_url"] else "--"
-        out.append(
-            f"| {r['lead_label']} | {r['label']} | {r['required']} | {r['tier']} | "
-            f"{r['brand']} {r['model']} | ${r['price']:.2f} | /{r['split']} | ${r['per_person_price']:.2f} | "
-            f"{r['where_to_buy']} | {link} |"
-        )
+    if personal_rows:
+        out.append("| Order first? | Item | Required? | Tier | Pick | Price | Where | Link |")
+        out.append("|---|---|---|---|---|---|---|---|")
+        for r in personal_rows:
+            link = f"[buy]({r['price_url']})" if r["price_url"] else "--"
+            out.append(
+                f"| {r['lead_label']} | {r['label']} | {r['required']} | {r['tier']} | "
+                f"{r['brand']} {r['model']} | ${r['price']:.2f} | "
+                f"{r['where_to_buy']} | {link} |"
+            )
+    if group_rows:
+        out.append("")
+        out.append("_Shared (group) items -- price shown is the full group price; your share is per-person._")
+        out.append("")
+        out.append("| Order first? | Item | Required? | Tier | Pick | Full price | Split | Your share | Where | Link |")
+        out.append("|---|---|---|---|---|---|---|---|---|---|")
+        for r in group_rows:
+            link = f"[buy]({r['price_url']})" if r["price_url"] else "--"
+            out.append(
+                f"| {r['lead_label']} | {r['label']} | {r['required']} | {r['tier']} | "
+                f"{r['brand']} {r['model']} | ${r['price']:.2f} | (/{r['split']}) | "
+                f"your share ${r['per_person_price']:.2f} | {r['where_to_buy']} | {link} |"
+            )
     return out
+
+
+def section_tally(rows):
+    personal = sum(r["price"] for r in rows if r["split"] <= 1)
+    group_whole = sum(r["price"] for r in rows if r["split"] > 1)
+    group_share = round(sum(r["per_person_price"] for r in rows if r["split"] > 1), 2)
+    return personal, group_whole, group_share
+
+
+def tally_line(title, personal, group_whole, group_share):
+    return (
+        f"**{title} -- personal ${personal:,.2f} + group share ${group_share:,.2f} "
+        f"(group total ${group_whole:,.2f}) = ${round(personal + group_share, 2):,.2f}/person**"
+    )
+
+
+extras = bd.load_extras()
+for _e in extras:
+    _e["layout_section"] = bd.extras_section(_e)
 
 lines = []
 lines.append("# GA Gold Trip -- Final Buy List")
 lines.append("")
-lines.append(f"Generated from Gear_Picker.xlsx CHOICE picks (Solid) plus a computed cheapest-safe")
-lines.append(f"preset (Budget) by tools\\build_buy_list.py. Sorted by lead time (longest first)")
-lines.append(f"within each set -- order the top rows in each table now.")
+lines.append("Generated from Gear_Picker.xlsx CHOICE picks (Solid) plus a computed cheapest-safe")
+lines.append("preset (Budget) by tools\\build_buy_list.py. Grouped by WHERE the gear is used.")
+lines.append("Every price cell is the FULL price; shared items also show your per-person share.")
 lines.append("")
-lines.append("## At a glance -- Solid vs Budget")
+lines.append(
+    "**Sections 1-4 (gear) count toward the top totals below. Consumables and Food are tracked "
+    "separately -- see their own tally boxes -- and are NOT part of the gear total.**"
+)
 lines.append("")
-lines.append("| Set | Personal total | Group total (whole group) | Group per-person share | Grand total per person |")
-lines.append("|---|---|---|---|---|")
-lines.append(f"| **Solid** | ${personal_total:,.2f} | ${group_total:,.2f} | ${group_per_person_total:,.2f} | ${grand_total_per_person:,.2f} |")
-lines.append(f"| **Budget** | ${budget_personal_total:,.2f} | ${budget_group_total:,.2f} | ${budget_group_per_person_total:,.2f} | ${budget_grand_total_per_person:,.2f} |")
+lines.append("__AT_A_GLANCE_PLACEHOLDER__")
 lines.append("")
 lines.append(
     "Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kept at "
     "Value tier because the cheapest tier is flagged unsafe/unreliable in its own sourced verdict): "
     "hiking footwear (thrifted $0 mesh trail runner is a cold-water-wading beginner-caution pick -> "
-    "Merrell Moab 3 $75), bear-proof food storage (DIY bear-hang, beginner_score 2 -> Ursack Major XL), "
-    "first aid kit (DIY kit, beginner_score 2, 'riskiest tier for a first-time group' -> AMK Ultralight .7), "
-    "and blaze-orange vest (its own Value tier at $8.50 is actually cheaper than its Budget tier at $16.96 "
-    "for equal compliance -- picked the cheaper-and-safe option)."
+    "Merrell Moab 3, verified live price $100.93 on sale), bear-proof food storage (DIY bear-hang, "
+    "beginner_score 2 -> Ursack Major XL), first aid kit (DIY kit, beginner_score 2, 'riskiest tier "
+    "for a first-time group' -> AMK Ultralight .7), and blaze-orange vest (its own Value tier, "
+    "verified live price $13.51, is still cheaper than its Budget tier at $16.96 for equal "
+    "compliance -- picked the cheaper-and-safe option; the vest's earlier $8.50 figure was simply a "
+    "stale/wrong price, not a split calculation)."
 )
 lines.append("")
-lines.append("## Sleep system -- temperature choice (mutually exclusive)")
+lines.append("## Sleep system -- temperature choice (mutually exclusive, counts in Overnight/backcountry: personal)")
 lines.append("")
 lines.append(
     f"Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Default = **{DEFAULT_TEMP}** "
@@ -250,42 +273,24 @@ for temp in TEMP_ORDER:
             f"${bag['price_usd']:.2f} | [{pad['brand']} {pad['model']}]({pad['price_url']}) ({pad['rating_note']}) | "
             f"${pad['price_usd']:.2f} | ${combo:,.2f} | {counted} |"
         )
-lines.append("")
-lines.append("## Solid picks")
-lines.append("")
-lines.extend(render_gear_table(personal_rows, group_rows))
-lines.append("")
-lines.append("## Budget picks")
-lines.append("")
-lines.extend(render_gear_table(budget_personal_rows, budget_group_rows))
 
 # ----------------------------------------------------------------------------
-# Sections A/B/C -- small items & consumables, car-camp group gear, food.
-# Data-driven from research/gear-tiers-extras-food.json (same pattern as the
-# tiered gear-tiers-*.json files, but flat -- one recommended pick per item,
-# not budget/value/premium tiers).
+# Sections 1-4: gear, grouped by WHERE it's used. Extras rows whose
+# layout_section lands in one of these (base camp gear, durable
+# nav/repair/safety items, panning tools) are folded in alongside the tiered
+# Picker rows so "where used" is the single organizing idea across both data
+# sources.
 # ----------------------------------------------------------------------------
-extras = bd.load_extras()
+SECTION_NUMS = {sec: i + 1 for i, sec in enumerate(bd.GEAR_SECTIONS)}
 
-SECTION_TITLES = {
-    "A": "Small items & consumables",
-    "B": "Car-camp / base-camp group gear",
-    "C": "Food (backcountry rations + car-camp groceries)",
-}
 
-extras_personal_total = 0.0
-extras_group_total = 0.0
-extras_group_per_person_total = 0.0
-
-for sec in ("A", "B", "C"):
-    sec_items = [e for e in extras if e["section"] == sec]
+def render_extras_rows(sec_items):
+    out = []
     if not sec_items:
-        continue
-    lines.append("")
-    lines.append(f"## {sec}. {SECTION_TITLES[sec]}")
-    lines.append("")
-    lines.append("| Item | Personal/Shared | Qty | Unit price | Line total | Split | Per-person share | Where | Link |")
-    lines.append("|---|---|---|---|---|---|---|---|---|")
+        return out, 0.0, 0.0, 0.0
+    personal_total_e = group_whole_e = group_share_e = 0.0
+    out.append("| Item | Personal/Shared | Qty | Unit price | Full price | Your share | Where | Link |")
+    out.append("|---|---|---|---|---|---|---|---|")
     for e in sec_items:
         qty = e.get("qty", 1) or 1
         unit_price = e.get("unit_price", 0) or 0
@@ -293,60 +298,129 @@ for sec in ("A", "B", "C"):
         split = max(1, int(e.get("split", 1) or 1))
         kind = e["personal_or_shared"]
         if kind == "personal":
-            per_person = unit_price  # each person buys/owns one
-            extras_personal_total += unit_price  # per-person cost, not qty*unit_price (qty=headcount)
+            per_person = unit_price
+            personal_total_e += unit_price
+            share_txt = f"${per_person:,.2f}"
+            full_price = unit_price
         else:
             per_person = bd.round_share(line_total, split)
-            extras_group_total += line_total
-            extras_group_per_person_total += per_person
+            group_whole_e += line_total
+            group_share_e += per_person
+            share_txt = f"your share ${per_person:,.2f} (/{split})"
+            full_price = line_total
         link = f"[buy]({e['price_url']})" if e.get("price_url") else "est."
         pick = f"{e.get('brand','')} {e.get('model','')}".strip()
-        lines.append(
-            f"| {e['item']} -- {pick} | {kind} | {qty} | ${unit_price:,.2f} | ${line_total:,.2f} | "
-            f"/{split if kind == 'shared' else 1} | ${per_person:,.2f} | {e.get('where_to_buy','')} | {link} |"
+        qty_note = f" ({qty} people)" if kind == "personal" and qty > 1 else (f" ({qty} x ${unit_price:,.2f})" if qty > 1 else "")
+        out.append(
+            f"| {e['item']} -- {pick} | {kind}{qty_note if kind=='personal' else ''} | {qty} | ${unit_price:,.2f} | "
+            f"${full_price:,.2f}{qty_note if kind=='shared' else ''} | "
+            f"{share_txt} | {e.get('where_to_buy','')} | {link} |"
         )
         if e.get("note"):
-            lines.append(f"| _{e['note']}_ | | | | | | | | |")
+            out.append(f"| _{e['note']}_ | | | | | | | |")
+    return out, personal_total_e, round(group_whole_e, 2), round(group_share_e, 2)
 
-extras_group_per_person_total = round(extras_group_per_person_total, 2)
-extras_grand_per_person = round(extras_personal_total + extras_group_per_person_total, 2)
+
+def emit_gear_sections(picked_personal_rows, picked_group_rows, set_label):
+    """Emit sections 1-4 for one preset (Solid or Budget); returns the gear
+    personal/group totals so callers can build the top-of-file summary."""
+    sec_lines = []
+    tot_personal = tot_group_whole = tot_group_share = 0.0
+    for sec in bd.GEAR_SECTIONS:
+        p_rows = [r for r in picked_personal_rows if r["section"] == sec]
+        g_rows = [r for r in picked_group_rows if r["section"] == sec]
+        e_items = [e for e in extras if e["layout_section"] == sec]
+        p, gw, gs = section_tally(p_rows + g_rows)
+        e_lines, ep, egw, egs = render_extras_rows(e_items)
+        p += ep; gw += egw; gs += egs
+        tot_personal += p; tot_group_whole += gw; tot_group_share += gs
+        sec_lines.append("")
+        sec_lines.append(f"### {SECTION_NUMS[sec]}. {bd.SECTION_TITLES[sec]} ({set_label})")
+        sec_lines.append("")
+        sec_lines.append(tally_line(bd.SECTION_TITLES[sec], p, gw, gs))
+        sec_lines.append("")
+        sec_lines.extend(render_gear_table(p_rows, g_rows))
+        if e_lines:
+            sec_lines.append("")
+            sec_lines.extend(e_lines)
+    return sec_lines, round(tot_personal, 2), round(tot_group_whole, 2), round(tot_group_share, 2)
+
+
+solid_sec_lines, solid_gear_personal, solid_gear_group_whole, solid_gear_group_share = emit_gear_sections(
+    personal_rows, group_rows, "Solid")
+budget_sec_lines, budget_gear_personal, budget_gear_group_whole, budget_gear_group_share = emit_gear_sections(
+    budget_personal_rows, budget_group_rows, "Budget")
+
+_glance = []
+_glance.append("## At a glance -- gear total, Solid vs Budget (sections 1-4 only)")
+_glance.append("")
+_glance.append("| Set | Personal total | Group total (whole group) | Group per-person share | Gear grand total per person |")
+_glance.append("|---|---|---|---|---|")
+_glance.append(f"| **Solid** | ${solid_gear_personal:,.2f} | ${solid_gear_group_whole:,.2f} | ${solid_gear_group_share:,.2f} | ${round(solid_gear_personal+solid_gear_group_share,2):,.2f} |")
+_glance.append(f"| **Budget** | ${budget_gear_personal:,.2f} | ${budget_gear_group_whole:,.2f} | ${budget_gear_group_share:,.2f} | ${round(budget_gear_personal+budget_gear_group_share,2):,.2f} |")
+_ph_idx = lines.index("__AT_A_GLANCE_PLACEHOLDER__")
+lines[_ph_idx:_ph_idx + 1] = _glance
 
 lines.append("")
-lines.append(
-    f"**Sections A-C totals -- personal: ${extras_personal_total:,.2f}/person, "
-    f"group: ${extras_group_total:,.2f} (${extras_group_per_person_total:,.2f}/person share), "
-    f"combined A-C per person: ${extras_grand_per_person:,.2f}**"
-)
+lines.append("## Solid picks -- sections 1-4 (gear)")
+lines.extend(solid_sec_lines)
+lines.append("")
+lines.append("## Budget picks -- sections 1-4 (gear)")
+lines.extend(budget_sec_lines)
 
 # ----------------------------------------------------------------------------
-# Combined grand totals (gear + extras) -- Sections A-C have one pick per item
-# (not tiered), so they're identical in both the Solid and Budget sets.
+# Consumables and Food -- their own sections with their own tally box each,
+# NOT part of the gear total. Same recommended pick in both Solid and Budget
+# (not tiered), so one render covers both sets.
 # ----------------------------------------------------------------------------
-combined_personal_total = round(personal_total + extras_personal_total, 2)
-combined_group_total = round(group_total + extras_group_total, 2)
-combined_group_per_person = round(group_per_person_total + extras_group_per_person_total, 2)
-combined_grand_per_person = round(combined_personal_total + combined_group_per_person, 2)
+consumables_items = [e for e in extras if e["layout_section"] == bd.SECTION_CONSUMABLES]
+food_items = [e for e in extras if e["layout_section"] == bd.SECTION_FOOD]
 
-budget_combined_personal_total = round(budget_personal_total + extras_personal_total, 2)
-budget_combined_group_total = round(budget_group_total + extras_group_total, 2)
-budget_combined_group_per_person = round(budget_group_per_person_total + extras_group_per_person_total, 2)
-budget_combined_grand_per_person = round(budget_combined_personal_total + budget_combined_group_per_person, 2)
+cons_lines, cons_personal, cons_group_whole, cons_group_share = render_extras_rows(consumables_items)
+food_lines, food_personal, food_group_whole, food_group_share = render_extras_rows(food_items)
 
 lines.append("")
-lines.append("## Grand totals (gear + Sections A-C)")
+lines.append("## Consumables")
 lines.append("")
-lines.append("| Set | Personal total/person | Group total (whole group) | Group per-person share | Grand total per person |")
+lines.append("Used-up items (sunscreen, TP, batteries, wipes, lighters and similar). Same list/price for Solid and Budget.")
+lines.append("")
+lines.append(tally_line("Consumables", cons_personal, cons_group_whole, cons_group_share))
+lines.append("")
+lines.extend(cons_lines)
+
+lines.append("")
+lines.append("## Food")
+lines.append("")
+lines.append("Backcountry rations (6 people x 3 nights) plus the base-camp grocery list. Same list/price for Solid and Budget.")
+lines.append("")
+lines.append(tally_line("Food", food_personal, food_group_whole, food_group_share))
+lines.append("")
+lines.extend(food_lines)
+
+# ----------------------------------------------------------------------------
+# Trip totals: gear (sections 1-4) + Consumables + Food.
+# ----------------------------------------------------------------------------
+solid_trip_total = round(solid_gear_personal + solid_gear_group_share + cons_personal + cons_group_share + food_personal + food_group_share, 2)
+budget_trip_total = round(budget_gear_personal + budget_gear_group_share + cons_personal + cons_group_share + food_personal + food_group_share, 2)
+
+lines.append("")
+lines.append("## Trip total, everything (gear sections 1-4 + Consumables + Food)")
+lines.append("")
+lines.append("| Set | Gear grand total/person | Consumables/person | Food/person | Trip total/person |")
 lines.append("|---|---|---|---|---|")
-lines.append(f"| **Solid** | ${combined_personal_total:,.2f} | ${combined_group_total:,.2f} | ${combined_group_per_person:,.2f} | ${combined_grand_per_person:,.2f} |")
-lines.append(f"| **Budget** | ${budget_combined_personal_total:,.2f} | ${budget_combined_group_total:,.2f} | ${budget_combined_group_per_person:,.2f} | ${budget_combined_grand_per_person:,.2f} |")
-lines.append("")
 lines.append(
-    "Sections A-C (small items/consumables, car-camp group gear, food) carry one recommended pick "
-    "per item, not budget/value/premium tiers, so they are the same dollar amount in both sets above."
+    f"| **Solid** | ${round(solid_gear_personal + solid_gear_group_share, 2):,.2f} | "
+    f"${round(cons_personal + cons_group_share, 2):,.2f} | ${round(food_personal + food_group_share, 2):,.2f} | "
+    f"${solid_trip_total:,.2f} |"
+)
+lines.append(
+    f"| **Budget** | ${round(budget_gear_personal + budget_gear_group_share, 2):,.2f} | "
+    f"${round(cons_personal + cons_group_share, 2):,.2f} | ${round(food_personal + food_group_share, 2):,.2f} | "
+    f"${budget_trip_total:,.2f} |"
 )
 
 OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
 print(f"Wrote {OUT} -- {len(rows)} solid gear items + {len(budget_rows)} budget gear items + "
       f"{len(extras)} extras/food items; "
-      f"SOLID grand/person ${combined_grand_per_person:,.2f}; "
-      f"BUDGET grand/person ${budget_combined_grand_per_person:,.2f}")
+      f"SOLID trip total/person ${solid_trip_total:,.2f}; "
+      f"BUDGET trip total/person ${budget_trip_total:,.2f}")

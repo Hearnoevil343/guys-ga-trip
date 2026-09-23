@@ -59,7 +59,8 @@ for r in range(2, p.max_row + 1):
     # both read bd.BUDGET_TIER_OVERRIDE so they can never disagree.
     ITEMS.append({"kit": p.cell(r, 1).value, "label": p.cell(r, 2).value, "key": key,
                   "req": p.cell(r, 4).value, "dflt": dflt, "opts": _opt[key],
-                  "solidTier": dflt, "budgetTier": bd.BUDGET_TIER_OVERRIDE.get(key, "Budget")})
+                  "solidTier": dflt, "budgetTier": bd.BUDGET_TIER_OVERRIDE.get(key, "Budget"),
+                  "section": bd.KEY_SECTION.get(key, bd.SECTION_OVERNIGHT_SHARED)})
 items_json = json.dumps(ITEMS).replace("</", "<" + chr(92) + "/")
 
 # --- sleep-temperature section (40F / 30F / 20F, bag + pad, budget/solid) --
@@ -79,15 +80,16 @@ sleep_json = json.dumps(SLEEP).replace("</", "<" + chr(92) + "/")
 temp_order_json = json.dumps(bd.TEMP_ORDER)
 default_temp_json = json.dumps(bd.DEFAULT_TEMP)
 
-# --- Sections A/B/C: small items/consumables, car-camp group gear, food ----
+# --- Extras (small items/consumables, car-camp group gear, food) -----------
+# Each row is tagged with its layout section (base_camp/overnight_personal/
+# overnight_shared/panning/consumables/food) using the same bd.extras_section()
+# logic BUY_LIST.md uses, so the two can never disagree.
 EXTRAS = bd.load_extras()
+for _e in EXTRAS:
+    _e["layoutSection"] = bd.extras_section(_e)
 extras_json = json.dumps(EXTRAS).replace("</", "<" + chr(92) + "/")
-EXTRAS_SECTION_TITLES = {
-    "A": "Small items & consumables",
-    "B": "Car-camp / base-camp group gear",
-    "C": "Food (backcountry rations + car-camp groceries)",
-}
-extras_section_titles_json = json.dumps(EXTRAS_SECTION_TITLES)
+GEAR_SECTIONS_JSON = json.dumps(bd.GEAR_SECTIONS)
+SECTION_TITLES_JSON = json.dumps(bd.SECTION_TITLES)
 
 
 PICKER_JS = """
@@ -96,13 +98,15 @@ const SLEEP = __SLEEP__;
 const TEMP_ORDER = __TEMP_ORDER__;
 const DEFAULT_TEMP = __DEFAULT_TEMP__;
 const EXTRAS = __EXTRAS__;
-const EXTRAS_SECTION_TITLES = __EXTRAS_SECTION_TITLES__;
+const GEAR_SECTIONS = __GEAR_SECTIONS__;
+const SECTION_TITLES = __SECTION_TITLES__;
 // v2: adds Budget-set/Solid-set buttons, the sleep-temperature section and
 // the extras (small items/car-camp/food) sections. Bumped from v1 so an old
 // saved shape (flat item picks only) never gets misread by the new code.
 const KEY = 'gagold-picks-v2';
 let st = JSON.parse(localStorage.getItem(KEY) || '{}');
 const save = () => localStorage.setItem(KEY, JSON.stringify(st));
+let LAST = {};
 const money = n => '$' + n.toFixed(2);
 // Round amountDollars/split to the nearest cent, round-half-up, using
 // integer-cent arithmetic -- mirrors tools/buy_data.py's round_share() so
@@ -130,6 +134,22 @@ function calc(it){
 function esc(v){ return String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
 function pick(k, ch){ setF(k,'ch',ch); render(); }
 function setF(k, f, v){ st[k] = st[k] || {}; st[k][f] = v; save(); }
+// Clicking Own ticks "Got it" automatically; clicking Own again (to leave it)
+// restores whatever tier + Got-it state was active before Own was picked.
+function toggleOwn(k){
+  st[k] = st[k] || {};
+  if (st[k].ch === 'Own'){
+    const prev = st[k].ownPrev || {};
+    st[k].ch = prev.ch || 'Value';
+    st[k].bought = !!prev.bought;
+    delete st[k].ownPrev;
+  } else {
+    st[k].ownPrev = {ch: st[k].ch || 'Value', bought: !!st[k].bought};
+    st[k].ch = 'Own';
+    st[k].bought = true;
+  }
+  save(); render();
+}
 
 // --- sleep temperature/tier state ------------------------------------------
 function sleepCur(){
@@ -150,39 +170,86 @@ function applyPreset(which){
   save(); render();
 }
 
+// Section running-totals: personal (full price, split=1 items), groupWhole
+// (full shared-item price) and groupPerPerson (each person's rounded share).
+function newSectionTotal(){ return {personal:0, groupWhole:0, groupPerPerson:0, oz:0, left:0}; }
+function addToSection(sec, cost, oz, left, split, fullPrice){
+  sec.oz += oz; sec.left += left;
+  if (split > 1){ sec.groupWhole += fullPrice; sec.groupPerPerson += roundShare(fullPrice, split); }
+  else { sec.personal += cost; }
+}
+function sectionLine(title, sec){
+  return `<b>${esc(title)}:</b> personal ${money(sec.personal)} + group share ${money(sec.groupPerPerson)}`
+    + ` (group total ${money(sec.groupWhole)}) = <b>${money(sec.personal+sec.groupPerPerson)}/person</b>`;
+}
+
 function render(){
-  const tb = document.getElementById('picks'); let h = '', kit = '';
-  const tot = {};
-  let personalTotal = 0, groupWholeTotal = 0, groupPerPerson = 0;
-  ITEMS.forEach(it => {
-    if (it.kit !== kit){ kit = it.kit; h += `<tr class="grp"><td colspan="8">${kit}</td></tr>`; }
-    const c = cur(it), r = calc(it);
-    const cell = t => { const o = it.opts[t]; if (!o) return '<td class="opt none">-</td>';
-      const on = c.ch === t;
-      return `<td class="opt${on?' on':''}" onclick="pick('${it.key}','${t}')"><span class="ck">${on?'&#10003;':''}</span>`
-        + `<b>${esc(o.name)}</b><br>${money(o.price/o.split)}${o.split>1?` <small>(1/${o.split} of ${money(o.price)})</small>`:''}`
-        + `<br><small>${esc(o.where)}</small>` + (o.url ? ` <a href="${esc(o.url)}" target="_blank" onclick="event.stopPropagation()">link</a>` : '') + `</td>`; };
-    const mine = c.ch === 'Custom';
-    const custom = `<td class="opt mine${mine?' on':''}" onclick="pick('${it.key}','Custom')"><span class="ck">${mine?'&#10003;':''}</span>`
-      + `<input placeholder="my item" value="${esc(c.name)}" data-k="${it.key}" data-f="name" onclick="event.stopPropagation()" oninput="setF(this.dataset.k,this.dataset.f,this.value);setF(this.dataset.k,'ch','Custom')" onchange="render()"><br>`
-      + `$<input size="6" placeholder="price" value="${esc(c.price)}" data-k="${it.key}" data-f="price" onclick="event.stopPropagation()" oninput="setF(this.dataset.k,this.dataset.f,this.value);setF(this.dataset.k,'ch','Custom')" onchange="render()"><br>`
-      + `<input placeholder="link (optional)" value="${esc(c.url)}" data-k="${it.key}" data-f="url" onclick="event.stopPropagation()" oninput="setF(this.dataset.k,this.dataset.f,this.value);setF(this.dataset.k,'ch','Custom')" onchange="render()">`
-      + (mine && c.url ? ` <a href="${esc(c.url)}" target="_blank" onclick="event.stopPropagation()">open</a>` : '') + `</td>`;
-    const small = (t) => `<td class="opt small${c.ch===t?' on':''}" onclick="pick('${it.key}','${t}')"><span class="ck">${c.ch===t?'&#10003;':''}</span>${t}</td>`;
-    const cls = (it.req==='must'?'must':'nice') + (c.bought?' done':'');
-    h += `<tr class="${cls}">`
-      + `<td><input type="checkbox" ${c.bought?'checked':''} data-k="${it.key}" onchange="setF(this.dataset.k,'bought',this.checked);render()"></td>`
-      + `<td class="lbl">${esc(it.label)}<br><small>${it.req==='must'?'must-have':it.req==='alt'?'alternate':'nice-to-have'}</small></td>`
-      + cell('Budget') + cell('Value') + cell('Premium') + custom + small('Own') + small('Skip') + `</tr>`;
-    tot[it.kit] = tot[it.kit] || {cost:0, oz:0, left:0};
-    tot[it.kit].cost += r.cost; tot[it.kit].oz += r.oz;
-    if (!c.bought && c.ch!=='Skip' && c.ch!=='Own') tot[it.kit].left += r.cost;
-    const o = it.opts[c.ch];
-    const split = (c.ch !== 'Custom' && c.ch !== 'Skip' && c.ch !== 'Own' && o) ? o.split : 1;
-    if (split > 1){ groupWholeTotal += o.price; groupPerPerson += roundShare(o.price, split); }
-    else { personalTotal += r.cost; }
+  const tb = document.getElementById('picks'); let h = '';
+  const sectionTotals = {}; GEAR_SECTIONS.forEach(s => sectionTotals[s] = newSectionTotal());
+
+  GEAR_SECTIONS.forEach(sec => {
+    h += `<tr class="grp"><td colspan="8">${esc(SECTION_TITLES[sec])}</td></tr>`;
+    ITEMS.filter(it => it.section === sec).forEach(it => {
+      const c = cur(it), r = calc(it);
+      const cell = t => { const o = it.opts[t]; if (!o) return '<td class="opt none">-</td>';
+        const on = c.ch === t;
+        return `<td class="opt${on?' on':''}" onclick="pick('${it.key}','${t}')"><span class="ck">${on?'&#10003;':''}</span>`
+          + `<b>${esc(o.name)}</b><br>${money(o.price)}${o.split>1?` <small>your share ${money(o.price/o.split)} (&divide;${o.split})</small>`:''}`
+          + `<br><small>${esc(o.where)}</small>` + (o.url ? ` <a href="${esc(o.url)}" target="_blank" onclick="event.stopPropagation()">link</a>` : '') + `</td>`; };
+      const mine = c.ch === 'Custom';
+      const custom = `<td class="opt mine${mine?' on':''}" onclick="pick('${it.key}','Custom')"><span class="ck">${mine?'&#10003;':''}</span>`
+        + `<input placeholder="my item" value="${esc(c.name)}" data-k="${it.key}" data-f="name" onclick="event.stopPropagation()" oninput="setF(this.dataset.k,this.dataset.f,this.value);setF(this.dataset.k,'ch','Custom')" onchange="render()"><br>`
+        + `$<input size="6" placeholder="price" value="${esc(c.price)}" data-k="${it.key}" data-f="price" onclick="event.stopPropagation()" oninput="setF(this.dataset.k,this.dataset.f,this.value);setF(this.dataset.k,'ch','Custom')" onchange="render()"><br>`
+        + `<input placeholder="link (optional)" value="${esc(c.url)}" data-k="${it.key}" data-f="url" onclick="event.stopPropagation()" oninput="setF(this.dataset.k,this.dataset.f,this.value);setF(this.dataset.k,'ch','Custom')" onchange="render()">`
+        + (mine && c.url ? ` <a href="${esc(c.url)}" target="_blank" onclick="event.stopPropagation()">open</a>` : '') + `</td>`;
+      const skipCell = `<td class="opt small${c.ch==='Skip'?' on':''}" onclick="pick('${it.key}','Skip')"><span class="ck">${c.ch==='Skip'?'&#10003;':''}</span>Skip</td>`;
+      const ownCell = `<td class="opt small${c.ch==='Own'?' on':''}" onclick="toggleOwn('${it.key}')"><span class="ck">${c.ch==='Own'?'&#10003;':''}</span>Own</td>`;
+      const cls = (it.req==='must'?'must':'nice') + (c.bought?' done':'');
+      h += `<tr class="${cls}">`
+        + `<td><input type="checkbox" ${c.bought?'checked':''} data-k="${it.key}" onchange="setF(this.dataset.k,'bought',this.checked);render()"></td>`
+        + ownCell + skipCell
+        + `<td class="lbl">${esc(it.label)}<br><small>${it.req==='must'?'must-have':it.req==='alt'?'alternate':'nice-to-have'}</small></td>`
+        + cell('Budget') + cell('Value') + cell('Premium') + custom + `</tr>`;
+      const o = it.opts[c.ch];
+      const split = (c.ch !== 'Custom' && c.ch !== 'Skip' && c.ch !== 'Own' && o) ? o.split : 1;
+      const left = (!c.bought && c.ch!=='Skip' && c.ch!=='Own') ? r.cost : 0;
+      addToSection(sectionTotals[sec], r.cost, r.oz, left, split, o ? o.price : 0);
+    });
+
+    if (sec === 'overnight_personal'){
+      const sc = sleepCur();
+      const bagCost = sleepItem(sc.rating,'bag').price, padCost = sleepItem(sc.rating,'pad').price;
+      sectionTotals[sec].personal += bagCost + padCost;
+    }
+
+    EXTRAS.forEach((e, idx) => {
+      if (e.layoutSection !== sec) return;
+      const ec = extraCur(idx);
+      const qty = e.qty || 1, unit = e.unit_price || 0, split = Math.max(1, e.split || 1);
+      const lineTotal = qty * unit;
+      const shared = e.personal_or_shared === 'shared';
+      const share = shared ? roundShare(lineTotal, split) : unit;
+      const cost = ec.skip ? 0 : share;
+      if (!ec.skip) addToSection(sectionTotals[sec], shared?0:cost, 0, 0, shared?split:1, lineTotal);
+      const pick2 = `${e.brand||''} ${e.model||''}`.trim();
+      const link = e.price_url ? `<a href="${esc(e.price_url)}" target="_blank">link</a>` : 'est.';
+      const fullPrice2 = shared ? lineTotal : unit;
+      h += `<tr class="${ec.skip?'done':''}">`
+        + `<td><input type="checkbox" ${ec.bought?'checked':''} onchange="setExtra(${idx},'bought',this.checked)"></td>`
+        + `<td></td><td><button onclick="setExtra(${idx},'skip',${!ec.skip})">${ec.skip?'Include':'Skip'}</button></td>`
+        + `<td class="lbl">${esc(e.item)}<br><small>${esc(pick2)}</small></td>`
+        + `<td colspan="3">${money(fullPrice2)}${shared&&qty>1?` (${qty} x ${money(unit)})`:''}${shared?` <small>your share ${money(share)} (&divide;${split})</small>`:` <small>(personal${qty>1?`, ${qty} people`:''})</small>`}<br><small>${esc(e.where_to_buy||'')}</small> ${link}</td>`
+        + `<td></td></tr>`;
+    });
+
+    h += `<tr class="tally"><td colspan="8">${sectionLine(SECTION_TITLES[sec], sectionTotals[sec])}</td></tr>`;
   });
   tb.innerHTML = h;
+
+  let personalTotal = 0, groupWholeTotal = 0, groupPerPerson = 0, oz = 0, left = 0;
+  GEAR_SECTIONS.forEach(sec => { const s = sectionTotals[sec];
+    personalTotal += s.personal; groupWholeTotal += s.groupWhole; groupPerPerson += s.groupPerPerson;
+    if (sec !== 'base_camp') oz += s.oz; left += s.left; });
 
   // --- sleep section ---
   const sc = sleepCur();
@@ -200,56 +267,128 @@ function render(){
     sh += `<td><input type="checkbox" ${sc[boughtKey]?'checked':''} onchange="setSleep('${boughtKey}',this.checked)"></td></tr>`;
   });
   document.getElementById('sleep-rows').innerHTML = sh;
-  const bagCost = sleepItem(sc.rating,'bag').price, padCost = sleepItem(sc.rating,'pad').price;
-  personalTotal += bagCost + padCost;
 
-  // --- extras sections (A/B/C) ---
-  let personalExtras = 0, groupWholeExtras = 0, groupPerPersonExtras = 0;
-  ['A','B','C'].forEach(sec => {
-    const body = document.getElementById('extras-' + sec);
-    if (!body) return;
+  // --- Consumables / Food: each is its own section, own tally box, NOT
+  // counted in the gear total above. ---
+  function renderFlatSection(layoutSec, bodyId, tallyId){
+    const body = document.getElementById(bodyId);
+    const sect = newSectionTotal();
     let eh = '';
     EXTRAS.forEach((e, idx) => {
-      if (e.section !== sec) return;
+      if (e.layoutSection !== layoutSec) return;
       const ec = extraCur(idx);
       const qty = e.qty || 1, unit = e.unit_price || 0, split = Math.max(1, e.split || 1);
       const lineTotal = qty * unit;
       const shared = e.personal_or_shared === 'shared';
-      const share = shared ? lineTotal / split : unit;
+      const share = shared ? roundShare(lineTotal, split) : unit;
       const cost = ec.skip ? 0 : share;
-      if (!ec.skip){ if (shared){ groupWholeExtras += lineTotal; groupPerPersonExtras += roundShare(lineTotal, split); } else { personalExtras += share; } }
+      if (!ec.skip) addToSection(sect, shared?0:cost, 0, 0, shared?split:1, lineTotal);
       const pick = `${e.brand||''} ${e.model||''}`.trim();
       const link = e.price_url ? `<a href="${esc(e.price_url)}" target="_blank">link</a>` : 'est.';
+      const fullPrice = shared ? lineTotal : unit;
       eh += `<tr class="${ec.skip?'done':''}">`
         + `<td><input type="checkbox" ${ec.bought?'checked':''} onchange="setExtra(${idx},'bought',this.checked)"></td>`
         + `<td class="lbl">${esc(e.item)}<br><small>${esc(pick)}</small></td>`
-        + `<td>${shared?'Shared':'Personal'}${shared?` <small>(split /${split})</small>`:''}</td>`
-        + `<td>${money(unit)}${qty>1?` x${qty}`:''}</td>`
-        + `<td>${money(cost)}</td>`
+        + `<td>${shared?'Shared':'Personal'}${!shared&&qty>1?` <small>(${qty} people)</small>`:''}</td>`
+        + `<td>${money(fullPrice)}${shared&&qty>1?` (${qty} x ${money(unit)})`:''}</td>`
+        + `<td>${shared?`your share ${money(share)} (&divide;${split})`:money(share)}</td>`
         + `<td><small>${esc(e.where_to_buy||'')}</small> ${link}</td>`
         + `<td><button onclick="setExtra(${idx},'skip',${!ec.skip})">${ec.skip?'Include':'Skip'}</button></td>`
         + `</tr>`;
     });
     body.innerHTML = eh;
-  });
-  personalTotal += personalExtras; groupWholeTotal += groupWholeExtras; groupPerPerson += groupPerPersonExtras;
+    document.getElementById(tallyId).innerHTML = sectionLine(SECTION_TITLES[layoutSec], sect);
+    return sect;
+  }
+  const consumablesTotal = renderFlatSection('consumables', 'extras-consumables', 'tally-consumables');
+  const foodTotal = renderFlatSection('food', 'extras-food', 'tally-food');
 
-  // --- totals card ---
-  let oz = 0, left = 0, lines = '';
-  Object.keys(tot).forEach(k => { left += tot[k].left; if (k!=='Base Camp Personal') oz += tot[k].oz;
-    lines += `${k}: ${money(tot[k].cost)} &nbsp; `; });
+  // --- totals card (gear only: sections 1-4) ---
   const grand = personalTotal + groupPerPerson;
+  const tripTotal = grand + consumablesTotal.personal + consumablesTotal.groupPerPerson
+    + foodTotal.personal + foodTotal.groupPerPerson;
   document.getElementById('totals').innerHTML =
-    `<b>Personal ${money(personalTotal)}</b> &nbsp;|&nbsp; <b>Group share ${money(groupPerPerson)}</b>`
-    + ` (group total ${money(groupWholeTotal)}) &nbsp;|&nbsp; <b>Grand total/person ${money(grand)}</b>`
+    `<b>Gear total (sections 1-4) &mdash; Personal ${money(personalTotal)}</b> &nbsp;|&nbsp; <b>Group share ${money(groupPerPerson)}</b>`
+    + ` (group total ${money(groupWholeTotal)}) &nbsp;|&nbsp; <b>Gear grand total/person ${money(grand)}</b>`
     + ` &nbsp;|&nbsp; still to buy ${money(left)}`
-    + ` &nbsp;|&nbsp; worn + pack ${(oz/16).toFixed(1)} lb (base camp gear excluded)<br><small>${lines}</small>`;
+    + ` &nbsp;|&nbsp; worn + pack ${(oz/16).toFixed(1)} lb (base camp gear excluded)`
+    + `<br><small>Consumables and Food are tracked separately below (their own tally boxes) and are not part of the gear total above.</small>`
+    + `<br><b>Trip total, everything, per person: ${money(tripTotal)}</b>`;
+
+  LAST = {sectionTotals, personalTotal, groupWholeTotal, groupPerPerson, grand,
+    consumablesTotal, foodTotal, tripTotal, sleep: sleepCur()};
 }
 function resetAll(){ if (confirm('Reset all your picks to the defaults?')){ st = {}; save(); render(); } }
+
+function itemStatus(c){ return c.ch==='Own' ? 'OWN' : c.ch==='Skip' ? 'SKIP' : (c.bought ? 'GOT IT' : 'to buy'); }
+
+// Builds the full export text: every section (base camp, overnight
+// personal/shared, panning, consumables, food), the sleep rating, each pick
+// with its full price + your share for shared items + Own/Skip/Got-it
+// status, and the section + grand totals -- everything on the page.
+function buildExportText(){
+  const NL = String.fromCharCode(10);
+  const out = ['GA Gold Trip -- My Buy List', ''];
+  GEAR_SECTIONS.forEach(sec => {
+    out.push('== ' + SECTION_TITLES[sec] + ' ==');
+    ITEMS.filter(it => it.section === sec).forEach(it => {
+      const c = cur(it), r = calc(it), o = it.opts[c.ch];
+      const split = (c.ch !== 'Custom' && c.ch !== 'Skip' && c.ch !== 'Own' && o) ? o.split : 1;
+      let line = `${it.label}: ${r.name} - ${money(o ? o.price : r.cost)}`;
+      if (split > 1) line += ` (your share ${money(r.cost)}, /${split})`;
+      out.push(line + ` [${itemStatus(c)}]`);
+    });
+    if (sec === 'overnight_personal' && LAST.sleep){
+      const sc = LAST.sleep;
+      ['bag','pad'].forEach(kind => {
+        const item = sleepItem(sc.rating, kind);
+        out.push(`Sleep ${kind} (${sc.rating}, ${sc.tier}): ${item.name} - ${money(item.price)} `
+          + `[${sc[kind==='bag'?'boughtBag':'boughtPad'] ? 'GOT IT' : 'to buy'}]`);
+      });
+    }
+    EXTRAS.forEach((e, idx) => {
+      if (e.layoutSection !== sec) return;
+      const ec = extraCur(idx), qty = e.qty||1, unit = e.unit_price||0, split = Math.max(1, e.split||1);
+      const lineTotal = qty*unit, shared = e.personal_or_shared === 'shared';
+      const share = shared ? roundShare(lineTotal, split) : unit;
+      let line = `${e.item}: ${money(lineTotal)}`;
+      if (shared) line += ` (your share ${money(share)}, /${split})`;
+      out.push(line + ` [${ec.skip ? 'SKIP' : (ec.bought ? 'GOT IT' : 'to buy')}]`);
+    });
+    const s = LAST.sectionTotals ? LAST.sectionTotals[sec] : null;
+    if (s) out.push(sectionLine(SECTION_TITLES[sec], s).replace(/<[^>]+>/g, ''));
+    out.push('');
+  });
+  [['consumables','Consumables'], ['food','Food']].forEach(([key, title]) => {
+    out.push('== ' + title + ' ==');
+    EXTRAS.forEach((e, idx) => {
+      if (e.layoutSection !== key) return;
+      const ec = extraCur(idx), qty = e.qty||1, unit = e.unit_price||0, split = Math.max(1, e.split||1);
+      const lineTotal = qty*unit, shared = e.personal_or_shared === 'shared';
+      const share = shared ? roundShare(lineTotal, split) : unit;
+      let line = `${e.item}: ${money(lineTotal)}`;
+      if (shared) line += ` (your share ${money(share)}, /${split})`;
+      out.push(line + ` [${ec.skip ? 'SKIP' : (ec.bought ? 'GOT IT' : 'to buy')}]`);
+    });
+    const tot = key === 'consumables' ? LAST.consumablesTotal : LAST.foodTotal;
+    if (tot) out.push(sectionLine(title, tot).replace(/<[^>]+>/g, ''));
+    out.push('');
+  });
+  out.push('== Totals ==');
+  out.push(`Gear total/person (sections 1-4): ${money(LAST.grand||0)}`);
+  out.push(`Consumables/person: ${money((LAST.consumablesTotal?LAST.consumablesTotal.personal+LAST.consumablesTotal.groupPerPerson:0))}`);
+  out.push(`Food/person: ${money((LAST.foodTotal?LAST.foodTotal.personal+LAST.foodTotal.groupPerPerson:0))}`);
+  out.push(`Trip total, everything, per person: ${money(LAST.tripTotal||0)}`);
+  return out.join(NL);
+}
 function copyList(){
-  const t = ITEMS.map(it => { const c = cur(it), r = calc(it);
-    return (c.bought?'[x] ':'[ ] ')+it.label+' - '+r.name+' - '+money(r.cost); }).join(String.fromCharCode(10));
-  navigator.clipboard.writeText(t).then(()=>alert('List copied'));
+  navigator.clipboard.writeText(buildExportText()).then(()=>alert('List copied')).catch(()=>alert('Copy failed -- try Download instead'));
+}
+function downloadList(){
+  const blob = new Blob([buildExportText()], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'ga-gold-trip-buy-list.txt';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
 render();
 """
@@ -260,7 +399,8 @@ picker_js = (PICKER_JS
     .replace("__TEMP_ORDER__", temp_order_json)
     .replace("__DEFAULT_TEMP__", default_temp_json)
     .replace("__EXTRAS__", extras_json)
-    .replace("__EXTRAS_SECTION_TITLES__", extras_section_titles_json))
+    .replace("__GEAR_SECTIONS__", GEAR_SECTIONS_JSON)
+    .replace("__SECTION_TITLES__", SECTION_TITLES_JSON))
 
 files = [
     ("Gear_Picker.xlsx", "Pick Budget/Value/Premium per row; Dashboard totals update live (open in Excel)"),
@@ -307,22 +447,28 @@ Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = ha
 
 <section id="rundown"><iframe src="RUNDOWN.html"></iframe></section>
 <section id="map"><iframe src="map/trip-map.html"></iframe></section>
-<section id="buy"><p>Click a box in a row to choose it (&#10003;): Budget, Value or Premium. Use the <b>Mine</b> box to type your own item, price and link, or click <b>Own</b> / <b>Skip</b>. Tick "Got it" when bought. Totals are your share (group gear is split). Your picks save in this browser only.</p>
+<section id="buy"><p>Click a box in a row to choose it (&#10003;): Budget, Value or Premium. Use the <b>Mine</b> box to type your own item, price and link, or click <b>Own</b> / <b>Skip</b> (clicking Own also ticks "Got it"; click Own again to go back). Tick "Got it" when bought. Every price cell shows the full price; shared rows also show your per-person share. Sections are grouped by where the gear is used. Your picks save in this browser only.</p>
 <p><button class="preset-btn" onclick="applyPreset('budget')">Budget set</button><button class="preset-btn" onclick="applyPreset('solid')">Solid set</button>
-<button onclick="resetAll()">Reset to defaults</button> <button onclick="copyList()">Copy my list</button></p>
+<button onclick="resetAll()">Reset to defaults</button>
+<b>Export my list:</b> <button onclick="copyList()">Copy</button> <button onclick="downloadList()">Download</button></p>
 <div id="totals" class="card"></div>
-<table id="picker"><tr><th>Got it</th><th>Item</th><th>Budget</th><th>Value</th><th>Premium</th><th>Mine (type your own)</th><th>Own</th><th>Skip</th></tr><tbody id="picks"></tbody></table>
+<table id="picker"><tr><th>Got it</th><th>Own</th><th>Skip</th><th>Item</th><th>Budget</th><th>Value</th><th>Premium</th><th>Mine (type your own)</th></tr><tbody id="picks"></tbody></table>
 
-<h3 class="sec-h">Sleep system &mdash; pick a temperature rating</h3>
+<h3 class="sec-h">Sleep system &mdash; pick a temperature rating (counts toward Overnight/backcountry: personal)</h3>
 <p>Only the highlighted temperature counts toward totals; the other two are shown greyed out as priced alternatives. The Budget/Solid tier follows the buttons above.</p>
 <table id="sleep-table"><tr><th>Item</th><th>40F</th><th>30F</th><th>20F</th><th>Got it</th></tr><tbody id="sleep-rows"></tbody></table>
 
-<h3 class="sec-h">A. Small items &amp; consumables</h3>
-<table><tr><th>Got it</th><th>Item</th><th>Personal/Shared</th><th>Price</th><th>Your share</th><th>Where</th><th></th></tr><tbody id="extras-A"></tbody></table>
-<h3 class="sec-h">B. Car-camp / base-camp group gear</h3>
-<table><tr><th>Got it</th><th>Item</th><th>Personal/Shared</th><th>Price</th><th>Your share</th><th>Where</th><th></th></tr><tbody id="extras-B"></tbody></table>
-<h3 class="sec-h">C. Food (backcountry rations + car-camp groceries)</h3>
-<table><tr><th>Got it</th><th>Item</th><th>Personal/Shared</th><th>Price</th><th>Your share</th><th>Where</th><th></th></tr><tbody id="extras-C"></tbody></table>
+<h3 class="sec-h">Consumables</h3>
+<p>Used-up items (sunscreen, TP, batteries, wipes, lighters and similar) &mdash; not part of the gear total above.</p>
+<div id="tally-consumables" class="card"></div>
+<table><tr><th>Got it</th><th>Item</th><th>Personal/Shared</th><th>Price</th><th>Your share</th><th>Where</th><th></th></tr><tbody id="extras-consumables"></tbody></table>
+
+<h3 class="sec-h">Food</h3>
+<p>Backcountry rations (6 people x 3 nights) and the base-camp grocery list &mdash; not part of the gear total above.</p>
+<div id="tally-food" class="card"></div>
+<table><tr><th>Got it</th><th>Item</th><th>Personal/Shared</th><th>Price</th><th>Your share</th><th>Where</th><th></th></tr><tbody id="extras-food"></tbody></table>
+
+<p><b>Export my list:</b> <button onclick="copyList()">Copy</button> <button onclick="downloadList()">Download</button></p>
 </section>
 
 <section id="files"><table><tr><th>File</th><th>What it is</th></tr>{file_rows}</table></section>

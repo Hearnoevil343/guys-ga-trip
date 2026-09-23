@@ -239,7 +239,7 @@ PICKER_ROWS = [
     # curve first time out," a real risk for 6 first-time backpackers pitching
     # in the field. Budget tier (REI Trail Hut 2) is freestanding, needs no
     # separate trekking poles, and has no pitch learning curve -- safer default.
-    ("Overnight Pack", "tent_shelter", "Tent/shelter (shared, split w/ tentmate)", "must", "Budget"),
+    ("Overnight Pack", "tent_shelter", "Tent/shelter (personal, 1-person tent, one per hiker)", "must", "Budget"),
     # Sleep bag+pad is now a mutually-exclusive TEMPERATURE choice (40F+ / 30F /
     # 20F) tracked in research/gear-tiers-sleep-temp.json and BUY_LIST.md's
     # "Sleep system -- temperature choice" table, not a plain tier pick here.

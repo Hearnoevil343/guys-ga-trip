@@ -234,17 +234,35 @@ PICKER_ROWS = [
     ("Worn", "light_gloves", "Light liner gloves (cold mornings)", "nice", "Value"),
     # Overnight pack
     ("Overnight Pack", "backpack", "Backpack, 40-60L", "must", "Value"),
-    ("Overnight Pack", "tent_shelter", "Tent/shelter (shared, split w/ tentmate)", "must", "Value"),
-    ("Overnight Pack", "sleep_system", "Sleeping bag/quilt (20F) -- backup/colder-margin option", "alt", "Skip"),
-    ("Overnight Pack", "sleep_system_30f", "Sleeping bag/quilt (30F) -- RECOMMENDED default, beginner-safe", "must", "Budget"),
-    ("Overnight Pack", "sleeping_pad", "Sleeping pad, insulated R>=4", "must", "Value"),
-    ("Overnight Pack", "pillow", "Pillow", "nice", "Value"),
+    # SWAPPED 2026-09-23 (Solid review): default was Value (Durston X-Mid 2) --
+    # its own sourced data flags a trekking-pole-only pitch with "a learning
+    # curve first time out," a real risk for 6 first-time backpackers pitching
+    # in the field. Budget tier (REI Trail Hut 2) is freestanding, needs no
+    # separate trekking poles, and has no pitch learning curve -- safer default.
+    ("Overnight Pack", "tent_shelter", "Tent/shelter (shared, split w/ tentmate)", "must", "Budget"),
+    # Sleep bag+pad is now a mutually-exclusive TEMPERATURE choice (40F+ / 30F /
+    # 20F) tracked in research/gear-tiers-sleep-temp.json and BUY_LIST.md's
+    # "Sleep system -- temperature choice" table, not a plain tier pick here.
+    # These three legacy rows are kept for weight/reference only and are Skipped
+    # by default so they don't double-count against the new system's totals.
+    ("Overnight Pack", "sleep_system", "Sleeping bag/quilt (20F) -- superseded by temperature choice, see BUY_LIST.md", "alt", "Skip"),
+    ("Overnight Pack", "sleep_system_30f", "Sleeping bag/quilt (30F) -- superseded by temperature choice, see BUY_LIST.md", "alt", "Skip"),
+    ("Overnight Pack", "sleeping_pad", "Sleeping pad -- superseded by temperature choice, see BUY_LIST.md", "alt", "Skip"),
+    # SWAPPED 2026-09-23 (Solid review): a $65 down-insulated pillow is an
+    # unnecessary nice-to-have splurge; the $20 DIY stuff-sack pillow works
+    # fine per its own oct_ga_fit note and reuses clothes already packed.
+    ("Overnight Pack", "pillow", "Pillow", "nice", "Budget"),
     ("Overnight Pack", "groundsheet", "Tent footprint / groundsheet", "nice", "Value"),
     ("Overnight Pack", "stuff_dry_sacks", "Dry sack (sleep system)", "must", "Value"),
     ("Overnight Pack", "pack_liner", "Pack liner (waterproof)", "must", "Value"),
     ("Overnight Pack", "rain_jacket", "Rain jacket", "must", "Value"),
     ("Overnight Pack", "insulated_puffy_jacket", "Insulated puffy jacket", "must", "Value"),
-    ("Overnight Pack", "fleece_midlayer", "Fleece / active midlayer", "must", "Value"),
+    # SWAPPED 2026-09-23 (Solid review): Value tier (Senchi Designs Alpha 90)
+    # is a cottage-made, batch-drop, UL-luxury piece -- exactly the "ultralight
+    # luxury" the review is meant to screen out. Budget tier (Decathlon MH100
+    # fleece, $25) is "perfectly adequate" per its own oct_ga_fit and widely
+    # available, not flimsy.
+    ("Overnight Pack", "fleece_midlayer", "Fleece / active midlayer", "must", "Budget"),
     ("Overnight Pack", "base_layer", "Base layer top+bottom (doubles as sleep layer)", "must", "Value"),
     ("Overnight Pack", "stove", "Stove (group/shared item)", "must", "Value"),
     ("Overnight Pack", "cook pot", "Cook pot (group/shared item)", "must", "Value"),
@@ -394,7 +412,15 @@ lines = [
     ("Weight targets", None),
     (None, "Base weight (Overnight Pack + Trail Creek Kit, no food/water): target 15-18 lb. "
            "Total pack weight leaving the trailhead = base weight + food (3.0 lb) + water (2.2 lb)."),
-    ("Sleep system note (added 2026-09-21)", None),
+    ("Sleep system note (updated 2026-09-23 -- now a temperature choice)", None),
+    (None, "The sleeping bag/quilt + pad is now a mutually exclusive TEMPERATURE choice -- 40F+, 30F, or 20F -- "
+           "each with its own Budget and Solid bag+pad pair, sourced in research\\gear-tiers-sleep-temp.json. "
+           "Only ONE band counts toward the trip totals; see the 'Sleep system -- temperature choice' table near "
+           "the top of BUY_LIST.md for all three bands' prices side by side (the other two are priced alternatives, "
+           "not added in). DEFAULT = 30F. Pad R-value floor per band: 40F+ needs R2-3, 30F needs R3-4, 20F needs "
+           "R4.5+ -- the Budget pick in each band is the cheapest bag/pad that still clears that band's own floor, "
+           "never the cheapest bag/pad overall. The three legacy Picker rows for sleep_system/sleep_system_30f/"
+           "sleeping_pad are kept Skipped for reference weight only and no longer drive the buy list."),
     (None, "Vogel SP Oct 15-21 lows, 2020-2025, averaged 39-48F; the coldest single night was 29F (Oct 2022). "
            "NOAA's Oct-Dec 2026 outlook favors a warmer, wetter season (strong El Nino). A 30F-rated bag/quilt "
            "plus a puffy and base layer covers this comfortably for most people, and rain protection matters more "

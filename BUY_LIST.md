@@ -8,10 +8,23 @@ within each set -- order the top rows in each table now.
 
 | Set | Personal total | Group total (whole group) | Group per-person share | Grand total per person |
 |---|---|---|---|---|
-| **Solid** | $1,990.37 | $931.79 | $268.97 | $2,259.34 |
-| **Budget** | $1,086.03 | $646.84 | $198.48 | $1,284.51 |
+| **Solid** | $1,874.47 | $871.79 | $238.97 | $2,113.44 |
+| **Budget** | $1,136.03 | $681.80 | $204.31 | $1,340.34 |
 
 Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kept at Value tier because the cheapest tier is flagged unsafe/unreliable in its own sourced verdict): hiking footwear (thrifted $0 mesh trail runner is a cold-water-wading beginner-caution pick -> Merrell Moab 3 $75), bear-proof food storage (DIY bear-hang, beginner_score 2 -> Ursack Major XL), first aid kit (DIY kit, beginner_score 2, 'riskiest tier for a first-time group' -> AMK Ultralight .7), and blaze-orange vest (its own Value tier at $8.50 is actually cheaper than its Budget tier at $16.96 for equal compliance -- picked the cheaper-and-safe option).
+
+## Sleep system -- temperature choice (mutually exclusive)
+
+Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Default = **30F** (the user expects lows around 30F) -- that row's bag+pad price is already counted in the Solid/Budget totals above. The 40F+ and 20F rows below are shown as priced alternatives only and are NOT added to any total. Pad R-value floor per band: 40F+ needs R2-3, 30F needs R3-4, 20F needs R4.5+. Budget never drops below its band's floor -- the cheapest bag/pad that still clears that band's rating is used, not the cheapest bag/pad overall.
+
+| Temperature | Set | Bag | Bag price | Pad | Pad price | Combo total | Counted in totals? |
+|---|---|---|---|---|---|---|---|
+| 40F | Budget | [Kelty Mistral 40 Sleeping Bag](https://www.rei.com/product/199747/kelty-mistral-40-sleeping-bag) (40F synthetic mummy bag, 2.78 lb) | $59.95 | [Therm-a-Rest Ridgerest Classic Sleeping Pad](https://www.rei.com/product/217086/therm-a-rest-ridgerest-classic-sleeping-pad) (R-value 2.0, closed-cell foam) | $34.95 | $94.90 | no (alternative) |
+| 40F | Solid | [Kelty Cosmic Synthetic 40 Sleeping Bag](https://www.rei.com/product/199972/kelty-cosmic-synthetic-40-sleeping-bag) (40F synthetic mummy bag, 2.36 lb) | $89.95 | [Therm-a-Rest Z Lite Sol Sleeping Pad](https://www.rei.com/product/171690/therm-a-rest-z-lite-sol-sleeping-pad) (R-value 2.0, reflective foil top) | $59.95 | $149.90 | no (alternative) |
+| 30F | Budget | [Marmot Trestles 30](https://www.rei.com/product/107474/marmot-trestles-30-sleeping-bag-mens) (30F synthetic mummy bag, 52 oz) | $99.95 | [Klymit Insulated Static V Peak](https://klymit.com/products/insulated-static-v-peak-sleeping-pads) (R-value 4.4) | $99.95 | $199.90 | YES -- Budget |
+| 30F | Solid | [REI Co-op Trailmade 25 Sleeping Bag](https://www.rei.com/product/C03116/rei-co-op-trailmade-25-sleeping-bag) (25F synthetic mummy bag w/ hood+zipper, ~2.8-3.5 lb) | $119.00 | [NEMO Tensor All-Season Ultralight Insulated](https://www.rei.com/product/228436/nemo-tensor-all-season-ultralight-insulated-sleeping-pad) (R-value 5.4) | $199.95 | $318.95 | YES -- Solid |
+| 20F | Budget | [Marmot Trestles Elite Eco 20](https://www.rei.com/product/245787/marmot-trestles-elite-eco-20-sleeping-bag) (20F synthetic mummy bag, 53 oz) | $179.00 | [NEMO Tensor All-Season Ultralight Insulated](https://www.rei.com/product/228436/nemo-tensor-all-season-ultralight-insulated-sleeping-pad) (R-value 5.4) | $199.95 | $378.95 | no (alternative) |
+| 20F | Solid | [REI Co-op Radiant 20 Sleeping Bag](https://www.rei.com/product/245179/rei-co-op-radiant-20-sleeping-bag) (19F down/synthetic-blend mummy bag w/ hood+zipper, ~2.3-3 lb) | $199.00 | [NEMO Tensor Extreme Conditions](https://www.nemoequipment.com/products/tensor-extreme-ultralight-sleeping-pad) (R-value 8.5) | $259.95 | $458.95 | no (alternative) |
 
 ## Solid picks
 
@@ -33,15 +46,14 @@ Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kep
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Backpack, 40-60L | must | Value | REI Co-op Flash 55 | $229.00 | REI | [buy](https://www.rei.com/product/236975/rei-co-op-flash-55-pack-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Base layer top+bottom (doubles as sleep layer) | must | Value | Smartwool Classic Thermal Merino Base Layer (top + bottom) | $95.00 | REI, Smartwool.com, Backcountry | [buy](https://www.rei.com/product/174769/smartwool-classic-thermal-merino-crew-base-layer-top-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Dry sack (sleep system) | must | Value | Sea to Summit Ultra-Sil Dry Bag - Set of 3 | $69.95 | REI, Sea to Summit, Walmart, Backcountry | [buy](https://www.rei.com/product/218733/sea-to-summit-ultra-sil-dry-bag-set-of-3) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fleece / active midlayer | must | Value | Senchi Designs Alpha 90 Half-Zip Hoodie | $115.00 | SenchiDesigns.com (made to order, batch drops) | [buy](https://senchidesigns.com/products/a90-half-zip-hoodie) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fleece / active midlayer | must | Budget | Decathlon (Quechua) MH100 Fleece | $25.00 | Decathlon.com, thrift stores | [buy](https://www.decathlon.com/products/mens-hiking-fleece-mh100-312361) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Headlamp | must | Value | Black Diamond Spot 400 | $59.95 | REI, Black Diamond direct, Amazon, Backcountry | [buy](https://blackdiamondequipment.com/products/spot-400-headlamp) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Insulated puffy jacket | must | Value | Patagonia Nano Puff Jacket | $239.00 | Patagonia.com (sales), REI, Worn Wear (used) | [buy](https://www.patagonia.com/product/mens-nano-puff-insulated-jacket/84212.html) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Knife / multitool | must | Value | Leatherman Wingman | $49.95 | Leatherman direct, REI, Amazon, Walmart | [buy](https://www.leatherman.com/products/wingman) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Pillow | nice | Value | Sea to Summit Aeros Down Pillow (Regular) | $64.95 | REI, Sea to Summit, Backcountry | [buy](https://seatosummit.com/products/aeros-down-pillow) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Power bank | nice | Value | Nitecore NB10000 Gen 3 | $64.95 | Nitecore direct, Amazon, REI | [buy](https://www.amazon.com/NITECORE-NB10000-GEN3-Portable-Charger/dp/B0H85CT2GM) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Rain jacket | must | Value | REI Co-op Rainier Rain Jacket | $100.00 | REI | [buy](https://www.rei.com/product/127336/rei-co-op-rainier-rain-jacket-mens) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping bag/quilt (30F) -- RECOMMENDED default, beginner-safe | must | Budget | Marmot Trestles 30 | $99.95 | REI, Marmot.com | [buy](https://www.rei.com/product/107474/marmot-trestles-30-sleeping-bag-mens) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping pad, insulated R>=4 | must | Value | NEMO Tensor All-Season Ultralight Insulated | $199.95 | REI, NEMO Equipment, Backcountry | [buy](https://www.rei.com/product/228436/nemo-tensor-all-season-ultralight-insulated-sleeping-pad) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping bag/quilt -- 30F rating (SELECTED) | must | 30F Solid | REI Co-op Trailmade 25 Sleeping Bag (25F synthetic mummy bag w/ hood+zipper, ~2.8-3.5 lb) | $119.00 | REI | [buy](https://www.rei.com/product/C03116/rei-co-op-trailmade-25-sleeping-bag) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping pad, insulated -- 30F rating (SELECTED) | must | 30F Solid | NEMO Tensor All-Season Ultralight Insulated (R-value 5.4) | $199.95 | REI, NEMO Equipment, Backcountry | [buy](https://www.rei.com/product/228436/nemo-tensor-all-season-ultralight-insulated-sleeping-pad) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Spork / utensil | must | Value | Sea to Summit Frontier Ultralight Spoon - Long Handle | $10.95 | REI, Amazon, Sea to Summit direct | [buy](https://seatosummit.com/products/alpha-light-utensil-long-spoon) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Trowel + hygiene kit | must | Value | GSI Outdoors Cathole Trowel | $7.95 | REI, GSI direct, Amazon | [buy](https://gsioutdoors.com/products/cathole-trowel) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water bottle | must | Value | HydraPak Stow 1L collapsible bottle | $18.00 | REI, HydraPak direct, Amazon | [buy](https://www.hydrapak.com/products/stow-1-l-2021) |
@@ -54,12 +66,12 @@ Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kep
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Hiking socks, per pair (bring 3) | must | Value | Darn Tough Hiker Micro Crew Midweight with Cushion | $25.95 | REI, Darn Tough, Amazon | [buy](https://www.rei.com/product/825037/darn-tough-hiker-micro-crew-cushion-socks-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Light liner gloves (cold mornings) | nice | Value | Outdoor Research PL 400 Gloves | $29.00 | REI, OutdoorResearch.com | [buy](https://www.rei.com/product/871650/outdoor-research-pl-400-sensor-gloves-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Warm hat / beanie | must | Value | FarPointe Outdoor Gear Alpha Drifter Beanie | $28.00 | FarPointeOutdoor.com | [buy](https://www.farpointeog.com/stock/p/alpha-caps) |
+| 1-2 days -- DIY, buy material locally (hardware/craft store) | Pillow | nice | Budget | DIY Stuff sack filled with spare clothes (or generic inflatable pillow) | $20.00 | Already-owned gear | [buy](https://www.amazon.com/dp/B0896WCB5D) |
 
 ### Group / shared gear (one purchase for the group -- split shown per item)
 
 | Order first? | Item | Required? | Tier | Pick | Group total | Split | Per-person share | Where | Link |
 |---|---|---|---|---|---|---|---|---|---|
-| 2-4 weeks -- cottage-made, order first | Tent/shelter (shared, split w/ tentmate) | must | Value | Durston Gear X-Mid 2 (mesh inner) | $319.00 | /2 | $159.50 | Durston Gear (direct) | [buy](https://durstongear.com/products/x-mid-2-tent-ultralight-backpacking) |
 | 3-7 days -- Amazon/generic | Classifier (base camp; share one on the trail) | must | Value | Generic/ASR Stackable Classifier Set (1/2", 1/4", 1/8") | $45.00 | /6 | $7.50 | High Plains Prospectors, Amazon | [buy](https://www.walmart.com/ip/ASR-Outdoor-Gold-Panning-Classifier-Set-Mesh-Soil-Sifter-Coarse-Combo-1-2-1-4-1-8-Inch-Mesh/585755027) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Bear-proof food storage (group/shared item) | must | Value | Ursack Major XL (with OPSak liner) | $149.95 | /6 | $24.99 | Ursack direct, REI, Amazon | [buy](https://ursack.com/products/ursack-major-xl-opsak) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Cook pot (group/shared item) | must | Value | TOAKS 750ml Titanium Pot with Bail Handle (POT-750-BH) | $30.00 | /6 | $5.00 | Amazon, Walmart, REI, Toaks direct | [buy](https://www.toaksoutdoor.com/products/pot-750-bh) |
@@ -67,6 +79,7 @@ Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kep
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fuel canister (group/shared item) | must | Value | MSR IsoPro 8oz/227g canister | $6.95 | /6 | $1.16 | REI, MSR direct, Amazon | [buy](https://www.rei.com/product/651555/msr-isopro-fuel-canister-8-oz-227-g) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Satellite messenger (group/shared item) | must | Value | ZOLEO Satellite Communicator | $199.00 | /6 | $33.17 | ZOLEO direct, REI, Amazon | [buy](https://www.zoleo.com/en-us/product/zoleo-global-satellite-communicator) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Stove (group/shared item) | must | Value | Soto WindMaster (4Flex) | $69.95 | /6 | $11.66 | REI, Amazon, Moosejaw | [buy](https://www.rei.com/product/177954/soto-windmaster-stove-with-4flex-pot-support) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Tent/shelter (shared, split w/ tentmate) | must | Budget | REI Co-op Trail Hut 2 | $259.00 | /2 | $129.50 | REI | [buy](https://www.rei.com/product/C03309/rei-co-op-trail-hut-2-tent-with-footprint) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water filter (group/shared item) | must | Value | Katadyn BeFree 1.0L | $44.95 | /6 | $7.49 | REI, Katadyn direct, Backcountry | [buy](https://www.rei.com/product/116364/katadyn-befree-10-l-water-filter-bottle-338-fl-oz) |
 | 1-2 days -- DIY, buy material locally (hardware/craft store) | Tent footprint / groundsheet | nice | Value | DIY Tyvek HomeWrap sheet | $22.00 | /2 | $11.00 | Home Depot/Lowe's (buy a remnant/roll of house-wrap), eBay pre-cut Tyvek groundsheets with grommets | [buy](https://www.amazon.com/dp/B0CWDQDS32) |
 
@@ -96,9 +109,9 @@ Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kep
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Insulated puffy jacket | must | Budget | Decathlon (Forclaz) MT100 Down Jacket | $45.00 | Decathlon.com, Amazon | [buy](https://slickdeals.net/f/17521533-decathlon-forclaz-mt100-hooded-down-puffer-jacket-40) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Knife / multitool | must | Budget | Opinel No.8 Carbon/Stainless folding knife | $22.00 | Opinel direct, REI, Amazon | [buy](https://www.rei.com/product/884528/opinel-no-8-beechwood-handle-knife) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Power bank | nice | Budget | Anker Power Bank, 10,000mAh Portable Charger (PowerIQ, USB-C) | $21.99 | Anker direct, Amazon, Target | [buy](https://www.amazon.com/Anker-Portable-Charger-PowerIQ-Battery/dp/B0D5CLSMFB) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Rain jacket | must | Budget | Frogg Toggs Ultra-Lite2 | $20.00 | Froggtoggs.com, Walmart, Amazon | [buy](https://www.froggtoggs.com/products/the-frogg-toggsr-ultra-lite2tm-4749) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping bag/quilt (30F) -- RECOMMENDED default, beginner-safe | must | Budget | Marmot Trestles 30 | $99.95 | REI, Marmot.com | [buy](https://www.rei.com/product/107474/marmot-trestles-30-sleeping-bag-mens) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping pad, insulated R>=4 | must | Budget | Klymit Insulated Static V Peak | $99.95 | Klymit.com, REI, Amazon | [buy](https://klymit.com/products/insulated-static-v-peak-sleeping-pads) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Rain jacket | must | Budget | Columbia Watertight II Rain Jacket (Men's) | $70.00 | Columbia.com, REI, Amazon, Dick's Sporting Goods | [buy](https://www.columbia.com/p/mens-watertight-ii-jacket-1533891.html) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping bag/quilt -- 30F rating (SELECTED) | must | 30F Budget | Marmot Trestles 30 (30F synthetic mummy bag, 52 oz) | $99.95 | REI, Marmot.com | [buy](https://www.rei.com/product/107474/marmot-trestles-30-sleeping-bag-mens) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping pad, insulated -- 30F rating (SELECTED) | must | 30F Budget | Klymit Insulated Static V Peak (R-value 4.4) | $99.95 | Klymit.com, REI, Amazon | [buy](https://klymit.com/products/insulated-static-v-peak-sleeping-pads) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Spork / utensil | must | Budget | TOAKS Titanium Spork | $9.95 | Amazon | [buy](https://www.rei.com/product/139476/toaks-titanium-spork) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Trowel + hygiene kit | must | Budget | Coghlan's Backpackers Trowel + basic hygiene bag | $8.75 | Walmart, Amazon, REI | [buy](https://www.walmart.com/ip/Coghlan-S-Backpackers-Trowel/23233743) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water bottle | must | Budget | Smartwater 1L reused disposable bottle | $2.00 | any gas station/grocery | [buy](https://www.walmart.com/ip/smartwater-vapor-distilled-premium-water-1-liter-bottle/14944716) |
@@ -119,7 +132,7 @@ Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kep
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | First aid kit (group/shared item, overnight-size) | must | Value | Adventure Medical Kits Ultralight/Watertight .7 | $44.99 | /6 | $7.50 | REI, AMK direct, Amazon, Backcountry | [buy](https://adventuremedicalkits.com/products/ultralight-watertight-medical-kit-7) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fuel canister (group/shared item) | must | Budget | Coleman Butane/Propane Mix Fuel, 7.75oz (220g) | $5.97 | /6 | $0.99 | Walmart, Amazon, Target | [buy](https://www.walmart.com/ip/Coleman-Butane-Propane-Mix-Fuel-7-75oz/20595064) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Satellite messenger (group/shared item) | must | Budget | Garmin inReach Mini 2 (weekly rental) | $100.00 | /6 | $16.67 | Outfitter Satellite, REI rental (select stores) | [buy](https://www.outfittersatellite.com/pages/garmin-inreach-mini-2-rentals) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Stove (group/shared item) | must | Budget | BRS BRS-3000T | $14.99 | /6 | $2.50 | Amazon, Walmart, AliExpress | [buy](https://www.walmart.com/ip/911283406) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Stove (group/shared item) | must | Budget | Soto Amicus Stove Cookset Combo | $49.95 | /6 | $8.33 | REI, Amazon, Soto direct | [buy](https://www.rei.com/product/149091/soto-amicus-stove-cookset-combo) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Tent/shelter (shared, split w/ tentmate) | must | Budget | REI Co-op Trail Hut 2 | $259.00 | /2 | $129.50 | REI | [buy](https://www.rei.com/product/C03309/rei-co-op-trail-hut-2-tent-with-footprint) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water filter (group/shared item) | must | Budget | Sawyer Squeeze (SP2129) | $45.95 | /6 | $7.66 | REI, Amazon, Walmart, Sawyer direct | [buy](https://www.rei.com/product/103050/sawyer-squeeze-water-filter-system) |
 | 1-2 days -- DIY, buy material locally (hardware/craft store) | Tent footprint / groundsheet | nice | Budget | DIY Polycryo window-shrink-film sheet | $13.00 | /2 | $6.50 | Gossamer Gear (pre-cut), Hardware store window-shrink-film kits (DIY cut) | [buy](https://www.gossamergear.com/products/polycryo-tent-footprint-ground-cloths) |
@@ -235,7 +248,7 @@ Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kep
 
 | Set | Personal total/person | Group total (whole group) | Group per-person share | Grand total per person |
 |---|---|---|---|---|
-| **Solid** | $2,145.25 | $1,918.99 | $445.84 | $2,591.09 |
-| **Budget** | $1,240.91 | $1,634.04 | $375.35 | $1,616.26 |
+| **Solid** | $2,029.35 | $1,858.99 | $415.84 | $2,445.19 |
+| **Budget** | $1,290.91 | $1,669.00 | $381.18 | $1,672.09 |
 
 Sections A-C (small items/consumables, car-camp group gear, food) carry one recommended pick per item, not budget/value/premium tiers, so they are the same dollar amount in both sets above.

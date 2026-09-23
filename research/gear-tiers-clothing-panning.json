@@ -29,10 +29,10 @@
       "tread may be worn/slick on wet rock",
       "no guarantee of fit"
     ],
-    "oct_ga_fit": "Fine for warm-ish days (50s-60s) with wool socks; cold nights mean you must have a fully dry pair to change into",
-    "beginner_score": 3,
+    "oct_ga_fit": "BEGINNER CAUTION: fine for warm-ish days (50s-60s) with wool socks, but repeated wading in low-30s/40s creek water in non-insulated mesh trail runners risks cold feet/mild hypothermia for someone inexperienced with cold-water wading; a beginner should plan on wading boots/neoprene socks or accept wet feet only briefly and dry out fast near a fire, not as an all-day creek-panning shoe",
+    "beginner_score": 2,
     "shared_split": "no",
-    "notes": "Only use if already broken in — do not wear brand-new unbroken shoes on the trip"
+    "notes": "Only use if already broken in — do not wear brand-new unbroken shoes on the trip. Not the recommended default for beginners on this trip; pair with the neoprene wading sock / water shoe options below for cold creek work"
   },
   {
     "category": "hiking_footwear",
@@ -115,7 +115,7 @@
     "weight_oz": 2.5,
     "weight_note": "per pair, typical crew weight",
     "price_usd": 18,
-    "price_url": "https://www.rei.com/b/darn-tough/c/hiking-socks",
+    "price_url": "https://www.rei.com/product/165398/rei-co-op-merino-wool-lightweight-hiking-crew-socks",
     "used_price_range": "n/a, buy new (socks)",
     "where_to_buy": [
       "REI",
@@ -181,8 +181,8 @@
     "model": "Waterproof All Weather Mid Length Sock",
     "weight_oz": 3.2,
     "weight_note": "per pair, waterproof membrane sock",
-    "price_usd": 50,
-    "price_url": "https://www.rei.com/b/darn-tough/c/hiking-socks",
+    "price_usd": 55,
+    "price_url": "https://www.sealskinzusa.com/products/waterproof-all-weather-mid-length-sock",
     "used_price_range": "$25-35 used on eBay",
     "where_to_buy": [
       "REI",
@@ -285,7 +285,7 @@
     "weight_oz": 6.4,
     "weight_note": "per OR spec, men's",
     "price_usd": 199,
-    "price_url": "https://www.treelinereview.com/gearreviews/best-lightweight-rain-jackets",
+    "price_url": "https://www.rei.com/product/166198/outdoor-research-helium-rain-jacket-mens",
     "used_price_range": "$90-130 used on GearTrade",
     "where_to_buy": [
       "OutdoorResearch.com",
@@ -388,8 +388,8 @@
     "model": "Torrid APEX Jacket",
     "weight_oz": 8.9,
     "weight_note": "per Adventure Alan review, synthetic APEX fill",
-    "price_usd": 200,
-    "price_url": "https://www.adventurealan.com/enlightened-equipment-torrid-apex-jacket-review/",
+    "price_usd": 170,
+    "price_url": "https://enlightenedequipment.com/mens-torrid-jacket/",
     "used_price_range": "$100-140 on r/UltralightExchange (cottage gear resells fast, prices firm)",
     "where_to_buy": [
       "EnlightenedEquipment.com (made to order)"
@@ -422,8 +422,8 @@
     "model": "MH100 Fleece",
     "weight_oz": 12,
     "weight_note": "typical 100-weight fleece pullover",
-    "price_usd": 20,
-    "price_url": "https://www.skyestoury.com/blog/fleece-mid-layers-hiking-backpacking",
+    "price_usd": 25,
+    "price_url": "https://www.decathlon.com/products/mens-hiking-fleece-mh100-312361",
     "used_price_range": "$8-12 used/thrift",
     "where_to_buy": [
       "Decathlon.com",
@@ -523,8 +523,8 @@
     "model": "Men's/Women's Long Sleeve Base Layer Set",
     "weight_oz": 8,
     "weight_note": "top+bottom combined, lightweight merino blend",
-    "price_usd": 55,
-    "price_url": "https://mydroneauthority.com/best-merino-wool-base-layers/",
+    "price_usd": 100,
+    "price_url": "https://merino.tech/products/men-250-base-layer-set-wool-clothing",
     "used_price_range": "$25-35 used",
     "where_to_buy": [
       "Amazon",
@@ -592,8 +592,8 @@
     "model": "200 Oasis (top + bottom)",
     "weight_oz": 11,
     "weight_note": "200gsm merino jersey, combined top+bottom",
-    "price_usd": 190,
-    "price_url": "https://bettertrail.com/outdoor-gear/best-base-layers",
+    "price_usd": 235,
+    "price_url": "https://www.rei.com/product/139520/icebreaker-200-oasis-half-zip-base-layer-top-mens",
     "used_price_range": "$80-120 used",
     "where_to_buy": [
       "Icebreaker.com",
@@ -627,8 +627,8 @@
     "model": "Trailmade Pants",
     "weight_oz": 11,
     "weight_note": "per REI product listing",
-    "price_usd": 60,
-    "price_url": "https://www.rei.com/learn/expert-advice/best-hiking-pants.html",
+    "price_usd": 80,
+    "price_url": "https://www.rei.com/product/236137/rei-co-op-trailmade-pants-mens",
     "used_price_range": "$25-35 on REI Re/Gear",
     "where_to_buy": [
       "REI"
@@ -692,11 +692,11 @@
     "role": "Hiking pants (worn, quick-dry, no cotton)",
     "tier": "premium",
     "brand": "prAna",
-    "model": "Stretch Zion Cargo Pants",
+    "model": "Stretch Zion Straight Pants (cargo version discontinued, replaced by current lineup)",
     "weight_oz": 14,
     "weight_note": "per prAna spec, recycled nylon",
-    "price_usd": 110,
-    "price_url": "https://www.rei.com/b/prana/c/mens-hiking-pants",
+    "price_usd": 98,
+    "price_url": "https://www.rei.com/product/134025/prana-stretch-zion-straight-pants-mens",
     "used_price_range": "$50-70 used on Poshmark/eBay",
     "where_to_buy": [
       "REI",
@@ -729,7 +729,7 @@
     "weight_oz": 2,
     "weight_note": "typical knit beanie",
     "price_usd": 10,
-    "price_url": "https://www.iheartpacificnorthwest.com/blog_post/hats-gloves-and-neck-gaiters-for-hiking/",
+    "price_url": "https://www.amazon.com/Wmcaps-Winter-Beanie-Hats-for-Men-Women-Fleece-Lined-Beanie-Soft-Warm-Knit-Hat-Ski-Stocking-Cuffed-Cap/dp/B0BBZZZH84",
     "used_price_range": "$2-5 thrift",
     "where_to_buy": [
       "Walmart",
@@ -794,7 +794,7 @@
     "weight_oz": 2.1,
     "weight_note": "per Smartwool spec",
     "price_usd": 35,
-    "price_url": "https://www.iheartpacificnorthwest.com/blog_post/hats-gloves-and-neck-gaiters-for-hiking/",
+    "price_url": "https://www.rei.com/product/217179/smartwool-merino-250-reversible-pattern-cuffed-beanie",
     "used_price_range": "$15-20 used",
     "where_to_buy": [
       "REI",
@@ -825,7 +825,7 @@
     "weight_oz": 2,
     "weight_note": "typical knit glove pair",
     "price_usd": 9,
-    "price_url": "https://www.iheartpacificnorthwest.com/blog_post/hats-gloves-and-neck-gaiters-for-hiking/",
+    "price_url": "https://www.walmart.com/ip/2844295050",
     "used_price_range": "$2-4 thrift",
     "where_to_buy": [
       "Walmart",
@@ -888,7 +888,7 @@
     "weight_oz": 1.5,
     "weight_note": "per community reporting on brushtail possum/merino gloves",
     "price_usd": 40,
-    "price_url": "https://www.iheartpacificnorthwest.com/blog_post/hats-gloves-and-neck-gaiters-for-hiking/",
+    "price_url": "https://opossumworld.com/collections/mens-gloves/possum-merino",
     "used_price_range": "$20-25 used",
     "where_to_buy": [
       "specialty outdoor retailers, limited US stock"
@@ -1073,11 +1073,11 @@
     "role": "Camp shoes (post-panning, around camp)",
     "tier": "premium",
     "brand": "Bedrock Sandals",
-    "model": "Cairn Adventure Sandals",
+    "model": "Cairn Evo Adventure Sandals (current lineup; original Cairn Adventure Sandal discontinued)",
     "weight_oz": 11,
     "weight_note": "per Bedrock Sandals spec, per pair",
     "price_usd": 115,
-    "price_url": "https://www.adventurealan.com/ultralight-sandals-backpacking/",
+    "price_url": "https://bedrocksandals.com/products/cairn-evo",
     "used_price_range": "$50-70 used on GearTrade",
     "where_to_buy": [
       "BedrockSandals.com"
@@ -1368,8 +1368,8 @@
     "model": "Tributary Stockingfoot Waders",
     "weight_oz": 38,
     "weight_note": "per Simms spec, breathable stockingfoot chest wader",
-    "price_usd": 180,
-    "price_url": "https://www.rei.com/learn/expert-advice/best-hiking-pants.html",
+    "price_usd": 300,
+    "price_url": "https://fishwest.com/products/simms-tributary-stockingfoot-waders-mens",
     "used_price_range": "$80-110 used on eBay",
     "where_to_buy": [
       "REI",
@@ -1435,7 +1435,7 @@
     "weight_oz": 8,
     "weight_note": "per pair",
     "price_usd": 16,
-    "price_url": "https://www.goldprospectors.org/Forum/aft/9275",
+    "price_url": "https://www.amazon.com/NoCry-Home-Gardening-Knee-Pads/dp/B06XJ2BFW7",
     "used_price_range": "$6-10 used",
     "where_to_buy": [
       "Amazon",
@@ -1656,8 +1656,8 @@
     ],
     "oct_ga_fit": "Strong fit given Georgia's reputation for fine gold — worth it for the group's shared base-camp cleanup station",
     "beginner_score": 4,
-    "shared_split": "optional-group",
-    "notes": "Could be one shared set at the base-camp pan-out station rather than one per person"
+    "shared_split": 6,
+    "notes": "One shared set at the base-camp pan-out station, split 6 ways, rather than one per person"
   },
   {
     "category": "classifier",
@@ -1977,8 +1977,8 @@
     "model": "10x Plastic Keychain Loupe",
     "weight_oz": 1,
     "weight_note": "typical keychain loupe",
-    "price_usd": 6,
-    "price_url": "https://ukgoldprospector.co.uk/news/best-equipment-gold-prospecting-uk.html",
+    "price_usd": 19,
+    "price_url": "https://www.amazon.com/Magnifier-Portable-Keychain-Diamonds-Antiques/dp/B09B1ZBY47",
     "used_price_range": "n/a, cheap enough to buy new",
     "where_to_buy": [
       "Amazon"
@@ -2037,8 +2037,8 @@
     "model": "10x Triplet Achromatic Loupe",
     "weight_oz": 2,
     "weight_note": "typical premium triplet loupe",
-    "price_usd": 28,
-    "price_url": "https://ukgoldprospector.co.uk/news/best-equipment-gold-prospecting-uk.html",
+    "price_usd": 20,
+    "price_url": "https://cooltools.us/products/loupe-triplet-10x",
     "used_price_range": "$12-18 used",
     "where_to_buy": [
       "Amazon",
@@ -2068,8 +2068,8 @@
     "model": "Folding Garden Trowel",
     "weight_oz": 6,
     "weight_note": "typical small garden trowel",
-    "price_usd": 7,
-    "price_url": "https://www.walmart.com/ip/613426092",
+    "price_usd": 9,
+    "price_url": "https://www.walmart.com/ip/Fiskars-Indoor-and-More-Garden-Trowel-Soil-Scoop-Black/5371466767",
     "used_price_range": "n/a, cheap enough to buy new",
     "where_to_buy": [
       "Walmart",
@@ -2100,7 +2100,7 @@
     "model": "The Deuce of Spades UL Trowel",
     "weight_oz": 0.6,
     "weight_note": "per TheTentLab spec, titanium",
-    "price_usd": 22.5,
+    "price_usd": 20.95,
     "price_url": "https://www.thetentlab.com/Deuce/DeuceofSpadespage.html",
     "used_price_range": "$12-16 used on r/UltralightExchange",
     "where_to_buy": [

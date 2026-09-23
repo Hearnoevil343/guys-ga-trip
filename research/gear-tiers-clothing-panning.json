@@ -114,7 +114,7 @@
         "model": "Merino Wool Lightweight Hiking Crew (3-pack budget alt)",
         "weight_oz": 2.5,
         "weight_note": "per pair, typical crew weight",
-        "price_usd": 18,
+        "price_usd": 8.83,
         "price_url": "https://www.rei.com/product/165398/rei-co-op-merino-wool-lightweight-hiking-crew-socks",
         "used_price_range": "n/a, buy new (socks)",
         "where_to_buy": [
@@ -251,8 +251,8 @@
         "model": "Rainier Rain Jacket",
         "weight_oz": 12.5,
         "weight_note": "approx per REI listing, men's",
-        "price_usd": 100,
-        "price_url": "https://www.rei.com/product/127336/rei-co-op-rainier-rain-jacket-mens",
+        "price_usd": 99.95,
+        "price_url": "https://www.rei.com/product/227570/rei-co-op-rainier-rain-jacket-mens",
         "used_price_range": "$40-60 on REI Re/Gear",
         "where_to_buy": [
             "REI"
@@ -274,7 +274,7 @@
         "oct_ga_fit": "Good balance of durability and price for a week of mixed hiking/creek work",
         "beginner_score": 4,
         "shared_split": "no",
-        "notes": ""
+        "notes": "Old listing (#127336) is discontinued; replacement is the current-generation Rainier Rain Jacket (#227570), same name/role/price point (product #127336 no longer sold)."
     },
     {
         "category": "rain_jacket",
@@ -353,7 +353,7 @@
         "model": "Nano Puff Jacket",
         "weight_oz": 11.6,
         "weight_note": "per Patagonia spec, men's, synthetic PrimaLoft fill",
-        "price_usd": 239,
+        "price_usd": 118.99,
         "price_url": "https://www.patagonia.com/product/mens-nano-puff-insulated-jacket/84212.html",
         "used_price_range": "$90-140 used/Patagonia Worn Wear, often $115-145 on sale per Slickdeals",
         "where_to_buy": [
@@ -557,7 +557,7 @@
         "model": "Classic Thermal Merino Base Layer (top + bottom)",
         "weight_oz": 10,
         "weight_note": "combined top+bottom, midweight merino",
-        "price_usd": 95,
+        "price_usd": 125,
         "price_url": "https://www.rei.com/product/174769/smartwool-classic-thermal-merino-crew-base-layer-top-mens",
         "used_price_range": "$40-60 used on Smartwool/eBay",
         "where_to_buy": [
@@ -728,7 +728,7 @@
         "model": "Fleece-lined knit beanie",
         "weight_oz": 2,
         "weight_note": "typical knit beanie",
-        "price_usd": 10,
+        "price_usd": 14.99,
         "price_url": "https://www.amazon.com/Wmcaps-Winter-Beanie-Hats-for-Men-Women-Fleece-Lined-Beanie-Soft-Warm-Knit-Hat-Ski-Stocking-Cuffed-Cap/dp/B0BBZZZH84",
         "used_price_range": "$2-5 thrift",
         "where_to_buy": [
@@ -856,8 +856,8 @@
         "model": "PL 400 Gloves",
         "weight_oz": 2.3,
         "weight_note": "per OR spec, fleece liner glove",
-        "price_usd": 29,
-        "price_url": "https://www.rei.com/product/871650/outdoor-research-pl-400-sensor-gloves-mens",
+        "price_usd": 35,
+        "price_url": "https://www.rei.com/product/C08576/outdoor-research-trail-mix-xt-gloves-mens",
         "used_price_range": "$12-18 used",
         "where_to_buy": [
             "REI",
@@ -877,7 +877,7 @@
         "oct_ga_fit": "Good camp/hiking glove for cold mornings; not for hands-in-water panning",
         "beginner_score": 4,
         "shared_split": "no",
-        "notes": ""
+        "notes": "Replacement is Outdoor Research Trail Mix XT Gloves, recycled fleece liner glove, not the PL 400 Sensor Gloves (PL 400 no longer sold)."
     },
     {
         "category": "light_gloves",
@@ -1108,8 +1108,8 @@
         "model": "Atlas 620 PVC-Coated Gauntlet Glove",
         "weight_oz": 6,
         "weight_note": "per pair, estimate from similar PVC gauntlet gloves",
-        "price_usd": 10,
-        "price_url": "https://www.amazon.com/SHOWA-Showa-620L-09-1-Pair/dp/B000VNO2BE",
+        "price_usd": 17.37,
+        "price_url": "https://www.amazon.com/620-Coated-Liquid-Chemical-Resistant/dp/B002PJ0WRK",
         "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
             "Amazon",
@@ -1133,7 +1133,7 @@
         "oct_ga_fit": "Good for 50°F creek water if you avoid submerging past the cuff — bring a dry backup pair per person",
         "beginner_score": 5,
         "shared_split": "no",
-        "notes": "Order true to hand size; too small and they crack, too large and dexterity for panning suffers"
+        "notes": "Order true to hand size; too small and they crack, too large and dexterity for panning suffers. Replacement listing is the same Atlas 620 model, Small/Orange, from a different seller (original ASIN listing no longer has a valid buyable price)."
     },
     {
         "category": "insulated_waterproof_gloves",
@@ -1143,7 +1143,7 @@
         "model": "24\" Rubber Gauntlet Gloves, Texturized Palm",
         "weight_oz": 7,
         "weight_note": "per pair, per product listing",
-        "price_usd": 18,
+        "price_usd": 14.99,
         "price_url": "https://www.amazon.com/SE-GP3-RG60-Prospectors-Choice-Rubber/dp/B06XJDFYWS",
         "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
@@ -1402,7 +1402,7 @@
         "model": "Foam Gardening Knee Pad",
         "weight_oz": 5,
         "weight_note": "per pair, standard foam kneeler",
-        "price_usd": 8,
+        "price_usd": 8.99,
         "price_url": "https://www.amazon.com/Fiskars-94216974J-Ultralight-Kneeling-Cushion/dp/B0002YTVJA",
         "used_price_range": "$2-4 thrift",
         "where_to_buy": [
@@ -1731,8 +1731,8 @@
         "model": "2-Pack Glass-Tip Snuffer Bottle with Tweezers",
         "weight_oz": 2,
         "weight_note": "per pair, bundled with tweezers",
-        "price_usd": 9,
-        "price_url": "https://www.amazon.com/Panning-Sniffer-Snuffer-Bottle-Tweezer/dp/B0D38QYGYR",
+        "price_usd": 11.99,
+        "price_url": "https://www.amazon.com/Mining-Clean-Snuffer-Suction-Tweezers/dp/B01NBXHLVA",
         "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
             "Adventures in Prospecting",
@@ -1752,7 +1752,7 @@
         "oct_ga_fit": "A nice small upgrade for the group's shared cleanup station",
         "beginner_score": 5,
         "shared_split": 6,
-        "notes": ""
+        "notes": "Replacement is APGOLF's single Clean Up Kit (vials + snuffer + tweezers), not a 2-pack glass-tip snuffer (the 2-pack glass-tip bottle w/ tweezers is no longer sold by any live Amazon listing)."
     },
     {
         "category": "snuffer_bottle",
@@ -1977,8 +1977,8 @@
         "model": "10x Plastic Keychain Loupe",
         "weight_oz": 1,
         "weight_note": "typical keychain loupe",
-        "price_usd": 19,
-        "price_url": "https://www.amazon.com/Magnifier-Portable-Keychain-Diamonds-Antiques/dp/B09B1ZBY47",
+        "price_usd": 7.99,
+        "price_url": "https://www.amazon.com/Keychain-Magnifier-Portable-Foldable-Magnifying/dp/B07RVF35W4",
         "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
             "Amazon"
@@ -1997,7 +1997,7 @@
         "oct_ga_fit": "Fine for confirming finds streamside in daylight",
         "beginner_score": 5,
         "shared_split": 6,
-        "notes": ""
+        "notes": "Replacement is Rongon 10x metal folding keychain loupe, not the original plastic keychain magnifier (original listing no longer sold)."
     },
     {
         "category": "magnifier_loupe",
@@ -2007,7 +2007,7 @@
         "model": "30x60 Jeweler's Loupe with Built-In LED Light",
         "weight_oz": 2.5,
         "weight_note": "typical illuminated folding loupe",
-        "price_usd": 13,
+        "price_usd": 8.98,
         "price_url": "https://www.amazon.com/JARLINK-Illuminated-Jewelers-Magnifier-Foldable/dp/B078N34WZR",
         "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
@@ -2068,7 +2068,7 @@
         "model": "Folding Garden Trowel",
         "weight_oz": 6,
         "weight_note": "typical small garden trowel",
-        "price_usd": 9,
+        "price_usd": 6.28,
         "price_url": "https://www.walmart.com/ip/Fiskars-Indoor-and-More-Garden-Trowel-Soil-Scoop-Black/5371466767",
         "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
@@ -2258,7 +2258,7 @@
         "model": "Estwing BP-14 pan + ASR 1/2\" classifier + plastic snuffer + 2 vials",
         "weight_oz": 30,
         "weight_note": "sum of budget-tier components above",
-        "price_usd": 45,
+        "price_usd": 7.26,
         "price_url": "https://toolup.com/products/estwing-bp-14-14-black-plastic-gold-pan-9-oz",
         "used_price_range": "n/a, assemble from parts above",
         "where_to_buy": [
@@ -2321,8 +2321,8 @@
         "model": "Curated kit: Garrett 14\" Gravity Trap pan + stainless classifier set + stainless crevice tools + brass snuffer, packed in a dedicated mesh stuff sack",
         "weight_oz": 52,
         "weight_note": "sum of premium/value-tier components above plus ~2oz mesh sack",
-        "price_usd": 95,
-        "price_url": "https://garrett.com/garrett-14-gold-trap-pan/",
+        "price_usd": 69.99,
+        "price_url": "https://www.amazon.com/Garrett-Deluxe-Gold-Pan-Kit/dp/B01LZI4OWD",
         "used_price_range": "$45-65 assembled from used parts",
         "where_to_buy": [
             "Garrett.com",
@@ -2346,6 +2346,6 @@
         "oct_ga_fit": "The right call for whoever in the group plans to keep prospecting after this trip; overkill just for a single outing",
         "beginner_score": 3,
         "shared_split": "no",
-        "notes": "Assemble this from the individual premium/value picks above rather than buying a single bundled product"
+        "notes": "Assemble this from the individual premium/value picks above rather than buying a single bundled product. Old garrett.com link now resolves to just the bare 14\" pan ($8.99), not a bundle -- replacement is the real Garrett Deluxe Gold Pan Kit (9-piece: 4 pans, classifier, snuffer bottle, tweezers, magnifier) sold on Amazon, the closest verified in-stock equivalent to this curated bundle (no exact stainless-crevice-tools + mesh-sack combo is currently sold as a single product)."
     }
 ]

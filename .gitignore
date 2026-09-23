@@ -9,6 +9,7 @@ desktop.ini
 .DS_Store
 ~$*.xlsx
 *.tmp
+tools/__pycache__/
 
 # Cached network responses (OSRM / OSM API / opentopodata) for map/data/_build_*.mjs —
 # re-fetchable, not trip content; see TOOLS.md.

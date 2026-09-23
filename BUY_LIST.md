@@ -1,13 +1,21 @@
 # GA Gold Trip -- Final Buy List
 
-Generated from Gear_Picker.xlsx CHOICE picks by tools\build_buy_list.py.
-Sorted by lead time (longest first) -- order the top rows now.
+Generated from Gear_Picker.xlsx CHOICE picks (Solid) plus a computed cheapest-safe
+preset (Budget) by tools\build_buy_list.py. Sorted by lead time (longest first)
+within each set -- order the top rows in each table now.
 
-**Personal items total: $1,990.37**
-**Group/shared gear total (whole group): $931.79 -- per-person share: $268.97**
-**Grand total per person (personal + group share): $2,259.34**
+## At a glance -- Solid vs Budget
 
-## Personal items (full price -- each guy buys his own)
+| Set | Personal total | Group total (whole group) | Group per-person share | Grand total per person |
+|---|---|---|---|---|
+| **Solid** | $1,990.37 | $931.79 | $268.97 | $2,259.34 |
+| **Budget** | $1,086.03 | $646.84 | $198.48 | $1,284.51 |
+
+Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kept at Value tier because the cheapest tier is flagged unsafe/unreliable in its own sourced verdict): hiking footwear (thrifted $0 mesh trail runner is a cold-water-wading beginner-caution pick -> Merrell Moab 3 $75), bear-proof food storage (DIY bear-hang, beginner_score 2 -> Ursack Major XL), first aid kit (DIY kit, beginner_score 2, 'riskiest tier for a first-time group' -> AMK Ultralight .7), and blaze-orange vest (its own Value tier at $8.50 is actually cheaper than its Budget tier at $16.96 for equal compliance -- picked the cheaper-and-safe option).
+
+## Solid picks
+
+### Personal items (full price -- each guy buys his own)
 
 | Order first? | Item | Required? | Tier | Pick | Price | Where | Link |
 |---|---|---|---|---|---|---|---|
@@ -47,7 +55,7 @@ Sorted by lead time (longest first) -- order the top rows now.
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Light liner gloves (cold mornings) | nice | Value | Outdoor Research PL 400 Gloves | $29.00 | REI, OutdoorResearch.com | [buy](https://www.rei.com/product/871650/outdoor-research-pl-400-sensor-gloves-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Warm hat / beanie | must | Value | FarPointe Outdoor Gear Alpha Drifter Beanie | $28.00 | FarPointeOutdoor.com | [buy](https://www.farpointeog.com/stock/p/alpha-caps) |
 
-## Group / shared gear (one purchase for the group -- split shown per item)
+### Group / shared gear (one purchase for the group -- split shown per item)
 
 | Order first? | Item | Required? | Tier | Pick | Group total | Split | Per-person share | Where | Link |
 |---|---|---|---|---|---|---|---|---|---|
@@ -61,6 +69,60 @@ Sorted by lead time (longest first) -- order the top rows now.
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Stove (group/shared item) | must | Value | Soto WindMaster (4Flex) | $69.95 | /6 | $11.66 | REI, Amazon, Moosejaw | [buy](https://www.rei.com/product/177954/soto-windmaster-stove-with-4flex-pot-support) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water filter (group/shared item) | must | Value | Katadyn BeFree 1.0L | $44.95 | /6 | $7.49 | REI, Katadyn direct, Backcountry | [buy](https://www.rei.com/product/116364/katadyn-befree-10-l-water-filter-bottle-338-fl-oz) |
 | 1-2 days -- DIY, buy material locally (hardware/craft store) | Tent footprint / groundsheet | nice | Value | DIY Tyvek HomeWrap sheet | $22.00 | /2 | $11.00 | Home Depot/Lowe's (buy a remnant/roll of house-wrap), eBay pre-cut Tyvek groundsheets with grommets | [buy](https://www.amazon.com/dp/B0CWDQDS32) |
+
+## Budget picks
+
+### Personal items (full price -- each guy buys his own)
+
+| Order first? | Item | Required? | Tier | Pick | Price | Where | Link |
+|---|---|---|---|---|---|---|---|
+| 3-7 days -- Amazon/generic | Classifier (base camp; share one on the trail) | must | Budget | ASR Outdoor 1/2" Mesh Classifier | $26.00 | Walmart, Amazon, ASR Outdoor | [buy](https://asroutdoor.com/blogs/journal/gold-classifier-screens-mesh-sizes-guide) |
+| 3-7 days -- Amazon/generic | Knee pad | nice | Budget | Generic Foam Gardening Knee Pad | $8.00 | Walmart, hardware store | [buy](https://www.amazon.com/Fiskars-94216974J-Ultralight-Kneeling-Cushion/dp/B0002YTVJA) |
+| 3-7 days -- Amazon/generic | Dry sack (sleep system) | must | Budget | Generic Ziploc freezer bags + a cheap nylon stuff sack (or reused packaging bags) | $12.00 | Walmart, Amazon, already at home | [buy](https://www.amazon.com/dp/B0028CXKQE) |
+| 3-7 days -- Amazon/generic | Pack liner (waterproof) | must | Budget | Generic Compactor/contractor trash bag (heavy-duty, unscented) | $10.00 | Any grocery/hardware store, Amazon, Walmart | [buy](https://www.amazon.com/dp/B07SM88VVF) |
+| 3-7 days -- Amazon/generic | Crevice tools | nice | Budget | Generic 3-4 Piece Crevice Pick Set | $9.00 | Amazon | [buy](https://www.amazon.com/Complete-Sluice-Equipment-Prospecting-Magnifier/dp/B0DBKVTLM7) |
+| 3-7 days -- Amazon/generic | Gold vials | must | Budget | Generic Plastic Snap-Cap Vials (5-pack) | $5.00 | High Plains Prospectors, Amazon | [buy](https://www.highplainsprospectors.com/collections/gold-prospecting/vials-snuffer-bottles) |
+| 3-7 days -- Amazon/generic | Magnifier / loupe | nice | Budget | Generic 10x Plastic Keychain Loupe | $19.00 | Amazon | [buy](https://www.amazon.com/Magnifier-Portable-Keychain-Diamonds-Antiques/dp/B09B1ZBY47) |
+| 3-7 days -- Amazon/generic | Neoprene wading socks | must | Budget | Generic 3mm Knee-High Neoprene Sock | $25.00 | Walmart | [buy](https://www.walmart.com/ip/17778063384) |
+| 3-7 days -- Amazon/generic | Small trowel (CNF-legal: hand pan + trowel only) | must | Budget | Generic Folding Garden Trowel | $9.00 | Walmart, hardware store | [buy](https://www.walmart.com/ip/Fiskars-Indoor-and-More-Garden-Trowel-Soil-Scoop-Black/5371466767) |
+| 3-7 days -- Amazon/generic | Snuffer bottle | must | Budget | Generic Plastic Snuffer Bottle | $4.00 | High Plains Prospectors, Amazon | [buy](https://www.highplainsprospectors.com/collections/gold-prospecting/vials-snuffer-bottles) |
+| 3-7 days -- Amazon/generic | Light liner gloves (cold mornings) | nice | Budget | Generic Knit fleece gloves | $9.00 | Walmart, Amazon | [buy](https://www.walmart.com/ip/2844295050) |
+| 3-7 days -- Amazon/generic | Warm hat / beanie | must | Budget | Generic Fleece-lined knit beanie | $10.00 | Walmart, Amazon, thrift stores | [buy](https://www.amazon.com/Wmcaps-Winter-Beanie-Hats-for-Men-Women-Fleece-Lined-Beanie-Soft-Warm-Knit-Hat-Ski-Stocking-Cuffed-Cap/dp/B0BBZZZH84) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Trekking poles | nice | Budget | TrailBuddy Aluminum adjustable trekking poles (pair) | $39.99 | Amazon, Walmart | [buy](https://www.amazon.com/dp/B07C46QPTR) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Backpack, 40-60L | must | Budget | Osprey Rook 65 (men's) / Renn 65 (women's) | $205.00 | REI, Osprey.com, Backcountry | [buy](https://www.rei.com/product/231463/osprey-rook-65-pack-mens) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Base layer top+bottom (doubles as sleep layer) | must | Budget | Merino.tech Men's/Women's Long Sleeve Base Layer Set | $100.00 | Amazon, Merino.tech | [buy](https://merino.tech/products/men-250-base-layer-set-wool-clothing) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fleece / active midlayer | must | Budget | Decathlon (Quechua) MH100 Fleece | $25.00 | Decathlon.com, thrift stores | [buy](https://www.decathlon.com/products/mens-hiking-fleece-mh100-312361) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Headlamp | must | Budget | Petzl Tikkina | $19.95 | REI, Petzl direct, Amazon, Walmart | [buy](https://www.petzl.com/US/en/Sport/headlamps/TIKKINA) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Insulated puffy jacket | must | Budget | Decathlon (Forclaz) MT100 Down Jacket | $45.00 | Decathlon.com, Amazon | [buy](https://slickdeals.net/f/17521533-decathlon-forclaz-mt100-hooded-down-puffer-jacket-40) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Knife / multitool | must | Budget | Opinel No.8 Carbon/Stainless folding knife | $22.00 | Opinel direct, REI, Amazon | [buy](https://www.rei.com/product/884528/opinel-no-8-beechwood-handle-knife) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Power bank | nice | Budget | Anker Power Bank, 10,000mAh Portable Charger (PowerIQ, USB-C) | $21.99 | Anker direct, Amazon, Target | [buy](https://www.amazon.com/Anker-Portable-Charger-PowerIQ-Battery/dp/B0D5CLSMFB) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Rain jacket | must | Budget | Frogg Toggs Ultra-Lite2 | $20.00 | Froggtoggs.com, Walmart, Amazon | [buy](https://www.froggtoggs.com/products/the-frogg-toggsr-ultra-lite2tm-4749) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping bag/quilt (30F) -- RECOMMENDED default, beginner-safe | must | Budget | Marmot Trestles 30 | $99.95 | REI, Marmot.com | [buy](https://www.rei.com/product/107474/marmot-trestles-30-sleeping-bag-mens) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Sleeping pad, insulated R>=4 | must | Budget | Klymit Insulated Static V Peak | $99.95 | Klymit.com, REI, Amazon | [buy](https://klymit.com/products/insulated-static-v-peak-sleeping-pads) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Spork / utensil | must | Budget | TOAKS Titanium Spork | $9.95 | Amazon | [buy](https://www.rei.com/product/139476/toaks-titanium-spork) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Trowel + hygiene kit | must | Budget | Coghlan's Backpackers Trowel + basic hygiene bag | $8.75 | Walmart, Amazon, REI | [buy](https://www.walmart.com/ip/Coghlan-S-Backpackers-Trowel/23233743) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water bottle | must | Budget | Smartwater 1L reused disposable bottle | $2.00 | any gas station/grocery | [buy](https://www.walmart.com/ip/smartwater-vapor-distilled-premium-water-1-liter-bottle/14944716) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Gold pan | must | Budget | Estwing BP-14 14" Black Plastic Gold Pan | $9.00 | Toolup, Amazon, Walmart (equivalent ASR Outdoor 14" also ~$9.99) | [buy](https://toolup.com/products/estwing-bp-14-14-black-plastic-gold-pan-9-oz) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Insulated waterproof panning gloves | must | Budget | Showa Atlas 620 PVC-Coated Gauntlet Glove | $10.00 | Amazon, Palmflex, Magid | [buy](https://www.amazon.com/SHOWA-Showa-620L-09-1-Pair/dp/B000VNO2BE) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Blaze orange hat/vest (required, deer season) | must | Value | Allen Company Blaze Orange Safety Vest | $8.50 | Walmart | [buy](https://www.walmart.com/ip/Allen-Company-Deluxe-Blaze-Orange-Safety-Hunting-Vest-Medium/956427108) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Hiking footwear (worn) | must | Value | Merrell Moab 3 | $75.00 | REI, Merrell.com, Amazon, Men's Journal deal link | [buy](https://www.rei.com/product/201989/merrell-moab-3-hiking-shoes-mens) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Hiking pants (worn, no cotton) | must | Budget | REI Co-op Trailmade Pants | $80.00 | REI | [buy](https://www.rei.com/product/236137/rei-co-op-trailmade-pants-mens) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Hiking socks, per pair (bring 3) | must | Budget | REI Co-op Merino Wool Lightweight Hiking Crew (3-pack budget alt) | $18.00 | REI, Amazon | [buy](https://www.rei.com/product/165398/rei-co-op-merino-wool-lightweight-hiking-crew-socks) |
+| 1-2 days -- DIY, buy material locally (hardware/craft store) | Pillow | nice | Budget | DIY Stuff sack filled with spare clothes (or generic inflatable pillow) | $20.00 | Already-owned gear | [buy](https://www.amazon.com/dp/B0896WCB5D) |
+
+### Group / shared gear (one purchase for the group -- split shown per item)
+
+| Order first? | Item | Required? | Tier | Pick | Group total | Split | Per-person share | Where | Link |
+|---|---|---|---|---|---|---|---|---|---|
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Bear-proof food storage (group/shared item) | must | Value | Ursack Major XL (with OPSak liner) | $149.95 | /6 | $24.99 | Ursack direct, REI, Amazon | [buy](https://ursack.com/products/ursack-major-xl-opsak) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Cook pot (group/shared item) | must | Budget | IMUSA A004-025001 Aluminum Sauce Pan, 1-Quart | $12.99 | /6 | $2.17 | Walmart, Amazon | [buy](https://www.amazon.com/IMUSA-A004-025001-Aluminum-1-Quart-Silver/dp/B0018E9UV2) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | First aid kit (group/shared item, overnight-size) | must | Value | Adventure Medical Kits Ultralight/Watertight .7 | $44.99 | /6 | $7.50 | REI, AMK direct, Amazon, Backcountry | [buy](https://adventuremedicalkits.com/products/ultralight-watertight-medical-kit-7) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fuel canister (group/shared item) | must | Budget | Coleman Butane/Propane Mix Fuel, 7.75oz (220g) | $5.97 | /6 | $0.99 | Walmart, Amazon, Target | [buy](https://www.walmart.com/ip/Coleman-Butane-Propane-Mix-Fuel-7-75oz/20595064) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Satellite messenger (group/shared item) | must | Budget | Garmin inReach Mini 2 (weekly rental) | $100.00 | /6 | $16.67 | Outfitter Satellite, REI rental (select stores) | [buy](https://www.outfittersatellite.com/pages/garmin-inreach-mini-2-rentals) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Stove (group/shared item) | must | Budget | BRS BRS-3000T | $14.99 | /6 | $2.50 | Amazon, Walmart, AliExpress | [buy](https://www.walmart.com/ip/911283406) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Tent/shelter (shared, split w/ tentmate) | must | Budget | REI Co-op Trail Hut 2 | $259.00 | /2 | $129.50 | REI | [buy](https://www.rei.com/product/C03309/rei-co-op-trail-hut-2-tent-with-footprint) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water filter (group/shared item) | must | Budget | Sawyer Squeeze (SP2129) | $45.95 | /6 | $7.66 | REI, Amazon, Walmart, Sawyer direct | [buy](https://www.rei.com/product/103050/sawyer-squeeze-water-filter-system) |
+| 1-2 days -- DIY, buy material locally (hardware/craft store) | Tent footprint / groundsheet | nice | Budget | DIY Polycryo window-shrink-film sheet | $13.00 | /2 | $6.50 | Gossamer Gear (pre-cut), Hardware store window-shrink-film kits (DIY cut) | [buy](https://www.gossamergear.com/products/polycryo-tent-footprint-ground-cloths) |
 
 ## A. Small items & consumables
 
@@ -171,6 +233,9 @@ Sorted by lead time (longest first) -- order the top rows now.
 
 ## Grand totals (gear + Sections A-C)
 
-- **Personal total (gear + A-C personal): $2,145.25/person**
-- **Group/shared total (gear + A-C group): $1,918.99 whole group -- $445.84/person share**
-- **Grand total per person (everything): $2,591.09**
+| Set | Personal total/person | Group total (whole group) | Group per-person share | Grand total per person |
+|---|---|---|---|---|
+| **Solid** | $2,145.25 | $1,918.99 | $445.84 | $2,591.09 |
+| **Budget** | $1,240.91 | $1,634.04 | $375.35 | $1,616.26 |
+
+Sections A-C (small items/consumables, car-camp group gear, food) carry one recommended pick per item, not budget/value/premium tiers, so they are the same dollar amount in both sets above.

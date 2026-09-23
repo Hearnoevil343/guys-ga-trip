@@ -95,39 +95,129 @@ group_total = sum(r["price"] for r in group_rows)
 group_per_person_total = round(sum(r["per_person_price"] for r in group_rows), 2)
 grand_total_per_person = round(personal_total + group_per_person_total, 2)
 
+# ----------------------------------------------------------------------------
+# BUDGET preset -- cheapest tier per item, EXCEPT where the cheapest tier is
+# flagged unsafe/non-functional for this trip's conditions (sanity review
+# 2026-09-23): beginner-caution/low beginner_score picks are overridden to
+# the next tier up so "Budget" never means "unsafe."
+#   - hiking_footwear budget tier ($0 thrifted mesh trail runner) is the
+#     source data's own BEGINNER CAUTION pick for cold creek wading --
+#     override to Value (Merrell Moab 3, $75) for real wet-rock traction/support.
+#   - food storage budget tier (DIY bear-hang, beginner_score 2) is flagged
+#     "riskiest tier for a first-time group" in its own verdict -- override to
+#     Value (Ursack Major XL, IGBC-listed) so bear storage is actually reliable.
+#   - first aid kit budget tier (DIY-assembled, beginner_score 2) is flagged
+#     "riskiest tier for a first-time group unless someone has real first-aid
+#     knowledge" -- override to Value (AMK Ultralight/Watertight .7).
+#   - blaze_orange_hat_vest: source data's "Value" tier ($8.50) is actually
+#     CHEAPER than its own "Budget" tier ($16.96) for equal compliance/safety
+#     (visibility is the only requirement) -- use Value since it's strictly
+#     the cheaper-and-safe option.
+# ----------------------------------------------------------------------------
+BUDGET_TIER_OVERRIDE = {
+    "hiking_footwear": "Value",
+    "food storage": "Value",
+    "first aid kit": "Value",
+    "blaze_orange_hat_vest": "Value",
+}
+
+budget_rows = []
+for r in range(2, picker.max_row + 1):
+    kit = picker.cell(r, 1).value
+    label = picker.cell(r, 2).value
+    key = picker.cell(r, 3).value
+    required = picker.cell(r, 4).value
+    choice = picker.cell(r, 5).value
+    if not key or not choice:
+        continue
+    if choice in ("Skip", "Own"):
+        continue  # same rows skipped/owned in both presets
+    tier = BUDGET_TIER_OVERRIDE.get(key, "Budget")
+    opt = opt_by_key.get((key, tier))
+    if not opt:
+        continue
+    if not opt["price"] or opt["model"] == "None":
+        continue
+    days, lead_label = lead_time(opt["brand"], opt["price_url"], opt["where_to_buy"])
+    try:
+        split = max(1, int(opt["split"]))
+    except (TypeError, ValueError):
+        split = 1
+    per_person_price = round((opt["price"] or 0) / split, 2)
+    budget_rows.append({
+        "kit": kit, "label": label, "required": required, "tier": tier,
+        "brand": opt["brand"], "model": opt["model"], "price": opt["price"],
+        "per_person_price": per_person_price, "split": split, "price_url": opt["price_url"],
+        "where_to_buy": opt["where_to_buy"], "lead_days": days, "lead_label": lead_label,
+    })
+
+budget_rows.sort(key=lambda x: (-x["lead_days"], x["kit"], x["label"]))
+budget_personal_rows = [r for r in budget_rows if r["split"] <= 1]
+budget_group_rows = [r for r in budget_rows if r["split"] > 1]
+budget_personal_total = sum(r["price"] for r in budget_personal_rows)
+budget_group_total = sum(r["price"] for r in budget_group_rows)
+budget_group_per_person_total = round(sum(r["per_person_price"] for r in budget_group_rows), 2)
+budget_grand_total_per_person = round(budget_personal_total + budget_group_per_person_total, 2)
+
+
+def render_gear_table(personal_rows, group_rows):
+    out = []
+    out.append("### Personal items (full price -- each guy buys his own)")
+    out.append("")
+    out.append("| Order first? | Item | Required? | Tier | Pick | Price | Where | Link |")
+    out.append("|---|---|---|---|---|---|---|---|")
+    for r in personal_rows:
+        link = f"[buy]({r['price_url']})" if r["price_url"] else "--"
+        out.append(
+            f"| {r['lead_label']} | {r['label']} | {r['required']} | {r['tier']} | "
+            f"{r['brand']} {r['model']} | ${r['price']:.2f} | "
+            f"{r['where_to_buy']} | {link} |"
+        )
+    out.append("")
+    out.append("### Group / shared gear (one purchase for the group -- split shown per item)")
+    out.append("")
+    out.append("| Order first? | Item | Required? | Tier | Pick | Group total | Split | Per-person share | Where | Link |")
+    out.append("|---|---|---|---|---|---|---|---|---|---|")
+    for r in group_rows:
+        link = f"[buy]({r['price_url']})" if r["price_url"] else "--"
+        out.append(
+            f"| {r['lead_label']} | {r['label']} | {r['required']} | {r['tier']} | "
+            f"{r['brand']} {r['model']} | ${r['price']:.2f} | /{r['split']} | ${r['per_person_price']:.2f} | "
+            f"{r['where_to_buy']} | {link} |"
+        )
+    return out
+
 lines = []
 lines.append("# GA Gold Trip -- Final Buy List")
 lines.append("")
-lines.append(f"Generated from Gear_Picker.xlsx CHOICE picks by tools\\build_buy_list.py.")
-lines.append(f"Sorted by lead time (longest first) -- order the top rows now.")
+lines.append(f"Generated from Gear_Picker.xlsx CHOICE picks (Solid) plus a computed cheapest-safe")
+lines.append(f"preset (Budget) by tools\\build_buy_list.py. Sorted by lead time (longest first)")
+lines.append(f"within each set -- order the top rows in each table now.")
 lines.append("")
-lines.append(f"**Personal items total: ${personal_total:,.2f}**")
-lines.append(f"**Group/shared gear total (whole group): ${group_total:,.2f} -- per-person share: ${group_per_person_total:,.2f}**")
-lines.append(f"**Grand total per person (personal + group share): ${grand_total_per_person:,.2f}**")
+lines.append("## At a glance -- Solid vs Budget")
 lines.append("")
-lines.append("## Personal items (full price -- each guy buys his own)")
+lines.append("| Set | Personal total | Group total (whole group) | Group per-person share | Grand total per person |")
+lines.append("|---|---|---|---|---|")
+lines.append(f"| **Solid** | ${personal_total:,.2f} | ${group_total:,.2f} | ${group_per_person_total:,.2f} | ${grand_total_per_person:,.2f} |")
+lines.append(f"| **Budget** | ${budget_personal_total:,.2f} | ${budget_group_total:,.2f} | ${budget_group_per_person_total:,.2f} | ${budget_grand_total_per_person:,.2f} |")
 lines.append("")
-lines.append("| Order first? | Item | Required? | Tier | Pick | Price | Where | Link |")
-lines.append("|---|---|---|---|---|---|---|---|")
-for r in personal_rows:
-    link = f"[buy]({r['price_url']})" if r["price_url"] else "--"
-    lines.append(
-        f"| {r['lead_label']} | {r['label']} | {r['required']} | {r['tier']} | "
-        f"{r['brand']} {r['model']} | ${r['price']:.2f} | "
-        f"{r['where_to_buy']} | {link} |"
-    )
+lines.append(
+    "Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kept at "
+    "Value tier because the cheapest tier is flagged unsafe/unreliable in its own sourced verdict): "
+    "hiking footwear (thrifted $0 mesh trail runner is a cold-water-wading beginner-caution pick -> "
+    "Merrell Moab 3 $75), bear-proof food storage (DIY bear-hang, beginner_score 2 -> Ursack Major XL), "
+    "first aid kit (DIY kit, beginner_score 2, 'riskiest tier for a first-time group' -> AMK Ultralight .7), "
+    "and blaze-orange vest (its own Value tier at $8.50 is actually cheaper than its Budget tier at $16.96 "
+    "for equal compliance -- picked the cheaper-and-safe option)."
+)
 lines.append("")
-lines.append("## Group / shared gear (one purchase for the group -- split shown per item)")
+lines.append("## Solid picks")
 lines.append("")
-lines.append("| Order first? | Item | Required? | Tier | Pick | Group total | Split | Per-person share | Where | Link |")
-lines.append("|---|---|---|---|---|---|---|---|---|---|")
-for r in group_rows:
-    link = f"[buy]({r['price_url']})" if r["price_url"] else "--"
-    lines.append(
-        f"| {r['lead_label']} | {r['label']} | {r['required']} | {r['tier']} | "
-        f"{r['brand']} {r['model']} | ${r['price']:.2f} | /{r['split']} | ${r['per_person_price']:.2f} | "
-        f"{r['where_to_buy']} | {link} |"
-    )
+lines.extend(render_gear_table(personal_rows, group_rows))
+lines.append("")
+lines.append("## Budget picks")
+lines.append("")
+lines.extend(render_gear_table(budget_personal_rows, budget_group_rows))
 
 # ----------------------------------------------------------------------------
 # Sections A/B/C -- small items & consumables, car-camp group gear, food.
@@ -189,22 +279,34 @@ lines.append(
 )
 
 # ----------------------------------------------------------------------------
-# Combined grand totals (gear + extras)
+# Combined grand totals (gear + extras) -- Sections A-C have one pick per item
+# (not tiered), so they're identical in both the Solid and Budget sets.
 # ----------------------------------------------------------------------------
 combined_personal_total = round(personal_total + extras_personal_total, 2)
 combined_group_total = round(group_total + extras_group_total, 2)
 combined_group_per_person = round(group_per_person_total + extras_group_per_person_total, 2)
 combined_grand_per_person = round(combined_personal_total + combined_group_per_person, 2)
 
+budget_combined_personal_total = round(budget_personal_total + extras_personal_total, 2)
+budget_combined_group_total = round(budget_group_total + extras_group_total, 2)
+budget_combined_group_per_person = round(budget_group_per_person_total + extras_group_per_person_total, 2)
+budget_combined_grand_per_person = round(budget_combined_personal_total + budget_combined_group_per_person, 2)
+
 lines.append("")
 lines.append("## Grand totals (gear + Sections A-C)")
 lines.append("")
-lines.append(f"- **Personal total (gear + A-C personal): ${combined_personal_total:,.2f}/person**")
-lines.append(f"- **Group/shared total (gear + A-C group): ${combined_group_total:,.2f} whole group -- ${combined_group_per_person:,.2f}/person share**")
-lines.append(f"- **Grand total per person (everything): ${combined_grand_per_person:,.2f}**")
+lines.append("| Set | Personal total/person | Group total (whole group) | Group per-person share | Grand total per person |")
+lines.append("|---|---|---|---|---|")
+lines.append(f"| **Solid** | ${combined_personal_total:,.2f} | ${combined_group_total:,.2f} | ${combined_group_per_person:,.2f} | ${combined_grand_per_person:,.2f} |")
+lines.append(f"| **Budget** | ${budget_combined_personal_total:,.2f} | ${budget_combined_group_total:,.2f} | ${budget_combined_group_per_person:,.2f} | ${budget_combined_grand_per_person:,.2f} |")
+lines.append("")
+lines.append(
+    "Sections A-C (small items/consumables, car-camp group gear, food) carry one recommended pick "
+    "per item, not budget/value/premium tiers, so they are the same dollar amount in both sets above."
+)
 
 OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-print(f"Wrote {OUT} -- {len(rows)} gear items + {len(extras)} extras/food items; "
-      f"gear personal ${personal_total:,.2f}, gear group ${group_total:,.2f} (${group_per_person_total:,.2f}/person); "
-      f"A-C personal ${extras_personal_total:,.2f}, A-C group ${extras_group_total:,.2f} (${extras_group_per_person_total:,.2f}/person); "
-      f"GRAND per person ${combined_grand_per_person:,.2f}")
+print(f"Wrote {OUT} -- {len(rows)} solid gear items + {len(budget_rows)} budget gear items + "
+      f"{len(extras)} extras/food items; "
+      f"SOLID grand/person ${combined_grand_per_person:,.2f}; "
+      f"BUDGET grand/person ${budget_combined_grand_per_person:,.2f}")

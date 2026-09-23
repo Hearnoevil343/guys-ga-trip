@@ -104,107 +104,100 @@
     "notes": "ULA Circuit ($300, 2 lb 6.5 oz, https://www.ula-equipment.com/product/circuit/) is the direct competitor — pick whichever fits torso length better"
   },
   {
-    "category": "tent_shelter",
-    "role": "2-person 3-season shelter",
-    "tier": "budget",
-    "brand": "REI Co-op",
-    "model": "Trail Hut 2",
-    "weight_oz": 91,
-    "weight_note": "5 lb 11 oz (91 oz) packaged weight per REI/CleverHiker",
-    "price_usd": 259,
-    "price_url": "https://www.rei.com/product/C03309/rei-co-op-trail-hut-2-tent-with-footprint",
-    "used_price_range": "$70-100 on REI Re/Gear",
-    "where_to_buy": [
-      "REI"
-    ],
-    "community_verdict": "CleverHiker's budget-tent pick and cited on r/WildernessBackpacking as the tent that 'won't fail you' for the price — freestanding, easy setup, good rain performance for a budget double-wall tent, just heavy at 5.75 lb split 2 ways (~2.9 lb each).",
-    "verdict_sources": [
-      "https://www.cleverhiker.com/backpacking/rei-trail-hut-2-tent-review/",
-      "https://www.outdoorgearlab.com/reviews/camping-and-hiking/backpacking-tent/rei-co-op-trailmade-2"
-    ],
-    "pros": [
-      "Freestanding — easy on rocky/root-y GA campsites",
-      "Full double-wall with good ventilation, handles rain well",
-      "REI return policy de-risks a first tent purchase"
-    ],
-    "cons": [
-      "Heavy vs. anything UL",
-      "Single door/vestibule on some configs — check current version",
-      "Not worth buying new if a friend already owns any 2P tent"
-    ],
-    "oct_ga_fit": "Full double-wall keeps condensation off you in cold, damp Oct nights at 3-4k ft; freestanding handles the rocky NC/GA mountain sites",
-    "beginner_score": 5,
-    "shared_split": 2,
-    "notes": "Supersedes the Ozark Trail 2P used in the existing gear.md — better rain performance for similar weight/price and available new with a return policy"
+      "category": "tent_shelter",
+      "role": "1-person 3-season shelter (each hiker carries and owns his own tent, not split)",
+      "tier": "budget",
+      "brand": "Kelty",
+      "model": "Late Start 1P Tent",
+      "weight_oz": 57,
+      "weight_note": "3 lb 9 oz (57 oz) minimum trail weight per REI spec",
+      "price_usd": 149.95,
+      "price_url": "https://www.rei.com/product/C17058/kelty-late-start-1p-tent",
+      "used_price_range": "n/a, new arrival",
+      "where_to_buy": [
+          "REI"
+      ],
+      "community_verdict": "REI's cheapest current 1-person freestanding backpacking tent -- 'Quick Corner' pole design pitches fast, full-coverage rainfly, straightforward freestanding setup that suits a first-time solo tent buyer.",
+      "verdict_sources": [
+          "https://www.rei.com/product/C17058/kelty-late-start-1p-tent"
+      ],
+      "pros": [
+          "Freestanding, fast/easy pitch",
+          "Full-coverage rainfly",
+          "Cheapest in-stock 1P option with a return policy"
+      ],
+      "cons": [
+          "Heavier than UL 1P tents",
+          "New model, few reviews yet"
+      ],
+      "oct_ga_fit": "Freestanding pole tent handles rocky/root-y GA sites and is easy for a beginner to pitch solo in the dark or rain",
+      "beginner_score": 5,
+      "shared_split": "no",
+      "notes": "2026-09-23: replaces the old shared 2-person REI Trail Hut 2 -- each hiker now carries/buys his own 1-person tent, full price, no split"
   },
   {
-    "category": "tent_shelter",
-    "role": "2-person 3-season shelter",
-    "tier": "value",
-    "brand": "Durston Gear",
-    "model": "X-Mid 2 (mesh inner)",
-    "weight_oz": 31.3,
-    "weight_note": "31.3 oz (890 g) tent-only per Durston specs; 34.3 oz (975 g) with stuff sack + 6 stakes",
-    "price_usd": 319,
-    "price_url": "https://durstongear.com/products/x-mid-2-tent-ultralight-backpacking",
-    "used_price_range": "$220-270 on r/ULgeartrade (high demand, holds value)",
-    "where_to_buy": [
-      "Durston Gear (direct)"
-    ],
-    "community_verdict": "The single most-recommended value shelter on r/Ultralight and in CleverHiker/Switchback Travel roundups — 33 sq ft of floor space for two people at under 2 lb, storm-worthy double-wall trekking-pole design; widely called the best space-to-weight ratio in the category.",
-    "verdict_sources": [
-      "https://www.switchbacktravel.com/reviews/durston-x-mid-2",
-      "https://www.cleverhiker.com/backpacking/best-ultralight-backpacks/",
-      "https://www.adventurealan.com/durston-x-mid-2p-tent-review/"
-    ],
-    "pros": [
-      "Roomiest 2P UL shelter for the weight",
-      "Full double-wall (less condensation risk than single-wall) — good for humid GA fall nights",
-      "Two doors/vestibules"
-    ],
-    "cons": [
-      "Requires trekking poles (2x 48\") to pitch — not freestanding",
-      "Pitch has a learning curve first time out",
-      "Direct-order only, 2-4 week lead time typical — order well before Oct 15"
-    ],
-    "oct_ga_fit": "Excellent: double-wall sheds condensation and rain better than single-wall UL shelters at low-30s temps; needs a taut pitch on rocky ground so practice at home first",
-    "beginner_score": 3,
-    "shared_split": 2,
-    "notes": "Solid-inner version exists for more privacy/warmth at a small weight penalty; order in advance, this is not a same-week Amazon item"
+      "category": "tent_shelter",
+      "role": "1-person 3-season shelter (each hiker carries and owns his own tent, not split)",
+      "tier": "value",
+      "brand": "MSR",
+      "model": "Elixir 1 Tent with Footprint",
+      "weight_oz": 65,
+      "weight_note": "4 lb 1 oz (65 oz) minimum trail weight per REI spec",
+      "price_usd": 289.95,
+      "price_url": "https://www.rei.com/product/246230/msr-elixir-1-tent-with-footprint",
+      "used_price_range": "$150-200 used",
+      "where_to_buy": [
+          "REI"
+      ],
+      "community_verdict": "REI markets the Elixir line explicitly to newer backpackers -- freestanding traditional pole tent (not trekking-pole-only, not DCF), roomy 18 sq ft interior, includes footprint.",
+      "verdict_sources": [
+          "https://www.rei.com/product/246230/msr-elixir-1-tent-with-footprint"
+      ],
+      "pros": [
+          "Freestanding, beginner-friendly per REI's own description",
+          "Roomy 18 sq ft floor, tall 39in headroom",
+          "Includes footprint"
+      ],
+      "cons": [
+          "Heavier than UL trekking-pole shelters",
+          "Not as light as the old shared 2P split-weight math"
+      ],
+      "oct_ga_fit": "Easy solo pitch on rocky NC/GA sites, full double-wall handles humid cold-30s condensation well",
+      "beginner_score": 5,
+      "shared_split": "no",
+      "notes": "2026-09-23: replaces the old shared 2-person Durston X-Mid 2 (trekking-pole-only, beginner_score 3) -- freestanding 1-person alternative, full price, no split"
   },
   {
-    "category": "tent_shelter",
-    "role": "2-person 3-season shelter",
-    "tier": "premium",
-    "brand": "Zpacks",
-    "model": "Duplex (Classic, DCF)",
-    "weight_oz": 18.5,
-    "weight_note": "17.8-20.4 oz depending on source/config; 18.5 oz commonly cited incl. stuff sack, excl. stakes, per Zpacks/CleverHiker",
-    "price_usd": 749,
-    "price_url": "https://zpacks.com/products/duplex-tent",
-    "used_price_range": "$400-550 on r/ULgeartrade — DCF tents hold value extremely well",
-    "where_to_buy": [
-      "Zpacks (direct)"
-    ],
-    "community_verdict": "The benchmark UL 2-person shelter — most-cited trekking-pole tent in PCT/CDT gear surveys and the classic 'endgame' shelter serious UL hikers graduate to; DCF is nearly waterproof and doesn't sag when wet, but single-wall means real condensation management is needed.",
-    "verdict_sources": [
-      "https://wildernesstimes.com/tents/zpacks-duplex-tent-review/",
-      "https://www.treelinereview.com/gearreviews/zpacks-duplex-tent-review"
-    ],
-    "pros": [
-      "Sub-1.2 lb for a true 2-person shelter",
-      "DCF doesn't absorb water or sag when wet",
-      "Huge resale value if hiking stops after this trip"
-    ],
-    "cons": [
-      "$699 is a serious spend for one trip",
-      "Single-wall DCF condenses heavily in humid, cold GA fall air — wipe-down towel and careful venting are mandatory",
-      "Requires trekking poles; less forgiving pitch than X-Mid"
-    ],
-    "oct_ga_fit": "Doable but the riskiest of the three for this trip's conditions — humid low-30s nights are exactly when single-wall DCF shelters condense worst; only recommended if already owned or borrowed, not a first purchase for this trip",
-    "beginner_score": 2,
-    "shared_split": 2,
-    "notes": "Zip version (Duplex Zip) adds a zippered door for a small weight/price premium; not the pick to buy new just for one October GA overnight"
+      "category": "tent_shelter",
+      "role": "1-person 3-season shelter (each hiker carries and owns his own tent, not split)",
+      "tier": "premium",
+      "brand": "NEMO",
+      "model": "Dragonfly OSMO 1P Ultralight Backpacking Tent",
+      "weight_oz": 34,
+      "weight_note": "~2 lb 2 oz (34 oz) minimum trail weight per NEMO/REI spec",
+      "price_usd": 499.95,
+      "price_url": "https://www.rei.com/product/C01602/nemo-dragonfly-osmo-1p-ultralight-backpacking-tent",
+      "used_price_range": "$300-380 used, holds value well",
+      "where_to_buy": [
+          "REI"
+      ],
+      "community_verdict": "One of the most-recommended freestanding 1-person UL tents in CleverHiker/OutdoorGearLab roundups -- true freestanding pole design (not DCF, not trekking-pole-only), light enough to matter, easy livability for a first solo backpacking tent.",
+      "verdict_sources": [
+          "https://www.rei.com/product/C01602/nemo-dragonfly-osmo-1p-ultralight-backpacking-tent"
+      ],
+      "pros": [
+          "True freestanding -- no trekking poles/DCF pitch skills required",
+          "Well under 2.5 lb",
+          "High headroom/livability for the weight"
+      ],
+      "cons": [
+          "$499.95 is a real spend for one trip",
+          "Still needs practice pitching before the trip"
+      ],
+      "oct_ga_fit": "Freestanding and forgiving for a beginner while being light enough to actually enjoy carrying solo",
+      "beginner_score": 4,
+      "shared_split": "no",
+      "notes": "2026-09-23: replaces the old shared 2-person Zpacks Duplex (single-wall DCF, beginner_score 2) -- freestanding, beginner-friendly 1-person premium pick, full price, no split"
   },
   {
     "category": "sleep_system",
@@ -545,7 +538,7 @@
     ],
     "oct_ga_fit": "Fine for one trip on cleared GA campsites; just clear sticks/rocks before laying it down given one-time use expectations",
     "beginner_score": 4,
-    "shared_split": 2,
+    "shared_split": 1,
     "notes": "Size it to the tent footprint from Durston/Zpacks/REI spec pages before cutting"
   },
   {
@@ -578,7 +571,7 @@
     ],
     "oct_ga_fit": "The extra durability is worth it for rocky North Georgia creek-side campsites vs. disposable polycryo",
     "beginner_score": 4,
-    "shared_split": 2,
+    "shared_split": 1,
     "notes": "Wash new Tyvek once to soften it and reduce crinkle noise, per common community tip"
   },
   {
@@ -611,7 +604,7 @@
     ],
     "oct_ga_fit": "No functional difference from the DIY options for this trip's conditions",
     "beginner_score": 4,
-    "shared_split": 2,
+    "shared_split": 1,
     "notes": "Skip this tier unless buying the X-Mid 2 or Duplex new — DIY Tyvek/polycryo does the same job for less"
   },
   {

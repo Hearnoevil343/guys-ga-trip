@@ -36,6 +36,170 @@ BUDGET_TIER_OVERRIDE = {
     "blaze_orange_hat_vest": "Value",
 }
 
+# ----------------------------------------------------------------------------
+# Site/BUY_LIST layout sections -- grouped by WHERE the gear is used, per the
+# 2026-09-23 layout request. Sections 1-4 are "gear" and are counted in the
+# top totals card (with a subtotal per section). Consumables and Food are
+# each their own section with their own tally box, NOT counted in the gear
+# top total -- see "Trip total, everything" for the sum of all of it.
+# ----------------------------------------------------------------------------
+SECTION_BASE_CAMP = "base_camp"
+SECTION_OVERNIGHT_PERSONAL = "overnight_personal"
+SECTION_OVERNIGHT_SHARED = "overnight_shared"
+SECTION_PANNING = "panning"
+SECTION_CONSUMABLES = "consumables"
+SECTION_FOOD = "food"
+
+GEAR_SECTIONS = [SECTION_BASE_CAMP, SECTION_OVERNIGHT_PERSONAL, SECTION_OVERNIGHT_SHARED, SECTION_PANNING]
+
+SECTION_TITLES = {
+    SECTION_BASE_CAMP: "Base camp (Vogel car camp)",
+    SECTION_OVERNIGHT_PERSONAL: "Overnight / backcountry: personal",
+    SECTION_OVERNIGHT_SHARED: "Overnight / backcountry: shared",
+    SECTION_PANNING: "Panning gear",
+    SECTION_CONSUMABLES: "Consumables",
+    SECTION_FOOD: "Food",
+}
+
+# ----------------------------------------------------------------------------
+# Personal vs shared vs base-camp rule (2026-09-23 user correction pass).
+# Applied to every item in the data -- both the tiered Picker items keyed
+# here and the flat gear-tiers-extras-food.json rows (see extras_section()
+# and each row's own personal_or_shared/split fields).
+#
+# PERSONAL (each person buys their own, full price, split=1/"no"): anything a
+# person wears, sleeps in, carries for themselves, or uses alone -- the tent
+# (1-person, one per hiker), sleeping bag, pad, pillow, pack, pack liner,
+# clothing, rain gear, boots, socks, gloves, hat, blaze vest, headlamp,
+# personal water bottles, mug/spoon/bowl (eating utensil/cup), trekking
+# poles, sit pad, camp shoes, toiletries/sunscreen/lip balm/bug spray,
+# personal first-aid (blister care), camp chair, and personal snacks.
+#
+# SHARED ON THE HIKE (split by the number of people actually sharing --
+# stated per item, usually /6): backpacking stove, cook pot, fuel, water
+# filter (+ backup Aquatabs), bear bag/Ursack/food storage, the group first
+# aid kit, the satellite messenger, the repair kit, the (cathole) trowel,
+# map + compass, and ALL panning/digging gear (pans, classifiers, shovels,
+# crevice tools, snuffer bottles, vials, magnet, buckets, sluice).
+#
+# BASE CAMP (Vogel, shared /6): the big two-burner stove + propane, cooler,
+# lantern, table cover, tarp, dish kit, cutting board, and base-camp
+# groceries. The group ALREADY OWNS two big base-camp tents -- these are
+# never a buy-list line item; if listed at all it's "already owned, $0"
+# (see the info-only row added to the extras "B" data).
+#
+# No personal item may be split; no shared item may appear in a personal
+# section. UNSURE / flagged for the user: "toiletries/trowel" bundles a
+# shared cathole trowel with personal hygiene items (toothbrush-adjacent
+# stuff) in a single priced line -- kept as shared here since the trowel is
+# the priced/split part, but the hygiene contents are really personal.
+# ----------------------------------------------------------------------------
+
+# Picker `key` (category) -> gear section.
+KEY_SECTION = {
+    # Worn kit
+    "hiking_footwear": SECTION_OVERNIGHT_PERSONAL,
+    "hiking_socks": SECTION_OVERNIGHT_PERSONAL,
+    "hiking_pants": SECTION_OVERNIGHT_PERSONAL,
+    "sun_warm_hat_beanie": SECTION_OVERNIGHT_PERSONAL,
+    "blaze_orange_hat_vest": SECTION_OVERNIGHT_PERSONAL,
+    "light_gloves": SECTION_OVERNIGHT_PERSONAL,
+    # Overnight Pack kit -- personal
+    "backpack": SECTION_OVERNIGHT_PERSONAL,
+    "pillow": SECTION_OVERNIGHT_PERSONAL,
+    "groundsheet": SECTION_OVERNIGHT_PERSONAL,
+    "stuff_dry_sacks": SECTION_OVERNIGHT_PERSONAL,
+    "pack_liner": SECTION_OVERNIGHT_PERSONAL,
+    "rain_jacket": SECTION_OVERNIGHT_PERSONAL,
+    "insulated_puffy_jacket": SECTION_OVERNIGHT_PERSONAL,
+    "fleece_midlayer": SECTION_OVERNIGHT_PERSONAL,
+    "base_layer": SECTION_OVERNIGHT_PERSONAL,
+    "eating utensil/cup": SECTION_OVERNIGHT_PERSONAL,
+    "water bottles/bladders": SECTION_OVERNIGHT_PERSONAL,
+    "headlamp": SECTION_OVERNIGHT_PERSONAL,
+    "power bank": SECTION_OVERNIGHT_PERSONAL,
+    "knife/multitool": SECTION_OVERNIGHT_PERSONAL,
+    # toiletries/trowel bundles a cathole trowel (shared per the 2026-09-23
+    # personal/shared rule below) with personal hygiene items in one line --
+    # kept here as shared since the trowel is the priced/split part of the
+    # bundle; see "UNSURE" note in buy_data.py's categorization comment.
+    "toiletries/trowel": SECTION_OVERNIGHT_SHARED,
+    # Overnight Pack kit -- shared
+    "tent_shelter": SECTION_OVERNIGHT_PERSONAL,  # 2026-09-23: each hiker carries/buys his own tent, not split
+    "stove": SECTION_OVERNIGHT_SHARED,
+    "cook pot": SECTION_OVERNIGHT_SHARED,
+    "fuel": SECTION_OVERNIGHT_SHARED,
+    "water filter": SECTION_OVERNIGHT_SHARED,
+    "food storage": SECTION_OVERNIGHT_SHARED,
+    "first aid kit": SECTION_OVERNIGHT_SHARED,
+    "satellite messenger": SECTION_OVERNIGHT_SHARED,
+    "phone navigation app": SECTION_OVERNIGHT_SHARED,
+    # Trail Creek Kit -- panning
+    "gold_pan": SECTION_PANNING,
+    "insulated_waterproof_gloves": SECTION_PANNING,
+    "neoprene_socks_wading": SECTION_PANNING,
+    "snuffer_bottle": SECTION_PANNING,
+    "vials": SECTION_PANNING,
+    "crevice_tools": SECTION_PANNING,
+    "magnifier_loupe": SECTION_PANNING,
+    "small_trowel": SECTION_PANNING,
+    # Base Camp Personal kit -- split between panning and base camp
+    "classifier": SECTION_PANNING,
+    "knee_pads": SECTION_PANNING,
+    "waders_vs_none": SECTION_PANNING,
+    "camp_shoes": SECTION_BASE_CAMP,
+    "sit pad": SECTION_BASE_CAMP,
+    "trekking poles": SECTION_BASE_CAMP,
+}
+
+# Sleep system (temperature-choice bag+pad) is always personal, one per person.
+SLEEP_SECTION = SECTION_OVERNIGHT_PERSONAL
+
+# Extras (gear-tiers-extras-food.json) section A/B/C -> layout section.
+# B (car-camp/base-camp group gear) is always base_camp; C (food) is always
+# food. A (small items/consumables) is split: durable tools/safety/nav gear
+# stay in the gear sections, and things that get used up on the trip
+# (hygiene, skin care, bug spray, batteries, fire, water-treatment backup,
+# ear plugs) are Consumables.
+EXTRAS_SECTION_B = SECTION_BASE_CAMP
+EXTRAS_SECTION_C = SECTION_FOOD
+EXTRAS_SECTION_A_BY_CATEGORY = {
+    "water_treatment_backup": SECTION_CONSUMABLES,
+    "fire": SECTION_CONSUMABLES,
+    "safety": SECTION_OVERNIGHT_PERSONAL,       # SOL emergency bivvy -- durable, personal
+    "navigation": SECTION_OVERNIGHT_SHARED,      # paper map + compass -- durable, shared
+    "power": SECTION_CONSUMABLES,               # spare batteries -- used up
+    "repair": SECTION_OVERNIGHT_SHARED,          # repair kit -- durable tool, shared
+    "hygiene": SECTION_CONSUMABLES,
+    "skin_care": SECTION_CONSUMABLES,
+    "bugs": SECTION_CONSUMABLES,
+    "panning_tools": SECTION_PANNING,           # tweezers/magnet/spray bottle -- durable
+}
+# "misc" category items are split per-item, not per-category.
+EXTRAS_MISC_SECTION_BY_ITEM_PREFIX = {
+    "Pack towel": SECTION_OVERNIGHT_PERSONAL,   # durable, personal
+    "Foam ear plugs": SECTION_CONSUMABLES,      # used up
+    "Paracord": SECTION_OVERNIGHT_SHARED,       # durable rigging, shared
+    "Clothesline": SECTION_BASE_CAMP,           # durable, base camp
+}
+
+
+def extras_section(item):
+    """Return the layout section (base_camp/overnight_personal/overnight_shared/
+    panning/consumables/food) for one gear-tiers-extras-food.json row."""
+    sec = item["section"]
+    if sec == "B":
+        return EXTRAS_SECTION_B
+    if sec == "C":
+        return EXTRAS_SECTION_C
+    cat = item.get("category", "")
+    if cat == "misc":
+        for prefix, layout_sec in EXTRAS_MISC_SECTION_BY_ITEM_PREFIX.items():
+            if item["item"].startswith(prefix):
+                return layout_sec
+        return SECTION_CONSUMABLES
+    return EXTRAS_SECTION_A_BY_CATEGORY.get(cat, SECTION_CONSUMABLES)
+
 
 def round_share(amount_dollars, split):
     """Round amount_dollars/split to the nearest cent, round-half-up, using
@@ -87,4 +251,5 @@ def sleep_row(kit, label, item):
         "price": item["price_usd"], "per_person_price": item["price_usd"], "split": 1,
         "price_url": item["price_url"], "where_to_buy": item["where_to_buy"],
         "lead_days": days, "lead_label": lead_label,
+        "section": SLEEP_SECTION,
     }

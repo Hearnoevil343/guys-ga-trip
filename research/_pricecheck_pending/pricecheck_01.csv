@@ -1,0 +1,40 @@
+item,url,old_price,new_price,status
+"Sawyer Squeeze (SP2129)",https://www.rei.com/product/103050/sawyer-squeeze-water-filter-system,45.95,45.95,ok
+"Leatherman Wingman",https://www.leatherman.com/products/wingman,49.95,49.95,ok
+"Litesmith Nylofume Pack Liner Bag",https://www.litesmith.com/nylofume-pack-liner-bags/,2.49,2.49,ok
+"NEMO Tensor Extreme Conditions",https://www.nemoequipment.com/products/tensor-extreme-ultralight-sleeping-pad,259.95,259.95,ok
+"Garmin inReach Mini 2 (weekly rental)",https://www.outfittersatellite.com/pages/garmin-inreach-mini-2-rentals,100,100,ok
+"Patagonia Nano Puff Jacket",https://www.patagonia.com/product/mens-nano-puff-insulated-jacket/84212.html,239,118.99,changed
+"Petzl Tikkina",https://www.petzl.com/US/en/Sport/headlamps/TIKKINA,19.95,19.95,ok
+"Marmot Trestles 30",https://www.rei.com/product/107474/marmot-trestles-30-sleeping-bag-mens,99.95,,dead
+"National Geographic Trails Illustrated map",https://www.rei.com/product/108883/national-geographic-blue-ridge-chattahoochee-national-forest-trail-map,14.95,,dead
+"Sawyer Permethrin Premium Insect Repellent 24oz",https://www.rei.com/product/109809/sawyer-permethrin-clothing-and-gear-insect-repellent,17.99,,dead
+"Aquatabs 49mg 30-pack",https://www.rei.com/product/109906/aquatabs-water-purification-tablets-package-of-30,10.99,14.95,changed
+"Katadyn BeFree 1.0L",https://www.rei.com/product/116364/katadyn-befree-10-l-water-filter-bottle-338-fl-oz,44.95,,dead
+"Coleman 9x12ft Multi-Use Tarp",https://www.rei.com/product/124517/coleman-multi-use-tarp-9-x-12,19.99,,dead
+"Leukotape P + moleskin",https://www.rei.com/product/125564/leukotape-p-sports-tape,12.5,,dead
+"Coleman 48qt Wheeled Cooler",https://www.rei.com/product/125639/coleman-48-quart-wheeled-cooler,59.99,,dead
+"Sawyer Picaridin Insect Repellent 4oz pump",https://www.rei.com/product/126265/sawyer-premium-insect-repellent-with-20-picaridin,8.99,,dead
+"REI Co-op Rainier Rain Jacket",https://www.rei.com/product/127336/rei-co-op-rainier-rain-jacket-mens,100,,dead
+"Stanley Even-Heat Fry Pan 10in",https://www.rei.com/product/128036/stanley-even-heat-camp-fry-pan,34.95,,dead
+"Goal Zero Lighthouse Micro Flash lantern",https://www.rei.com/product/136699/goal-zero-lighthouse-micro-flash-lantern,24.95,,dead
+"TOAKS Titanium Spork",https://www.rei.com/product/139476/toaks-titanium-spork,9.95,9.95,ok
+"Coleman 16.4oz propane 2-pack",https://www.rei.com/product/143680/coleman-16-4-oz-propane-fuel-2-pack,12.99,,dead
+"Soto Amicus Stove Cookset Combo",https://www.rei.com/product/149091/soto-amicus-stove-cookset-combo,49.95,49.95,ok
+"REI Co-op Merino Wool Lightweight Hiking Crew (3-pack budget alt)",https://www.rei.com/product/165398/rei-co-op-merino-wool-lightweight-hiking-crew-socks,18,8.83,changed
+"Therm-a-Rest Z Lite Sol Sleeping Pad",https://www.rei.com/product/171690/therm-a-rest-z-lite-sol-sleeping-pad,59.95,59.95,ok
+"Smartwool Classic Thermal Merino Base Layer (top+bottom combo recorded)",https://www.rei.com/product/174769/smartwool-classic-thermal-merino-crew-base-layer-top-mens,95,125,changed
+"Soto WindMaster (4Flex)",https://www.rei.com/product/177954/soto-windmaster-stove-with-4flex-pot-support,69.95,69.95,ok
+"REI Co-op Camp X Chair",https://www.rei.com/product/187514/rei-co-op-camp-x-chair,49.95,,wrong_product
+"SOL Emergency Bivvy",https://www.rei.com/product/199053/sol-emergency-bivvy-with-rescue-whistle-and-tinder-cord,25.5,25.5,ok
+"Kelty Mistral 40 Sleeping Bag",https://www.rei.com/product/199747/kelty-mistral-40-sleeping-bag,59.95,,dead
+"Kelty Cosmic Synthetic 40 Sleeping Bag",https://www.rei.com/product/199972/kelty-cosmic-synthetic-40-sleeping-bag,89.95,,dead
+"Therm-a-Rest Ridgerest Classic Sleeping Pad",https://www.rei.com/product/217086/therm-a-rest-ridgerest-classic-sleeping-pad,34.95,34.95,ok
+"Sea to Summit Ultra-Sil Dry Bag Set of 3",https://www.rei.com/product/218733/sea-to-summit-ultra-sil-dry-bag-set-of-3,69.95,69.95,ok
+"NEMO Tensor All-Season Ultralight Insulated",https://www.rei.com/product/228436/nemo-tensor-all-season-ultralight-insulated-sleeping-pad,199.95,199.95,ok
+"Osprey Rook 65",https://www.rei.com/product/231463/osprey-rook-65-pack-mens,205,205,ok
+"REI Co-op Trailmade Pants",https://www.rei.com/product/236137/rei-co-op-trailmade-pants-mens,80,79.95,ok
+"REI Co-op Flash 55",https://www.rei.com/product/236975/rei-co-op-flash-55-pack-mens,229,229,ok
+"Outdoor Research Ferrosi Pants",https://www.rei.com/product/244516/outdoor-research-ferrosi-pants-mens,110,110,ok
+"REI Co-op Radiant 20 Sleeping Bag",https://www.rei.com/product/245179/rei-co-op-radiant-20-sleeping-bag,199,,unchecked_rei_blocked
+"Marmot Trestles Elite Eco 20",https://www.rei.com/product/245787/marmot-trestles-elite-eco-20-sleeping-bag,179,,unchecked_rei_blocked

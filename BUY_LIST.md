@@ -9,7 +9,7 @@ within each set -- order the top rows in each table now.
 | Set | Personal total | Group total (whole group) | Group per-person share | Grand total per person |
 |---|---|---|---|---|
 | **Solid** | $1,920.10 | $901.79 | $243.97 | $2,164.07 |
-| **Budget** | $1,171.38 | $681.80 | $204.31 | $1,375.69 |
+| **Budget** | $1,171.38 | $681.80 | $204.32 | $1,375.70 |
 
 Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kept at Value tier because the cheapest tier is flagged unsafe/unreliable in its own sourced verdict): hiking footwear (thrifted $0 mesh trail runner is a cold-water-wading beginner-caution pick -> Merrell Moab 3 $75), bear-proof food storage (DIY bear-hang, beginner_score 2 -> Ursack Major XL), first aid kit (DIY kit, beginner_score 2, 'riskiest tier for a first-time group' -> AMK Ultralight .7), and blaze-orange vest (its own Value tier at $8.50 is actually cheaper than its Budget tier at $16.96 for equal compliance -- picked the cheaper-and-safe option).
 
@@ -130,7 +130,7 @@ Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Defa
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Bear-proof food storage (group/shared item) | must | Value | Ursack Major XL (with OPSak liner) | $149.95 | /6 | $24.99 | Ursack direct, REI, Amazon | [buy](https://ursack.com/products/ursack-major-xl-opsak) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Cook pot (group/shared item) | must | Budget | IMUSA A004-025001 Aluminum Sauce Pan, 1-Quart | $12.99 | /6 | $2.17 | Walmart, Amazon | [buy](https://www.amazon.com/IMUSA-A004-025001-Aluminum-1-Quart-Silver/dp/B0018E9UV2) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | First aid kit (group/shared item, overnight-size) | must | Value | Adventure Medical Kits Ultralight/Watertight .7 | $44.99 | /6 | $7.50 | REI, AMK direct, Amazon, Backcountry | [buy](https://adventuremedicalkits.com/products/ultralight-watertight-medical-kit-7) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fuel canister (group/shared item) | must | Budget | Coleman Butane/Propane Mix Fuel, 7.75oz (220g) | $5.97 | /6 | $0.99 | Walmart, Amazon, Target | [buy](https://www.walmart.com/ip/Coleman-Butane-Propane-Mix-Fuel-7-75oz/20595064) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Fuel canister (group/shared item) | must | Budget | Coleman Butane/Propane Mix Fuel, 7.75oz (220g) | $5.97 | /6 | $1.00 | Walmart, Amazon, Target | [buy](https://www.walmart.com/ip/Coleman-Butane-Propane-Mix-Fuel-7-75oz/20595064) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Satellite messenger (group/shared item) | must | Budget | Garmin inReach Mini 2 (weekly rental) | $100.00 | /6 | $16.67 | Outfitter Satellite, REI rental (select stores) | [buy](https://www.outfittersatellite.com/pages/garmin-inreach-mini-2-rentals) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Stove (group/shared item) | must | Budget | Soto Amicus Stove Cookset Combo | $49.95 | /6 | $8.33 | REI, Amazon, Soto direct | [buy](https://www.rei.com/product/149091/soto-amicus-stove-cookset-combo) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Tent/shelter (shared, split w/ tentmate) | must | Budget | REI Co-op Trail Hut 2 | $259.00 | /2 | $129.50 | REI | [buy](https://www.rei.com/product/C03309/rei-co-op-trail-hut-2-tent-with-footprint) |
@@ -145,7 +145,7 @@ Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Defa
 | _One 30-pack backup for the whole group; primary treatment is the shared Sawyer Squeeze._ | | | | | | | | |
 | BIC lighters, 4-pack -- BIC Multi-Purpose Classic Edition, 4-pack | shared | 1 | $15.24 | $15.24 | /6 | $2.54 | Walmart | [buy](https://www.walmart.com/ip/BIC-Multi-purpose-Classic-Edition-Lighter-Assorted-Colors-4-Pack-of-Lighters/195861075) |
 | _One 4-pack for the group plus spares; keep one dry in each personal kit._ | | | | | | | | |
-| UCO Stormproof Match Kit -- UCO Stormproof Match Kit (25 matches) | shared | 1 | $10.95 | $10.95 | /6 | $1.82 | REI | [buy](https://www.rei.com/product/883973/uco-stormproof-match-kit) |
+| UCO Stormproof Match Kit -- UCO Stormproof Match Kit (25 matches) | shared | 1 | $10.95 | $10.95 | /6 | $1.83 | REI | [buy](https://www.rei.com/product/883973/uco-stormproof-match-kit) |
 | _Backup fire source, waterproof case._ | | | | | | | | |
 | SOL Emergency Bivvy -- Survive Outdoors Longer (SOL) Emergency Bivvy with Rescue Whistle and Tinder Cord | personal | 6 | $25.50 | $153.00 | /1 | $25.50 | REI | [buy](https://www.rei.com/product/199053/sol-emergency-bivvy-with-rescue-whistle-and-tinder-cord) |
 | _One per person for the backcountry overnight; also includes a rescue whistle, so no separate whistle line needed for those who buy this._ | | | | | | | | |
@@ -242,13 +242,13 @@ Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Defa
 | Car-camp grocery run (est.) -- est. eggs, bacon/sausage, bread, pancake mix + syrup, hot dogs/burgers + buns, condiments, chips, foil, cooler ice, coffee, creamer, extra snacks | shared | 1 | $140.00 | $140.00 | /6 | $23.33 | local grocery near Vogel (Blairsville) | est. |
 | _est. -- simple car-camp breakfasts/dinners at Vogel for the non-backcountry nights; no link, buy fresh locally close to the trip._ | | | | | | | | |
 
-**Sections A-C totals -- personal: $179.42/person, group: $1,018.87 ($182.14/person share), combined A-C per person: $361.56**
+**Sections A-C totals -- personal: $179.42/person, group: $1,018.87 ($182.15/person share), combined A-C per person: $361.57**
 
 ## Grand totals (gear + Sections A-C)
 
 | Set | Personal total/person | Group total (whole group) | Group per-person share | Grand total per person |
 |---|---|---|---|---|
-| **Solid** | $2,099.52 | $1,920.66 | $426.11 | $2,525.63 |
-| **Budget** | $1,350.80 | $1,700.67 | $386.45 | $1,737.25 |
+| **Solid** | $2,099.52 | $1,920.66 | $426.12 | $2,525.64 |
+| **Budget** | $1,350.80 | $1,700.67 | $386.47 | $1,737.27 |
 
 Sections A-C (small items/consumables, car-camp group gear, food) carry one recommended pick per item, not budget/value/premium tiers, so they are the same dollar amount in both sets above.

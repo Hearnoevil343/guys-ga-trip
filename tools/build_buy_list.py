@@ -13,10 +13,10 @@ import json
 import openpyxl
 from pathlib import Path
 
+import buy_data as bd
+
 ROOT = Path(__file__).resolve().parent.parent
 XLSX = ROOT / "Gear_Picker.xlsx"
-EXTRAS_JSON = ROOT / "research" / "gear-tiers-extras-food.json"
-SLEEP_TEMP_JSON = ROOT / "research" / "gear-tiers-sleep-temp.json"
 OUT = ROOT / "BUY_LIST.md"
 
 # ----------------------------------------------------------------------------
@@ -27,18 +27,15 @@ OUT = ROOT / "BUY_LIST.md"
 # The old sleep_system (20F alt) / sleep_system_30f / sleeping_pad Picker rows
 # are superseded by this and excluded from both the Solid and Budget loops
 # below so nothing double-counts.
+# Constants/loaders shared with tools/build_hub.py live in tools/buy_data.py
+# so the site's Buy tab and this file can never disagree.
 # ----------------------------------------------------------------------------
-DEFAULT_TEMP = "30F"
-TEMP_ORDER = ["40F", "30F", "20F"]
-SLEEP_KEYS_EXCLUDED = {"sleep_system", "sleep_system_30f", "sleeping_pad"}
-sleep_temp = json.loads(SLEEP_TEMP_JSON.read_text(encoding="utf-8"))
-sleep_by_key = {(d["temp"], d["type"], d["tier"]): d for d in sleep_temp}
-
-# Cottage/small-batch makers: made-to-order or frequently backordered.
-COTTAGE_BRANDS = {
-    "enlightened equipment", "durston gear", "zpacks", "katabatic gear",
-    "hyperlite mountain gear", "litesmith",
-}
+DEFAULT_TEMP = bd.DEFAULT_TEMP
+TEMP_ORDER = bd.TEMP_ORDER
+SLEEP_KEYS_EXCLUDED = bd.SLEEP_KEYS_EXCLUDED
+sleep_by_key = bd.load_sleep_temp()
+lead_time = bd.lead_time
+sleep_row = bd.sleep_row
 
 wb = openpyxl.load_workbook(XLSX, data_only=False)
 picker = wb["Picker"]
@@ -60,16 +57,6 @@ for r in range(2, options.max_row + 1):
         "where_to_buy": options.cell(r, 11).value or "",
         "split": options.cell(r, 18).value or 1,
     }
-
-def lead_time(brand, price_url, where_to_buy):
-    b = (brand or "").strip().lower()
-    if b in COTTAGE_BRANDS:
-        return (21, "2-4 weeks -- cottage-made, order first")
-    if b == "diy":
-        return (1, "1-2 days -- DIY, buy material locally (hardware/craft store)")
-    if "generic" in b or "asr" in b or "se " in b or "se/" in b.replace(" ", ""):
-        return (5, "3-7 days -- Amazon/generic")
-    return (3, "1-5 days -- in-stock retail (REI/Amazon/brand site)")
 
 rows = []
 for r in range(2, picker.max_row + 1):
@@ -95,23 +82,13 @@ for r in range(2, picker.max_row + 1):
         split = max(1, int(opt["split"]))
     except (TypeError, ValueError):
         split = 1
-    per_person_price = round((opt["price"] or 0) / split, 2)
+    per_person_price = bd.round_share(opt["price"] or 0, split)
     rows.append({
         "kit": kit, "label": label, "required": required, "tier": choice,
         "brand": opt["brand"], "model": opt["model"], "price": opt["price"],
         "per_person_price": per_person_price, "split": split, "price_url": opt["price_url"],
         "where_to_buy": opt["where_to_buy"], "lead_days": days, "lead_label": lead_label,
     })
-
-
-def sleep_row(kit, label, item):
-    days, lead_label = lead_time(item["brand"], item["price_url"], item["where_to_buy"])
-    return {
-        "kit": kit, "label": label, "required": "must", "tier": f"{item['temp']} Solid" if item["tier"] == "solid" else f"{item['temp']} Budget",
-        "brand": item["brand"], "model": f"{item['model']} ({item['rating_note']})", "price": item["price_usd"],
-        "per_person_price": item["price_usd"], "split": 1, "price_url": item["price_url"],
-        "where_to_buy": item["where_to_buy"], "lead_days": days, "lead_label": lead_label,
-    }
 
 
 # Inject the DEFAULT_TEMP (30F) Solid bag+pad into the Solid list.
@@ -148,12 +125,7 @@ grand_total_per_person = round(personal_total + group_per_person_total, 2)
 #     (visibility is the only requirement) -- use Value since it's strictly
 #     the cheaper-and-safe option.
 # ----------------------------------------------------------------------------
-BUDGET_TIER_OVERRIDE = {
-    "hiking_footwear": "Value",
-    "food storage": "Value",
-    "first aid kit": "Value",
-    "blaze_orange_hat_vest": "Value",
-}
+BUDGET_TIER_OVERRIDE = bd.BUDGET_TIER_OVERRIDE
 
 budget_rows = []
 for r in range(2, picker.max_row + 1):
@@ -179,7 +151,7 @@ for r in range(2, picker.max_row + 1):
         split = max(1, int(opt["split"]))
     except (TypeError, ValueError):
         split = 1
-    per_person_price = round((opt["price"] or 0) / split, 2)
+    per_person_price = bd.round_share(opt["price"] or 0, split)
     budget_rows.append({
         "kit": kit, "label": label, "required": required, "tier": tier,
         "brand": opt["brand"], "model": opt["model"], "price": opt["price"],
@@ -293,7 +265,7 @@ lines.extend(render_gear_table(budget_personal_rows, budget_group_rows))
 # tiered gear-tiers-*.json files, but flat -- one recommended pick per item,
 # not budget/value/premium tiers).
 # ----------------------------------------------------------------------------
-extras = json.loads(EXTRAS_JSON.read_text(encoding="utf-8"))
+extras = bd.load_extras()
 
 SECTION_TITLES = {
     "A": "Small items & consumables",
@@ -324,7 +296,7 @@ for sec in ("A", "B", "C"):
             per_person = unit_price  # each person buys/owns one
             extras_personal_total += unit_price  # per-person cost, not qty*unit_price (qty=headcount)
         else:
-            per_person = round(line_total / split, 2)
+            per_person = bd.round_share(line_total, split)
             extras_group_total += line_total
             extras_group_per_person_total += per_person
         link = f"[buy]({e['price_url']})" if e.get("price_url") else "est."

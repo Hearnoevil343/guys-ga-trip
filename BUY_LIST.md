@@ -8,7 +8,7 @@ within each set -- order the top rows in each table now.
 
 | Set | Personal total | Group total (whole group) | Group per-person share | Grand total per person |
 |---|---|---|---|---|
-| **Solid** | $1,874.47 | $871.79 | $238.97 | $2,113.44 |
+| **Solid** | $1,921.41 | $871.79 | $238.97 | $2,160.38 |
 | **Budget** | $1,136.03 | $681.80 | $204.31 | $1,340.34 |
 
 Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kept at Value tier because the cheapest tier is flagged unsafe/unreliable in its own sourced verdict): hiking footwear (thrifted $0 mesh trail runner is a cold-water-wading beginner-caution pick -> Merrell Moab 3 $75), bear-proof food storage (DIY bear-hang, beginner_score 2 -> Ursack Major XL), first aid kit (DIY kit, beginner_score 2, 'riskiest tier for a first-time group' -> AMK Ultralight .7), and blaze-orange vest (its own Value tier at $8.50 is actually cheaper than its Budget tier at $16.96 for equal compliance -- picked the cheaper-and-safe option).
@@ -34,7 +34,7 @@ Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Defa
 |---|---|---|---|---|---|---|---|
 | 2-4 weeks -- cottage-made, order first | Pack liner (waterproof) | must | Value | Litesmith Nylofume Pack Liner Bag | $2.49 | Litesmith (direct), Amazon | [buy](https://www.litesmith.com/nylofume-pack-liner-bags/) |
 | 3-7 days -- Amazon/generic | Knee pad | nice | Budget | Generic Foam Gardening Knee Pad | $8.00 | Walmart, hardware store | [buy](https://www.amazon.com/Fiskars-94216974J-Ultralight-Kneeling-Cushion/dp/B0002YTVJA) |
-| 3-7 days -- Amazon/generic | Crevice tools | nice | Value | Generic Stainless Steel Crevice Tool Set with Magnet | $16.00 | Gold Fever Prospecting, Amazon | [buy](https://www.amazon.com/Gold-Digger-Ultimate-Prospecting-Crevice/dp/B0HFKW1ZG4) |
+| 3-7 days -- Amazon/generic | Crevice tools | nice | Value | Generic Stainless Steel Crevice Tool Set with Magnet | $59.95 | Gold Fever Prospecting, Amazon | [buy](https://www.amazon.com/Gold-Digger-Ultimate-Prospecting-Crevice/dp/B0HFKW1ZG4) |
 | 3-7 days -- Amazon/generic | Gold vials | must | Value | Generic Glass Vials with Foam-Lined Screw Caps | $2.00 | High Plains Prospectors, Amazon | [buy](https://www.amazon.com/ASR-Outdoor-Flake-Collection-Vials/dp/B010YGC7DM) |
 | 3-7 days -- Amazon/generic | Insulated waterproof panning gloves | must | Value | SE / Prospector's Choice 24" Rubber Gauntlet Gloves, Texturized Palm | $18.00 | Amazon | [buy](https://www.amazon.com/SE-GP3-RG60-Prospectors-Choice-Rubber/dp/B06XJDFYWS) |
 | 3-7 days -- Amazon/generic | Magnifier / loupe | nice | Value | Generic 30x60 Jeweler's Loupe with Built-In LED Light | $13.00 | Amazon | [buy](https://www.amazon.com/JARLINK-Illuminated-Jewelers-Magnifier-Foldable/dp/B078N34WZR) |
@@ -57,7 +57,7 @@ Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Defa
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Spork / utensil | must | Value | Sea to Summit Frontier Ultralight Spoon - Long Handle | $10.95 | REI, Amazon, Sea to Summit direct | [buy](https://seatosummit.com/products/alpha-light-utensil-long-spoon) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Trowel + hygiene kit | must | Value | GSI Outdoors Cathole Trowel | $7.95 | REI, GSI direct, Amazon | [buy](https://gsioutdoors.com/products/cathole-trowel) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Water bottle | must | Value | HydraPak Stow 1L collapsible bottle | $18.00 | REI, HydraPak direct, Amazon | [buy](https://www.hydrapak.com/products/stow-1-l-2021) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Gold pan | must | Value | Garrett 14" Gravity Trap Gold Pan (green) | $16.00 | Garrett.com, High Plains Prospectors, Amazon | [buy](https://garrett.com/garrett-14-gold-trap-pan/) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Gold pan | must | Value | Garrett 14" Gravity Trap Gold Pan (green) | $8.99 | Garrett.com, High Plains Prospectors, Amazon | [buy](https://garrett.com/garrett-14-gold-trap-pan/) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Neoprene wading socks | must | Value | NeoSport / Level Six 3mm Neoprene Wading/Water Socks | $28.00 | Amazon, REI | [buy](https://www.amazon.com/Fans-Neoprene-Wading-Socks-Fishing/dp/B0DW8VW4HY) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Small trowel (CNF-legal: hand pan + trowel only) | must | Value | TheTentLab The Deuce of Spades UL Trowel | $20.95 | TheTentLab.com, REI, Amazon | [buy](https://www.thetentlab.com/Deuce/DeuceofSpadespage.html) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Blaze orange hat/vest (required, deer season) | must | Value | Allen Company Blaze Orange Safety Vest | $8.50 | Walmart | [buy](https://www.walmart.com/ip/Allen-Company-Deluxe-Blaze-Orange-Safety-Hunting-Vest-Medium/956427108) |
@@ -65,7 +65,7 @@ Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Defa
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Hiking pants (worn, no cotton) | must | Value | Outdoor Research Ferrosi Pants | $89.00 | REI, OutdoorResearch.com, Backcountry | [buy](https://www.rei.com/product/244516/outdoor-research-ferrosi-pants-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Hiking socks, per pair (bring 3) | must | Value | Darn Tough Hiker Micro Crew Midweight with Cushion | $25.95 | REI, Darn Tough, Amazon | [buy](https://www.rei.com/product/825037/darn-tough-hiker-micro-crew-cushion-socks-mens) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Light liner gloves (cold mornings) | nice | Value | Outdoor Research PL 400 Gloves | $29.00 | REI, OutdoorResearch.com | [buy](https://www.rei.com/product/871650/outdoor-research-pl-400-sensor-gloves-mens) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Warm hat / beanie | must | Value | FarPointe Outdoor Gear Alpha Drifter Beanie | $28.00 | FarPointeOutdoor.com | [buy](https://www.farpointeog.com/stock/p/alpha-caps) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Warm hat / beanie | must | Value | FarPointe Outdoor Gear Alpha Drifter Beanie | $38.00 | FarPointeOutdoor.com | [buy](https://www.farpointeog.com/stock/p/alpha-caps) |
 | 1-2 days -- DIY, buy material locally (hardware/craft store) | Pillow | nice | Budget | DIY Stuff sack filled with spare clothes (or generic inflatable pillow) | $20.00 | Already-owned gear | [buy](https://www.amazon.com/dp/B0896WCB5D) |
 
 ### Group / shared gear (one purchase for the group -- split shown per item)
@@ -248,7 +248,7 @@ Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Defa
 
 | Set | Personal total/person | Group total (whole group) | Group per-person share | Grand total per person |
 |---|---|---|---|---|
-| **Solid** | $2,029.35 | $1,858.99 | $415.84 | $2,445.19 |
+| **Solid** | $2,076.29 | $1,858.99 | $415.84 | $2,492.13 |
 | **Budget** | $1,290.91 | $1,669.00 | $381.18 | $1,672.09 |
 
 Sections A-C (small items/consumables, car-camp group gear, food) carry one recommended pick per item, not budget/value/premium tiers, so they are the same dollar amount in both sets above.

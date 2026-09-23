@@ -315,16 +315,15 @@
     "role": "insulated pad, R>=4 for October",
     "tier": "budget",
     "brand": "Klymit",
-    "model": "Insulated Static V Peak",
+    "model": "Insulated Static V",
     "weight_oz": 25,
     "weight_note": "Insulated Static V lists ~25 oz per Klymit specs (Lite version 19.6 oz has lower R-value, check spec before buying — need the full Insulated, not the Lite/Base, to clear R4)",
-    "price_usd": 99.95,
-    "price_url": "https://klymit.com/products/insulated-static-v-peak-sleeping-pads",
+    "price_usd": 74.21,
+    "price_url": "https://www.amazon.com/Insulated-Inflatable-Comfortable-Lightweight-Backpacking/dp/B07YP8QDJR",
     "used_price_range": "$25-40 on GearTrade/Facebook Marketplace",
     "where_to_buy": [
-      "Klymit.com",
-      "REI",
-      "Amazon"
+      "Amazon",
+      "REI"
     ],
     "community_verdict": "Frequently cited on r/WildernessBackpacking/r/CampingGear as the cheap pad that actually meets a real R-value number (4.4, tested) rather than a marketing claim — noisier crinkly fabric than premium pads and cold spots between air chambers are the recurring complaint, but it does the job for the price.",
     "verdict_sources": [

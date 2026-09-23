@@ -143,7 +143,7 @@ for fname in [
 # --- NEW: 30F sleep system group (web-researched 2026-09-21) ----------------
 SLEEP_30F = [
     {
-        "category": "sleep_system_30f", "role": "30F-rated sleeping bag/quilt (RECOMMENDED default)",
+        "category": "sleep_system_30f", "role": "30F-rated sleeping bag/quilt (RECOMMENDED default -- beginner-safe pick)",
         "tier": "Budget", "brand": "Marmot", "model": "Trestles 30",
         "weight_oz": 52.0, "weight_note": "Men's Reg listed 1450-1560g (~51-55oz) synthetic fill per REI spec",
         "price_usd": 99.95, "price_url": "https://www.rei.com/product/107474/marmot-trestles-30-sleeping-bag-mens",
@@ -154,10 +154,10 @@ SLEEP_30F = [
         "cons": "Bulkier/heavier than a 30F quilt; real-world warmth runs a few degrees warmer-rated",
         "oct_ga_fit": "Verified fit: Vogel Oct lows 2020-25 averaged 39-48F, coldest night 29F (2022); a 30F bag + puffy + base layer covers this with the El Nino warm/wet outlook",
         "beginner_score": 5, "shared_split": 1,
-        "notes": "NEW group added 2026-09-21 alongside the existing 20F group per updated weather research; recommended DEFAULT pick for this trip",
+        "notes": "NEW group added 2026-09-21 alongside the existing 20F group per updated weather research; RECOMMENDED DEFAULT pick for this trip -- zippered synthetic bag is the beginner-safe choice for freezing/damp deer-season nights (no draft-sealing technique to learn)",
     },
     {
-        "category": "sleep_system_30f", "role": "30F-rated sleeping bag/quilt (RECOMMENDED default)",
+        "category": "sleep_system_30f", "role": "30F-rated sleeping bag/quilt (upgrade option, not the default -- BEGINNER CAUTION: quilt)",
         "tier": "Value", "brand": "Enlightened Equipment", "model": "Revelation 30 (stock, 850fp)",
         "weight_oz": 19.8, "weight_note": "Reg/Reg stock 850fp ~19.8oz per EE/retailer specs; all 30F+ quilts now include a draft collar",
         "price_usd": 365.0, "price_url": "https://enlightenedequipment.com/revelation-sleeping-quilt/",
@@ -168,10 +168,10 @@ SLEEP_30F = [
         "cons": "Down needs to stay dry — non-negotiable dry-sack discipline given rain in the forecast; no zipper/hood, small learning curve",
         "oct_ga_fit": "30F with draft collar plus a puffy/base layer comfortably covers the verified 39-48F average lows and the one-off 29F cold night",
         "beginner_score": 3, "shared_split": 1,
-        "notes": "NEW group added 2026-09-21; recommended DEFAULT pick — best weight/cost balance for this trip's actual verified temps",
+        "notes": "NEW group added 2026-09-21; BEGINNER CAUTION -- quilts have no zipper/hood and rely on a correct pad seal to avoid drafts; risky for a first cold-weather trip if unpracticed. Best weight/cost balance IF the group is comfortable with a quilt, but the Budget synthetic bag above is the safer default for beginners.",
     },
     {
-        "category": "sleep_system_30f", "role": "30F-rated sleeping bag/quilt (RECOMMENDED default)",
+        "category": "sleep_system_30f", "role": "30F-rated sleeping bag/quilt (upgrade option, not the default -- BEGINNER CAUTION: quilt)",
         "tier": "Premium", "brand": "Katabatic Gear", "model": "Flex 30",
         "weight_oz": 20.3, "weight_note": "~575g (20.3oz) regular, 900fp water-resistant down, per Katabatic/retailer specs",
         "price_usd": 365.0, "price_url": "https://katabaticgear.com/products/flex-30-ultralight-quilt",
@@ -234,9 +234,9 @@ PICKER_ROWS = [
     ("Worn", "light_gloves", "Light liner gloves (cold mornings)", "nice", "Value"),
     # Overnight pack
     ("Overnight Pack", "backpack", "Backpack, 40-60L", "must", "Value"),
-    ("Overnight Pack", "tent_shelter", "Tent/shelter (his share, split w/ tentmate)", "must", "Value"),
+    ("Overnight Pack", "tent_shelter", "Tent/shelter (shared, split w/ tentmate)", "must", "Value"),
     ("Overnight Pack", "sleep_system", "Sleeping bag/quilt (20F) -- backup/colder-margin option", "alt", "Skip"),
-    ("Overnight Pack", "sleep_system_30f", "Sleeping bag/quilt (30F) -- RECOMMENDED default", "must", "Value"),
+    ("Overnight Pack", "sleep_system_30f", "Sleeping bag/quilt (30F) -- RECOMMENDED default, beginner-safe", "must", "Budget"),
     ("Overnight Pack", "sleeping_pad", "Sleeping pad, insulated R>=4", "must", "Value"),
     ("Overnight Pack", "pillow", "Pillow", "nice", "Value"),
     ("Overnight Pack", "groundsheet", "Tent footprint / groundsheet", "nice", "Value"),
@@ -246,15 +246,15 @@ PICKER_ROWS = [
     ("Overnight Pack", "insulated_puffy_jacket", "Insulated puffy jacket", "must", "Value"),
     ("Overnight Pack", "fleece_midlayer", "Fleece / active midlayer", "must", "Value"),
     ("Overnight Pack", "base_layer", "Base layer top+bottom (doubles as sleep layer)", "must", "Value"),
-    ("Overnight Pack", "stove", "Stove (his share of group stove)", "must", "Value"),
-    ("Overnight Pack", "cook pot", "Cook pot (his share)", "must", "Value"),
-    ("Overnight Pack", "fuel", "Fuel canister (his share)", "must", "Value"),
+    ("Overnight Pack", "stove", "Stove (group/shared item)", "must", "Value"),
+    ("Overnight Pack", "cook pot", "Cook pot (group/shared item)", "must", "Value"),
+    ("Overnight Pack", "fuel", "Fuel canister (group/shared item)", "must", "Value"),
     ("Overnight Pack", "eating utensil/cup", "Spork / utensil", "must", "Value"),
-    ("Overnight Pack", "water filter", "Water filter (his share)", "must", "Value"),
+    ("Overnight Pack", "water filter", "Water filter (group/shared item)", "must", "Value"),
     ("Overnight Pack", "water bottles/bladders", "Water bottle", "must", "Value"),
-    ("Overnight Pack", "food storage", "Bear-proof food storage (his share)", "must", "Value"),
-    ("Overnight Pack", "first aid kit", "First aid kit (his share, overnight-size)", "must", "Value"),
-    ("Overnight Pack", "satellite messenger", "Satellite messenger (his share)", "must", "Value"),
+    ("Overnight Pack", "food storage", "Bear-proof food storage (group/shared item)", "must", "Value"),
+    ("Overnight Pack", "first aid kit", "First aid kit (group/shared item, overnight-size)", "must", "Value"),
+    ("Overnight Pack", "satellite messenger", "Satellite messenger (group/shared item)", "must", "Value"),
     ("Overnight Pack", "phone navigation app", "Offline navigation / maps", "must", "Budget"),
     ("Overnight Pack", "headlamp", "Headlamp", "must", "Value"),
     ("Overnight Pack", "power bank", "Power bank", "nice", "Value"),
@@ -398,7 +398,10 @@ lines = [
     (None, "Vogel SP Oct 15-21 lows, 2020-2025, averaged 39-48F; the coldest single night was 29F (Oct 2022). "
            "NOAA's Oct-Dec 2026 outlook favors a warmer, wetter season (strong El Nino). A 30F-rated bag/quilt "
            "plus a puffy and base layer covers this comfortably for most people, and rain protection matters more "
-           "than an extra 10F of bag rating this year. The 30F group is the RECOMMENDED DEFAULT on the Picker; "
+           "than an extra 10F of bag rating this year. The 30F group is the RECOMMENDED DEFAULT on the Picker, "
+           "specifically the Budget synthetic bag (zippered, no draft-sealing technique needed) -- the Value/Premium "
+           "quilts in that group are flagged BEGINNER CAUTION and are upgrade options, not the default, since a quilt "
+           "with an unsealed pad gap can be a cold, unpleasant surprise on a first cold-weather trip. "
            "the existing 20F group is kept as an 'alt' row (backup / more cold margin) rather than deleted."),
     ("Tier oddities", None),
     (None, "Where a Value pick is priced above its Premium counterpart (or Budget above Value) in the source research, "

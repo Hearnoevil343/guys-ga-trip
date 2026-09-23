@@ -16,7 +16,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 XLSX = ROOT / "Gear_Picker.xlsx"
 EXTRAS_JSON = ROOT / "research" / "gear-tiers-extras-food.json"
+SLEEP_TEMP_JSON = ROOT / "research" / "gear-tiers-sleep-temp.json"
 OUT = ROOT / "BUY_LIST.md"
+
+# ----------------------------------------------------------------------------
+# Sleep system is now a mutually-exclusive TEMPERATURE choice (40F+ / 30F /
+# 20F), each with its own Budget and Solid bag+pad pair, instead of a plain
+# tier pick. Only the DEFAULT_TEMP band counts toward totals -- the other two
+# are shown as alternatives with their own prices, not summed in.
+# The old sleep_system (20F alt) / sleep_system_30f / sleeping_pad Picker rows
+# are superseded by this and excluded from both the Solid and Budget loops
+# below so nothing double-counts.
+# ----------------------------------------------------------------------------
+DEFAULT_TEMP = "30F"
+TEMP_ORDER = ["40F", "30F", "20F"]
+SLEEP_KEYS_EXCLUDED = {"sleep_system", "sleep_system_30f", "sleeping_pad"}
+sleep_temp = json.loads(SLEEP_TEMP_JSON.read_text(encoding="utf-8"))
+sleep_by_key = {(d["temp"], d["type"], d["tier"]): d for d in sleep_temp}
 
 # Cottage/small-batch makers: made-to-order or frequently backordered.
 COTTAGE_BRANDS = {
@@ -64,6 +80,8 @@ for r in range(2, picker.max_row + 1):
     choice = picker.cell(r, 5).value
     if not key or not choice:
         continue
+    if key in SLEEP_KEYS_EXCLUDED:
+        continue  # superseded by the temperature-choice sleep system below
     if choice in ("Skip", "Own"):
         continue
     opt = opt_by_key.get((key, choice))
@@ -84,6 +102,22 @@ for r in range(2, picker.max_row + 1):
         "per_person_price": per_person_price, "split": split, "price_url": opt["price_url"],
         "where_to_buy": opt["where_to_buy"], "lead_days": days, "lead_label": lead_label,
     })
+
+
+def sleep_row(kit, label, item):
+    days, lead_label = lead_time(item["brand"], item["price_url"], item["where_to_buy"])
+    return {
+        "kit": kit, "label": label, "required": "must", "tier": f"{item['temp']} Solid" if item["tier"] == "solid" else f"{item['temp']} Budget",
+        "brand": item["brand"], "model": f"{item['model']} ({item['rating_note']})", "price": item["price_usd"],
+        "per_person_price": item["price_usd"], "split": 1, "price_url": item["price_url"],
+        "where_to_buy": item["where_to_buy"], "lead_days": days, "lead_label": lead_label,
+    }
+
+
+# Inject the DEFAULT_TEMP (30F) Solid bag+pad into the Solid list.
+for kind, label in (("bag", "Sleeping bag/quilt"), ("pad", "Sleeping pad, insulated")):
+    item = sleep_by_key[(DEFAULT_TEMP, kind, "solid")]
+    rows.append(sleep_row("Overnight Pack", f"{label} -- {DEFAULT_TEMP} rating (SELECTED)", item))
 
 rows.sort(key=lambda x: (-x["lead_days"], x["kit"], x["label"]))
 
@@ -130,6 +164,8 @@ for r in range(2, picker.max_row + 1):
     choice = picker.cell(r, 5).value
     if not key or not choice:
         continue
+    if key in SLEEP_KEYS_EXCLUDED:
+        continue  # superseded by the temperature-choice sleep system below
     if choice in ("Skip", "Own"):
         continue  # same rows skipped/owned in both presets
     tier = BUDGET_TIER_OVERRIDE.get(key, "Budget")
@@ -150,6 +186,14 @@ for r in range(2, picker.max_row + 1):
         "per_person_price": per_person_price, "split": split, "price_url": opt["price_url"],
         "where_to_buy": opt["where_to_buy"], "lead_days": days, "lead_label": lead_label,
     })
+
+# Inject the DEFAULT_TEMP (30F) Budget bag+pad into the Budget list. Budget
+# preset never picks a bag/pad too cold for the selected rating -- each
+# temp band's own "budget" tier in gear-tiers-sleep-temp.json is already the
+# cheapest option that still clears that band's R-value/temp-rating floor.
+for kind, label in (("bag", "Sleeping bag/quilt"), ("pad", "Sleeping pad, insulated")):
+    item = sleep_by_key[(DEFAULT_TEMP, kind, "budget")]
+    budget_rows.append(sleep_row("Overnight Pack", f"{label} -- {DEFAULT_TEMP} rating (SELECTED)", item))
 
 budget_rows.sort(key=lambda x: (-x["lead_days"], x["kit"], x["label"]))
 budget_personal_rows = [r for r in budget_rows if r["split"] <= 1]
@@ -210,6 +254,30 @@ lines.append(
     "and blaze-orange vest (its own Value tier at $8.50 is actually cheaper than its Budget tier at $16.96 "
     "for equal compliance -- picked the cheaper-and-safe option)."
 )
+lines.append("")
+lines.append("## Sleep system -- temperature choice (mutually exclusive)")
+lines.append("")
+lines.append(
+    f"Pick ONE temperature rating for the whole group's sleeping bag + pad combo. Default = **{DEFAULT_TEMP}** "
+    "(the user expects lows around 30F) -- that row's bag+pad price is already counted in the Solid/Budget "
+    "totals above. The 40F+ and 20F rows below are shown as priced alternatives only and are NOT added to any total. "
+    "Pad R-value floor per band: 40F+ needs R2-3, 30F needs R3-4, 20F needs R4.5+. Budget never drops below its "
+    "band's floor -- the cheapest bag/pad that still clears that band's rating is used, not the cheapest bag/pad overall."
+)
+lines.append("")
+lines.append("| Temperature | Set | Bag | Bag price | Pad | Pad price | Combo total | Counted in totals? |")
+lines.append("|---|---|---|---|---|---|---|---|")
+for temp in TEMP_ORDER:
+    for tier, tier_label in (("budget", "Budget"), ("solid", "Solid")):
+        bag = sleep_by_key[(temp, "bag", tier)]
+        pad = sleep_by_key[(temp, "pad", tier)]
+        combo = round(bag["price_usd"] + pad["price_usd"], 2)
+        counted = f"YES -- {tier_label}" if temp == DEFAULT_TEMP else "no (alternative)"
+        lines.append(
+            f"| {temp} | {tier_label} | [{bag['brand']} {bag['model']}]({bag['price_url']}) ({bag['rating_note']}) | "
+            f"${bag['price_usd']:.2f} | [{pad['brand']} {pad['model']}]({pad['price_url']}) ({pad['rating_note']}) | "
+            f"${pad['price_usd']:.2f} | ${combo:,.2f} | {counted} |"
+        )
 lines.append("")
 lines.append("## Solid picks")
 lines.append("")

@@ -3,36 +3,36 @@
     "category": "stove",
     "role": "group canister stove",
     "tier": "budget",
-    "brand": "BRS",
-    "model": "BRS-3000T",
-    "weight_oz": 0.9,
-    "weight_note": "spec 25g/0.88oz; real-world with case ~1.0oz — widely confirmed by owners, lightest canister stove sold",
-    "price_usd": 14.99,
-    "price_url": "https://www.walmart.com/ip/911283406",
-    "used_price_range": "$10-13 (rarely resold, cheap enough people just buy new)",
+    "brand": "Soto",
+    "model": "Amicus Stove Cookset Combo",
+    "weight_oz": 11.2,
+    "weight_note": "REI spec 11.2oz for the stove + 0.6L aluminum pot/cup combo",
+    "price_usd": 49.95,
+    "price_url": "https://www.rei.com/product/149091/soto-amicus-stove-cookset-combo",
+    "used_price_range": "$28-38 used",
     "where_to_buy": [
+      "REI",
       "Amazon",
-      "Walmart",
-      "AliExpress"
+      "Soto direct"
     ],
-    "community_verdict": "The r/Ultralight/backpacking go-to budget stove for years; QC varies canister to canister (some arms crack) but at this price most consider it disposable/spare-worthy. Weak in wind, fine for a sheltered Oct GA camp.",
+    "community_verdict": "Verified on REI's live catalog 2026-09-23: REI Staff Pick, 217 reviews averaging 4.5/5, $49.95, in stock. A real name-brand stove with sturdy tri-flex pot supports and a built-in piezo igniter -- SectionHiker rates the plain Amicus stove as one of the most dependable budget canister stoves, unlike the BRS-3000T's flimsy stamped-wire arms.",
     "verdict_sources": [
-      "https://www.backpacker.com/gear/ultralight-backpacking-canister-stove-brs-3000t/",
-      "https://www.walmart.com/ip/911283406"
+      "https://sectionhiker.com/soto-amicus-canister-stove/",
+      "https://www.rei.com/product/149091/soto-amicus-stove-cookset-combo"
     ],
     "pros": [
-      "Absurdly light",
-      "Cheap enough to carry a spare"
+      "Sturdy tri-flex pot supports, not flimsy stamped wire",
+      "Built-in piezo igniter -- no separate lighter needed to start it",
+      "Comes with a usable 0.6L pot/cup, useful backup to the main group pot"
     ],
     "cons": [
-      "Flimsy pot supports",
-      "No wind protection/simmer control",
-      "QC variance reported"
+      "No integrated wind protection -- still needs a windscreen in a breeze",
+      "Heavier than the ultralight BRS-3000T it replaces"
     ],
-    "oct_ga_fit": "Fine for boiling water at a sheltered site; pair with a windscreen for cold mornings",
-    "beginner_score": 3,
+    "oct_ga_fit": "A real, sturdy stove that six first-time backpackers can trust to actually light and stay lit -- pair with a simple foil or titanium windscreen for cold, breezy mornings",
+    "beginner_score": 5,
     "shared_split": 6,
-    "notes": "Group's single stove — his cost share $2.50 (1/6 of $14.99)"
+    "notes": "SWAPPED 2026-09-23 (sanity review): previously BRS-3000T ($14.99) -- its own cons (flimsy pot supports, no wind protection, QC variance reported) were too risky as the group's ONLY stove for 6 beginners. Group's single stove -- his cost share $8.33 (1/6 of $49.95). Bring a cheap foil or titanium windscreen (see repair-kit/small-items list) for wind."
   },
   {
     "category": "stove",
@@ -428,7 +428,7 @@
     "oct_ga_fit": "Works, but must be kept in a jacket pocket by day and in the sleeping bag at night per Sawyer's own guidance",
     "beginner_score": 4,
     "shared_split": 6,
-    "notes": "Group share $5.00"
+    "notes": "Group share $5.00 | SAFETY NOTE (added 2026-09-23): sleep with it below freezing -- a wetted Sawyer membrane cracks if it freezes, so it must go inside the sleeping bag with you on any night near/below 32F, not left in a pack pocket. Cheap chemical backup already on the buy list: Aquatabs 30-pack (research/gear-tiers-extras-food.json, section A -- water_treatment_backup, https://www.rei.com/product/109906/aquatabs-water-purification-tablets-package-of-30) covers the group if the filter ever fails."
   },
   {
     "category": "water filter",
@@ -461,7 +461,7 @@
     "oct_ga_fit": "Great for quickly refilling 6 people's bottles at a creek stop",
     "beginner_score": 4,
     "shared_split": 6,
-    "notes": "Group share $7.49; still needs to sleep in the bag on the cold night"
+    "notes": "Group share $7.49 | SAFETY NOTE (added 2026-09-23): sleep with it below freezing -- same hollow-fiber freeze-crack risk as the Sawyer, keep it in the sleeping bag on any night near/below 32F. Cheap chemical backup already on the buy list: Aquatabs 30-pack (research/gear-tiers-extras-food.json, section A, https://www.rei.com/product/109906/aquatabs-water-purification-tablets-package-of-30)."
   },
   {
     "category": "water filter",

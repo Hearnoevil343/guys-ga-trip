@@ -211,37 +211,37 @@
     "category": "rain_jacket",
     "role": "Rain shell",
     "tier": "budget",
-    "brand": "Frogg Toggs",
-    "model": "Ultra-Lite2",
-    "weight_oz": 5.5,
-    "weight_note": "per Frogg Toggs spec",
-    "price_usd": 20,
-    "price_url": "https://www.froggtoggs.com/products/the-frogg-toggsr-ultra-lite2tm-4749",
-    "used_price_range": "$8-12 used",
+    "brand": "Columbia",
+    "model": "Watertight II Rain Jacket (Men's)",
+    "weight_oz": 12.0,
+    "weight_note": "typical packable Omni-Tech shell weight per Columbia/OGL testing",
+    "price_usd": 70,
+    "price_url": "https://www.columbia.com/p/mens-watertight-ii-jacket-1533891.html",
+    "used_price_range": "$25-35 used/thrift",
     "where_to_buy": [
-      "Froggtoggs.com",
-      "Walmart",
-      "Amazon"
+      "Columbia.com",
+      "REI",
+      "Amazon",
+      "Dick's Sporting Goods"
     ],
-    "community_verdict": "r/Ultralight regularly cites Frogg Toggs as the budget go-to — nonwoven fabric isn't durable or breathable, but a set can survive ~1,300 miles of use and costs a fraction of name-brand shells.",
+    "community_verdict": "OutdoorGearLab's long-running budget rain jacket pick — real seam-sealed Omni-Tech waterproof/breathable fabric with a mesh liner and adjustable hood, not a disposable nonwoven shell. Verified live on Columbia.com 2026-09-23: $70 (regularly $100, some colors on sale to $50).",
     "verdict_sources": [
-      "https://sectionhiker.com/10-best-backpacking-rain-jackets/",
-      "https://www.froggtoggs.com/products/the-frogg-toggsr-ultra-lite2tm-4749"
+      "https://www.outdoorgearlab.com/reviews/clothing-mens/rain-jacket-men/columbia-watertight-ii",
+      "https://www.columbia.com/p/mens-watertight-ii-jacket-1533891.html"
     ],
     "pros": [
-      "cheapest usable rain shell that exists",
-      "very light",
-      "packs tiny"
+      "real waterproof/breathable membrane, not disposable nonwoven",
+      "seam-sealed, adjustable hood",
+      "durable enough to actually re-wear after this trip"
     ],
     "cons": [
-      "zipper leaks in sustained rain",
-      "tears easily on brush",
-      "no pit zips/breathability"
+      "heavier and less packable than Frogg Toggs",
+      "not as breathable as the pricier Value/Premium shells"
     ],
-    "oct_ga_fit": "Fine for the base-camp days; pack duct tape for field repairs on the overnight leg",
-    "beginner_score": 4,
+    "oct_ga_fit": "Real rain protection for a week of mixed hiking/creek work — sturdier and more durable than a disposable-style shell for 6 first-time backpackers who may not baby their gear",
+    "beginner_score": 5,
     "shared_split": "no",
-    "notes": "Buy a size up — cut runs slim"
+    "notes": "SWAPPED 2026-09-23 (sanity review): previously Frogg Toggs Ultra-Lite2 ($20) -- its own cons (zipper leaks in sustained rain, tears easily on brush) were too flimsy as the ONLY rain shell for beginners in a rainy-forecast trip. Frogg Toggs Ultra-Lite2 ($20, https://www.froggtoggs.com/products/the-frogg-toggsr-ultra-lite2tm-4749) is still fine as a cheap EMERGENCY backup/spare layer, just not the primary shell."
   },
   {
     "category": "rain_jacket",

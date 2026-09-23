@@ -277,7 +277,8 @@ PICKER_ROWS = [
     ("Overnight Pack", "headlamp", "Headlamp", "must", "Value"),
     ("Overnight Pack", "power bank", "Power bank", "nice", "Value"),
     ("Overnight Pack", "knife/multitool", "Knife / multitool", "must", "Value"),
-    ("Overnight Pack", "toiletries/trowel", "Trowel + hygiene kit", "must", "Value"),
+    ("Overnight Pack", "toiletries", "Personal toiletries/hygiene kit", "must", "Value"),
+    ("Overnight Pack", "cathole_trowel", "Cathole trowel (shared, split 6)", "must", "Value"),
     # Trail creek kit
     ("Trail Creek Kit", "gold_pan", "Gold pan", "must", "Value"),
     ("Trail Creek Kit", "insulated_waterproof_gloves", "Insulated waterproof panning gloves", "must", "Value"),

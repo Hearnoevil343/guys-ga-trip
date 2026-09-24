@@ -80,3 +80,9 @@ The order that governs that overnight. Ask by name:
   Upper/Lower Cane Creek Mines, Barlow Mine — but its public access runs
   through Camp Glisson, a private retreat centre. Worth a call only if we want
   to chase proven ground.
+- **Camp chair vs. toilet-hole stool, personal item, not decided.** The buy
+  list's "Camp chairs — REI Co-op Camp X Chair" (base camp, personal) is a
+  normal chair. Still needs deciding: bring a separate toilet-hole stool/chair
+  (e.g. Carry Anywhere Commode or a webbing-strap DIY stool — see
+  `C:\dev\scratchpad\camp-toilet-chair.md`), or skip it and just dig catholes
+  with the shared trowel + pack out waste in the WAG bags now on the buy list.

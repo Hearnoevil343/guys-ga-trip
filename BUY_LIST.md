@@ -10,8 +10,8 @@ Every price cell is the FULL price; shared items also show your per-person share
 
 | Set | Personal total | Group total (whole group) | Group per-person share | Gear grand total per person |
 |---|---|---|---|---|
-| **Solid** | $2,052.86 | $1,238.20 | $219.40 | $2,272.26 |
-| **Budget** | $1,398.31 | $971.94 | $175.03 | $1,573.34 |
+| **Solid** | $2,124.64 | $1,238.20 | $219.40 | $2,344.04 |
+| **Budget** | $1,412.93 | $971.94 | $175.03 | $1,587.96 |
 
 Budget preset picks the cheapest tier per item EXCEPT four safety overrides (kept at Value tier because the cheapest tier is flagged unsafe/unreliable in its own sourced verdict): hiking footwear (thrifted $0 mesh trail runner is a cold-water-wading beginner-caution pick -> Merrell Moab 3, verified live price $100.93 on sale), bear-proof food storage (DIY bear-hang, beginner_score 2 -> Ursack Major XL), first aid kit (DIY kit, beginner_score 2, 'riskiest tier for a first-time group' -> AMK Ultralight .7), and blaze-orange vest (its own Value tier, verified live price $13.51, is still cheaper than its Budget tier at $16.96 for equal compliance -- picked the cheaper-and-safe option; the vest's earlier $8.50 figure was simply a stale/wrong price, not a split calculation).
 
@@ -136,13 +136,13 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 
 ### 4. Panning gear (Solid)
 
-**Panning gear -- personal $97.68 + group share $37.53 (group total $225.10) = $135.21/person**
+**Panning gear -- personal $169.46 + group share $37.53 (group total $225.10) = $206.99/person**
 
 | Order first? | Item | Required? | Tier | Pick | Price | Where | Link |
 |---|---|---|---|---|---|---|---|
-| 3-7 days -- Amazon/generic | Knee pad | nice | Budget | Generic Foam Gardening Knee Pad | $8.99 | Walmart, hardware store | [buy](https://www.amazon.com/Fiskars-94216974J-Ultralight-Kneeling-Cushion/dp/B0002YTVJA) |
-| 3-7 days -- Amazon/generic | Insulated waterproof panning gloves | must | Value | SE / Prospector's Choice 24" Rubber Gauntlet Gloves, Texturized Palm | $14.99 | Amazon | [buy](https://www.amazon.com/SE-GP3-RG60-Prospectors-Choice-Rubber/dp/B06XJDFYWS) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Waders (Captain wants them; plan only needs shin-deep, but his call) | nice | Value | Hodgman Mackenzie Cleated Hip Bootfoot Fishing Wader | $43.51 | Walmart, Bass Pro | [buy](https://www.walmart.com/ip/Hodgman-Mackenzie-Cleated-Hip-Bootfoot-Fishing-Wader/43927288) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Knee pad | nice | Budget | Bodyprox Protective Knee Pads, Thick Sponge Anti-Slip Knee Sleeve | $15.99 | Amazon | [buy](https://www.amazon.com/gp/product/B01L379FPE) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Waders (Captain wants them; plan only needs shin-deep, but his call) | nice | Value | FROGG TOGGS Canyon II Stockingfoot Hip Wader, Medium (needs separate wading shoe) | $98.29 | Amazon | [buy](https://www.amazon.com/Frogg-Toggs-Canyon-Breathable-Stockingfoot/dp/B07FKMB1DB) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Insulated waterproof panning gloves | must | Value | Glacier Glove Kenai Original | $24.99 | Glacier Outdoor, Amazon | [buy](https://glacieroutdoor.com/products/kenai-original) |
 | 1-5 days -- in-stock retail (REI/Amazon/brand site) | Neoprene wading socks | must | Value | 8 Fans 3mm Neoprene Wading/Water Socks | $30.19 | Amazon, REI | [buy](https://www.amazon.com/Fans-Neoprene-Wading-Socks-Fishing/dp/B0DW8VW4HY) |
 
 _Shared (group) items -- price shown is the full group price; your share is per-person._
@@ -268,13 +268,13 @@ _Shared (group) items -- price shown is the full group price; your share is per-
 
 ### 4. Panning gear (Budget)
 
-**Panning gear -- personal $67.95 + group share $17.02 (group total $102.03) = $84.97/person**
+**Panning gear -- personal $82.57 + group share $17.02 (group total $102.03) = $99.59/person**
 
 | Order first? | Item | Required? | Tier | Pick | Price | Where | Link |
 |---|---|---|---|---|---|---|---|
-| 3-7 days -- Amazon/generic | Knee pad | nice | Budget | Generic Foam Gardening Knee Pad | $8.99 | Walmart, hardware store | [buy](https://www.amazon.com/Fiskars-94216974J-Ultralight-Kneeling-Cushion/dp/B0002YTVJA) |
 | 3-7 days -- Amazon/generic | Neoprene wading socks | must | Budget | Generic 3mm Knee-High Neoprene Sock | $41.59 | Walmart | [buy](https://www.walmart.com/ip/17778063384) |
-| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Insulated waterproof panning gloves | must | Budget | Showa Atlas 620 PVC-Coated Gauntlet Glove | $17.37 | Amazon, Palmflex, Magid | [buy](https://www.amazon.com/620-Coated-Liquid-Chemical-Resistant/dp/B002PJ0WRK) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Knee pad | nice | Budget | Bodyprox Protective Knee Pads, Thick Sponge Anti-Slip Knee Sleeve | $15.99 | Amazon | [buy](https://www.amazon.com/gp/product/B01L379FPE) |
+| 1-5 days -- in-stock retail (REI/Amazon/brand site) | Insulated waterproof panning gloves | must | Budget | Glacier Glove Kenai Original | $24.99 | Glacier Outdoor, Amazon | [buy](https://glacieroutdoor.com/products/kenai-original) |
 
 _Shared (group) items -- price shown is the full group price; your share is per-person._
 
@@ -369,5 +369,5 @@ Backcountry rations (6 people x 3 nights) plus the base-camp grocery list. Same 
 
 | Set | Gear grand total/person | Consumables/person | Food/person | Trip total/person |
 |---|---|---|---|---|
-| **Solid** | $2,272.26 | $119.24 | $82.02 | $2,473.52 |
-| **Budget** | $1,573.34 | $119.24 | $82.02 | $1,774.60 |
+| **Solid** | $2,344.04 | $119.24 | $82.02 | $2,545.30 |
+| **Budget** | $1,587.96 | $119.24 | $82.02 | $1,789.22 |

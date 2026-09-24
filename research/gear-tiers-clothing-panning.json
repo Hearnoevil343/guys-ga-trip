@@ -1104,22 +1104,20 @@
         "category": "insulated_waterproof_gloves",
         "role": "Insulated waterproof gloves for hands-in-50F-water panning",
         "tier": "budget",
-        "brand": "Showa",
-        "model": "Atlas 620 PVC-Coated Gauntlet Glove",
-        "weight_oz": 6,
-        "weight_note": "per pair, estimate from similar PVC gauntlet gloves",
-        "price_usd": 17.37,
-        "price_url": "https://www.amazon.com/620-Coated-Liquid-Chemical-Resistant/dp/B002PJ0WRK",
+        "brand": "Glacier Glove",
+        "model": "Kenai Original",
+        "weight_oz": 4,
+        "weight_note": "per pair, 2mm neoprene glove",
+        "price_usd": 24.99,
+        "price_url": "https://glacieroutdoor.com/products/kenai-original",
         "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
-            "Amazon",
-            "Palmflex",
-            "Magid"
+            "Glacier Outdoor",
+            "Amazon"
         ],
-        "community_verdict": "TreasureNet and prospecting forums repeatedly recommend cheap PVC-dipped work gloves like the Atlas 620 for cold-water panning — a fleece-lined double-dipped PVC glove originally designed for the Alaskan fishing trade, giving real cold/wet protection for around $10.",
+        "community_verdict": "Captain's pick 2026-09-23: 35-year standard for cold fly-fishing, 2mm fleece-lined neoprene with a sharkskin palm -- chose dexterity (feel the pan, pick gravel) over staying bone-dry.",
         "verdict_sources": [
-            "https://www.treasurenet.com/threads/prospecting-gloves-advice.379227/",
-            "https://www.amazon.com/SHOWA-Showa-620L-09-1-Pair/dp/B000VNO2BE"
+            "https://glacieroutdoor.com/products/kenai-original"
         ],
         "pros": [
             "genuinely warm — designed for commercial cold-water fish work",
@@ -1139,19 +1137,20 @@
         "category": "insulated_waterproof_gloves",
         "role": "Insulated waterproof gloves for hands-in-50F-water panning",
         "tier": "value",
-        "brand": "SE / Prospector's Choice",
-        "model": "24\" Rubber Gauntlet Gloves, Texturized Palm",
-        "weight_oz": 7,
-        "weight_note": "per pair, per product listing",
-        "price_usd": 14.99,
-        "price_url": "https://www.amazon.com/SE-GP3-RG60-Prospectors-Choice-Rubber/dp/B06XJDFYWS",
+        "brand": "Glacier Glove",
+        "model": "Kenai Original",
+        "weight_oz": 4,
+        "weight_note": "per pair, 2mm neoprene glove",
+        "price_usd": 24.99,
+        "price_url": "https://glacieroutdoor.com/products/kenai-original",
         "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
+            "Glacier Outdoor",
             "Amazon"
         ],
-        "community_verdict": "Purpose-marketed for gold panning specifically, with a longer 24\" gauntlet that leaves interior room for a thin knit or fleece glove liner underneath for extra warmth in cold conditions — a step up from generic work gloves at a similar price.",
+        "community_verdict": "Captain's pick 2026-09-23: 35-year standard for cold fly-fishing, 2mm fleece-lined neoprene with a sharkskin palm -- chose dexterity (feel the pan, pick gravel) over staying bone-dry.",
         "verdict_sources": [
-            "https://www.amazon.com/SE-GP3-RG60-Prospectors-Choice-Rubber/dp/B06XJDFYWS"
+            "https://glacieroutdoor.com/products/kenai-original"
         ],
         "pros": [
             "longer gauntlet than the Atlas 620 reduces water intrusion when reaching deep",
@@ -1331,20 +1330,19 @@
         "category": "waders_vs_none",
         "role": "Waders decision for cold-water panning",
         "tier": "value",
-        "brand": "Hodgman",
-        "model": "Mackenzie Cleated Hip Bootfoot Fishing Wader",
-        "weight_oz": 48,
-        "weight_note": "~3 lb, typical neoprene hip wader pair",
-        "price_usd": 43.51,
-        "price_url": "https://www.walmart.com/ip/Hodgman-Mackenzie-Cleated-Hip-Bootfoot-Fishing-Wader/43927288",
-        "used_price_range": "$20-30 used",
+        "brand": "FROGG TOGGS",
+        "model": "Canyon II Stockingfoot Hip Wader, Medium (needs separate wading shoe)",
+        "weight_oz": 20,
+        "weight_note": "category estimate, no vendor spec published -- 4-ply nylon, no attached boot",
+        "price_usd": 98.29,
+        "price_url": "https://www.amazon.com/Frogg-Toggs-Canyon-Breathable-Stockingfoot/dp/B07FKMB1DB",
+        "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
-            "Walmart",
-            "Bass Pro"
+            "Amazon"
         ],
-        "community_verdict": "Hip waders show up in wading/fishing gear guides as an affordable step up for anyone who wants to stand in deeper pools without soaking pants — useful if scouting deeper holes, though most panning happens in water too shallow to need them.",
+        "community_verdict": "Breathable upgrade over the rubber/PVC Hodgman pick -- highest-rated breathable hip wader at this size, and hip height already exceeds what shin-deep hand-panning needs. Needs a separate wading shoe (not bundled).",
         "verdict_sources": [
-            "https://www.walmart.com/ip/Hodgman-Mackenzie-Cleated-Hip-Bootfoot-Fishing-Wader/43927288"
+            "https://www.froggtoggs.com/canyon-ii-stockingfoot-breathable-hip-wader"
         ],
         "pros": [
             "keeps legs fully dry in deeper water",
@@ -1398,20 +1396,19 @@
         "category": "knee_pads",
         "role": "Knee protection for kneeling on wet gravel bars",
         "tier": "budget",
-        "brand": "Generic",
-        "model": "Foam Gardening Knee Pad",
-        "weight_oz": 5,
-        "weight_note": "per pair, standard foam kneeler",
-        "price_usd": 8.99,
-        "price_url": "https://www.amazon.com/Fiskars-94216974J-Ultralight-Kneeling-Cushion/dp/B0002YTVJA",
-        "used_price_range": "$2-4 thrift",
+        "brand": "Bodyprox",
+        "model": "Protective Knee Pads, Thick Sponge Anti-Slip Knee Sleeve",
+        "weight_oz": 6,
+        "weight_note": "per pair, strap-on sleeve",
+        "price_usd": 15.99,
+        "price_url": "https://www.amazon.com/gp/product/B01L379FPE",
+        "used_price_range": "n/a, cheap enough to buy new",
         "where_to_buy": [
-            "Walmart",
-            "hardware store"
+            "Amazon"
         ],
-        "community_verdict": "GPAA forum members discussing favorite knee pads note basic foam gardening pads work fine for short sessions, though some complain the straps can cut into legs over long days.",
+        "community_verdict": "Captain's pick 2026-09-23, replacing the flat foam gardening pad research flagged as not moving with you on uneven creek rock -- a strap-on sleeve that stays on through repeated kneel/reposition.",
         "verdict_sources": [
-            "https://www.goldprospectors.org/Forum/aft/9275"
+            "https://www.amazon.com/gp/product/B01L379FPE"
         ],
         "pros": [
             "cheap",

@@ -356,6 +356,30 @@ penny, modulo per-row rounding).
 **Status:** built 2026-09-21 (2nd pass), matches Gear_Picker.xlsx's default total ($2,490.25 vs.
 $2,490.26 — 1-cent rounding from summing already-rounded per-item shares).
 
+**Warning (found 2026-09-28):** `BUY_LIST.md` in git has hand edits that are NOT in the source
+data — the WAG-bag bulk lines added on 2026-09-24 live only in the .md, so re-running this script
+silently deletes them. Either add that item to `research/gear-tiers-extras-food.json` first, or
+re-apply the WAG rows by hand after a rebuild. Check `git diff BUY_LIST.md` after every run.
+
+## tools/build_roster.py
+Re-runnable Python (stdlib only) builder for `ROSTER.md` + `roster/roster.json`. Reads each
+person's exported buy list from `roster/person-<n>-<name>.txt` (the raw text the Buy tab's
+**Copy list** button produces — parser mirrors `build_hub.py`'s `buildExportText()`) and works out:
+which shared/base-camp items somebody already owns so the group stops buying duplicates, what each
+person personally still has to get, and the real per-head cost of the group gear that is still
+missing. Normalises the sleep bag/pad rows (their label carries the chosen `budget`/`solid` tier)
+so two people on different tiers are not counted as two different items, drops $0 "to buy" lines
+(page artefacts like "already owned" tents) into a note instead of the shortfall table, and flags
+that every share price splits `/6` while the trip is 5 people.
+
+The person list and the `/6` plan basis are constants at the top of the script (`PEOPLE`,
+`PLAN_SPLIT_BASIS`) — edit those if the roster changes.
+
+**Run:** `python tools/build_roster.py`
+
+**Status:** built 2026-09-28. Working with 2 of 5 lists in (Nik, Nathan); persons 1/4/5 show as
+"not yet" until their file lands in `roster/`. See `roster/README.md` for how to collect one.
+
 ## tools/build_gear_checkin.py
 Re-runnable Python (stdlib only) builder for `gear-checkin.html` — a static, phone-first,
 no-server page each guy opens (linked from `trip-map.html` and `index.html`'s "Gear check-in"

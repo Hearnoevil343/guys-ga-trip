@@ -6,6 +6,8 @@ Every price cell is the FULL price; shared items also show your per-person share
 
 **Sections 1-4 (gear) count toward the top totals below. Consumables and Food are tracked separately -- see their own tally boxes -- and are NOT part of the gear total.**
 
+**This file prices the WHOLE kit from scratch. It does not know who already owns what. For what the group still has to buy -- group items already covered by somebody, and the gap list per person -- see [ROSTER.md](ROSTER.md), built by `tools/build_roster.py` from each person's exported list in `roster/`.**
+
 ## At a glance -- gear total, Solid vs Budget (sections 1-4 only)
 
 | Set | Personal total | Group total (whole group) | Group per-person share | Gear grand total per person |

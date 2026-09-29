@@ -236,6 +236,13 @@ lines.append(
     "separately -- see their own tally boxes -- and are NOT part of the gear total.**"
 )
 lines.append("")
+lines.append(
+    "**This file prices the WHOLE kit from scratch. It does not know who already owns what. "
+    "For what the group still has to buy -- group items already covered by somebody, and the "
+    "gap list per person -- see [ROSTER.md](ROSTER.md), built by `tools/build_roster.py` from "
+    "each person's exported list in `roster/`.**"
+)
+lines.append("")
 lines.append("__AT_A_GLANCE_PLACEHOLDER__")
 lines.append("")
 lines.append(

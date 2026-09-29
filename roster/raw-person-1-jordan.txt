@@ -1,0 +1,64 @@
+RAW list from Jordan (person 1), pasted 2026-09-29.
+
+This is NOT the Buy-tab export format, so tools/build_roster.py does not read it
+yet. It is a flat list of products he already has. Next session maps each line to
+its buy-list label and writes roster/person-1-jordan.txt in the export format
+(see roster/README.md), then re-runs the builder.
+
+Everything below is owned/got.
+
+Emergency Blanket Mylar Thermal Space Survival Gear & Supplies 4-Pack Foil
+Mini First Aid Kit - 150 Piece Small Waterproof EVA Hard Shell Case
+Sawyer Products SP657 Premium Permethrin Insect Repellent for Clothing, Gear & Tents, Trigger Spray, 24-Ounce
+Bodyprox Protective Knee Pads, Thick Sponge Anti-slip Knee Sleeve
+Aquatabs 49mg Water Purification Tablets, 30 Pack, EPA & NSF Certified
+eGreen 60 Windproof Stormproof Matches Waterproof Cases: Camping, Survival
+MSR PocketRocket 2 Ultralight Camping and Backpacking Stove
+N NEVO RHINO Internal Frame Hiking Backpack 50/60/65/70/80L with Rain Cover
+HERCULES Type III Paracord 550 Rope Parachute Cord, 100' Reflective
+Rainleaf Microfiber Towel Quick Dry Camping & Travel & Gym Towel. Compact
+SnowTing 4 PCS Mini Duct Tape with Rope and Carabiner, Portable Pocket Size Duct Tape for Outdoor Camping Travel Cycling Backpacking Emergency Repair, 2'' Wide x 9.84 Feet Long Per Roll, Grey
+ATEPA AERO Puffy Camping Blanket, Packable Down Alternative Camping Quilt
+4 Pcs Outdoor Compass with Adjustable Declination, Magnifier, Ruler, Scale. Multifunctional Orienteering
+TOAKS Titanium 750ml Pot with Bail Handle for Ultralight Camping, Backpacking Cookware and Mug
+LifeStraw Personal Water Filter for Hiking, Travel and Emergency, Blue, 1PK
+Vigorport Portable Travel Clothesline, Clothes Drying Line with Hang Loop
+Garden Trowel Hand Shovel for Gardening, Small Garden Spade with Scale
+Niorasen Merino Wool Hiking Crew Socks for Men & Women, Thick Cushioned Anti-Blister, Moisture-Wicking, Seamless, 3 Pairs
+Glass Vials, 1 Dram, Pack of 12
+Uncle Todd's Wild Wash Biodegradable Soap, Camping Soap Ideal for Dishes, Body, Hands, and Clothes - 4oz
+GEAR AID Tenacious Tape 3" x 20" Nylon Fabric Repair, Black, 1 Roll
+5 Pieces Portable Monocular Magnifier Jewelers Loupe 3X/5X/10X/15X/20X Handheld Magnifier Dome Optics Lens Magnifying Glass Eye Loops Magnifier for Jewelry Coins Textile Optical Circuit
+FROGG TOGGS Canyon II Breathable Waterproof Stockingfoot Fishing Hip Wader for Fishing, Slate, Large
+XuanShiTangMen Tick Remover Tool 3 Pack | Aluminum Key for Dogs & Humans
+Crevice Cleaning Tool, 9 PCS Carbon Fiber Plastic Scraper Tool Car Detailing Brush Set Non-scratch Multi-purpose Scraper for Clean Small Narrow Spaces and Gaps, Remove Stickers Labels Oil Stains Dirt
+PLACHIDAY 3-in-1 Ultralight Backpacking Trowel, Durable Aluminum Shovel & Potty Tool with Ergonomic handle
+Chuarry 5 Pcs Blaze Orange Hunting Vest, High Visibility Safety Unisex
+GRAYL GeoPress 24 oz Water Purifier & Water Filter Bottle, Black Camo
+Glacier Glove Unisex Kenai Original Full Finger Gloves
+Sawyer Products SP564 Premium Insect Repellent with 20% Picaridin, Lotion, 4-Ounce
+Fancyou Compressed Towel Tablets 100 Count, Disposable Washcloths
+ASR Outdoor 20oz Rock Pick Mining Hammer, 11-inch Pointed Tip Geology Tool for Gold Prospecting Equipment and Rockhounding
+
+--- Notes for the mapping pass ---
+
+Clear matches to existing buy-list labels: first aid kit, permethrin spray,
+knee pad, Aquatabs, stormproof matches, backpacking stove, backpack 40-60L,
+paracord 100ft, pack towel/bandana, repair kit (duct tape + Tenacious Tape),
+compass (4-pack, covers the /3 compass line twice over), cook pot, clothesline,
+small trowel (garden trowel), hiking socks, gold vials, biodegradable soap,
+magnifier/loupe, waders, crevice tools, cathole trowel, blaze orange vest
+(5-pack, covers the whole group), insulated panning gloves, picaridin repellent,
+wet wipes (compressed towel tablets).
+
+Needs a judgment call next session:
+- Water filter: he has BOTH a LifeStraw Personal and a GRAYL GeoPress. Neither
+  is the Katadyn BeFree the shared line assumes. Decide which is the group
+  filter and whether the other counts as the personal water bottle.
+- Emergency blanket 4-pack vs the SOL Emergency Bivvy line ($153) — the blanket
+  is not the same thing, but it may be good enough to mark the bivvy SKIP.
+- ATEPA camping quilt vs the sleep bag (30F) line — a quilt is not a 30F bag;
+  check its rating before calling the sleep system covered.
+- Rock pick mining hammer has no buy-list line. CNF rules are hand pan + trowel
+  only (see research/legality-verified-2026-09-21.md) — flag it, do not add it.
+- Tick remover has no buy-list line; small add to the first aid kit.

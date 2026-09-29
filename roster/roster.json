@@ -1,0 +1,667 @@
+{
+  "headcount": 5,
+  "plan_split_basis": 6,
+  "people": {
+    "1": {
+      "name": "Jordan",
+      "file": "person-1-jordan.txt",
+      "submitted": true,
+      "personal_gap_usd": 2187.47
+    },
+    "2": {
+      "name": "Nik",
+      "file": "person-2-nik.txt",
+      "submitted": true,
+      "personal_gap_usd": 171.06
+    },
+    "3": {
+      "name": "Nathan",
+      "file": "person-3-nathan.txt",
+      "submitted": true,
+      "personal_gap_usd": 794.63
+    },
+    "4": {
+      "name": "Hilton",
+      "file": null,
+      "submitted": false,
+      "personal_gap_usd": 0.0
+    },
+    "5": {
+      "name": "Jarred",
+      "file": null,
+      "submitted": false,
+      "personal_gap_usd": 0.0
+    }
+  },
+  "group_covered": [
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Camp cooking pan, non-stick",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        2
+      ],
+      "price": 34.95,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Clothesline + clothespins",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        1
+      ],
+      "price": 8.99,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "LED camp lantern",
+      "need": 1,
+      "have": 2,
+      "holders": [
+        2,
+        3
+      ],
+      "price": 39.95,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Two-burner propane camp stove",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        2
+      ],
+      "price": 97.44,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Cathole trowel (shared, split 6)",
+      "need": 1,
+      "have": 2,
+      "holders": [
+        1,
+        2
+      ],
+      "price": 7.95,
+      "split": 6,
+      "products": {
+        "3": "GSI Outdoors Cathole Trowel"
+      }
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Cook pot (group/shared item)",
+      "need": 1,
+      "have": 3,
+      "holders": [
+        1,
+        2,
+        3
+      ],
+      "price": 30.0,
+      "split": 6,
+      "products": {
+        "3": "TOAKS 750ml Titanium Pot with Bail Handle (POT-750-BH)"
+      }
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "First aid kit (group/shared item, overnight-size)",
+      "need": 1,
+      "have": 3,
+      "holders": [
+        1,
+        2,
+        3
+      ],
+      "price": 44.99,
+      "split": 6,
+      "products": {
+        "3": "Adventure Medical Kits Ultralight/Watertight .7"
+      }
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Fuel canister (group/shared item)",
+      "need": 1,
+      "have": 2,
+      "holders": [
+        2,
+        3
+      ],
+      "price": 6.95,
+      "split": 6,
+      "products": {
+        "1": "MSR IsoPro 8oz/227g canister",
+        "3": "MSR IsoPro 8oz/227g canister"
+      }
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Offline navigation / maps",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        2
+      ],
+      "price": 0.0,
+      "split": 1,
+      "products": {
+        "1": "CalTopo Free account + printed topo",
+        "3": "CalTopo Free account + printed topo"
+      }
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Paracord 100ft",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        1
+      ],
+      "price": 8.49,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Repair kit",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        1
+      ],
+      "price": 0.0,
+      "split": 1,
+      "products": {}
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Stove (group/shared item)",
+      "need": 1,
+      "have": 3,
+      "holders": [
+        1,
+        2,
+        3
+      ],
+      "price": 69.95,
+      "split": 6,
+      "products": {
+        "3": "Soto WindMaster (4Flex)"
+      }
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Suunto A-10 baseplate compass",
+      "need": 2,
+      "have": 2,
+      "holders": [
+        1
+      ],
+      "price": 48.0,
+      "split": 3,
+      "products": {}
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Water filter (group/shared item)",
+      "need": 1,
+      "have": 2,
+      "holders": [
+        2,
+        3
+      ],
+      "price": 52.95,
+      "split": 6,
+      "products": {
+        "3": "Katadyn BeFree 1.0L"
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Classifier (base camp; share one on the trail)",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        3
+      ],
+      "price": 75.0,
+      "split": 6,
+      "products": {
+        "1": "Generic/ASR Stackable Classifier Set (1/2\", 1/4\", 1/8\")",
+        "2": "ASR Outdoor 1/2\" Mesh Classifier",
+        "3": "Generic/ASR Stackable Classifier Set (1/2\", 1/4\", 1/8\")"
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Crevice tools",
+      "need": 1,
+      "have": 2,
+      "holders": [
+        1,
+        3
+      ],
+      "price": 59.95,
+      "split": 6,
+      "products": {
+        "2": "ASR Outdoor Hook and Pick Precision Crevice Tool Set, 6 Pieces",
+        "3": "Generic Stainless Steel Crevice Tool Set with Magnet"
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Gold pan",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        3
+      ],
+      "price": 8.99,
+      "split": 6,
+      "products": {
+        "1": "Garrett 14\" Gravity Trap Gold Pan (green)",
+        "2": "Estwing BP-14 14\" Black Plastic Gold Pan",
+        "3": "Garrett 14\" Gravity Trap Gold Pan (green)"
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Gold vials",
+      "need": 1,
+      "have": 2,
+      "holders": [
+        1,
+        3
+      ],
+      "price": 9.99,
+      "split": 6,
+      "products": {
+        "2": "Generic Plastic Snap-Cap Vials (5-pack)",
+        "3": "Generic Glass Vials with Foam-Lined Screw Caps (12-pack)"
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Magnifier / loupe",
+      "need": 1,
+      "have": 3,
+      "holders": [
+        1,
+        2,
+        3
+      ],
+      "price": 8.98,
+      "split": 6,
+      "products": {
+        "3": "Generic 30x60 Jeweler's Loupe with Built-In LED Light"
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Small trowel (CNF-legal: hand pan + trowel only)",
+      "need": 1,
+      "have": 2,
+      "holders": [
+        2,
+        3
+      ],
+      "price": 20.95,
+      "split": 6,
+      "products": {
+        "3": "TheTentLab The Deuce of Spades UL Trowel"
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Snuffer bottle",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        3
+      ],
+      "price": 11.99,
+      "split": 6,
+      "products": {
+        "1": "Generic 2-Pack Glass-Tip Snuffer Bottle with Tweezers",
+        "2": "Generic Plastic Snuffer Bottle",
+        "3": "Generic 2-Pack Glass-Tip Snuffer Bottle with Tweezers"
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Aquatabs water purification tablets, 30-pack (backup to Sawyer filter)",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        1
+      ],
+      "price": 14.95,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Consumables",
+      "label": "BIC lighters, 4-pack",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        2
+      ],
+      "price": 15.24,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Consumables",
+      "label": "Biodegradable camp soap",
+      "need": 1,
+      "have": 3,
+      "holders": [
+        1,
+        2,
+        3
+      ],
+      "price": 5.99,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Consumables",
+      "label": "Permethrin clothing treatment spray",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        1
+      ],
+      "price": 17.95,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Consumables",
+      "label": "UCO Stormproof Match Kit",
+      "need": 1,
+      "have": 2,
+      "holders": [
+        1,
+        3
+      ],
+      "price": 10.95,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Dehydrated backpacking dinners",
+      "need": 1,
+      "have": 1,
+      "holders": [
+        3
+      ],
+      "price": 149.88,
+      "split": 6,
+      "products": {}
+    }
+  ],
+  "group_short": [
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Cooler, 48-quart wheeled",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 54.99,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Dish tub + scrub sponge",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 13.99,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Folding cutting board",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 13.75,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Ground tarp",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 19.99,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Propane cylinders, 16.4oz, 2-pack",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 29.98,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Vinyl picnic table cover",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 26.99,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Bear-proof food storage (group/shared item)",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 149.95,
+      "split": 6,
+      "products": {
+        "1": "Ursack Major XL (with OPSak liner)",
+        "2": "BearVault BV500",
+        "3": "Ursack Major XL (with OPSak liner)"
+      }
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "National Geographic Chattahoochee-Oconee National Forest paper map",
+      "need": 2,
+      "have": 0,
+      "holders": [],
+      "price": 29.9,
+      "split": 3,
+      "products": {}
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Repair kit: Tenacious Tape, Therm-a-Rest pad patch kit, duct tape, zip ties",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 23.95,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Satellite messenger (group/shared item)",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 199.0,
+      "split": 6,
+      "products": {
+        "1": "ZOLEO Satellite Communicator",
+        "3": "ZOLEO Satellite Communicator"
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Tweezers + magnetic pickup tool + spray bottle for panning",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 29.25,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Consumables",
+      "label": "Foam ear plugs, multi-pack",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 9.89,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Consumables",
+      "label": "Hand sanitizer, travel bottles",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 15.99,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Consumables",
+      "label": "Toilet paper, compressed camp rolls",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 15.48,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Consumables",
+      "label": "Trash bags, heavy-duty contractor bags",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 20.04,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Beef jerky, multi-pack",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 25.28,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Car-camp grocery run (est.)",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 140.0,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Energy/granola bars, box",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 35.58,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Flour tortillas, burrito size, 16ct pack",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 5.87,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Instant coffee packets",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 41.88,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Instant oatmeal, variety packets",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 21.98,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Peanut butter squeeze packets",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 21.86,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Trail mix, bulk bag",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 24.95,
+      "split": 6,
+      "products": {}
+    },
+    {
+      "section": "Food",
+      "label": "Tuna single-serve pouches",
+      "need": 1,
+      "have": 0,
+      "holders": [],
+      "price": 24.9,
+      "split": 6,
+      "products": {}
+    }
+  ]
+}

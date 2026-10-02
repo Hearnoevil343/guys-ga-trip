@@ -38,7 +38,7 @@ Source for the input checklist critique: `E:\dev\ga-gold-trip\reference\friend_g
 
 ---
 
-## B. THE CAPTAIN'S PERSONAL LIST
+## B. JORDAN'S PERSONAL LIST
 
 Assumes he owns nothing yet. Shared overnight items are split per the brief: **tent split 2** (tentmate), **stove/pot/filter/food-storage/first-aid/sat-messenger split across the group of 6** — his cost and weight below are his *share*, not the full item.
 

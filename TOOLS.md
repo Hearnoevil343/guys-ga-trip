@@ -301,6 +301,18 @@ variant choice survives a full page reload via localStorage; Day 4 (long)'s star
 occluded (`document.elementFromPoint()` at their real screen center hits the marker itself).
 `map/screenshot_backcountry.png` holds a screenshot from this pass.
 
+**Update 2026-10-02 (replan): single route, no variants.** The long/short options are gone;
+`_build_backcountry.mjs` now builds one 3-day hike (Sat Oct 17 - Mon Oct 19) and writes no
+`variants`, so the map's selector row hides itself. It snapshots the `_build_days.mjs` output to
+`map/data/_days_baseline.json` on first run and rebuilds from that file afterwards (tracked).
+**Run order:** `node map/data/_build_days.mjs`, then `node map/data/_build_backcountry.mjs`,
+then `node map/build-map.mjs`. Delete `_days_baseline.json` only to re-snapshot after changing
+`_build_days.mjs`. Browser check 2026-10-02 (Browser pane, served with `serve.mjs`): 0 console
+errors; day buttons 1-7 all present and switch cleanly; variant row hidden; day 6 (Oct 20) has
+the Helton Creek Falls legs with coords (drive, FS Trail 145 up and back, falls stop); legs
+without coords (meals, pans, tour stops) exist on every day and did not break any day panel.
+Not checked: pixel rendering (the pane reported a 0x0 viewport, so no screenshot).
+
 ## tools/build_gear_picker.py
 Re-runnable Python (openpyxl; `pip install openpyxl`) builder for `Gear_Picker.xlsx`, the
 Jordan's personal interactive gear-selection workbook. Reads all three

@@ -419,3 +419,8 @@ callout boxes are not produced — bold lead-ins render as plain paragraphs.
 hidden). Added a `@media (max-width:700px)` block in `build-map.mjs` (map on top 50vh, panel below,
 legend lifted above the panel). Playwright throwaway install used and moved back to
 `E:\to-delete\ga-gold-trip\node_modules`.
+
+## Hub tab "Who has what" (2026-10-02)
+`tools/build_hub.py` `roster_html()` renders it from `roster/roster.json` (`items` matrix written by
+`tools/build_roster.py`). Run order after a new roster export: `build_roster.py`, then `build_hub.py`.
+Group split is `buy_data.GROUP_SIZE` (5); `group_split()` maps the research JSON's 6 to it.

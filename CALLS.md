@@ -43,6 +43,10 @@ The order that governs that overnight. Ask by name:
   hiking, picnicking and camping but does NOT name gold panning. Our data
   claimed it did; that citation was wrong. Confirm it's allowed under the
   general rule.
+- **Brasstown Bald night parking** (Thu Oct 15 stargazing, lot ~7:50–10:15 PM).
+  Only Explore Georgia says the lot is open at night; not confirmed by USFS.
+  Is the lot (and the road up) open after dark in October, any gate or fee?
+  Backup if not: Hogpen Gap overlook (GA-348).
 
 ## 2. Vogel State Park — 706-745-2628
 - Confirm walk-in site P booking, Thu Oct 15 1 PM – Wed Oct 21 noon.

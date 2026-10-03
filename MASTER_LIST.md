@@ -2,7 +2,7 @@
 
 Built from `ROSTER.md` (3 of 5 lists in: Jordan, Nik, Nathan; Hilton and Jarred still owe theirs)
 and the decided plan: base camp at Vogel Thu Oct 15 – Wed Oct 21, **3-day / 2-night hike Sat Oct
-17 – Mon Oct 19**, waterfall day Tue Oct 20. Headcount: the roster says **5**; PLAN.md and the site
+17 – Mon Oct 19**, rest day Tue Oct 20. Headcount: the roster says **5**; PLAN.md and the site
 booking say 6. Food below is sized for 5 with the 6-person number in brackets. Confirm the sixth.
 
 Owned-and-covered group gear (do not buy): 2 base-camp tents, two-burner propane stove, camp pan,

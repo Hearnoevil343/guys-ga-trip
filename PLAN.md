@@ -11,18 +11,18 @@
   setup on arrival at a new camp and breakdown the morning a camp is left (`type: "camp"`/`"meal"`
   legs in `map/data/days.json` — non-moving time, no new map marker; see day panel leg list and the
   Compare view's "camp & meals" row). Oct 16 (Dahlonega) gets a sit-down lunch downtown, right after
-  the Consolidated Gold Mine tour and before the Gold Museum (walkable from the museum on the
+  the Consolidated Gold Mine tour (on the
   square) — pick a spot when you're there, nothing pre-booked.
 
 ## The week (decided 2026-10-02; geometry: map\data\days.json, built by map\data\_build_days.mjs then _build_backcountry.mjs)
 | Day | Plan | Pan? |
 |---|---|---|
-| Thu Oct 15 | Arrive 1 PM, set camp. DeSoto Falls trail + Frogtown Creek (first lesson). Evening walk to Trahlyta Falls inside Vogel. | Frogtown Creek |
-| Fri Oct 16 | Dahlonega: Consolidated Gold Mine tour, lunch on the square, Gold Museum, Yahoola Creek Park. Evening: stage truck 2 at Owltown Gap. | Yahoola Creek |
+| Thu Oct 15 | Arrive 1 PM, set camp, rest. Optional short walk to Trahlyta Falls inside Vogel. After dinner: stargazing at Brasstown Bald (~27 min). | — |
+| Fri Oct 16 | Dahlonega: Consolidated Gold Mine tour, lunch on the square, pan Yahoola Creek Park. Evening: stage truck 2 at Owltown Gap. | Yahoola Creek |
 | Sat Oct 17 | **Hike day 1.** Site P → Coosa Backcountry Trail → West Fork Wolf Creek, 3.53 mi. Camp at the FS 107 crossing. Deer season opens: blaze orange. | WOLF-X, 3 h |
 | Sun Oct 18 | **Hike day 2.** Over Calf Stomp Gap, down Big Grassy Knob Rd to East Fork Coosa Creek, 5.24 mi, +1,668 ft. Camp at Jones Branch confluence. | Roaring Fork 1.5 h, camp 1.5 h |
 | Mon Oct 19 | **Hike day 3.** Out Bowers Road to Owltown Gap, 2.29 mi. Truck 2 → Vogel, 18 min. Hot dinner, showers. | Boundary stop 1.5 h |
-| Tue Oct 20 | **Waterfall day**, daypacks. Helton Creek Falls, then Tesnatee Gap, Upper Chattahoochee FS-44, Dukes Creek Falls. Alternatives: Brasstown Bald, Helen Oktoberfest, Raven Cliff Falls (RUNDOWN §1). | Tesnatee, Upper Chatt, Dukes Creek, 1.5 h each |
+| Tue Oct 20 | **Rest day** at Vogel. Optional: Helton Creek Falls (13 min, short trail). | — |
 | Wed Oct 21 | Break camp, out by noon. | — |
 
 ## Backcountry (decided 2026-09-21; source: research\backcountry-route-design.md)

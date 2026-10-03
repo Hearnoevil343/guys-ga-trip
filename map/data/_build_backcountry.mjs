@@ -55,6 +55,7 @@ const POINTS = {
   vogel_basecamp: { lat: 34.765883, lng: -83.925416, label: 'Vogel State Park — base camp (walk-in site P)' },
   owltown_gap: { lat: 34.81143, lng: -83.94952, label: 'Owltown Gap (Bowers Road / FS 298 trailhead)' },
   // OSM: tourism=information node 4173263790 "Helton Creek Falls" on Helton Creek Road (trailhead board); waterway=waterfall node 7589363460. Nominatim, fetched 2026-10-02.
+  brasstown_parking: { lat: 34.869027, lng: -83.81045, label: 'Brasstown Bald parking lot (OSM way 268844595)' },
   helton_trailhead: { lat: 34.753214, lng: -83.894488, label: 'Helton Creek Falls trailhead (Helton Creek Road / FS 118)' },
   helton_falls: { lat: 34.752715, lng: -83.895684, label: 'Helton Creek Falls' },
 };
@@ -421,62 +422,39 @@ function findDay(n) { const d = baselineDays.find(x => x.day === n); if (!d) thr
 
 const day7 = findDay(7);
 
-// Day 1 (Thu Oct 15): add the two waterfall walks. DeSoto Falls is at the same
-// recreation area as the Frogtown Creek pan stop (tour leg, same coordinates).
-// Trahlyta Falls is inside Vogel below the Lake Trahlyta dam, a short walk
-// from the campground — no separate coordinate (stationary leg at camp;
-// distance/time UNVERIFIED, trail not pulled from OSM this pass).
-function buildDay1WithFalls() {
+// Day 1 (Thu Oct 15), slimmed 2026-10-02 at the owner's call ("we will be
+// tired from the drive"): set camp, one easy walk inside Vogel, dinner, then
+// drive up to Brasstown Bald for the stars. No panning on arrival day. The
+// baseline day 1's DeSoto/Frogtown legs are dropped; its camp and dinner legs are kept.
+async function buildDay1Stars() {
   const day1 = findDay(1);
-  const desoto = day1.legs.find(l => l.type === 'drive' && l.to_ref === 'desoto-frogtown');
-  const falls = desoto ? desoto.coords[desoto.coords.length - 1] : null;
-  const panIdx = day1.legs.findIndex(l => l.type === 'pan');
-  const tour = { type: 'tour', label: 'Walk the DeSoto Falls trail (lower + upper falls) from the same parking lot', minutes: 60, note: 'Trail length not verified from a source this pass — budget an hour.' };
-  if (falls) { tour.lat = round6(falls[0]); tour.lng = round6(falls[1]); }
-  day1.legs.splice(panIdx >= 0 ? panIdx + 1 : day1.legs.length, 0, tour);
-  const dinnerIdx = day1.legs.length && day1.legs[day1.legs.length - 1].type === 'meal' ? day1.legs.length - 1 : day1.legs.length;
-  day1.legs.splice(dinnerIdx, 0, { type: 'tour', label: 'Evening: walk to Trahlyta Falls inside Vogel (below the lake dam), stretch the legs', minutes: 40, note: 'Inside the state park; distance UNVERIFIED (short, flat per park map). Park streams: no panning.' });
-  day1.title = 'Arrive, set camp, DeSoto Falls + Frogtown Creek, Trahlyta Falls';
-  return day1;
+  const setup = day1.legs.find(l => l.type === 'camp');
+  const legs = [setup];
+  legs.push({ type: 'tour', label: 'Optional: easy walk to Trahlyta Falls inside Vogel (below the lake dam)', minutes: 40, note: 'Inside the state park; distance UNVERIFIED (short, flat per park map). Park streams: no panning.' });
+  // Sunset Oct 15 is about 7:05 PM EDT; this downtime puts the drive up after
+  // dinner at about 7:50 PM, arriving near full dark.
+  legs.push({ type: 'camp', label: 'Downtime at camp: rest after the drive', minutes: 235 });
+  legs.push({ type: 'meal', label: 'Dinner at camp', minutes: 60 });
+  legs.push(await driveLeg('Evening: Vogel to Brasstown Bald parking lot', POINTS.vogel_basecamp, POINTS.brasstown_parking, 'vogel_brasstown'));
+  legs.push({ type: 'tour', label: 'Stargazing at Brasstown Bald (highest point in Georgia)', minutes: 90, lat: POINTS.brasstown_parking.lat, lng: POINTS.brasstown_parking.lng,
+    note: 'Explore Georgia: "The parking lot is open at night, and the lights from the visitors center are turned off." Not yet confirmed with the Forest Service. Waxing crescent moon (sets mid-evening). Warm layers, red headlamps, chairs. Backup: Hogpen Gap overlook on GA-348.' });
+  legs.push(await driveLeg('Brasstown Bald back to Vogel', POINTS.brasstown_parking, POINTS.vogel_basecamp, 'brasstown_vogel'));
+  return { ...day1, title: 'Arrive, set camp, rest, stargazing at Brasstown Bald', note: 'Arrival day: no panning. Leave camp after dinner, about an hour after sunset, for full dark.', legs };
 }
 
-// Day 6 (Tue Oct 20): Helton Creek Falls first (15 min from Vogel), then the
-// old Sun GA-348 loop (Tesnatee Gap pan, Upper Chattahoochee pan, Dukes Creek
-// Falls walk + pan) re-dated. The baseline day 4's first drive leg (Vogel ->
-// Tesnatee Gap) is replaced by Helton -> Tesnatee Gap.
-const heltonWay = JSON.parse(fs.readFileSync(path.join(RESEARCH_DIR, '_cache', 'helton_falls_way_31275565.json'), 'utf8'));
-function heltonTrailCoords() {
-  const nodes = {};
-  for (const e of heltonWay.elements) if (e.type === 'node') nodes[e.id] = [e.lat, e.lon];
-  const w = heltonWay.elements.find(e => e.type === 'way');
-  const c = w.nodes.map(n => nodes[n]);
-  // orient trailhead -> falls
-  const dStart = dist(c[0], [POINTS.helton_falls.lat, POINTS.helton_falls.lng]);
-  const dEnd = dist(c[c.length - 1], [POINTS.helton_falls.lat, POINTS.helton_falls.lng]);
-  return dStart < dEnd ? c.slice().reverse() : c;
-}
-async function buildOct20Falls() {
-  console.log('\n=== Oct 20 — Helton Creek Falls + GA-348 loop ===');
+// Day 6 (Tue Oct 20): rest day at Vogel after the hike (owner's call 2026-10-02).
+function buildOct20Rest() {
   const d4 = findDay(4);
-  const firstDrive = d4.legs.findIndex(l => l.type === 'drive');
-  const tesnatee = d4.legs[firstDrive];
-  const tesnateePt = { lat: tesnatee.coords[tesnatee.coords.length - 1][0], lng: tesnatee.coords[tesnatee.coords.length - 1][1], label: 'Tesnatee Gap' };
-  const trail = heltonTrailCoords();
-  const legs = d4.legs.slice(0, firstDrive); // breakfast
-  legs.push(await driveLeg('Vogel to Helton Creek Falls trailhead', POINTS.vogel_basecamp, POINTS.helton_trailhead, 'vogel_helton'));
-  legs.push(await walkLeg('Trailhead to Helton Creek Falls (FS Trail 145)', trail, 'exact',
-    'Real OSM way geometry, way 31275565 "Helton Creek Falls" (FS Trail 145, foot=designated), fetched 2026-10-02 from api.openstreetmap.org. OSM maps only the stretch to the lower falls; the upper falls are a few minutes further on steps.',
-    GROUP_FACTOR * DAYPACK_FACTOR, 'oct20_helton_in'));
-  legs.push({ type: 'tour', label: 'Helton Creek Falls — lower and upper falls', minutes: 45, lat: POINTS.helton_falls.lat, lng: POINTS.helton_falls.lng, note: 'Two drops close together. Helton Creek is NOT a planned pan stop (no gold record pulled; Blue Ridge RD site-specific camping restrictions apply at the falls).' });
-  legs.push(await walkLeg('Helton Creek Falls back to the trailhead', trail.slice().reverse(), 'exact', 'Same OSM way, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct20_helton_out'));
-  legs.push(await driveLeg('Helton Creek Falls trailhead to Tesnatee Gap', POINTS.helton_trailhead, tesnateePt, 'helton_tesnatee'));
-  legs.push(...d4.legs.slice(firstDrive + 1));
   return {
-    ...d4,
-    day: 6, date: '2026-10-20', title: 'Waterfall day: Helton Creek Falls, then Tesnatee Gap, Upper Chattahoochee, Dukes Creek Falls',
-    note: 'Easy recovery day after the hike. Daypacks. Pan stops at Tesnatee Creek, the Upper Chattahoochee (below the Mark Trail Wilderness line) and Dukes Creek (NF side only). Rain backup: Dahlonega Gold Museum / Helen Oktoberfest (research/dahlonega.md).',
-    start: { ...d4.start, time: '08:30' },
-    legs,
+    day: 6, date: '2026-10-20', title: 'Rest day at Vogel',
+    start: { ...d4.start, time: '08:30' }, end: d4.end,
+    note: 'Nothing planned. Optional if anyone wants a short outing: Helton Creek Falls, 13 min from Vogel, short trail.',
+    legs: [
+      { type: 'meal', label: 'Breakfast at camp', minutes: 40 },
+      { type: 'camp', label: 'Rest: sleep in, dry gear, showers, pan-out of the hike concentrates at the table', minutes: 240 },
+      { type: 'meal', label: 'Lunch at camp', minutes: 45 },
+      { type: 'meal', label: 'Dinner at camp', minutes: 60 },
+    ],
   };
 }
 
@@ -491,6 +469,14 @@ async function buildDay2WithShuttle() {
   // camp" meal leg (see _build_days.mjs); splice the shuttle in just before it.
   const dinnerIdx = day2.legs.length && day2.legs[day2.legs.length - 1].type === 'meal' ? day2.legs.length - 1 : day2.legs.length;
   day2.legs.splice(dinnerIdx, 0, shuttleOut, shuttleBack);
+  // Owner's call 2026-10-02: mine tour + river panning only, no museum. Lunch
+  // stays on the square (the museum's coordinates), so the drives still chain.
+  day2.legs = day2.legs.filter(l => !(l.type === 'tour' && l.at_ref === 'dahlonega-gold-museum'));
+  for (const l of day2.legs) {
+    if (l.label === 'Consolidated Gold Mine to Gold Museum') l.label = 'Consolidated Gold Mine to downtown Dahlonega (lunch)';
+    if (l.label === 'Gold Museum to Yahoola Creek Park') l.label = 'Downtown Dahlonega to Yahoola Creek Park';
+  }
+  day2.title = 'Dahlonega: mine tour, lunch, pan Yahoola Creek';
   day2.note = 'Fri evening: stage truck 2 at Owltown Gap for the Sat backcountry departure (two trucks out, one back; ~18 min each way per OSRM), then dinner at camp.';
   return day2;
 }
@@ -498,12 +484,12 @@ async function buildDay2WithShuttle() {
 // ---------------------------------------------------------------------------
 // 7. Assemble the single route + chain check.
 // ---------------------------------------------------------------------------
-const day1 = buildDay1WithFalls();
+const day1 = await buildDay1Stars();
 const day2 = await buildDay2WithShuttle();
 const oct17 = await buildOct17Long();
 const oct18 = await buildOct18Long();
 const oct19 = await buildOct19Out();
-const oct20 = await buildOct20Falls();
+const oct20 = buildOct20Rest();
 
 const routeDays = [day1, day2, oct17, oct18, oct19, oct20, day7];
 
@@ -533,7 +519,7 @@ const { variants: _droppedVariants, ...existingRest } = existing;
 const daysJson = { ...existingRest, days: routeDays };
 daysJson.assumptions = {
   ...existing.assumptions,
-  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-02): days 1-2 from _build_days.mjs (day 1 + waterfall walks, day 2 + Fri truck shuttle), days 3-5 = the East Fork Coosa Creek hike (research/backcountry-route-design.md "long" option without the layover), day 6 = Helton Creek Falls + the GA-348 loop, day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
+  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-02): day 1 = set camp + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, + Fri truck shuttle), days 3-5 = the East Fork Coosa Creek hike (research/backcountry-route-design.md "long" option without the layover), day 6 = rest day at Vogel, day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
 };
 
 fs.writeFileSync(daysPath, JSON.stringify(daysJson, null, 2));

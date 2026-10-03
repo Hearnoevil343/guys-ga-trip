@@ -25,7 +25,7 @@ Base camp: Vogel State Park, walk-in site P. 5 adults (3 newer campers). This is
 
 ## 0. Trip at a glance
 
-**Dates:** Arrive Vogel State Park Thu Oct 15, 1:00 PM. Depart Wed Oct 21, noon. Keep the night of Oct 20 (the group is back from the hike Mon evening; Tue is the waterfall day).
+**Dates:** Arrive Vogel State Park Thu Oct 15, 1:00 PM. Depart Wed Oct 21, noon. Keep the night of Oct 20 (the group is back from the hike Mon evening; Tue is a rest day).
 
 **Site limits (walk-in site P):** 6 people max, 2 tents max, 2 vehicles at the site + overflow parking nearby for the rest.
 
@@ -52,39 +52,35 @@ All drive times are estimated from Vogel State Park (7485 Vogel State Park Rd, B
 
 Every day below now budgets real time for breakfast/lunch/dinner and for camp setup/breakdown (first night at Vogel ~60–90 min; a backcountry camp ~45 min each way) — see the map's day panel for the minute-by-minute breakdown; none of the added time pushes a day past ~11 active hours or dinner past dark.
 
-### Thu Oct 15 — Arrive, set camp, first pan, two waterfalls
+### Thu Oct 15 — Arrive, set camp, stars at Brasstown Bald
+Arrival day is light on purpose: everyone is tired from the drive. No panning today.
 - **1:00 PM:** Arrive Vogel, check in, haul gear to walk-in site P.
-- **2:00–4:00 PM:** Set up base camp (tents, bear-proof food hang on the site's steel posts, kitchen area).
-- **4:00–6:00 PM:** Drive to **DeSoto Falls Recreation Area / Frogtown Creek** (~15 min south on US-129) for the group's first panning lesson — closest legal spot to camp, and USFS explicitly lists gold panning as an allowed activity here. Walk the DeSoto Falls trail (lower + upper falls) from the same lot, ~1 h.
-- **Before dinner:** short walk to **Trahlyta Falls** inside Vogel, below the lake dam (distance unverified; short and flat on the park map). No panning inside the park.
-- **Evening:** Dinner at camp, pan-out session at the table (rinse today's concentrates, spot any color).
-- **Bring:** pans, classifiers, gloves, water shoes, warm layers (frost is a real possibility this week).
-- **Rain/backup:** Skip the creek, do the pan-out lesson under the canopy at camp using pre-bought "salted" gravel or just cover gear-org and safety briefing.
+- **2:00–3:15 PM:** Set up base camp (tents, bear-proof food hang on the site's steel posts, kitchen area).
+- **Afternoon:** Rest. Optional short walk to **Trahlyta Falls** inside Vogel, below the lake dam (distance unverified; short and flat on the park map).
+- **~6:50 PM:** Dinner at camp. Sunset is about 7:05 PM.
+- **~7:50 PM:** Drive to **Brasstown Bald** parking lot (~27 min, highest point in Georgia). Explore Georgia: "The parking lot is open at night, and the lights from the visitors center are turned off." Not yet confirmed with the Forest Service. Stargaze about 1.5 h, back at camp around 10:15 PM. Waxing crescent moon, sets mid-evening.
+- **Bring:** warm layers (cold and windy up top), camp chairs, red-light headlamps, a blanket.
+- **Backup:** Hogpen Gap overlook on GA-348 (north-facing, roadside), or Lake Trahlyta's shore inside Vogel if the group would rather not drive.
 
 ### Fri Oct 16 — Dahlonega in costume
 - **Morning:** Prospector outfits on. Drive to Dahlonega (~25–30 min via US-19/129).
 - **Consolidated Gold Mine** (185 Consolidated Gold Mine Rd) — underground tour + panning, ask for the veteran guide (see §5, §10). No reservation needed for a group of 5.
-- **Lunch, downtown Dahlonega** — right after the mine tour, before the museum. Pick a spot on the square when you're there (Consolidated is a few minutes' drive from downtown; the museum is on the square, so lunch first keeps everything walkable from there); nothing pre-booked. ~1 hr.
-- **Dahlonega Gold Museum** (1 Public Square) — indoor, walkable from lunch.
+- **Lunch, downtown Dahlonega** — right after the mine tour. Pick a spot on the square when you're there (a few minutes' drive from Consolidated); nothing pre-booked. ~1 hr.
 - **Yahoola Creek Park** (1166 Captain McDonald Rd) — the "4,000 miners" creek; free public panning.
 - **Dinner** in town — Foothill Grill, Bear Necessities Cafe, or Picnic Cafe (all casual, good for a group of 5).
-- **Rain/backup:** This whole day is already the rain-day pick — Consolidated is underground and the museum is indoor.
+- **Rain/backup:** This whole day is already the rain-day pick — Consolidated is underground.
 
 ### Sat Oct 17 – Mon Oct 19 — The hike: 3 days / 2 nights, East Fork Coosa Creek
-Full detail in §3. Decided 2026-10-02: this replaces both earlier options (the 4-day "long" and the 2-day "short"). Cooper Creek is dropped; the GA-348 loop moves to Tuesday.
+Full detail in §3. Decided 2026-10-02: this replaces both earlier options (the 4-day "long" and the 2-day "short"). Cooper Creek is dropped; Tuesday is a rest day.
 - **Sat Oct 17 — Vogel → West Fork Wolf Creek.** Walk out of camp onto the Coosa Backcountry Trail via Burnett Gap, 3.5 mi. Pan 3 h at the FS 107 crossing, camp there. Gold Rush Days (~200k people) is in Dahlonega today — we are nowhere near it. **Firearms deer season opens today: blaze orange on everyone from now on.**
 - **Sun Oct 18 — West Fork Wolf Creek → East Fork Coosa Creek.** Over Locust Stake Gap and Calf Stomp Gap (the big climb), down Big Grassy Knob Road, upstream to camp at the Jones Branch confluence, 5.2 mi, +1,670 ft. Pan 1.5 h at the Roaring Fork confluence and 1.5 h at camp.
 - **Mon Oct 19 — out to Owltown Gap.** 2.3 mi down Bowers Road. Pan 1.5 h at the boundary stop (last public water). Pick up truck 2, drive 18 min to Vogel. Hot dinner, showers, early night.
 - **Rain/backup:** if the forecast turns genuinely unsafe (flash-flood risk in the narrow creek), shorten to one night (Sat out-and-back to West Fork Wolf Creek, or skip to Sun start and walk Owltown Gap → camp → back) rather than camp in a flooding drainage. Day-trip fallback: Cooper Creek or Frogtown.
 
-### Tue Oct 20 — Waterfall day: Helton Creek Falls, then the GA-348 loop
-Recovery day, daypacks only.
-- **Morning:** **Helton Creek Falls** (13 min from Vogel, Helton Creek Road / FS 118; short trail, two drops). Not a pan stop.
-- **Tesnatee Gap / Tesnatee Creek** (16 min on from Helton) — roadside pull-off, pan 1.5 h.
-- **Upper Chattahoochee / FS-44 road reach** (~1 h via GA-75 to FS-44 gravel) — stop at the campground gate; do **not** continue upstream past it, that's Mark Trail Wilderness (banned). Trail lunch here.
-- **Dukes Creek Falls, NF side only** (~40 min) — $4/vehicle USFS fee, 2.5-mi round-trip boardwalk trail to the falls; pan above the trailhead, well clear of the boardwalk. Do **not** cross into Smithgall Woods State Park (banned, different property).
-- **Other options for the day if the group would rather not pan:** Brasstown Bald (highest point in Georgia, ~25 min from Vogel, paved summit shuttle — hours/fee unverified), Helen Oktoberfest (runs daily through Nov 1 — hours unverified, see §5), Raven Cliff Falls (5-mi round trip from the Dukes Creek Falls area, Raven Cliffs Wilderness — no panning).
-- **Rain/backup:** Dahlonega Gold Museum if skipped Friday, or Helen's indoor options (research/dahlonega.md).
+### Tue Oct 20 — Rest day at Vogel
+Nothing planned. Sleep in, dry gear, showers, pan out the hike's concentrates at the table.
+- **Optional, if anyone wants a short outing:** Helton Creek Falls (13 min from Vogel, Helton Creek Road / FS 118; short trail, two drops).
+- **Rain:** stay put under the canopy, or Helen's indoor options (research/dahlonega.md).
 
 ### Wed Oct 21 — Pack out
 - **Morning:** Break camp, Leave No Trace, load trucks. Site must be vacated by **noon**.

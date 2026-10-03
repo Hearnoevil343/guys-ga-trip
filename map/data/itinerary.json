@@ -1,23 +1,21 @@
 {
   "schema": "itinerary-v1",
-  "note": "Planning layer, superseded by days.json (which the map renders). Updated 2026-10-02 to the decided single route: 3-day Coosa Creek hike Sat Oct 17 - Mon Oct 19, waterfall day Tue Oct 20. Each stop reuses an existing point id from map/data/*.json where one exists.",
+  "note": "Planning layer, superseded by days.json (which the map renders). Updated 2026-10-02 to the decided single route: 3-day Coosa Creek hike Sat Oct 17 - Mon Oct 19, rest day Tue Oct 20; Thu Oct 15 stargazing at Brasstown Bald (owner, 2026-10-02). Each stop reuses an existing point id from map/data/*.json where one exists.",
   "days": [
     {
       "day": 1,
       "date": "2026-10-15",
-      "label": "Thu Oct 15 — Arrive, DeSoto Falls + Frogtown Creek, Trahlyta Falls",
+      "label": "Thu Oct 15 — Arrive, set camp, rest, stargazing at Brasstown Bald",
       "stops": [
         {
           "ref": "vogel_basecamp",
-          "note": "Arrive 1 PM, set up base camp"
+          "note": "Arrive 1 PM, set up base camp, rest; optional Trahlyta Falls walk"
         },
         {
-          "ref": "desoto-frogtown",
-          "note": "First panning lesson on Frogtown Creek; walk the DeSoto Falls trail from the same lot"
-        },
-        {
-          "ref": "vogel_basecamp",
-          "note": "Evening walk to Trahlyta Falls inside the park"
+          "lat": 34.869027,
+          "lng": -83.81045,
+          "coord_source": "OSM parking way 268844595",
+          "note": "After dinner: stargazing at Brasstown Bald"
         }
       ]
     },
@@ -29,10 +27,6 @@
         {
           "ref": "consolidated-gold-mine",
           "note": "Underground tour + flume panning"
-        },
-        {
-          "ref": "dahlonega-gold-museum",
-          "note": "Gold Museum State Historic Site, lunch on the square first"
         },
         {
           "ref": "yahoola-park",
@@ -96,25 +90,11 @@
     {
       "day": 6,
       "date": "2026-10-20",
-      "label": "Tue Oct 20 — Waterfall day: Helton Creek Falls, Tesnatee Gap, Upper Chattahoochee, Dukes Creek Falls",
+      "label": "Tue Oct 20 — Rest day at Vogel",
       "stops": [
         {
-          "lat": 34.752715,
-          "lng": -83.895684,
-          "coord_source": "OSM waterfall node 7589363460",
-          "note": "Helton Creek Falls, short trail, two drops"
-        },
-        {
-          "ref": "tesnatee-gap",
-          "note": "Tesnatee Creek pan"
-        },
-        {
-          "ref": "upper-chatt-fs44",
-          "note": "Upper Chattahoochee / FS-44 pan, stay below Mark Trail Wilderness"
-        },
-        {
-          "ref": "dukes-creek-falls",
-          "note": "Dukes Creek Falls walk + pan, NF side only"
+          "ref": "vogel_basecamp",
+          "note": "Rest day. Optional: Helton Creek Falls, 13 min"
         }
       ]
     },

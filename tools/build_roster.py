@@ -76,7 +76,12 @@ UNIT_COUNTS = {(1, "Suunto A-10 baseplate compass"): 2}
 SLEEP_LABEL_RE = re.compile(r"^(Sleep (?:bag|pad)) \((\d+F), (?:budget|solid)\)$")
 
 
+# Rows renamed in the picker since some exports were taken: old label -> new.
+RENAMED = {"Cathole trowel (shared, split 6)": "Cathole trowel (shared)"}
+
+
 def normalise_label(label):
+    label = RENAMED.get(label, label)
     m = SLEEP_LABEL_RE.match(label)
     if m:
         return "{} ({})".format(m.group(1), m.group(2))
@@ -257,8 +262,8 @@ def main():
     A("## Group gear -- what is already covered")
     A("")
     A("One person owning a group item covers the whole group, so nobody else buys it.")
-    A("\"Need\" is how many units the plan wants (a `/6` item is one unit for everyone; a")
-    A("`/3` item is two units).")
+    A("\"Need\" is how many units the plan wants (a `/5` item, `/6` on older lists, is one")
+    A("unit for everyone; a `/3` item is two units).")
     A("")
     covered, short, freebies = [], [], []
     for key in sorted(catalog, key=lambda k: (SECTION_ORDER.index(k[0]), k[1])):
@@ -436,7 +441,40 @@ def main():
 
     OUT_MD.write_text("\n".join(L) + "\n", encoding="utf-8")
 
+    # ---- full matrix for the hub's "Who has what" tab -----------------
+    # Every row anyone's list has, with each person's status on it.
+    group_by_key = {(r["section"], r["label"]): r for r in covered + short + freebies}
+    items = []
+    for key in sorted(catalog, key=lambda k: (SECTION_ORDER.index(k[0]), k[1])):
+        entry = catalog[key]
+        section, label = key
+        cells = {}
+        for n in sorted(people):
+            if not people[n]["data"]:
+                cells[str(n)] = {"s": "nolist"}
+                continue
+            row = status_of(people, n, section, label)
+            if row is None:
+                cells[str(n)] = {"s": "absent"}
+            elif row["status"] in HAVE:
+                cells[str(n)] = {"s": "has", "p": entry["products"].get(n, "")}
+            elif row["status"] == "SKIP":
+                cells[str(n)] = {"s": "skip"}
+            elif row["price"] == 0.0:
+                cells[str(n)] = {"s": "free"}
+            else:
+                cells[str(n)] = {"s": "buy", "p": row["product"], "price": row["price"]}
+        rec = {"section": section, "label": label, "shared": entry["shared"],
+               "price": entry["price"], "cells": cells}
+        g = group_by_key.get(key)
+        if g:
+            rec.update(need=g["need"], have=g["have"],
+                       state="covered" if g in covered else ("free" if g in freebies else "short"))
+        items.append(rec)
+
     OUT_JSON.write_text(json.dumps({
+        "sections": SECTION_ORDER,
+        "items": items,
         "headcount": headcount,
         "plan_split_basis": PLAN_SPLIT_BASIS,
         "people": {str(n): {"name": p["name"], "file": p["file"],

@@ -410,6 +410,100 @@ files = [
     ("map/trip.gpx", "Waypoints for Gaia / CalTopo / OnX offline"),
     ("PLAN.md", "Facts, decisions, open items"),
 ]
+# --- "Who has what" tab, from roster/roster.json (python tools/build_roster.py) --
+def roster_html():
+    rp = ROOT / "roster" / "roster.json"
+    if not rp.exists():
+        return "<p>No roster yet: run <code>python tools/build_roster.py</code>.</p>"
+    R = json.loads(rp.read_text(encoding="utf-8"))
+    E = html.escape
+    nums = sorted(R["people"], key=int)
+    names = {n: R["people"][n]["name"] for n in nums}
+    got = [n for n in nums if R["people"][n]["submitted"]]
+    owe = [names[n] for n in nums if not R["people"][n]["submitted"]]
+    hc = R["headcount"]
+    out = []
+    A = out.append
+    A(f'<div class="card"><b>Lists in: {len(got)} of {len(nums)}</b> '
+      f'({", ".join(names[n] for n in got)}).')
+    if owe:
+        A(f' <b>Still owed:</b> {", ".join(owe)}. Until theirs are in, a hole below may already be '
+          f'covered by them.')
+    A('<br><small>Built from each person\'s Copy-list export of the Buy tab. '
+      '&#10003; has it &middot; <span class="rb">$</span> still buying &middot; '
+      '&ndash; skipped &middot; ? no list yet &middot; blank = not on their list.</small></div>')
+
+    # Holes summary
+    short = [i for i in R["items"] if i.get("state") == "short"]
+    gcost = sum(i["price"] * (i["need"] - i["have"]) for i in short)
+    A('<div class="card"><b>Holes</b><br>')
+    A(f'<b>Group gear nobody has:</b> {len(short)} items, ${gcost:,.2f} total, '
+      f'about ${gcost / hc:,.2f} each at {hc}.<ul class="holes">')
+    for sec in R["sections"]:
+        rows = [i for i in short if i["section"] == sec]
+        if rows:
+            A(f'<li><b>{E(sec)}:</b> ' + ", ".join(
+                E(i["label"]) + (f' (need {i["need"] - i["have"]} more)' if i["need"] - i["have"] > 1 else "")
+                for i in rows) + '</li>')
+    A('</ul><b>Personal gear each person still has to buy:</b><ul class="holes">')
+    for n in nums:
+        if not R["people"][n]["submitted"]:
+            A(f'<li>{E(names[n])}: no list yet</li>')
+            continue
+        miss = [i for i in R["items"] if not i["shared"] and i["cells"][n]["s"] == "buy"]
+        if miss:
+            A(f'<li>{E(names[n])}: {len(miss)} items, ${R["people"][n]["personal_gap_usd"]:,.2f} '
+              f'&mdash; ' + ", ".join(E(i["label"]) for i in miss) + '</li>')
+        else:
+            A(f'<li>{E(names[n])}: nothing missing</li>')
+    A('</ul></div>')
+
+    A('<p><label><input type="checkbox" id="holes-only"> Show holes only</label></p>')
+    head = "".join(f"<th>{E(names[n])}</th>" for n in nums)
+    sym = {"has": "&#10003;", "skip": "&ndash;", "nolist": "?", "absent": "", "free": "&#10003;"}
+    for idx, sec in enumerate(R["sections"]):
+        rows = [i for i in R["items"] if i["section"] == sec]
+        if not rows:
+            continue
+        nshort = sum(1 for i in rows if i.get("state") == "short")
+        nmiss = sum(1 for i in rows if not i["shared"] for n in got if i["cells"][n]["s"] == "buy")
+        tag = []
+        if nshort:
+            tag.append(f"{nshort} group hole{'s' if nshort > 1 else ''}")
+        if nmiss:
+            tag.append(f"{nmiss} personal gap{'s' if nmiss > 1 else ''}")
+        A(f'<details class="who"{" open" if idx == 0 else ""}><summary>{E(sec)} '
+          f'<small>{len(rows)} items{" &middot; " + ", ".join(tag) if tag else " &middot; all set"}</small></summary>')
+        A(f'<table class="who"><tr><th>Item</th>{head}<th>Group</th></tr>')
+        for i in rows:
+            hole = i.get("state") == "short" or (not i["shared"] and any(i["cells"][n]["s"] == "buy" for n in got))
+            tds = []
+            for n in nums:
+                c = i["cells"][n]
+                if c["s"] == "buy":
+                    tip = E(f'{c.get("p") or ""} ${c.get("price", 0):,.2f}'.strip())
+                    tds.append(f'<td class="c buy" title="{tip}">$</td>')
+                else:
+                    tip = E(c.get("p") or "")
+                    tds.append(f'<td class="c {c["s"]}"{f" title={chr(34)}{tip}{chr(34)}" if tip else ""}>{sym[c["s"]]}</td>')
+            st = i.get("state")
+            if not i["shared"]:
+                g = '<td class="g">each</td>'
+            elif st == "covered":
+                g = '<td class="g ok">covered</td>'
+            elif st == "short":
+                g = f'<td class="g hole">HOLE &middot; need {i["need"] - i["have"]}</td>'
+            else:
+                g = '<td class="g">no cost</td>'
+            A(f'<tr class="{"hole" if hole else "fine"}"><td>{E(i["label"])}</td>{"".join(tds)}{g}</tr>')
+        A('</table></details>')
+    A('<p><small>Not in anyone\'s list yet (from MASTER_LIST.md): a third 8 oz fuel canister and a '
+      'second bear-proof food bag for 2 nights of food.</small></p>')
+    return "".join(out)
+
+
+roster_section = roster_html()
+
 file_rows = "".join(f'<tr><td><a href="{f}" target="_blank">{f}</a></td><td>{d}</td></tr>' for f, d in files)
 
 page = f"""<!doctype html><html><head><meta charset="utf-8"><title>GA Gold Trip - Oct 15-21 2026</title>
@@ -428,21 +522,25 @@ th{{background:#2F5233;color:#fff}} tr.grp td{{background:#E4EEE0;font-weight:bo
 .preset-btn:hover{{background:#3d6a42}}
 td.opt.sleepcell.grey{{opacity:.45}} td.opt.sleepcell.on{{opacity:1}}
 h3.sec-h{{color:#2F5233;margin:18px 0 4px}}
+details.who{{background:#fff;border:1px solid #ccc;border-radius:8px;margin:8px 0;padding:0 12px}} details.who summary{{cursor:pointer;padding:10px 0;font-weight:bold;color:#2F5233}}
+table.who{{margin-bottom:12px}} table.who td.c{{text-align:center;width:70px}} td.c.has,td.c.free{{color:#2F5233;font-weight:bold;background:#eef6ea}} td.c.buy,.rb{{color:#a04000;font-weight:bold;background:#fdebd9}} td.c.skip{{color:#999}} td.c.nolist{{color:#bbb}}
+td.g{{font-size:13px;color:#555;width:110px}} td.g.ok{{color:#2F5233}} td.g.hole{{color:#fff;background:#b03a2e;font-weight:bold}} ul.holes{{margin:4px 0 8px}}
+body.holes-only tr.fine{{display:none}}
 </style></head><body>
 <header><h1>Georgia Gold Trip &mdash; Oct 15&ndash;21, 2026 &middot; Vogel State Park base camp</h1></header>
 <nav id="tabs">
 <button data-t="start" class="on">Start</button><button data-t="rundown">Rundown</button>
-<button data-t="map">Map</button><button data-t="buy">Buy list</button><button data-t="files">Files</button></nav>
+<button data-t="map">Map</button><button data-t="buy">Buy list</button><button data-t="gear">Who has what</button><button data-t="files">Files</button></nav>
 
 <section id="start" class="on">
-<div class="card"><b>The trip:</b> 6 people, Site P walk-in (2 tents, 2 vehicles), arrive Thu Oct 15, leave Wed Oct 21.
-Panning at drive-up creeks + Consolidated Gold Mine tour + Dahlonega, plus one backcountry night (Mon&ndash;Tue 19&ndash;20).</div>
+<div class="card"><b>The trip:</b> 5 people, Site P walk-in (2 tents, 2 vehicles), arrive Thu Oct 15, leave Wed Oct 21.
+Panning at drive-up creeks + Consolidated Gold Mine tour + Dahlonega, plus one 3-day hike (Sat&ndash;Mon 17&ndash;19).</div>
 <div class="card"><b>The hike:</b> 3 days / 2 nights, Sat Oct 17 &ndash; Mon Oct 19, Coosa Backcountry Trail to West Fork Wolf Creek, then East Fork Coosa Creek, out at Owltown Gap. Not yet ranger-confirmed legal.</div>
 <div class="card"><b>Dates that matter:</b> firearms deer season opens Oct 17 (blaze orange). Gold Rush Days Oct 17&ndash;18 (visit Dahlonega Fri 16).
 Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = hand pan + trowel only.</div>
 <div class="card"><b>Gear:</b> {html.escape(total)} &middot; base weight 12.8 lb, 18.0 lb loaded. Order the tent + quilt first (2&ndash;4 wk).</div>
 <div class="card"><b>Still to do:</b> phone calls (Vogel, Blue Ridge Ranger District, GA DNR, Consolidated, Lumpkin Co, LDMA), then re-check fire bans/water/roads in early Oct.</div>
-<p>Use the tabs above. Rundown = full guide, Map = where everything is, Buy list = what to order and when.</p>
+<p>Use the tabs above. Rundown = full guide, Map = where everything is, Buy list = what to order and when, Who has what = everyone's gear and the holes.</p>
 </section>
 
 <section id="rundown"><iframe src="RUNDOWN.html"></iframe></section>
@@ -464,12 +562,14 @@ Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = ha
 <table><tr><th>Got it</th><th>Item</th><th>Personal/Shared</th><th>Price</th><th>Your share</th><th>Where</th><th></th></tr><tbody id="extras-consumables"></tbody></table>
 
 <h3 class="sec-h">Food</h3>
-<p>Backcountry rations (6 people x 3 nights) and the base-camp grocery list &mdash; not part of the gear total above.</p>
+<p>Backcountry rations (5 people x 2 nights) and the base-camp grocery list &mdash; not part of the gear total above.</p>
 <div id="tally-food" class="card"></div>
 <table><tr><th>Got it</th><th>Item</th><th>Personal/Shared</th><th>Price</th><th>Your share</th><th>Where</th><th></th></tr><tbody id="extras-food"></tbody></table>
 
 <p><b>Export my list:</b> <button onclick="copyList()">Copy</button> <button onclick="downloadList()">Download</button></p>
 </section>
+
+<section id="gear">{roster_section}</section>
 
 <section id="files"><table><tr><th>File</th><th>What it is</th></tr>{file_rows}</table></section>
 
@@ -478,6 +578,7 @@ document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{{
  document.querySelectorAll('#tabs button,section').forEach(e=>e.classList.remove('on'));
  b.classList.add('on');document.getElementById(b.dataset.t).classList.add('on');
  location.hash=b.dataset.t;}});
+document.getElementById('holes-only')?.addEventListener('change',e=>document.body.classList.toggle('holes-only',e.target.checked));
 const h=location.hash.slice(1);if(h){{const b=document.querySelector('[data-t='+h+']');if(b)b.click();}}
 </script><script>{picker_js}</script></body></html>"""
 

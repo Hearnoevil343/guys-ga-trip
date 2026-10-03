@@ -1,4 +1,2812 @@
 {
+  "sections": [
+    "Base camp (Vogel car camp)",
+    "Overnight / backcountry: personal",
+    "Overnight / backcountry: shared",
+    "Panning gear",
+    "Consumables",
+    "Food"
+  ],
+  "items": [
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Base-camp tents, 2x (already owned)",
+      "shared": true,
+      "price": 0.0,
+      "cells": {
+        "1": {
+          "s": "free"
+        },
+        "2": {
+          "s": "free"
+        },
+        "3": {
+          "s": "free"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "free"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Camp chairs",
+      "shared": false,
+      "price": 299.7,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 299.7
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": ""
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Camp cooking pan, non-stick",
+      "shared": true,
+      "price": 34.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 34.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 34.95
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Camp/creek shoes (evening, base camp)",
+      "shared": false,
+      "price": 0.0,
+      "cells": {
+        "1": {
+          "s": "free"
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Generic Old sneakers or flip-flops already owned"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Clothesline + clothespins",
+      "shared": true,
+      "price": 8.99,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 8.99
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 8.99
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Cooler, 48-quart wheeled",
+      "shared": true,
+      "price": 54.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 54.99
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 54.99
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 54.99
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Dish tub + scrub sponge",
+      "shared": true,
+      "price": 13.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 13.99
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 13.99
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 13.99
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Folding cutting board",
+      "shared": true,
+      "price": 13.75,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 13.75
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 13.75
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 13.75
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Ground tarp",
+      "shared": true,
+      "price": 19.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 19.99
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 19.99
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 19.99
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "LED camp lantern",
+      "shared": true,
+      "price": 39.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 39.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": ""
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 2,
+      "state": "covered"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Propane cylinders, 16.4oz, 2-pack",
+      "shared": true,
+      "price": 29.98,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 29.98
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 29.98
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 29.98
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Sit pad",
+      "shared": false,
+      "price": 22.5,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Gossamer Gear 1/8in Thinlight Foam Pad (full torso, multi-use)",
+          "price": 22.5
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Gossamer Gear 1/8in Thinlight Foam Pad (full torso, multi-use)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Trekking poles",
+      "shared": false,
+      "price": 64.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Cascade Mountain Tech Carbon Fiber Quick Lock (pair)",
+          "price": 64.99
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Cascade Mountain Tech Carbon Fiber Quick Lock (pair)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Two-burner propane camp stove",
+      "shared": true,
+      "price": 97.44,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 97.44
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 97.44
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Base camp (Vogel car camp)",
+      "label": "Vinyl picnic table cover",
+      "shared": true,
+      "price": 26.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 26.99
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 26.99
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 26.99
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Backpack, 40-60L",
+      "shared": false,
+      "price": 229.0,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "REI Co-op Flash 55"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Base layer top+bottom (doubles as sleep layer)",
+      "shared": false,
+      "price": 125.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Smartwool Classic Thermal Merino Base Layer (top + bottom)",
+          "price": 125.0
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Smartwool Classic Thermal Merino Base Layer (top + bottom)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Blaze orange hat/vest (required, deer season)",
+      "shared": false,
+      "price": 13.51,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "Allen Company Blaze Orange Safety Vest",
+          "price": 13.51
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Dry sack (sleep system)",
+      "shared": false,
+      "price": 69.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Sea to Summit Ultra-Sil Dry Bag - Set of 3",
+          "price": 69.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Sea to Summit Ultra-Sil Dry Bag - Set of 3"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Fleece / active midlayer",
+      "shared": false,
+      "price": 25.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Decathlon (Quechua) MH100 Fleece",
+          "price": 25.0
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Decathlon (Quechua) MH100 Fleece"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Headlamp",
+      "shared": false,
+      "price": 54.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Nitecore NU25 (rechargeable)",
+          "price": 54.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Nitecore NU25 (rechargeable)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Hiking footwear (worn)",
+      "shared": false,
+      "price": 100.93,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Merrell Moab 3",
+          "price": 100.93
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Merrell Moab 3"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Hiking pants (worn, no cotton)",
+      "shared": false,
+      "price": 110.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Outdoor Research Ferrosi Pants",
+          "price": 110.0
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Outdoor Research Ferrosi Pants"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Hiking socks, per pair (bring 3)",
+      "shared": false,
+      "price": 25.95,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Darn Tough Hiker Micro Crew Midweight with Cushion"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Insulated puffy jacket",
+      "shared": false,
+      "price": 118.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Patagonia Nano Puff Jacket",
+          "price": 118.99
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Patagonia Nano Puff Jacket"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Knife / multitool",
+      "shared": false,
+      "price": 49.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Leatherman Wingman",
+          "price": 49.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Leatherman Wingman"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Light liner gloves (cold mornings)",
+      "shared": false,
+      "price": 12.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "SUCUUI Wool Fleece-Liner Knit Gloves (3-pack)",
+          "price": 12.99
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "SUCUUI Wool Fleece-Liner Knit Gloves (3-pack)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Pack liner (waterproof)",
+      "shared": false,
+      "price": 2.49,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Litesmith Nylofume Pack Liner Bag",
+          "price": 2.49
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Litesmith Nylofume Pack Liner Bag"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Pack towel / bandana",
+      "shared": false,
+      "price": 77.94,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 77.94
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Personal toiletries/hygiene kit",
+      "shared": false,
+      "price": 9.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Generic Small toiletry bag + biodegradable wipes",
+          "price": 9.0
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "Generic Small toiletry bag + biodegradable wipes",
+          "price": 9.0
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Pillow",
+      "shared": false,
+      "price": 20.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "DIY Stuff sack filled with spare clothes (or generic inflatable pillow)",
+          "price": 20.0
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "DIY Stuff sack filled with spare clothes (or generic inflatable pillow)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Power bank",
+      "shared": false,
+      "price": 64.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Nitecore NB10000 Gen 3",
+          "price": 64.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Nitecore NB10000 Gen 3"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Rain jacket",
+      "shared": false,
+      "price": 99.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "REI Co-op Rainier Rain Jacket",
+          "price": 99.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "REI Co-op Rainier Rain Jacket"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "SOL Emergency Bivvy",
+      "shared": false,
+      "price": 153.0,
+      "cells": {
+        "1": {
+          "s": "skip"
+        },
+        "2": {
+          "s": "skip"
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 153.0
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Sleep bag (30F)",
+      "shared": false,
+      "price": 121.52,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": "Marmot Trestles 30"
+        },
+        "3": {
+          "s": "has",
+          "p": "REI Co-op Trailmade 25 Sleeping Bag"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Sleep pad (30F)",
+      "shared": false,
+      "price": 199.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "NEMO Tensor All-Season Ultralight Insulated",
+          "price": 199.95
+        },
+        "2": {
+          "s": "has",
+          "p": "Klymit Insulated Static V"
+        },
+        "3": {
+          "s": "has",
+          "p": "NEMO Tensor All-Season Ultralight Insulated"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Spork / utensil",
+      "shared": false,
+      "price": 10.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Sea to Summit Frontier Ultralight Spoon - Long Handle",
+          "price": 10.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Sea to Summit Frontier Ultralight Spoon - Long Handle"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Tent footprint / groundsheet",
+      "shared": false,
+      "price": 22.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "DIY Tyvek HomeWrap sheet",
+          "price": 22.0
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "DIY Tyvek HomeWrap sheet"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Tent/shelter (personal, 1-person tent, one per hiker)",
+      "shared": false,
+      "price": 149.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Kelty Late Start 1P Tent",
+          "price": 149.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Kelty Late Start 1P Tent"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Warm hat / beanie",
+      "shared": false,
+      "price": 38.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "FarPointe Outdoor Gear Alpha Drifter Beanie",
+          "price": 38.0
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "FarPointe Outdoor Gear Alpha Drifter Beanie"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: personal",
+      "label": "Water bottle",
+      "shared": false,
+      "price": 2.17,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "Smartwater 1L reused disposable bottle",
+          "price": 2.17
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Bear-proof food storage (group/shared item)",
+      "shared": true,
+      "price": 149.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Ursack Major XL (with OPSak liner)",
+          "price": 149.95
+        },
+        "2": {
+          "s": "buy",
+          "p": "BearVault BV500",
+          "price": 99.95
+        },
+        "3": {
+          "s": "buy",
+          "p": "Ursack Major XL (with OPSak liner)",
+          "price": 149.95
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Cathole trowel (shared)",
+      "shared": true,
+      "price": 7.95,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "GSI Outdoors Cathole Trowel",
+          "price": 7.95
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 2,
+      "state": "covered"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Cook pot (group/shared item)",
+      "shared": true,
+      "price": 30.0,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "TOAKS 750ml Titanium Pot with Bail Handle (POT-750-BH)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 3,
+      "state": "covered"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "First aid kit (group/shared item, overnight-size)",
+      "shared": true,
+      "price": 44.99,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Adventure Medical Kits Ultralight/Watertight .7"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 3,
+      "state": "covered"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Fuel canister (group/shared item)",
+      "shared": true,
+      "price": 6.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "MSR IsoPro 8oz/227g canister",
+          "price": 6.95
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "MSR IsoPro 8oz/227g canister"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 2,
+      "state": "covered"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "National Geographic Chattahoochee-Oconee National Forest paper map",
+      "shared": true,
+      "price": 29.9,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 29.9
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 29.9
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 29.9
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 2,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Offline navigation / maps",
+      "shared": true,
+      "price": 0.0,
+      "cells": {
+        "1": {
+          "s": "free"
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "free"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Paracord 100ft",
+      "shared": true,
+      "price": 8.49,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 8.49
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 8.49
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Repair kit",
+      "shared": true,
+      "price": 0.0,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "absent"
+        },
+        "3": {
+          "s": "absent"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Repair kit: Tenacious Tape, Therm-a-Rest pad patch kit, duct tape, zip ties",
+      "shared": true,
+      "price": 23.95,
+      "cells": {
+        "1": {
+          "s": "absent"
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 23.95
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 23.95
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Satellite messenger (group/shared item)",
+      "shared": true,
+      "price": 199.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "ZOLEO Satellite Communicator",
+          "price": 199.0
+        },
+        "2": {
+          "s": "skip"
+        },
+        "3": {
+          "s": "buy",
+          "p": "ZOLEO Satellite Communicator",
+          "price": 199.0
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Stove (group/shared item)",
+      "shared": true,
+      "price": 69.95,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Soto WindMaster (4Flex)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 3,
+      "state": "covered"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Suunto A-10 baseplate compass",
+      "shared": true,
+      "price": 48.0,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 48.0
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 48.0
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 2,
+      "have": 2,
+      "state": "covered"
+    },
+    {
+      "section": "Overnight / backcountry: shared",
+      "label": "Water filter (group/shared item)",
+      "shared": true,
+      "price": 52.95,
+      "cells": {
+        "1": {
+          "s": "skip"
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Katadyn BeFree 1.0L"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 2,
+      "state": "covered"
+    },
+    {
+      "section": "Panning gear",
+      "label": "Classifier (base camp; share one on the trail)",
+      "shared": true,
+      "price": 75.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Generic/ASR Stackable Classifier Set (1/2\", 1/4\", 1/8\")",
+          "price": 75.0
+        },
+        "2": {
+          "s": "buy",
+          "p": "ASR Outdoor 1/2\" Mesh Classifier",
+          "price": 25.0
+        },
+        "3": {
+          "s": "has",
+          "p": "Generic/ASR Stackable Classifier Set (1/2\", 1/4\", 1/8\")"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Panning gear",
+      "label": "Crevice tools",
+      "shared": true,
+      "price": 59.95,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "buy",
+          "p": "ASR Outdoor Hook and Pick Precision Crevice Tool Set, 6 Pieces",
+          "price": 17.25
+        },
+        "3": {
+          "s": "has",
+          "p": "Generic Stainless Steel Crevice Tool Set with Magnet"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 2,
+      "state": "covered"
+    },
+    {
+      "section": "Panning gear",
+      "label": "Gold pan",
+      "shared": true,
+      "price": 8.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Garrett 14\" Gravity Trap Gold Pan (green)",
+          "price": 8.99
+        },
+        "2": {
+          "s": "buy",
+          "p": "Estwing BP-14 14\" Black Plastic Gold Pan",
+          "price": 7.26
+        },
+        "3": {
+          "s": "has",
+          "p": "Garrett 14\" Gravity Trap Gold Pan (green)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Panning gear",
+      "label": "Gold vials",
+      "shared": true,
+      "price": 9.99,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "buy",
+          "p": "Generic Plastic Snap-Cap Vials (5-pack)",
+          "price": 5.0
+        },
+        "3": {
+          "s": "has",
+          "p": "Generic Glass Vials with Foam-Lined Screw Caps (12-pack)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 2,
+      "state": "covered"
+    },
+    {
+      "section": "Panning gear",
+      "label": "Insulated waterproof panning gloves",
+      "shared": false,
+      "price": 24.99,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Glacier Glove Kenai Original"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Knee pad",
+      "shared": false,
+      "price": 15.99,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "Bodyprox Protective Knee Pads, Thick Sponge Anti-Slip Knee Sleeve",
+          "price": 15.99
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Magnifier / loupe",
+      "shared": true,
+      "price": 8.98,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "Generic 30x60 Jeweler's Loupe with Built-In LED Light"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 3,
+      "state": "covered"
+    },
+    {
+      "section": "Panning gear",
+      "label": "Neoprene wading socks",
+      "shared": false,
+      "price": 0.0,
+      "cells": {
+        "1": {
+          "s": "free"
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "skip"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Rock pick / mining hammer",
+      "shared": false,
+      "price": 0.0,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "absent"
+        },
+        "3": {
+          "s": "absent"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Small trowel (CNF-legal",
+      "shared": false,
+      "price": 0.0,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "absent"
+        },
+        "3": {
+          "s": "absent"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Panning gear",
+      "label": "Small trowel (CNF-legal: hand pan + trowel only)",
+      "shared": true,
+      "price": 20.95,
+      "cells": {
+        "1": {
+          "s": "absent"
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": "TheTentLab The Deuce of Spades UL Trowel"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 2,
+      "state": "covered"
+    },
+    {
+      "section": "Panning gear",
+      "label": "Snuffer bottle",
+      "shared": true,
+      "price": 11.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "Generic 2-Pack Glass-Tip Snuffer Bottle with Tweezers",
+          "price": 11.99
+        },
+        "2": {
+          "s": "buy",
+          "p": "Generic Plastic Snuffer Bottle",
+          "price": 4.0
+        },
+        "3": {
+          "s": "has",
+          "p": "Generic 2-Pack Glass-Tip Snuffer Bottle with Tweezers"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Panning gear",
+      "label": "Tweezers + magnetic pickup tool + spray bottle for panning",
+      "shared": true,
+      "price": 29.25,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 29.25
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 29.25
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 29.25
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Panning gear",
+      "label": "Waders (Jordan wants them; plan only needs shin-deep, but his call)",
+      "shared": false,
+      "price": 98.29,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "free"
+        },
+        "3": {
+          "s": "has",
+          "p": "FROGG TOGGS Canyon II Stockingfoot Hip Wader, Medium (needs separate wading shoe)"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Anti-chafe balm",
+      "shared": false,
+      "price": 65.88,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 65.88
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": ""
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Aquatabs water purification tablets, 30-pack (backup to Sawyer filter)",
+      "shared": true,
+      "price": 14.95,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 14.95
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 14.95
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Consumables",
+      "label": "BIC lighters, 4-pack",
+      "shared": true,
+      "price": 15.24,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 15.24
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 15.24
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Consumables",
+      "label": "Biodegradable camp soap",
+      "shared": true,
+      "price": 5.99,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "has",
+          "p": ""
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 3,
+      "state": "covered"
+    },
+    {
+      "section": "Consumables",
+      "label": "Foam ear plugs, multi-pack",
+      "shared": true,
+      "price": 9.89,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 9.89
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 9.89
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 9.89
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Consumables",
+      "label": "Hand sanitizer, travel bottles",
+      "shared": true,
+      "price": 15.99,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 15.99
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 15.99
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 15.99
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Consumables",
+      "label": "Leukotape P + moleskin blister kit",
+      "shared": false,
+      "price": 89.94,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 89.94
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 89.94
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Lip balm with SPF",
+      "shared": false,
+      "price": 77.1,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 77.1
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 77.1
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Lithium AA/AAA spare batteries + charging cable pack",
+      "shared": false,
+      "price": 151.38,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 151.38
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 151.38
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 151.38
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Permethrin clothing treatment spray",
+      "shared": true,
+      "price": 17.95,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 17.95
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 17.95
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Consumables",
+      "label": "Picaridin skin repellent",
+      "shared": false,
+      "price": 53.94,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 53.94
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Sunscreen, SPF 30+ travel size",
+      "shared": false,
+      "price": 71.28,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 71.28
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 71.28
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Tick remover tool",
+      "shared": false,
+      "price": 0.0,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "absent"
+        },
+        "3": {
+          "s": "absent"
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Toilet paper, compressed camp rolls",
+      "shared": true,
+      "price": 15.48,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 15.48
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 15.48
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 15.48
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Consumables",
+      "label": "Toothbrush + travel toothpaste",
+      "shared": false,
+      "price": 59.7,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 59.7
+        },
+        "2": {
+          "s": "has",
+          "p": ""
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 59.7
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Consumables",
+      "label": "Trash bags, heavy-duty contractor bags",
+      "shared": true,
+      "price": 20.04,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 20.04
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 20.04
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 20.04
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Consumables",
+      "label": "UCO Stormproof Match Kit",
+      "shared": true,
+      "price": 10.95,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 10.95
+        },
+        "3": {
+          "s": "has",
+          "p": ""
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 2,
+      "state": "covered"
+    },
+    {
+      "section": "Consumables",
+      "label": "Wet wipes, travel pack",
+      "shared": false,
+      "price": 19.68,
+      "cells": {
+        "1": {
+          "s": "has",
+          "p": ""
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 19.68
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 19.68
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      }
+    },
+    {
+      "section": "Food",
+      "label": "Beef jerky, multi-pack",
+      "shared": true,
+      "price": 25.28,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 25.28
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 25.28
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 25.28
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Food",
+      "label": "Car-camp grocery run (est.)",
+      "shared": true,
+      "price": 140.0,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 140.0
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 140.0
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 140.0
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Food",
+      "label": "Dehydrated backpacking dinners",
+      "shared": true,
+      "price": 149.88,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 149.88
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 149.88
+        },
+        "3": {
+          "s": "has",
+          "p": ""
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 1,
+      "state": "covered"
+    },
+    {
+      "section": "Food",
+      "label": "Energy/granola bars, box",
+      "shared": true,
+      "price": 35.58,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 35.58
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 35.58
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 35.58
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Food",
+      "label": "Flour tortillas, burrito size, 16ct pack",
+      "shared": true,
+      "price": 5.87,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 5.87
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 5.87
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 5.87
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Food",
+      "label": "Instant coffee packets",
+      "shared": true,
+      "price": 41.88,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 41.88
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 41.88
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 41.88
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Food",
+      "label": "Instant oatmeal, variety packets",
+      "shared": true,
+      "price": 21.98,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 21.98
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 21.98
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 21.98
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Food",
+      "label": "Peanut butter squeeze packets",
+      "shared": true,
+      "price": 21.86,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 21.86
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 21.86
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 21.86
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Food",
+      "label": "Trail mix, bulk bag",
+      "shared": true,
+      "price": 24.95,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 24.95
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 24.95
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 24.95
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    },
+    {
+      "section": "Food",
+      "label": "Tuna single-serve pouches",
+      "shared": true,
+      "price": 24.9,
+      "cells": {
+        "1": {
+          "s": "buy",
+          "p": "",
+          "price": 24.9
+        },
+        "2": {
+          "s": "buy",
+          "p": "",
+          "price": 24.9
+        },
+        "3": {
+          "s": "buy",
+          "p": "",
+          "price": 24.9
+        },
+        "4": {
+          "s": "nolist"
+        },
+        "5": {
+          "s": "nolist"
+        }
+      },
+      "need": 1,
+      "have": 0,
+      "state": "short"
+    }
+  ],
   "headcount": 5,
   "plan_split_basis": 6,
   "people": {
@@ -85,7 +2893,7 @@
     },
     {
       "section": "Overnight / backcountry: shared",
-      "label": "Cathole trowel (shared, split 6)",
+      "label": "Cathole trowel (shared)",
       "need": 1,
       "have": 2,
       "holders": [

@@ -14,6 +14,8 @@ import io
 import shutil
 from pathlib import Path
 
+import buy_data as bd
+
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.datavalidation import DataValidation
@@ -91,10 +93,7 @@ def load(name):
 
 
 def norm_split(v):
-    try:
-        return max(1, int(v))
-    except (TypeError, ValueError):
-        return 1
+    return bd.group_split(v)
 
 
 def join_field(v, sep):
@@ -278,7 +277,7 @@ PICKER_ROWS = [
     ("Overnight Pack", "power bank", "Power bank", "nice", "Value"),
     ("Overnight Pack", "knife/multitool", "Knife / multitool", "must", "Value"),
     ("Overnight Pack", "toiletries", "Personal toiletries/hygiene kit", "must", "Value"),
-    ("Overnight Pack", "cathole_trowel", "Cathole trowel (shared, split 6)", "must", "Value"),
+    ("Overnight Pack", "cathole_trowel", "Cathole trowel (shared)", "must", "Value"),
     # Trail creek kit
     ("Trail Creek Kit", "gold_pan", "Gold pan", "must", "Value"),
     ("Trail Creek Kit", "insulated_waterproof_gloves", "Insulated waterproof panning gloves", "must", "Value"),
@@ -847,7 +846,7 @@ ws.cell(row=row, column=4).font = TOTAL_FONT
 for c in range(1, 7):
     ws.cell(row=row, column=c).fill = TOTAL_FILL
 ws.cell(row=row + 2, column=2,
-        value="Rough total ~$800-870, or ~$135-145/person split 6 ways. Personal-only rows (chairs, vials, snuffers) are cheap enough to just buy 6 outright.").font = Font(italic=True, size=9)
+        value="Rough total ~$800-870, or ~$160-175/person split 5 ways. Personal-only rows (chairs, vials, snuffers) are cheap enough to just buy 5 outright.").font = Font(italic=True, size=9)
 ws.merge_cells(f"B{row+2}:F{row+2}")
 autofit(ws, {"A": 16, "B": 44, "C": 8, "D": 12, "E": 16, "F": 9})
 ws.freeze_panes = "A2"

@@ -19,6 +19,21 @@ DEFAULT_TEMP = "30F"
 TEMP_ORDER = ["40F", "30F", "20F"]
 SLEEP_KEYS_EXCLUDED = {"sleep_system", "sleep_system_30f", "sleeping_pad"}
 
+# Trip headcount (confirmed 5 on 2026-10-02). The research JSON writes "split
+# across the whole group" as 6, from when the plan said six people; every
+# builder maps that 6 to GROUP_SIZE through group_split(). Other splits
+# (2 = tentmates, 3 = per-unit carriers) are kept as written.
+GROUP_SIZE = 5
+RESEARCH_GROUP_SPLIT = 6
+
+
+def group_split(v):
+    try:
+        n = max(1, int(v))
+    except (TypeError, ValueError):
+        return 1
+    return GROUP_SIZE if n == RESEARCH_GROUP_SPLIT else n
+
 # Cottage/small-batch makers: made-to-order or frequently backordered.
 COTTAGE_BRANDS = {
     "enlightened equipment", "durston gear", "zpacks", "katabatic gear",
@@ -237,7 +252,11 @@ def load_sleep_temp():
 
 def load_extras():
     """Returns the flat list of section A/B/C items (small items, car-camp, food)."""
-    return json.loads(EXTRAS_JSON.read_text(encoding="utf-8"))
+    items = json.loads(EXTRAS_JSON.read_text(encoding="utf-8"))
+    for it in items:
+        if "split" in it:
+            it["split"] = group_split(it["split"])
+    return items
 
 
 def sleep_row(kit, label, item):

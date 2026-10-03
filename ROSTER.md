@@ -22,8 +22,8 @@ python tools/build_roster.py
 ## Group gear -- what is already covered
 
 One person owning a group item covers the whole group, so nobody else buys it.
-"Need" is how many units the plan wants (a `/6` item is one unit for everyone; a
-`/3` item is two units).
+"Need" is how many units the plan wants (a `/5` item, `/6` on older lists, is one
+unit for everyone; a `/3` item is two units).
 
 ### Covered -- do not buy again
 
@@ -33,7 +33,7 @@ One person owning a group item covers the whole group, so nobody else buys it.
 | Base camp (Vogel car camp) | Clothesline + clothespins | Jordan (1) | own gear |
 | Base camp (Vogel car camp) | LED camp lantern | Nik (2), Nathan (3) | own gear |
 | Base camp (Vogel car camp) | Two-burner propane camp stove | Nik (2) | own gear |
-| Overnight / backcountry: shared | Cathole trowel (shared, split 6) | Jordan (1), Nik (2) | own gear |
+| Overnight / backcountry: shared | Cathole trowel (shared) | Jordan (1), Nik (2) | own gear |
 | Overnight / backcountry: shared | Cook pot (group/shared item) | Jordan (1), Nik (2), Nathan (3) | TOAKS 750ml Titanium Pot with Bail Handle (POT-750-BH); own gear |
 | Overnight / backcountry: shared | First aid kit (group/shared item, overnight-size) | Jordan (1), Nik (2), Nathan (3) | Adventure Medical Kits Ultralight/Watertight .7; own gear |
 | Overnight / backcountry: shared | Fuel canister (group/shared item) | Nik (2), Nathan (3) | MSR IsoPro 8oz/227g canister; own gear |

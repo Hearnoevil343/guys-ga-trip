@@ -402,18 +402,18 @@ Full detail and the priced CSV breakdown live in `research/gear.md` — this sec
 
 ### Kitchen & water
 
-All figures below are **estimates** — sized generously (5 people, 3 nights) as a buying/packing
-buffer, not a measured burn rate. Confirm against the actual variant/day count once picked.
+All figures below are **estimates** — sized for the hike: 5 people, 3 days / 2 nights (Sat Oct 17 – Mon Oct 19) as a buying/packing
+buffer, not a measured burn rate.
 
 - **Backcountry stove fuel (isobutane canisters):** budget roughly 1 oz of fuel per person per
-  day for two boils (hot breakfast + rehydrated dinner; lunch is no-cook). For 5 people × 3
-  nights that's ≈15 oz of fuel — **buy four 8 oz (230g) canisters** (32 oz total) for a real
+  day for two boils (hot breakfast + rehydrated dinner; lunch is no-cook). For 5 people × 2
+  nights that's ≈10 oz of fuel — **buy two 8 oz (230g) canisters** (16 oz total, one per stove) for a real
   safety margin against cold-weather inefficiency and one cook group running hot. Split across 2
   backcountry stoves (2 people can share a boil) so a single canister failure doesn't strand the
   group.
 - **Water — liters/person/day:** plan **3–4 L per person per day** (drinking + rehydrating meals
   + coffee/cocoa), toward the low end if it's cool and low-exertion, the high end on hike-in/out
-  days. For 5 people × 3 nights that's **45–60 L filtered/treated** over the stretch — nobody
+  days. For 5 people × 3 days that's **45–60 L filtered/treated** over the stretch — nobody
   carries that; refill from the creek continuously instead.
 - **Filter + backup:** primary filter is the shared Sawyer Squeeze (see gear list). Carry
   **backup purification tablets (Aquatabs or Potable Aqua)** in case the filter clogs or

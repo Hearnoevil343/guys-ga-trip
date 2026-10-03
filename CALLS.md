@@ -46,10 +46,10 @@ The order that governs that overnight. Ask by name:
 
 ## 2. Vogel State Park — 706-745-2628
 - Confirm walk-in site P booking, Thu Oct 15 1 PM – Wed Oct 21 noon.
-- Confirm 2 vehicles / 2 tents / 6 people at the site, and overflow parking.
+- Confirm 2 vehicles / 2 tents / 5 people at the site, and overflow parking.
 - Current campsite and ParkPass rates.
 - **Coosa Backcountry Trail:** is an overnight permit required, where do we get it, and
-  can we walk out from site P leaving both vehicles at the site for 3 nights?
+  can we walk out from site P leaving both vehicles at the site for 2 nights (Sat Oct 17 – Mon Oct 19)?
 
 ## 3. Georgia DNR / Wildlife Resources
 - **Confirm the firearms deer opener date.** "Oct 17" has no primary source (DNR pages

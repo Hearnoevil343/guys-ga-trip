@@ -16,7 +16,9 @@ const VOGEL = { lat: 34.7660, lng: -83.9240 }; // per task spec, for directions 
 // 1. Load every data file, sorting by shape.
 // ---------------------------------------------------------------------------
 const files = fs.existsSync(DATA_DIR)
-  ? fs.readdirSync(DATA_DIR).filter(f => (f.endsWith('.json') || f.endsWith('.geojson')))
+  // '_' files are build inputs, not map data: _days_baseline.json (the old pre-replan plan, also
+  // days-v1) sorts after days.json on NTFS and silently replaced it.
+  ? fs.readdirSync(DATA_DIR).filter(f => !f.startsWith('_') && (f.endsWith('.json') || f.endsWith('.geojson')))
   : [];
 
 let points = [];        // flat array of point-schema objects (core.json, spots.json, ...)
@@ -46,7 +48,9 @@ for (const f of files) {
     geoLayers.push({ name: path.basename(f, path.extname(f)), data: raw });
     continue;
   }
-  if (isOvernightArray(raw)) { overnights = overnights.concat(raw); continue; }
+  // Old overnight candidates (overnight-v2/-wide) were not chosen; the decided 3-day / 2-night
+  // hike is drawn by days.json (days 3-5). Skipped so the map does not list them as the plan.
+  if (isOvernightArray(raw)) { continue; }
   if (isPointArray(raw)) { points = points.concat(raw.map(p => ({ ...p, __src: f }))); continue; }
   console.warn('skip (unrecognized shape):', f);
 }

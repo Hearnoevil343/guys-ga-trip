@@ -14,6 +14,10 @@ agents fill in `map/data/*.json` with more spots.
 
 **Run:** `node map/build-map.mjs`
 
+**Skips `_`-prefixed data files** (e.g. `_days_baseline.json`). The script loads every days-v1 JSON
+in `map/data/`; on NTFS `_days_baseline.json` sorts after `days.json` and silently replaced it, so
+the live map showed the old pre-replan plan (fixed 2026-10-02, 1a13182). Keep old plans `_`-prefixed.
+
 **Status:** active, working as of 2026-09-21 (second pass). Verified with a headless
 Chromium/Playwright pass (no console errors, 66 marker icons, 18 SVG line/polygon overlays,
 layer toggle confirms `trails`, `wilderness (NO PANNING)`, `USFS land ownership` and `Itinerary`

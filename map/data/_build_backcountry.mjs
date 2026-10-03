@@ -1,19 +1,25 @@
 // _build_backcountry.mjs — one-off, RE-RUNNABLE builder for the East Fork Coosa
-// Creek backcountry route (research/backcountry-route-design.md). Adds a
-// top-level `variants` array (["long","short"]) to map/data/days.json and
-// resets top-level `days` to the "long" variant, per that spec's schema
-// section. Run AFTER map/data/_build_days.mjs (which does not know about
-// variants and will happily overwrite this file — see the loud warning at
-// the top of that script, and TOOLS.md).
+// Creek backcountry route (research/backcountry-route-design.md) plus the
+// Tue Oct 20 waterfall day. Decided 2026-10-02: ONE route, no variants. The
+// hike is the former "long" option without its layover: Sat Oct 17 Vogel ->
+// WOLF-X, Sun Oct 18 WOLF-X -> CAMP-C, Mon Oct 19 CAMP-C -> Owltown Gap ->
+// Vogel. Tue Oct 20 is Helton Creek Falls + the GA-348 loop (the old Sun
+// day re-dated). Cooper Creek (old Sat) is dropped.
+//
+// Run AFTER map/data/_build_days.mjs. On the first run after _build_days.mjs
+// this script copies that pristine output to map/data/_days_baseline.json and
+// always rebuilds from that file afterwards, so re-running is safe.
 //
 // Run: node map/data/_build_backcountry.mjs
 //
 // Geometry: real OSM ways in research/_coosa_osm.geojson (Coosa Backcountry
 // Trail's 4 name-variant segments chain-merged into one 12.935mi loop, Calf
-// Stomp Road/FS108, Big Grassy Knob Road, Duncan Ridge Conn, Bowers Road/FS298,
-// West Wolf Creek Road/FS107), cut at the survey mile-markers and named points
-// given in the design doc. Drive legs reuse the same OSRM+surface-retime model
-// as _build_days.mjs. Walk timing reuses the same Tobler model.
+// Stomp Road/FS108, Big Grassy Knob Road, Duncan Ridge Conn, Bowers Road/FS298),
+// cut at the survey mile-markers and named points given in the design doc.
+// Helton Creek Falls trail: OSM way 31275565 (FS Trail 145), fetched 2026-10-02
+// into research/_cache/helton_falls_way_31275565.json. Drive legs reuse the
+// same OSRM+surface-retime model as _build_days.mjs. Walk timing reuses the
+// same Tobler model.
 //
 // Every pan-leg legal/gold/water/bears/fires text below is copied VERBATIM
 // from research/backcountry-route-design.md — do not edit the wording here,
@@ -48,6 +54,9 @@ function polyMiles(line) { let d = 0; for (let i = 0; i < line.length - 1; i++) 
 const POINTS = {
   vogel_basecamp: { lat: 34.765883, lng: -83.925416, label: 'Vogel State Park — base camp (walk-in site P)' },
   owltown_gap: { lat: 34.81143, lng: -83.94952, label: 'Owltown Gap (Bowers Road / FS 298 trailhead)' },
+  // OSM: tourism=information node 4173263790 "Helton Creek Falls" on Helton Creek Road (trailhead board); waterway=waterfall node 7589363460. Nominatim, fetched 2026-10-02.
+  helton_trailhead: { lat: 34.753214, lng: -83.894488, label: 'Helton Creek Falls trailhead (Helton Creek Road / FS 118)' },
+  helton_falls: { lat: 34.752715, lng: -83.895684, label: 'Helton Creek Falls' },
 };
 
 // ---------------------------------------------------------------------------
@@ -294,7 +303,7 @@ const ACCESS_UNCONFIRMED_NOTE = 'Access UNCONFIRMED (call-gated): whether this r
 // retrieved Tue on the walk-out) — flagged amber on both the Fri drop-off
 // leg and the Tue pickup leg via access_confidence/access_note (same fields
 // the UI already renders as an amber "~ access unconfirmed" tag/popup note).
-const TRUCK_STAGING_UNCONFIRMED_NOTE = 'UNCONFIRMED — ask Blue Ridge Ranger District: legal to leave a vehicle at Owltown Gap Tue–Sat? Is Bowers Rd public through the private section?';
+const TRUCK_STAGING_UNCONFIRMED_NOTE = 'UNCONFIRMED — ask Blue Ridge Ranger District: legal to leave a vehicle at Owltown Gap Fri–Mon? Is Bowers Rd public through the private section?';
 
 // ---------------------------------------------------------------------------
 // 5. Build each new backcountry day.
@@ -317,7 +326,7 @@ async function buildOct17Long() {
     day: 3, date: '2026-10-17', title: 'Vogel to West Fork Wolf Creek (Coosa Backcountry Trail)', optional: false,
     start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '08:00' },
     end: { ref: 'wolf_x', label: 'West Fork Wolf Creek / FS 107 crossing (WOLF-X) — camp', lat: round6(WOLF_X[0]), lng: round6(WOLF_X[1]) },
-    note: 'Truck 2 was staged at Owltown Gap Friday evening (see the drive-leg pair appended to Oct 16) so no return hike is needed on Oct 20.',
+    note: 'Truck 2 was staged at Owltown Gap Friday evening (see the drive-leg pair appended to Oct 16) so no return hike is needed on Mon Oct 19.',
     legs,
   };
 }
@@ -352,34 +361,13 @@ async function buildOct18Long() {
   };
 }
 
-async function buildOct19LongLayover() {
-  console.log('\n=== Oct 19 (long) — layover at CAMP-C (optional) ===');
-  const legs = [];
-  legs.push(mealLeg('Breakfast at camp', 40));
-  legs.push(panLeg({ label: 'Pan Jones Branch confluence reach', lat: CAMP_C[0], lng: CAMP_C[1], minutes: 180, gold: COOSA_GOLD }));
-  legs.push(mealLeg('Trail lunch at CAMP-C', 30));
-  const outAndBack = [CAMP_C, duncanRidgeConn[campCOnRoad.index], LEAVES_CREEK, duncanRidgeConn[campCOnRoad.index], CAMP_C];
-  legs.push(await walkLeg('Walk Duncan Ridge Conn upstream to where it leaves the creek and back', outAndBack, 'approximate',
-    `Out-and-back; the off-road CAMP-C<->road connector (${campConnectorM.toFixed(0)} m each way) is a straight-line stitch >30m, same as Oct 18's report; the on-road portion to the "leaves the creek" point (34.79824,-83.97825) is real Duncan Ridge Conn geometry and very short (~22 m) — CAMP-C's snap point sits almost exactly where the road stops paralleling the creek. See build report.`,
-    GROUP_FACTOR * DAYPACK_FACTOR, 'oct19_outback'));
-  legs.push(panLeg({ label: 'Pan the upper "bed of the creek only" reach', lat: LEAVES_CREEK[0], lng: LEAVES_CREEK[1], minutes: 120, gold: COOSA_GOLD }));
-  legs.push(mealLeg('Dinner at camp', 60));
-  return {
-    day: 5, date: '2026-10-19', title: 'Layover at CAMP-C — Jones Branch + upper creek pan', optional: true,
-    optional_note: 'Drop this day for the 3-day version.',
-    start: { ref: 'camp_c', label: 'CAMP-C (Jones Branch confluence, East Fork Coosa Creek)', lat: round6(CAMP_C[0]), lng: round6(CAMP_C[1]), time: '07:30' },
-    end: { ref: 'camp_c', label: 'CAMP-C (Jones Branch confluence, East Fork Coosa Creek)', lat: round6(CAMP_C[0]), lng: round6(CAMP_C[1]) },
-    legs,
-  };
-}
-
-async function buildOct20Long() {
-  console.log('\n=== Oct 20 (long) — CAMP-C out to Owltown Gap ===');
+async function buildOct19Out() {
+  console.log('\n=== Oct 19 — CAMP-C out to Owltown Gap ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp', 40));
   legs.push(campLeg('Break camp at CAMP-C, pack up', 45));
   legs.push(await walkLeg('CAMP-C to on-road point (off-road connector)', [CAMP_C, duncanRidgeConn[campCOnRoad.index]], 'approximate',
-    `Straight-line, ${campConnectorM.toFixed(0)} m — same off-road stitch as Oct 18/19, reversed.`, GROUP_FACTOR * PACK_FACTOR, 'oct20_campconn'));
+    `Straight-line, ${campConnectorM.toFixed(0)} m — same off-road stitch as Oct 18, reversed.`, GROUP_FACTOR * PACK_FACTOR, 'oct20_campconn'));
   legs.push(await walkLeg('Duncan Ridge Conn to JUNCTION', junctionToCampC_onRoad.slice().reverse(), 'exact',
     'Real OSM way geometry, Duncan Ridge Conn, reversed.', GROUP_FACTOR * PACK_FACTOR, 'oct20_drc'));
   legs.push(await walkLeg('JUNCTION to BOUNDARY via Bowers Road', bowersRoad.slice(0, boundaryOnRoad.index + 1), 'exact',
@@ -395,69 +383,8 @@ async function buildOct20Long() {
     { access_confidence: 'unconfirmed', access_note: TRUCK_STAGING_UNCONFIRMED_NOTE }));
   legs.push(mealLeg('Dinner at camp (Vogel)', 60));
   return {
-    day: 6, date: '2026-10-20', title: 'CAMP-C out to Owltown Gap, drive to Vogel', optional: false,
-    note: 'Truck 2 was staged at Owltown Gap Friday evening (Oct 16) and is picked up here for the drive back to Vogel — see the amber access flag on that leg.',
-    start: { ref: 'camp_c', label: 'CAMP-C (Jones Branch confluence, East Fork Coosa Creek)', lat: round6(CAMP_C[0]), lng: round6(CAMP_C[1]), time: '07:00' },
-    end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
-    legs,
-  };
-}
-
-async function buildOct19Short() {
-  console.log('\n=== Oct 19 (short) — Vogel to CAMP-C ===');
-  const legs = [];
-  legs.push(mealLeg('Breakfast at camp (Vogel)', 40));
-  // Shuttle in chain order (each leg starts where the last ended): both trucks to the
-  // exit point first, leave truck 2, then everyone rides truck 1 on to the start.
-  const fs107Pt = { lat: fs107[fs107NearWolfX.index][0], lng: fs107[fs107NearWolfX.index][1] };
-  legs.push(await driveLeg('Both trucks: Vogel to FS 107 near WOLF-X (leave truck 2 — IF FS 107 is open, UNCONFIRMED)', POINTS.vogel_basecamp, fs107Pt, 'short_vogel_fs107',
-    { access_confidence: 'unconfirmed', access_note: 'UNCONFIRMED whether FS 107 is open to the public; this drive leg assumes it is. Fallback: skip this leg, drive straight to Owltown Gap, and walk back out Bowers Road on Oct 20. If six do not fit in one truck: drop the group at Owltown Gap first and have two drivers run this shuttle while the rest pan the BOUNDARY stop.', geometry_confidence: 'approximate' }));
-  legs.push(await driveLeg('Truck 1: FS 107 to Owltown Gap (start of walk)', fs107Pt, POINTS.owltown_gap, 'short_fs107_owltown',
-    { access_confidence: 'unconfirmed', access_note: 'Depends on FS 107 being open (UNCONFIRMED).', geometry_confidence: 'approximate' }));
-  legs.push(await walkLeg('Owltown Gap to BOUNDARY via Bowers Road', bowersRoad.slice(boundaryOnRoad.index).slice().reverse(), 'exact',
-    'Real OSM way geometry, Bowers Road/FS298, reversed from Owltown Gap.', GROUP_FACTOR * PACK_FACTOR, 'short19_bowers1', { access_confidence: 'unconfirmed', access_note: ACCESS_UNCONFIRMED_NOTE }));
-  legs.push(panLeg({ label: 'Pan at BOUNDARY (last public water)', lat: BOUNDARY[0], lng: BOUNDARY[1], minutes: 90, gold: COOSA_GOLD, note: 'BOUNDARY pan stop: the point on Bowers Road nearest 34.802697,-83.960336 (35 m from creek, still FS; private begins 34.80637,-83.95980). Do not go below 34.80637,-83.95980.' }));
-  legs.push(mealLeg('Trail lunch at BOUNDARY', 30));
-  legs.push(await walkLeg('BOUNDARY to JUNCTION via Bowers Road', bowersRoad.slice(0, boundaryOnRoad.index + 1).slice().reverse(), 'exact',
-    'Real OSM way geometry, Bowers Road/FS298, reversed.', GROUP_FACTOR * PACK_FACTOR, 'short19_bowers2', { access_confidence: 'unconfirmed', access_note: ACCESS_UNCONFIRMED_NOTE }));
-  legs.push(panLeg({ label: 'Pan Roaring Fork confluence on the way', lat: ROARING_FORK[0], lng: ROARING_FORK[1], minutes: 90, gold: COOSA_GOLD }));
-  legs.push(await walkLeg('JUNCTION to on-road point nearest CAMP-C via Duncan Ridge Conn', junctionToCampC_onRoad, 'exact',
-    'Real OSM way geometry, Duncan Ridge Conn, from the JUNCTION upstream.', GROUP_FACTOR * PACK_FACTOR, 'short19_drc'));
-  legs.push(await walkLeg('On-road point to CAMP-C (creek-side camp, off-road)', [duncanRidgeConn[campCOnRoad.index], CAMP_C], 'approximate',
-    `Straight line, ${campConnectorM.toFixed(0)} m — the same >30m stitch reported for the long variant.`, GROUP_FACTOR * PACK_FACTOR, 'short19_campconn'));
-  legs.push(panLeg({ label: 'Pan at camp (Jones Branch confluence)', lat: CAMP_C[0], lng: CAMP_C[1], minutes: 90, gold: COOSA_GOLD }));
-  legs.push(campLeg('Set up camp at CAMP-C', 45));
-  legs.push(mealLeg('Dinner at camp', 60));
-  return {
-    day: 5, date: '2026-10-19', title: 'Vogel to CAMP-C (East Fork Coosa Creek overnight)', optional: false,
-    start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '08:00' },
-    end: { ref: 'camp_c', label: 'CAMP-C (Jones Branch confluence, East Fork Coosa Creek)', lat: round6(CAMP_C[0]), lng: round6(CAMP_C[1]) },
-    legs,
-  };
-}
-
-async function buildOct20Short() {
-  console.log('\n=== Oct 20 (short) — CAMP-C to WOLF-X, drive to Vogel ===');
-  const legs = [];
-  legs.push(mealLeg('Breakfast at camp', 40));
-  legs.push(panLeg({ label: 'Pan at camp (Jones Branch confluence)', lat: CAMP_C[0], lng: CAMP_C[1], minutes: 120, gold: COOSA_GOLD }));
-  legs.push(campLeg('Break camp at CAMP-C, pack up', 45));
-  legs.push(await walkLeg('CAMP-C to on-road point (off-road connector)', [CAMP_C, duncanRidgeConn[campCOnRoad.index]], 'approximate',
-    `Straight line, ${campConnectorM.toFixed(0)} m.`, GROUP_FACTOR * PACK_FACTOR, 'short20_campconn'));
-  legs.push(await walkLeg('Duncan Ridge Conn to JUNCTION', junctionToCampC_onRoad.slice().reverse(), 'exact',
-    'Real OSM way geometry, Duncan Ridge Conn, reversed.', GROUP_FACTOR * PACK_FACTOR, 'short20_drc'));
-  legs.push(mealLeg('Trail lunch on the way out', 30));
-  legs.push(await walkLeg('JUNCTION to Calf Stomp Gap via Big Grassy Knob Road + FS 108', calfStompToJunction.slice().reverse(), 'exact',
-    'Real OSM way geometry, reversed Big Grassy Knob Road then Calf Stomp Road/FS108 stretch, up to the trail junction.',
-    GROUP_FACTOR * PACK_FACTOR, 'short20_fs108', { access_confidence: 'unconfirmed', access_note: ACCESS_UNCONFIRMED_NOTE }));
-  legs.push(await walkLeg('Calf Stomp Gap to WOLF-X via Locust Stake Gap (Coosa Backcountry Trail clockwise)', trailSunSeg.slice().reverse(), 'exact',
-    'Real OSM way geometry, same merged Coosa Backcountry Trail chain, reversed (clockwise).', GROUP_FACTOR * PACK_FACTOR, 'short20_trail'));
-  legs.push(await driveLeg('WOLF-X (FS 107) to Vogel (truck 2)', { lat: fs107[fs107NearWolfX.index][0], lng: fs107[fs107NearWolfX.index][1] }, POINTS.vogel_basecamp, 'short_fs107_vogel',
-    { access_confidence: 'unconfirmed', access_note: 'UNCONFIRMED whether FS 107 is open to the public — this drive leg assumes truck 2 was successfully staged there on Oct 19.' }));
-  legs.push(mealLeg('Dinner at camp (Vogel)', 60));
-  return {
-    day: 6, date: '2026-10-20', title: 'CAMP-C out to WOLF-X (Coosa Backcountry Trail), drive to Vogel', optional: false,
-    fallback_note: 'Fallback if FS 107 is gated: walk back out Bowers Road to Owltown Gap instead (2.3 mi) — then only one truck spot is needed.',
+    day: 5, date: '2026-10-19', title: 'CAMP-C out to Owltown Gap, drive to Vogel', optional: false,
+    note: 'Truck 2 was staged at Owltown Gap Friday evening (Oct 16) and is picked up here for the drive back to Vogel — see the amber access flag on that leg. Hot dinner and showers at Vogel tonight.',
     start: { ref: 'camp_c', label: 'CAMP-C (Jones Branch confluence, East Fork Coosa Creek)', lat: round6(CAMP_C[0]), lng: round6(CAMP_C[1]), time: '07:00' },
     end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
     legs,
@@ -469,23 +396,89 @@ async function buildOct20Short() {
 //    unchanged days (1-4, 7) and to append the Fri Oct 16 shuttle.
 // ---------------------------------------------------------------------------
 const daysPath = path.join(DATA_DIR, 'days.json');
+const baselinePath = path.join(DATA_DIR, '_days_baseline.json');
 const existing = JSON.parse(fs.readFileSync(daysPath, 'utf8'));
-// Re-runnability: once this script has run once, top-level `days` is the
-// "long" variant (days 1,2,17,18,19,20,7 — no day 3/4, and day 2 already has
-// the Fri-shuttle legs appended). Re-running against that would both lose
-// days 3/4 and double-append the shuttle. The "short" variant's days array
-// always keeps days 1/2/3/4/7 as pristine, untouched clones of the original
-// _build_days.mjs output (nothing in this script ever mutates them there),
-// so it's the safe baseline to re-read from on every run after the first;
-// on a true first run (no variants yet) fall back to top-level `days`.
-const baselineDays = (existing.variants && existing.variants.find(v => v.id === 'short') || { days: existing.days }).days;
+// Re-runnability: _build_days.mjs output has no `backcountry_note`; when we
+// see that, it is a fresh baseline — snapshot it to _days_baseline.json.
+// Otherwise days.json is our own output (day 2 already carries the Fri
+// shuttle, days 3-6 are the hike/waterfall days) and we rebuild from the
+// snapshot instead. Legacy: a days.json that still has the old `variants`
+// array uses its "short" variant (pristine days 1/2/3/4/7) as the baseline.
+let baselineDays;
+if (!(existing.assumptions && existing.assumptions.backcountry_note)) {
+  baselineDays = existing.days;
+  fs.writeFileSync(baselinePath, JSON.stringify({ schema: existing.schema, assumptions: existing.assumptions, days: baselineDays }, null, 2));
+  console.log(`Fresh _build_days.mjs output detected — snapshot written to ${baselinePath}`);
+} else if (Array.isArray(existing.variants) && existing.variants.find(v => v.id === 'short')) {
+  baselineDays = existing.variants.find(v => v.id === 'short').days;
+  fs.writeFileSync(baselinePath, JSON.stringify({ schema: existing.schema, assumptions: existing.assumptions, days: baselineDays }, null, 2));
+  console.log(`Legacy two-variant days.json — baseline taken from its "short" variant and snapshotted to ${baselinePath}`);
+} else {
+  if (!fs.existsSync(baselinePath)) throw new Error('days.json is already a backcountry build and _days_baseline.json is missing — run _build_days.mjs first');
+  baselineDays = JSON.parse(fs.readFileSync(baselinePath, 'utf8')).days;
+}
 function findDay(n) { const d = baselineDays.find(x => x.day === n); if (!d) throw new Error(`baseline day ${n} not found — run _build_days.mjs first`); return JSON.parse(JSON.stringify(d)); }
 
-const day1 = findDay(1);
-const day2ShortUnchanged = findDay(2);
-const day3CooperCreek = findDay(3);
-const day4Ga348Loop = findDay(4);
 const day7 = findDay(7);
+
+// Day 1 (Thu Oct 15): add the two waterfall walks. DeSoto Falls is at the same
+// recreation area as the Frogtown Creek pan stop (tour leg, same coordinates).
+// Trahlyta Falls is inside Vogel below the Lake Trahlyta dam, a short walk
+// from the campground — no separate coordinate (stationary leg at camp;
+// distance/time UNVERIFIED, trail not pulled from OSM this pass).
+function buildDay1WithFalls() {
+  const day1 = findDay(1);
+  const desoto = day1.legs.find(l => l.type === 'drive' && l.to_ref === 'desoto-frogtown');
+  const falls = desoto ? desoto.coords[desoto.coords.length - 1] : null;
+  const panIdx = day1.legs.findIndex(l => l.type === 'pan');
+  const tour = { type: 'tour', label: 'Walk the DeSoto Falls trail (lower + upper falls) from the same parking lot', minutes: 60, note: 'Trail length not verified from a source this pass — budget an hour.' };
+  if (falls) { tour.lat = round6(falls[0]); tour.lng = round6(falls[1]); }
+  day1.legs.splice(panIdx >= 0 ? panIdx + 1 : day1.legs.length, 0, tour);
+  const dinnerIdx = day1.legs.length && day1.legs[day1.legs.length - 1].type === 'meal' ? day1.legs.length - 1 : day1.legs.length;
+  day1.legs.splice(dinnerIdx, 0, { type: 'tour', label: 'Evening: walk to Trahlyta Falls inside Vogel (below the lake dam), stretch the legs', minutes: 40, note: 'Inside the state park; distance UNVERIFIED (short, flat per park map). Park streams: no panning.' });
+  day1.title = 'Arrive, set camp, DeSoto Falls + Frogtown Creek, Trahlyta Falls';
+  return day1;
+}
+
+// Day 6 (Tue Oct 20): Helton Creek Falls first (15 min from Vogel), then the
+// old Sun GA-348 loop (Tesnatee Gap pan, Upper Chattahoochee pan, Dukes Creek
+// Falls walk + pan) re-dated. The baseline day 4's first drive leg (Vogel ->
+// Tesnatee Gap) is replaced by Helton -> Tesnatee Gap.
+const heltonWay = JSON.parse(fs.readFileSync(path.join(RESEARCH_DIR, '_cache', 'helton_falls_way_31275565.json'), 'utf8'));
+function heltonTrailCoords() {
+  const nodes = {};
+  for (const e of heltonWay.elements) if (e.type === 'node') nodes[e.id] = [e.lat, e.lon];
+  const w = heltonWay.elements.find(e => e.type === 'way');
+  const c = w.nodes.map(n => nodes[n]);
+  // orient trailhead -> falls
+  const dStart = dist(c[0], [POINTS.helton_falls.lat, POINTS.helton_falls.lng]);
+  const dEnd = dist(c[c.length - 1], [POINTS.helton_falls.lat, POINTS.helton_falls.lng]);
+  return dStart < dEnd ? c.slice().reverse() : c;
+}
+async function buildOct20Falls() {
+  console.log('\n=== Oct 20 — Helton Creek Falls + GA-348 loop ===');
+  const d4 = findDay(4);
+  const firstDrive = d4.legs.findIndex(l => l.type === 'drive');
+  const tesnatee = d4.legs[firstDrive];
+  const tesnateePt = { lat: tesnatee.coords[tesnatee.coords.length - 1][0], lng: tesnatee.coords[tesnatee.coords.length - 1][1], label: 'Tesnatee Gap' };
+  const trail = heltonTrailCoords();
+  const legs = d4.legs.slice(0, firstDrive); // breakfast
+  legs.push(await driveLeg('Vogel to Helton Creek Falls trailhead', POINTS.vogel_basecamp, POINTS.helton_trailhead, 'vogel_helton'));
+  legs.push(await walkLeg('Trailhead to Helton Creek Falls (FS Trail 145)', trail, 'exact',
+    'Real OSM way geometry, way 31275565 "Helton Creek Falls" (FS Trail 145, foot=designated), fetched 2026-10-02 from api.openstreetmap.org. OSM maps only the stretch to the lower falls; the upper falls are a few minutes further on steps.',
+    GROUP_FACTOR * DAYPACK_FACTOR, 'oct20_helton_in'));
+  legs.push({ type: 'tour', label: 'Helton Creek Falls — lower and upper falls', minutes: 45, lat: POINTS.helton_falls.lat, lng: POINTS.helton_falls.lng, note: 'Two drops close together. Helton Creek is NOT a planned pan stop (no gold record pulled; Blue Ridge RD site-specific camping restrictions apply at the falls).' });
+  legs.push(await walkLeg('Helton Creek Falls back to the trailhead', trail.slice().reverse(), 'exact', 'Same OSM way, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct20_helton_out'));
+  legs.push(await driveLeg('Helton Creek Falls trailhead to Tesnatee Gap', POINTS.helton_trailhead, tesnateePt, 'helton_tesnatee'));
+  legs.push(...d4.legs.slice(firstDrive + 1));
+  return {
+    ...d4,
+    day: 6, date: '2026-10-20', title: 'Waterfall day: Helton Creek Falls, then Tesnatee Gap, Upper Chattahoochee, Dukes Creek Falls',
+    note: 'Easy recovery day after the hike. Daypacks. Pan stops at Tesnatee Creek, the Upper Chattahoochee (below the Mark Trail Wilderness line) and Dukes Creek (NF side only). Rain backup: Dahlonega Gold Museum / Helen Oktoberfest (research/dahlonega.md).',
+    start: { ...d4.start, time: '08:30' },
+    legs,
+  };
+}
 
 async function buildDay2WithShuttle() {
   const day2 = findDay(2);
@@ -503,18 +496,16 @@ async function buildDay2WithShuttle() {
 }
 
 // ---------------------------------------------------------------------------
-// 7. Assemble variants + chain check.
+// 7. Assemble the single route + chain check.
 // ---------------------------------------------------------------------------
-const day2Long = await buildDay2WithShuttle();
+const day1 = buildDay1WithFalls();
+const day2 = await buildDay2WithShuttle();
 const oct17 = await buildOct17Long();
 const oct18 = await buildOct18Long();
-const oct19Layover = await buildOct19LongLayover();
-const oct20Long = await buildOct20Long();
-const oct19Short = await buildOct19Short();
-const oct20Short = await buildOct20Short();
+const oct19 = await buildOct19Out();
+const oct20 = await buildOct20Falls();
 
-const longDays = [day1, day2Long, oct17, oct18, oct19Layover, oct20Long, day7];
-const shortDays = [day1, day2ShortUnchanged, day3CooperCreek, day4Ga348Loop, oct19Short, oct20Short, day7];
+const routeDays = [day1, day2, oct17, oct18, oct19, oct20, day7];
 
 function chainCheck(days, label) {
   let ok = true;
@@ -530,56 +521,44 @@ function chainCheck(days, label) {
   rows.forEach(r => console.log(r));
   return ok;
 }
-const longOk = chainCheck(longDays, 'long');
-const shortOk = chainCheck(shortDays, 'short');
+const routeOk = chainCheck(routeDays, 'route');
 
 // Day-level rollup: a day gets access_confidence:'unconfirmed' if any of its
-// legs does, so the UI can show it at the day-strip level too (spec: "Legs/
-// days depending on UNCONFIRMED access get access_confidence:'unconfirmed'").
-for (const days of [longDays, shortDays]) {
-  for (const d of days) {
-    if (d.legs && d.legs.some(l => l.access_confidence === 'unconfirmed')) d.access_confidence = 'unconfirmed';
-  }
+// legs does, so the UI can show it at the day-strip level too.
+for (const d of routeDays) {
+  if (d.legs && d.legs.some(l => l.access_confidence === 'unconfirmed')) d.access_confidence = 'unconfirmed';
 }
 
-const daysJson = {
-  ...existing,
-  variants: [
-    { id: 'long', label: '3–4 day: Coosa Creek traverse', days: longDays },
-    { id: 'short', label: '2-day: Coosa Creek overnight', days: shortDays },
-  ],
-  days: longDays,
-};
+const { variants: _droppedVariants, ...existingRest } = existing;
+const daysJson = { ...existingRest, days: routeDays };
 daysJson.assumptions = {
   ...existing.assumptions,
-  backcountry_note: 'map/data/_build_backcountry.mjs adds the East Fork Coosa Creek backcountry route (research/backcountry-route-design.md) as top-level `variants` ("long"/"short"); top-level `days` mirrors the "long" variant for back-compat. Re-running _build_days.mjs will REGENERATE days 1-7 from scratch and silently drop `variants` — always re-run _build_backcountry.mjs immediately after _build_days.mjs (see the warning comment at the top of that file and TOOLS.md).',
+  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-02): days 1-2 from _build_days.mjs (day 1 + waterfall walks, day 2 + Fri truck shuttle), days 3-5 = the East Fork Coosa Creek hike (research/backcountry-route-design.md "long" option without the layover), day 6 = Helton Creek Falls + the GA-348 loop, day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
 };
 
 fs.writeFileSync(daysPath, JSON.stringify(daysJson, null, 2));
-console.log(`\nWrote ${daysPath} (variants: long=${longDays.length} days, short=${shortDays.length} days). Chain OK: long=${longOk}, short=${shortOk}`);
+console.log(`\nWrote ${daysPath} (${routeDays.length} days, single route). Chain OK: ${routeOk}`);
 
 // ---------------------------------------------------------------------------
 // 8. Report table.
 // ---------------------------------------------------------------------------
-console.log('\n=== Report tables ===');
-for (const [label, days] of [['LONG', longDays], ['SHORT', shortDays]]) {
-  console.log(`\n--- ${label} ---`);
-  for (const d of days) {
-    if (!['2026-10-17', '2026-10-18', '2026-10-19', '2026-10-20'].includes(d.date)) continue;
-    let walkMi = 0, panMin = 0, moveMin = 0;
-    console.log(`Day ${d.day} (${d.date}) ${d.title}${d.optional ? ' [OPTIONAL]' : ''}`);
-    for (const leg of d.legs) {
-      if (leg.type === 'walk') {
-        walkMi += leg.miles; moveMin += leg.minutes;
-        console.log(`  WALK ${leg.label}: ${leg.miles} mi, +${leg.gain_ft} ft, ${leg.minutes} min, [${leg.geometry_confidence}]${leg.access_confidence ? ' access:' + leg.access_confidence : ''}, ${leg.coords.length} pts, first ${leg.coords[0]}, last ${leg.coords[leg.coords.length - 1]}`);
-      } else if (leg.type === 'drive') {
-        moveMin += leg.minutes;
-        console.log(`  DRIVE ${leg.label}: ${leg.miles} mi, ${leg.minutes} min (raw ${leg.minutes_osrm_raw}), ${leg.coords.length} pts, first ${leg.coords[0]}, last ${leg.coords[leg.coords.length - 1]}`);
-      } else if (leg.type === 'pan') {
-        panMin += leg.minutes;
-        console.log(`  PAN ${leg.label}: ${leg.minutes} min at ${leg.lat},${leg.lng}${leg.at_mile != null ? ' at_mile=' + leg.at_mile : ''}`);
-      }
+console.log('\n=== Report table ===');
+for (const d of routeDays) {
+  let walkMi = 0, panMin = 0, moveMin = 0, driveMi = 0;
+  console.log(`Day ${d.day} (${d.date}) ${d.title}`);
+  for (const leg of d.legs) {
+    if (leg.type === 'walk') {
+      walkMi += leg.miles; moveMin += leg.minutes;
+      console.log(`  WALK ${leg.label}: ${leg.miles} mi, +${leg.gain_ft} ft, ${leg.minutes} min, [${leg.geometry_confidence}]${leg.access_confidence ? ' access:' + leg.access_confidence : ''}`);
+    } else if (leg.type === 'drive') {
+      moveMin += leg.minutes; driveMi += leg.miles;
+      console.log(`  DRIVE ${leg.label}: ${leg.miles} mi, ${leg.minutes} min (raw ${leg.minutes_osrm_raw})`);
+    } else if (leg.type === 'pan') {
+      panMin += leg.minutes;
+      console.log(`  PAN ${leg.label}: ${leg.minutes} min`);
+    } else if (leg.type === 'tour') {
+      console.log(`  TOUR ${leg.label}: ${leg.minutes} min`);
     }
-    console.log(`  TOTALS: walk ${walkMi.toFixed(2)} mi, moving ${moveMin} min, pan ${panMin} min`);
   }
+  console.log(`  TOTALS: walk ${walkMi.toFixed(2)} mi, drive ${driveMi.toFixed(1)} mi, moving ${moveMin} min, pan ${panMin} min`);
 }

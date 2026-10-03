@@ -1,67 +1,132 @@
 {
   "schema": "itinerary-v1",
-  "note": "Draft day plan for the Oct 15-21 2026 trip, Vogel State Park base camp. Each stop reuses an existing point/overnight id from map/data/*.json where one exists (lat/lng pulled from that entry at build time); stops without an existing id carry their own lat/lng and a coord_source. This is a planning layer, toggle-able in the map as 'Itinerary'.",
+  "note": "Planning layer, superseded by days.json (which the map renders). Updated 2026-10-02 to the decided single route: 3-day Coosa Creek hike Sat Oct 17 - Mon Oct 19, waterfall day Tue Oct 20. Each stop reuses an existing point id from map/data/*.json where one exists.",
   "days": [
     {
       "day": 1,
       "date": "2026-10-15",
-      "label": "Thu Oct 15 — Arrive, DeSoto Falls / Frogtown Creek",
+      "label": "Thu Oct 15 — Arrive, DeSoto Falls + Frogtown Creek, Trahlyta Falls",
       "stops": [
-        { "ref": "vogel_basecamp", "note": "Arrive, set up base camp" },
-        { "ref": "desoto-frogtown", "note": "Afternoon panning stop, Frogtown Creek" }
+        {
+          "ref": "vogel_basecamp",
+          "note": "Arrive 1 PM, set up base camp"
+        },
+        {
+          "ref": "desoto-frogtown",
+          "note": "First panning lesson on Frogtown Creek; walk the DeSoto Falls trail from the same lot"
+        },
+        {
+          "ref": "vogel_basecamp",
+          "note": "Evening walk to Trahlyta Falls inside the park"
+        }
       ]
     },
     {
       "day": 2,
       "date": "2026-10-16",
-      "label": "Fri Oct 16 — Dahlonega",
+      "label": "Fri Oct 16 — Dahlonega, then stage truck 2 at Owltown Gap",
       "stops": [
-        { "ref": "consolidated-gold-mine", "note": "Underground tour + flume panning" },
-        { "ref": "dahlonega-gold-museum", "note": "Gold Museum State Historic Site" },
-        { "ref": "yahoola-park", "note": "Yahoola Creek Park — most gold-storied creek in the district" }
+        {
+          "ref": "consolidated-gold-mine",
+          "note": "Underground tour + flume panning"
+        },
+        {
+          "ref": "dahlonega-gold-museum",
+          "note": "Gold Museum State Historic Site, lunch on the square first"
+        },
+        {
+          "ref": "yahoola-park",
+          "note": "Yahoola Creek Park pan"
+        },
+        {
+          "lat": 34.81143,
+          "lng": -83.94952,
+          "coord_source": "research/backcountry-route-design.md",
+          "note": "Evening: stage truck 2 at Owltown Gap for Monday's walk-out"
+        }
       ]
     },
     {
       "day": 3,
       "date": "2026-10-17",
-      "label": "Sat Oct 17 — Cooper Creek Recreation Area (north side, away from Gold Rush Days crowds)",
+      "label": "Sat Oct 17 — Hike day 1: Vogel to West Fork Wolf Creek (camp)",
       "stops": [
-        { "ref": "cooper-creek", "note": "Deer season opens today — blaze orange required. Dahlonega's Gold Rush Days festival is downtown; stay north at Cooper Creek to avoid the crowds." }
+        {
+          "ref": "vogel_basecamp",
+          "note": "Walk out of camp onto the Coosa Backcountry Trail. Deer season opens today — blaze orange."
+        },
+        {
+          "lat": 34.791,
+          "lng": -83.917,
+          "coord_source": "approximate; real point is WOLF-X in days.json",
+          "note": "Pan and camp at the West Fork Wolf Creek / FS 107 crossing"
+        }
       ]
     },
     {
       "day": 4,
       "date": "2026-10-18",
-      "label": "Sun Oct 18 — GA-348 loop: Tesnatee Gap, Upper Chattahoochee FS-44, Dukes Creek Falls",
+      "label": "Sun Oct 18 — Hike day 2: over Calf Stomp Gap to East Fork Coosa Creek (camp)",
       "stops": [
-        { "ref": "tesnatee-gap", "note": "Tesnatee Creek at Tesnatee Gap" },
-        { "ref": "upper-chatt-fs44", "note": "Upper Chattahoochee River / FS Road 44 corridor reach, stay below Mark Trail Wilderness boundary" },
-        { "ref": "dukes-creek-falls", "note": "Dukes Creek Falls Recreation Area, NF side only — do not cross into Smithgall Woods State Park" }
+        {
+          "lat": 34.796,
+          "lng": -83.964,
+          "coord_source": "approximate; real point is CAMP-C in days.json",
+          "note": "Pan Roaring Fork confluence on the way; camp and pan at the Jones Branch confluence"
+        }
       ]
     },
     {
       "day": 5,
       "date": "2026-10-19",
-      "label": "Mon Oct 19 — Hike in: Three Forks / Noontootla Creek (overnight)",
+      "label": "Mon Oct 19 — Hike day 3: out Bowers Road to Owltown Gap, drive to Vogel",
       "stops": [
-        { "ref": "three-forks-noontootla", "note": "Hike in and camp, primary overnight route. Backup: Dockery Lake Trail." }
+        {
+          "lat": 34.81143,
+          "lng": -83.94952,
+          "coord_source": "research/backcountry-route-design.md",
+          "note": "Pan at the private-boundary stop, walk out to truck 2 at Owltown Gap"
+        },
+        {
+          "ref": "vogel_basecamp",
+          "note": "Back at base camp by mid-afternoon"
+        }
       ]
     },
     {
       "day": 6,
       "date": "2026-10-20",
-      "label": "Tue Oct 20 — Overnight at Three Forks / Noontootla Creek",
+      "label": "Tue Oct 20 — Waterfall day: Helton Creek Falls, Tesnatee Gap, Upper Chattahoochee, Dukes Creek Falls",
       "stops": [
-        { "ref": "three-forks-noontootla", "note": "Second night, pan Noontootla Creek at the Three Forks confluence. Backup: Dockery Lake Trail campsite ~3.0 mi." }
+        {
+          "lat": 34.752715,
+          "lng": -83.895684,
+          "coord_source": "OSM waterfall node 7589363460",
+          "note": "Helton Creek Falls, short trail, two drops"
+        },
+        {
+          "ref": "tesnatee-gap",
+          "note": "Tesnatee Creek pan"
+        },
+        {
+          "ref": "upper-chatt-fs44",
+          "note": "Upper Chattahoochee / FS-44 pan, stay below Mark Trail Wilderness"
+        },
+        {
+          "ref": "dukes-creek-falls",
+          "note": "Dukes Creek Falls walk + pan, NF side only"
+        }
       ]
     },
     {
       "day": 7,
       "date": "2026-10-21",
-      "label": "Wed Oct 21 — Pack out",
+      "label": "Wed Oct 21 — Break camp, depart by noon",
       "stops": [
-        { "ref": "three-forks-noontootla", "note": "Hike out" },
-        { "ref": "vogel_basecamp", "note": "Break camp, depart" }
+        {
+          "ref": "vogel_basecamp",
+          "note": "Break camp, depart"
+        }
       ]
     }
   ]

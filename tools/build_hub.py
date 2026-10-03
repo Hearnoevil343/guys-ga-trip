@@ -437,7 +437,7 @@ h3.sec-h{{color:#2F5233;margin:18px 0 4px}}
 <section id="start" class="on">
 <div class="card"><b>The trip:</b> 6 people, Site P walk-in (2 tents, 2 vehicles), arrive Thu Oct 15, leave Wed Oct 21.
 Panning at drive-up creeks + Consolidated Gold Mine tour + Dahlonega, plus one backcountry night (Mon&ndash;Tue 19&ndash;20).</div>
-<div class="card"><b>Overnight:</b> primary Three Forks / Noontootla Creek; backup Rock Creek (Fannin). Not yet ranger-confirmed legal.</div>
+<div class="card"><b>The hike:</b> 3 days / 2 nights, Sat Oct 17 &ndash; Mon Oct 19, Coosa Backcountry Trail to West Fork Wolf Creek, then East Fork Coosa Creek, out at Owltown Gap. Not yet ranger-confirmed legal.</div>
 <div class="card"><b>Dates that matter:</b> firearms deer season opens Oct 17 (blaze orange). Gold Rush Days Oct 17&ndash;18 (visit Dahlonega Fri 16).
 Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = hand pan + trowel only.</div>
 <div class="card"><b>Gear:</b> {html.escape(total)} &middot; base weight 12.8 lb, 18.0 lb loaded. Order the tent + quilt first (2&ndash;4 wk).</div>

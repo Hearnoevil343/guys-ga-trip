@@ -1,13 +1,13 @@
 // _build_days.mjs — one-off builder for map/data/days.json (schema days-v1).
 // Run: node map/data/_build_days.mjs
 //
-// *** WARNING — VARIANTS ***: this script REGENERATES days.json from scratch
-// (all 7 days, no `variants`). map/data/_build_backcountry.mjs layers the
-// East Fork Coosa Creek backcountry route on top as a top-level `variants`
-// array (["long","short"]) and resets top-level `days` to the "long"
-// variant. Running THIS script after that silently wipes `variants` back
-// out. Always run `node map/data/_build_backcountry.mjs` again immediately
-// after this one if you need both. See TOOLS.md.
+// *** WARNING ***: this script REGENERATES days.json from scratch as the
+// pre-hike BASELINE (old Cooper Creek / GA-348 / Three Forks days 3-6).
+// map/data/_build_backcountry.mjs then rewrites days 1-6 into the decided
+// route (2026-10-02: 3-day Coosa Creek hike Sat-Mon + waterfall day Tue) and
+// snapshots this script's output to _days_baseline.json. Running THIS script
+// alone leaves the map on the stale baseline. Always run
+// `node map/data/_build_backcountry.mjs` immediately after. See TOOLS.md.
 //
 // Builds the real day-by-day route: drive legs from OSRM, walk legs from real
 // OSM trail/path geometry where one exists (falling back to an honestly-

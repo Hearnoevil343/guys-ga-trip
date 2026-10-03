@@ -1,5 +1,12 @@
 # Backcountry route design — East Fork Coosa Creek (2026-09-21)
 
+> **Decision 2026-10-02 (Jordan):** one route, no options. The hike is the "long" option below
+> without its layover: Sat Oct 17 Vogel → WOLF-X, Sun Oct 18 WOLF-X → CAMP-C, Mon Oct 19 CAMP-C →
+> Owltown Gap → Vogel. The "short" option is dropped as a plan (kept here as the bad-weather
+> fallback). Tue Oct 20 becomes Helton Creek Falls + the GA-348 loop. Built by
+> `map/data/_build_backcountry.mjs`; the two-variant text below is the design history.
+
+
 Designed by the route-design session. Every claim below was checked first-hand by that
 session (not only by an agent) unless marked UNCONFIRMED. The map must show anything
 UNCONFIRMED as amber. Nothing here is green: no ranger has confirmed any specific creek.

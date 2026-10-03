@@ -25,7 +25,7 @@ Base camp: Vogel State Park, walk-in site P. 6 adults (4 newer campers). This is
 
 ## 0. Trip at a glance
 
-**Dates:** Arrive Vogel State Park Thu Oct 15, 1:00 PM. Depart Wed Oct 21, noon. Keep the night of Oct 20 (group returns from the overnight Tue evening).
+**Dates:** Arrive Vogel State Park Thu Oct 15, 1:00 PM. Depart Wed Oct 21, noon. Keep the night of Oct 20 (the group is back from the hike Mon evening; Tue is the waterfall day).
 
 **Site limits (walk-in site P):** 6 people max, 2 tents max, 2 vehicles at the site + overflow parking nearby for the rest.
 
@@ -50,12 +50,13 @@ Base camp: Vogel State Park, walk-in site P. 6 adults (4 newer campers). This is
 
 All drive times are estimated from Vogel State Park (7485 Vogel State Park Rd, Blairsville) and are **not live-routed** — add a buffer for mountain roads, and re-check day-of if you have signal.
 
-Every day below now budgets real time for breakfast/lunch/dinner and for camp setup/breakdown (first night at Vogel ~60–90 min; a backcountry camp ~45 min each way) — see the map's day panel and Compare view for the minute-by-minute breakdown; none of the added time pushes a day past ~11 active hours or dinner past dark.
+Every day below now budgets real time for breakfast/lunch/dinner and for camp setup/breakdown (first night at Vogel ~60–90 min; a backcountry camp ~45 min each way) — see the map's day panel for the minute-by-minute breakdown; none of the added time pushes a day past ~11 active hours or dinner past dark.
 
-### Thu Oct 15 — Arrive, set camp, first pan
+### Thu Oct 15 — Arrive, set camp, first pan, two waterfalls
 - **1:00 PM:** Arrive Vogel, check in, haul gear to walk-in site P.
 - **2:00–4:00 PM:** Set up base camp (tents, bear-proof food hang on the site's steel posts, kitchen area).
-- **4:00–6:00 PM:** Drive to **DeSoto Falls Recreation Area / Frogtown Creek** (~15 min south on US-129) for the group's first panning lesson — closest legal spot to camp, and USFS explicitly lists gold panning as an allowed activity here.
+- **4:00–6:00 PM:** Drive to **DeSoto Falls Recreation Area / Frogtown Creek** (~15 min south on US-129) for the group's first panning lesson — closest legal spot to camp, and USFS explicitly lists gold panning as an allowed activity here. Walk the DeSoto Falls trail (lower + upper falls) from the same lot, ~1 h.
+- **Before dinner:** short walk to **Trahlyta Falls** inside Vogel, below the lake dam (distance unverified; short and flat on the park map). No panning inside the park.
 - **Evening:** Dinner at camp, pan-out session at the table (rinse today's concentrates, spot any color).
 - **Bring:** pans, classifiers, gloves, water shoes, warm layers (frost is a real possibility this week).
 - **Rain/backup:** Skip the creek, do the pan-out lesson under the canopy at camp using pre-bought "salted" gravel or just cover gear-org and safety briefing.
@@ -69,24 +70,21 @@ Every day below now budgets real time for breakfast/lunch/dinner and for camp se
 - **Dinner** in town — Foothill Grill, Bear Necessities Cafe, or Picnic Cafe (all casual, good for a group of 6).
 - **Rain/backup:** This whole day is already the rain-day pick — Consolidated is underground and the museum is indoor.
 
-### Sat Oct 17 — North side, away from crowds (short option; the long option starts the hike today — see §3)
-- Today is Gold Rush Days (~200k people) and muzzleloader-to-firearms handoff day — stay north/away from Dahlonega.
-- **Morning:** **Cooper Creek Recreation Area** (~40 min via US-19/129 then GA-60 S/Cooper Creek Rd) for panning.
-- **Midday:** Resupply run in **Blairsville** (~10–15 min from Vogel) — Ingles Markets, gas, ice, firewood.
-- **Afternoon:** Overnight-gear shakedown at camp — pack the backpacks you'll carry to the East Fork Coosa Creek camp, test the tent, check the water filter and stove. **Blaze orange from today on**, since firearms season opens today.
-- **Optional:** anyone who wants the festival can shuttle into Dahlonega for a short morning visit (park at a shuttle lot, go early, be out by early afternoon).
-- **Rain/backup:** Do the gear shakedown under cover first, then a short Vogel-area hike (no panning inside the park — it's banned park-wide, see §7).
+### Sat Oct 17 – Mon Oct 19 — The hike: 3 days / 2 nights, East Fork Coosa Creek
+Full detail in §3. Decided 2026-10-02: this replaces both earlier options (the 4-day "long" and the 2-day "short"). Cooper Creek is dropped; the GA-348 loop moves to Tuesday.
+- **Sat Oct 17 — Vogel → West Fork Wolf Creek.** Walk out of camp onto the Coosa Backcountry Trail via Burnett Gap, 3.5 mi. Pan 3 h at the FS 107 crossing, camp there. Gold Rush Days (~200k people) is in Dahlonega today — we are nowhere near it. **Firearms deer season opens today: blaze orange on everyone from now on.**
+- **Sun Oct 18 — West Fork Wolf Creek → East Fork Coosa Creek.** Over Locust Stake Gap and Calf Stomp Gap (the big climb), down Big Grassy Knob Road, upstream to camp at the Jones Branch confluence, 5.2 mi, +1,670 ft. Pan 1.5 h at the Roaring Fork confluence and 1.5 h at camp.
+- **Mon Oct 19 — out to Owltown Gap.** 2.3 mi down Bowers Road. Pan 1.5 h at the boundary stop (last public water). Pick up truck 2, drive 18 min to Vogel. Hot dinner, showers, early night.
+- **Rain/backup:** if the forecast turns genuinely unsafe (flash-flood risk in the narrow creek), shorten to one night (Sat out-and-back to West Fork Wolf Creek, or skip to Sun start and walk Owltown Gap → camp → back) rather than camp in a flooding drainage. Day-trip fallback: Cooper Creek or Frogtown.
 
-### Sun Oct 18 — GA-348 loop, early start (short option; the long option hikes to East Fork Coosa Creek today — see §3)
-- **Early morning:** Drive the **Richard B. Russell Scenic Hwy (GA-348)** loop before crowds build.
-- **Tesnatee Gap / Tesnatee Creek** (~22 min) — closest option besides Frogtown, roadside pull-off.
-- **Upper Chattahoochee / FS-44 road reach** (~38 min via GA-75 to FS-44 gravel road) — stop at the campground gate; do **not** continue upstream past it, that's Mark Trail Wilderness (banned).
-- **Dukes Creek Falls, NF side only** (~38 min) — $4/vehicle USFS fee, 2.5-mi round-trip trail; pan above the falls trailhead, well clear of the boardwalk. Do **not** cross into Smithgall Woods State Park (banned, different property).
-- **Rain/backup:** Consolidated Gold Mine (if not already done) or a Vogel-area hike (Bear Hair Gap Trail).
-
-### Mon Oct 19 – Tue Oct 20 — The overnight (East Fork Coosa Creek, short option)
-Full detail and the 4-day long option in §3. Short version: drive to Owltown Gap, walk in on Bowers Road, camp at the Jones Branch confluence, pan, walk out Tuesday, drive to Vogel. **Blaze orange required.**
-- **Rain/backup for this leg:** if weather turns genuinely unsafe (flash-flood risk in narrow gorges), fall back to a shorter day-trip pan at Cooper Creek or Frogtown and skip the overnight rather than camp in a flash-flood-prone drainage.
+### Tue Oct 20 — Waterfall day: Helton Creek Falls, then the GA-348 loop
+Recovery day, daypacks only.
+- **Morning:** **Helton Creek Falls** (13 min from Vogel, Helton Creek Road / FS 118; short trail, two drops). Not a pan stop.
+- **Tesnatee Gap / Tesnatee Creek** (16 min on from Helton) — roadside pull-off, pan 1.5 h.
+- **Upper Chattahoochee / FS-44 road reach** (~1 h via GA-75 to FS-44 gravel) — stop at the campground gate; do **not** continue upstream past it, that's Mark Trail Wilderness (banned). Trail lunch here.
+- **Dukes Creek Falls, NF side only** (~40 min) — $4/vehicle USFS fee, 2.5-mi round-trip boardwalk trail to the falls; pan above the trailhead, well clear of the boardwalk. Do **not** cross into Smithgall Woods State Park (banned, different property).
+- **Other options for the day if the group would rather not pan:** Brasstown Bald (highest point in Georgia, ~25 min from Vogel, paved summit shuttle — hours/fee unverified), Helen Oktoberfest (runs daily through Nov 1 — hours unverified, see §5), Raven Cliff Falls (5-mi round trip from the Dukes Creek Falls area, Raven Cliffs Wilderness — no panning).
+- **Rain/backup:** Dahlonega Gold Museum if skipped Friday, or Helen's indoor options (research/dahlonega.md).
 
 ### Wed Oct 21 — Pack out
 - **Morning:** Break camp, Leave No Trace, load trucks. Site must be vacated by **noon**.
@@ -194,9 +192,9 @@ Drive times and coordinates below are pulled from `map/data/spots.json` (the mos
 
 ---
 
-## 3. The overnight — East Fork Coosa Creek (two options)
+## 3. The hike — East Fork Coosa Creek, 3 days / 2 nights (Sat Oct 17 – Mon Oct 19)
 
-**Nothing in this section is ranger-confirmed. Every creek stop is AMBER on the map.** Full spec and sources: `research/backcountry-route-design.md`. Open the map and tap **Compare** in the variant selector for the two options side by side (numbers come straight from `map/data/days.json`).
+**Nothing in this section is ranger-confirmed. Every creek stop is AMBER on the map.** Full spec and sources: `research/backcountry-route-design.md`. Numbers come straight from `map/data/days.json` (map day buttons 3, 4, 5).
 
 ### Why this drainage
 **Gold record (primary source):** Georgia Geological Survey Bulletin 19, S.P. Jones, 1909, pp. 237-239: "the deposits have been mined from near the headwaters of the stream high up on a mountain side, for a distance of several miles ... The entire output of the Coosa Creek placers has been variously estimated at from a half to a million pennyweights of gold. ... its purity is as great as .980." Also: "The placers along Coosa Creek have yielded large amounts of gold and the mountain slopes of that region deserve careful prospecting." USGS MRDS: Coosa Creek Placer Mine, Past Producer, deposit size Medium (dep_id 10084699). Upper-creek gold is in "the bed of the creek only" — work bedrock cracks and bend insides, not banks.
@@ -207,19 +205,13 @@ Drive times and coordinates below are pulled from `map/data/spots.json` (the mos
 
 Noontootla / Three Forks was dropped: it has a record (Bulletin 19 pp. 277-278) but the named lots are downstream and mostly private, the National Forest reach is upstream of the gold, camping there depends on the FS-58 order we cannot obtain, and it is a 111-minute drive each way.
 
-### Option A — "long": 4 days (3 without the layover), Sat Oct 17 – Tue Oct 20
-All with full packs except the layover. Numbers below are from `days.json`.
-- **Sat Oct 17 — Vogel → West Fork Wolf Creek.** Coosa Backcountry Trail counter-clockwise from site P via Burnett Gap; 3.53 mi walking. Pan 3 h at/below the crossing. Camp at the crossing. (Replaces the Cooper Creek day.)
-- **Sun Oct 18 — West Fork Wolf Creek → East Fork Coosa Creek.** Over Locust Stake Gap and Calf Stomp Gap (big climb), down Big Grassy Knob Road, then upstream beside the creek to camp at the Jones Branch confluence; 5.24 mi walking, +1,668 ft in total. Pan 1.5 h at the Roaring Fork confluence and 1.5 h at camp. (Replaces the GA-348 loop day.)
-- **Mon Oct 19 — layover, OPTIONAL** (drop it for the 3-day version). Daypack. Pan the Jones Branch reach 3 h and the upper "bed of the creek only" reach 2 h. Nearly all panning: 0.12 mi of walking.
-- **Tue Oct 20 — out to Owltown Gap.** 2.29 mi. Pan 1.5 h at the boundary stop (last public water). Drive to Vogel, 8.7 mi / 18 min. Night at Vogel; Wed Oct 21 unchanged.
-- **Shuttle:** Fri evening, stage truck 2 at Owltown Gap (two trucks out, one back; 18 min each way).
-
-### Option B — "short": 2 days / 1 night, Mon Oct 19 – Tue Oct 20
-Oct 15–18 stay as planned in §1 (Cooper Creek Sat, GA-348 loop Sun).
-- **Mon Oct 19.** Drive both trucks Vogel → Owltown Gap; leave truck 1 there. Truck 2 is staged at the West Fork Wolf Creek crossing on FS 107 beforehand — **only if FS 107 is open (UNCONFIRMED).** Walk Owltown Gap → Bowers Road → boundary stop (pan 1.5 h) → Roaring Fork (pan 1.5 h) → camp at the Jones Branch confluence; 2.29 mi. Pan at camp 1.5 h.
-- **Tue Oct 20.** Pan at camp 2 h. Walk out via Big Grassy Knob Road (up), Calf Stomp Gap and the Coosa Backcountry Trail clockwise to truck 2; 5.24 mi. Drive to Vogel.
-- **Fallback if FS 107 is gated:** walk back out Bowers Road to Owltown Gap instead (2.3 mi) — then only one truck spot is needed.
+### The route (decided 2026-10-02 — one route, no options)
+This is the former "long" option without its layover day. The 2-day "short" option (Owltown Gap in and out) is dropped as a plan but stays usable as a bad-weather fallback. Numbers below are from `days.json`.
+- **Sat Oct 17 — Vogel → West Fork Wolf Creek (WOLF-X).** Coosa Backcountry Trail counter-clockwise from site P via Burnett Gap; 3.53 mi walking, +700 ft, ~1 h 45 min moving. Pan 3 h at/below the FS 107 crossing. Camp at the crossing.
+- **Sun Oct 18 — WOLF-X → East Fork Coosa Creek (CAMP-C).** Over Locust Stake Gap and Calf Stomp Gap (big climb), down FS 108 / Big Grassy Knob Road, then upstream beside the creek to camp at the Jones Branch confluence; 5.24 mi walking, +1,668 ft, ~3 h moving. Pan 1.5 h at the Roaring Fork confluence and 1.5 h at camp.
+- **Mon Oct 19 — CAMP-C → Owltown Gap → Vogel.** 2.29 mi down Duncan Ridge Conn and Bowers Road, ~1 h 25 min moving. Pan 1.5 h at the boundary stop (last public water). Drive to Vogel in truck 2, 8.7 mi / 18 min. Night at Vogel.
+- **Shuttle:** Fri Oct 16 evening, stage truck 2 at Owltown Gap (two trucks out, one back; 18 min each way), right after getting back from Dahlonega and before dinner. Truck 2 sits there Fri–Mon (3 nights) — part of the ranger call.
+- **Totals:** 11.1 mi walking, +2,400 ft, 10.5 h of planned panning across 5 stops, 2 nights out. Food carried: Sat lunch through Mon lunch (2 breakfasts, 3 lunches, 2 dinners) — see `MASTER_LIST.md`.
 
 ### Rules that apply (all AMBER)
 - **Panning:** "Recreational panning for gold in most stream beds is allowed. Special permission, permits, or fees are not required as long as significant stream disturbance does not occur and when only a small hand shovel or trowel and a pan are used. In-stream sluices and suction dredges are NOT allowed." — USFS Chattahoochee-Oconee FAQ (https://www.fs.usda.gov/r08/chattahoochee-oconee/about-area/faqs). "Most stream beds" is not creek-specific: no ranger has confirmed this creek. Call Blue Ridge RD 706-745-6928.
@@ -394,13 +386,13 @@ Full detail and the priced CSV breakdown live in `research/gear.md` — this sec
 - **Worn (no cotton):** hiking shoes, quick-dry pants, wicking shirt, wool socks (3-pack), blaze-orange beanie. **~$102 total.**
 - **Overnight pack** (personal gear, plus this person's per-person share of group/shared items like tent/stove/filter/first aid/satellite messenger — see the Group/shared gear section of BUY_LIST.md for full group costs): backpack, tent (shared with tentmate, /2), 15–20°F sleeping bag, insulated sleeping pad, rain jacket, insulation layer, base layer (doubles as sleep clothes), stove/pot/filter (group, /6), Ursack food storage (group, /6), first aid (group, /6), satellite messenger rental (**rent, don't buy** — $100/week split 6 ways vs. $300 to buy), offline maps (free CalTopo printout), headlamp, knife, emergency bundle, trowel, hygiene kit, blaze orange vest. **~$385 per person, base weight ≈14.1 lb.**
 - **Creek kit** (carried on the overnight): gold pan, classifier, insulated waterproof panning gloves, 3mm neoprene socks, snuffer bottle, 2 vials, crevice tool, knee pad. **~$110, ≈3.4 lb.**
-- **Total pack weight leaving camp** (base weight + ~3 lb food + 1L water): **≈22.7 lb.** Total must-have personal cost: **~$600.**
+- **Total pack weight leaving camp** (base weight + ~5–6 lb food for 2 nights + 1L water): **≈25 lb.** Total must-have personal cost: **~$600.**
 - **Cheapest levers:** rent (don't buy) the satellite messenger, borrow tent/bag/pack from a friend if possible before buying, buy used gear (REI Re/Gear, gear swaps) for the big three, skip the "nice to have" rows (pillow, power bank, knee pad, mesh bag, camp towel — saves ~$53), use free CalTopo instead of a paid mapping app.
 
 ### Friends' one-page packing list (simple version — non-campers)
 **Worn (no cotton):** hiking shoes/boots, quick-dry pants, a wicking shirt, wool socks, a warm hat that's blaze orange (or a separate blaze orange vest/hat — required during firearms season).
 
-**Overnight pack (Mon–Tue leg only):** your share of the tent (confirm with your tentmate who carries what), a 15–20°F sleeping bag, an insulated sleeping pad, a rain jacket, an insulation layer (fleece or light puffy), a base layer set (doubles as sleep clothes), one spare dry pair of wool socks, headlamp + batteries, knife, whistle/compass/emergency blanket, TP kit, blaze orange vest, your food for the overnight (~2-3 lb), 1 L water capacity.
+**Overnight pack (Sat–Mon hike):** your share of the tent (confirm with your tentmate who carries what), a 15–20°F sleeping bag, an insulated sleeping pad, a rain jacket, an insulation layer (fleece or light puffy), a base layer set (doubles as sleep clothes), one spare dry pair of wool socks, headlamp + batteries, knife, whistle/compass/emergency blanket, TP kit, blaze orange vest, your food for the overnight (~2-3 lb), 1 L water capacity.
 
 **Cold-water creek gear (needed daily at base camp too):** insulated waterproof panning gloves, 3mm neoprene socks + old sneakers/water shoes for the creek (not your hiking boots), dry-change clothes for after panning, and your own gold pan if you want one.
 

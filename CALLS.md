@@ -14,10 +14,10 @@ see `research\backcountry-route-design.md`. Ask these first:**
   Coosa Backcountry Trail crossing of West Fork Wolf Creek — any order or setback?
 - Is **Bowers Road (FS 298)** open to the public across the private stretch to
   **Owltown Gap**, and can a truck be left there Fri Oct 16 evening through
-  Tue Oct 20 (4 nights, not a single overnight)?
+  Mon Oct 19 (3 nights, not a single overnight)?
 - Are **FS 107, FS 108 (Calf Stomp Rd) and Big Grassy Knob Road** gated or open to
   vehicles in October?
-- Which WMA covers Coosa Creek / Coosa Bald, and are there hunts Oct 17-20?
+- Which WMA covers Coosa Creek / Coosa Bald, and are there hunts Oct 17-19?
 - ~~Is panning actually prohibited in designated Wilderness?~~ **ANSWERED — confirmed by Jordan, 2026-09-21: yes, panning is banned in designated Wilderness.** No official USFS page states this (still true), but it no longer needs a ranger call.
 
 The Three Forks questions below only matter if we fall back to Noontootla.

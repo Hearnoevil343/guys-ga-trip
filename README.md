@@ -2,8 +2,8 @@
 
 **[→ Open the trip hub](https://hearnoevil343.github.io/guys-ga-trip/)**
 
-Six of us, a week in the north Georgia mountains, panning for gold. Base camp is the
-walk-in tent site at Vogel State Park; one night is a hike-in backcountry camp.
+Five of us, a week in the north Georgia mountains, panning for gold. Base camp is the
+walk-in tent site at Vogel State Park; two nights (Sat Oct 17 – Mon Oct 19) are a 3-day hike with backcountry camps.
 
 Everything below is also reachable from the hub link above — rundown, map, and buy
 list as tabs, no download needed.

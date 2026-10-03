@@ -392,7 +392,7 @@ Full detail and the priced CSV breakdown live in `research/gear.md` — this sec
 ### Friends' one-page packing list (simple version — non-campers)
 **Worn (no cotton):** hiking shoes/boots, quick-dry pants, a wicking shirt, wool socks, a warm hat that's blaze orange (or a separate blaze orange vest/hat — required during firearms season).
 
-**Overnight pack (Sat–Mon hike):** your share of the tent (confirm with your tentmate who carries what), a 15–20°F sleeping bag, an insulated sleeping pad, a rain jacket, an insulation layer (fleece or light puffy), a base layer set (doubles as sleep clothes), one spare dry pair of wool socks, headlamp + batteries, knife, whistle/compass/emergency blanket, TP kit, blaze orange vest, your food for the overnight (~2-3 lb), 1 L water capacity.
+**Overnight pack (Sat–Mon hike):** your share of the tent (confirm with your tentmate who carries what), a 15–20°F sleeping bag, an insulated sleeping pad, a rain jacket, an insulation layer (fleece or light puffy), a base layer set (doubles as sleep clothes), one spare dry pair of wool socks, headlamp + batteries, knife, whistle/compass/emergency blanket, TP kit, blaze orange vest, your food for the hike, 2 nights (~5–6 lb), 1 L water capacity.
 
 **Cold-water creek gear (needed daily at base camp too):** insulated waterproof panning gloves, 3mm neoprene socks + old sneakers/water shoes for the creek (not your hiking boots), dry-change clothes for after panning, and your own gold pan if you want one.
 
@@ -456,7 +456,7 @@ Insulated gloves are not optional — dip, work fast, dry and rewarm between pan
 - Also ask: "Is gold panning or rock collecting allowed anywhere inside park boundaries?" (Expected answer: no — confirm this before anyone tries it at the lake or on a park trail crossing.)
 
 **Blue Ridge Ranger District — 706-745-6928**
-- Script: "We're a group of 5 doing recreational hand-panning (pan + trowel, no sluice/dredge) at several Chattahoochee National Forest sites the week of Oct 15–21, plus a backcountry overnight on the East Fork of Coosa Creek (above the private boundary near 34.8064, -83.9598) and West Fork Wolf Creek, Oct 17–20. Can you confirm current panning rules, whether there are any active stream closures in that window, and whether those reaches and the Coosa Bald area are open to hand panning? Is Bowers Road (FS 298) open to the public to Owltown Gap, and are FS 107 / FS 108 / Big Grassy Knob Road gated?"
+- Script: "We're a group of 5 doing recreational hand-panning (pan + trowel, no sluice/dredge) at several Chattahoochee National Forest sites the week of Oct 15–21, plus a backcountry overnight on the East Fork of Coosa Creek (above the private boundary near 34.8064, -83.9598) and West Fork Wolf Creek, Oct 17–19 (3 days / 2 nights). Can you confirm current panning rules, whether there are any active stream closures in that window, and whether those reaches and the Coosa Bald area are open to hand panning? Is Bowers Road (FS 298) open to the public to Owltown Gap, and are FS 107 / FS 108 / Big Grassy Knob Road gated?"
 - Also ask about current fire restrictions/burn-ban status for camping.
 
 **GA DNR Wildlife Resources Division — 770-535-5498**

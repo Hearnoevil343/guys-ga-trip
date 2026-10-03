@@ -1,6 +1,6 @@
 # Georgia Gold Trip Rundown — Oct 15–21, 2026
 
-Base camp: Vogel State Park, walk-in site P. 6 adults (4 newer campers). This is the one document you need — no other reference required. Interactive map: `map/trip-map.html` (open in a browser).
+Base camp: Vogel State Park, walk-in site P. 5 adults (3 newer campers). This is the one document you need — no other reference required. Interactive map: `map/trip-map.html` (open in a browser).
 
 **A note on how this was built:** compiled from nine research files plus the trip lead's final calls, which override the research wherever they disagree (see §12 Sources). Anything the research could not confirm is still marked **UNVERIFIED** — that flag means "call and check," not "false." Don't upgrade it to a fact in your head.
 
@@ -63,11 +63,11 @@ Every day below now budgets real time for breakfast/lunch/dinner and for camp se
 
 ### Fri Oct 16 — Dahlonega in costume
 - **Morning:** Prospector outfits on. Drive to Dahlonega (~25–30 min via US-19/129).
-- **Consolidated Gold Mine** (185 Consolidated Gold Mine Rd) — underground tour + panning, ask for the veteran guide (see §5, §10). No reservation needed for a group of 6.
+- **Consolidated Gold Mine** (185 Consolidated Gold Mine Rd) — underground tour + panning, ask for the veteran guide (see §5, §10). No reservation needed for a group of 5.
 - **Lunch, downtown Dahlonega** — right after the mine tour, before the museum. Pick a spot on the square when you're there (Consolidated is a few minutes' drive from downtown; the museum is on the square, so lunch first keeps everything walkable from there); nothing pre-booked. ~1 hr.
 - **Dahlonega Gold Museum** (1 Public Square) — indoor, walkable from lunch.
 - **Yahoola Creek Park** (1166 Captain McDonald Rd) — the "4,000 miners" creek; free public panning.
-- **Dinner** in town — Foothill Grill, Bear Necessities Cafe, or Picnic Cafe (all casual, good for a group of 6).
+- **Dinner** in town — Foothill Grill, Bear Necessities Cafe, or Picnic Cafe (all casual, good for a group of 5).
 - **Rain/backup:** This whole day is already the rain-day pick — Consolidated is underground and the museum is indoor.
 
 ### Sat Oct 17 – Mon Oct 19 — The hike: 3 days / 2 nights, East Fork Coosa Creek
@@ -219,7 +219,7 @@ This is the former "long" option without its layover day. The 2-day "short" opti
 - **WMA / hunting:** which WMA covers Coosa Creek is UNCONFIRMED. The firearms deer opener date is UNCONFIRMED (Georgia DNR pages blocked our fetch) — wear orange regardless.
 - **Water:** the creek at every camp; treat it. **Bears:** no canister order applies (AT order CO-16-02 is Mar 1-Jun 1, Jarrard-Neel Gap only); hang food or use canisters. **Fires:** stoves only.
 - **Access UNCONFIRMED (call-gated):** Bowers Road (FS 298) crosses private land between 34.8064 and Owltown Gap — confirm it is open to the public and that a truck can be left at Owltown Gap. Whether Big Grassy Knob Road / FS 108 / FS 107 are gated is unknown.
-- **Vehicles:** the group has 3 vehicles, 2 of them Ford F-150s (off-road capable) — the two F-150s can shuttle all six people to/from either trailhead in a single run, no second trip needed, and both can handle the FS roads themselves. Whether the specific gates (Bowers Road/FS 298, FS 107, FS 108, Big Grassy Knob Road) are open is still a ranger call, not a vehicle-capability question — see the access-unconfirmed note above and CALLS.md #1.
+- **Vehicles:** the group has 3 vehicles, 2 of them Ford F-150s (off-road capable) — the two F-150s can shuttle all five people to/from either trailhead in a single run, no second trip needed, and both can handle the FS roads themselves. Whether the specific gates (Bowers Road/FS 298, FS 107, FS 108, Big Grassy Knob Road) are open is still a ranger call, not a vehicle-capability question — see the access-unconfirmed note above and CALLS.md #1.
 
 ### BACKUP — Rock Creek dispersed area (Fannin Co.)
 
@@ -260,7 +260,7 @@ Cartecay River (Gilmer, ~85 min, thin gold record), Coleman River Scenic Area (R
 ### Consolidated Gold Mine
 - **Address/phone:** 185 Consolidated Gold Mine Rd, Dahlonega — **(706) 864-8473**.
 - **Hours:** Daily 10:00 AM–5:00 PM (Mon–Fri and Sat–Sun same hours per the official site); closed Easter, Thanksgiving, Christmas.
-- **Tour:** ~40 minutes underground (about 200 ft down/20 "stories"), departs every 20–35 minutes — no advance booking needed for a group of 6.
+- **Tour:** ~40 minutes underground (about 200 ft down/20 "stories"), departs every 20–35 minutes — no advance booking needed for a group of 5.
 - **Price:** Adults (13+) $24.95+tax, Children (3–12) $15.95+tax, under 2 free. Includes gold-panning instruction and a complimentary starter sample. Confirm current pricing by phone since these can shift.
 - **Ask for the veteran guide:** No single named "legendary old-timer" guide was confirmed as currently active, but a strong candidate is **Greg Sheppard** — a retired UGA/county 4-H Extension Agent who guided at Consolidated for about six years after retiring and wrote a history book on the mine (still sold in the gift shop as of the last check). His current guiding status as of Oct 2026 is **UNVERIFIED — call ahead** and ask specifically "Is Greg Sheppard still giving tours, and what day is he working the week of Oct 15–21?" If he's no longer there, ask staff who the most veteran/senior guide currently is.
 - **What to wear:** Closed-toe shoes are the one hard requirement (no sandals — stairs, some mud, ~60°F underground). Prospector costumes are fine and thematically perfect; just wear boots you don't mind getting muddy.
@@ -274,7 +274,7 @@ Cartecay River (Gilmer, ~85 min, thin gold record), Coleman River Scenic Area (R
 1166 Captain McDonald Rd — free public panning at the historic "4,000 miners" creek; see §2 for the full card. Call Lumpkin Co. Parks & Rec (706-864-3622) to confirm the panning rule is still tolerated.
 
 ### Food recommendations
-Casual, good for a group of 6: **Foothill Grill** (highly rated breakfast/lunch), **The Bear Necessities Cafe**, **Picnic Cafe and Dessertery**, **Q's Place** (mountain-view). Call ahead or check wait times, especially near the festival weekend.
+Casual, good for a group of 5: **Foothill Grill** (highly rated breakfast/lunch), **The Bear Necessities Cafe**, **Picnic Cafe and Dessertery**, **Q's Place** (mountain-view). Call ahead or check wait times, especially near the festival weekend.
 
 ### Prospector outfits — budget guide
 - **Budget outfit (~$30–50/person):** thrift-store flannel shirt + vest, suspenders, jeans/canvas pants you already own, closed-toe boots you own, a $5 bandana, a cheap $10–15 gold pan prop.
@@ -356,7 +356,7 @@ Creek water in October is cold (likely 50s°F, unverified from a direct source b
 - **Emergencies: 911.** Union County non-emergency dispatch: 706-439-6038. Union Co. Sheriff (non-emergency): 706-439-6066.
 
 ### Satellite messenger recommendation
-Cell coverage at Vogel and especially in the backcountry is **UNVERIFIED but should be treated as unreliable** — multiple informal sources describe weak-to-no service near Blood Mountain's valley terrain. **Rent a Garmin inReach Mini 2 or similar** for the week (about $100/week split six ways) and carry it on the overnight leg specifically — this is a "must," not a "nice to have," given the group size and the remote panning/backcountry itinerary.
+Cell coverage at Vogel and especially in the backcountry is **UNVERIFIED but should be treated as unreliable** — multiple informal sources describe weak-to-no service near Blood Mountain's valley terrain. **Rent a Garmin inReach Mini 2 or similar** for the week (about $100/week split five ways) and carry it on the overnight leg specifically — this is a "must," not a "nice to have," given the group size and the remote panning/backcountry itinerary.
 
 ### If someone is lost or hurt
 - **Life-threatening emergency with any signal:** call 911 first.
@@ -370,21 +370,21 @@ Cell coverage at Vogel and especially in the backcountry is **UNVERIFIED but sho
 
 Full detail and the priced CSV breakdown live in `research/gear.md` — this section summarizes it. Prices are Sept 2026 estimates; treat "EST" tags in the source file as placeholders to confirm before buying. **Use `Gear_Picker.xlsx`** (in the project folder and Downloads) to choose Budget/Value/Premium items with live weight/cost totals: typical all-Value overnight base weight ≈ **12.8 lb** (≈ 18 lb with food and water); all-Budget ≈ **17.8 lb** (≈ 23 lb) with all-Budget cost ≈ **$940**.
 
-### Base-camp group list (car/truck supported, split across 6 people, ~$800–870 total / ~$135–145 per person)
+### Base-camp group list (car/truck supported, split across 5 people, ~$800–870 total / ~$160–175 per person)
 - **Kitchen:** 2-burner propane stove, propane canisters, cookware set, 2 coolers (lockable/strapped for bears), water jugs, dish tub + biodegradable soap, folding table.
 - **Shelter extras:** 10×10 pop-up canopy, extra tarp + paracord/stakes.
 - **Lighting:** 2 rechargeable lanterns.
-- **Chairs:** 6 folding camp chairs (cheap enough to buy one each rather than split).
+- **Chairs:** 5 folding camp chairs (cheap enough to buy one each rather than split).
 - **Fire:** firewood (buy locally at/near the park — don't bring outside wood, it's a pest risk), lighters/matches.
 - **Food storage:** cargo net/bungees for keeping coolers secured in truck cabs overnight — Vogel is a developed site, so vehicle storage is the standard practice there (steel hang posts are also provided at the site itself).
 - **First aid:** one large group kit (Adventure Medical Kits Mountain Series Explorer or similar) kept at base camp.
 - **Tools:** hatchet, multi-tool, duct tape, spare paracord.
-- **Pan-out station:** tub/bus tray, 2 classifiers, headlamp, 6 snuffer bottles (1 each), 12 vials (2 each), loupe, black-sand magnet wand.
+- **Pan-out station:** tub/bus tray, 2 classifiers, headlamp, 5 snuffer bottles (1 each), 10 vials (2 each), loupe, black-sand magnet wand.
 - **Vehicle:** jump starter/tire inflator, tow strap — no cell signal on forest roads if something goes wrong.
 
 ### Jordan's personal kit (worn + overnight pack + creek kit)
 - **Worn (no cotton):** hiking shoes, quick-dry pants, wicking shirt, wool socks (3-pack), blaze-orange beanie. **~$102 total.**
-- **Overnight pack** (personal gear, plus this person's per-person share of group/shared items like tent/stove/filter/first aid/satellite messenger — see the Group/shared gear section of BUY_LIST.md for full group costs): backpack, tent (shared with tentmate, /2), 15–20°F sleeping bag, insulated sleeping pad, rain jacket, insulation layer, base layer (doubles as sleep clothes), stove/pot/filter (group, /6), Ursack food storage (group, /6), first aid (group, /6), satellite messenger rental (**rent, don't buy** — $100/week split 6 ways vs. $300 to buy), offline maps (free CalTopo printout), headlamp, knife, emergency bundle, trowel, hygiene kit, blaze orange vest. **~$385 per person, base weight ≈14.1 lb.**
+- **Overnight pack** (personal gear, plus this person's per-person share of group/shared items like tent/stove/filter/first aid/satellite messenger — see the Group/shared gear section of BUY_LIST.md for full group costs): backpack, tent (shared with tentmate, /2), 15–20°F sleeping bag, insulated sleeping pad, rain jacket, insulation layer, base layer (doubles as sleep clothes), stove/pot/filter (group, /5), Ursack food storage (group, /5), first aid (group, /5), satellite messenger rental (**rent, don't buy** — $100/week split 5 ways vs. $300 to buy), offline maps (free CalTopo printout), headlamp, knife, emergency bundle, trowel, hygiene kit, blaze orange vest. **~$385 per person, base weight ≈14.1 lb.**
 - **Creek kit** (carried on the overnight): gold pan, classifier, insulated waterproof panning gloves, 3mm neoprene socks, snuffer bottle, 2 vials, crevice tool, knee pad. **~$110, ≈3.4 lb.**
 - **Total pack weight leaving camp** (base weight + ~5–6 lb food for 2 nights + 1L water): **≈25 lb.** Total must-have personal cost: **~$600.**
 - **Cheapest levers:** rent (don't buy) the satellite messenger, borrow tent/bag/pack from a friend if possible before buying, buy used gear (REI Re/Gear, gear swaps) for the big three, skip the "nice to have" rows (pillow, power bank, knee pad, mesh bag, camp towel — saves ~$53), use free CalTopo instead of a paid mapping app.
@@ -402,18 +402,18 @@ Full detail and the priced CSV breakdown live in `research/gear.md` — this sec
 
 ### Kitchen & water
 
-All figures below are **estimates** — sized generously (6 people, 3 nights) as a buying/packing
+All figures below are **estimates** — sized generously (5 people, 3 nights) as a buying/packing
 buffer, not a measured burn rate. Confirm against the actual variant/day count once picked.
 
 - **Backcountry stove fuel (isobutane canisters):** budget roughly 1 oz of fuel per person per
-  day for two boils (hot breakfast + rehydrated dinner; lunch is no-cook). For 6 people × 3
-  nights that's ≈18 oz of fuel — **buy four 8 oz (230g) canisters** (32 oz total) for a real
+  day for two boils (hot breakfast + rehydrated dinner; lunch is no-cook). For 5 people × 3
+  nights that's ≈15 oz of fuel — **buy four 8 oz (230g) canisters** (32 oz total) for a real
   safety margin against cold-weather inefficiency and one cook group running hot. Split across 2
   backcountry stoves (2 people can share a boil) so a single canister failure doesn't strand the
   group.
 - **Water — liters/person/day:** plan **3–4 L per person per day** (drinking + rehydrating meals
   + coffee/cocoa), toward the low end if it's cool and low-exertion, the high end on hike-in/out
-  days. For 6 people × 3 nights that's **54–72 L filtered/treated** over the stretch — nobody
+  days. For 5 people × 3 nights that's **45–60 L filtered/treated** over the stretch — nobody
   carries that; refill from the creek continuously instead.
 - **Filter + backup:** primary filter is the shared Sawyer Squeeze (see gear list). Carry
   **backup purification tablets (Aquatabs or Potable Aqua)** in case the filter clogs or
@@ -452,18 +452,18 @@ Insulated gloves are not optional — dip, work fast, dry and rewarm between pan
 ## 10. Call checklist
 
 **Vogel State Park — 706-745-2628**
-- Script: "We have walk-in site P booked Oct 15–21, 6 people. Can you confirm: how many vehicles can park at or near the site, whether a second smaller tent is allowed on the pad alongside our main tent, the current ParkPass/parking fee per vehicle for the week, and whether outside firewood is restricted (we plan to buy local)."
+- Script: "We have walk-in site P booked Oct 15–21, 5 people. Can you confirm: how many vehicles can park at or near the site, whether a second smaller tent is allowed on the pad alongside our main tent, the current ParkPass/parking fee per vehicle for the week, and whether outside firewood is restricted (we plan to buy local)."
 - Also ask: "Is gold panning or rock collecting allowed anywhere inside park boundaries?" (Expected answer: no — confirm this before anyone tries it at the lake or on a park trail crossing.)
 
 **Blue Ridge Ranger District — 706-745-6928**
-- Script: "We're a group of 6 doing recreational hand-panning (pan + trowel, no sluice/dredge) at several Chattahoochee National Forest sites the week of Oct 15–21, plus a backcountry overnight on the East Fork of Coosa Creek (above the private boundary near 34.8064, -83.9598) and West Fork Wolf Creek, Oct 17–20. Can you confirm current panning rules, whether there are any active stream closures in that window, and whether those reaches and the Coosa Bald area are open to hand panning? Is Bowers Road (FS 298) open to the public to Owltown Gap, and are FS 107 / FS 108 / Big Grassy Knob Road gated?"
+- Script: "We're a group of 5 doing recreational hand-panning (pan + trowel, no sluice/dredge) at several Chattahoochee National Forest sites the week of Oct 15–21, plus a backcountry overnight on the East Fork of Coosa Creek (above the private boundary near 34.8064, -83.9598) and West Fork Wolf Creek, Oct 17–20. Can you confirm current panning rules, whether there are any active stream closures in that window, and whether those reaches and the Coosa Bald area are open to hand panning? Is Bowers Road (FS 298) open to the public to Owltown Gap, and are FS 107 / FS 108 / Big Grassy Knob Road gated?"
 - Also ask about current fire restrictions/burn-ban status for camping.
 
 **GA DNR Wildlife Resources Division — 770-535-5498**
 - Script: "Can you confirm the 2026 WMA hunt calendar for Blue Ridge, Cooper's Creek, and Chestatee WMAs for Oct 15–21, and whether non-anglers need a WMA license/GA Lands Pass just to walk and pan on WMA land like Rock Creek dispersed area or Waters Creek/Dicks Creek?"
 
 **Consolidated Gold Mine — 706-864-8473**
-- Script: "We're visiting Friday Oct 16 as a group of 6, no reservation needed for that size, correct? Also — is Greg Sheppard still giving tours, and if so which day is he working that week? If not, who's your most experienced/veteran guide and what's their schedule?" Also confirm current adult/child tour pricing.
+- Script: "We're visiting Friday Oct 16 as a group of 5, no reservation needed for that size, correct? Also — is Greg Sheppard still giving tours, and if so which day is he working that week? If not, who's your most experienced/veteran guide and what's their schedule?" Also confirm current adult/child tour pricing.
 
 **Lumpkin County Parks & Rec (re: Yahoola Creek Park) — 706-864-3622**
 - Script: "Is gold panning still allowed at Yahoola Creek Park? Any restrictions on group size, tools, or specific areas of the creek we should know about?"
@@ -476,20 +476,20 @@ Insulated gloves are not optional — dip, work fast, dry and rewarm between pan
 
 Figures pulled from `dahlonega.md` (activity pricing) and `gear.md` (gear pricing); treat anything marked EST as a placeholder to confirm.
 
-| Category | Per person | Group total (÷6) | Notes |
+| Category | Per person | Group total (÷5) | Notes |
 |---|---|---|---|
-| Vogel campsite fee | ~$30/night × 6 nights ÷ 6 people = ~$30 | ~$180 | $30/night site fee; confirm current ParkPass/vehicle fee on top |
-| Consolidated Gold Mine tour | $24.95 | ~$150 | Adult rate; add tax |
-| Dahlonega Gold Museum | $8.50 | ~$51 | Adult rate |
-| Crisson Gold Mine (optional add-on) | ~$16–38 | ~$100–225 | Wide range depending on package chosen |
-| Base-camp group gear (Section A) | ~$135–145 | ~$800–870 | One-time buy, reusable for future trips |
+| Vogel campsite fee | ~$30/night × 6 nights ÷ 5 people = ~$36 | ~$180 | $30/night site fee; confirm current ParkPass/vehicle fee on top |
+| Consolidated Gold Mine tour | $24.95 | ~$125 | Adult rate; add tax |
+| Dahlonega Gold Museum | $8.50 | ~$43 | Adult rate |
+| Crisson Gold Mine (optional add-on) | ~$16–38 | ~$80–190 | Wide range depending on package chosen |
+| Base-camp group gear (Section A) | ~$160–175 | ~$800–870 | One-time buy, reusable for future trips |
 | Personal overnight + creek kit (Jordan's estimate) | ~$600 | — | Per person, if starting from zero; less if borrowing tent/bag/pack |
-| Satellite messenger rental | ~$17 | ~$100 | For the week, split 6 ways — cheaper than buying |
-| Food (6 people × 7 days, rough) | ~$40–60 | ~$250–350 | Groceries + camp meals, EST |
-| Gas (estimate) | ~$25–40 | ~$150–240 | Multiple day trips from Vogel; depends on number/size of vehicles, EST |
-| Prospector costume budget | ~$30–120 | ~$180–720 | Wide range — thrift-store budget tier vs. Tractor Supply "good" tier |
+| Satellite messenger rental | ~$20 | ~$100 | For the week, split 5 ways — cheaper than buying |
+| Food (5 people × 7 days, rough) | ~$50–70 | ~$250–350 | Groceries + camp meals, EST |
+| Gas (estimate) | ~$30–48 | ~$150–240 | Multiple day trips from Vogel; depends on number/size of vehicles, EST |
+| Prospector costume budget | ~$30–120 | ~$150–600 | Wide range — thrift-store budget tier vs. Tractor Supply "good" tier |
 
-**Rough per-person total (excluding personal gear the person already owns):** roughly **$250–350** for activities/food/gas/site fee, plus **up to ~$600** if buying a full overnight kit from scratch, plus **~$30–120** for a costume. Group total for shared infrastructure (gear + site + messenger): **roughly $1,100–1,300** split six ways.
+**Rough per-person total (excluding personal gear the person already owns):** roughly **$345–425** for activities/food/gas/site fee, plus **up to ~$600** if buying a full overnight kit from scratch, plus **~$30–120** for a costume. Group total for shared infrastructure (gear + site + messenger): **roughly $1,100–1,150** split five ways.
 
 ---
 

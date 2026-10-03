@@ -70,6 +70,6 @@ one, trekking poles recommended for the Calf Stomp Gap descent.
 
 - Ranger call (CALLS.md #1): panning/camping on East Fork Coosa Creek and West Fork Wolf Creek,
   Bowers Road public access, truck 2 at Owltown Gap Fri–Mon, FS 107/108 gates.
-- Fix the picker's /6 split or confirm 6 people.
+- Headcount is 5 (confirmed 2026-10-02): fix the picker's /6 split.
 - Collect Hilton's and Jarred's lists, re-run `python tools/build_roster.py`.
 - Re-check every buy link within a week of the trip (dead links recurred three times).

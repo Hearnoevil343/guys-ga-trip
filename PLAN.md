@@ -1,7 +1,7 @@
 ﻿# GA Gold Trip — Oct 2026
 
 ## Facts
-- 6 people (2 experienced campers, 1 Eagle Scout). Primary occupant books the site.
+- 5 people (confirmed 2026-10-02; earlier docs say 6) (2 experienced campers, 1 Eagle Scout). Primary occupant books the site.
 - Base camp: Vogel State Park, walk-in tent site P. Arrive Thu Oct 15 (1 PM), depart Wed Oct 21 (noon). Night of Oct 20 optional.
 - Site P limits (Jordan, 2026-09-21): 2 vehicles at site + overflow parking; 2 tents max (so base camp = two 3-4 person tents; backcountry night has no tent limit). Occupancy max 6.
 - Jordan wants breadth (many options, not narrowed) and a visual map: where each spot/camp is, how to get there, what it looks like.

@@ -44,8 +44,9 @@ The order that governs that overnight. Ask by name:
   claimed it did; that citation was wrong. Confirm it's allowed under the
   general rule.
 - **Brasstown Bald night parking** (Thu Oct 15 stargazing, lot ~7:50–10:15 PM).
-  Only Explore Georgia says the lot is open at night; not confirmed by USFS.
-  Is the lot (and the road up) open after dark in October, any gate or fee?
+  The Forest Service publishes an after-hours fee ($6 per adult 16+), so after 5 PM is
+  an expected use. Not stated anywhere: how late the gate stays open. Single question:
+  is the gate on Spur 180 open until about 10:30 PM in mid-October?
   Backup if not: Hogpen Gap overlook (GA-348).
 
 ## 2. Vogel State Park — 706-745-2628
@@ -71,6 +72,7 @@ The order that governs that overnight. Ask by name:
 - Confirm flume panning is included.
 
 ## 5. Lumpkin County Parks & Rec — 706-864-3622
+- The county code (Ch. 34) and the park's posted rules are silent on panning. No written rule either way.
 - Yahoola Creek Park: confirm panning is permitted. This is the strongest
   documented gold record of any spot on the itinerary, so it matters.
 

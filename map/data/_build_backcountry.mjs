@@ -437,7 +437,7 @@ async function buildDay1Stars() {
   legs.push({ type: 'meal', label: 'Dinner at camp', minutes: 60 });
   legs.push(await driveLeg('Evening: Vogel to Brasstown Bald parking lot', POINTS.vogel_basecamp, POINTS.brasstown_parking, 'vogel_brasstown'));
   legs.push({ type: 'tour', label: 'Stargazing at Brasstown Bald (highest point in Georgia)', minutes: 90, lat: POINTS.brasstown_parking.lat, lng: POINTS.brasstown_parking.lng,
-    note: 'Explore Georgia: "The parking lot is open at night, and the lights from the visitors center are turned off." Not yet confirmed with the Forest Service. Waxing crescent moon (sets mid-evening). Warm layers, red headlamps, chairs. Backup: Hogpen Gap overlook on GA-348.' });
+    note: 'Explore Georgia: "The parking lot is open at night, and the lights from the visitors center are turned off." After-hours fee $6 per adult (Forest Service). No shuttle after 5 PM: steep 0.6 mile paved walk to the summit. No water; restrooms not listed. Gate closes in bad weather. Gate hour after dark not confirmed. Waxing crescent moon (sets mid-evening). Warm layers, red headlamps, chairs. Backup: Hogpen Gap overlook on GA-348.' });
   legs.push(await driveLeg('Brasstown Bald back to Vogel', POINTS.brasstown_parking, POINTS.vogel_basecamp, 'brasstown_vogel'));
   return { ...day1, title: 'Arrive, set camp, rest, stargazing at Brasstown Bald', note: 'Arrival day: no panning. Leave camp after dinner, about an hour after sunset, for full dark.', legs };
 }

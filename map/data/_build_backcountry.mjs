@@ -2,9 +2,10 @@
 // Creek backcountry route (research/backcountry-route-design.md). Decided
 // 2026-10-05 (owner): no road walking, no camp a vehicle can reach. Sat Oct 17
 // truck to WOLF-X (FS 107 open, owner first-hand), Coosa Backcountry Trail to
-// Calf Stomp Gap, Roaring Fork Trail west, off-trail drop to the road-free
-// upper East Fork Coosa Creek (CAMP-U); Sun Oct 18 layover there; Mon Oct 19
-// same way out to the truck. One truck, no shuttle. Tue Oct 20 rest at Vogel.
+// Calf Stomp Gap and on to camp at Calf Stump Branch; Sun Oct 18 Roaring Fork
+// Trail west, off-trail drop to the road-free upper East Fork Coosa Creek
+// (CAMP-U); Mon Oct 19 full day there; Tue Oct 20 down the creek, road and
+// Bowers Road to truck 2 at Owltown Gap (staged Fri evening).
 //
 // Run AFTER map/data/_build_days.mjs. On the first run after _build_days.mjs
 // this script copies that pristine output to map/data/_days_baseline.json and
@@ -331,48 +332,105 @@ async function driveToWolfX(label, cacheKey) {
   return { leg: d, gapM, last };
 }
 
+// Calf Stump Branch: the first creek past Calf Stomp Gap on the Coosa
+// Backcountry Trail (OSM stream crossing at 34.78244,-83.95858, ~0.4 mi past
+// the gap, ~400 m from the nearest drivable road). Owner's call 2026-10-05:
+// camp beside the creek near Calf Stomp Gap, pan there that evening and the
+// next morning, then go on to CAMP-U.
+const CALF_STUMP_XING = [34.78244, -83.95858];
+const calfStumpSnap = nearestVertexOnWay(CALF_STUMP_XING[0], CALF_STUMP_XING[1], trail.slice(calfStompGapCut.index));
+const CAMP_CS = trail[calfStompGapCut.index + calfStumpSnap.index];
+const gapToCalfStump = [CALF_STOMP_GAP, ...trail.slice(calfStompGapCut.index + 1, calfStompGapCut.index + calfStumpSnap.index + 1)];
+console.log(`Calf Stump Branch crossing snap ${calfStumpSnap.distM.toFixed(0)} m; gap -> camp ${polyMiles(gapToCalfStump).toFixed(2)} mi.`);
+const CAMP_CS_END = { ref: 'camp_cs', label: 'Calf Stump Branch camp (Coosa Backcountry Trail, past Calf Stomp Gap)', lat: round6(CAMP_CS[0]), lng: round6(CAMP_CS[1]) };
+const CALF_STUMP_GOLD = {
+  record: 'No record for this creek. Small headwater branch on the Coosa Backcountry Trail just past Calf Stomp Gap. Treat as a test pan.',
+  pressure: PRESSURE_TEXT,
+  geology: 'Test pan only — no geological read specific to Calf Stump Branch.',
+  sources: BULLETIN19_SOURCES,
+};
+const CALF_STUMP_WATER_NOTE = 'Small headwater branch; October is the driest month: flow UNCONFIRMED. Fill 2 L each at WOLF-X before the climb.';
+
+// Walk-out (owner's call 2026-10-05): down the creek from CAMP-U to where the
+// road starts (LEAVES_CREEK), then the road to the JUNCTION and Bowers Road
+// (FS 298) to Owltown Gap, where truck 2 is staged.
+function wayBetween(line, a, b) {
+  const ia = nearestVertexOnWay(a[0], a[1], line).index, ib = nearestVertexOnWay(b[0], b[1], line).index;
+  const pts = line.slice(Math.min(ia, ib), Math.max(ia, ib) + 1);
+  return ia <= ib ? pts : pts.slice().reverse();
+}
+const JUNCTION = [34.80137, -83.96678];
+const OWLTOWN = [POINTS.owltown_gap.lat, POINTS.owltown_gap.lng];
+const outCreek = creekSlice(CAMP_U, LEAVES_CREEK);
+const outConn = wayBetween(namedLine('Duncan Ridge Conn'), LEAVES_CREEK, JUNCTION);
+const outBowers = wayBetween(namedLine('Bowers Road'), JUNCTION, OWLTOWN);
+console.log(`Walk-out: creek ${polyMiles(outCreek).toFixed(2)} mi, Duncan Ridge Conn ${polyMiles(outConn).toFixed(2)} mi (starts ${dist(outConn[0], LEAVES_CREEK).toFixed(0)} m from road end, ends ${dist(outConn[outConn.length - 1], JUNCTION).toFixed(0)} m from JUNCTION), Bowers Road ${polyMiles(outBowers).toFixed(2)} mi (starts ${dist(outBowers[0], JUNCTION).toFixed(0)} m from JUNCTION, ends ${dist(outBowers[outBowers.length - 1], OWLTOWN).toFixed(0)} m from Owltown Gap).`);
+const BOWERS_NOTE = 'Bowers Road (FS 298) crosses private land between 34.8064 and Owltown Gap: public use of that stretch UNCONFIRMED — on the call list.';
+const OWLTOWN_PT = { lat: POINTS.owltown_gap.lat, lng: POINTS.owltown_gap.lng, label: POINTS.owltown_gap.label };
+
 async function buildSatIn() {
-  console.log('\n=== Oct 17 — Vogel to WOLF-X by truck, trail + off-trail to CAMP-U ===');
+  console.log('\n=== Oct 17 — truck to WOLF-X, pan, trail over Calf Stomp Gap to Calf Stump Branch ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp (Vogel)', 40));
   const { leg: driveIn, gapM, last } = await driveToWolfX('Vogel to WOLF-X via FS 107 (truck 1)', 'vogel_wolfx');
   legs.push(driveIn);
   if (gapM > 100) legs.push(await walkLeg('Parking to the trail crossing', [last, WOLF_X], 'approximate', `OSRM stopped ${gapM.toFixed(0)} m short of the crossing (FS 107 track); straight line.`, GROUP_FACTOR, 'oct17_parkgap'));
-  legs.push(panLeg({ label: 'Pan West Fork Wolf Creek at the crossing (test pan, short)', lat: WOLF_X[0], lng: WOLF_X[1], minutes: 75, gold: WOLF_X_GOLD }));
-  legs.push(await walkLeg('WOLF-X to Calf Stomp Gap via Locust Stake Gap (Coosa Backcountry Trail)', trailSunSeg, 'exact', CBT_SUN_SOURCE, GROUP_FACTOR * PACK_FACTOR, 'oct17_cbt'));
-  legs.push(mealLeg('Trail lunch at Calf Stomp Gap', 30));
-  legs.push(await walkLeg('Calf Stomp Gap west along Roaring Fork Trail to the leave-trail point', rftToLeave, 'exact', RFT_SOURCE,
-    GROUP_FACTOR * PACK_FACTOR, 'oct17_rft', { access_confidence: 'unconfirmed', access_note: RFT_UNCONFIRMED_NOTE }));
-  legs.push(await walkLeg('Off-trail drop to the creek (DROP-IN), then down the creek to CAMP-U', dropLine, 'approximate',
-    `No mapped path. Straight line from the Roaring Fork Trail vertex nearest DROP-IN (${rftLeaveIdx.distM.toFixed(0)} m), then the OSM creek line to CAMP-U. ${DROP_NOTE}`,
-    GROUP_FACTOR * PACK_FACTOR * 0.6, 'oct17_drop', { note: DROP_NOTE }));
-  legs.push(campLeg('Set up camp at CAMP-U', 45));
-  legs.push(panLeg({ label: 'Pan at CAMP-U (first look at the bed)', lat: CAMP_U[0], lng: CAMP_U[1], minutes: 60, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
+  legs.push(panLeg({ label: 'Pan West Fork Wolf Creek at the crossing', lat: WOLF_X[0], lng: WOLF_X[1], minutes: 120, gold: WOLF_X_GOLD }));
+  legs.push(mealLeg('Lunch at WOLF-X', 30));
+  legs.push(await walkLeg('WOLF-X up to Calf Stomp Gap via Locust Stake Gap (Coosa Backcountry Trail)', trailSunSeg, 'exact', CBT_SUN_SOURCE, GROUP_FACTOR * PACK_FACTOR, 'oct17_cbt'));
+  legs.push(await walkLeg('Calf Stomp Gap on to Calf Stump Branch (Coosa Backcountry Trail)', gapToCalfStump, 'exact', 'Real OSM way geometry, merged Coosa Backcountry Trail chain, from the Calf Stomp Gap cut to the vertex nearest the Calf Stump Branch crossing.', GROUP_FACTOR * PACK_FACTOR, 'oct17_cs'));
+  legs.push(campLeg('Set up camp at Calf Stump Branch', 45));
+  legs.push(panLeg({ label: 'Pan Calf Stump Branch (evening)', lat: CAMP_CS[0], lng: CAMP_CS[1], minutes: 90, gold: CALF_STUMP_GOLD, note: CALF_STUMP_WATER_NOTE }));
   legs.push(mealLeg('Dinner at camp', 60));
   return {
-    day: 3, date: '2026-10-17', title: 'Truck to WOLF-X, trail over Calf Stomp Gap, off-trail down to upper East Fork Coosa Creek', optional: false,
+    day: 3, date: '2026-10-17', title: 'Truck to WOLF-X, pan, hike over Calf Stomp Gap, camp at Calf Stump Branch', optional: false,
     start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '07:30' },
-    end: CAMP_U_END,
-    note: 'One truck. It stays at the FS 107 crossing (WOLF-X) until Monday; the route comes back out the same way. Deer season opens today: blaze orange on everyone. The last leg is off-trail and steep — see its note.',
+    end: CAMP_CS_END,
+    note: 'Truck 1 stays at WOLF-X until Tuesday. Truck 2 is already at Owltown Gap (staged Friday evening). Deer season opens today: blaze orange on everyone.',
     legs,
   };
 }
 
-async function buildSunLayover() {
-  console.log('\n=== Oct 18 — layover at CAMP-U, pan the road-free reach ===');
+async function buildSunToCampU() {
+  console.log('\n=== Oct 18 — morning pan, Calf Stump Branch to CAMP-U ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp', 40));
-  legs.push(await walkLeg('CAMP-U up the creek to DROP-IN (daypack)', campToDropIn, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct18_up'));
-  legs.push(panLeg({ label: 'Pan the upper reach at DROP-IN (bed of the creek only)', lat: DROP_IN[0], lng: DROP_IN[1], minutes: 150, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
-  legs.push(await walkLeg('DROP-IN back down to CAMP-U', campToDropIn.slice().reverse(), 'approximate', 'OSM creek line, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct18_down'));
-  legs.push(mealLeg('Lunch at camp', 40));
-  legs.push(await walkLeg('CAMP-U down the creek to LOWER (daypack)', campToLower, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct18_lower'));
-  legs.push(panLeg({ label: 'Pan the LOWER reach (flatter, inside of bends)', lat: LOWER_PAN[0], lng: LOWER_PAN[1], minutes: 150, gold: COOSA_GOLD,
-    note: 'Still 500 m from the road end at 34.79824,-83.97825. Below that point a road runs beside the creek — not the point of this trip — and private land starts at 34.80637,-83.95980.' }));
-  legs.push(await walkLeg('LOWER back up to CAMP-U', campToLower.slice().reverse(), 'approximate', 'OSM creek line, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct18_lower_back'));
+  legs.push(panLeg({ label: 'Morning pan at Calf Stump Branch', lat: CAMP_CS[0], lng: CAMP_CS[1], minutes: 90, gold: CALF_STUMP_GOLD, note: CALF_STUMP_WATER_NOTE }));
+  legs.push(campLeg('Break camp, pack up', 45));
+  legs.push(await walkLeg('Back up the trail to Calf Stomp Gap', gapToCalfStump.slice().reverse(), 'exact', 'Real OSM way geometry, merged Coosa Backcountry Trail chain, reversed.', GROUP_FACTOR * PACK_FACTOR, 'oct18_cs'));
+  legs.push(await walkLeg('Calf Stomp Gap west along Roaring Fork Trail to the leave-trail point', rftToLeave, 'exact', RFT_SOURCE,
+    GROUP_FACTOR * PACK_FACTOR, 'oct18_rft', { access_confidence: 'unconfirmed', access_note: RFT_UNCONFIRMED_NOTE }));
+  legs.push(mealLeg('Trail lunch on the ridge', 30));
+  legs.push(await walkLeg('Off-trail drop to the creek (DROP-IN), then down the creek to CAMP-U', dropLine, 'approximate',
+    `No mapped path. Straight line from the Roaring Fork Trail vertex nearest DROP-IN (${rftLeaveIdx.distM.toFixed(0)} m), then the OSM creek line to CAMP-U. ${DROP_NOTE}`,
+    GROUP_FACTOR * PACK_FACTOR * 0.6, 'oct18_drop', { note: DROP_NOTE }));
+  legs.push(campLeg('Set up camp at CAMP-U', 45));
+  legs.push(panLeg({ label: 'Pan at CAMP-U (first look at the bed)', lat: CAMP_U[0], lng: CAMP_U[1], minutes: 90, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
   legs.push(mealLeg('Dinner at camp', 60));
   return {
-    day: 4, date: '2026-10-18', title: 'Layover: pan the road-free upper East Fork Coosa Creek', optional: false,
+    day: 4, date: '2026-10-18', title: 'Morning pan, Roaring Fork Trail, off-trail down to CAMP-U on East Fork Coosa Creek', optional: false,
+    start: { ...CAMP_CS_END, time: '07:30' },
+    end: CAMP_U_END,
+    note: 'Calf Stump Branch camp sits 0.4 mi past the gap, so the first 0.4 mi this morning is back up the same trail to the gap. The last leg is off-trail and steep — see its note.',
+    legs,
+  };
+}
+
+async function buildMonLayover() {
+  console.log('\n=== Oct 19 — full day at CAMP-U ===');
+  const legs = [];
+  legs.push(mealLeg('Breakfast at camp', 40));
+  legs.push(await walkLeg('CAMP-U up the creek to DROP-IN (daypack)', campToDropIn, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct19_up'));
+  legs.push(panLeg({ label: 'Pan the upper reach at DROP-IN (bed of the creek only)', lat: DROP_IN[0], lng: DROP_IN[1], minutes: 150, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
+  legs.push(await walkLeg('DROP-IN back down to CAMP-U', campToDropIn.slice().reverse(), 'approximate', 'OSM creek line, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct19_down'));
+  legs.push(mealLeg('Lunch at camp', 40));
+  legs.push(await walkLeg('CAMP-U down the creek to LOWER (daypack)', campToLower, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct19_lower'));
+  legs.push(panLeg({ label: 'Pan the LOWER reach (flatter, inside of bends)', lat: LOWER_PAN[0], lng: LOWER_PAN[1], minutes: 150, gold: COOSA_GOLD,
+    note: 'Still 500 m from the road end at 34.79824,-83.97825.' }));
+  legs.push(await walkLeg('LOWER back up to CAMP-U', campToLower.slice().reverse(), 'approximate', 'OSM creek line, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct19_lower_back'));
+  legs.push(mealLeg('Dinner at camp', 60));
+  return {
+    day: 5, date: '2026-10-19', title: 'Full day panning the upper East Fork Coosa Creek at CAMP-U', optional: false,
     start: { ...CAMP_U_END, time: '08:00' },
     end: CAMP_U_END,
     note: 'No packs today. Two pan sessions, one up-creek and one down-creek from camp. Bulletin 19: up here the gold is in "the bed of the creek only" — bedrock cracks and the inside of bends.',
@@ -380,26 +438,20 @@ async function buildSunLayover() {
   };
 }
 
-async function buildMonOut() {
-  console.log('\n=== Oct 19 — CAMP-U back out to WOLF-X, drive to Vogel ===');
+async function buildTueOut() {
+  console.log('\n=== Oct 20 — CAMP-U down the creek, road to Owltown Gap, drive to Vogel ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp', 40));
   legs.push(campLeg('Break camp at CAMP-U, pack up', 45));
-  legs.push(await walkLeg('CAMP-U up to DROP-IN, then the off-trail climb back to Roaring Fork Trail', dropLine.slice().reverse(), 'approximate',
-    `Reverse of Saturday's drop: the creek line to DROP-IN, then a straight line up ~550 ft to the trail. ${DROP_NOTE}`,
-    GROUP_FACTOR * PACK_FACTOR * 0.6, 'oct19_climb', { note: DROP_NOTE }));
-  legs.push(await walkLeg('Roaring Fork Trail east to Calf Stomp Gap', rftToLeave.slice().reverse(), 'exact', RFT_SOURCE + ' Reversed.',
-    GROUP_FACTOR * PACK_FACTOR, 'oct19_rft', { access_confidence: 'unconfirmed', access_note: RFT_UNCONFIRMED_NOTE }));
-  legs.push(mealLeg('Trail lunch at Calf Stomp Gap', 30));
-  legs.push(await walkLeg('Calf Stomp Gap down to WOLF-X via Locust Stake Gap (Coosa Backcountry Trail)', trailSunSeg.slice().reverse(), 'exact', CBT_SUN_SOURCE + ' Reversed.', GROUP_FACTOR * PACK_FACTOR, 'oct19_cbt'));
-  const back = await driveLeg('WOLF-X to Vogel via FS 107 (truck 1)', WOLF_X_PT, POINTS.vogel_basecamp, 'wolfx_vogel', { access_note: FS107_NOTE });
-  const gapM = dist(WOLF_X, back.coords[0]);
-  if (gapM > 100) legs.push(await walkLeg('Trail crossing to the truck', [WOLF_X, back.coords[0]], 'approximate', `OSRM starts ${gapM.toFixed(0)} m from the crossing (FS 107 track); straight line.`, GROUP_FACTOR, 'oct19_parkgap'));
-  legs.push(back);
+  legs.push(await walkLeg('Down East Fork Coosa Creek to where the road starts', outCreek, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * PACK_FACTOR * 0.8, 'oct20_creek'));
+  legs.push(await walkLeg('Road beside the creek (Duncan Ridge Conn) down to the Bowers Road junction', outConn, 'exact', 'Real OSM way geometry, Duncan Ridge Conn (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct20_conn'));
+  legs.push(await walkLeg('Bowers Road (FS 298) to Owltown Gap — truck 2', outBowers, 'exact', 'Real OSM way geometry, Bowers Road (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct20_bowers', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE }));
+  legs.push(await driveLeg('Owltown Gap to WOLF-X (truck 2) to collect truck 1', OWLTOWN_PT, WOLF_X_PT, 'owltown_wolfx', { access_note: FS107_NOTE }));
+  legs.push(await driveLeg('WOLF-X to Vogel (both trucks)', WOLF_X_PT, POINTS.vogel_basecamp, 'wolfx_vogel', { access_note: FS107_NOTE }));
   legs.push(mealLeg('Dinner at camp (Vogel)', 60));
   return {
-    day: 5, date: '2026-10-19', title: 'CAMP-U back out over Calf Stomp Gap to WOLF-X, drive to Vogel', optional: false,
-    note: 'Same way out: climb to the ridge, Roaring Fork Trail, then the Coosa Backcountry Trail down to the truck. Hot dinner and showers at Vogel tonight.',
+    day: 6, date: '2026-10-20', title: 'Walk the creek out to the road, on to Owltown Gap, drive to Vogel', optional: false,
+    note: 'Walk down the creek to the road, then the road to truck 2 at Owltown Gap. Drive to WOLF-X for truck 1, then both trucks to Vogel. Hot dinner and showers tonight.',
     start: { ...CAMP_U_END, time: '07:30' },
     end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
     legs,
@@ -457,26 +509,11 @@ async function buildDay1Stars() {
   return { ...day1, title: 'Arrive, set camp, rest, stargazing at Brasstown Bald', note: 'Arrival day: no panning. Leave camp after dinner, about an hour after sunset, for full dark.', legs };
 }
 
-// Day 6 (Tue Oct 20): rest day at Vogel after the hike (owner's call 2026-10-02).
-function buildOct20Rest() {
-  const d4 = findDay(4);
-  return {
-    day: 6, date: '2026-10-20', title: 'Rest day at Vogel',
-    start: { ...d4.start, time: '08:30' }, end: d4.end,
-    note: 'Nothing planned. Optional if anyone wants a short outing: Helton Creek Falls, 13 min from Vogel, short trail.',
-    legs: [
-      { type: 'meal', label: 'Breakfast at camp', minutes: 40 },
-      { type: 'camp', label: 'Rest: sleep in, dry gear, showers, pan-out of the hike concentrates at the table', minutes: 240 },
-      { type: 'meal', label: 'Lunch at camp', minutes: 45 },
-      { type: 'meal', label: 'Dinner at camp', minutes: 60 },
-    ],
-  };
-}
 
 async function buildDay2() {
   const day2 = findDay(2);
-  // 2026-10-05: no truck shuttle any more — the hike is an out-and-back from
-  // WOLF-X, so Friday evening is free.
+  // 2026-10-05 (owner): the hike ends at Owltown Gap, so Friday evening both
+  // trucks stage truck 2 there and come back in truck 1.
   // Owner's call 2026-10-02: mine tour + river panning only, no museum. Lunch
   // stays on the square (the museum's coordinates), so the drives still chain.
   day2.legs = day2.legs.filter(l => !(l.type === 'tour' && l.at_ref === 'dahlonega-gold-museum'));
@@ -485,7 +522,9 @@ async function buildDay2() {
     if (l.label === 'Gold Museum to Yahoola Creek Park') l.label = 'Downtown Dahlonega to Yahoola Creek Park';
   }
   day2.title = 'Dahlonega: mine tour, lunch, pan Yahoola Creek';
-  day2.note = 'Evening free at Vogel. Pack the hike packs tonight: Sat leaves at 07:30.';
+  day2.legs.push(await driveLeg('Evening: stage truck 2 at Owltown Gap (both trucks)', POINTS.vogel_basecamp, OWLTOWN_PT, 'vogel_owltown'));
+  day2.legs.push(await driveLeg('Owltown Gap back to Vogel (truck 1)', OWLTOWN_PT, POINTS.vogel_basecamp, 'owltown_vogel'));
+  day2.note = 'Evening: leave truck 2 at Owltown Gap for Tuesday\'s walk-out. Pack the hike packs tonight: Sat leaves at 07:30.';
   return day2;
 }
 
@@ -495,9 +534,9 @@ async function buildDay2() {
 const day1 = await buildDay1Stars();
 const day2 = await buildDay2();
 const oct17 = await buildSatIn();
-const oct18 = await buildSunLayover();
-const oct19 = await buildMonOut();
-const oct20 = buildOct20Rest();
+const oct18 = await buildSunToCampU();
+const oct19 = await buildMonLayover();
+const oct20 = await buildTueOut();
 
 const routeDays = [day1, day2, oct17, oct18, oct19, oct20, day7];
 
@@ -527,7 +566,7 @@ const { variants: _droppedVariants, ...existingRest } = existing;
 const daysJson = { ...existingRest, days: routeDays };
 daysJson.assumptions = {
   ...existing.assumptions,
-  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-05): day 1 = set camp + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle), days 3-5 = truck to WOLF-X, Coosa Backcountry Trail to Calf Stomp Gap, Roaring Fork Trail, off-trail drop to the road-free upper East Fork Coosa Creek (CAMP-U), layover, same way out; day 6 = rest day at Vogel, day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
+  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-05): day 1 = set camp + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle), days 3-6 = truck to WOLF-X, pan, Coosa Backcountry Trail over Calf Stomp Gap to camp at Calf Stump Branch; morning pan, Roaring Fork Trail, off-trail drop to CAMP-U; full day at CAMP-U; down the creek to the road and Bowers Road to truck 2 at Owltown Gap; day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
 };
 
 fs.writeFileSync(daysPath, JSON.stringify(daysJson, null, 2));

@@ -25,7 +25,7 @@ Base camp: Vogel State Park, walk-in site P. 5 adults (3 newer campers). This is
 
 ## 0. Trip at a glance
 
-**Dates:** Arrive Vogel State Park Thu Oct 15, 1:00 PM. Depart Wed Oct 21, noon. Keep the night of Oct 20 (the group is back from the hike Mon evening; Tue is a rest day).
+**Dates:** Arrive Vogel State Park Thu Oct 15, 1:00 PM. Depart Wed Oct 21, noon. Keep the night of Oct 20 (the group is back from the hike Tue afternoon).
 
 **Site limits (walk-in site P):** 6 people max, 2 tents max, 2 vehicles at the site + overflow parking nearby for the rest.
 
@@ -70,16 +70,14 @@ Arrival day is light on purpose: everyone is tired from the drive. No panning to
 - **Dinner** in town — Foothill Grill, Bear Necessities Cafe, or Picnic Cafe (all casual, good for a group of 5).
 - **Rain/backup:** This whole day is already the rain-day pick — Consolidated is underground.
 
-### Sat Oct 17 – Mon Oct 19 — The hike: 3 days / 2 nights, East Fork Coosa Creek
-Full detail in §3. Decided 2026-10-02: this replaces both earlier options (the 4-day "long" and the 2-day "short"). Cooper Creek is dropped; Tuesday is a rest day.
-- **Sat Oct 17 — truck to WOLF-X, trail and off-trail to CAMP-U.** Drive truck 1 up FS 107 to the Coosa Backcountry Trail crossing (4.2 mi). Short test pan there. Then the trail up over Locust Stake Gap and Calf Stomp Gap (2.5 mi, +1,375 ft), Roaring Fork Trail west along the ridge (1.8 mi), and a steep off-trail drop of 550 ft to the upper East Fork Coosa Creek. Camp at CAMP-U, half a mile from the nearest road point. 4.8 mi total. Gold Rush Days (~200k people) is in Dahlonega today — we are nowhere near it. **Firearms deer season opens today: blaze orange on everyone from now on.**
-- **Sun Oct 18 — layover at CAMP-U.** Daypacks. Pan the upper reach at DROP-IN (2.5 h) and the lower reach (2.5 h). Both are on the only stretch of this creek with no road beside it.
-- **Mon Oct 19 — same way out.** Climb back to Roaring Fork Trail (+617 ft), ridge east to Calf Stomp Gap, trail down to the truck, 4.8 mi. Drive to Vogel (11 min). Hot dinner, showers, early night.
+### Sat Oct 17 – Tue Oct 20 — The hike: 4 days / 3 nights, East Fork Coosa Creek
+Full detail in §3. Decided 2026-10-02: this replaces both earlier options (the 4-day "long" and the 2-day "short"). Cooper Creek is dropped. Route locked by Jordan 2026-10-05. Truck 2 is staged at Owltown Gap Friday evening.
+- **Sat Oct 17 —** **Hike day 1.** Truck 1 to WOLF-X (FS 107, 4.2 mi). Pan West Fork Wolf Creek (2 h). Coosa Backcountry Trail up over Calf Stomp Gap (2.5 mi, +1,375 ft) and 0.4 mi on to Calf Stump Branch (34.78244, -83.95858, ~400 m from the nearest road). Camp, pan in the evening. Creek has no gold record and October flow is unconfirmed. Deer season opens: blaze orange.
+- **Sun Oct 18 —** **Hike day 2.** Morning pan at Calf Stump Branch (1.5 h). Back 0.4 mi to Calf Stomp Gap (the only retraced stretch), Roaring Fork Trail west (1.9 mi), off-trail drop to the road-free upper East Fork Coosa Creek: CAMP-U. Camp, pan. 2.75 mi.
+- **Mon Oct 19 —** **Full day at CAMP-U.** Daypacks. Pan the upper reach (DROP-IN) and the lower reach (LOWER). Second night at CAMP-U.
+- **Tue Oct 20 —** **Hike out.** Down the creek 0.7 mi to where the road starts (34.79824, -83.97825), the road (Duncan Ridge Conn) 0.7 mi to Bowers Road, Bowers Road (FS 298) 1.5 mi to truck 2 at Owltown Gap. Bowers Road crosses private land near 34.8064; public use unconfirmed (CALLS). Drive truck 2 to WOLF-X for truck 1 (24 min), both to Vogel (11 min). 2.9 mi walking.
 - **Rain/backup:** if the forecast turns genuinely unsafe (flash-flood risk in a narrow headwater), shorten to one night, or make Saturday a day at WOLF-X and come back to Vogel, rather than camp in a flooding drainage. Day-trip fallback: Frogtown.
 
-### Tue Oct 20 — Rest day at Vogel
-Nothing planned. Sleep in, dry gear, showers, pan out the hike's concentrates at the table.
-- **Optional, if anyone wants a short outing:** Helton Creek Falls (13 min from Vogel, Helton Creek Road / FS 118; short trail, two drops).
 - **Rain:** stay put under the canopy, or Helen's indoor options (research/dahlonega.md).
 
 ### Wed Oct 21 — Pack out
@@ -188,7 +186,7 @@ Drive times and coordinates below are pulled from `map/data/spots.json` (the mos
 
 ---
 
-## 3. The hike — East Fork Coosa Creek, 3 days / 2 nights (Sat Oct 17 – Mon Oct 19)
+## 3. The hike — East Fork Coosa Creek, 4 days / 3 nights (Sat Oct 17 – Tue Oct 20)
 
 **Nothing in this section is ranger-confirmed. Every creek stop is AMBER on the map.** Full spec and sources: `research/backcountry-route-design.md`. Numbers come straight from `map/data/days.json` (map day buttons 3, 4, 5).
 
@@ -201,14 +199,15 @@ Drive times and coordinates below are pulled from `map/data/spots.json` (the mos
 
 Noontootla / Three Forks was dropped: it has a record (Bulletin 19 pp. 277-278) but the named lots are downstream and mostly private, the National Forest reach is upstream of the gold, camping there depends on the FS-58 order we cannot obtain, and it is a 111-minute drive each way.
 
-### The route (decided 2026-10-05 — one route, out and back, no roads)
+### The route (locked 2026-10-05 by Jordan — a one-way loop, trails only)
 Rule from Jordan: hike trails, not roads, and camp where nobody can drive up. The earlier route (camp at the FS 107 crossing, forest roads down to a camp beside Duncan Ridge Conn, out Bowers Road to a staged truck) broke that rule at every stop, so it is gone. The East Fork has a road within 100 m of it from the Owltown side all the way up to 34.79824, -83.97825; above that point it is road-free to its source, and that is where we camp. Numbers below are from `days.json`.
-- **Sat Oct 17 — Vogel → WOLF-X by truck → CAMP-U.** Truck 1 up FS 107 (open — Jordan, 2026-10-05) to the trail crossing, 4.2 mi / 17 min; park clear of the road. Test pan 1.25 h. Coosa Backcountry Trail over Locust Stake Gap to Calf Stomp Gap, 2.54 mi, +1,375 ft, ~1 h 35 min. Roaring Fork Trail west along the ridge to the leave-trail point, 1.83 mi, +525 ft, ~1 h (mapped in OSM as a ground path; condition unconfirmed — if it is gone, follow the ridge crest west). Off-trail drop, 0.47 mi, 550 ft down at ~25%: pick the spur, not a hollow, poles out, ~40 min. Camp at CAMP-U (34.79056, -83.98457, ~2,875 ft). Pan 1 h.
-- **Sun Oct 18 — layover.** Daypacks. Up the creek 0.1 mi to DROP-IN, pan 2.5 h in the bed (bedrock cracks, inside of bends). Lunch at camp. Down the creek 0.3 mi to LOWER (34.7935, -83.9811), pan 2.5 h. LOWER is still 500 m above the road end; do not go below 34.79824, -83.97825 — it is not private there, but a road runs beside the creek and that is not the point.
-- **Mon Oct 19 — CAMP-U → WOLF-X → Vogel.** Climb back to the trail, +617 ft, ~55 min. Roaring Fork Trail east, Coosa Backcountry Trail down to the truck, 4.4 mi, ~2 h 10 min. Drive to Vogel, 11 min. Night at Vogel.
+- **Sat Oct 17 — Vogel → WOLF-X → Calf Stump Branch.** **Hike day 1.** Truck 1 to WOLF-X (FS 107, 4.2 mi). Pan West Fork Wolf Creek (2 h). Coosa Backcountry Trail up over Calf Stomp Gap (2.5 mi, +1,375 ft) and 0.4 mi on to Calf Stump Branch (34.78244, -83.95858, ~400 m from the nearest road). Camp, pan in the evening. Creek has no gold record and October flow is unconfirmed. Deer season opens: blaze orange.
+- **Sun Oct 18 — Calf Stump Branch → CAMP-U.** **Hike day 2.** Morning pan at Calf Stump Branch (1.5 h). Back 0.4 mi to Calf Stomp Gap (the only retraced stretch), Roaring Fork Trail west (1.9 mi), off-trail drop to the road-free upper East Fork Coosa Creek: CAMP-U. Camp, pan. 2.75 mi.
+- **Mon Oct 19 — CAMP-U.** **Full day at CAMP-U.** Daypacks. Pan the upper reach (DROP-IN) and the lower reach (LOWER). Second night at CAMP-U. Do not go below 34.79824, -83.97825 to pan: a road runs beside the creek there.
+- **Tue Oct 20 — CAMP-U → Owltown Gap → Vogel.** **Hike out.** Down the creek 0.7 mi to where the road starts (34.79824, -83.97825), the road (Duncan Ridge Conn) 0.7 mi to Bowers Road, Bowers Road (FS 298) 1.5 mi to truck 2 at Owltown Gap. Bowers Road crosses private land near 34.8064; public use unconfirmed (CALLS). Drive truck 2 to WOLF-X for truck 1 (24 min), both to Vogel (11 min). 2.9 mi walking.
 - **Water:** CAMP-U is about one creek-mile below the source. October is the driest month and the flow is unconfirmed. If it is a trickle, move camp down toward 34.7958, -83.9792 (still Forest Service, still 300 m from the road end).
 - **Private land:** the map now draws real Forest Service ownership (purple = private). Nothing on this route touches it; the build fails if it ever does.
-- **Totals:** 10.5 mi walking, +3,200 ft, 6.25 h of planned panning across 4 stops, 2 nights out. Food carried: Sat lunch through Mon lunch (2 breakfasts, 3 lunches, 2 dinners) — see `MASTER_LIST.md`.
+- **Totals:** ~8.6 mi walking, 8 h 30 min of planned panning, 3 nights out. Food carried: Sat lunch through Tue lunch (3 breakfasts, 4 lunches, 3 dinners) — see `MASTER_LIST.md`.
 
 ### Rules that apply (all AMBER)
 - **Panning:** "Recreational panning for gold in most stream beds is allowed. Special permission, permits, or fees are not required as long as significant stream disturbance does not occur and when only a small hand shovel or trowel and a pan are used. In-stream sluices and suction dredges are NOT allowed." — USFS Chattahoochee-Oconee FAQ (https://www.fs.usda.gov/r08/chattahoochee-oconee/about-area/faqs). "Most stream beds" is not creek-specific: no ranger has confirmed this creek. Call Blue Ridge RD 706-745-6928.
@@ -389,7 +388,7 @@ Full detail and the priced CSV breakdown live in `research/gear.md` — this sec
 ### Friends' one-page packing list (simple version — non-campers)
 **Worn (no cotton):** hiking shoes/boots, quick-dry pants, a wicking shirt, wool socks, a warm hat that's blaze orange (or a separate blaze orange vest/hat — required during firearms season).
 
-**Overnight pack (Sat–Mon hike):** your share of the tent (confirm with your tentmate who carries what), a 15–20°F sleeping bag, an insulated sleeping pad, a rain jacket, an insulation layer (fleece or light puffy), a base layer set (doubles as sleep clothes), one spare dry pair of wool socks, headlamp + batteries, knife, whistle/compass/emergency blanket, TP kit, blaze orange vest, your food for the hike, 2 nights (~5–6 lb), 1 L water capacity.
+**Overnight pack (Sat–Tue hike):** your share of the tent (confirm with your tentmate who carries what), a 15–20°F sleeping bag, an insulated sleeping pad, a rain jacket, an insulation layer (fleece or light puffy), a base layer set (doubles as sleep clothes), one spare dry pair of wool socks, headlamp + batteries, knife, whistle/compass/emergency blanket, TP kit, blaze orange vest, your food for the hike, 3 nights (~7–8 lb), 1 L water capacity.
 
 **Cold-water creek gear (needed daily at base camp too):** insulated waterproof panning gloves, 3mm neoprene socks + old sneakers/water shoes for the creek (not your hiking boots), dry-change clothes for after panning, and your own gold pan if you want one.
 
@@ -399,7 +398,7 @@ Full detail and the priced CSV breakdown live in `research/gear.md` — this sec
 
 ### Kitchen & water
 
-All figures below are **estimates** — sized for the hike: 5 people, 3 days / 2 nights (Sat Oct 17 – Mon Oct 19) as a buying/packing
+All figures below are **estimates** — sized for the hike: 5 people, 4 days / 3 nights (Sat Oct 17 – Tue Oct 20) as a buying/packing
 buffer, not a measured burn rate.
 
 - **Backcountry stove fuel (isobutane canisters):** budget roughly 1 oz of fuel per person per
@@ -453,7 +452,7 @@ Insulated gloves are not optional — dip, work fast, dry and rewarm between pan
 - Also ask: "Is gold panning or rock collecting allowed anywhere inside park boundaries?" (Expected answer: no — confirm this before anyone tries it at the lake or on a park trail crossing.)
 
 **Blue Ridge Ranger District — 706-745-6928**
-- Script: "We're a group of 5 doing recreational hand-panning (pan + trowel, no sluice/dredge) at several Chattahoochee National Forest sites the week of Oct 15–21, plus a backcountry overnight on the East Fork of Coosa Creek (above the private boundary near 34.8064, -83.9598) and West Fork Wolf Creek, Oct 17–19 (3 days / 2 nights). Can you confirm current panning rules, whether there are any active stream closures in that window, and whether those reaches and the Coosa Bald area are open to hand panning? Is Bowers Road (FS 298) open to the public to Owltown Gap, and are FS 107 / FS 108 / Big Grassy Knob Road gated?"
+- Script: "We're a group of 5 doing recreational hand-panning (pan + trowel, no sluice/dredge) at several Chattahoochee National Forest sites the week of Oct 15–21, plus a backcountry overnight on the East Fork of Coosa Creek (above the private boundary near 34.8064, -83.9598) and West Fork Wolf Creek, Oct 17–20 (4 days / 3 nights). Can you confirm current panning rules, whether there are any active stream closures in that window, and whether those reaches and the Coosa Bald area are open to hand panning? Is Bowers Road (FS 298) open to the public to Owltown Gap, and are FS 107 / FS 108 / Big Grassy Knob Road gated?"
 - Also ask about current fire restrictions/burn-ban status for camping.
 
 **GA DNR Wildlife Resources Division — 770-535-5498**

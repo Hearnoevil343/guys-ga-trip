@@ -15,7 +15,7 @@ crevice tools, loupes, trowels). Full table: `ROSTER.md`.
 
 | Item | Why / note | Price (picker) |
 |---|---|---|
-| Bear-proof food storage | 2 nights x 5 people of food is ~12 person-days. One Ursack Major holds ~5. **Buy 2**, or 1 Ursack + a hang bag on Jordan's paracord. No canister order applies in October. | $149.95 ea |
+| Bear-proof food storage | 3 nights x 5 people of food is ~17 person-days. One Ursack Major holds ~5. **Buy 2**, or 1 Ursack + a hang bag on Jordan's paracord. No canister order applies in October. | $149.95 ea |
 | Satellite messenger | No cell on the Coosa Backcountry Trail. Rent or buy. | $199.00 |
 | Nat Geo Chattahoochee-Oconee paper map x2 | One per hiking pair leader. | $59.80 |
 | Repair kit: Tenacious Tape + pad patch + duct tape + zip ties | Jordan's "repair kit" row is a different item; confirm his covers this. | $23.95 |
@@ -28,28 +28,28 @@ crevice tools, loupes, trowels). Full table: `ROSTER.md`.
 
 Group total (roster) **$1,025.34**, about **$205 each at 5** (plus the canister and a second Ursack).
 
-## 2. Hike food — Sat lunch through Mon lunch (carried)
+## 2. Hike food — Sat lunch through Tue lunch (carried)
 
-Breakfast at Vogel Sat, dinner at Vogel Mon. Carried: 2 breakfasts, 3 lunches, 2 dinners, 3 days of
-snacks. Plan on 1.5–2 lb per person per day: **5–6 lb each**, not the 3 lb in `research/gear.md`
+Breakfast at Vogel Sat, dinner at Vogel Tue. Carried: 3 breakfasts, 4 lunches, 3 dinners, 4 days of
+snacks. Plan on 1.5–2 lb per person per day: **7–8 lb each**, not the 3 lb in `research/gear.md`
 (that was sized for one night).
 
 | Meal | Per person | x5 total [x6] | Buy-list row | Enough? |
 |---|---|---|---|---|
-| Breakfast x2 | 2 oatmeal packets + 1 coffee | 20 oatmeal, 10 coffee [24, 12] | Quaker 52 ct; Starbucks VIA 2 x 12 | yes |
-| Lunch x3 | 1 tortilla + PB or tuna, jerky | 15 tortillas, 10 PB, 5 tuna [18, 12, 6] | Mission 16 ct; Justin's 10-pack; StarKist 2 x 4 | yes at 5; **2 tortilla packs, 2 PB packs at 6** |
-| Dinner x2 | 1 Mountain House 2-serving pouch | 10 pouches [12] | 12 pouches | yes. Nathan owns some: count his first |
-| Snacks x3 days | 2 bars, 3 oz trail mix, 1.5 oz jerky | 30 bars, 45 oz mix, 8 oz jerky [36, 54, 9] | Clif 2 x 12; Kirkland 4 lb; Jack Link's 3-pack | **bars short: buy 3 boxes** |
+| Breakfast x3 | 2 oatmeal packets + 1 coffee | 30 oatmeal, 15 coffee [36, 18] | Quaker 52 ct; Starbucks VIA 2 x 12 | yes |
+| Lunch x4 | 1 tortilla + PB or tuna, jerky | 20 tortillas, 13 PB, 7 tuna [24, 16, 8] | Mission 16 ct; Justin's 10-pack; StarKist 2 x 4 | **2 tortilla packs, 2 PB packs** |
+| Dinner x3 | 1 Mountain House 2-serving pouch | 15 pouches [18] | 12 pouches | **short: 15 needed (18 at 6)**. Nathan owns some: count his first |
+| Snacks x4 days | 2 bars, 3 oz trail mix, 1.5 oz jerky | 40 bars, 60 oz mix, 10 oz jerky [48, 72, 12] | Clif 2 x 12; Kirkland 4 lb; Jack Link's 3-pack | **bars short: buy 4 boxes**; mix short at 6 |
 
 Water: filter at camp (the creek at CAMP-U; headwater, October flow unconfirmed — fill up at WOLF-X before the climb, 2 L each), Aquatabs backup.
 Pack the food by day in gallon zip bags; everything with a smell goes in the Ursack/hang at night.
 
 ## 3. Base camp food — 6 camp meals + 2 trail lunches
 
-Thu dinner, Fri breakfast (Fri dinner in Dahlonega), Sat breakfast, Mon dinner (make it the big one),
-Tue breakfast + trail lunch, Tue dinner, Wed breakfast. The picker's "car-camp grocery run" ($140
+Thu dinner, Fri breakfast (Fri dinner in Dahlonega), Sat breakfast, Tue dinner (make it the big one),
+Wed breakfast. The picker's "car-camp grocery run" ($140
 est.) covers it: eggs, bacon/sausage, bread, pancake mix, hot dogs/burgers, condiments, chips, foil,
-ice, coffee, snacks. Buy in Blairsville (Ingles) Thu on the way in; ice again Mon. Food and coolers
+ice, coffee, snacks. Buy in Blairsville (Ingles) Thu on the way in; ice again Tue. Food and coolers
 sleep in the truck cabs, not the tents (Vogel is developed; vehicle storage is the rule).
 
 ## 4. What each person still owes (personal, from ROSTER.md)

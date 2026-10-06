@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GA Gold Trip</string>
+    <string name="title_activity_main">GA Gold Trip</string>
+    <string name="package_name">io.github.hearnoevil343.gatrip</string>
+    <string name="custom_url_scheme">io.github.hearnoevil343.gatrip</string>
+</resources>

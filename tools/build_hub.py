@@ -1,6 +1,6 @@
 """
 Build index.html: one navigable hub for the whole trip plan.
-Tabs: Start / Rundown (iframe RUNDOWN.html) / Map (iframe map/trip-map.html) /
+Tabs: Start / Rundown (iframe RUNDOWN.html) / Map (iframe map/map3d.html) /
 Buy list (rendered from BUY_LIST.md) / Files. Works from file:// (no server).
 
 Usage:  python tools/build_hub.py     (run build_buy_list.py first if picks changed)
@@ -406,7 +406,9 @@ files = [
     ("Gear_Picker.xlsx", "Pick Budget/Value/Premium per row; Dashboard totals update live (open in Excel)"),
     ("BUY_LIST.md", "Same list as the Buy tab, plain text"),
     ("RUNDOWN.html", "Full ~20-page guide (also RUNDOWN.md)"),
-    ("map/trip-map.html", "Interactive map, layers, legality banners"),
+    ("map/map3d.html", "3D map (Map tab), GPS dot, works offline in the Android app"),
+    ("map/trip-map.html", "2D detail map, layers, legality banners"),
+    ("https://github.com/hearnoevil343/guys-ga-trip/releases/latest/download/ga-gold-trip.apk", "Android app (offline hub + 3D map + topo tiles, ~150 MB). Install: open on the phone, allow unknown apps"),
     ("map/trip.gpx", "Waypoints for Gaia / CalTopo / OnX offline"),
     ("PLAN.md", "Facts, decisions, open items"),
 ]
@@ -606,7 +608,7 @@ No permit needed for hand panning on National Forest land (36 CFR 228.4). A grou
 </ul></details>
 """ + PAN_NOTE
 
-file_rows = "".join(f'<tr><td><a href="{f}" target="_blank">{f}</a></td><td>{d}</td></tr>' for f, d in files)
+file_rows = "".join(f'<tr><td><a href="{f}" target="_blank">{f.rsplit('/', 1)[-1]}</a></td><td>{d}</td></tr>' for f, d in files)
 
 page = f"""<!doctype html><html><head><meta charset="utf-8"><title>GA Gold Trip - Oct 15-21 2026</title>
 <style>
@@ -646,7 +648,7 @@ Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = ha
 </section>
 
 <section id="rundown"><iframe src="RUNDOWN.html"></iframe></section>
-<section id="map"><iframe src="map/trip-map.html"></iframe></section>
+<section id="map"><iframe src="map/map3d.html"></iframe></section>
 <section id="pan">{panning_section}</section>
 <section id="buy"><p>Click a box in a row to choose it (&#10003;): Budget, Value or Premium. Use the <b>Mine</b> box to type your own item, price and link, or click <b>Own</b> / <b>Skip</b> (clicking Own also ticks "Got it"; click Own again to go back). Tick "Got it" when bought. Every price cell shows the full price; shared rows also show your per-person share. Sections are grouped by where the gear is used. Your picks save in this browser only.</p>
 <p><button class="preset-btn" onclick="applyPreset('budget')">Budget set</button><button class="preset-btn" onclick="applyPreset('solid')">Solid set</button>

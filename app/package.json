@@ -1,0 +1,16 @@
+{
+  "name": "ga-gold-trip-app",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "www": "node build-www.mjs",
+    "sync": "node build-www.mjs && npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/core": "^8.5.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.2"
+  }
+}

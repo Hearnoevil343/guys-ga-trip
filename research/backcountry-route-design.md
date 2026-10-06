@@ -1,5 +1,18 @@
 # Backcountry route design — East Fork Coosa Creek (2026-09-21)
 
+> **Decision 2026-10-05 (Jordan) — supersedes the 10-02 route below:** no road walking and no
+> camp a vehicle can reach. Both options below camp beside drivable roads (WOLF-X on FS 107,
+> CAMP-C beside Duncan Ridge Conn, pan stops on Bowers Road), which this design never flagged.
+> New route (built by `map/data/_build_backcountry.mjs`, numbers in `days.json`, text in
+> PLAN.md and RUNDOWN.md §3): truck to WOLF-X (FS 107 is open — Jordan, first-hand), Coosa
+> Backcountry Trail to Calf Stomp Gap, **Roaring Fork Trail** (OSM way 978262922, highway=path,
+> surface=ground, 1.63 mi west along the ridge, ends 49 m from FS 39 — missed by the geometry
+> survey's Task 7) to its vertex nearest the creek, then a 588 m / 550 ft off-trail drop to the
+> road-free upper East Fork (above 34.79824, -83.97825, where Duncan Ridge Conn leaves the
+> creek). CAMP-U 34.79056, -83.98457. Layover Sunday, same way out Monday. Ownership re-checked
+> with the full USFS EDW BasicOwnership polygons (map/data/private.geojson): trail, drop and
+> camp all Forest Service. Unconfirmed: Roaring Fork Trail condition, October flow at ~2,900 ft.
+
 > **Decision 2026-10-02 (Jordan):** one route, no options. The hike is the "long" option below
 > without its layover: Sat Oct 17 Vogel → WOLF-X, Sun Oct 18 WOLF-X → CAMP-C, Mon Oct 19 CAMP-C →
 > Owltown Gap → Vogel. The "short" option is dropped as a plan (kept here as the bad-weather

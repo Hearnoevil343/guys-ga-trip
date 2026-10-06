@@ -398,6 +398,42 @@ if (daysData) {
   }
 }
 
+// Private-land guard (2026-10-05): days.json camp/pan points, day start/end
+// points and every vertex of an off-trail ('approximate') walk leg must not
+// sit on NON-FS ground (private.geojson = USFS EDW ownerclassification
+// NON-FS). Exempt: points inside a state-park polygon from wilderness.geojson
+// (Vogel is NON-FS but it is our campground). A hit on those FAILS the build.
+// A mapped public trail ('exact' walk leg) crossing NON-FS ground only WARNS:
+// Forest Service trails cross inholdings on easements, and the Coosa
+// Backcountry Trail does so for ~30 m near 34.7917,-83.9348.
+{
+  const privLayer = geoLayers.find(g => /^private$/i.test(g.name));
+  const privFeats = privLayer ? privLayer.data.features : [];
+  const parkFeats = wildernessFeatures.filter(f => /state.?park/i.test((f.properties && (f.properties.kind || f.properties.name)) || ''));
+  if (privFeats.length && daysData && Array.isArray(daysData.days)) {
+    const inAny = (lat, lng, feats) => feats.some(f => pointInPolygonGeom(lng, lat, f.geometry));
+    const isPrivate = (lat, lng) => inAny(lat, lng, privFeats) && !inAny(lat, lng, parkFeats);
+    const fails = [], warns = []; let checked = 0;
+    for (const day of daysData.days) {
+      for (const pt of [day.start, day.end]) if (pt && typeof pt.lat === 'number') { checked++; if (isPrivate(pt.lat, pt.lng)) fails.push(`Day ${day.day} ${pt.label || pt.ref} (${pt.lat}, ${pt.lng})`); }
+      for (const leg of (day.legs || [])) {
+        if ((leg.type === 'pan' || leg.type === 'camp') && typeof leg.lat === 'number') { checked++; if (isPrivate(leg.lat, leg.lng)) fails.push(`Day ${day.day} ${leg.type} "${leg.label}" (${leg.lat}, ${leg.lng})`); }
+        if (leg.type === 'walk' && Array.isArray(leg.coords)) {
+          let n = 0, first = null;
+          for (const [lat, lng] of leg.coords) { checked++; if (isPrivate(lat, lng)) { n++; if (!first) first = [lat, lng]; } }
+          if (n) (leg.geometry_confidence === 'exact' ? warns : fails).push(`Day ${day.day} walk "${leg.label}": ${n} vertex(es) on NON-FS ground, first at (${first[0]}, ${first[1]})`);
+        }
+      }
+    }
+    console.log(`Private-land guard: checked ${checked} days.json start/end/pan/camp/walk point(s) against ${privFeats.length} NON-FS polygon(s), ${parkFeats.length} state-park polygon(s) exempt.`);
+    for (const w of warns) console.log('   - WARN (mapped trail crosses NON-FS ground): ' + w);
+    if (fails.length) { for (const h of fails) console.log('   - PRIVATE: ' + h); throw new Error(`${fails.length} route point(s) on private land — fix the route before publishing.`); }
+    console.log('  No camp, pan, day start/end or off-trail point on private land.');
+  } else {
+    console.log('Private-land guard: skipped (no private.geojson or no days.json).');
+  }
+}
+
 // Run the same point-in-polygon legality guard against water.geojson: for
 // each creek/river feature, tag it with the name of any wilderness/state-park
 // polygon that contains AT LEAST ONE vertex of its line geometry (a creek can
@@ -769,23 +805,16 @@ const baseLayers = {
   'OpenStreetMap': osm,
 };
 
-// ---- overlay: USFS land ownership (EDW dynamic map service) ----
-// Its own pane, below the default overlayPane (zIndex 400) that every
-// GeoJSON overlay uses, so the red no-panning zones always draw on top of
-// it no matter what order layers get added/toggled in. A CSS filter on the
-// pane boosts saturation/contrast because the raw EDW tiles render washed
-// out over every base map (reported 2026-09-21).
-map.createPane('usfsPane');
-map.getPane('usfsPane').style.zIndex = 399;
-map.getPane('usfsPane').style.filter = 'saturate(1.7) contrast(1.3) brightness(1.05)';
-let usfsOwnership = null;
-try {
-  usfsOwnership = L.esri.dynamicMapLayer({
-    url: 'https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_ForestSystemBoundaries_01/MapServer',
-    opacity: 0.75,
-    pane: 'usfsPane',
-  });
-} catch (e) { console.warn('USFS ownership layer failed to init', e); }
+// ---- overlay: land ownership, from map/data/private.geojson + ownership.geojson ----
+// (2026-10-05) Real USFS EDW BasicOwnership polygons, fetched once and clipped
+// to the trip area, replace the old EDW "ForestSystemBoundaries" tile layer:
+// that service drew the proclamation boundary, inside which private inholdings
+// looked like National Forest. private.geojson = the layer's NON-FS class
+// (private, state park, other), drawn as a purple tint and ON by default, in
+// its own pane under the other overlays so routes and creeks stay on top. (A
+// hatched SVG pattern fill was tried first and made the page too slow to paint.)
+map.createPane('ownerPane');
+map.getPane('ownerPane').style.zIndex = 398;
 
 // ---- overlay: wilderness / no-panning polygons, and trail/route lines, from GeoJSON files ----
 const overlayLayers = {};
@@ -798,9 +827,34 @@ for (const layer of DATA.geoLayers) {
   const isWater = /^water$/i.test(layer.name);
   const isTrails = /trail/i.test(layer.name) && !isWilderness;
   const isPanningStatus = /^panning-status$/i.test(layer.name);
+  const isPrivate = /^private$/i.test(layer.name);
+  const isOwnership = /^ownership$/i.test(layer.name);
   if (isPanningStatus) continue; // handled separately below, split into good/no/no-info overlays
   if (isWilderness) continue; // folded into the "Panning: no" overlay (panning-status.geojson was seeded from this same data) so the same zones aren't drawn twice
   let gj;
+  if (isPrivate) {
+    gj = L.geoJSON(layer.data, {
+      pane: 'ownerPane',
+      style: () => ({ color: '#6a1b9a', weight: 1.5, dashArray: '6,4', fillColor: '#8e24aa', fillOpacity: 0.3, className: 'private-land' }),
+      onEachFeature: (f, lyr) => {
+        lyr.bindPopup('<b>Not National Forest (private, state park or other)</b><br>No panning, no camping, no walking through unless it is the state park or a public road. Purple = NON-FS in the Forest Service ownership data; clear ground around it is Forest Service land.' +
+          '<div style="font-size:11px;color:#555;margin-top:4px;">' + escHtml(layer.data.source || 'USFS EDW BasicOwnership') + '</div>');
+      },
+    });
+    overlayLayers['Private land (purple)'] = gj;
+    overlayColors['Private land (purple)'] = '#8e24aa';
+    continue;
+  }
+  if (isOwnership) {
+    gj = L.geoJSON(layer.data, {
+      pane: 'ownerPane',
+      style: () => ({ color: '#2f7d3c', weight: 1, fillColor: '#2f7d3c', fillOpacity: 0.10 }),
+      onEachFeature: (f, lyr) => lyr.bindPopup('<b>National Forest land (Forest Service owned)</b><div style="font-size:11px;color:#555;margin-top:4px;">' + escHtml(layer.data.source || 'USFS EDW BasicOwnership') + '</div>'),
+    });
+    overlayLayers['National Forest land'] = gj;
+    overlayColors['National Forest land'] = '#2f7d3c';
+    continue;
+  }
   if (isWater) {
     gj = L.geoJSON(layer.data, {
       style: f => {
@@ -846,10 +900,6 @@ for (const layer of DATA.geoLayers) {
   overlayLayers[label] = gj;
   overlayColors[label] = isWilderness ? '#ff0000' : (isWater ? '#1f77b4' : (isTrails ? '#8c564b' : '#888888'));
   if (isWater) waterOverlay = gj;
-}
-if (usfsOwnership) {
-  overlayLayers['USFS land ownership'] = usfsOwnership;
-  overlayColors['USFS land ownership'] = '#2f7d3c';
 }
 
 // ---- overlay: panning-status.geojson (research-fed; missing/empty file is fine) ----
@@ -920,7 +970,7 @@ try {
 const overlaySettings = {};
 for (const key of Object.keys(overlayLayers)) {
   // default on: no-panning zones, trail lines and creeks are all useful context immediately
-  const defaultOn = /NO PANNING|trails|Creeks & rivers|Panning: no$/i.test(key);
+  const defaultOn = /NO PANNING|trails|Creeks & rivers|Panning: no$|^Private land/i.test(key);
   const saved = savedOverlaySettings[key];
   overlaySettings[key] = {
     on: saved && typeof saved.on === 'boolean' ? saved.on : defaultOn,
@@ -1449,6 +1499,9 @@ function applyLayerOpacity(l, factor) {
     if (typeof l.eachLayer === 'function') { l.eachLayer(x => applyLayerOpacity(x, factor)); return; }
     if (l._origOpacity === undefined) l._origOpacity = (l.options && l.options.opacity != null) ? l.options.opacity : 1;
     if (l._origFillOpacity === undefined) l._origFillOpacity = (l.options && l.options.fillOpacity != null) ? l.options.fillOpacity : 0.2;
+    // Private land must stay readable when a day is selected (that is when the
+    // route is being judged), so selection dimming leaves its fill alone.
+    if (l.options && l.options.className === 'private-land') { l.setStyle({ opacity: factor * l._origOpacity }); return; }
     if (typeof l.setStyle === 'function') l.setStyle({ opacity: factor * l._origOpacity, fillOpacity: factor * l._origFillOpacity });
     else if (typeof l.setOpacity === 'function') l.setOpacity(factor * l._origOpacity);
   } catch (e) { /* some layer types may not support live opacity — non-fatal */ }

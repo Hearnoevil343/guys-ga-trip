@@ -428,3 +428,20 @@ legend lifted above the panel). Playwright throwaway install used and moved back
 `tools/build_hub.py` `roster_html()` renders it from `roster/roster.json` (`items` matrix written by
 `tools/build_roster.py`). Run order after a new roster export: `build_roster.py`, then `build_hub.py`.
 Group split is `buy_data.GROUP_SIZE` (5); `group_split()` maps the research JSON's 6 to it.
+
+## Private land overlay + route guard (2026-10-05)
+
+`node map/data/_fetch_ownership.mjs` fetches USFS EDW BasicOwnership layer 0 for the box
+-84.02,34.74,-83.90,34.84 and clips it: `ownership.geojson` = the "USDA FOREST SERVICE" class,
+`private.geojson` = the "NON-FS" class (private, state park, other; Vogel is NON-FS). Grow the
+box in that script if the route ever leaves it. `build-map.mjs` draws private as a purple tint
+(className `private-land`; selection dimming leaves its fill alone; an SVG hatch pattern was tried
+and made the page too slow to paint), on by default, in pane `ownerPane` (z 398) under the other
+overlays, and runs a build-time guard: any camp/pan point, day start/end point or off-trail
+(`approximate`) walk vertex on NON-FS ground that is not a state park throws and stops the build;
+a mapped trail (`exact` leg) crossing NON-FS ground only warns (the Coosa Backcountry Trail does
+for ~30 m near 34.7917,-83.9348). The old EDW `ForestSystemBoundaries` tile overlay is gone — it
+drew the proclamation boundary, which hides private inholdings.
+
+`_build_backcountry.mjs` (2026-10-05 route): Roaring Fork Trail comes from `_coosa_osm.geojson`
+(OSM way 978262922). CAMP-U / DROP-IN / LOWER coordinates are constants at the top of section 2.

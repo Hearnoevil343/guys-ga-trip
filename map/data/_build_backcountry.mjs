@@ -1,10 +1,10 @@
 // _build_backcountry.mjs — one-off, RE-RUNNABLE builder for the East Fork Coosa
-// Creek backcountry route (research/backcountry-route-design.md) plus the
-// Tue Oct 20 waterfall day. Decided 2026-10-02: ONE route, no variants. The
-// hike is the former "long" option without its layover: Sat Oct 17 Vogel ->
-// WOLF-X, Sun Oct 18 WOLF-X -> CAMP-C, Mon Oct 19 CAMP-C -> Owltown Gap ->
-// Vogel. Tue Oct 20 is Helton Creek Falls + the GA-348 loop (the old Sun
-// day re-dated). Cooper Creek (old Sat) is dropped.
+// Creek backcountry route (research/backcountry-route-design.md). Decided
+// 2026-10-05 (owner): no road walking, no camp a vehicle can reach. Sat Oct 17
+// truck to WOLF-X (FS 107 open, owner first-hand), Coosa Backcountry Trail to
+// Calf Stomp Gap, Roaring Fork Trail west, off-trail drop to the road-free
+// upper East Fork Coosa Creek (CAMP-U); Sun Oct 18 layover there; Mon Oct 19
+// same way out to the truck. One truck, no shuttle. Tue Oct 20 rest at Vogel.
 //
 // Run AFTER map/data/_build_days.mjs. On the first run after _build_days.mjs
 // this script copies that pristine output to map/data/_days_baseline.json and
@@ -142,50 +142,59 @@ const trailSatSeg = trailSlice(0, wolfXCut.index, { index: -1, point: trail[0] }
 const trailSunSeg = trailSlice(wolfXCut.index, calfStompGapCut.index, wolfXCut, calfStompGapCut); // WOLF-X -> Calf Stomp Gap
 
 // ---------------------------------------------------------------------------
-// 2. Forest roads.
+// 2. Roaring Fork Trail and the off-trail drop to the upper creek (2026-10-05).
+//    Owner's call: no road walking, no camp where a vehicle can pull up.
+//    East Fork Coosa Creek has a road (Duncan Ridge Conn) within 100 m of it
+//    from the JUNCTION up to LEAVES_CREEK (34.79824,-83.97825); above that
+//    point the creek is road-free up to its source. Roaring Fork Trail (OSM
+//    way 978262922, highway=path, surface=ground) leaves Calf Stomp Gap and
+//    runs 1.63 mi west along the ridge at 3,300-3,500 ft; its western end is
+//    49 m from Duncan Ridge Road (FS 39). From its vertex nearest the creek a
+//    straight off-trail drop of ~600 m / ~550 ft reaches the creek at ~2,940 ft.
+//    The whole trail and the drop are on Forest Service land (ownership
+//    polygons: map/data/private.geojson, USFS EDW BasicOwnership, 2026-10-05).
 // ---------------------------------------------------------------------------
-const calfStompRoad = namedLine('Calf Stomp Road'); // FS 108: idx0 near Locust-Stake side, idx-end near Big Grassy Knob Rd
-const bigGrassyKnobRoad = namedLine('Big Grassy Knob Road'); // idx0 near Calf Stomp Rd end, idx-end near JUNCTION
-const duncanRidgeConn = namedLine('Duncan Ridge Conn'); // idx0 near FS39, idx-end (idx124) near JUNCTION
-const bowersRoad = namedLine('Bowers Road'); // idx0 near JUNCTION, idx-end near Owltown Gap
 const fs107 = namedLine('West Wolf Creek Road');
+const roaringForkTrailRaw = namedLine('Roaring Fork Trail');
+// Orient idx0 at the Calf Stomp Gap end.
+const roaringForkTrail = dist(roaringForkTrailRaw[0], CALF_STOMP_GAP) < dist(roaringForkTrailRaw[roaringForkTrailRaw.length - 1], CALF_STOMP_GAP)
+  ? roaringForkTrailRaw : roaringForkTrailRaw.slice().reverse();
+const eastForkCreek = namedLine('East Fork Coosa Creek'); // idx0 at the source (34.789953,-83.991496), runs downstream
 
-const JUNCTION = [34.80137, -83.96678];
-const CAMP_C = [34.797713, -83.977594]; // Jones Branch confluence with East Fork Coosa Creek
-const LEAVES_CREEK = [34.79824, -83.97825]; // where Duncan Ridge Conn stops paralleling the creek
-const ROARING_FORK = [34.80168, -83.967784]; // confluence
-const BOUNDARY = [34.8026965, -83.9603361]; // point on Bowers Road nearest 34.802697,-83.960336 (design's own rounding)
+// CAMP-U: upper East Fork Coosa Creek, ~2,875 ft, about 1 creek-mile below the
+// source. Nearest road point of any kind is ~670 m away (FS 39) and ~800 m
+// (Duncan Ridge Conn end), both across a 500+ ft slope. Pan reaches: DROP-IN
+// (where the off-trail line meets the creek, ~2,940 ft) and LOWER (34.7935,
+// -83.9811, ~2,750 ft, still 500 m from the road end). All three points sit
+// on the Forest Service reach (source down to 34.80637,-83.95980).
+const CAMP_U = [34.79056, -83.98457];
+const DROP_IN = [34.789506, -83.985797];
+const LOWER_PAN = [34.79350, -83.98112];
+const LEAVES_CREEK = [34.79824, -83.97825]; // where Duncan Ridge Conn stops paralleling the creek — nothing below this is road-free
 
-const calfStompGapOnRoad = nearestVertexOnWay(CALF_STOMP_GAP[0], CALF_STOMP_GAP[1], calfStompRoad);
-const campCOnRoad = nearestVertexOnWay(CAMP_C[0], CAMP_C[1], duncanRidgeConn);
-const boundaryOnRoad = nearestVertexOnWay(BOUNDARY[0], BOUNDARY[1], bowersRoad);
-const junctionOnBowers = nearestVertexOnWay(JUNCTION[0], JUNCTION[1], bowersRoad);
-const junctionOnBigGrassy = nearestVertexOnWay(JUNCTION[0], JUNCTION[1], bigGrassyKnobRoad);
-const junctionOnDRC = nearestVertexOnWay(JUNCTION[0], JUNCTION[1], duncanRidgeConn);
-const roaringForkOnDRC = nearestVertexOnWay(ROARING_FORK[0], ROARING_FORK[1], duncanRidgeConn);
+const rftLeaveIdx = nearestVertexOnWay(DROP_IN[0], DROP_IN[1], roaringForkTrail);
+const RFT_LEAVE = roaringForkTrail[rftLeaveIdx.index];
 const fs107NearWolfX = nearestVertexOnWay(WOLF_X[0], WOLF_X[1], fs107);
-const owltownOnBowers = nearestVertexOnWay(POINTS.owltown_gap.lat, POINTS.owltown_gap.lng, bowersRoad);
-
-console.log(`Calf Stomp Gap trail point -> nearest Calf Stomp Road (FS108) vertex: ${calfStompGapOnRoad.distM.toFixed(1)} m (idx ${calfStompGapOnRoad.index}/${calfStompRoad.length - 1}).`);
-console.log(`CAMP-C (Jones Branch confluence) -> nearest Duncan Ridge Conn vertex: ${campCOnRoad.distM.toFixed(1)} m (idx ${campCOnRoad.index}/${duncanRidgeConn.length - 1}).`);
-console.log(`JUNCTION -> nearest Duncan Ridge Conn / Big Grassy Knob Rd / Bowers Rd vertex: ${junctionOnDRC.distM.toFixed(1)} / ${junctionOnBigGrassy.distM.toFixed(1)} / ${junctionOnBowers.distM.toFixed(1)} m.`);
-console.log(`BOUNDARY -> nearest Bowers Road vertex: ${boundaryOnRoad.distM.toFixed(1)} m (idx ${boundaryOnRoad.index}/${bowersRoad.length - 1}).`);
-console.log(`Owltown Gap -> nearest Bowers Road vertex: ${owltownOnBowers.distM.toFixed(1)} m (idx ${owltownOnBowers.index}/${bowersRoad.length - 1}).`);
+const rftStartSnapM = dist(roaringForkTrail[0], CALF_STOMP_GAP);
+console.log(`Roaring Fork Trail: ${polyMiles(roaringForkTrail).toFixed(2)} mi, idx0 ${rftStartSnapM.toFixed(0)} m from the Calf Stomp Gap trail point; leave-trail vertex idx ${rftLeaveIdx.index}/${roaringForkTrail.length - 1} is ${rftLeaveIdx.distM.toFixed(0)} m from DROP-IN.`);
 console.log(`WOLF-X -> nearest FS 107 (West Wolf Creek Road) vertex: ${fs107NearWolfX.distM.toFixed(1)} m (idx ${fs107NearWolfX.index}/${fs107.length - 1}).`);
-console.log(`ROARING FORK confluence -> nearest Duncan Ridge Conn vertex: ${roaringForkOnDRC.distM.toFixed(1)} m (idx ${roaringForkOnDRC.index}).`);
 
-// Calf Stomp Gap (trail) -> JUNCTION, via the FS108 stretch then all of Big
-// Grassy Knob Road (per the design's own routing instruction: "if the trail
-// and the start of Big Grassy Knob Road are joined only via a stretch of
-// FS108, route along FS108").
-const fs108Stretch = calfStompRoad.slice(calfStompGapOnRoad.index); // toward the Big-Grassy-Knob end
-const calfStompToJunction = [CALF_STOMP_GAP, ...fs108Stretch.slice(1), ...bigGrassyKnobRoad.slice(1)];
-// Duncan Ridge Conn: JUNCTION (idx124-ish) down to the on-road snap nearest
-// CAMP-C, then an off-road straight connector to the real creek-confluence
-// point (this final bit is the one >30m stitch on this route — see report).
-const drcJunctionToCampSnap = duncanRidgeConn.slice(campCOnRoad.index, junctionOnDRC.index + 1).slice().reverse(); // JUNCTION -> snap
-const junctionToCampC_onRoad = [JUNCTION, ...drcJunctionToCampSnap.slice(1)];
-const campConnectorM = campCOnRoad.distM;
+function creekSlice(a, b) {
+  const ia = nearestVertexOnWay(a[0], a[1], eastForkCreek).index, ib = nearestVertexOnWay(b[0], b[1], eastForkCreek).index;
+  const lo = Math.min(ia, ib), hi = Math.max(ia, ib);
+  const pts = eastForkCreek.slice(lo, hi + 1);
+  return ia <= ib ? pts : pts.slice().reverse();
+}
+// Calf Stomp Gap trail point -> Roaring Fork Trail start: the last ~400 m of
+// Calf Stomp Road (FS 108) at the gap, the only mapped link between the two.
+const calfStompRoad = namedLine('Calf Stomp Road');
+const gapOnFs108 = nearestVertexOnWay(CALF_STOMP_GAP[0], CALF_STOMP_GAP[1], calfStompRoad);
+const fs108ToRft = calfStompRoad.slice(gapOnFs108.index); // toward the road end at the RFT start
+console.log(`Calf Stomp Gap -> FS 108 vertex ${gapOnFs108.distM.toFixed(0)} m; FS 108 end -> Roaring Fork Trail idx0 ${dist(fs108ToRft[fs108ToRft.length - 1], roaringForkTrail[0]).toFixed(0)} m.`);
+const rftToLeave = [CALF_STOMP_GAP, ...fs108ToRft.slice(1), ...roaringForkTrail.slice(0, rftLeaveIdx.index + 1)];
+const dropLine = [RFT_LEAVE, DROP_IN, ...creekSlice(DROP_IN, CAMP_U).slice(1)];
+const campToLower = creekSlice(CAMP_U, LOWER_PAN);
+const campToDropIn = creekSlice(CAMP_U, DROP_IN);
 
 // ---------------------------------------------------------------------------
 // 3. Timed-leg builders (same Tobler + OSRM/surface-retime model as
@@ -299,98 +308,104 @@ function panLeg({ label, lat, lng, minutes, gold, atMile, note }) {
   if (note) leg.note = note;
   return leg;
 }
-const ACCESS_UNCONFIRMED_NOTE = 'Access UNCONFIRMED (call-gated): whether this road is open to public vehicle/foot travel has not been confirmed. Bowers Road (FS 298) crosses private land between 34.8064 and Owltown Gap; whether Big Grassy Knob Road / FS 108 / FS 107 are gated is unknown.';
-// Truck-staging note (task: one F-150 staged at Owltown Gap Fri evening,
-// retrieved Tue on the walk-out) — flagged amber on both the Fri drop-off
-// leg and the Tue pickup leg via access_confidence/access_note (same fields
-// the UI already renders as an amber "~ access unconfirmed" tag/popup note).
-const TRUCK_STAGING_UNCONFIRMED_NOTE = 'UNCONFIRMED — ask Blue Ridge Ranger District: legal to leave a vehicle at Owltown Gap Fri–Mon? Is Bowers Rd public through the private section?';
+const FS107_NOTE = 'FS 107 (West Wolf Creek Road) is open to vehicles — owner, first-hand, 2026-10-05. Park clear of the roadway at the trail crossing; USFS allows roadside parking up to 14 days.';
+const RFT_UNCONFIRMED_NOTE = 'Roaring Fork Trail is mapped in OpenStreetMap (way 978262922, highway=path, surface=ground) but no trail report, sign or Forest Service listing was found: on-the-ground condition UNCONFIRMED. Ridge walk, 3,300-3,500 ft. If it is overgrown or gone, follow the ridge crest west by compass — same line.';
+const DROP_NOTE = 'OFF-TRAIL. No path: a straight line down the slope, about 0.4 mi and 550 ft of descent (steep, ~25%). Pick the line down the spur, not a hollow. Full packs: slow, poles out. The whole slope is Forest Service land.';
+const WATER_RISK_NOTE = 'Headwater reach, about 1 creek-mile below the source at ~2,900 ft. October is the driest month: flow UNCONFIRMED. If the creek is a trickle here, move down to LOWER (34.7935,-83.9811) or on toward 34.7958,-83.9792 — still Forest Service, still 300 m from the road end.';
 
 // ---------------------------------------------------------------------------
 // 5. Build each new backcountry day.
 // ---------------------------------------------------------------------------
-async function buildOct17Long() {
-  console.log('\n=== Oct 17 (long) — Vogel to WOLF-X ===');
+const WOLF_X_PT = { lat: WOLF_X[0], lng: WOLF_X[1], label: 'West Fork Wolf Creek / FS 107 crossing (WOLF-X) — truck' };
+const CAMP_U_END = { ref: 'camp_u', label: 'CAMP-U (upper East Fork Coosa Creek, road-free reach)', lat: round6(CAMP_U[0]), lng: round6(CAMP_U[1]) };
+const RFT_SOURCE = 'Real OSM way geometry, Roaring Fork Trail (way 978262922, highway=path, surface=ground; research/_coosa_osm.geojson, ODbL), from Calf Stomp Gap west along the ridge to the vertex nearest DROP-IN.';
+const CBT_SUN_SOURCE = 'Real OSM way geometry, merged Coosa Backcountry Trail chain, cut at the 3.37mi (WOLF-X) and 5.91mi (Calf Stomp Gap/FS108 junction) survey mile-markers; Calf Stomp Gap end agrees with the design doc\'s explicit coordinate (34.7862007,-83.9537995) within 35 m.';
+
+// Vogel -> WOLF-X by truck. OSRM may stop short of the crossing if it will not
+// route the FS 107 track; a short approximate stitch covers the rest.
+async function driveToWolfX(label, cacheKey) {
+  const d = await driveLeg(label, POINTS.vogel_basecamp, WOLF_X_PT, cacheKey, { access_note: FS107_NOTE });
+  const last = d.coords[d.coords.length - 1];
+  const gapM = dist(last, WOLF_X);
+  console.log(`    drive end -> WOLF-X gap: ${gapM.toFixed(0)} m`);
+  return { leg: d, gapM, last };
+}
+
+async function buildSatIn() {
+  console.log('\n=== Oct 17 — Vogel to WOLF-X by truck, trail + off-trail to CAMP-U ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp (Vogel)', 40));
-  legs.push(await walkLeg('Site P (Vogel walk-in) to Coosa Backcountry Trailhead', [[POINTS.vogel_basecamp.lat, POINTS.vogel_basecamp.lng], trail[0]], 'approximate',
-    `No mapped OSM path connects the Vogel walk-in site to the Coosa Backcountry Trailhead; straight line, ${Math.round(dist([POINTS.vogel_basecamp.lat, POINTS.vogel_basecamp.lng], trail[0]))} m (design doc: trailhead ~250 m from site P). OpenStreetMap contributors / gastateparks.org published GPS.`,
-    GROUP_FACTOR * PACK_FACTOR, 'oct17_siteP'));
-  legs.push(await walkLeg('Coosa Backcountry Trailhead to WOLF-X via Burnett Gap', trailSatSeg, 'exact',
-    'Real OSM way geometry, 4 name-variant Coosa Backcountry Trail segments chain-merged (research/_coosa_osm.geojson, ODbL), cut at the 1.02mi (Burnett Gap) and 3.37mi (West Fork Wolf Creek/FS107 crossing) survey mile-markers (research/coosa-geometry-survey.md Task 6); WOLF-X cut point is 23.3 m from the nearest West Fork Wolf Creek OSM waterway vertex, cross-checked.',
-    GROUP_FACTOR * PACK_FACTOR, 'oct17_trail'));
-  legs.push(panLeg({ label: 'Pan West Fork Wolf Creek at/just below the crossing', lat: WOLF_X[0], lng: WOLF_X[1], minutes: 180, gold: WOLF_X_GOLD }));
-  legs.push(mealLeg('Trail lunch on the Coosa Backcountry Trail', 30));
-  legs.push(campLeg('Set up camp at WOLF-X', 45));
+  const { leg: driveIn, gapM, last } = await driveToWolfX('Vogel to WOLF-X via FS 107 (truck 1)', 'vogel_wolfx');
+  legs.push(driveIn);
+  if (gapM > 100) legs.push(await walkLeg('Parking to the trail crossing', [last, WOLF_X], 'approximate', `OSRM stopped ${gapM.toFixed(0)} m short of the crossing (FS 107 track); straight line.`, GROUP_FACTOR, 'oct17_parkgap'));
+  legs.push(panLeg({ label: 'Pan West Fork Wolf Creek at the crossing (test pan, short)', lat: WOLF_X[0], lng: WOLF_X[1], minutes: 75, gold: WOLF_X_GOLD }));
+  legs.push(await walkLeg('WOLF-X to Calf Stomp Gap via Locust Stake Gap (Coosa Backcountry Trail)', trailSunSeg, 'exact', CBT_SUN_SOURCE, GROUP_FACTOR * PACK_FACTOR, 'oct17_cbt'));
+  legs.push(mealLeg('Trail lunch at Calf Stomp Gap', 30));
+  legs.push(await walkLeg('Calf Stomp Gap west along Roaring Fork Trail to the leave-trail point', rftToLeave, 'exact', RFT_SOURCE,
+    GROUP_FACTOR * PACK_FACTOR, 'oct17_rft', { access_confidence: 'unconfirmed', access_note: RFT_UNCONFIRMED_NOTE }));
+  legs.push(await walkLeg('Off-trail drop to the creek (DROP-IN), then down the creek to CAMP-U', dropLine, 'approximate',
+    `No mapped path. Straight line from the Roaring Fork Trail vertex nearest DROP-IN (${rftLeaveIdx.distM.toFixed(0)} m), then the OSM creek line to CAMP-U. ${DROP_NOTE}`,
+    GROUP_FACTOR * PACK_FACTOR * 0.6, 'oct17_drop', { note: DROP_NOTE }));
+  legs.push(campLeg('Set up camp at CAMP-U', 45));
+  legs.push(panLeg({ label: 'Pan at CAMP-U (first look at the bed)', lat: CAMP_U[0], lng: CAMP_U[1], minutes: 60, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
   legs.push(mealLeg('Dinner at camp', 60));
   return {
-    day: 3, date: '2026-10-17', title: 'Vogel to West Fork Wolf Creek (Coosa Backcountry Trail)', optional: false,
-    start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '08:00' },
-    end: { ref: 'wolf_x', label: 'West Fork Wolf Creek / FS 107 crossing (WOLF-X) — camp', lat: round6(WOLF_X[0]), lng: round6(WOLF_X[1]) },
-    note: 'Truck 2 was staged at Owltown Gap Friday evening (see the drive-leg pair appended to Oct 16) so no return hike is needed on Mon Oct 19.',
+    day: 3, date: '2026-10-17', title: 'Truck to WOLF-X, trail over Calf Stomp Gap, off-trail down to upper East Fork Coosa Creek', optional: false,
+    start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '07:30' },
+    end: CAMP_U_END,
+    note: 'One truck. It stays at the FS 107 crossing (WOLF-X) until Monday; the route comes back out the same way. Deer season opens today: blaze orange on everyone. The last leg is off-trail and steep — see its note.',
     legs,
   };
 }
 
-async function buildOct18Long() {
-  console.log('\n=== Oct 18 (long) — WOLF-X to CAMP-C ===');
+async function buildSunLayover() {
+  console.log('\n=== Oct 18 — layover at CAMP-U, pan the road-free reach ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp', 40));
-  legs.push(campLeg('Break camp at WOLF-X, pack up', 45));
-  legs.push(await walkLeg('WOLF-X to Calf Stomp Gap via Locust Stake Gap', trailSunSeg, 'exact',
-    'Real OSM way geometry, same merged Coosa Backcountry Trail chain, cut at the 4.71mi (Locust Stake Gap) and 5.91mi (Calf Stomp Gap/FS108 junction) survey mile-markers; Calf Stomp Gap end agrees with the design doc\'s explicit coordinate (34.7862007,-83.9537995) within 35 m.',
-    GROUP_FACTOR * PACK_FACTOR, 'oct18_trail'));
-  legs.push(await walkLeg('Calf Stomp Gap to JUNCTION via FS 108 + Big Grassy Knob Road', calfStompToJunction, 'exact',
-    `Real OSM way geometry: Calf Stomp Road/FS108 (way, ${calfStompGapOnRoad.distM.toFixed(0)}m trail-to-road stitch) then Big Grassy Knob Road to the JUNCTION (0.3m from the design's JUNCTION coordinate). Routed along FS108 per the design doc's own instruction ("if the trail and the start of Big Grassy Knob Road are joined only via a stretch of FS108, route along FS108").`,
-    GROUP_FACTOR * PACK_FACTOR, 'oct18_fs108', { access_confidence: 'unconfirmed', access_note: ACCESS_UNCONFIRMED_NOTE }));
-  legs.push(panLeg({ label: 'Pan Roaring Fork confluence on the way', lat: ROARING_FORK[0], lng: ROARING_FORK[1], minutes: 90, gold: COOSA_GOLD, atMile: 0 }));
-  legs.push(mealLeg('Trail lunch near Roaring Fork', 30));
-  legs.push(await walkLeg('JUNCTION to on-road point nearest CAMP-C via Duncan Ridge Conn', junctionToCampC_onRoad, 'exact',
-    'Real OSM way geometry, Duncan Ridge Conn (research/_coosa_osm.geojson), from the JUNCTION (0.3m match) upstream, within 100m of East Fork Coosa Creek the whole way.',
-    GROUP_FACTOR * PACK_FACTOR, 'oct18_drc'));
-  legs.push(await walkLeg('On-road point to CAMP-C (creek-side camp, off-road)', [duncanRidgeConn[campCOnRoad.index], CAMP_C], 'approximate',
-    `No mapped OSM path leaves Duncan Ridge Conn for the actual Jones Branch/East Fork Coosa Creek confluence; straight line, ${campConnectorM.toFixed(0)} m. This is the one >30m straight-line stitch on the route — see build report.`,
-    GROUP_FACTOR * PACK_FACTOR, 'oct18_campconn'));
-  legs.push(panLeg({ label: 'Pan at CAMP-C (Jones Branch confluence)', lat: CAMP_C[0], lng: CAMP_C[1], minutes: 90, gold: COOSA_GOLD }));
-  legs.push(campLeg('Set up camp at CAMP-C', 45));
+  legs.push(await walkLeg('CAMP-U up the creek to DROP-IN (daypack)', campToDropIn, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct18_up'));
+  legs.push(panLeg({ label: 'Pan the upper reach at DROP-IN (bed of the creek only)', lat: DROP_IN[0], lng: DROP_IN[1], minutes: 150, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
+  legs.push(await walkLeg('DROP-IN back down to CAMP-U', campToDropIn.slice().reverse(), 'approximate', 'OSM creek line, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct18_down'));
+  legs.push(mealLeg('Lunch at camp', 40));
+  legs.push(await walkLeg('CAMP-U down the creek to LOWER (daypack)', campToLower, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct18_lower'));
+  legs.push(panLeg({ label: 'Pan the LOWER reach (flatter, inside of bends)', lat: LOWER_PAN[0], lng: LOWER_PAN[1], minutes: 150, gold: COOSA_GOLD,
+    note: 'Still 500 m from the road end at 34.79824,-83.97825. Below that point a road runs beside the creek — not the point of this trip — and private land starts at 34.80637,-83.95980.' }));
+  legs.push(await walkLeg('LOWER back up to CAMP-U', campToLower.slice().reverse(), 'approximate', 'OSM creek line, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct18_lower_back'));
   legs.push(mealLeg('Dinner at camp', 60));
   return {
-    day: 4, date: '2026-10-18', title: 'West Fork Wolf Creek to East Fork Coosa Creek (CAMP-C)', optional: false,
-    start: { ref: 'wolf_x', label: 'West Fork Wolf Creek / FS 107 crossing (WOLF-X)', lat: round6(WOLF_X[0]), lng: round6(WOLF_X[1]), time: '07:30' },
-    end: { ref: 'camp_c', label: 'CAMP-C (Jones Branch confluence, East Fork Coosa Creek)', lat: round6(CAMP_C[0]), lng: round6(CAMP_C[1]) },
+    day: 4, date: '2026-10-18', title: 'Layover: pan the road-free upper East Fork Coosa Creek', optional: false,
+    start: { ...CAMP_U_END, time: '08:00' },
+    end: CAMP_U_END,
+    note: 'No packs today. Two pan sessions, one up-creek and one down-creek from camp. Bulletin 19: up here the gold is in "the bed of the creek only" — bedrock cracks and the inside of bends.',
     legs,
   };
 }
 
-async function buildOct19Out() {
-  console.log('\n=== Oct 19 — CAMP-C out to Owltown Gap ===');
+async function buildMonOut() {
+  console.log('\n=== Oct 19 — CAMP-U back out to WOLF-X, drive to Vogel ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp', 40));
-  legs.push(campLeg('Break camp at CAMP-C, pack up', 45));
-  legs.push(await walkLeg('CAMP-C to on-road point (off-road connector)', [CAMP_C, duncanRidgeConn[campCOnRoad.index]], 'approximate',
-    `Straight-line, ${campConnectorM.toFixed(0)} m — same off-road stitch as Oct 18, reversed.`, GROUP_FACTOR * PACK_FACTOR, 'oct20_campconn'));
-  legs.push(await walkLeg('Duncan Ridge Conn to JUNCTION', junctionToCampC_onRoad.slice().reverse(), 'exact',
-    'Real OSM way geometry, Duncan Ridge Conn, reversed.', GROUP_FACTOR * PACK_FACTOR, 'oct20_drc'));
-  legs.push(await walkLeg('JUNCTION to BOUNDARY via Bowers Road', bowersRoad.slice(0, boundaryOnRoad.index + 1), 'exact',
-    'Real OSM way geometry, Bowers Road/FS298 (JUNCTION is 0.3m from the road start).', GROUP_FACTOR * PACK_FACTOR, 'oct20_bowers1', { access_confidence: 'unconfirmed', access_note: ACCESS_UNCONFIRMED_NOTE }));
-  legs.push(panLeg({
-    label: 'Pan at BOUNDARY (last public water)', lat: BOUNDARY[0], lng: BOUNDARY[1], minutes: 90, gold: COOSA_GOLD,
-    note: 'BOUNDARY pan stop: the point on Bowers Road nearest 34.802697,-83.960336 (35 m from creek, still FS; private begins 34.80637,-83.95980). Do not go below 34.80637,-83.95980.',
-  }));
-  legs.push(mealLeg('Trail lunch on the way out', 30));
-  legs.push(await walkLeg('BOUNDARY to Owltown Gap via Bowers Road', bowersRoad.slice(boundaryOnRoad.index), 'exact',
-    'Real OSM way geometry, Bowers Road/FS298, to Owltown Gap (0.3m from the road end).', GROUP_FACTOR * PACK_FACTOR, 'oct20_bowers2', { access_confidence: 'unconfirmed', access_note: ACCESS_UNCONFIRMED_NOTE }));
-  legs.push(await driveLeg('Owltown Gap to Vogel', POINTS.owltown_gap, POINTS.vogel_basecamp, 'owltown_vogel',
-    { access_confidence: 'unconfirmed', access_note: TRUCK_STAGING_UNCONFIRMED_NOTE }));
+  legs.push(campLeg('Break camp at CAMP-U, pack up', 45));
+  legs.push(await walkLeg('CAMP-U up to DROP-IN, then the off-trail climb back to Roaring Fork Trail', dropLine.slice().reverse(), 'approximate',
+    `Reverse of Saturday's drop: the creek line to DROP-IN, then a straight line up ~550 ft to the trail. ${DROP_NOTE}`,
+    GROUP_FACTOR * PACK_FACTOR * 0.6, 'oct19_climb', { note: DROP_NOTE }));
+  legs.push(await walkLeg('Roaring Fork Trail east to Calf Stomp Gap', rftToLeave.slice().reverse(), 'exact', RFT_SOURCE + ' Reversed.',
+    GROUP_FACTOR * PACK_FACTOR, 'oct19_rft', { access_confidence: 'unconfirmed', access_note: RFT_UNCONFIRMED_NOTE }));
+  legs.push(mealLeg('Trail lunch at Calf Stomp Gap', 30));
+  legs.push(await walkLeg('Calf Stomp Gap down to WOLF-X via Locust Stake Gap (Coosa Backcountry Trail)', trailSunSeg.slice().reverse(), 'exact', CBT_SUN_SOURCE + ' Reversed.', GROUP_FACTOR * PACK_FACTOR, 'oct19_cbt'));
+  const back = await driveLeg('WOLF-X to Vogel via FS 107 (truck 1)', WOLF_X_PT, POINTS.vogel_basecamp, 'wolfx_vogel', { access_note: FS107_NOTE });
+  const gapM = dist(WOLF_X, back.coords[0]);
+  if (gapM > 100) legs.push(await walkLeg('Trail crossing to the truck', [WOLF_X, back.coords[0]], 'approximate', `OSRM starts ${gapM.toFixed(0)} m from the crossing (FS 107 track); straight line.`, GROUP_FACTOR, 'oct19_parkgap'));
+  legs.push(back);
   legs.push(mealLeg('Dinner at camp (Vogel)', 60));
   return {
-    day: 5, date: '2026-10-19', title: 'CAMP-C out to Owltown Gap, drive to Vogel', optional: false,
-    note: 'Truck 2 was staged at Owltown Gap Friday evening (Oct 16) and is picked up here for the drive back to Vogel — see the amber access flag on that leg. Hot dinner and showers at Vogel tonight.',
-    start: { ref: 'camp_c', label: 'CAMP-C (Jones Branch confluence, East Fork Coosa Creek)', lat: round6(CAMP_C[0]), lng: round6(CAMP_C[1]), time: '07:00' },
+    day: 5, date: '2026-10-19', title: 'CAMP-U back out over Calf Stomp Gap to WOLF-X, drive to Vogel', optional: false,
+    note: 'Same way out: climb to the ridge, Roaring Fork Trail, then the Coosa Backcountry Trail down to the truck. Hot dinner and showers at Vogel tonight.',
+    start: { ...CAMP_U_END, time: '07:30' },
     end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
     legs,
   };
 }
+
 
 // ---------------------------------------------------------------------------
 // 6. Load existing days.json (already built by _build_days.mjs) for the
@@ -458,17 +473,10 @@ function buildOct20Rest() {
   };
 }
 
-async function buildDay2WithShuttle() {
+async function buildDay2() {
   const day2 = findDay(2);
-  const shuttleOut = await driveLeg('Fri evening: Vogel to Owltown Gap (stage truck 2)', POINTS.vogel_basecamp, POINTS.owltown_gap, 'shuttle_out',
-    { access_confidence: 'unconfirmed', access_note: TRUCK_STAGING_UNCONFIRMED_NOTE });
-  const shuttleBack = await driveLeg('Fri evening: Owltown Gap back to Vogel', POINTS.owltown_gap, POINTS.vogel_basecamp, 'shuttle_back');
-  // Stage the truck right after the group is back at Vogel from Yahoola Creek
-  // (still daylight), and eat dinner after — not after dinner, which would
-  // push the return drive close to dark. day2's last leg is the "Dinner at
-  // camp" meal leg (see _build_days.mjs); splice the shuttle in just before it.
-  const dinnerIdx = day2.legs.length && day2.legs[day2.legs.length - 1].type === 'meal' ? day2.legs.length - 1 : day2.legs.length;
-  day2.legs.splice(dinnerIdx, 0, shuttleOut, shuttleBack);
+  // 2026-10-05: no truck shuttle any more — the hike is an out-and-back from
+  // WOLF-X, so Friday evening is free.
   // Owner's call 2026-10-02: mine tour + river panning only, no museum. Lunch
   // stays on the square (the museum's coordinates), so the drives still chain.
   day2.legs = day2.legs.filter(l => !(l.type === 'tour' && l.at_ref === 'dahlonega-gold-museum'));
@@ -477,7 +485,7 @@ async function buildDay2WithShuttle() {
     if (l.label === 'Gold Museum to Yahoola Creek Park') l.label = 'Downtown Dahlonega to Yahoola Creek Park';
   }
   day2.title = 'Dahlonega: mine tour, lunch, pan Yahoola Creek';
-  day2.note = 'Fri evening: stage truck 2 at Owltown Gap for the Sat backcountry departure (two trucks out, one back; ~18 min each way per OSRM), then dinner at camp.';
+  day2.note = 'Evening free at Vogel. Pack the hike packs tonight: Sat leaves at 07:30.';
   return day2;
 }
 
@@ -485,10 +493,10 @@ async function buildDay2WithShuttle() {
 // 7. Assemble the single route + chain check.
 // ---------------------------------------------------------------------------
 const day1 = await buildDay1Stars();
-const day2 = await buildDay2WithShuttle();
-const oct17 = await buildOct17Long();
-const oct18 = await buildOct18Long();
-const oct19 = await buildOct19Out();
+const day2 = await buildDay2();
+const oct17 = await buildSatIn();
+const oct18 = await buildSunLayover();
+const oct19 = await buildMonOut();
 const oct20 = buildOct20Rest();
 
 const routeDays = [day1, day2, oct17, oct18, oct19, oct20, day7];
@@ -519,7 +527,7 @@ const { variants: _droppedVariants, ...existingRest } = existing;
 const daysJson = { ...existingRest, days: routeDays };
 daysJson.assumptions = {
   ...existing.assumptions,
-  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-02): day 1 = set camp + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, + Fri truck shuttle), days 3-5 = the East Fork Coosa Creek hike (research/backcountry-route-design.md "long" option without the layover), day 6 = rest day at Vogel, day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
+  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-05): day 1 = set camp + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle), days 3-5 = truck to WOLF-X, Coosa Backcountry Trail to Calf Stomp Gap, Roaring Fork Trail, off-trail drop to the road-free upper East Fork Coosa Creek (CAMP-U), layover, same way out; day 6 = rest day at Vogel, day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
 };
 
 fs.writeFileSync(daysPath, JSON.stringify(daysJson, null, 2));

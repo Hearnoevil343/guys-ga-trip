@@ -41,7 +41,7 @@ snacks. Plan on 1.5–2 lb per person per day: **5–6 lb each**, not the 3 lb i
 | Dinner x2 | 1 Mountain House 2-serving pouch | 10 pouches [12] | 12 pouches | yes. Nathan owns some: count his first |
 | Snacks x3 days | 2 bars, 3 oz trail mix, 1.5 oz jerky | 30 bars, 45 oz mix, 8 oz jerky [36, 54, 9] | Clif 2 x 12; Kirkland 4 lb; Jack Link's 3-pack | **bars short: buy 3 boxes** |
 
-Water: filter at every camp (creek at WOLF-X and CAMP-C), Aquatabs backup. Each person carries 1–2 L.
+Water: filter at camp (the creek at CAMP-U; headwater, October flow unconfirmed — fill up at WOLF-X before the climb, 2 L each), Aquatabs backup.
 Pack the food by day in gallon zip bags; everything with a smell goes in the Ursack/hang at night.
 
 ## 3. Base camp food — 6 camp meals + 2 trail lunches
@@ -69,7 +69,7 @@ one, trekking poles recommended for the Calf Stomp Gap descent.
 ## 5. Open before Oct 15
 
 - Ranger call (CALLS.md #1): panning/camping on East Fork Coosa Creek and West Fork Wolf Creek,
-  Bowers Road public access, truck 2 at Owltown Gap Fri–Mon, FS 107/108 gates.
+  Roaring Fork Trail condition, truck at the FS 107 crossing Sat–Mon.
 - Headcount is 5 (confirmed 2026-10-02); picker, buy list and hub now split /5 (done 2026-10-02).
 - Collect Hilton's and Jarred's lists, re-run `python tools/build_roster.py`.
 - Re-check every buy link within a week of the trip (dead links recurred three times).

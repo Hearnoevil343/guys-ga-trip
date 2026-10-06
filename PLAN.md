@@ -18,16 +18,18 @@
 | Day | Plan | Pan? |
 |---|---|---|
 | Thu Oct 15 | Arrive 1 PM, set camp, rest. Optional short walk to Trahlyta Falls inside Vogel. After dinner: stargazing at Brasstown Bald (~27 min). | — |
-| Fri Oct 16 | Dahlonega: Consolidated Gold Mine tour, lunch on the square, pan Yahoola Creek Park. Evening: stage truck 2 at Owltown Gap. | Yahoola Creek |
-| Sat Oct 17 | **Hike day 1.** Site P → Coosa Backcountry Trail → West Fork Wolf Creek, 3.53 mi. Camp at the FS 107 crossing. Deer season opens: blaze orange. | WOLF-X, 3 h |
-| Sun Oct 18 | **Hike day 2.** Over Calf Stomp Gap, down Big Grassy Knob Rd to East Fork Coosa Creek, 5.24 mi, +1,668 ft. Camp at Jones Branch confluence. | Roaring Fork 1.5 h, camp 1.5 h |
-| Mon Oct 19 | **Hike day 3.** Out Bowers Road to Owltown Gap, 2.29 mi. Truck 2 → Vogel, 18 min. Hot dinner, showers. | Boundary stop 1.5 h |
+| Fri Oct 16 | Dahlonega: Consolidated Gold Mine tour, lunch on the square, pan Yahoola Creek Park. Evening free; pack the hike packs. | Yahoola Creek |
+| Sat Oct 17 | **Hike day 1.** Truck 1 to WOLF-X (FS 107, 4.2 mi). Short test pan. Coosa Backcountry Trail up over Calf Stomp Gap (2.5 mi, +1,375 ft), Roaring Fork Trail west along the ridge (1.8 mi), then off-trail down 550 ft to the road-free upper East Fork Coosa Creek: CAMP-U. 4.8 mi. Deer season opens: blaze orange. | WOLF-X 1.25 h, CAMP-U 1 h |
+| Sun Oct 18 | **Layover at CAMP-U.** Daypacks. Pan the upper reach (DROP-IN) and the lower reach (LOWER), both still 500 m+ from any road. | 5 h |
+| Mon Oct 19 | **Hike day 3.** Same way out: climb to Roaring Fork Trail (+617 ft), ridge east, trail down to WOLF-X, 4.8 mi. Truck 1 → Vogel, 11 min. Hot dinner, showers. | — |
 | Tue Oct 20 | **Rest day** at Vogel. Optional: Helton Creek Falls (13 min, short trail). | — |
 | Wed Oct 21 | Break camp, out by noon. | — |
 
 ## Backcountry (decided 2026-09-21; source: research\backcountry-route-design.md)
 Centerpiece: East Fork Coosa Creek (Union Co.). Gold record: Georgia Geological Survey Bulletin 19 (1909) pp. 237-239 and USGS MRDS Coosa Creek Placer Mine (past producer). Pan only on National Forest reaches, upstream of 34.80637, -83.95980. Nothing is ranger-confirmed — every creek stop is amber; calls in CALLS.md #1.
-- The route is the old "long" option without its layover. The old "short" option (Owltown Gap in and back out, 1 night) and Cooper Creek are dropped from the plan; "short" stays the bad-weather fallback (design doc). The map's variant selector/Compare view is gone — days.json has one route.
+- **Rerouted 2026-10-05 (Jordan):** no road walking, no camp a vehicle can reach. The old route (WOLF-X camp, FS 108 / Big Grassy Knob Rd / Duncan Ridge Conn / Bowers Road, CAMP-C at Jones Branch, truck 2 at Owltown Gap) is gone: every one of those camps and pan stops sat beside a drivable road. New: one truck at WOLF-X (FS 107 is open — Jordan, first-hand, 2026-10-05), trail to Calf Stomp Gap, **Roaring Fork Trail** (OSM way 978262922, path, ground; condition unconfirmed) west along the ridge, then a 0.4 mi off-trail drop to **CAMP-U** (34.79056, -83.98457, ~2,875 ft), on the only reach of the creek with no road beside it (above 34.79824, -83.97825). Nearest road point ~670 m away across a 500 ft slope. Out the same way. Risks: the off-trail drop is steep (25%); the creek is a headwater and October flow is unconfirmed (fallback: move down toward 34.7958, -83.9792).
+- **Private land is now on the map** (purple tint, on by default): real USFS ownership polygons (`map/data/private.geojson`, EDW BasicOwnership, 2026-10-05). `build-map.mjs` fails if any route point lands on it. The old "USFS land ownership" tile layer drew the proclamation boundary and hid private inholdings; it is gone.
+- Cooper Creek and the old "short" option are dropped. The map's variant selector/Compare view is gone — days.json has one route.
 - Hike food: Sat lunch through Mon lunch carried (2 breakfasts, 3 lunches, 2 dinners). Master gear + food list: MASTER_LIST.md.
 - Noontootla / Three Forks was dropped 2026-09-21 (gold is downstream on mostly private land; FS-58 order gated; 111 min drive).
 
@@ -51,7 +53,7 @@ Centerpiece: East Fork Coosa Creek (Union Co.). Gold record: Georgia Geological 
 ## Open (2026-09-21, 2nd pass)
 - Amazon-knockoff options with real (non-Amazon-hosted) user reviews — Jordan floated this,
   said prices can be refined later; not done this pass.
-- Calls still outstanding (Vogel, Blue Ridge RD re: East Fork Coosa Creek / West Fork Wolf Creek panning + road access, GA DNR,
+- Calls still outstanding (Vogel, Blue Ridge RD re: East Fork Coosa Creek / West Fork Wolf Creek panning + Roaring Fork Trail condition, GA DNR,
   Consolidated, Lumpkin Co, LDMA) — see CALLS.md. Overnight route not yet ranger-confirmed legal.
 
 

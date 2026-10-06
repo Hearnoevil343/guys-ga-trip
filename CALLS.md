@@ -10,13 +10,13 @@ see `research\backcountry-route-design.md`. Ask these first:**
 - Is hand panning OK on the **East Fork of Coosa Creek** above the private boundary
   (upstream of ~34.8064, -83.9598) and on **West Fork Wolf Creek**? Any local exception
   to the general rule, including inside **Coosa Bald National Scenic Area**?
-- Dispersed camping beside the East Fork near the Jones Branch confluence, and at the
-  Coosa Backcountry Trail crossing of West Fork Wolf Creek — any order or setback?
-- Is **Bowers Road (FS 298)** open to the public across the private stretch to
-  **Owltown Gap**, and can a truck be left there Fri Oct 16 evening through
-  Mon Oct 19 (3 nights, not a single overnight)?
-- Are **FS 107, FS 108 (Calf Stomp Rd) and Big Grassy Knob Road** gated or open to
-  vehicles in October?
+- Dispersed camping on the upper East Fork (headwater reach above 34.798, -83.978,
+  inside Coosa Bald National Scenic Area) — any order or setback?
+- Is the **Roaring Fork Trail** (ridge path from Calf Stomp Gap west toward FS 39,
+  OSM way 978262922) still maintained / passable?
+- Can a truck be left at the **Coosa Backcountry Trail crossing of FS 107** Sat
+  Oct 17 morning through Mon Oct 19 afternoon (2 nights)? (FS 107 itself is open —
+  Jordan, first-hand, 2026-10-05.)
 - Which WMA covers Coosa Creek / Coosa Bald, and are there hunts Oct 17-19?
 - ~~Is panning actually prohibited in designated Wilderness?~~ **ANSWERED — confirmed by Jordan, 2026-09-21: yes, panning is banned in designated Wilderness.** No official USFS page states this (still true), but it no longer needs a ranger call.
 

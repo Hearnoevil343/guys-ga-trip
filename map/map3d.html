@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>GA Gold Trip 3D Map</title>
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
+<style>
+  :root { --bg:#f6f4ef; --fg:#222; --muted:#666; --line:#d9d4c7; --accent:#e6550d; --chip:#fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1d1f1c; --fg:#eee; --muted:#aaa; --line:#3a3d37; --chip:#2a2d29; } }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--fg); font:14px/1.35 system-ui, sans-serif; }
+  body { display:flex; flex-direction:column; }
+  #bar { display:flex; flex-wrap:wrap; gap:6px; align-items:center; padding:6px 8px; border-bottom:1px solid var(--line); }
+  #bar select, #bar button { font:inherit; padding:6px 9px; border:1px solid var(--line); border-radius:6px; background:var(--chip); color:var(--fg); }
+  #bar button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  #status { margin-left:auto; font-size:12px; color:var(--muted); }
+  #map { flex:1; min-height:0; }
+  #panel { max-height:40vh; overflow:auto; border-top:1px solid var(--line); padding:8px 12px; display:none; }
+  #panel.open { display:block; }
+  #panel h3 { margin:0 0 4px; font-size:15px; display:flex; justify-content:space-between; gap:8px; }
+  #panel h3 button { font:inherit; border:0; background:none; color:var(--muted); font-size:18px; line-height:1; }
+  #panel .row { margin:3px 0; } #panel .lbl { font-weight:600; }
+  #panel ol { margin:4px 0; padding-left:22px; } #panel li { margin:2px 0; }
+  #panel .t { color:var(--muted); font-size:12px; }
+  .warn { background:#fff3cd; color:#7a5b00; border-radius:4px; padding:4px 6px; font-size:12px; margin-top:4px; }
+</style>
+</head>
+<body>
+<div id="bar">
+  <select id="day" aria-label="Day"><option value="0">All days</option></select>
+  <button id="base">Satellite</button>
+  <button id="tilt" class="on">3D</button>
+  <button id="me">Where am I</button>
+  <a href="trip-map.html" style="color:inherit;font-size:13px">2D detail map</a>
+  <span id="status"></span>
+</div>
+<div id="map"></div>
+<div id="panel"></div>
+<script src="vendor/maplibre-gl.js"></script>
+<script src="map3d-data.js"></script>
+<script src="map3d.js"></script>
+</body>
+</html>

@@ -26,3 +26,4 @@ map/screenshot_backcountry.png
 # research/*.md summaries instead.
 research/_v_*.html
 research/_b19.html
+map/tiles/

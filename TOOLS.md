@@ -445,3 +445,6 @@ drew the proclamation boundary, which hides private inholdings.
 
 `_build_backcountry.mjs` (2026-10-05 route): Roaring Fork Trail comes from `_coosa_osm.geojson`
 (OSM way 978262922). CAMP-U / DROP-IN / LOWER coordinates are constants at the top of section 2.
+
+## map/fetch-tiles.mjs, map/build-map3d.mjs, map/map3d.html (2026-10-06)
+3D map (MapLibre, vendored in `map/vendor/`). `node map/fetch-tiles.mjs` downloads the offline tiles for the route area into `map/tiles/` (gitignored, ~140 MB; USGS Topo, USGS Imagery, AWS Terrarium only, because other tile servers forbid bulk copies). `node map/build-map3d.mjs` (after `_build_days.mjs`) writes `map/map3d-data.js`. `map3d.html` uses `tiles/` when `tiles/manifest.json` is present (the Android app), else the online sources. Known: tile URLs must keep literal `{z}` braces; terrain camera can go under ridges at high zoom.

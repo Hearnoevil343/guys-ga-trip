@@ -315,14 +315,14 @@ await branch({
   water: 'West Fork Wolf Creek beside the road for the first stretch.',
   note: 'FS 107 is open to vehicles (owner, first-hand, 2026-10-05), so truck 1 sits here all weekend — this is a walk only if the truck is gone.',
 });
-// National Forest from the source down to 34.79131, -83.91724 (design doc).
-const WF_FS_LIMIT = [34.79131, -83.91724];
+// National Forest from the source down to 34.7906, -83.9190 (design doc).
+const WF_FS_LIMIT = [34.7906, -83.9190];
 await branch({
   node: 'wolf_x', kind: 'side creek', label: 'West Fork Wolf Creek, the National Forest reach',
   line: sliceBetween(wfWolf, wfWolf[0], WF_FS_LIMIT), mode: 'daypack',
-  ends_at: 'the Forest Service boundary at 34.79131, -83.91724 — do not pan below it',
+  ends_at: 'the Forest Service boundary at 34.7906, -83.9190 — do not pan below it',
   water: 'the creek itself.',
-  note: 'National Forest from the source down to 34.79131, -83.91724. No gold record: this is a geological-inference test pan. Trout water (DNR stocks it April–Labor Day), so fishing rules apply.',
+  note: 'National Forest from the source down to 34.7906, -83.9190. No gold record: this is a geological-inference test pan. Trout water (DNR stocks it April–Labor Day), so fishing rules apply.',
 });
 await branch({
   node: 'wolf_x', kind: 'the plan', label: 'Coosa Backcountry Trail up over Locust Stake Gap to Calf Stomp Gap',

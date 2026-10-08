@@ -1,0 +1,17 @@
+{
+ "schema": "sun-times-v1",
+ "about": "Sunrise and sunset for the trip week at Vogel State Park, local time (EDT). first_light = civil twilight begin, dark = civil twilight end. Built for the hub's day-by-day timeline (ISSUES #34).",
+ "for": "Vogel State Park, 34.7659 -83.9254",
+ "tz": "America/New_York",
+ "source": "https://api.sunrise-sunset.org/json?lat=34.7659&lng=-83.9254&date=<date>&formatted=0&tzid=America/New_York (NOAA solar calculations)",
+ "fetched": "2026-10-08",
+ "days": [
+  { "date": "2026-10-15", "first_light": "07:16", "sunrise": "07:40", "sunset": "19:02", "dark": "19:26" },
+  { "date": "2026-10-16", "first_light": "07:17", "sunrise": "07:41", "sunset": "19:01", "dark": "19:25" },
+  { "date": "2026-10-17", "first_light": "07:17", "sunrise": "07:42", "sunset": "18:59", "dark": "19:24" },
+  { "date": "2026-10-18", "first_light": "07:18", "sunrise": "07:42", "sunset": "18:58", "dark": "19:22" },
+  { "date": "2026-10-19", "first_light": "07:19", "sunrise": "07:43", "sunset": "18:57", "dark": "19:21" },
+  { "date": "2026-10-20", "first_light": "07:20", "sunrise": "07:44", "sunset": "18:56", "dark": "19:20" },
+  { "date": "2026-10-21", "first_light": "07:21", "sunrise": "07:45", "sunset": "18:55", "dark": "19:19" }
+ ]
+}

@@ -495,3 +495,36 @@ has what, Files.
 **JDK 21 is required** — the PATH Java (1.8.0_231) fails with "Run this build using a Java 11 or
 newer JVM", and `E:/dev-tools/jdk17` fails with "invalid source release: 21" (ISSUES #45).
 Output: `app/android/app/build/outputs/apk/debug/app-debug.apk`.
+
+## app/check-apk-sync.mjs (new 2026-10-08)
+`node app/check-apk-sync.mjs [path-to.apk]` — **run it before every release** (ISSUES #46).
+Reads the APK as a zip (its own central-directory parser plus `node:zlib`, no dependencies) and
+compares what it carries under `assets/public/` with the repo copies of `index.html`,
+`RUNDOWN.html`, `gear-checkin.html`, `map/map3d-data.js`, `map/map3d.js` and `map/trip.gpx`.
+Line endings are normalised; anything else differing exits 1, names the file, prints the first
+differing line from each side and the rebuild commands. Default APK path is the debug build above.
+
+## tools/build_hub.py — Trip card tab (2026-10-08, third pass)
+`trip_card_html()` builds the **Trip card** tab: the emergency card (ISSUES #32), the day-by-day
+timeline (#34), weather/fire/roads (#35), fees (#36), water per camp (#39), base-camp meals (#40)
+and the Friday checklist (#43).
+- The timeline runs each day's leg minutes from `map/data/days.json` forward from the day's start
+  time, with sunrise/sunset from `research/sun-times.json`.
+- **`ANCHORS` matters:** chaining legs back to back put Thursday's dinner at 4:51 PM and the
+  stargazing before sunset. `ANCHORS` holds the clock times RUNDOWN commits to (Thursday dinner
+  6:50 PM, the Brasstown drive 7:50 PM, Friday's 10 AM mine tour), keyed by `(date, label prefix)`;
+  a held-back leg draws the gap as its own "slack" row. **If a leg label changes in days.json, its
+  anchor stops matching silently** — check the Thursday evening times after any route rebuild.
+- `PLACES`, `EMERGENCY`, `FEES`, `MEALS`, `WATER` and `FRIDAY` are literal tables in the file, each
+  carrying its source. Coordinates came from `map/data/playground-area.json`.
+- Deep links (#24): `rundown_sections()` reads the `## N.` headings out of RUNDOWN.md so the chip
+  row and the Start links cannot drift from the `sN` anchors `build_rundown.py` writes. The router
+  hash is now `#t/<tab>` or `#t/<tab>/<anchor>`.
+
+## research/conditions-2026-10-08.md, research/sun-times.json (new 2026-10-08)
+The PLAN step 4 re-check, with verbatim quotes and the date on every line: fire orders, every road
+closure on the forest alerts page and whether it touches us, the NWS grid (FFC 64,134) and what the
+forecast did and did not cover on Oct 8, sunrise/sunset for all seven days, every gate fee, and a
+numbered list of what is still unconfirmed. **Re-run it on Oct 13 or 14** — a week-old road or fire
+line is not good enough to drive on. `sun-times.json` is the machine-readable sun table the hub's
+timeline reads; times are truncated to the minute, not rounded.

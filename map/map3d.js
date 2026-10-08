@@ -42,11 +42,31 @@ function legFeatures() {
 }
 const pointFC = arr => ({ type: 'FeatureCollection', features: arr.map((p, i) => ({ type: 'Feature', properties: { i, tier: p.tier || '' }, geometry: { type: 'Point', coordinates: [p.lng, p.lat] } })) });
 
-function allBounds(day) {
+// Day numbers in a selection: 'hike' = the backcountry days, 0 = every day.
+// A hike day pans and walks and has no tour booked (Sat-Mon, days 3-5).
+function hikeDayNums() {
+  return T.days.filter(d => d.legs.some(l => l.type === 'pan') && d.legs.some(l => l.type === 'walk')
+    && !d.legs.some(l => l.type === 'tour')).map(d => d.day);
+}
+function dayNums(sel) {
+  if (sel === 'hike') return hikeDayNums();
+  return sel ? [+sel] : T.days.map(d => d.day);
+}
+
+function allBounds(sel) {
+  const nums = dayNums(sel);
+  // On the hike days the shuttle drives run out to Vogel and back, so they are
+  // left out: the opening view is the ground the group walks (ISSUES #26).
+  const skipDrives = sel === 'hike';
   const b = new maplibregl.LngLatBounds();
-  for (const d of T.days) if (!day || d.day === day) {
-    b.extend([d.start.lng, d.start.lat]); b.extend([d.end.lng, d.end.lat]);
-    for (const l of d.legs) { if (l.coords) l.coords.forEach(c => b.extend(c)); if (l.at) b.extend([l.at.lng, l.at.lat]); }
+  for (const d of T.days) if (nums.includes(d.day)) {
+    if (!skipDrives) { b.extend([d.start.lng, d.start.lat]); b.extend([d.end.lng, d.end.lat]); }
+    else b.extend([d.end.lng, d.end.lat]);
+    for (const l of d.legs) {
+      if (skipDrives && l.type === 'drive') continue;
+      if (l.coords) l.coords.forEach(c => b.extend(c));
+      if (l.at) b.extend([l.at.lng, l.at.lat]);
+    }
   }
   return b;
 }
@@ -79,10 +99,12 @@ function showSpot(s) {
 // ---- markers (HTML, so no web fonts needed)
 let stopMarkers = [];
 function el(html, css) { const e = document.createElement('div'); e.innerHTML = html; e.style.cssText = css; return e; }
-function drawStops(day) {
+function drawStops(sel) {
+  const nums = dayNums(sel);
+  const day = (typeof sel === 'number' && sel) ? sel : 0; // numbered stop pins: one day only
   stopMarkers.forEach(m => m.remove()); stopMarkers = [];
   const camps = new Map();
-  for (const d of T.days) if (!day || d.day === day) camps.set(d.end.label, d.end);
+  for (const d of T.days) if (nums.includes(d.day)) camps.set(d.end.label, d.end);
   const pin = 'font:600 12px system-ui;border-radius:12px;padding:2px 6px;border:2px solid #fff;box-shadow:0 1px 3px #0006;cursor:pointer;';
   for (const c of camps.values()) {
     const m = new maplibregl.Marker({ element: el('⛺', pin + 'background:#fff;font-size:15px;') }).setLngLat([c.lng, c.lat]).addTo(map);
@@ -100,15 +122,20 @@ function drawStops(day) {
   });
 }
 
-let map, selDay = 0;
+let map, selDay = 'hike';
 window.pickDay = function (day) {
-  selDay = +day; $('day').value = String(selDay);
-  const f = selDay ? ['==', ['get', 'day'], selDay] : null;
+  selDay = day === 'hike' ? 'hike' : +day;
+  $('day').value = String(selDay);
+  const one = typeof selDay === 'number' && selDay;
+  const nums = dayNums(selDay);
+  const f = selDay === 0 ? null
+    : one ? ['==', ['get', 'day'], one]
+    : ['match', ['get', 'day'], nums, true, false];
   map.setFilter('legs-casing', f); map.setFilter('legs', f);
-  map.setPaintProperty('legs', 'line-color', selDay ? ['get', 'color'] : ['get', 'daycolor']);
+  map.setPaintProperty('legs', 'line-color', one ? ['get', 'color'] : ['get', 'daycolor']);
   drawStops(selDay);
   map.fitBounds(allBounds(selDay), { padding: 40, maxZoom: map.getTerrain() ? 13.5 : 15, pitch: map.getPitch(), duration: 600 });
-  if (selDay) showDay(T.days.find(d => d.day === selDay)); else $('panel').classList.remove('open');
+  if (one) showDay(T.days.find(d => d.day === one)); else $('panel').classList.remove('open');
 };
 
 // ---- GPS: the phone's own GPS chip, works with no cell signal
@@ -169,13 +196,16 @@ function setMe(ll, acc) {
       },
       layers,
     },
-    bounds: allBounds(0), fitBoundsOptions: { padding: 30 },
-    maxPitch: 75, attributionControl: { compact: true },
+    bounds: allBounds('hike'), fitBoundsOptions: { padding: 30, maxZoom: 13.5 },
+    // No control floats over the map: the credits live in the bar (ISSUES #25).
+    maxPitch: 75, attributionControl: false,
   });
   map.on('load', () => {
     map.setTerrain({ source: 'dem', exaggeration: 1.2 });
     map.easeTo({ pitch: 55, duration: 0 });
-    drawStops(0);
+    drawStops('hike');
+    const f = ['match', ['get', 'day'], hikeDayNums(), true, false];
+    map.setFilter('legs-casing', f); map.setFilter('legs', f);
   });
   map.on('click', 'legs', e => { const p = e.features[0].properties; showLeg(p.day, p.i); });
   map.on('click', 'spots', e => showSpot(T.spots[e.features[0].properties.i]));
@@ -186,6 +216,7 @@ function setMe(ll, acc) {
 
   $('status').textContent = man ? 'Offline map saved in app' : 'Online map';
   for (const d of T.days) $('day').add(new Option(`Day ${d.day} · ${d.date.slice(5)}`, d.day));
+  $('day').value = 'hike';
   $('day').onchange = e => pickDay(e.target.value);
   $('base').onclick = () => {
     const sat = $('base').classList.toggle('on');

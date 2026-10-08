@@ -560,7 +560,7 @@ No permit needed for hand panning on National Forest land (36 CFR 228.4). A grou
 
 <details class="who"><summary>Sat Oct 17 &mdash; West Fork Wolf Creek &middot; test pan, 2 h</summary>
 <ul>
-<li><b>Where:</b> at and just below the FS 107 crossing (WOLF-X), where truck 1 parks. National Forest from the source down to 34.79131, -83.91724. Do not pan below that point. This is <b>not</b> a camp &mdash; night 1 is up the trail at Calf Stump Branch.</li>
+<li><b>Where:</b> at and just below the FS 107 crossing (WOLF-X), where truck 1 parks. National Forest from the source down to 34.7906, -83.9190. Do not pan below that point. This is <b>not</b> a camp &mdash; night 1 is up the trail at Calf Stump Branch.</li>
 <li><b>Also:</b> last water a vehicle can reach. Fill 2 L each here &mdash; there is nothing on the 1,375 ft climb to Calf Stomp Gap.</li>
 <li><b>Gold record:</b> none. It is a guess from geology: the creek sits between the Coosa Creek placers and the old placers near Crumley Creek. Finding nothing here is a normal result.</li>
 <li><b>Expect:</b> a steep creek with bedrock. Little gravel, so the gold (if any) is in cracks, not in bars.</li>
@@ -961,7 +961,398 @@ if not total:
             "Re-run tools/build_buy_list.py, or fix this parser -- do not ship a blank 'Gear:' card (ISSUES #5)."
         )
 
+# ---------------------------------------------------------------------------
+# Trip card tab: the things you need on the day, not the story.
+# ISSUES #32 (emergency card), #34 (timeline with drive times and sun),
+# #35 (forecast + the early-Oct re-check), #36 (fees), #39 (water per camp),
+# #40 (base-camp meals), #43 (Friday checklist).
+# ---------------------------------------------------------------------------
+import json as _json
+
+# Every coordinate a rescue call might need, in the order you would walk them.
+# Source: map/data/playground-area.json nodes (built from days.json), 2026-10-08.
+PLACES = [
+    ("Vogel State Park, walk-in site P (base camp)", 34.765883, -83.925416,
+     "7485 Vogel State Park Rd, Blairsville GA 30512. Park office 8 AM-5 PM, park open 7 AM-10 PM."),
+    ("Coosa Backcountry Trailhead (Vogel)", 34.7638, -83.9263, "Where the hike could be exited on foot to the park."),
+    ("WOLF-X - FS 107 / West Fork Wolf Creek crossing", 34.78632, -83.92485,
+     "Truck 1 parks here all weekend. Last point a vehicle reaches on the way in."),
+    ("Calf Stomp Gap (CBT / FS 108 / Roaring Fork Trail)", 34.78595, -83.95356,
+     "The junction both hike days pass through. FS 108 drops north from here."),
+    ("Calf Stump Branch camp - NIGHT 1 (Sat)", 34.78244, -83.95858, "About 400 m from the nearest road."),
+    ("CAMP-U - NIGHT 2 (Sun), upper East Fork Coosa Creek", 34.79056, -83.98457,
+     "No road reaches it. Nearest road point about 670 m away across a 500 ft slope."),
+    ("LOWER reach - the last pan (Mon)", 34.7935, -83.98112, ""),
+    ("Where the road starts, East Fork Coosa Creek", 34.79824, -83.97825, "Duncan Ridge Conn begins here."),
+    ("Duncan Ridge Conn / Bowers Road junction", 34.80137, -83.96678, ""),
+    ("Owltown Gap (Bowers Road / FS 298)", 34.81143, -83.94952, "Truck 2 is staged here Friday evening."),
+]
+
+# Phone numbers for the emergency card. Public page: no personal numbers here
+# (the project rule), only published lines.
+EMERGENCY = [
+    ("Emergency", "911", "Ask for Union County. Give the coordinates below, not a trail name."),
+    ("Union General Hospital, Blairsville", "(706) 745-2111", "Nearest hospital to Vogel."),
+    ("Union County Sheriff", "706-439-6066", "Non-911 line; they run ground search in Union County."),
+    ("Vogel State Park office", "706-745-2628", "8 AM-5 PM. Overnight permit question and the walk-in site."),
+    ("Blue Ridge Ranger District (USFS)", "706-745-6928",
+     "Road and trail status. New number confirmed on the forest's own alerts page, March 12, 2026."),
+]
+
+FEES = [
+    ("Georgia State Parks ParkPass (Vogel)", "$10 per vehicle per day, $70 annual",
+     "gastateparks.org/ParkPass, 2026-10-08. Overnight guests pay it once per vehicle for the stay "
+     "(gastateparks.org/Vogel) - so about $20 for two trucks for the week. Older notes in this project "
+     "said $5; that is wrong."),
+    ("Vogel walk-in tent site P", "not published",
+     "Paid by the primary occupant at booking. The park page lists 18 walk-in sites and no rate. "
+     "Reservations 1-800-864-7275. UNCONFIRMED."),
+    ("Brasstown Bald, day use", "$10 per person 16+, under 16 free",
+     "Includes the shuttle and visitor centre. Open 7 days 10 AM-5 PM; last shuttle up 4:30 PM, "
+     "last return 5 PM. fs.usda.gov, 2026-10-08."),
+    ("Brasstown Bald, after hours", "$6.00 per person 16+",
+     "The published after-hours rate. The page does not say when after-hours starts, and whether the "
+     "Spur 180 gate is open for late stargazing is still UNCONFIRMED (CALLS.md)."),
+    ("Consolidated Gold Mine, underground tour", "adult $24.95, child 3-12 $15.95, under 3 free",
+     "consolidatedgoldmine.com, 2026-10-08. Open 10 AM-5 PM. Last tour time not published - call."),
+    ("Consolidated Gold Mine, gold panning", "\"Starting at: $60\"",
+     "No adult/child split published. Ask when booking the tour."),
+    ("Dahlonega Gold Museum", "adult $10.00, senior $7.50, youth 6-17 $7.00, 6 and under $3.50",
+     "gastateparks.org/DahlonegaGoldMuseum, 2026-10-08. Mon-Sat 9 AM-4:45 PM, Sun 10 AM-4:45 PM."),
+    ("Coosa Backcountry Trail overnight permit", "unknown",
+     "UNCONFIRMED. Still a CALLS.md item for Vogel, 706-745-2628."),
+]
+
+# One row per base-camp meal (ISSUES #40). Counted for the Sat-Mon hike:
+# MASTER_LIST.md section 3.
+MEALS = [
+    ("Thu Oct 15", "Dinner", "Hot dogs or burgers on the grill, chips, a cooler drink",
+     "First night, everyone is tired from the drive. Nothing that needs a pan."),
+    ("Fri Oct 16", "Breakfast", "Eggs and bacon or sausage, bread, coffee",
+     "Early-ish: Dahlonega is a 50 min drive and the mine opens at 10 AM."),
+    ("Fri Oct 16", "Lunch", "Out, on the square in Dahlonega", "Not pre-booked. Pick a spot when you are there."),
+    ("Fri Oct 16", "Dinner", "Out in Dahlonega, or back at camp",
+     "Friday evening also has the truck staging and the hike pack-up - eat before that, not after."),
+    ("Sat Oct 17", "Breakfast", "Pancakes or eggs, coffee. Big one.",
+     "The last cooked meal before 3 days of pouches. Eat at 6:30 AM: the trucks leave at 7:30."),
+    ("Mon Oct 19", "Dinner", "THE BIG ONE - steaks or burgers, foil potatoes, everything left in the cooler",
+     "The group is back off the hike. This is the meal to plan for."),
+    ("Tue Oct 20", "Breakfast", "Eggs, bacon, pancakes, coffee", "Free day, no clock."),
+    ("Tue Oct 20", "Lunch", "Out (Blairsville, Helen or Hiawassee) or sandwiches at camp",
+     "Depends which free-day plan the group picks - see the Playground tab."),
+    ("Tue Oct 20", "Dinner", "Whatever is left, plus the spare Mountain House pouches",
+     "Buy ice again Tuesday if the cooler is warm."),
+    ("Wed Oct 21", "Breakfast", "Coffee and whatever is quick - out by noon",
+     "Break camp first, eat second, or you will be rushing."),
+]
+
+WATER = [
+    ("Sat Oct 17, on the way in", "West Fork Wolf Creek at WOLF-X (34.78632, -83.92485)",
+     "Fill 2 L each HERE, before the climb. There is nothing on the 1,375 ft climb to Calf Stomp Gap. "
+     "Filter it; it is the creek you pan."),
+    ("Sat night", "Calf Stump Branch at the camp (34.78244, -83.95858)",
+     "Filter at camp. October flow is UNCONFIRMED - this is a small branch. If it is a trickle, you are "
+     "still only 0.4 mi from Calf Stomp Gap and 2.5 mi from the trucks; drop back toward the gap and "
+     "down FS 108 rather than ration."),
+    ("Sun, on the ridge", "Nothing. Carry it.",
+     "Roaring Fork Trail runs the ridge for 1.56 mi with no water. Leave Calf Stump with 2 L each, "
+     "topped up after the morning pan."),
+    ("Sun night and Mon morning", "Upper East Fork Coosa Creek at CAMP-U (34.79056, -83.98457)",
+     "A headwater; October flow UNCONFIRMED. Written fallback: move camp down the creek toward "
+     "34.7958, -83.9792, where it gathers more. The LOWER reach (34.7935, -83.98112), 0.3 mi down, "
+     "is the first place with reliably more water."),
+    ("Mon, walking out", "The creek to the road start, then nothing",
+     "Last fill at LOWER. Bowers Road out to Owltown Gap is 1.5 mi of road with no water. 1 L each is enough."),
+    ("Every camp", "Treat everything", "Filter first, Aquatabs as the backup. Nobody drinks straight from a headwater."),
+]
+
+FRIDAY = [
+    ("Before leaving for Dahlonega", [
+        "Load the hike packs in the trucks - they get packed tonight, not Saturday morning",
+        "Check both trucks' fuel: Blairsville is the last gas before FS 107",
+    ]),
+    ("Evening, back at Vogel (before dark - dark is 7:25 PM)", [
+        "Stage truck 2 at Owltown Gap (34.81143, -83.94952), drive back in truck 1",
+        "Leave nothing visible in truck 2; it sits there until Monday afternoon",
+        "Photograph truck 2's parking spot and the gate on the way out",
+    ]),
+    ("Pack-up, at camp", [
+        "Every person: blaze orange on the outside of the pack where you can reach it",
+        "Every person: 20-30 F bag, insulated pad, rain jacket, warm layer, headlamp, 1-2 L bottles",
+        "Food split and bagged by day; everything with a smell into the Ursack or the hang bag",
+        "Filter, Aquatabs, trowel, pan - one set checked off out loud",
+        "Phones charged, power banks charged, 3D map opened once offline to prove the tiles are there",
+        "One paper map and one compass in the group, not in the bottom of a pack",
+    ]),
+    ("Told to someone at home", [
+        "Send the route, the two camp coordinates and Monday's walk-out time",
+        "Give them an overdue time and what to do when it passes - see the emergency card above",
+    ]),
+]
+
+
+def _hm(mins):
+    """Minutes past midnight -> '7:30 AM'."""
+    mins = int(round(mins)) % (24 * 60)
+    h, m = divmod(mins, 60)
+    ap = "AM" if h < 12 else "PM"
+    h12 = h % 12 or 12
+    return f"{h12}:{m:02d} {ap}"
+
+
+def _parse_hm(t):
+    h, m = t.split(":")
+    return int(h) * 60 + int(m)
+
+
+LEG_ICON = {"drive": "car", "walk": "walk", "pan": "pan", "camp": "camp", "meal": "meal", "tour": "stop"}
+
+# days.json gives each leg a duration but no clock time, so chaining them
+# back-to-back puts Thursday's dinner at 4:51 PM and the stargazing before
+# sunset. These are the clock times RUNDOWN actually commits to; a leg whose
+# label starts with the key waits until its time, and the wait is shown as its
+# own row rather than quietly absorbed.
+ANCHORS = {
+    ("2026-10-15", "Dinner at camp"): "18:50",
+    ("2026-10-15", "Evening: Vogel to Brasstown Bald"): "19:50",
+    ("2026-10-16", "Consolidated Gold Mine"): "10:00",
+}
+
+
+def _anchor_for(date, label):
+    for (d, pref), t in ANCHORS.items():
+        if d == date and label.startswith(pref):
+            return _parse_hm(t)
+    return None
+
+
+def trip_card_html():
+    days = _json.loads((ROOT / "map/data/days.json").read_text(encoding="utf-8"))["days"]
+    sun = _json.loads((ROOT / "research/sun-times.json").read_text(encoding="utf-8"))
+    sun_by_date = {d["date"]: d for d in sun["days"]}
+    e = html.escape
+
+    # --- emergency card (always open) ---
+    out = ['<div class="card" style="border:2px solid #b03a2e">']
+    out.append('<h3 style="margin:0 0 6px;color:#b03a2e">Emergency</h3>')
+    out.append('<table><tr><th>Who</th><th>Number</th><th>When</th></tr>')
+    for who, num, when in EMERGENCY:
+        out.append(f'<tr><td><b>{e(who)}</b></td><td><a href="tel:{e(num.replace(" ", "").replace("(", "").replace(")", "").replace("-", ""))}"><b>{e(num)}</b></a></td><td>{e(when)}</td></tr>')
+    out.append('</table>')
+    out.append(
+        '<p><b>On the hike there is no cell signal to count on.</b> Signal is reliable at Vogel, in '
+        'Blairsville and on Brasstown Bald. It is not reliable at WOLF-X, at either camp, or on '
+        'Roaring Fork Trail. The plan for a real problem is: one person walks out to the nearest road '
+        'and drives for help, while the rest stay with the casualty at a coordinate from the table below.</p>')
+    out.append(
+        '<p><b>What to say on the call:</b> "Union County, Chattahoochee National Forest, near Vogel '
+        'State Park." Then read the decimal coordinates digit by digit. Then the nearest road: FS 107 '
+        'for night 1 and the way in, Bowers Road / FS 298 at Owltown Gap for night 2 and the way out.</p>')
+    out.append(
+        '<p><b>Nearest hospital:</b> Union General, Blairsville - about 25 minutes from Vogel, about '
+        '40 from WOLF-X. <b>Nearest road to CAMP-U:</b> about 670 m, across a 500 ft slope - it is '
+        'faster to walk down the creek 0.7 mi to where the road starts.</p>')
+    out.append('<table><tr><th>Place</th><th>Coordinates</th><th>Note</th></tr>')
+    for name, lat, lng, note in PLACES:
+        q = f"{lat},{lng}"
+        out.append(
+            f'<tr><td><b>{e(name)}</b></td>'
+            f'<td style="white-space:nowrap"><a href="https://www.google.com/maps/search/?api=1&amp;query={q}" '
+            f'target="_blank">{lat}, {lng}</a></td><td><small>{e(note)}</small></td></tr>')
+    out.append('</table>')
+    out.append(
+        '<p><small>No personal phone numbers are on this page: it is public. Everyone\'s numbers go '
+        'on paper in each truck and with the person at home.</small></p>')
+    out.append('</div>')
+
+    # --- day-by-day timeline (ISSUES #34) ---
+    out.append('<details class="who" open><summary>Day by day, with the clock &mdash; Oct 15&ndash;21</summary>')
+    out.append(
+        '<p>Times run forward from each day\'s start using the leg minutes in '
+        '<code>map/data/days.json</code>, held back where the Rundown commits to a clock time '
+        '(Thursday dinner and the Brasstown Bald drive, Friday\'s 10 AM mine tour). Gaps show as '
+        '<i>slack</i> rows. It is a plan, not a schedule &mdash; on the hike days the legs really do '
+        'run back to back, so those times are the tight case. Sunrise and sunset are for Vogel '
+        f'(<code>research/sun-times.json</code>, fetched {e(sun["fetched"])}).</p>')
+    for d in days:
+        s_ = sun_by_date.get(d["date"], {})
+        drive = sum(l.get("minutes", 0) for l in d["legs"] if l.get("type") == "drive")
+        walk_mi = sum(l.get("miles", 0) or 0 for l in d["legs"] if l.get("type") == "walk")
+        bits = []
+        if s_:
+            bits.append(f'sunrise {_hm(_parse_hm(s_["sunrise"]))}, sunset {_hm(_parse_hm(s_["sunset"]))}, dark {_hm(_parse_hm(s_["dark"]))}')
+        if drive:
+            bits.append(f'{drive} min driving')
+        if walk_mi:
+            bits.append(f'{walk_mi:.1f} mi on foot')
+        out.append(f'<h4 style="margin:12px 0 2px;color:#2F5233">{e(d["date"])} &mdash; {e(d["title"])}</h4>')
+        out.append(f'<p style="margin:0 0 6px"><small>{e(" &middot; ".join(bits))}</small></p>'.replace("&amp;middot;", "&middot;"))
+        clock = _parse_hm(d["start"].get("time") or "08:00")
+        out.append('<table><tr><th style="width:92px">Time</th><th style="width:58px">What</th><th>Leg</th><th style="width:150px">Takes</th></tr>')
+        for l in d["legs"]:
+            mins = l.get("minutes") or 0
+            want = _anchor_for(d["date"], l.get("label", ""))
+            if want is not None and want > clock:
+                out.append(
+                    f'<tr class="nice"><td style="white-space:nowrap">{_hm(clock)}</td>'
+                    f'<td><small>wait</small></td>'
+                    f'<td class="lbl">Slack &mdash; nothing scheduled '
+                    f'({want - clock} min)</td><td><small>{want - clock} min</small></td></tr>')
+                clock = want
+            took = []
+            if mins:
+                took.append(f"{mins} min")
+            if l.get("miles"):
+                took.append(f'{l["miles"]} mi')
+            if l.get("gain_ft"):
+                took.append(f'+{l["gain_ft"]} ft')
+            note = f'<div><small>{e(l["note"])}</small></div>' if l.get("note") else ""
+            out.append(
+                f'<tr><td style="white-space:nowrap">{_hm(clock)}</td>'
+                f'<td><small>{e(LEG_ICON.get(l.get("type"), l.get("type") or ""))}</small></td>'
+                f'<td>{e(l.get("label", ""))}{note}</td>'
+                f'<td><small>{e(", ".join(took))}</small></td></tr>')
+            clock += mins
+        out.append(f'<tr class="grp"><td>{_hm(clock)}</td><td colspan="3">Done &mdash; night at {e(d["end"]["label"])}</td></tr>')
+        out.append('</table>')
+        if d["date"] == "2026-10-15":
+            out.append(
+                '<p><b>Thursday afternoon is a pick-one, not a fixture</b> (Jordan, 2026-10-08). All '
+                'three work in the time above; the timeline shows Helton Creek Falls because it is the '
+                'one on the mapped route:</p><ul>'
+                '<li><b>Helton Creek Falls</b> &mdash; 13 min drive, 0.13 mi of steps and boardwalk, a '
+                'lower and an upper falls.</li>'
+                '<li><b>DeSoto Falls</b> &mdash; about 10 min, open 24 h, two or three falls off one '
+                'easy loop.</li>'
+                '<li><b>Sosebee Cove Scenic Area</b> &mdash; about 10 min, old-growth cove, short loop, '
+                'open year round.</li>'
+                '</ul><p>Hours, cost and a maps link for each are in the <b>Playground</b> tab. '
+                'Brasstown Bald after dinner is separate and still on.</p>')
+    out.append('</details>')
+
+    # --- weather (ISSUES #35) ---
+    out.append('<details class="who"><summary>Weather, fire and roads &mdash; the link, and what was checked</summary>')
+    out.append(
+        '<p><b>Forecast for the hike area:</b> '
+        '<a href="https://forecast.weather.gov/MapClick.php?lat=34.7908&amp;lon=-83.9190" target="_blank">'
+        'NWS point forecast, 34.7908 -83.9190</a> (grid FFC 64,134 &mdash; the NWS calls it 9.3 km north '
+        'of Blairsville). <a href="https://forecast.weather.gov/MapClick.php?lat=34.7659&amp;lon=-83.9254" '
+        'target="_blank">Vogel base camp forecast</a>. '
+        '<a href="https://www.fs.usda.gov/r08/chattahoochee-oconee/alerts" target="_blank">'
+        'Chattahoochee-Oconee alerts and closures</a>.</p>')
+    out.append(
+        '<p><b>Checked 2026-10-08, a week out:</b></p><ul>'
+        '<li><b>Fire:</b> "Campfire restriction lifted on the Chattahoochee-Oconee National Forest," '
+        'May 4, 2026 &mdash; campfires allowed in designated areas. Fire danger on the page: <b>Low</b>. '
+        'Georgia\'s summer burn ban runs May 1 to September 30, so it does not cover the trip. '
+        'No ban covering Union County.</li>'
+        '<li><b>Roads:</b> eight road closures are listed on the forest\'s alerts page and <b>none of '
+        'them is ours</b> (FS 816, FS 218, FS 252, FS 76, FS 221, FS 18, FSR 55, plus Duncan Ridge Road '
+        'FSR 39 which has <i>reopened</i>). Nothing on the page names FS 107, FS 108, FS 298 or the '
+        'Duncan Ridge Connector &mdash; which is not the same as confirmed open. FS 107 is open '
+        'first-hand (Jordan, 2026-10-05); the rest are still a ranger call.</li>'
+        '<li><b>Camping limit:</b> Forest Order #08-03-00-25-02, 14 days in any 30. Two nights is fine.</li>'
+        '<li><b>Weather:</b> on Oct 8 the NWS 7-day forecast does not reach Oct 15. First real look is '
+        'about Oct 11&ndash;12; the one that counts is <b>Oct 14</b>. Nothing in this hub claims to know '
+        'the trip\'s weather.</li>'
+        '<li><b>Vogel:</b> Lake Trahlyta is drained for dam repairs; the lake loop trail and the '
+        'waterfall are closed. Campsites and facilities are open.</li>'
+        '</ul>')
+    out.append(
+        '<p><b>Do this again on Oct 13 or 14:</b> the forecast, the forest alerts page, and one call to '
+        'Blue Ridge Ranger District (706-745-6928) for FS 108, FS 298 and the Duncan Ridge Connector. '
+        'Full quotes and sources: <a href="research/conditions-2026-10-08.md" target="_blank">'
+        'research/conditions-2026-10-08.md</a>.</p>')
+    out.append('</details>')
+
+    # --- fees (ISSUES #36) ---
+    out.append('<details class="who"><summary>What it costs at each gate</summary>')
+    out.append('<table><tr><th>Where</th><th>Fee</th><th>Source and the catch</th></tr>')
+    for where, fee, src in FEES:
+        out.append(f'<tr><td><b>{e(where)}</b></td><td>{e(fee)}</td><td><small>{e(src)}</small></td></tr>')
+    out.append('</table>')
+    out.append(
+        '<p>Bring <b>cash and a card</b>. Two vehicles at the site means two ParkPasses. '
+        'All prices fetched 2026-10-08 &mdash; re-check the two tours before paying for five people.</p>')
+    out.append('</details>')
+
+    # --- water (ISSUES #39) ---
+    out.append('<details class="who"><summary>Water, camp by camp</summary>')
+    out.append('<table><tr><th>When</th><th>Where the water is</th><th>The plan</th></tr>')
+    for when, where, plan in WATER:
+        out.append(f'<tr><td><b>{e(when)}</b></td><td>{e(where)}</td><td>{e(plan)}</td></tr>')
+    out.append('</table>')
+    out.append(
+        '<p><b>Carry:</b> 2 L each leaving WOLF-X and leaving Calf Stump Branch; 1 L each walking out '
+        'Monday. <b>Treat:</b> filter, Aquatabs as backup. <b>Both creek camps are headwaters and '
+        'October flow is unconfirmed</b> &mdash; that is the one thing on this hike most likely to '
+        'force a change, and both fallbacks are above.</p>')
+    out.append('</details>')
+
+    # --- base-camp meals (ISSUES #40) ---
+    out.append('<details class="who"><summary>Base-camp meals, one row each</summary>')
+    out.append(
+        '<p>Ten meals at Vogel (the hike carries its own food &mdash; 2 breakfasts, 3 lunches, '
+        '2 dinners, in the Buy tab\'s Food section). The grocery run is one line in the Buy tab '
+        '(about $140): eggs, bacon or sausage, bread, pancake mix, hot dogs and burgers, condiments, '
+        'chips, foil, ice, coffee, snacks. Buy it in Blairsville (Ingles) on the way in Thursday; '
+        'buy ice again Tuesday.</p>')
+    out.append('<table><tr><th>Day</th><th>Meal</th><th>What</th><th>Why that</th></tr>')
+    for day, meal, what, why in MEALS:
+        out.append(f'<tr><td style="white-space:nowrap"><b>{e(day)}</b></td><td>{e(meal)}</td><td>{e(what)}</td><td><small>{e(why)}</small></td></tr>')
+    out.append('</table>')
+    out.append(
+        '<p>Food and coolers sleep in the truck cabs, not the tents &mdash; Vogel is developed ground '
+        'and vehicle storage is the rule. Full counts: <a href="MASTER_LIST.md" target="_blank">'
+        'MASTER_LIST.md</a> section 3.</p>')
+    out.append('</details>')
+
+    # --- Friday checklist (ISSUES #43) ---
+    out.append('<details class="who"><summary>Friday evening checklist &mdash; staging and pack-up</summary>')
+    out.append(
+        '<p>Friday is a full Dahlonega day <i>and</i> the night the hike gets set up. Dark is '
+        '7:25 PM. Stage the truck before dark; pack the packs after.</p>')
+    for head, items in FRIDAY:
+        out.append(f'<p><b>{e(head)}</b></p><ul>')
+        for it in items:
+            out.append(f'<li>{e(it)}</li>')
+        out.append('</ul>')
+    out.append(
+        '<p><b>Still open on Friday if the calls have not been made:</b> the Coosa Backcountry Trail '
+        'overnight permit, and whether Bowers Road (FS 298) and the Duncan Ridge Connector are open to '
+        'vehicles and to public foot use. If the answer to Bowers Road is no, the walk-out changes: '
+        'back the way you came to WOLF-X, and truck 2 does not need staging at all.</p>')
+    out.append('</details>')
+
+    return "\n".join(out)
+
+
+def rundown_sections():
+    """(anchor, title) for every '## N. Title' in RUNDOWN.md - the ids build_rundown.py writes."""
+    out = []
+    for line in (ROOT / "RUNDOWN.md").read_text(encoding="utf-8").splitlines():
+        if not line.startswith("## "):
+            continue
+        head = line[3:].strip()
+        m = re.match(r"(\d+)\.", head)
+        if m:
+            out.append(("s" + m.group(1), head))
+    return out
+
+
 file_rows = "".join(f'<tr><td><a href="{f}" target="_blank">{f.rsplit('/', 1)[-1]}</a></td><td>{d}</td></tr>' for f, d in files)
+
+trip_card_section = trip_card_html()
+_rsecs = rundown_sections()
+# ISSUES #24: Start links into the Rundown, and the Rundown tab has its own
+# section picker. Both use the "#t/rundown/<anchor>" hash the router below reads.
+rundown_jump = "".join(
+    f'<a class="rjump" href="#t/rundown/{sid}">{html.escape(title)}</a>' for sid, title in _rsecs
+)
+rundown_start_links = " &middot; ".join(
+    f'<a href="#t/rundown/{sid}">{html.escape(title.split(". ", 1)[-1])}</a>'
+    for sid, title in _rsecs if sid in ("s1", "s3", "s7", "s10")
+)
 
 page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -981,6 +1372,10 @@ th{{background:#2F5233;color:#fff}} tr.grp td{{background:#E4EEE0;font-weight:bo
 .preset-btn:hover{{background:#3d6a42}}
 td.opt.sleepcell.grey{{opacity:.45}} td.opt.sleepcell.on{{opacity:1}}
 h3.sec-h{{color:#2F5233;margin:18px 0 4px}}
+/* Rundown section picker: inside the Rundown tab, above its frame (ISSUES #24). */
+#rjumps{{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}}
+a.rjump{{font-size:12px;padding:4px 9px;border:1px solid #2F5233;border-radius:14px;color:#2F5233;text-decoration:none;background:#fff}}
+a.rjump:hover{{background:#2F5233;color:#fff}}
 details.who{{background:#fff;border:1px solid #ccc;border-radius:8px;margin:8px 0;padding:0 12px}} details.who summary{{cursor:pointer;padding:10px 0;font-weight:bold;color:#2F5233}}
 table.who{{margin-bottom:12px}} table.who td.c{{text-align:center;width:70px}} td.c.has,td.c.free{{color:#2F5233;font-weight:bold;background:#eef6ea}} td.c.buy,.rb{{color:#a04000;font-weight:bold;background:#fdebd9}} td.c.skip{{color:#999}} td.c.nolist{{color:#bbb}}
 td.g{{font-size:13px;color:#555;width:110px}} td.g.ok{{color:#2F5233}} td.g.hole{{color:#fff;background:#b03a2e;font-weight:bold}} ul.holes{{margin:4px 0 8px}}
@@ -1011,7 +1406,7 @@ table.branches td:nth-child(1){{min-width:110px}} table.branches td:nth-child(2)
 <header><h1>Georgia Gold Trip &mdash; Oct 15&ndash;21, 2026 &middot; Vogel State Park base camp</h1></header>
 <nav id="tabs">
 <button data-t="start" class="on">Start</button><button data-t="rundown">Rundown</button>
-<button data-t="map">Map</button><button data-t="pan">Panning</button><button data-t="play">Playground</button><button data-t="fish">Fish &amp; crawdads</button><button data-t="buy">Buy list</button><button data-t="gear">Who has what</button><button data-t="files">Files</button></nav>
+<button data-t="card">Trip card</button><button data-t="map">Map</button><button data-t="pan">Panning</button><button data-t="play">Playground</button><button data-t="fish">Fish &amp; crawdads</button><button data-t="buy">Buy list</button><button data-t="gear">Who has what</button><button data-t="files">Files</button></nav>
 
 <section id="start" class="on">
 <div class="card"><b>The trip:</b> 5 people, Site P walk-in (2 tents, 2 vehicles), arrive Thu Oct 15, leave Wed Oct 21.
@@ -1022,10 +1417,12 @@ Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = ha
 <div class="card"><b>Gear:</b> {html.escape(total)}. Your own picks re-compute weight and cost in the <b>Buy list</b> tab's totals card &mdash; that card is the number to trust. Order the tent + quilt first (2&ndash;4 wk).</div>
 <div class="card"><b>Still to do:</b> phone calls (Vogel, Blue Ridge Ranger District, GA DNR, Consolidated, Lumpkin Co, LDMA), then re-check fire bans/water/roads in early Oct.</div>
 <div class="card"><b>Free time:</b> Thu 15 afternoon, Mon 19 evening, all of Tue 20 and Wed 21 morning. Ready-made plans for each, plus a rain plan, are in the <b>Playground</b> tab.</div>
-<p>Use the tabs above. Rundown = full guide, Map = where everything is, Panning = the creeks and how to read one, Playground = everywhere else you could go plus the hike area's branch options, Fish &amp; crawdads = rods, traps, licences and the law, Buy list = what to order and when, Who has what = everyone's gear and the holes.</p>
+<div class="card"><b>Jump straight in:</b> {rundown_start_links} &middot; <a href="#t/card">the trip card</a> (emergency numbers, the clock, fees, water, meals).</div>
+<p>Use the tabs above. Trip card = numbers and times for the day, Rundown = full guide, Map = where everything is, Panning = the creeks and how to read one, Playground = everywhere else you could go plus the hike area's branch options, Fish &amp; crawdads = rods, traps, licences and the law, Buy list = what to order and when, Who has what = everyone's gear and the holes.</p>
 </section>
 
-<section id="rundown"><iframe src="RUNDOWN.html"></iframe></section>
+<section id="rundown"><div id="rjumps">{rundown_jump}</div><iframe src="RUNDOWN.html"></iframe></section>
+<section id="card">{trip_card_section}</section>
 <section id="map"><iframe src="map/map3d.html"></iframe></section>
 <section id="pan">{panning_section}</section>
 <section id="buy"><p>Click a box in a row to choose it (&#10003;): Budget, Value or Premium. Use the <b>Mine</b> box to type your own item, price and link, or click <b>Own</b> / <b>Skip</b> (clicking Own also ticks "Got it"; click Own again to go back). Tick "Got it" when bought. Every price cell shows the full price; shared rows also show your per-person share. Sections are grouped by where the gear is used. Your picks save in this browser only.</p>
@@ -1061,21 +1458,38 @@ Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = ha
 
 <script>
 const TABS=[...document.querySelectorAll('#tabs button')].map(b=>b.dataset.t);
-function showTab(t){{
+// ISSUES #24: a Rundown section can be deep-linked as "#t/rundown/s3". The
+// frame gets its own hash, so the link lands on the section, not the top.
+function rundownTo(anchor){{
+ const f=document.querySelector('#rundown iframe');
+ if(!f||!anchor)return;
+ // If the frame already HAS the Rundown loaded, move its hash (no reload, so
+ // no flicker). Otherwise set src with the hash, which works before load.
+ let loaded=false;
+ try{{loaded=!!(f.contentWindow&&f.contentWindow.location.pathname.endsWith('RUNDOWN.html')
+   &&f.contentDocument&&f.contentDocument.getElementById(anchor));}}catch(e){{}}
+ if(loaded){{try{{f.contentWindow.location.hash=anchor;return;}}catch(e){{}}}}
+ f.setAttribute('src','RUNDOWN.html#'+anchor);}}
+function showTab(t,sub){{
  if(!TABS.includes(t))return false;
  document.querySelectorAll('#tabs button,section').forEach(e=>e.classList.remove('on'));
  document.querySelector('[data-t='+t+']').classList.add('on');
  document.getElementById(t).classList.add('on');
+ if(t==='rundown')rundownTo(sub);
  window.scrollTo(0,0);
  return true;}}
-// Hash form is "#t/<tab>": not an element id, so the browser has nothing to
-// scroll to and the header stays put. "#buy" still works for old links.
-function tabFromHash(){{const h=location.hash.replace(/^#/,'');return h.startsWith('t/')?h.slice(2):h;}}
+// Hash form is "#t/<tab>" or "#t/<tab>/<anchor>": not an element id, so the
+// browser has nothing to scroll to and the header stays put. "#buy" still works.
+function tabFromHash(){{
+ const h=location.hash.replace(/^#/,'');
+ const raw=h.startsWith('t/')?h.slice(2):h;
+ const i=raw.indexOf('/');
+ return i<0?[raw,'']:[raw.slice(0,i),raw.slice(i+1)];}}
 document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{{
  if(showTab(b.dataset.t))location.hash='t/'+b.dataset.t;}});
-window.addEventListener('hashchange',()=>{{showTab(tabFromHash()||'start');}});
+window.addEventListener('hashchange',()=>{{const h=tabFromHash();showTab(h[0]||'start',h[1]);}});
 document.getElementById('holes-only')?.addEventListener('change',e=>document.body.classList.toggle('holes-only',e.target.checked));
-showTab(tabFromHash()||'start');
+(function(){{const h=tabFromHash();showTab(h[0]||'start',h[1]);}})();
 // Playground's two layers: controls sit inside the tab, nothing floats.
 document.querySelectorAll('#pg-layers .lyr').forEach(b=>b.onclick=()=>{{
  document.querySelectorAll('#pg-layers .lyr').forEach(e=>e.classList.remove('on'));

@@ -3778,13 +3778,13 @@
       "kind": "side creek",
       "label": "West Fork Wolf Creek, the National Forest reach",
       "mode": "daypack",
-      "miles": 3.01,
+      "miles": 2.89,
       "gain_ft": 92,
       "minutes": 70,
-      "ends_at": "the Forest Service boundary at 34.79131, -83.91724 — do not pan below it",
+      "ends_at": "the Forest Service boundary at 34.7906, -83.9190 — do not pan below it",
       "water": "the creek itself.",
-      "note": "National Forest from the source down to 34.79131, -83.91724. No gold record: this is a geological-inference test pan. Trout water (DNR stocks it April–Labor Day), so fishing rules apply.",
-      "non_fs_vertices": 11,
+      "note": "National Forest from the source down to 34.7906, -83.9190. No gold record: this is a geological-inference test pan. Trout water (DNR stocks it April–Labor Day), so fishing rules apply.",
+      "non_fs_vertices": 0,
       "state_parks": [],
       "geometry_source": "Real OSM way geometry (research/_coosa_osm.geojson, ODbL).",
       "coords": [
@@ -4495,50 +4495,6 @@
         [
           34.79063,
           -83.91901
-        ],
-        [
-          34.79077,
-          -83.91895
-        ],
-        [
-          34.79088,
-          -83.91878
-        ],
-        [
-          34.79098,
-          -83.91859
-        ],
-        [
-          34.79108,
-          -83.91843
-        ],
-        [
-          34.79129,
-          -83.9182
-        ],
-        [
-          34.79139,
-          -83.91804
-        ],
-        [
-          34.79146,
-          -83.91786
-        ],
-        [
-          34.79148,
-          -83.91776
-        ],
-        [
-          34.79145,
-          -83.91756
-        ],
-        [
-          34.79138,
-          -83.91743
-        ],
-        [
-          34.79131,
-          -83.91724
         ]
       ]
     },

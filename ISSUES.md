@@ -6,7 +6,9 @@ Truth used (as of 2026-10-08): 5 people; Vogel walk-in site P; arrive Thu Oct 15
 
 Screenshots from the audit pass (mobile Start tab, mobile Map tab, desktop) were taken in a local browser at 375x812 and at desktop width; they live in the session scratchpad, not in this repo.
 
-**Worked 2026-10-08 (second pass).** Group A is closed except where a line says otherwise; #16, #20, #21 and #22 are closed; #23 is partly closed; #29 is rebuilt but not released or tested. Everything else below is untouched and still open. Each closed issue carries what was done and the observable that confirms it.
+**Worked 2026-10-08 (second pass).** Group A is closed except where a line says otherwise; #16, #20, #21 and #22 are closed; #23 is partly closed; #29 is rebuilt but not released or tested. Each closed issue carries what was done and the observable that confirms it.
+
+**Worked 2026-10-08 (third pass, step 7).** Closed: **#24, #25, #26, #32, #34, #35, #36, #39, #40, #43, #44, #46**. Stood down by the owner, not built: **#31, #33, #37, #38, #41, #42** ("ignore 1 2 3 4 and 5, consider them just covered for now", 2026-10-08). Still open and build-side: **#17, #18, #19** (links, needing the owner's own Chrome), **#23** (partly), **#27, #28, #29, #30** (offline / APK / phone test), **#33** and **#45** (worked around). The new **Trip card** tab carries #32, #34, #35, #36, #39, #40 and #43.
 
 ---
 
@@ -183,22 +185,51 @@ Link check: 203 unique URLs from index.html, RUNDOWN.html, RUNDOWN.md, BUY_LIST.
 - Symptom: From Start there is no way to jump to "The hike", "Rules and safety" or "Call checklist". You have to open Rundown and scroll inside the frame.
 - Evidence: index.html:38 `<section id="rundown"><iframe src="RUNDOWN.html"></iframe>`, a fixed src. index.html:164 only maps the hash to a tab. RUNDOWN.html has anchors s0..s12 (read from the iframe: "s0,s1,s2,s3,s4,s5,s6,s7..."). The Start cards (index.html:28-35) contain no links.
 - Cause: The tab router has no sub-path (e.g. #rundown/s3) and Start has no links.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08. The tab router now reads a sub-path: `#t/rundown/s3` switches to the
+  Rundown tab and moves the iframe to that section (by `contentWindow.location.hash` when the
+  frame is already loaded, by `src="RUNDOWN.html#s3"` on a cold load). The Rundown tab carries
+  its own chip row of all 13 sections above the frame, and the Start tab has a "Jump straight in"
+  card linking sections 1, 3, 7 and 10 plus the new Trip card tab. `tools/build_hub.py` reads the
+  section list out of RUNDOWN.md, so it cannot drift from the anchors build_rundown.py writes.
+- Observable: in the local browser, `index.html#t/rundown/s7` cold-loads with the Rundown tab
+  active and "7. Rules and safety" at the top of the frame (`getBoundingClientRect().top` = 0,
+  iframe scrollY 14242). Same for s3, s10 and s1, cold and warm, no console errors.
+- Status: **closed 2026-10-08.**
 
 ## 25. Map controls float over the map (against "nothing floating over the map")
 - Symptom: The 3D map opens with the attribution box already expanded in the bottom-right corner over the map. The 2D detail map has a legend box, a layers control and zoom buttons over the map.
 - Evidence: 3D (live Map tab): `.maplibregl-ctrl maplibregl-ctrl-attrib maplibregl-compact maplibregl-compact-show`, visible bottom-right in the desktop screenshot ("USGS The National Map | Mapzen Terrain Tiles (AWS) i"). 2D: map/trip-map.html:36 `#legend { position:absolute; bottom:16px; left:16px; z-index:1000; ...}`, `L.control.layers(baseLayers, null, { collapsed: true }`, `zoomControl: true`. Project rule: "controls live inside their aspect; nothing floating over the map."
 - Cause: MapLibre's and Leaflet's default control placement. The 3D page moved its own controls into #bar but kept the default attribution. trip-map.html was never brought under the rule.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08, both maps.
+  - **3D (`map/map3d.html`, `map/map3d.js`):** `attributionControl: false`; the credits are now a
+    `#credits` strip between the map and the panel ("USGS The National Map / Mapzen Terrain Tiles
+    (AWS) / OpenStreetMap / USFS BasicOwnership").
+  - **2D (`map/trip-map.html`):** the map moved into a `#mapcol` column with a `#mapbar` above it
+    and a `#credits` strip below it. `zoomControl: false`, `attributionControl: false`; the base
+    maps became a `<select>` in the bar (credits follow the choice); `L.control.layers` is gone;
+    the day strip is a plain element in the bar; the overlays panel and the legend became drawers
+    that open under the bar and push the map down. `computeFitPadding()` lost its measuring code
+    because there is nothing left to measure around.
+- Observable: in the local browser, 3D reports 0 `.maplibregl-ctrl` elements; 2D reports
+  0 `#map .leaflet-control` and, by walking every absolutely/fixed-positioned element in the
+  document, 0 that overlap the map rectangle. Screenshots of both show a clear map.
+- Status: **closed 2026-10-08.**
 
 ## 26. 3D map opens zoomed out to the whole region
 - Symptom: The Map tab opens on a view from roughly Blairsville to Gainesville. The hike area is a small cluster of pins near the middle.
 - Evidence: Desktop and mobile Map tab screenshots. map/map3d.js init: `bounds: allBounds(0)`, which covers every day's legs including the Dahlonega drive.
 - Cause: The default view is the "All days" bounds.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08. `map3d.js` gained `hikeDayNums()` (days that pan and walk and have no
+  tour booked, i.e. Sat-Mon) and `allBounds()` now takes a selection: `allBounds('hike')` fits
+  only those days and leaves out their shuttle drives. The map opens with
+  `bounds: allBounds('hike')`, `maxZoom: 13.5`, the leg filter already set to the hike days, and
+  the day `<select>` has a new first option "Hike area (Sat-Mon)" so the control says what the
+  view is. "All days" is still there, second.
+- Observable: on load the map reports zoom 12.87 centred on 34.78866, -83.95532 (the hike
+  ground: WOLF-X is 34.786 -83.925, CAMP-U is 34.791 -83.985), day select = "hike", leg filter
+  `["match",["get","day"],[3,4,5],true,false]`. The screenshot shows the walked route filling
+  the frame instead of a pin cluster.
+- Status: **closed 2026-10-08.**
 
 # D. Offline / APK
 
@@ -222,6 +253,7 @@ Link check: 203 unique URLs from index.html, RUNDOWN.html, RUNDOWN.md, BUY_LIST.
 - Cause: The APK is a snapshot. There is no update path inside the app.
 - Tried: Rebuilt and re-synced the app after every change in this pass: `node app/build-www.mjs`, `npx cap sync android`, `gradlew assembleDebug` (JDK 21 — JDK 17 fails with "invalid source release: 21", and the default JRE 8 fails earlier).
 - Status: **partly closed 2026-10-08.** Released as v2026.10.08; `curl -L` on releases/latest/download/ga-gold-trip.apk returns 200 and 140,786,775 bytes, matching the local build, and the bundled index.html is byte-identical to the repo's. Still open: nobody has installed it on a phone, and the 5 phones still carry the 10-06 build.
+- **2026-10-08, third pass:** a new APK was built after the #24/#25/#26/#32/#34-#36/#39/#40/#43/#44 changes - 140,929,127 bytes, and `node app/check-apk-sync.mjs` reports all six bundled files identical to the repo. **It is built, not released and not tested on anything.** The emulator stand-in could not run: see #47.
 
 ## 30. The offline 3D map has no place or trail names
 - Symptom: In the backcountry the 3D map shows lines and numbered pins but no labels. You have to tap each one to learn what it is.
@@ -239,91 +271,175 @@ Each gap was grep-checked against index.html and RUNDOWN.md before listing.
 - Evidence: Who-has-what (index.html:154): "Satellite messenger (group/shared item) $ – $ ? ? HOLE · need 1"; RUNDOWN.md §7 "Rent a Garmin inReach Mini 2 ... this is a 'must'" and "No cell signal: use the rented satellite messenger's SOS function".
 - Cause: No one has been assigned to rent it. Rentals ship, so lead time matters before Oct 15.
 - Tried: none
-- Status: open
+- **Stood down 2026-10-08 (Jordan): "ignore 1 2 3 4 and 5, consider them just covered for now."**
+  Satellite messenger is the owner's to settle off-page; nothing is built or claimed here.
+  The hub says what it does not know rather than guessing.
+- Status: open, owner-side (not a build task).
 
 ## 32. No single emergency card in the hub
 - Symptom: The ER, 911, sheriff, Vogel office and ranger numbers exist only deep in RUNDOWN §7 and §10 (inside the iframe). There is nothing on Start or in a tab.
 - Evidence: index.html: 0 hits for "Union General", 0 for "911". RUNDOWN.md §7 has Union General (706) 745-2111, NGMC Lumpkin (770) 219-9000, 911, sheriff 706-439-6066. Vogel 706-745-2628 and Blue Ridge RD 706-745-6928 are in §0/§10. No page puts the hike's trailhead/camp coordinates next to them.
 - Cause: not built.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08. New **Trip card** tab in the hub (`trip_card_html()` in
+  `tools/build_hub.py`), and the emergency card is the first thing in it, outside any
+  `<details>`: 911, Union General Hospital (706) 745-2111, Union County Sheriff 706-439-6066,
+  Vogel 706-745-2628, Blue Ridge Ranger District 706-745-6928, each as a `tel:` link with a line
+  on when to use it. Then the no-signal reality, what to say on the call, the nearest hospital
+  and the nearest road to CAMP-U, then a table of all 10 route coordinates (base camp,
+  trailhead, WOLF-X, Calf Stomp Gap, both camps, LOWER, road start, Bowers junction, Owltown
+  Gap) each linked to Google Maps. Coordinates come from `map/data/playground-area.json`.
+- Observable: `index.html#t/card` opens on the red-bordered Emergency card with all five numbers
+  and all ten coordinates. No personal phone numbers are on it (the page is public) and the card
+  says where they live instead.
+- Status: **closed 2026-10-08.**
 
 ## 33. Ranger and county calls still open a week out, and no "if the answer is no" plan for the hike
 - Symptom: Start still says "Still to do: phone calls ...". Legality of the hike creeks, Bowers Road public use, and the overnight permit are all unconfirmed. The only fallback written is for bad weather.
 - Evidence: index.html:34 "Still to do: phone calls (Vogel, Blue Ridge Ranger District, GA DNR, Consolidated, Lumpkin Co, LDMA)"; index.html:30 "Not yet ranger-confirmed legal"; RUNDOWN.md:214 (Camping bullet) "Coosa Backcountry Trail overnight permit from Vogel: UNCONFIRMED"; RUNDOWN.md:79 rain/backup only ("Day-trip fallback: Frogtown"). grep "ranger says no|if the ranger|Plan B": no relevant hit in index.html or RUNDOWN.md.
 - Cause: not built; calls not logged as made.
 - Tried: none
-- Status: open
+- **Stood down 2026-10-08 (Jordan): "ignore 1 2 3 4 and 5, consider them just covered for now."**
+  The calls is the owner's to settle off-page; nothing is built or claimed here.
+  The hub says what it does not know rather than guessing.
+- Status: open, owner-side (not a build task).
 
 ## 34. No day-by-day timeline in the hub with drive times and sunrise/sunset
 - Symptom: The hub has no single Oct 15-21 timeline. Clock times exist only for Thursday in RUNDOWN, and there are no sunrise times at all.
 - Evidence: grep "sunrise": index 0, RUNDOWN.md 0. "sunset": index 0, RUNDOWN.md 1 (RUNDOWN.md:60 "Sunset is about 7:05 PM", Thursday only). Leg-by-leg minutes exist only in the Map tab day panel (map3d-data.js).
 - Cause: not built.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08. The Trip card tab's first section is a per-day table built from
+  `map/data/days.json`: each leg gets a clock time (the day start run forward through the leg
+  minutes), its type, its label and note, and its minutes / miles / climb. Each day's heading
+  line carries sunrise, sunset, civil dark, total driving minutes and total walking miles.
+  Sun times are a new dated dataset, `research/sun-times.json` (NOAA via api.sunrise-sunset.org,
+  fetched 2026-10-08).
+  Chaining legs back to back put Thursday's dinner at 4:51 PM and the stargazing before sunset,
+  so an `ANCHORS` table holds the three clock times the Rundown actually commits to (Thursday
+  dinner 6:50 PM, the Brasstown drive 7:50 PM, Friday's 10 AM mine tour) and the gap is drawn as
+  its own "slack" row rather than hidden.
+- Observable: Thursday now reads 1:00 PM camp setup, 2:15 PM drive, ... 4:51 PM slack 119 min,
+  6:50 PM dinner, 7:50 PM drive to Brasstown Bald, back about 10:14 PM - which matches RUNDOWN
+  §1. All seven days render with sunrise/sunset (Oct 15: sunrise 7:40 AM, sunset 7:02 PM, dark
+  7:26 PM; Oct 21: 7:45 AM / 6:55 PM / 7:19 PM).
+- Status: **closed 2026-10-08.**
 
 ## 35. No weather/forecast link and no record of the early-October re-check
 - Symptom: There is no forecast link to tap. The "re-check fire bans/water/roads in early Oct" step has no result as of Oct 8.
 - Evidence: index.html: 0 hits for weather.gov / NWS. RUNDOWN.md has only plain text "check NWS forecasts (weather.gov)" (not a link). PLAN.md:44 "| 4 | Early Oct re-check: fire bans, water, roads, foreca..." with an empty Status column. index.html:34 still lists it as to-do.
 - Cause: PLAN step 4 not run.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08 (this is PLAN step 4). Fetched and quoted: the NWS point forecast for
+  the hike area (grid FFC 64,134), the Chattahoochee-Oconee alerts page, and the Georgia Forestry
+  Commission burn-permit page. Written up with verbatim quotes in
+  `research/conditions-2026-10-08.md`, and summarised in the Trip card tab's "Weather, fire and
+  roads" section with live links to both NWS point forecasts and the forest alerts page.
+  What it found: campfire restrictions lifted May 4 2026, fire danger Low, no burn ban in October
+  (Georgia's runs May 1 - Sep 30), and **none of the eight road closures on the forest alerts
+  page is ours** - though FS 107/108/298 and the Duncan Ridge Connector are simply not mentioned,
+  which is not the same as open. The $5 ParkPass figure this project carried is wrong: it is $10.
+- Observable: the Trip card section renders the three links and the dated findings; the research
+  file carries the quotes and a named list of what is still unconfirmed. **The forecast does not
+  reach the trip yet** - on Oct 8 the NWS 7-day product ends about Oct 15 - so the hub carries the
+  link and says so rather than printing a number. Re-run on Oct 13 or 14.
+- Status: **closed 2026-10-08** (the Oct 13-14 re-run is the standing item, not this issue).
 
 ## 36. No permit and fee list
 - Symptom: Nobody knows what to pay at each gate: Vogel ParkPass, Brasstown Bald, Consolidated, Gold Museum.
 - Evidence: RUNDOWN.md:39, :451, :477 only say "confirm current ParkPass fee". No Brasstown Bald fee or gate hours anywhere: CALLS.md:49 "is the gate on Spur 180 open until about 10:30 PM in mid-October?" is still open, and Thursday's plan returns to camp ~10:15 PM. "Anna Ruby": 0 hits in both files. Tour prices sit in RUNDOWN §5 and §11, not in one list in the hub.
 - Cause: not built.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08. Every fee re-fetched and quoted (see
+  `research/conditions-2026-10-08.md` §6), then listed in the Trip card tab's "What it costs at
+  each gate" table with its source and its catch: ParkPass $10/vehicle/day ($70 annual, paid once
+  per vehicle for an overnight stay), Vogel walk-in rate not published, Brasstown Bald $10/person
+  16+ (after hours $6.00), Consolidated underground $24.95 adult / $15.95 child and panning
+  "Starting at: $60", Dahlonega Gold Museum $10 / $7.50 / $7 / $3.50, overnight permit unknown.
+  RUNDOWN's budget table and call script were corrected for the $10 ParkPass at the same time.
+- Observable: the table renders in the Trip card tab with eight rows, each carrying the page it
+  came from and the date. Four rows are flagged UNCONFIRMED on purpose (the walk-in rate, the
+  after-hours window, Consolidated's last tour, the overnight permit).
+- Status: **closed 2026-10-08** for the list; the four unconfirmed rows stay on CALLS.md.
 
 ## 37. No who-drives-which-truck table and no group contact sheet
 - Symptom: The plan refers to "truck 1" and "truck 2" (PLAN.md:23-24) but never says whose. There are no phone numbers for the 5 people.
 - Evidence: grep "who drives|driver|which truck": index 0 relevant (the one hit is a multitool "bit driver"), RUNDOWN.md 0. "contact sheet|phone number": none for group members. The group's names appear only in Who-has-what (Jordan, Nik, Nathan, Hilton, Jarred).
 - Cause: not built.
 - Tried: none
-- Status: open
+- **Stood down 2026-10-08 (Jordan): "ignore 1 2 3 4 and 5, consider them just covered for now."**
+  The drivers and the contact sheet is the owner's to settle off-page; nothing is built or claimed here.
+  The hub says what it does not know rather than guessing.
+- Status: open, owner-side (not a build task).
 
 ## 38. No written trip plan left with someone at home
 - Symptom: No page says who outside the group holds the route and the overdue time for the hike.
 - Evidence: grep "leave a trip plan|trip plan with|emergency contact": index 0; RUNDOWN.md 1 (RUNDOWN.md:494, a research-source note). RUNDOWN §7 only tells whoever stays at camp to know the route, and on hike days all 5 are out.
 - Cause: not built.
 - Tried: none
-- Status: open
+- **Stood down 2026-10-08 (Jordan): "ignore 1 2 3 4 and 5, consider them just covered for now."**
+  The plan left at home is the owner's to settle off-page; nothing is built or claimed here.
+  The hub says what it does not know rather than guessing.
+- Status: open, owner-side (not a build task).
 
 ## 39. No water plan per hike camp
 - Symptom: Only CAMP-U has a water note. Calf Stump Branch (night 1 on the 10-05 route) has "October flow is unconfirmed" with no fallback, and there is no carry plan for the ridge stretch.
 - Evidence: RUNDOWN.md:208 "Water: CAMP-U ... If it is a trickle, move camp down toward 34.7958, -83.9792"; PLAN.md:24 "Creek has no gold record and October flow is unconfirmed" (Calf Stump). RUNDOWN.md §3 Rules: "Water: the creek at every camp; treat it."
 - Cause: not built. Needs redoing for whichever 3-day route issue 2 settles on.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08, for the Sat-Mon route. Written in two places: RUNDOWN §3 ("Water, camp
+  by camp") and the Trip card tab's "Water, camp by camp" table. Fill 2 L each at WOLF-X before
+  the 1,375 ft climb (no water on it); filter at Calf Stump Branch, and if it is a trickle drop
+  back 0.4 mi to Calf Stomp Gap and down FS 108 rather than ration; carry 2 L each over the
+  1.56 mi of dry Roaring Fork ridge; at CAMP-U the written fallback is to move down toward
+  34.7958, -83.9792, with LOWER (34.7935, -83.98112) as the first reach with more water; last
+  fill at LOWER before the dry 1.5 mi of Bowers Road. Filter first, Aquatabs as backup.
+- Observable: both pages render the per-camp plan with the fallback coordinates. Both flows are
+  still **unconfirmed** - that is a field fact, and it is stated as the most likely thing to
+  force a change.
+- Status: **closed 2026-10-08** (the plan exists; October flow stays unconfirmed until someone stands in it).
 
 ## 40. No per-meal food plan for the base-camp days in the hub
 - Symptom: The Buy tab has a single "Car-camp grocery run (est.)" line. The meal-by-meal list exists only in MASTER_LIST.md, which isn't linked from the hub, and it is built around the old Tuesday dinner.
 - Evidence: index.html:170 "Car-camp grocery run (est.)" note "simple car-camp breakfasts/dinners at Vogel for the non-backcountry nights; no link". MASTER_LIST.md:49 "Thu dinner, Fri breakfast (Fri dinner in Dahlonega), Sat breakfast, Tue dinner (make it the big one), Wed breakfast". The Files tab (index.html:156) does not list MASTER_LIST.md.
 - Cause: not built; MASTER_LIST not in the hub.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08. The Trip card tab has a row per base-camp meal - ten of them, counted
+  for the Sat-Mon shape (Thu dinner; Fri breakfast, lunch out, dinner; Sat breakfast; Mon dinner
+  as the big one; Tue breakfast, lunch, dinner; Wed breakfast) - with what to cook and why that
+  meal is that shape, plus where to buy (Ingles, Blairsville, Thursday on the way in; ice again
+  Tuesday) and the truck-cab storage rule. MASTER_LIST.md is linked from the section.
+- Observable: the table renders ten rows in the Trip card tab. MASTER_LIST.md was already
+  re-counted for Sat-Mon on 2026-10-08, so the two agree.
+- Status: **closed 2026-10-08.**
 
 ## 41. Other group-gear holes: bear-proof food storage and paper maps
 - Symptom: Who-has-what shows that nobody has bear-proof food storage (required practice, RUNDOWN §7) and that 2 more paper maps are needed.
 - Evidence: index.html:154 "Bear-proof food storage (group/shared item) $ $ $ ? ? HOLE · need 1"; "National Geographic Chattahoochee-Oconee National Forest paper map $ $ $ ? ? HOLE · need 2".
 - Cause: Hilton's and Jarred's lists not in, and the holes are not assigned to anyone.
 - Tried: none
-- Status: open
+- **Stood down 2026-10-08 (Jordan): "ignore 1 2 3 4 and 5, consider them just covered for now."**
+  The group-gear holes is the owner's to settle off-page; nothing is built or claimed here.
+  The hub says what it does not know rather than guessing.
+- Status: open, owner-side (not a build task).
 
 ## 42. Two of five gear lists still missing
 - Symptom: The "holes" view can't be trusted until every list is in.
 - Evidence: index.html:154 "Lists in: 3 of 5 (Jordan, Nik, Nathan). Still owed: Hilton, Jarred."
 - Cause: Lists not sent.
 - Tried: none
-- Status: open
+- **Stood down 2026-10-08 (Jordan): "ignore 1 2 3 4 and 5, consider them just covered for now."**
+  Hilton's and jarred's lists is the owner's to settle off-page; nothing is built or claimed here.
+  The hub says what it does not know rather than guessing.
+- Status: open, owner-side (not a build task).
 
 ## 43. No shared Friday-evening checklist (truck staging and hike pack-up)
 - Symptom: PLAN's Friday row puts a staging run and pack-up in the evening after a full Dahlonega day, but there is no checklist or time for it. RUNDOWN's Friday section doesn't mention it.
 - Evidence: PLAN.md:23 "Evening: both trucks stage truck 2 at Owltown Gap, back in truck 1. Pack the hike packs."; RUNDOWN.md:65-71 (Fri section) has no staging step. grep "staging|stage truck": index 0, RUNDOWN.md 0.
 - Cause: not built. Whether staging is still needed depends on the answer to issue 2.
-- Tried: none
-- Status: open
+- Tried: done 2026-10-08, now that the route is settled. In two places: RUNDOWN §1 Friday gained
+  an "Evening, back at Vogel" block, and the Trip card tab has a "Friday evening checklist"
+  section in four parts - before leaving for Dahlonega, the staging run to Owltown Gap
+  (34.81143, -83.94952) before dark at 7:25 PM, the pack-up at camp, and what gets told to the
+  person at home. It also names the fallback: if Bowers Road is still a no, skip the staging run
+  and plan to walk back to truck 1 at WOLF-X.
+- Observable: both pages render the checklist, with the same coordinates and the same dark time
+  as the timeline above it.
+- Status: **closed 2026-10-08.**
 
 ---
 
@@ -334,7 +450,10 @@ Each gap was grep-checked against index.html and RUNDOWN.md before listing.
 - Evidence: `node map/data/_build_playground.mjs` reports "wolf_x / West Fork Wolf Creek, the National Forest reach: 11 vertices" on non-FS ground, testing the OSM creek line from its source to 34.79131, -83.91724 against `map/data/private.geojson` (EDW BasicOwnership, 2026-10-05), with the two state-park polygons from `wilderness.geojson` already exempt. `map/build-map.mjs`'s own guard reports no camp, pan or day start/end point on private land, so the pan stop itself is clear.
 - Cause: **found 2026-10-08: candidate (a), the boundary number is wrong.** The 11 flagged vertices are the last 11 of the 188 on the line (indices 177-187, the final ~190 m), contiguous, all in the same `private.geojson` polygon (feature 0, NON-FS), and each one sits deeper inside it than the last: 1, 13, 24, 34, 57, 67, 77, 81, 86, 86, 93 m from the polygon edge. Not an inholding, not a scattered offset. The ownership edge crosses the creek between vertex 176 (34.79067, -83.91913, 14 m outside) and vertex 177 (34.79077, -83.91895), so the real limit is about **34.7908, -83.9190**; 34.79131, -83.91724 is ~200 m downstream of it, 93 m inside private land. WOLF-X (vertex 139) is ~803 m of creek upstream of the edge, so the planned pan stop is clear. Taken as true (an assumption): the Forest Service ownership file, as everywhere else in the plan.
 - Tried: none yet. Fix: replace 34.79131, -83.91724 with 34.7908, -83.9190 in `tools/build_hub.py:563`, `RUNDOWN.md:197` and `map/data/_build_playground.mjs:318-325`, then rebuild; the playground build must then report 0 non-FS vertices for this branch.
-- Status: open, cause found, fix pending.
+- Fixed 2026-10-08: the number used is **34.7906, -83.9190**, not 34.7908, -83.9190. 34.7908, -83.9190 is where the ownership edge crosses the creek, but it snaps to the next vertex downstream (34.79077, -83.91895), which is already 13 m inside private land, so the build still flagged 1 vertex. 34.7906, -83.9190 snaps to 34.79063, -83.91901, the last vertex on Forest Service ground. Changed in `map/data/_build_playground.mjs:318-325`, `tools/build_hub.py:563`, `RUNDOWN.md:197`.
+- Observable: `node map/data/_build_playground.mjs` now lists only `wolf_x / Coosa Backcountry Trail ... : 5 vertices` and `conn_bowers_jct / Bowers Road (FS 298) ... : 34 vertices` under "Non-FS ground on these branches" — both expected and documented. The West Fork Wolf Creek National Forest reach is gone from the list (0 vertices), and the branch is now 2.9 mi instead of 3.0.
+- Still carrying the old number (not a built page, left as the dated research record): `research/backcountry-route-design.md:68`, with a correction line added beside it 2026-10-08.
+- Status: **closed 2026-10-08.**
 
 ## 45. The Android build needs JDK 21 and nothing in the repo says so
 - Symptom: `./gradlew assembleDebug` fails twice before it works. With the machine's default Java it says "Run this build using a Java 11 or newer JVM"; with `E:/dev-tools/jdk17` it fails at `:capacitor-android:compileDebugJavaWithJavac` with "invalid source release: 21".
@@ -347,5 +466,23 @@ Each gap was grep-checked against index.html and RUNDOWN.md before listing.
 - Symptom: the hub, the maps and the APK are built from the same sources but released separately, so the APK on GitHub can silently lag the published hub. It already did once: ISSUES #29.
 - Evidence: the release flow is manual (`node app/build-www.mjs`, `npx cap sync android`, `gradlew assembleDebug`, then a GitHub release). No step compares the APK's bundled `index.html` with the repo's.
 - Cause: no check exists.
-- Tried: none. A cheap one would be a script that diffs `app/android/app/src/main/assets/public/index.html` against `index.html` and fails if they differ.
-- Status: open.
+- Tried: done 2026-10-08. `app/check-apk-sync.mjs` reads the APK itself (it is a zip - the script
+  parses the central directory and inflates entries with `node:zlib`, no dependencies) and
+  compares six files it carries under `assets/public/` with the repo copies: `index.html`,
+  `RUNDOWN.html`, `gear-checkin.html`, `map/map3d-data.js`, `map/map3d.js`, `map/trip.gpx`.
+  Line endings are normalised; anything else differing fails the run, names the file and prints
+  the first differing line from each side plus the rebuild commands. Takes an APK path as
+  `argv[2]`, defaults to the debug build output.
+- Observable: against the current APK (140,786,775 bytes, 5,604 entries) it printed "same" for
+  all six and exited 0. With one line appended to `index.html` it printed
+  "DIFFERS: index.html (APK 716 lines, repo 718 lines; first difference at line 717)" and exited
+  1; the file was then restored.
+- Status: **closed 2026-10-08.**
+
+## 47. The Android emulator cannot start on DATA: no hypervisor driver
+- Symptom: `emulator -avd gatrip` exits immediately; `adb devices` lists nothing. The emulator test that was standing in for the phone test (#28-#30) could not be run at all.
+- Evidence: 2026-10-08, `E:/dev-tools/android-sdk/emulator/emulator.exe -avd gatrip -no-snapshot-load -no-boot-anim -gpu swiftshader_indirect`. The AVD's own requirement checks all pass ("System requirements to run avd: `gatrip` are met", "Disk space requirements ... are met"), then: `ERROR | x86_64 emulation currently requires hardware acceleration!` and `CPU acceleration status: Android Emulator hypervisor driver is not installed on this machine`. Also a harmless warning: "Failed to process .ini file ...\gatrip.avd\quickbootChoice.ini for reading."
+- Cause: **found.** DATA has no x86_64 hardware-acceleration backend for the emulator - neither the Android Emulator hypervisor driver (AEHD) nor Windows Hypervisor Platform is enabled. Nothing to do with the APK, the AVD or the SDK, all of which are fine.
+- Tried: one launch, read the log, read `adb devices` (empty). Not retried with other flags: `-accel off` is not offered for x86_64, and an ARM64 image would need a different system image download.
+- Fix (owner's call, not mine - it changes system settings): either enable **Windows Hypervisor Platform** in "Turn Windows features on or off" and reboot, or install **AEHD** from the SDK Manager (SDK Tools -> "Android Emulator hypervisor driver"). Then re-run the five checks listed under #28-#30.
+- Status: open. **It blocks the emulator stand-in for #28, #29 and #30.**

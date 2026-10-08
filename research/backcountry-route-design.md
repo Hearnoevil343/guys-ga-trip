@@ -68,6 +68,14 @@ Creek and the mainstem are private. West Fork Wolf Creek: FS from source to
 34.79131,-83.91724 (3.0 mi). **Pan only on the FS reaches. The downstream limit on the
 East Fork is 34.80637,-83.95980 — everything below is private.**
 
+> **Corrected 2026-10-08 (ISSUES #44): the West Fork Wolf Creek limit above is wrong.**
+> 34.79131,-83.91724 is about 200 m downstream of the ownership edge and 93 m inside
+> private land. The edge crosses the creek at about 34.7908,-83.9190; the limit the plan
+> and the hub now use is **34.7906,-83.9190** (2.9 creek-miles from the source), the last
+> point confirmed on Forest Service ground in `map/data/private.geojson` (EDW
+> BasicOwnership, 2026-10-05). The East Fork limit is unchanged.
+
+
 **Pressure:** no modern panning write-up, forum thread, or guide entry found for the East
 Fork (one search pass — absence of evidence, UNCONFIRMED). Last documented working ~1909-12.
 Not a named recreation site. The access tracks may be open to vehicles (UNCONFIRMED) —

@@ -636,13 +636,23 @@ const html = `<!doctype html>
 <style>
   html, body { margin:0; padding:0; height:100%; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
   #app { display:flex; height:100vh; width:100vw; }
-  #map { flex: 1 1 auto; height: 100%; }
+  #mapcol { flex:1 1 auto; min-width:0; height:100%; display:flex; flex-direction:column; }
+  #map { flex: 1 1 auto; min-height:0; }
   #panel { width: 340px; min-width: 300px; max-width: 40vw; height: 100%; overflow-y: auto; background:#fafafa; border-left:1px solid #ccc; box-sizing:border-box; }
+  /* ---- map bar + drawers (ISSUES #25: controls inside the aspect) ---- */
+  #mapbar { display:flex; flex-wrap:wrap; gap:6px; align-items:center; padding:6px 8px; background:#f4f4f4; border-bottom:1px solid #ccc; }
+  #mapbar select, #mapbar button { font:inherit; font-size:12px; padding:5px 9px; border:1px solid #999; border-radius:4px; background:#fff; color:#333; cursor:pointer; }
+  #mapbar button:hover, #mapbar select:hover { background:#e2ecff; }
+  #mapbar button[aria-expanded="true"] { background:#2255aa; color:#fff; border-color:#2255aa; }
+  #zoomBtns { display:flex; gap:4px; }
+  #zoomBtns button { width:30px; text-align:center; font-weight:700; }
+  .drawer { background:#fff; border-bottom:1px solid #ccc; padding:8px 10px; max-height:38vh; overflow-y:auto; }
+  #credits { font-size:11px; color:#555; background:#f4f4f4; border-top:1px solid #ccc; padding:3px 8px; }
   @media (max-width: 700px) {
     #app { flex-direction:column; }
-    #map { flex:none; width:100%; height:50vh; }
-    #legend { bottom:calc(50vh + 8px) !important; left:8px !important; max-height:22vh !important; }
+    #mapcol { flex:none; width:100%; height:50vh; }
     #panel { width:100%; min-width:0; max-width:100%; height:50vh; border-left:0; border-top:1px solid #ccc; }
+    .drawer { max-height:26vh; }
   }
   #panel h1 { font-size: 16px; margin: 10px 12px 4px; }
   #panel .sub { font-size: 12px; color:#555; margin: 0 12px 8px; }
@@ -661,8 +671,9 @@ const html = `<!doctype html>
   .leaflet-popup-content h3 { margin: 2px 0 4px; font-size: 14px; }
   .leaflet-popup-content .row { margin: 3px 0; }
   .leaflet-popup-content .lbl { font-weight:600; }
-  #legend { position:absolute; bottom:16px; left:16px; z-index:1000; background:#fff; padding:8px 10px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.4); font-size:12px; max-height: 40vh; overflow-y:auto; }
-  #legend h4 { margin:0 0 4px; font-size:12px; }
+  /* The legend is a drawer under the bar now, not a box over the map. */
+  #legend { font-size:12px; columns:2; column-gap:18px; }
+  #legend h4 { margin:0 0 4px; font-size:12px; column-span:all; }
   #legend div { margin: 1px 0; }
 
   /* permanent centered label on every "Panning: no" polygon */
@@ -670,7 +681,7 @@ const html = `<!doctype html>
   .no-panning-label::before { display:none; }
 
   /* ---- day strip control (on the map) ---- */
-  .day-strip { background:#fff; padding:6px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:5px; }
+  .day-strip { display:flex; flex-direction:row; align-items:center; gap:6px; }
   .day-strip .day-row { display:flex; gap:4px; flex-wrap:wrap; }
   .day-strip button { border:1px solid #999; background:#f4f4f4; border-radius:4px; padding:5px 9px; font-size:12px; cursor:pointer; font-weight:600; color:#333; }
   .day-strip button:hover { background:#e2ecff; }
@@ -679,7 +690,8 @@ const html = `<!doctype html>
   @media (min-width: 700px) { .day-strip .hint { display:inline; } }
   /* Variant selector: same box as the day strip (not a separate floating
      control), a row above the day-number buttons. */
-  .day-strip .variant-row { display:flex; gap:4px; border-bottom:1px solid #ddd; padding-bottom:5px; }
+  .day-strip .variant-row { display:flex; gap:4px; }
+  .day-strip .variant-row:empty { display:none; }
   .day-strip .variant-row button { flex:1 1 auto; background:#fff; border:1px solid #999; border-radius:4px; padding:5px 7px; font-size:11px; font-weight:700; cursor:pointer; color:#333; }
   .day-strip .variant-row button:hover { background:#e2ecff; }
   .day-strip .variant-row button.active { background:#2ca02c; color:#fff; border-color:#2ca02c; }
@@ -699,17 +711,9 @@ const html = `<!doctype html>
      own width wider on a narrow phone screen (the sidebar panel already claims
      most of the viewport there). Expanded = the full 230px panel; that's a
      deliberate user tap, same tradeoff the base-map switcher already makes. */
-  .overlay-panel { margin-top:6px; }
-  .overlay-toggle-icon { display:none; width:34px; height:34px; border:1px solid #999; border-radius:6px; background:#fff; font-size:15px; font-weight:700; cursor:pointer; color:#333; box-shadow:0 1px 4px rgba(0,0,0,.4); }
-  .overlay-toggle-icon:hover { background:#e2ecff; }
-  .overlay-panel.collapsed .overlay-toggle-icon { display:block; }
-  .overlay-panel-inner { background:#fff; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.4); font-size:12px; width:230px; max-width:62vw; overflow:hidden; }
-  .overlay-panel.collapsed .overlay-panel-inner { display:none; }
-  .overlay-panel-hd { display:flex; align-items:center; justify-content:space-between; padding:7px 10px; font-weight:700; background:#f4f4f4; border-bottom:1px solid #ddd; }
-  .overlay-toggle { border:1px solid #999; background:#fff; border-radius:3px; width:20px; height:20px; line-height:1; font-size:14px; font-weight:700; cursor:pointer; color:#333; }
-  .overlay-toggle:hover { background:#e2ecff; }
-  .overlay-panel-body { max-height:52vh; overflow-y:auto; padding:2px 0; }
-  .ov-row { padding:6px 10px; border-top:1px solid #eee; }
+  /* Overlays live in the bar's drawer, so the panel is plain content now. */
+  .overlay-panel-body { display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:0 14px; }
+  .ov-row { padding:5px 0; border-top:1px solid #eee; }
   .ov-row:first-child { border-top:none; }
   .ov-hd { display:flex; align-items:center; gap:6px; cursor:pointer; margin:0; }
   .ov-hd input { flex:0 0 auto; cursor:pointer; }
@@ -758,13 +762,30 @@ const html = `<!doctype html>
 </head>
 <body>
 <div id="app">
-  <div id="map"></div>
+  <!-- ISSUES #25: every control lives in this column's bar or in a drawer
+       under it. Nothing is positioned over #map. -->
+  <div id="mapcol">
+    <div id="mapbar">
+      <select id="baseSel" aria-label="Base map"></select>
+      <button type="button" id="ovBtn" aria-expanded="false">Overlays</button>
+      <button type="button" id="legendBtn" aria-expanded="false">Legend</button>
+      <span id="zoomBtns">
+        <button type="button" id="zoomIn" aria-label="Zoom in">+</button>
+        <button type="button" id="zoomOut" aria-label="Zoom out">&minus;</button>
+      </span>
+      <span id="dayStripHost"></span>
+    </div>
+    <div id="ovDrawer" class="drawer" hidden></div>
+    <div id="legendDrawer" class="drawer" hidden><div id="legend"></div></div>
+    <div id="map"></div>
+    <div id="credits"></div>
+  </div>
   <div id="panel">
     <h1>GA Gold Trip — Oct 15&ndash;21 2026</h1>
     <div class="sub">Vogel State Park base camp, Blairsville GA. Click a marker or list item for details.</div>
     <div id="daySection">
       <h2>Day plan</h2>
-      <div class="day-sub">Pick a day on the map (top-left) or below to see its real route, distances and times.</div>
+      <div class="day-sub">Pick a day in the bar above the map, or below, to see its real route, distances and times.</div>
       <div id="dayHint">No day selected — showing every day's route at once. Pick a day for turn-by-turn legs and totals.</div>
       <div id="dayBody"></div>
     </div>
@@ -773,7 +794,6 @@ const html = `<!doctype html>
     <ul id="list"></ul>
   </div>
 </div>
-<div id="legend"></div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/esri-leaflet@3.0.12/dist/esri-leaflet.js"></script>
@@ -781,7 +801,11 @@ const html = `<!doctype html>
 const DATA = ${DATA_JSON};
 
 // ---- map & base layers ----
-const map = L.map('map', { zoomControl: true }).setView([34.78, -83.95], 10);
+// ISSUES #25: Leaflet's own zoom and attribution controls are off; the bar
+// above the map carries both (see #mapbar / #credits).
+const map = L.map('map', { zoomControl: false, attributionControl: false }).setView([34.78, -83.95], 10);
+document.getElementById('zoomIn').addEventListener('click', () => map.zoomIn());
+document.getElementById('zoomOut').addEventListener('click', () => map.zoomOut());
 
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors', maxZoom: 19,
@@ -985,15 +1009,34 @@ for (const key of Object.keys(overlayLayers)) {
   applyLayerOpacity(overlayLayers[key], overlaySettings[key].opacity);
 }
 
-const layersControl = L.control.layers(baseLayers, null, { collapsed: true }).addTo(map);
+// Base map: a select in the bar. Its credits go in the strip under the map,
+// so nothing is drawn over the map itself (ISSUES #25).
+const baseCredits = {
+  'OpenTopoMap': 'Map data © OpenStreetMap contributors, SRTM · style © OpenTopoMap (CC-BY-SA)',
+  'USGS Topo': 'USGS The National Map',
+  'Esri World Imagery (satellite)': 'Esri World Imagery',
+  'OpenStreetMap': '© OpenStreetMap contributors',
+};
+const OVERLAY_CREDITS = 'Overlays: USFS EDW BasicOwnership · OpenStreetMap';
+const baseSel = document.getElementById('baseSel');
+const creditsEl = document.getElementById('credits');
+let currentBase = 'OpenTopoMap';
+function setBase(name) {
+  if (!baseLayers[name]) return;
+  if (currentBase !== name && baseLayers[currentBase]) map.removeLayer(baseLayers[currentBase]);
+  currentBase = name;
+  if (!map.hasLayer(baseLayers[name])) baseLayers[name].addTo(map);
+  baseLayers[name].bringToBack();
+  creditsEl.textContent = (baseCredits[name] || name) + ' · ' + OVERLAY_CREDITS;
+  baseSel.value = name;
+}
+for (const name of Object.keys(baseLayers)) baseSel.add(new Option(name, name));
+baseSel.addEventListener('change', () => setBase(baseSel.value));
+setBase(currentBase);
 
-// ---- Overlays control panel: on/off + opacity slider per overlay ----
-const OverlayPanel = L.Control.extend({
-  options: { position: 'topright' },
-  onAdd: function () {
-    const div = L.DomUtil.create('div', 'overlay-panel' + (window.innerWidth < 700 ? ' collapsed' : ''));
-    L.DomEvent.disableClickPropagation(div);
-    L.DomEvent.disableScrollPropagation(div);
+// ---- Overlays: on/off + opacity slider per overlay, in the bar's drawer ----
+function buildOverlayPanel() {
+    const div = document.getElementById('ovDrawer');
     let rows = '';
     const keys = Object.keys(overlayLayers);
     keys.forEach((key, i) => {
@@ -1006,13 +1049,7 @@ const OverlayPanel = L.Control.extend({
         '<input type="range" class="ov-slider" data-i="' + i + '" min="0" max="100" step="5" value="' + Math.round(s.opacity * 100) + '">' +
         '</div>';
     });
-    div.innerHTML = '<button type="button" class="overlay-toggle-icon" aria-label="Show overlay controls">&#9776;</button>' +
-      '<div class="overlay-panel-inner">' +
-      '<div class="overlay-panel-hd"><span>Overlays</span><button type="button" class="overlay-toggle" aria-label="Collapse overlays panel">&minus;</button></div>' +
-      '<div class="overlay-panel-body">' + rows + '</div>' +
-      '</div>';
-    div.querySelector('.overlay-toggle-icon').addEventListener('click', () => div.classList.remove('collapsed'));
-    div.querySelector('.overlay-toggle').addEventListener('click', () => div.classList.add('collapsed'));
+    div.innerHTML = '<div class="overlay-panel-body">' + rows + '</div>';
     div.querySelectorAll('.ov-toggle').forEach(cb => {
       cb.addEventListener('change', () => {
         const key = keys[parseInt(cb.getAttribute('data-i'), 10)];
@@ -1030,10 +1067,23 @@ const OverlayPanel = L.Control.extend({
         saveOverlaySettings();
       });
     });
-    return div;
-  },
-});
-if (Object.keys(overlayLayers).length) new OverlayPanel().addTo(map);
+}
+
+// A drawer opens under the bar and pushes the map down; it never covers it.
+function wireDrawer(btnId, drawerId) {
+  const btn = document.getElementById(btnId), dr = document.getElementById(drawerId);
+  btn.addEventListener('click', () => {
+    const open = dr.hidden;
+    for (const id of ['ovDrawer', 'legendDrawer']) document.getElementById(id).hidden = true;
+    for (const id of ['ovBtn', 'legendBtn']) document.getElementById(id).setAttribute('aria-expanded', 'false');
+    dr.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    map.invalidateSize();
+  });
+}
+if (Object.keys(overlayLayers).length) { buildOverlayPanel(); wireDrawer('ovBtn', 'ovDrawer'); }
+else document.getElementById('ovBtn').hidden = true;
+wireDrawer('legendBtn', 'legendDrawer');
 
 // ---- markers ----
 function dirLink(lat, lng) {
@@ -1643,41 +1693,14 @@ function renderDayPanel(n) {
 // unclickable by a real mouse click even though the popup/chain logic was
 // fine — computeFitPadding() re-measures every time in case the legend's
 // height changed (it grows with the layer count) or the viewport was resized.
+// Since ISSUES #25 no control sits on the map (the bar, the drawers and the
+// credits are siblings of #map, not children), so the fit only needs a plain
+// margin - capped so it cannot eat a small window.
 function computeFitPadding() {
   const mapRect = document.getElementById('map').getBoundingClientRect();
-  const MARGIN = 24;
-  let left = 30, top = 30, right = 30, bottom = 30;
-  function rectOf(sel) {
-    const el = document.querySelector(sel);
-    if (!el) return null;
-    const r = el.getBoundingClientRect();
-    return (r.width > 0 || r.height > 0) ? r : null;
-  }
-  const zoom = rectOf('.leaflet-control-zoom');
-  const strip = rectOf('.day-strip');
-  const legend = rectOf('#legend');
-  const layers = rectOf('.leaflet-control-layers');
-  const overlayPanel = rectOf('.overlay-panel');
-  [zoom, strip].forEach(r => {
-    if (!r) return;
-    left = Math.max(left, r.right - mapRect.left + MARGIN);
-    top = Math.max(top, r.bottom - mapRect.top + MARGIN);
-  });
-  if (legend) {
-    left = Math.max(left, legend.right - mapRect.left + MARGIN);
-    bottom = Math.max(bottom, mapRect.bottom - legend.top + MARGIN);
-  }
-  [layers, overlayPanel].forEach(r => {
-    if (!r) return;
-    right = Math.max(right, mapRect.right - r.left + MARGIN);
-    top = Math.max(top, r.bottom - mapRect.top + MARGIN);
-  });
-  // Never let padding eat the whole viewport on a small window.
-  const capX = mapRect.width * 0.4, capY = mapRect.height * 0.4;
-  return {
-    paddingTopLeft: [Math.min(left, capX), Math.min(top, capY)],
-    paddingBottomRight: [Math.min(right, capX), Math.min(bottom, capY)],
-  };
+  const pad = 30;
+  const x = Math.min(pad, mapRect.width * 0.4), y = Math.min(pad, mapRect.height * 0.4);
+  return { paddingTopLeft: [x, y], paddingBottomRight: [x, y] };
 }
 
 let selectedDay = null;
@@ -1814,19 +1837,22 @@ function applyVariant(id) {
   if (dayStripVariantRowEl) renderVariantRow(dayStripVariantRowEl);
   renderDayPanel(null);
 }
-const DayStrip = L.Control.extend({
-  options: { position: 'topleft' },
-  onAdd: function () {
-    const div = L.DomUtil.create('div', 'day-strip');
-    L.DomEvent.disableClickPropagation(div);
-    dayStripVariantRowEl = L.DomUtil.create('div', 'variant-row', div);
-    dayStripDayRowEl = L.DomUtil.create('div', 'day-row', div);
-    renderVariantRow(dayStripVariantRowEl);
-    renderDayRow(dayStripDayRowEl);
-    return div;
-  },
-});
-if (DAYS.length) new DayStrip().addTo(map);
+// The day strip is part of the bar, not a control sitting on the map.
+function buildDayStrip() {
+  const host = document.getElementById('dayStripHost');
+  const div = document.createElement('div');
+  div.className = 'day-strip';
+  dayStripVariantRowEl = document.createElement('div');
+  dayStripVariantRowEl.className = 'variant-row';
+  dayStripDayRowEl = document.createElement('div');
+  dayStripDayRowEl.className = 'day-row';
+  div.appendChild(dayStripVariantRowEl);
+  div.appendChild(dayStripDayRowEl);
+  host.appendChild(div);
+  renderVariantRow(dayStripVariantRowEl);
+  renderDayRow(dayStripDayRowEl);
+}
+if (DAYS.length) buildDayStrip();
 
 function updateDayStripActive(n) {
   document.querySelectorAll('.day-strip .day-row button').forEach(btn => {

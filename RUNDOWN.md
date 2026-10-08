@@ -36,7 +36,7 @@ Base camp: Vogel State Park, walk-in site P. 5 adults (3 newer campers). This is
 - **Archery deer season** is open the whole trip (opened Sept 12) — lower-key, no blaze orange legally required for archery, but you'll be sharing the woods with bowhunters throughout.
 
 **5 phone calls to make before the trip** (full scripts in §10):
-1. **Vogel State Park — 706-745-2628** — confirm walk-in site P vehicle count/parking, second-tent policy, current ParkPass fee, and firewood rules.
+1. **Vogel State Park — 706-745-2628** — confirm walk-in site P vehicle count/parking, second-tent policy, the walk-in nightly rate (the park page does not publish one), whether the $10 ParkPass is per stay or per night for a walk-in site, and firewood rules.
 2. **Blue Ridge Ranger District — 706-745-6928** — confirm current hand-panning rules, any stream closures, and panning/camping/road access on East Fork Coosa Creek and West Fork Wolf Creek (questions in `CALLS.md` #1).
 3. **GA DNR Wildlife Resources Division — 770-535-5498** — confirm WMA hunt calendar for the trip week and any trout-stream restrictions.
 4. **Consolidated Gold Mine — 706-864-8473** — ask if their most veteran guide (possibly Greg Sheppard) is working the week of Oct 15–21, and get current tour pricing.
@@ -56,11 +56,14 @@ Every day below now budgets real time for breakfast/lunch/dinner and for camp se
 Arrival day is light on purpose: everyone is tired from the drive. No panning today.
 - **1:00 PM:** Arrive Vogel, check in, haul gear to walk-in site P.
 - **2:00–3:15 PM:** Set up base camp (tents, bear-proof food hang on the site's steel posts, kitchen area).
-- **Afternoon:** Rest, then drive to **Helton Creek Falls** (3.9 mi / 13 min, Helton Creek Road / FS 118 gravel; 0.13 mi of steps and boardwalk to a lower and an upper falls, about 30 min there). National Forest day-use site, no panning. **Vogel's own lake-loop walk to Trahlyta Falls is CLOSED** — Lake Trahlyta is drained for dam repairs and the loop trail and the waterfall are closed (gastateparks.org/Vogel, re-fetched 2026-10-08); all campsites and other park facilities are open.
-- **~6:50 PM:** Dinner at camp. Sunset is about 7:05 PM.
+- **Afternoon — pick one on the day (Jordan, 2026-10-08).** All three fit the same slot (~3:30–4:45 PM) and none needs booking. Hours, cost and a maps link for each are in the hub's **Playground** tab.
+    - **Helton Creek Falls** — 3.9 mi / 13 min (Helton Creek Road / FS 118 gravel), 0.13 mi of steps and boardwalk to a lower and an upper falls, about 30 min there. National Forest day-use site, no panning. This is the one drawn on the map, because the map needs one line.
+    - **DeSoto Falls** — about 10 min (US-129 south, just inside the National Forest boundary), open 24 h, two easily-viewed falls off one easy loop. Separate 650-acre DeSoto Falls Scenic Area; camping there is restricted by a site-specific order, so it is a walk, not a camp.
+    - **Sosebee Cove Scenic Area** — about 10 min (GA-180, 2 mi west of US-19/129), old-growth cove hardwood, a short loop, open year round, free. The quiet one.
+- **~6:50 PM:** Dinner at camp. **Sunset is 7:02 PM and it is fully dark by 7:26 PM** (NOAA via api.sunrise-sunset.org for Vogel, fetched 2026-10-08; `research/sun-times.json`). The old "about 7:05 PM" was close but the whole week's times are now in the hub's Trip card.
 - **~7:50 PM:** Drive to **Brasstown Bald** parking lot (~27 min, highest point in Georgia). Explore Georgia: "The parking lot is open at night, and the lights from the visitors center are turned off." Not yet confirmed with the Forest Service. Stargaze about 1.5 h, back at camp around 10:15 PM. Waxing crescent moon, sets mid-evening.
 - **Bring:** warm layers (cold and windy up top), camp chairs, red-light headlamps, a blanket.
-- **Backup:** Hogpen Gap overlook on GA-348 (north-facing, roadside). Lake Trahlyta's shore is not a backup this year — the lake is drained.
+- **Backup:** Hogpen Gap overlook on GA-348 (north-facing, roadside). Lake Trahlyta's shore is not a backup this year — the lake is drained. **Vogel's own lake-loop walk to Trahlyta Falls is CLOSED** — Lake Trahlyta is drained for dam repairs and the loop trail and the waterfall are closed (gastateparks.org/Vogel, re-fetched 2026-10-08); all campsites and other park facilities are open.
 
 ### Fri Oct 16 — Dahlonega in costume
 - **Morning:** Prospector outfits on. Drive to Dahlonega (~25–30 min via US-19/129).
@@ -68,6 +71,13 @@ Arrival day is light on purpose: everyone is tired from the drive. No panning to
 - **Lunch, downtown Dahlonega** — right after the mine tour. Pick a spot on the square when you're there (a few minutes' drive from Consolidated); nothing pre-booked. ~1 hr.
 - **Yahoola Creek Park** (1166 Captain McDonald Rd) — the "4,000 miners" creek; free public panning.
 - **Dinner** in town — Foothill Grill, Bear Necessities Cafe, or Picnic Cafe (all casual, good for a group of 5).
+- **Evening, back at Vogel — the hike gets set up tonight (ISSUES #43).** Dark is 7:25 PM, so stage before dark and pack after.
+    - Both trucks out to **Owltown Gap (34.81143, -83.94952)**, leave **truck 2** there, everyone back in truck 1. Nothing visible left in truck 2 — it sits there until Monday afternoon. Photograph the spot and the gate on the way out.
+    - Pack the hike packs tonight, not Saturday morning: the trucks leave at 7:30 AM. Blaze orange on the outside of every pack. Food split and bagged by day, everything with a smell into the Ursack or the hang bag. Filter, Aquatabs, trowel, pan checked off out loud.
+    - Phones and power banks on charge; open the 3D map once with the phone offline to prove the tiles are there.
+    - One paper map and one compass in the group, not buried in a pack.
+    - Send the route, both camp coordinates and Monday's walk-out time to the person at home, with an overdue time.
+    - **If the Bowers Road answer is still no:** skip the staging run entirely and plan to walk back the way you came to truck 1 at WOLF-X.
 - **Rain/backup:** This whole day is already the rain-day pick — Consolidated is underground.
 
 ### Sat Oct 17 – Mon Oct 19 — The hike: 3 days / 2 nights, East Fork Coosa Creek
@@ -194,7 +204,7 @@ Drive times and coordinates below are pulled from `map/data/spots.json` (the mos
 ### Why this drainage
 **Gold record (primary source):** Georgia Geological Survey Bulletin 19, S.P. Jones, 1909, pp. 237-239: "the deposits have been mined from near the headwaters of the stream high up on a mountain side, for a distance of several miles ... The entire output of the Coosa Creek placers has been variously estimated at from a half to a million pennyweights of gold. ... its purity is as great as .980." Also: "The placers along Coosa Creek have yielded large amounts of gold and the mountain slopes of that region deserve careful prospecting." USGS MRDS: Coosa Creek Placer Mine, Past Producer, deposit size Medium (dep_id 10084699). Upper-creek gold is in "the bed of the creek only" — work bedrock cracks and bend insides, not banks.
 
-**Pan only on the Forest Service reaches.** East Fork Coosa Creek is National Forest from its source down to 34.80637, -83.95980 (2.54 creek-miles); below that it is private for most of the way to the mouth. West Fork Coosa Creek and the mainstem are private. West Fork Wolf Creek is National Forest from its source to 34.79131, -83.91724. **Do not go below 34.80637, -83.95980 on the East Fork.**
+**Pan only on the Forest Service reaches.** East Fork Coosa Creek is National Forest from its source down to 34.80637, -83.95980 (2.54 creek-miles); below that it is private for most of the way to the mouth. West Fork Coosa Creek and the mainstem are private. West Fork Wolf Creek is National Forest from its source to 34.7906, -83.9190. **Do not go below 34.80637, -83.95980 on the East Fork.**
 
 **No record for West Fork Wolf Creek** — it is a geological-inference test pan only (between the Coosa Creek placers and Bulletin 19's "placer deposits near Crumley Creek"). No modern panning write-up was found for the East Fork either (one search pass, unconfirmed).
 
@@ -205,7 +215,13 @@ Rule from Jordan: hike trails, not roads, and camp where nobody can drive up. Th
 - **Sat Oct 17 — Vogel → WOLF-X → Calf Stump Branch.** **Hike day 1.** Truck 1 to WOLF-X (FS 107, 4.2 mi). Pan West Fork Wolf Creek (2 h). Coosa Backcountry Trail up over Calf Stomp Gap (2.5 mi, +1,375 ft) and 0.4 mi on to Calf Stump Branch (34.78244, -83.95858, ~400 m from the nearest road). Camp, pan in the evening. Creek has no gold record and October flow is unconfirmed. Deer season opens: blaze orange.
 - **Sun Oct 18 — Calf Stump Branch → CAMP-U.** **Hike day 2.** Morning pan at Calf Stump Branch (1.5 h). Back 0.4 mi to Calf Stomp Gap (the only retraced stretch), Roaring Fork Trail west (1.9 mi), off-trail drop to the road-free upper East Fork Coosa Creek: CAMP-U. Camp, pan. 2.75 mi.
 - **Mon Oct 19 — CAMP-U → Owltown Gap → Vogel.** **Hike day 3, out.** Morning pan at CAMP-U (2 h). Break camp, 0.3 mi down the creek to LOWER, last pan there (1.5 h) and lunch, then 0.4 mi on down the creek to where the road starts (34.79824, -83.97825), the road (Duncan Ridge Conn) 0.7 mi to Bowers Road, Bowers Road (FS 298) 1.5 mi to truck 2 at Owltown Gap. 2.9 mi walking. Do not go below 34.79824, -83.97825 to pan: a road runs beside the creek there. Bowers Road crosses private land near 34.8064; public use unconfirmed (CALLS). Drive truck 2 to WOLF-X for truck 1 (24 min), both to Vogel (11 min).
-- **Water:** CAMP-U is about one creek-mile below the source. October is the driest month and the flow is unconfirmed. If it is a trickle, move camp down toward 34.7958, -83.9792 (still Forest Service, still 300 m from the road end).
+- **Water, camp by camp (ISSUES #39).** Both camps are on headwaters in the driest month, and both flows are **unconfirmed**. This is the thing most likely to force a change on this hike.
+    - **Fill 2 L each at WOLF-X (34.78632, -83.92485) before the climb.** There is no water on the 1,375 ft climb to Calf Stomp Gap. Filter it — it is the creek you pan.
+    - **Night 1, Calf Stump Branch (34.78244, -83.95858):** a small branch; filter at camp. If it is a trickle you are only 0.4 mi from Calf Stomp Gap and 2.5 mi from the trucks — drop back to the gap and down FS 108 rather than ration.
+    - **Sunday on the ridge:** Roaring Fork Trail runs 1.56 mi with **no water**. Leave Calf Stump with 2 L each, topped up after the morning pan.
+    - **Night 2, CAMP-U (34.79056, -83.98457):** about one creek-mile below the source. If it is a trickle, move camp down toward 34.7958, -83.9792 (still Forest Service, still 300 m from the road end); LOWER (34.7935, -83.98112), 0.3 mi down, is the first reach with reliably more water.
+    - **Monday walking out:** last fill at LOWER. Bowers Road out to Owltown Gap is 1.5 mi with no water; 1 L each is enough.
+    - **Treat everything:** filter first, Aquatabs as the backup. Nobody drinks straight from a headwater.
 - **Private land:** the map now draws real Forest Service ownership (purple = private). Nothing on this route touches it; the build fails if it ever does.
 - **Totals:** 8.6 mi walking (2.94 + 2.75 + 2.94), 10 h of planned panning, **2 nights out**. Food carried: Sat lunch through Mon lunch — **2 breakfasts, 3 lunches, 2 dinners** — see `MASTER_LIST.md`.
 
@@ -475,7 +491,8 @@ Figures pulled from `dahlonega.md` (activity pricing) and `gear.md` (gear pricin
 
 | Category | Per person | Group total (÷5) | Notes |
 |---|---|---|---|
-| Vogel campsite fee | ~$30/night × 6 nights ÷ 5 people = ~$36 | ~$180 | $30/night site fee; confirm current ParkPass/vehicle fee on top |
+| Vogel campsite fee | ~$30/night × 6 nights ÷ 5 people = ~$36 | ~$180 | $30/night site fee (third-party figure, **unconfirmed** — the park page publishes no walk-in rate) |
+| Georgia ParkPass | $10/vehicle, paid once per vehicle for the stay × 2 trucks ÷ 5 people = $4 | $20 | gastateparks.org/ParkPass, fetched 2026-10-08 — "just $10 per vehicle". The older $5 figure in this project was wrong. Per-stay vs per-night for a walk-in site is **unconfirmed** |
 | Consolidated Gold Mine tour | $24.95 | ~$125 | Adult rate; add tax |
 | Dahlonega Gold Museum | $8.50 | ~$43 | Adult rate |
 | Crisson Gold Mine (optional add-on) | ~$16–38 | ~$80–190 | Wide range depending on package chosen |

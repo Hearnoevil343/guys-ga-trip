@@ -16,6 +16,8 @@
   #bar button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
   #status { margin-left:auto; font-size:12px; color:var(--muted); }
   #map { flex:1; min-height:0; }
+  /* Credits sit under the map, not over it (project rule: nothing floating over the map). */
+  #credits { font-size:11px; color:var(--muted); padding:3px 8px; border-top:1px solid var(--line); }
   #panel { max-height:40vh; overflow:auto; border-top:1px solid var(--line); padding:8px 12px; display:none; }
   #panel.open { display:block; }
   #panel h3 { margin:0 0 4px; font-size:15px; display:flex; justify-content:space-between; gap:8px; }
@@ -28,7 +30,7 @@
 </head>
 <body>
 <div id="bar">
-  <select id="day" aria-label="Day"><option value="0">All days</option></select>
+  <select id="day" aria-label="Day"><option value="hike">Hike area (Sat&ndash;Mon)</option><option value="0">All days</option></select>
   <button id="base">Satellite</button>
   <button id="tilt" class="on">3D</button>
   <button id="me">Where am I</button>
@@ -36,6 +38,7 @@
   <span id="status"></span>
 </div>
 <div id="map"></div>
+<div id="credits">USGS The National Map &middot; Mapzen Terrain Tiles (AWS) &middot; OpenStreetMap &middot; USFS BasicOwnership</div>
 <div id="panel"></div>
 <script src="vendor/maplibre-gl.js"></script>
 <script src="map3d-data.js"></script>

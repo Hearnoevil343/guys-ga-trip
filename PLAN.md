@@ -20,7 +20,7 @@
 ## The week (decided 2026-10-02; geometry: map\data\days.json, built by map\data\_build_days.mjs then _build_backcountry.mjs)
 | Day | Plan | Pan? |
 |---|---|---|
-| Thu Oct 15 | Arrive 1 PM, set camp. Afternoon: Helton Creek Falls (3.9 mi / 13 min from Vogel, 0.13 mi easy walk to the lower and upper falls) — **my assumption**, chosen 2026-10-08 to replace the Vogel lake-loop walk to Trahlyta Falls, which is CLOSED (lake drained for dam repairs; gastateparks.org/Vogel, re-fetched 2026-10-08). After dinner: stargazing at Brasstown Bald (~27 min). | — |
+| Thu Oct 15 | Arrive 1 PM, set camp. Afternoon: **pick one on the day** (Jordan, 2026-10-08 — "have it so i can go to any of them"): Helton Creek Falls (3.9 mi / 13 min, 0.13 mi walk to a lower and an upper falls) **or** DeSoto Falls (~10 min, open 24 h, two falls off one easy loop) **or** Sosebee Cove Scenic Area (~10 min, old-growth cove, short loop, free). Helton is the one drawn on the map because the map needs one line. All three replace the Vogel lake-loop walk to Trahlyta Falls, which is CLOSED (lake drained for dam repairs; gastateparks.org/Vogel, re-fetched 2026-10-08). After dinner: stargazing at Brasstown Bald (~27 min; after-hours fee $6/person 16+, gate hours still unconfirmed). | — |
 | Fri Oct 16 | Dahlonega: Consolidated Gold Mine tour, lunch on the square, pan Yahoola Creek Park. Evening: both trucks stage truck 2 at Owltown Gap, back in truck 1. Pack the hike packs. | Yahoola Creek |
 | Sat Oct 17 | **Hike day 1.** Truck 1 to WOLF-X (FS 107, 4.2 mi). Pan West Fork Wolf Creek (2 h). Coosa Backcountry Trail up over Calf Stomp Gap (2.5 mi, +1,375 ft) and 0.4 mi on to Calf Stump Branch (34.78244, -83.95858, ~400 m from the nearest road). Camp, pan in the evening. Creek has no gold record and October flow is unconfirmed. Deer season opens: blaze orange. | WOLF-X 2 h, Calf Stump 1.5 h |
 | Sun Oct 18 | **Hike day 2.** Morning pan at Calf Stump Branch (1.5 h). Back 0.4 mi to Calf Stomp Gap (the only retraced stretch), Roaring Fork Trail west (1.9 mi), off-trail drop to the road-free upper East Fork Coosa Creek: CAMP-U. Camp, pan. 2.75 mi. | Calf Stump 1.5 h, CAMP-U 1.5 h |
@@ -42,10 +42,10 @@ Centerpiece: East Fork Coosa Creek (Union Co.). Gold record: Georgia Geological 
 | 1 | 5 research agents -> research\*.md (rules, spots+geology, overnight route, gear, Dahlonega) | Sonnet agents | medium-heavy | done 2026-09-21 |
 | 2 | Cross-check, pick spots + route, write day-by-day PLAN | Opus | medium | done 2026-10-02 (single route, Fable) |
 | 3 | Priced gear sheet (xlsx), pocket cards, GPX/offline maps | Sonnet | medium | |
-| 4 | Early Oct re-check: fire bans, water, roads, forecast | Haiku | light | |
+| 4 | Early Oct re-check: fire bans, water, roads, forecast | Haiku | light | done 2026-10-08 (`research/conditions-2026-10-08.md`; re-run Oct 13-14) |
 | 5 | Hub audit -> ISSUES.md; fishing/crawdad and playground research | agents | medium-heavy | done 2026-10-08 |
 | 6 | Route rebuild to Sat-Mon; Fish & crawdads tab; Playground tab (towns + hike area); ISSUES group A, #16, #20-#23 | Opus | heavy | done 2026-10-08 |
-| 7 | Phone test of the APK; the remaining ISSUES (#17-#19, #24-#28, #30-#46); re-check all links within a week of Oct 15 | | medium | |
+| 7 | Phone test of the APK; the remaining ISSUES (#17-#19, #24-#28, #30-#46); re-check all links within a week of Oct 15 | Opus | heavy | part done 2026-10-08: #24, #25, #26, #32, #34, #35, #36, #39, #40, #43, #44, #46 closed and seen in a browser; #31, #33, #37, #38, #41, #42 stood down by Jordan; APK rebuilt (140,929,127 B) and in sync, **not released**. Blocked: #17-#19 need Jordan's Chrome (the extension is not connected), the emulator cannot start on DATA (new #47), so #28-#30 are untested. Not done: the link re-check pass. |
 
 ## Files
 - reference\friend_gear_checklist_original.xlsx: friend's sheet (mixes base camp + overnight + creek kit; 5-day food carried; split=2).

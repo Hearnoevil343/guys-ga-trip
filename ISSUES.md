@@ -221,7 +221,7 @@ Link check: 203 unique URLs from index.html, RUNDOWN.html, RUNDOWN.md, BUY_LIST.
 - Evidence: `gh release view`: tag v2026.10.06, published 2026-10-06T13:35:09Z, asset ga-gold-trip.apk 140,518,158 bytes. Download link https://github.com/hearnoevil343/guys-ga-trip/releases/latest/download/ga-gold-trip.apk → 200. app/android/app/src/main/assets/public/index.html and RUNDOWN.html have the same md5 as the stale root files. The build output is app-debug.apk, and app/android/app/build.gradle:10 has `versionCode 1`.
 - Cause: The APK is a snapshot. There is no update path inside the app.
 - Tried: Rebuilt and re-synced the app after every change in this pass: `node app/build-www.mjs`, `npx cap sync android`, `gradlew assembleDebug` (JDK 21 — JDK 17 fails with "invalid source release: 21", and the default JRE 8 fails earlier).
-- Status: **open.** New debug APK built 2026-10-08, 140,786,775 bytes (was 140,518,158). Still to do: publish the release and reinstall on the 5 phones. Nothing here is tested on a real device.
+- Status: **partly closed 2026-10-08.** Released as v2026.10.08; `curl -L` on releases/latest/download/ga-gold-trip.apk returns 200 and 140,786,775 bytes, matching the local build, and the bundled index.html is byte-identical to the repo's. Still open: nobody has installed it on a phone, and the 5 phones still carry the 10-06 build.
 
 ## 30. The offline 3D map has no place or trail names
 - Symptom: In the backcountry the 3D map shows lines and numbered pins but no labels. You have to tap each one to learn what it is.

@@ -1,0 +1,21 @@
+{
+  "schema": "buy-list-hand-rows-v1",
+  "about": "Rows that were hand-added to BUY_LIST.md and had no source, so every run of tools/build_buy_list.py deleted them again (TOOLS.md, 'Warning (found 2026-09-28)'). They now live here and the builder appends them to the named section's shared-items table. They are deliberately NOT counted in any tally, exactly as the hand-edited rows were not: each carries its own 'split' and 'your_share' text. Added 2026-10-08 after the 3-day-hike rebuild dropped them again.",
+  "rows": [
+    {
+      "section": "overnight_shared",
+      "sets": ["solid", "budget"],
+      "order_first": "3-7 days -- Amazon/generic",
+      "item": "Human waste disposal bags (WAG bags, bulk -- 5 guys x 2/day x 3 hike days = 30 min, must pack out, not left behind)",
+      "required": "must",
+      "tier": { "solid": "Value", "budget": "Budget" },
+      "pick": { "solid": "Cleanwaste Original WAG BAG, 50-pack", "budget": "Generic WAG bag 50-pack (gel powder + Mylar bag)" },
+      "full_price": { "solid": "$162.50", "budget": "$70.00" },
+      "split": "--",
+      "your_share": "split doesn't matter",
+      "where": { "solid": "Cleanwaste direct, Amazon", "budget": "Amazon" },
+      "link": { "solid": "https://cleanwaste.com/product/the-original-wag-bag/", "budget": "https://www.amazon.com/s?k=wag+bag+human+waste+disposal+50+pack" },
+      "note": "Hand-added row, not in the gear model and not in any tally. 3 hike days (Sat Oct 17 - Mon Oct 19) at 2 per person per day for 5 people = 30 needed; a 50-pack covers it with slack."
+    }
+  ]
+}

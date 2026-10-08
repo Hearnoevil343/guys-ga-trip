@@ -178,7 +178,37 @@ budget_group_per_person_total = round(sum(r["per_person_price"] for r in budget_
 budget_grand_total_per_person = round(budget_personal_total + budget_group_per_person_total, 2)
 
 
-def render_gear_table(personal_rows, group_rows):
+# Hand-added BUY_LIST rows that have no source in the gear model. Before
+# 2026-10-08 these lived only in BUY_LIST.md, so every run of this script
+# deleted them (TOOLS.md, "Warning (found 2026-09-28)"). They are appended to
+# their section's shared-items table and are NOT counted in any tally.
+_HAND_ROWS_PATH = ROOT / "research" / "buy-list-hand-rows.json"
+HAND_ROWS = json.loads(_HAND_ROWS_PATH.read_text(encoding="utf-8"))["rows"] if _HAND_ROWS_PATH.exists() else []
+
+
+def _per_set(v, set_key):
+    return v.get(set_key) if isinstance(v, dict) else v
+
+
+def hand_rows_for(section, set_label):
+    set_key = set_label.strip().lower()
+    out = []
+    for r in HAND_ROWS:
+        if r["section"] != section or set_key not in r.get("sets", []):
+            continue
+        link = _per_set(r.get("link"), set_key)
+        out.append(
+            f"| {r['order_first']} | {r['item']} | {r['required']} | {_per_set(r['tier'], set_key)} | "
+            f"{_per_set(r['pick'], set_key)} | {_per_set(r['full_price'], set_key)} | {r['split']} | "
+            f"{r['your_share']} | {_per_set(r.get('where'), set_key) or ''} | "
+            + (f"[buy]({link}) |" if link else "-- |")
+        )
+        if r.get("note"):
+            out.append(f"| _{r['note']}_ | | | | | | | | | |")
+    return out
+
+
+def render_gear_table(personal_rows, group_rows, hand_lines=None):
     out = []
     if personal_rows:
         out.append("| Order first? | Item | Required? | Tier | Pick | Price | Where | Link |")
@@ -203,6 +233,8 @@ def render_gear_table(personal_rows, group_rows):
                 f"{r['brand']} {r['model']} | ${r['price']:.2f} | (/{r['split']}) | "
                 f"your share ${r['per_person_price']:.2f} | {r['where_to_buy']} | {link} |"
             )
+        for line in (hand_lines or []):
+            out.append(line)
     return out
 
 
@@ -346,7 +378,7 @@ def emit_gear_sections(picked_personal_rows, picked_group_rows, set_label):
         sec_lines.append("")
         sec_lines.append(tally_line(bd.SECTION_TITLES[sec], p, gw, gs))
         sec_lines.append("")
-        sec_lines.extend(render_gear_table(p_rows, g_rows))
+        sec_lines.extend(render_gear_table(p_rows, g_rows, hand_rows_for(sec, set_label)))
         if e_lines:
             sec_lines.append("")
             sec_lines.extend(e_lines)

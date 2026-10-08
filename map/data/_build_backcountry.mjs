@@ -4,8 +4,10 @@
 // truck to WOLF-X (FS 107 open, owner first-hand), Coosa Backcountry Trail to
 // Calf Stomp Gap and on to camp at Calf Stump Branch; Sun Oct 18 Roaring Fork
 // Trail west, off-trail drop to the road-free upper East Fork Coosa Creek
-// (CAMP-U); Mon Oct 19 full day there; Tue Oct 20 down the creek, road and
-// Bowers Road to truck 2 at Owltown Gap (staged Fri evening).
+// (CAMP-U). RESHAPED 2026-10-08 (owner): the hike is 3 days / 2 nights — Mon
+// Oct 19 pan the morning at CAMP-U then walk out down the creek, Duncan Ridge
+// Conn and Bowers Road to truck 2 at Owltown Gap (staged Fri evening); Tue
+// Oct 20 is a free day with no fixed route.
 //
 // Run AFTER map/data/_build_days.mjs. On the first run after _build_days.mjs
 // this script copies that pristine output to map/data/_days_baseline.json and
@@ -196,6 +198,21 @@ const rftToLeave = [CALF_STOMP_GAP, ...fs108ToRft.slice(1), ...roaringForkTrail.
 const dropLine = [RFT_LEAVE, DROP_IN, ...creekSlice(DROP_IN, CAMP_U).slice(1)];
 const campToLower = creekSlice(CAMP_U, LOWER_PAN);
 const campToDropIn = creekSlice(CAMP_U, DROP_IN);
+const lowerToLeaves = creekSlice(LOWER_PAN, LEAVES_CREEK);
+
+// Helton Creek Falls trail (FS Trail 145), OSM way 31275565, cached 2026-10-02.
+// Used by the Thu Oct 15 arrival afternoon after Vogel's own Lake Trahlyta Loop
+// Trail and Trahlyta Falls were found CLOSED (lake drained for dam repairs;
+// gastateparks.org/Vogel, re-fetched 2026-10-08).
+const heltonRaw = JSON.parse(fs.readFileSync(path.join(RESEARCH_DIR, '_cache', 'helton_falls_way_31275565.json'), 'utf8'));
+const heltonNodes = new Map(heltonRaw.elements.filter(e => e.type === 'node').map(e => [e.id, [e.lat, e.lon]]));
+const heltonWay = heltonRaw.elements.find(e => e.type === 'way');
+const heltonLineRaw = heltonWay.nodes.map(id => heltonNodes.get(id)).filter(Boolean);
+const heltonLine = dist(heltonLineRaw[0], [POINTS.helton_trailhead.lat, POINTS.helton_trailhead.lng])
+  <= dist(heltonLineRaw[heltonLineRaw.length - 1], [POINTS.helton_trailhead.lat, POINTS.helton_trailhead.lng])
+  ? heltonLineRaw : heltonLineRaw.slice().reverse();
+const HELTON_SOURCE = `Real OSM way geometry, Helton Creek Falls trail (way ${heltonWay.id}, FS Trail 145; research/_cache/helton_falls_way_31275565.json, ODbL).`;
+const HELTON_NOTE = 'Chattahoochee National Forest day-use site, about 20 min from Vogel on Helton Creek Road (FS 118, gravel, passable in a truck). Steps and boardwalk to a lower and an upper falls. Replaces the Vogel lake-loop walk: Lake Trahlyta is drained for dam repairs and the Lake Trahlyta Loop Trail and waterfall are CLOSED (gastateparks.org/Vogel, re-fetched 2026-10-08). No panning: not checked for legality here and it is a busy day-use site.';
 
 // ---------------------------------------------------------------------------
 // 3. Timed-leg builders (same Tobler + OSRM/surface-retime model as
@@ -386,7 +403,7 @@ async function buildSatIn() {
     day: 3, date: '2026-10-17', title: 'Truck to WOLF-X, pan, hike over Calf Stomp Gap, camp at Calf Stump Branch', optional: false,
     start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '07:30' },
     end: CAMP_CS_END,
-    note: 'Truck 1 stays at WOLF-X until Tuesday. Truck 2 is already at Owltown Gap (staged Friday evening). Deer season opens today: blaze orange on everyone.',
+    note: 'Truck 1 stays at WOLF-X until Monday. Truck 2 is already at Owltown Gap (staged Friday evening). Deer season opens today: blaze orange on everyone.',
     legs,
   };
 }
@@ -416,44 +433,54 @@ async function buildSunToCampU() {
   };
 }
 
-async function buildMonLayover() {
-  console.log('\n=== Oct 19 — full day at CAMP-U ===');
+// Mon Oct 19 — rebuilt 2026-10-08 (Jordan): the hike is 3 days / 2 nights.
+// Pan the morning at CAMP-U, break camp, walk out down the creek (one pan stop
+// at LOWER on the way), the road and Bowers Road to truck 2 at Owltown Gap.
+// The old Mon full-day-at-CAMP-U + Tue walk-out pair is gone.
+async function buildMonOut() {
+  console.log('\n=== Oct 19 — morning pan at CAMP-U, walk out to Owltown Gap, drive to Vogel ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp', 40));
-  legs.push(await walkLeg('CAMP-U up the creek to DROP-IN (daypack)', campToDropIn, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct19_up'));
-  legs.push(panLeg({ label: 'Pan the upper reach at DROP-IN (bed of the creek only)', lat: DROP_IN[0], lng: DROP_IN[1], minutes: 150, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
-  legs.push(await walkLeg('DROP-IN back down to CAMP-U', campToDropIn.slice().reverse(), 'approximate', 'OSM creek line, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct19_down'));
-  legs.push(mealLeg('Lunch at camp', 40));
-  legs.push(await walkLeg('CAMP-U down the creek to LOWER (daypack)', campToLower, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct19_lower'));
-  legs.push(panLeg({ label: 'Pan the LOWER reach (flatter, inside of bends)', lat: LOWER_PAN[0], lng: LOWER_PAN[1], minutes: 150, gold: COOSA_GOLD,
-    note: 'Still 500 m from the road end at 34.79824,-83.97825.' }));
-  legs.push(await walkLeg('LOWER back up to CAMP-U', campToLower.slice().reverse(), 'approximate', 'OSM creek line, reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct19_lower_back'));
-  legs.push(mealLeg('Dinner at camp', 60));
-  return {
-    day: 5, date: '2026-10-19', title: 'Full day panning the upper East Fork Coosa Creek at CAMP-U', optional: false,
-    start: { ...CAMP_U_END, time: '08:00' },
-    end: CAMP_U_END,
-    note: 'No packs today. Two pan sessions, one up-creek and one down-creek from camp. Bulletin 19: up here the gold is in "the bed of the creek only" — bedrock cracks and the inside of bends.',
-    legs,
-  };
-}
-
-async function buildTueOut() {
-  console.log('\n=== Oct 20 — CAMP-U down the creek, road to Owltown Gap, drive to Vogel ===');
-  const legs = [];
-  legs.push(mealLeg('Breakfast at camp', 40));
+  legs.push(panLeg({ label: 'Morning pan at CAMP-U (bed of the creek only)', lat: CAMP_U[0], lng: CAMP_U[1], minutes: 120, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
   legs.push(campLeg('Break camp at CAMP-U, pack up', 45));
-  legs.push(await walkLeg('Down East Fork Coosa Creek to where the road starts', outCreek, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * PACK_FACTOR * 0.8, 'oct20_creek'));
-  legs.push(await walkLeg('Road beside the creek (Duncan Ridge Conn) down to the Bowers Road junction', outConn, 'exact', 'Real OSM way geometry, Duncan Ridge Conn (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct20_conn'));
-  legs.push(await walkLeg('Bowers Road (FS 298) to Owltown Gap — truck 2', outBowers, 'exact', 'Real OSM way geometry, Bowers Road (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct20_bowers', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE }));
+  legs.push(await walkLeg('CAMP-U down the creek to the LOWER reach', campToLower, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * PACK_FACTOR * 0.8, 'oct19_out_lower'));
+  legs.push(panLeg({ label: 'Last pan — the LOWER reach (flatter, inside of bends)', lat: LOWER_PAN[0], lng: LOWER_PAN[1], minutes: 90, gold: COOSA_GOLD,
+    note: 'Still 500 m from the road end at 34.79824,-83.97825.' }));
+  legs.push(mealLeg('Lunch at the LOWER reach', 30));
+  legs.push(await walkLeg('LOWER on down the creek to where the road starts', lowerToLeaves, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * PACK_FACTOR * 0.8, 'oct19_out_creek'));
+  legs.push(await walkLeg('Road beside the creek (Duncan Ridge Conn) down to the Bowers Road junction', outConn, 'exact', 'Real OSM way geometry, Duncan Ridge Conn (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct19_conn'));
+  legs.push(await walkLeg('Bowers Road (FS 298) to Owltown Gap — truck 2', outBowers, 'exact', 'Real OSM way geometry, Bowers Road (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct19_bowers', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE }));
   legs.push(await driveLeg('Owltown Gap to WOLF-X (truck 2) to collect truck 1', OWLTOWN_PT, WOLF_X_PT, 'owltown_wolfx', { access_note: FS107_NOTE }));
   legs.push(await driveLeg('WOLF-X to Vogel (both trucks)', WOLF_X_PT, POINTS.vogel_basecamp, 'wolfx_vogel', { access_note: FS107_NOTE }));
   legs.push(mealLeg('Dinner at camp (Vogel)', 60));
   return {
-    day: 6, date: '2026-10-20', title: 'Walk the creek out to the road, on to Owltown Gap, drive to Vogel', optional: false,
-    note: 'Walk down the creek to the road, then the road to truck 2 at Owltown Gap. Drive to WOLF-X for truck 1, then both trucks to Vogel. Hot dinner and showers tonight.',
+    day: 5, date: '2026-10-19', title: 'Morning pan at CAMP-U, walk out to Owltown Gap, drive to Vogel', optional: false,
     start: { ...CAMP_U_END, time: '07:30' },
     end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
+    note: 'Last day out: pan the morning at camp, then walk out. Down the creek to the road, the road to truck 2 at Owltown Gap, drive to WOLF-X for truck 1, both trucks to Vogel. Hot dinner and showers tonight. Food carried is Sat lunch through this lunch: 2 breakfasts, 3 lunches, 2 dinners.',
+    legs,
+  };
+}
+
+// Tue Oct 20 — free day (Jordan, 2026-10-08: the hike ends Monday afternoon and
+// Tuesday is free). No fixed route: the hub's Playground tab carries the
+// ready-made plans (towns, waterfalls, markets, rain plan) and the hike-area
+// layer for anyone who wants to go back in.
+async function buildTueFree() {
+  console.log('\n=== Oct 20 — free day at Vogel (no fixed route) ===');
+  const legs = [];
+  legs.push(mealLeg('Breakfast at camp (Vogel)', 40));
+  legs.push({
+    type: 'tour', at_ref: 'vogel_basecamp', label: 'Free day — pick from the Playground tab', minutes: 480,
+    note: 'Nothing booked. The hub\'s Playground tab has the ready-made Tuesday plans (waterfall loop, Blairsville/Helen/Hiawassee, markets and festivals, a rain plan) and the hike-area layer if anyone wants another creek. Last full day: this is also the slack day if the hike runs long or the weather moves.',
+  });
+  legs.push(mealLeg('Lunch — out or at camp', 45));
+  legs.push(mealLeg('Dinner at camp (Vogel)', 60));
+  return {
+    day: 6, date: '2026-10-20', title: 'Free day — no fixed route (see the Playground tab)', optional: false,
+    start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '08:00' },
+    end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
+    note: 'Free day. Options and drive times are in the Playground tab; nothing here is fixed.',
     legs,
   };
 }
@@ -497,16 +524,23 @@ async function buildDay1Stars() {
   const day1 = findDay(1);
   const setup = day1.legs.find(l => l.type === 'camp');
   const legs = [setup];
-  legs.push({ type: 'tour', label: 'Optional: easy walk to Trahlyta Falls inside Vogel (below the lake dam)', minutes: 40, note: 'Inside the state park; distance UNVERIFIED (short, flat per park map). Park streams: no panning.' });
+  // 2026-10-08: the Vogel lake-loop walk to Trahlyta Falls is CLOSED (lake
+  // drained for dam repairs — gastateparks.org/Vogel, re-fetched myself).
+  // Replaced with Helton Creek Falls, 20 min away on National Forest land.
+  legs.push(await driveLeg('Vogel to the Helton Creek Falls trailhead', POINTS.vogel_basecamp, POINTS.helton_trailhead, 'vogel_helton', { access_note: HELTON_NOTE }));
+  legs.push(await walkLeg('Walk in to Helton Creek Falls (lower and upper falls)', heltonLine, 'exact', HELTON_SOURCE, GROUP_FACTOR * DAYPACK_FACTOR, 'oct15_helton', { note: HELTON_NOTE }));
+  legs.push({ type: 'tour', label: 'Look at the falls', minutes: 30, lat: POINTS.helton_falls.lat, lng: POINTS.helton_falls.lng, note: HELTON_NOTE });
+  legs.push(await walkLeg('Walk back out to the trailhead', heltonLine.slice().reverse(), 'exact', HELTON_SOURCE + ' Reversed.', GROUP_FACTOR * DAYPACK_FACTOR, 'oct15_helton_back'));
+  legs.push(await driveLeg('Helton Creek Falls back to Vogel', POINTS.helton_trailhead, POINTS.vogel_basecamp, 'helton_vogel', { access_note: HELTON_NOTE }));
   // Sunset Oct 15 is about 7:05 PM EDT; this downtime puts the drive up after
   // dinner at about 7:50 PM, arriving near full dark.
-  legs.push({ type: 'camp', label: 'Downtime at camp: rest after the drive', minutes: 235 });
+  legs.push({ type: 'camp', label: 'Downtime at camp: rest after the drive', minutes: 90 });
   legs.push({ type: 'meal', label: 'Dinner at camp', minutes: 60 });
   legs.push(await driveLeg('Evening: Vogel to Brasstown Bald parking lot', POINTS.vogel_basecamp, POINTS.brasstown_parking, 'vogel_brasstown'));
   legs.push({ type: 'tour', label: 'Stargazing at Brasstown Bald (highest point in Georgia)', minutes: 90, lat: POINTS.brasstown_parking.lat, lng: POINTS.brasstown_parking.lng,
     note: 'Explore Georgia: "The parking lot is open at night, and the lights from the visitors center are turned off." After-hours fee $6 per adult (Forest Service). No shuttle after 5 PM: steep 0.6 mile paved walk to the summit. No water; restrooms not listed. Gate closes in bad weather. Gate hour after dark not confirmed. Waxing crescent moon (sets mid-evening). Warm layers, red headlamps, chairs. Backup: Hogpen Gap overlook on GA-348.' });
   legs.push(await driveLeg('Brasstown Bald back to Vogel', POINTS.brasstown_parking, POINTS.vogel_basecamp, 'brasstown_vogel'));
-  return { ...day1, title: 'Arrive, set camp, rest, stargazing at Brasstown Bald', note: 'Arrival day: no panning. Leave camp after dinner, about an hour after sunset, for full dark.', legs };
+  return { ...day1, title: 'Arrive, set camp, Helton Creek Falls, stargazing at Brasstown Bald', note: 'Arrival day: no panning. Vogel\'s own lake loop and Trahlyta Falls are closed (lake drained for dam repairs, checked 2026-10-08), so the afternoon walk is Helton Creek Falls instead. Leave camp after dinner, about an hour after sunset, for full dark.', legs };
 }
 
 
@@ -524,7 +558,7 @@ async function buildDay2() {
   day2.title = 'Dahlonega: mine tour, lunch, pan Yahoola Creek';
   day2.legs.push(await driveLeg('Evening: stage truck 2 at Owltown Gap (both trucks)', POINTS.vogel_basecamp, OWLTOWN_PT, 'vogel_owltown'));
   day2.legs.push(await driveLeg('Owltown Gap back to Vogel (truck 1)', OWLTOWN_PT, POINTS.vogel_basecamp, 'owltown_vogel'));
-  day2.note = 'Evening: leave truck 2 at Owltown Gap for Tuesday\'s walk-out. Pack the hike packs tonight: Sat leaves at 07:30.';
+  day2.note = 'Evening: leave truck 2 at Owltown Gap for Monday\'s walk-out. Pack the hike packs tonight: Sat leaves at 07:30.';
   return day2;
 }
 
@@ -535,8 +569,8 @@ const day1 = await buildDay1Stars();
 const day2 = await buildDay2();
 const oct17 = await buildSatIn();
 const oct18 = await buildSunToCampU();
-const oct19 = await buildMonLayover();
-const oct20 = await buildTueOut();
+const oct19 = await buildMonOut();
+const oct20 = await buildTueFree();
 
 const routeDays = [day1, day2, oct17, oct18, oct19, oct20, day7];
 
@@ -566,7 +600,7 @@ const { variants: _droppedVariants, ...existingRest } = existing;
 const daysJson = { ...existingRest, days: routeDays };
 daysJson.assumptions = {
   ...existing.assumptions,
-  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-05): day 1 = set camp + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle), days 3-6 = truck to WOLF-X, pan, Coosa Backcountry Trail over Calf Stomp Gap to camp at Calf Stump Branch; morning pan, Roaring Fork Trail, off-trail drop to CAMP-U; full day at CAMP-U; down the creek to the road and Bowers Road to truck 2 at Owltown Gap; day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
+  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-05 area and camps, reshaped 2026-10-08 to 3 days / 2 nights): day 1 = set camp + Helton Creek Falls (Vogel lake loop and Trahlyta Falls closed) + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle) plus the Friday-evening truck-2 staging at Owltown Gap, day 3 (Sat Oct 17) = truck to WOLF-X, pan, Coosa Backcountry Trail over Calf Stomp Gap to camp at Calf Stump Branch, day 4 (Sun Oct 18) = morning pan, Roaring Fork Trail, off-trail drop to CAMP-U, day 5 (Mon Oct 19) = morning pan at CAMP-U then walk out down the creek, Duncan Ridge Conn and Bowers Road to truck 2 at Owltown Gap and drive to Vogel, day 6 (Tue Oct 20) = free day at Vogel with no fixed route (the hub Playground tab holds the options), day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
 };
 
 fs.writeFileSync(daysPath, JSON.stringify(daysJson, null, 2));

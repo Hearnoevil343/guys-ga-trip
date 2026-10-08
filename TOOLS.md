@@ -448,3 +448,50 @@ drew the proclamation boundary, which hides private inholdings.
 
 ## map/fetch-tiles.mjs, map/build-map3d.mjs, map/map3d.html (2026-10-06)
 3D map (MapLibre, vendored in `map/vendor/`). `node map/fetch-tiles.mjs` downloads the offline tiles for the route area into `map/tiles/` (gitignored, ~140 MB; USGS Topo, USGS Imagery, AWS Terrarium only, because other tile servers forbid bulk copies). `node map/build-map3d.mjs` (after `_build_days.mjs`) writes `map/map3d-data.js`. `map3d.html` uses `tiles/` when `tiles/manifest.json` is present (the Android app), else the online sources. Known: tile URLs must keep literal `{z}` braces; terrain camera can go under ridges at high zoom.
+
+## map/data/_build_playground.mjs (new 2026-10-08)
+Builds `map/data/playground-area.json`, the hike-area layer the hub's Playground tab renders.
+**Run after `_build_backcountry.mjs`** (it reads `days.json` to measure everything against the
+planned route). Output: 13 named nodes (trailheads, gaps, junctions, camps, pan spots, the East
+Fork Forest Service boundary), 22 branches, 83 named features in the area box, the camp water
+sources, and the nearest store/gas/food to each trailhead from `research/playground.json`.
+Geometry is real OSM ways from `research/_coosa_osm.geojson`; climb and walking time use the same
+opentopodata + Tobler model as the day builder (`_lib.mjs`), derated 0.85 x 0.85 with packs and
+0.85 with daypacks, so the numbers compare directly with `days.json`.
+- Private-land test: `private.geojson` NON-FS polygons **minus** the two state parks from
+  `wilderness.geojson` (walking Vogel is fine, only panning is banned). Same split as
+  `build-map.mjs`'s guard. Branches carry `non_fs_vertices` and `state_parks`, and the tab shows
+  a "crosses private" chip.
+- Known: the branches are hand-defined way slices, not a router. Adding one means naming the OSM
+  way and the two end points in section 8 of the script.
+- Known: anything off the planned route is a mapped line, not a trail report. The script says so
+  in the JSON's `about` and the tab repeats it.
+
+## research/buy-list-hand-rows.json (new 2026-10-08)
+Fixes the recurring "BUY_LIST.md has hand edits not in the source" warning below. Rows that have
+no home in the gear model (today: the WAG-bag row) live here; `tools/build_buy_list.py` appends
+them to the named section's shared-items table. They are deliberately **not** counted in any
+tally, which is how the hand-edited rows behaved. Add a row here instead of editing BUY_LIST.md.
+
+## tools/build_hub.py (updated 2026-10-08)
+Nine tabs now: Start, Rundown, Map, Panning, **Playground**, **Fish & crawdads**, Buy list, Who
+has what, Files.
+- **Playground** has two layers (buttons inside the tab, nothing floating): "Towns & free days"
+  from `research/playground.json` (52 places) + `research/playground-plans.json` (the ready-made
+  plans), and "The hike area" from `map/data/playground-area.json`.
+- **Fish & crawdads** is rendered from `research/fishing-crawdads.md` at build time (cheat sheet
+  as cards, every other `## ` section as a drill-in). Edit the .md, never the HTML.
+- **Build guard:** the script exits with an error if `RUNDOWN.md` is newer than `RUNDOWN.html`,
+  so the Rundown tab cannot ship stale (ISSUES #3). Run `python tools/build_rundown.py` first.
+- **Build guard:** it also exits if it cannot read a gear total out of BUY_LIST.md, instead of
+  rendering a blank "Gear:" card (ISSUES #5). It reads the `| **Solid** |` rows under the
+  "At a glance" and "Trip total" headings, tracked by heading, not by row shape.
+- Tab routing is `#t/<tab>` with a `hashchange` listener. The hash is deliberately not an element
+  id, so the browser has no anchor to scroll to. Old `#buy`-style links still work.
+
+## Android app build (recorded 2026-10-08)
+`cd app && node build-www.mjs && npx cap sync android`, then
+`cd android && JAVA_HOME=E:/dev-tools/jdk21 ./gradlew assembleDebug`.
+**JDK 21 is required** — the PATH Java (1.8.0_231) fails with "Run this build using a Java 11 or
+newer JVM", and `E:/dev-tools/jdk17` fails with "invalid source release: 21" (ISSUES #45).
+Output: `app/android/app/build/outputs/apk/debug/app-debug.apk`.

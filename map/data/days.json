@@ -7,13 +7,13 @@
     "group_factor": 0.85,
     "note": "Six people move slower than one. Speed factors are applied to Tobler's speed (kmh_effective = kmh_tobler * group_factor * pack_or_daypack_factor), not to time directly, so a slower group takes MORE time, not less. Times are moving time only; pan and tour windows are separate stationary legs. Minutes rounded to the nearest 5. start/end lat/lng on each day are taken directly from the first/last leg's real coordinates (or the day's only stationary point when it has no drive/walk legs), not looked up separately, so the chain-consistency check compares real coordinates.",
     "drive_timing_model": "Every drive leg is fetched from OSRM with steps=true and grouped into named road segments. Each segment's OSM way is looked up (api.openstreetmap.org small-bbox, nearest way within 150m, preferring a name match) and classified: PAVED (surface=asphalt|paved|concrete, or highway=primary|secondary|tertiary|residential) trusts OSRM's own duration for that segment. UNPAVED (surface=gravel|dirt|unpaved|compacted|ground, or highway=track|unclassified with no paved surface tag) is re-timed at a flat 15 mph — a deliberately conservative real-world speed for a truck on maintained-but-rough Forest Service gravel, chosen because OSRM's default highway=track penalty came out to 3-6 mph (walking pace) on roads this group will actually drive (e.g. Noontoola Road, Blue Ridge Road near Three Forks; Chattahoochee River Road, Poplar Stump Road near FS-44). UNDETERMINABLE (no OSM way found nearby) keeps OSRM's duration unless OSRM's own implied speed was already under 10 mph, in which case it's also re-timed at 15 mph but flagged confidence 'low'. Distance is always OSRM's real routed distance — only duration is ever adjusted, per segment, never the path. Each drive leg keeps both minutes (adjusted) and minutes_osrm_raw (original OSRM total) plus a full retimed_steps audit trail (per-segment name, surface tag, OSRM mph vs. mph used, confidence). timing_confidence on the leg is 'estimated' if any segment was re-timed, else 'exact'. Cross-check the two longest re-timed legs (Vogel<->Three Forks, and Day 4's Tesnatee/Upper-Chattahoochee/Dukes loop) against Google Maps before the trip — this is a same-order-of-magnitude estimate for rough forest road, not a survey.",
-    "backcountry_note": "map/data/_build_backcountry.mjs builds the single decided route (2026-10-05): day 1 = set camp + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle), days 3-6 = truck to WOLF-X, pan, Coosa Backcountry Trail over Calf Stomp Gap to camp at Calf Stump Branch; morning pan, Roaring Fork Trail, off-trail drop to CAMP-U; full day at CAMP-U; down the creek to the road and Bowers Road to truck 2 at Owltown Gap; day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json)."
+    "backcountry_note": "map/data/_build_backcountry.mjs builds the single decided route (2026-10-05 area and camps, reshaped 2026-10-08 to 3 days / 2 nights): day 1 = set camp + Helton Creek Falls (Vogel lake loop and Trahlyta Falls closed) + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle) plus the Friday-evening truck-2 staging at Owltown Gap, day 3 (Sat Oct 17) = truck to WOLF-X, pan, Coosa Backcountry Trail over Calf Stomp Gap to camp at Calf Stump Branch, day 4 (Sun Oct 18) = morning pan, Roaring Fork Trail, off-trail drop to CAMP-U, day 5 (Mon Oct 19) = morning pan at CAMP-U then walk out down the creek, Duncan Ridge Conn and Bowers Road to truck 2 at Owltown Gap and drive to Vogel, day 6 (Tue Oct 20) = free day at Vogel with no fixed route (the hub Playground tab holds the options), day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json)."
   },
   "days": [
     {
       "day": 1,
       "date": "2026-10-15",
-      "title": "Arrive, set camp, rest, stargazing at Brasstown Bald",
+      "title": "Arrive, set camp, Helton Creek Falls, stargazing at Brasstown Bald",
       "start": {
         "ref": "vogel_basecamp",
         "label": "Vogel State Park — base camp",
@@ -34,15 +34,2284 @@
           "minutes": 75
         },
         {
+          "type": "drive",
+          "label": "Vogel to the Helton Creek Falls trailhead",
+          "coords": [
+            [
+              34.765678,
+              -83.925062
+            ],
+            [
+              34.765739,
+              -83.924988
+            ],
+            [
+              34.765816,
+              -83.924878
+            ],
+            [
+              34.765763,
+              -83.924858
+            ],
+            [
+              34.765587,
+              -83.924848
+            ],
+            [
+              34.765526,
+              -83.924829
+            ],
+            [
+              34.765472,
+              -83.924781
+            ],
+            [
+              34.765562,
+              -83.924681
+            ],
+            [
+              34.76589,
+              -83.92435
+            ],
+            [
+              34.766032,
+              -83.924147
+            ],
+            [
+              34.765907,
+              -83.924082
+            ],
+            [
+              34.76589,
+              -83.924073
+            ],
+            [
+              34.765842,
+              -83.923994
+            ],
+            [
+              34.765718,
+              -83.923789
+            ],
+            [
+              34.765708,
+              -83.923773
+            ],
+            [
+              34.765747,
+              -83.923565
+            ],
+            [
+              34.765689,
+              -83.923465
+            ],
+            [
+              34.765611,
+              -83.923318
+            ],
+            [
+              34.765569,
+              -83.923182
+            ],
+            [
+              34.765569,
+              -83.923011
+            ],
+            [
+              34.765605,
+              -83.922861
+            ],
+            [
+              34.765762,
+              -83.922618
+            ],
+            [
+              34.765903,
+              -83.922417
+            ],
+            [
+              34.766138,
+              -83.922002
+            ],
+            [
+              34.766449,
+              -83.921297
+            ],
+            [
+              34.766878,
+              -83.920659
+            ],
+            [
+              34.767144,
+              -83.920319
+            ],
+            [
+              34.767297,
+              -83.920067
+            ],
+            [
+              34.767357,
+              -83.919935
+            ],
+            [
+              34.767381,
+              -83.919815
+            ],
+            [
+              34.767371,
+              -83.919674
+            ],
+            [
+              34.767375,
+              -83.919483
+            ],
+            [
+              34.767398,
+              -83.919287
+            ],
+            [
+              34.767398,
+              -83.919194
+            ],
+            [
+              34.767384,
+              -83.919118
+            ],
+            [
+              34.767345,
+              -83.919025
+            ],
+            [
+              34.767322,
+              -83.918964
+            ],
+            [
+              34.767315,
+              -83.918862
+            ],
+            [
+              34.767325,
+              -83.918807
+            ],
+            [
+              34.767354,
+              -83.91876
+            ],
+            [
+              34.767484,
+              -83.918706
+            ],
+            [
+              34.767552,
+              -83.91867
+            ],
+            [
+              34.767591,
+              -83.918624
+            ],
+            [
+              34.76764,
+              -83.918528
+            ],
+            [
+              34.767633,
+              -83.918429
+            ],
+            [
+              34.767562,
+              -83.918132
+            ],
+            [
+              34.767566,
+              -83.918047
+            ],
+            [
+              34.767579,
+              -83.91798
+            ],
+            [
+              34.767611,
+              -83.917912
+            ],
+            [
+              34.767658,
+              -83.917864
+            ],
+            [
+              34.767743,
+              -83.917803
+            ],
+            [
+              34.767791,
+              -83.917759
+            ],
+            [
+              34.767815,
+              -83.917706
+            ],
+            [
+              34.767815,
+              -83.917652
+            ],
+            [
+              34.767765,
+              -83.917509
+            ],
+            [
+              34.767313,
+              -83.917861
+            ],
+            [
+              34.767068,
+              -83.918159
+            ],
+            [
+              34.766923,
+              -83.918424
+            ],
+            [
+              34.766824,
+              -83.918702
+            ],
+            [
+              34.766746,
+              -83.918994
+            ],
+            [
+              34.766686,
+              -83.919306
+            ],
+            [
+              34.766628,
+              -83.919588
+            ],
+            [
+              34.766543,
+              -83.919852
+            ],
+            [
+              34.766349,
+              -83.920158
+            ],
+            [
+              34.765988,
+              -83.920601
+            ],
+            [
+              34.765712,
+              -83.920848
+            ],
+            [
+              34.765435,
+              -83.921023
+            ],
+            [
+              34.764576,
+              -83.921582
+            ],
+            [
+              34.763761,
+              -83.922065
+            ],
+            [
+              34.763377,
+              -83.922312
+            ],
+            [
+              34.763182,
+              -83.922391
+            ],
+            [
+              34.762945,
+              -83.92243
+            ],
+            [
+              34.762522,
+              -83.922482
+            ],
+            [
+              34.762148,
+              -83.922538
+            ],
+            [
+              34.761953,
+              -83.922662
+            ],
+            [
+              34.76191,
+              -83.922699
+            ],
+            [
+              34.761775,
+              -83.922857
+            ],
+            [
+              34.761666,
+              -83.923047
+            ],
+            [
+              34.761587,
+              -83.923247
+            ],
+            [
+              34.761467,
+              -83.92347
+            ],
+            [
+              34.761401,
+              -83.923574
+            ],
+            [
+              34.761291,
+              -83.923684
+            ],
+            [
+              34.761194,
+              -83.923738
+            ],
+            [
+              34.76099,
+              -83.923841
+            ],
+            [
+              34.760353,
+              -83.924056
+            ],
+            [
+              34.759911,
+              -83.924175
+            ],
+            [
+              34.759679,
+              -83.924204
+            ],
+            [
+              34.759423,
+              -83.924214
+            ],
+            [
+              34.759214,
+              -83.924185
+            ],
+            [
+              34.758945,
+              -83.9241
+            ],
+            [
+              34.758716,
+              -83.924033
+            ],
+            [
+              34.758538,
+              -83.92401
+            ],
+            [
+              34.758172,
+              -83.924018
+            ],
+            [
+              34.757636,
+              -83.924085
+            ],
+            [
+              34.756627,
+              -83.924219
+            ],
+            [
+              34.756296,
+              -83.92427
+            ],
+            [
+              34.755955,
+              -83.924356
+            ],
+            [
+              34.755831,
+              -83.924402
+            ],
+            [
+              34.755569,
+              -83.924584
+            ],
+            [
+              34.755284,
+              -83.924955
+            ],
+            [
+              34.75509,
+              -83.925143
+            ],
+            [
+              34.754931,
+              -83.925234
+            ],
+            [
+              34.754768,
+              -83.925267
+            ],
+            [
+              34.754614,
+              -83.925267
+            ],
+            [
+              34.754473,
+              -83.925224
+            ],
+            [
+              34.75434,
+              -83.925149
+            ],
+            [
+              34.754104,
+              -83.924879
+            ],
+            [
+              34.753884,
+              -83.924569
+            ],
+            [
+              34.753933,
+              -83.924372
+            ],
+            [
+              34.753952,
+              -83.924221
+            ],
+            [
+              34.754023,
+              -83.923657
+            ],
+            [
+              34.754032,
+              -83.92325
+            ],
+            [
+              34.753959,
+              -83.922499
+            ],
+            [
+              34.7538,
+              -83.922212
+            ],
+            [
+              34.753591,
+              -83.921761
+            ],
+            [
+              34.753409,
+              -83.92117
+            ],
+            [
+              34.753411,
+              -83.921169
+            ],
+            [
+              34.753209,
+              -83.920616
+            ],
+            [
+              34.753153,
+              -83.920307
+            ],
+            [
+              34.753054,
+              -83.91981
+            ],
+            [
+              34.75288,
+              -83.919098
+            ],
+            [
+              34.752831,
+              -83.918816
+            ],
+            [
+              34.752807,
+              -83.918639
+            ],
+            [
+              34.752754,
+              -83.918312
+            ],
+            [
+              34.752774,
+              -83.917985
+            ],
+            [
+              34.752783,
+              -83.917805
+            ],
+            [
+              34.7528,
+              -83.917582
+            ],
+            [
+              34.752736,
+              -83.917386
+            ],
+            [
+              34.752697,
+              -83.917251
+            ],
+            [
+              34.752657,
+              -83.917156
+            ],
+            [
+              34.752589,
+              -83.916993
+            ],
+            [
+              34.752483,
+              -83.916842
+            ],
+            [
+              34.752353,
+              -83.916711
+            ],
+            [
+              34.752255,
+              -83.916512
+            ],
+            [
+              34.752115,
+              -83.915933
+            ],
+            [
+              34.752049,
+              -83.915616
+            ],
+            [
+              34.752038,
+              -83.915426
+            ],
+            [
+              34.751995,
+              -83.915118
+            ],
+            [
+              34.751983,
+              -83.915014
+            ],
+            [
+              34.751952,
+              -83.914933
+            ],
+            [
+              34.751757,
+              -83.914632
+            ],
+            [
+              34.751635,
+              -83.914263
+            ],
+            [
+              34.751481,
+              -83.91395
+            ],
+            [
+              34.751309,
+              -83.913607
+            ],
+            [
+              34.751242,
+              -83.91333
+            ],
+            [
+              34.751195,
+              -83.913131
+            ],
+            [
+              34.751117,
+              -83.912717
+            ],
+            [
+              34.750965,
+              -83.912398
+            ],
+            [
+              34.750773,
+              -83.912274
+            ],
+            [
+              34.750535,
+              -83.912229
+            ],
+            [
+              34.750295,
+              -83.912103
+            ],
+            [
+              34.750114,
+              -83.912046
+            ],
+            [
+              34.749979,
+              -83.911939
+            ],
+            [
+              34.749957,
+              -83.911753
+            ],
+            [
+              34.750005,
+              -83.911577
+            ],
+            [
+              34.75004,
+              -83.911475
+            ],
+            [
+              34.750086,
+              -83.911322
+            ],
+            [
+              34.750122,
+              -83.911217
+            ],
+            [
+              34.750146,
+              -83.91115
+            ],
+            [
+              34.750136,
+              -83.911004
+            ],
+            [
+              34.750066,
+              -83.910822
+            ],
+            [
+              34.749776,
+              -83.910642
+            ],
+            [
+              34.749571,
+              -83.910413
+            ],
+            [
+              34.749287,
+              -83.910017
+            ],
+            [
+              34.748955,
+              -83.90978
+            ],
+            [
+              34.748713,
+              -83.90962
+            ],
+            [
+              34.748479,
+              -83.909485
+            ],
+            [
+              34.748309,
+              -83.909372
+            ],
+            [
+              34.748239,
+              -83.909101
+            ],
+            [
+              34.748388,
+              -83.908777
+            ],
+            [
+              34.748754,
+              -83.908557
+            ],
+            [
+              34.7492,
+              -83.908351
+            ],
+            [
+              34.749501,
+              -83.908064
+            ],
+            [
+              34.749797,
+              -83.907747
+            ],
+            [
+              34.750169,
+              -83.907333
+            ],
+            [
+              34.750799,
+              -83.9067
+            ],
+            [
+              34.750993,
+              -83.906411
+            ],
+            [
+              34.751126,
+              -83.906
+            ],
+            [
+              34.751223,
+              -83.905539
+            ],
+            [
+              34.751258,
+              -83.905
+            ],
+            [
+              34.751312,
+              -83.904588
+            ],
+            [
+              34.751295,
+              -83.904381
+            ],
+            [
+              34.751343,
+              -83.90396
+            ],
+            [
+              34.751439,
+              -83.903652
+            ],
+            [
+              34.751553,
+              -83.903394
+            ],
+            [
+              34.751738,
+              -83.902886
+            ],
+            [
+              34.752183,
+              -83.902484
+            ],
+            [
+              34.752595,
+              -83.902146
+            ],
+            [
+              34.75295,
+              -83.902004
+            ],
+            [
+              34.753104,
+              -83.901797
+            ],
+            [
+              34.753076,
+              -83.901647
+            ],
+            [
+              34.753065,
+              -83.901473
+            ],
+            [
+              34.753096,
+              -83.901191
+            ],
+            [
+              34.753166,
+              -83.90096
+            ],
+            [
+              34.753276,
+              -83.900794
+            ],
+            [
+              34.753292,
+              -83.900531
+            ],
+            [
+              34.75323,
+              -83.900252
+            ],
+            [
+              34.75323,
+              -83.900006
+            ],
+            [
+              34.753332,
+              -83.899659
+            ],
+            [
+              34.753158,
+              -83.899249
+            ],
+            [
+              34.753102,
+              -83.89903
+            ],
+            [
+              34.753122,
+              -83.898728
+            ],
+            [
+              34.753172,
+              -83.89851
+            ],
+            [
+              34.75325,
+              -83.898356
+            ],
+            [
+              34.753274,
+              -83.898188
+            ],
+            [
+              34.753319,
+              -83.897803
+            ],
+            [
+              34.753384,
+              -83.89765
+            ],
+            [
+              34.753551,
+              -83.897694
+            ],
+            [
+              34.753703,
+              -83.897722
+            ],
+            [
+              34.753795,
+              -83.897568
+            ],
+            [
+              34.753777,
+              -83.897401
+            ],
+            [
+              34.753629,
+              -83.89699
+            ],
+            [
+              34.753558,
+              -83.896358
+            ],
+            [
+              34.753679,
+              -83.896236
+            ],
+            [
+              34.753859,
+              -83.896296
+            ],
+            [
+              34.753997,
+              -83.896275
+            ],
+            [
+              34.754077,
+              -83.896171
+            ],
+            [
+              34.754085,
+              -83.895971
+            ],
+            [
+              34.75406,
+              -83.895855
+            ],
+            [
+              34.754062,
+              -83.895755
+            ],
+            [
+              34.754105,
+              -83.895669
+            ],
+            [
+              34.754186,
+              -83.895599
+            ],
+            [
+              34.754361,
+              -83.895463
+            ],
+            [
+              34.754385,
+              -83.895423
+            ],
+            [
+              34.754394,
+              -83.895379
+            ],
+            [
+              34.754379,
+              -83.895314
+            ],
+            [
+              34.754354,
+              -83.895256
+            ],
+            [
+              34.754178,
+              -83.894923
+            ],
+            [
+              34.754167,
+              -83.894865
+            ],
+            [
+              34.754172,
+              -83.89481
+            ],
+            [
+              34.754226,
+              -83.894718
+            ],
+            [
+              34.754238,
+              -83.894619
+            ],
+            [
+              34.754174,
+              -83.894554
+            ],
+            [
+              34.754103,
+              -83.894522
+            ],
+            [
+              34.753715,
+              -83.894645
+            ],
+            [
+              34.753504,
+              -83.894619
+            ],
+            [
+              34.753289,
+              -83.89454
+            ],
+            [
+              34.753262,
+              -83.894463
+            ]
+          ],
+          "miles": 3.9,
+          "minutes": 13,
+          "minutes_osrm_raw": 13,
+          "geometry_confidence": "exact",
+          "timing_confidence": "exact",
+          "timing_model": "OSRM steps=true checked by real road surface; every segment paved or already >= 10 mph, no re-timing needed.",
+          "retimed_steps": [
+            {
+              "name": "(unnamed)",
+              "ref": null,
+              "miles": 0.14,
+              "surface": "paved",
+              "retimed": false,
+              "confidence": "high",
+              "mph_osrm": 7.1,
+              "mph_used": 7.1,
+              "osm_tags": {
+                "highway": "service",
+                "surface": "paved"
+              }
+            },
+            {
+              "name": "Vogel State Park Road",
+              "ref": null,
+              "miles": 0.41,
+              "surface": "paved",
+              "retimed": false,
+              "confidence": "high",
+              "mph_osrm": 15,
+              "mph_used": 15,
+              "osm_tags": {
+                "highway": "unclassified",
+                "surface": "asphalt"
+              }
+            },
+            {
+              "name": "Gainesville Highway",
+              "ref": "US 19; US 129; GA 11",
+              "miles": 1.15,
+              "surface": "paved",
+              "retimed": false,
+              "confidence": "high",
+              "mph_osrm": 52.1,
+              "mph_used": 52.1,
+              "osm_tags": {
+                "highway": "trunk",
+                "surface": "asphalt"
+              }
+            },
+            {
+              "name": "Helton Creek Road",
+              "ref": null,
+              "miles": 2.19,
+              "surface": "paved",
+              "retimed": false,
+              "confidence": "high",
+              "mph_osrm": 15.5,
+              "mph_used": 15.5,
+              "osm_tags": {
+                "highway": "residential",
+                "surface": null
+              }
+            }
+          ],
+          "source": "OSRM driving route, steps=true (router.project-osrm.org public demo server); surface re-time per findRoadTagsNear (api.openstreetmap.org small-bbox), fetched 2026-09-21.",
+          "access_note": "Chattahoochee National Forest day-use site, about 20 min from Vogel on Helton Creek Road (FS 118, gravel, passable in a truck). Steps and boardwalk to a lower and an upper falls. Replaces the Vogel lake-loop walk: Lake Trahlyta is drained for dam repairs and the Lake Trahlyta Loop Trail and waterfall are CLOSED (gastateparks.org/Vogel, re-fetched 2026-10-08). No panning: not checked for legality here and it is a busy day-use site."
+        },
+        {
+          "type": "walk",
+          "label": "Walk in to Helton Creek Falls (lower and upper falls)",
+          "coords": [
+            [
+              34.753289,
+              -83.89454
+            ],
+            [
+              34.753217,
+              -83.894626
+            ],
+            [
+              34.753243,
+              -83.894712
+            ],
+            [
+              34.753254,
+              -83.894739
+            ],
+            [
+              34.753451,
+              -83.894891
+            ],
+            [
+              34.753568,
+              -83.894957
+            ],
+            [
+              34.75359,
+              -83.89497
+            ],
+            [
+              34.753629,
+              -83.89499
+            ],
+            [
+              34.753643,
+              -83.894995
+            ],
+            [
+              34.753624,
+              -83.89503
+            ],
+            [
+              34.753547,
+              -83.895054
+            ],
+            [
+              34.753411,
+              -83.895132
+            ],
+            [
+              34.75339,
+              -83.89516
+            ],
+            [
+              34.75329,
+              -83.895289
+            ],
+            [
+              34.753261,
+              -83.895407
+            ],
+            [
+              34.753255,
+              -83.895435
+            ],
+            [
+              34.753233,
+              -83.895436
+            ],
+            [
+              34.75319,
+              -83.895411
+            ],
+            [
+              34.753155,
+              -83.895423
+            ],
+            [
+              34.75293,
+              -83.895426
+            ],
+            [
+              34.752918,
+              -83.895442
+            ],
+            [
+              34.752878,
+              -83.895445
+            ],
+            [
+              34.752865,
+              -83.895463
+            ],
+            [
+              34.752851,
+              -83.895488
+            ],
+            [
+              34.752784,
+              -83.895626
+            ],
+            [
+              34.752763,
+              -83.895694
+            ],
+            [
+              34.752707,
+              -83.895704
+            ]
+          ],
+          "miles": 0.13,
+          "minutes": 5,
+          "gain_ft": 59,
+          "geometry_confidence": "exact",
+          "source": "Real OSM way geometry, Helton Creek Falls trail (way 31275565, FS Trail 145; research/_cache/helton_falls_way_31275565.json, ODbL).",
+          "note": "Chattahoochee National Forest day-use site, about 20 min from Vogel on Helton Creek Road (FS 118, gravel, passable in a truck). Steps and boardwalk to a lower and an upper falls. Replaces the Vogel lake-loop walk: Lake Trahlyta is drained for dam repairs and the Lake Trahlyta Loop Trail and waterfall are CLOSED (gastateparks.org/Vogel, re-fetched 2026-10-08). No panning: not checked for legality here and it is a busy day-use site."
+        },
+        {
           "type": "tour",
-          "label": "Optional: easy walk to Trahlyta Falls inside Vogel (below the lake dam)",
-          "minutes": 40,
-          "note": "Inside the state park; distance UNVERIFIED (short, flat per park map). Park streams: no panning."
+          "label": "Look at the falls",
+          "minutes": 30,
+          "lat": 34.752715,
+          "lng": -83.895684,
+          "note": "Chattahoochee National Forest day-use site, about 20 min from Vogel on Helton Creek Road (FS 118, gravel, passable in a truck). Steps and boardwalk to a lower and an upper falls. Replaces the Vogel lake-loop walk: Lake Trahlyta is drained for dam repairs and the Lake Trahlyta Loop Trail and waterfall are CLOSED (gastateparks.org/Vogel, re-fetched 2026-10-08). No panning: not checked for legality here and it is a busy day-use site."
+        },
+        {
+          "type": "walk",
+          "label": "Walk back out to the trailhead",
+          "coords": [
+            [
+              34.752707,
+              -83.895704
+            ],
+            [
+              34.752763,
+              -83.895694
+            ],
+            [
+              34.752784,
+              -83.895626
+            ],
+            [
+              34.752851,
+              -83.895488
+            ],
+            [
+              34.752865,
+              -83.895463
+            ],
+            [
+              34.752878,
+              -83.895445
+            ],
+            [
+              34.752918,
+              -83.895442
+            ],
+            [
+              34.75293,
+              -83.895426
+            ],
+            [
+              34.753155,
+              -83.895423
+            ],
+            [
+              34.75319,
+              -83.895411
+            ],
+            [
+              34.753233,
+              -83.895436
+            ],
+            [
+              34.753255,
+              -83.895435
+            ],
+            [
+              34.753261,
+              -83.895407
+            ],
+            [
+              34.75329,
+              -83.895289
+            ],
+            [
+              34.75339,
+              -83.89516
+            ],
+            [
+              34.753411,
+              -83.895132
+            ],
+            [
+              34.753547,
+              -83.895054
+            ],
+            [
+              34.753624,
+              -83.89503
+            ],
+            [
+              34.753643,
+              -83.894995
+            ],
+            [
+              34.753629,
+              -83.89499
+            ],
+            [
+              34.75359,
+              -83.89497
+            ],
+            [
+              34.753568,
+              -83.894957
+            ],
+            [
+              34.753451,
+              -83.894891
+            ],
+            [
+              34.753254,
+              -83.894739
+            ],
+            [
+              34.753243,
+              -83.894712
+            ],
+            [
+              34.753217,
+              -83.894626
+            ],
+            [
+              34.753289,
+              -83.89454
+            ]
+          ],
+          "miles": 0.13,
+          "minutes": 5,
+          "gain_ft": 0,
+          "geometry_confidence": "exact",
+          "source": "Real OSM way geometry, Helton Creek Falls trail (way 31275565, FS Trail 145; research/_cache/helton_falls_way_31275565.json, ODbL). Reversed."
+        },
+        {
+          "type": "drive",
+          "label": "Helton Creek Falls back to Vogel",
+          "coords": [
+            [
+              34.753262,
+              -83.894463
+            ],
+            [
+              34.753289,
+              -83.89454
+            ],
+            [
+              34.753504,
+              -83.894619
+            ],
+            [
+              34.753715,
+              -83.894645
+            ],
+            [
+              34.754103,
+              -83.894522
+            ],
+            [
+              34.754174,
+              -83.894554
+            ],
+            [
+              34.754238,
+              -83.894619
+            ],
+            [
+              34.754226,
+              -83.894718
+            ],
+            [
+              34.754172,
+              -83.89481
+            ],
+            [
+              34.754167,
+              -83.894865
+            ],
+            [
+              34.754178,
+              -83.894923
+            ],
+            [
+              34.754354,
+              -83.895256
+            ],
+            [
+              34.754379,
+              -83.895314
+            ],
+            [
+              34.754394,
+              -83.895379
+            ],
+            [
+              34.754385,
+              -83.895423
+            ],
+            [
+              34.754361,
+              -83.895463
+            ],
+            [
+              34.754186,
+              -83.895599
+            ],
+            [
+              34.754105,
+              -83.895669
+            ],
+            [
+              34.754062,
+              -83.895755
+            ],
+            [
+              34.75406,
+              -83.895855
+            ],
+            [
+              34.754085,
+              -83.895971
+            ],
+            [
+              34.754077,
+              -83.896171
+            ],
+            [
+              34.753997,
+              -83.896275
+            ],
+            [
+              34.753859,
+              -83.896296
+            ],
+            [
+              34.753679,
+              -83.896236
+            ],
+            [
+              34.753558,
+              -83.896358
+            ],
+            [
+              34.753629,
+              -83.89699
+            ],
+            [
+              34.753777,
+              -83.897401
+            ],
+            [
+              34.753795,
+              -83.897568
+            ],
+            [
+              34.753703,
+              -83.897722
+            ],
+            [
+              34.753551,
+              -83.897694
+            ],
+            [
+              34.753384,
+              -83.89765
+            ],
+            [
+              34.753319,
+              -83.897803
+            ],
+            [
+              34.753274,
+              -83.898188
+            ],
+            [
+              34.75325,
+              -83.898356
+            ],
+            [
+              34.753172,
+              -83.89851
+            ],
+            [
+              34.753122,
+              -83.898728
+            ],
+            [
+              34.753102,
+              -83.89903
+            ],
+            [
+              34.753158,
+              -83.899249
+            ],
+            [
+              34.753332,
+              -83.899659
+            ],
+            [
+              34.75323,
+              -83.900006
+            ],
+            [
+              34.75323,
+              -83.900252
+            ],
+            [
+              34.753292,
+              -83.900531
+            ],
+            [
+              34.753276,
+              -83.900794
+            ],
+            [
+              34.753166,
+              -83.90096
+            ],
+            [
+              34.753096,
+              -83.901191
+            ],
+            [
+              34.753065,
+              -83.901473
+            ],
+            [
+              34.753076,
+              -83.901647
+            ],
+            [
+              34.753104,
+              -83.901797
+            ],
+            [
+              34.75295,
+              -83.902004
+            ],
+            [
+              34.752595,
+              -83.902146
+            ],
+            [
+              34.752183,
+              -83.902484
+            ],
+            [
+              34.751738,
+              -83.902886
+            ],
+            [
+              34.751553,
+              -83.903394
+            ],
+            [
+              34.751439,
+              -83.903652
+            ],
+            [
+              34.751343,
+              -83.90396
+            ],
+            [
+              34.751295,
+              -83.904381
+            ],
+            [
+              34.751312,
+              -83.904588
+            ],
+            [
+              34.751258,
+              -83.905
+            ],
+            [
+              34.751223,
+              -83.905539
+            ],
+            [
+              34.751126,
+              -83.906
+            ],
+            [
+              34.750993,
+              -83.906411
+            ],
+            [
+              34.750799,
+              -83.9067
+            ],
+            [
+              34.750169,
+              -83.907333
+            ],
+            [
+              34.749797,
+              -83.907747
+            ],
+            [
+              34.749501,
+              -83.908064
+            ],
+            [
+              34.7492,
+              -83.908351
+            ],
+            [
+              34.748754,
+              -83.908557
+            ],
+            [
+              34.748388,
+              -83.908777
+            ],
+            [
+              34.748239,
+              -83.909101
+            ],
+            [
+              34.748309,
+              -83.909372
+            ],
+            [
+              34.748479,
+              -83.909485
+            ],
+            [
+              34.748713,
+              -83.90962
+            ],
+            [
+              34.748955,
+              -83.90978
+            ],
+            [
+              34.749287,
+              -83.910017
+            ],
+            [
+              34.749571,
+              -83.910413
+            ],
+            [
+              34.749776,
+              -83.910642
+            ],
+            [
+              34.750066,
+              -83.910822
+            ],
+            [
+              34.750136,
+              -83.911004
+            ],
+            [
+              34.750146,
+              -83.91115
+            ],
+            [
+              34.750122,
+              -83.911217
+            ],
+            [
+              34.750086,
+              -83.911322
+            ],
+            [
+              34.75004,
+              -83.911475
+            ],
+            [
+              34.750005,
+              -83.911577
+            ],
+            [
+              34.749957,
+              -83.911753
+            ],
+            [
+              34.749979,
+              -83.911939
+            ],
+            [
+              34.750114,
+              -83.912046
+            ],
+            [
+              34.750295,
+              -83.912103
+            ],
+            [
+              34.750535,
+              -83.912229
+            ],
+            [
+              34.750773,
+              -83.912274
+            ],
+            [
+              34.750965,
+              -83.912398
+            ],
+            [
+              34.751117,
+              -83.912717
+            ],
+            [
+              34.751195,
+              -83.913131
+            ],
+            [
+              34.751242,
+              -83.91333
+            ],
+            [
+              34.751309,
+              -83.913607
+            ],
+            [
+              34.751481,
+              -83.91395
+            ],
+            [
+              34.751635,
+              -83.914263
+            ],
+            [
+              34.751757,
+              -83.914632
+            ],
+            [
+              34.751952,
+              -83.914933
+            ],
+            [
+              34.751983,
+              -83.915014
+            ],
+            [
+              34.751995,
+              -83.915118
+            ],
+            [
+              34.752038,
+              -83.915426
+            ],
+            [
+              34.752049,
+              -83.915616
+            ],
+            [
+              34.752115,
+              -83.915933
+            ],
+            [
+              34.752255,
+              -83.916512
+            ],
+            [
+              34.752353,
+              -83.916711
+            ],
+            [
+              34.752483,
+              -83.916842
+            ],
+            [
+              34.752589,
+              -83.916993
+            ],
+            [
+              34.752657,
+              -83.917156
+            ],
+            [
+              34.752697,
+              -83.917251
+            ],
+            [
+              34.752736,
+              -83.917386
+            ],
+            [
+              34.7528,
+              -83.917582
+            ],
+            [
+              34.752783,
+              -83.917805
+            ],
+            [
+              34.752774,
+              -83.917985
+            ],
+            [
+              34.752754,
+              -83.918312
+            ],
+            [
+              34.752807,
+              -83.918639
+            ],
+            [
+              34.752831,
+              -83.918816
+            ],
+            [
+              34.75288,
+              -83.919098
+            ],
+            [
+              34.753054,
+              -83.91981
+            ],
+            [
+              34.753153,
+              -83.920307
+            ],
+            [
+              34.753209,
+              -83.920616
+            ],
+            [
+              34.753411,
+              -83.921169
+            ],
+            [
+              34.753409,
+              -83.92117
+            ],
+            [
+              34.753591,
+              -83.921761
+            ],
+            [
+              34.7538,
+              -83.922212
+            ],
+            [
+              34.753959,
+              -83.922499
+            ],
+            [
+              34.754032,
+              -83.92325
+            ],
+            [
+              34.754023,
+              -83.923657
+            ],
+            [
+              34.753952,
+              -83.924221
+            ],
+            [
+              34.753933,
+              -83.924372
+            ],
+            [
+              34.753884,
+              -83.924569
+            ],
+            [
+              34.754104,
+              -83.924879
+            ],
+            [
+              34.75434,
+              -83.925149
+            ],
+            [
+              34.754473,
+              -83.925224
+            ],
+            [
+              34.754614,
+              -83.925267
+            ],
+            [
+              34.754768,
+              -83.925267
+            ],
+            [
+              34.754931,
+              -83.925234
+            ],
+            [
+              34.75509,
+              -83.925143
+            ],
+            [
+              34.755284,
+              -83.924955
+            ],
+            [
+              34.755569,
+              -83.924584
+            ],
+            [
+              34.755831,
+              -83.924402
+            ],
+            [
+              34.755955,
+              -83.924356
+            ],
+            [
+              34.756296,
+              -83.92427
+            ],
+            [
+              34.756627,
+              -83.924219
+            ],
+            [
+              34.757636,
+              -83.924085
+            ],
+            [
+              34.758172,
+              -83.924018
+            ],
+            [
+              34.758538,
+              -83.92401
+            ],
+            [
+              34.758716,
+              -83.924033
+            ],
+            [
+              34.758945,
+              -83.9241
+            ],
+            [
+              34.759214,
+              -83.924185
+            ],
+            [
+              34.759423,
+              -83.924214
+            ],
+            [
+              34.759679,
+              -83.924204
+            ],
+            [
+              34.759911,
+              -83.924175
+            ],
+            [
+              34.760353,
+              -83.924056
+            ],
+            [
+              34.76099,
+              -83.923841
+            ],
+            [
+              34.761194,
+              -83.923738
+            ],
+            [
+              34.761291,
+              -83.923684
+            ],
+            [
+              34.761401,
+              -83.923574
+            ],
+            [
+              34.761467,
+              -83.92347
+            ],
+            [
+              34.761587,
+              -83.923247
+            ],
+            [
+              34.761666,
+              -83.923047
+            ],
+            [
+              34.761775,
+              -83.922857
+            ],
+            [
+              34.76191,
+              -83.922699
+            ],
+            [
+              34.761953,
+              -83.922662
+            ],
+            [
+              34.762148,
+              -83.922538
+            ],
+            [
+              34.762522,
+              -83.922482
+            ],
+            [
+              34.762945,
+              -83.92243
+            ],
+            [
+              34.763182,
+              -83.922391
+            ],
+            [
+              34.763377,
+              -83.922312
+            ],
+            [
+              34.763761,
+              -83.922065
+            ],
+            [
+              34.764576,
+              -83.921582
+            ],
+            [
+              34.765435,
+              -83.921023
+            ],
+            [
+              34.765712,
+              -83.920848
+            ],
+            [
+              34.765988,
+              -83.920601
+            ],
+            [
+              34.766349,
+              -83.920158
+            ],
+            [
+              34.766543,
+              -83.919852
+            ],
+            [
+              34.766628,
+              -83.919588
+            ],
+            [
+              34.766686,
+              -83.919306
+            ],
+            [
+              34.766746,
+              -83.918994
+            ],
+            [
+              34.766824,
+              -83.918702
+            ],
+            [
+              34.766923,
+              -83.918424
+            ],
+            [
+              34.767068,
+              -83.918159
+            ],
+            [
+              34.767313,
+              -83.917861
+            ],
+            [
+              34.767765,
+              -83.917509
+            ],
+            [
+              34.767815,
+              -83.917652
+            ],
+            [
+              34.767815,
+              -83.917706
+            ],
+            [
+              34.767791,
+              -83.917759
+            ],
+            [
+              34.767743,
+              -83.917803
+            ],
+            [
+              34.767658,
+              -83.917864
+            ],
+            [
+              34.767611,
+              -83.917912
+            ],
+            [
+              34.767579,
+              -83.91798
+            ],
+            [
+              34.767566,
+              -83.918047
+            ],
+            [
+              34.767562,
+              -83.918132
+            ],
+            [
+              34.767633,
+              -83.918429
+            ],
+            [
+              34.76764,
+              -83.918528
+            ],
+            [
+              34.767627,
+              -83.91865
+            ],
+            [
+              34.767558,
+              -83.918794
+            ],
+            [
+              34.767508,
+              -83.918913
+            ],
+            [
+              34.767445,
+              -83.919078
+            ],
+            [
+              34.767428,
+              -83.919128
+            ],
+            [
+              34.767398,
+              -83.919287
+            ],
+            [
+              34.767375,
+              -83.919483
+            ],
+            [
+              34.767371,
+              -83.919674
+            ],
+            [
+              34.767381,
+              -83.919815
+            ],
+            [
+              34.767357,
+              -83.919935
+            ],
+            [
+              34.767297,
+              -83.920067
+            ],
+            [
+              34.767144,
+              -83.920319
+            ],
+            [
+              34.766878,
+              -83.920659
+            ],
+            [
+              34.766449,
+              -83.921297
+            ],
+            [
+              34.766138,
+              -83.922002
+            ],
+            [
+              34.765903,
+              -83.922417
+            ],
+            [
+              34.765762,
+              -83.922618
+            ],
+            [
+              34.765605,
+              -83.922861
+            ],
+            [
+              34.765569,
+              -83.923011
+            ],
+            [
+              34.765569,
+              -83.923182
+            ],
+            [
+              34.765611,
+              -83.923318
+            ],
+            [
+              34.765689,
+              -83.923465
+            ],
+            [
+              34.765747,
+              -83.923565
+            ],
+            [
+              34.765708,
+              -83.923773
+            ],
+            [
+              34.765718,
+              -83.923789
+            ],
+            [
+              34.765842,
+              -83.923994
+            ],
+            [
+              34.76589,
+              -83.924073
+            ],
+            [
+              34.765907,
+              -83.924082
+            ],
+            [
+              34.766032,
+              -83.924147
+            ],
+            [
+              34.76589,
+              -83.92435
+            ],
+            [
+              34.765562,
+              -83.924681
+            ],
+            [
+              34.765472,
+              -83.924781
+            ],
+            [
+              34.765526,
+              -83.924829
+            ],
+            [
+              34.765587,
+              -83.924848
+            ],
+            [
+              34.765763,
+              -83.924858
+            ],
+            [
+              34.765816,
+              -83.924878
+            ],
+            [
+              34.765739,
+              -83.924988
+            ],
+            [
+              34.765678,
+              -83.925062
+            ]
+          ],
+          "miles": 3.9,
+          "minutes": 13,
+          "minutes_osrm_raw": 13,
+          "geometry_confidence": "exact",
+          "timing_confidence": "exact",
+          "timing_model": "OSRM steps=true checked by real road surface; every segment paved or already >= 10 mph, no re-timing needed.",
+          "retimed_steps": [
+            {
+              "name": "Helton Creek Road",
+              "ref": null,
+              "miles": 2.19,
+              "surface": "paved",
+              "retimed": false,
+              "confidence": "high",
+              "mph_osrm": 15.5,
+              "mph_used": 15.5,
+              "osm_tags": {
+                "highway": "residential",
+                "surface": null
+              }
+            },
+            {
+              "name": "Gainesville Highway",
+              "ref": "US 19; US 129; GA 11",
+              "miles": 1.15,
+              "surface": "paved",
+              "retimed": false,
+              "confidence": "high",
+              "mph_osrm": 49,
+              "mph_used": 49,
+              "osm_tags": {
+                "highway": "trunk",
+                "surface": "asphalt"
+              }
+            },
+            {
+              "name": "Vogel State Park Road",
+              "ref": null,
+              "miles": 0.4,
+              "surface": "paved",
+              "retimed": false,
+              "confidence": "high",
+              "mph_osrm": 15.4,
+              "mph_used": 15.4,
+              "osm_tags": {
+                "highway": "unclassified",
+                "surface": "asphalt"
+              }
+            },
+            {
+              "name": "(unnamed)",
+              "ref": null,
+              "miles": 0.14,
+              "surface": "paved",
+              "retimed": false,
+              "confidence": "high",
+              "mph_osrm": 6.9,
+              "mph_used": 6.9,
+              "osm_tags": {
+                "highway": "service",
+                "surface": "asphalt"
+              }
+            }
+          ],
+          "source": "OSRM driving route, steps=true (router.project-osrm.org public demo server); surface re-time per findRoadTagsNear (api.openstreetmap.org small-bbox), fetched 2026-09-21.",
+          "access_note": "Chattahoochee National Forest day-use site, about 20 min from Vogel on Helton Creek Road (FS 118, gravel, passable in a truck). Steps and boardwalk to a lower and an upper falls. Replaces the Vogel lake-loop walk: Lake Trahlyta is drained for dam repairs and the Lake Trahlyta Loop Trail and waterfall are CLOSED (gastateparks.org/Vogel, re-fetched 2026-10-08). No panning: not checked for legality here and it is a busy day-use site."
         },
         {
           "type": "camp",
           "label": "Downtime at camp: rest after the drive",
-          "minutes": 235
+          "minutes": 90
         },
         {
           "type": "meal",
@@ -6592,7 +8861,7 @@
           "source": "OSRM driving route, steps=true (router.project-osrm.org public demo server); surface re-time per findRoadTagsNear (api.openstreetmap.org small-bbox), fetched 2026-09-21."
         }
       ],
-      "note": "Arrival day: no panning. Leave camp after dinner, about an hour after sunset, for full dark."
+      "note": "Arrival day: no panning. Vogel's own lake loop and Trahlyta Falls are closed (lake drained for dam repairs, checked 2026-10-08), so the afternoon walk is Helton Creek Falls instead. Leave camp after dinner, about an hour after sunset, for full dark."
     },
     {
       "day": 2,
@@ -27121,7 +29390,7 @@
           "source": "OSRM driving route, steps=true (router.project-osrm.org public demo server); surface re-time per findRoadTagsNear (api.openstreetmap.org small-bbox), fetched 2026-09-21."
         }
       ],
-      "note": "Evening: leave truck 2 at Owltown Gap for Tuesday's walk-out. Pack the hike packs tonight: Sat leaves at 07:30."
+      "note": "Evening: leave truck 2 at Owltown Gap for Monday's walk-out. Pack the hike packs tonight: Sat leaves at 07:30."
     },
     {
       "day": 3,
@@ -27141,7 +29410,7 @@
         "lat": 34.782438,
         "lng": -83.958583
       },
-      "note": "Truck 1 stays at WOLF-X until Tuesday. Truck 2 is already at Owltown Gap (staged Friday evening). Deer season opens today: blaze orange on everyone.",
+      "note": "Truck 1 stays at WOLF-X until Monday. Truck 2 is already at Owltown Gap (staged Friday evening). Deer season opens today: blaze orange on everyone.",
       "legs": [
         {
           "type": "meal",
@@ -30905,22 +33174,22 @@
     {
       "day": 5,
       "date": "2026-10-19",
-      "title": "Full day panning the upper East Fork Coosa Creek at CAMP-U",
+      "title": "Morning pan at CAMP-U, walk out to Owltown Gap, drive to Vogel",
       "optional": false,
       "start": {
         "ref": "camp_u",
         "label": "CAMP-U (upper East Fork Coosa Creek, road-free reach)",
         "lat": 34.79056,
         "lng": -83.98457,
-        "time": "08:00"
+        "time": "07:30"
       },
       "end": {
-        "ref": "camp_u",
-        "label": "CAMP-U (upper East Fork Coosa Creek, road-free reach)",
-        "lat": 34.79056,
-        "lng": -83.98457
+        "ref": "vogel_basecamp",
+        "label": "Vogel State Park — base camp (walk-in site P)",
+        "lat": 34.765883,
+        "lng": -83.925416
       },
-      "note": "No packs today. Two pan sessions, one up-creek and one down-creek from camp. Bulletin 19: up here the gold is in \"the bed of the creek only\" — bedrock cracks and the inside of bends.",
+      "note": "Last day out: pan the morning at camp, then walk out. Down the creek to the road, the road to truck 2 at Owltown Gap, drive to WOLF-X for truck 1, both trucks to Vogel. Hot dinner and showers tonight. Food carried is Sat lunch through this lunch: 2 breakfasts, 3 lunches, 2 dinners.",
       "legs": [
         {
           "type": "meal",
@@ -30928,50 +33197,11 @@
           "minutes": 40
         },
         {
-          "type": "walk",
-          "label": "CAMP-U up the creek to DROP-IN (daypack)",
-          "coords": [
-            [
-              34.790525,
-              -83.984617
-            ],
-            [
-              34.790355,
-              -83.984803
-            ],
-            [
-              34.790123,
-              -83.984981
-            ],
-            [
-              34.790015,
-              -83.985207
-            ],
-            [
-              34.789884,
-              -83.985519
-            ],
-            [
-              34.789618,
-              -83.985708
-            ],
-            [
-              34.789506,
-              -83.985797
-            ]
-          ],
-          "miles": 0.1,
-          "minutes": 5,
-          "gain_ft": 62,
-          "geometry_confidence": "approximate",
-          "source": "OSM creek line; walk the bed and banks, no path."
-        },
-        {
           "type": "pan",
-          "label": "Pan the upper reach at DROP-IN (bed of the creek only)",
-          "lat": 34.789506,
-          "lng": -83.985797,
-          "minutes": 150,
+          "label": "Morning pan at CAMP-U (bed of the creek only)",
+          "lat": 34.79056,
+          "lng": -83.98457,
+          "minutes": 120,
           "state": "amber",
           "legality": {
             "panning": {
@@ -31002,52 +33232,13 @@
           "note": "Headwater reach, about 1 creek-mile below the source at ~2,900 ft. October is the driest month: flow UNCONFIRMED. If the creek is a trickle here, move down to LOWER (34.7935,-83.9811) or on toward 34.7958,-83.9792 — still Forest Service, still 300 m from the road end."
         },
         {
-          "type": "walk",
-          "label": "DROP-IN back down to CAMP-U",
-          "coords": [
-            [
-              34.789506,
-              -83.985797
-            ],
-            [
-              34.789618,
-              -83.985708
-            ],
-            [
-              34.789884,
-              -83.985519
-            ],
-            [
-              34.790015,
-              -83.985207
-            ],
-            [
-              34.790123,
-              -83.984981
-            ],
-            [
-              34.790355,
-              -83.984803
-            ],
-            [
-              34.790525,
-              -83.984617
-            ]
-          ],
-          "miles": 0.1,
-          "minutes": 5,
-          "gain_ft": 0,
-          "geometry_confidence": "approximate",
-          "source": "OSM creek line, reversed."
-        },
-        {
-          "type": "meal",
-          "label": "Lunch at camp",
-          "minutes": 40
+          "type": "camp",
+          "label": "Break camp at CAMP-U, pack up",
+          "minutes": 45
         },
         {
           "type": "walk",
-          "label": "CAMP-U down the creek to LOWER (daypack)",
+          "label": "CAMP-U down the creek to the LOWER reach",
           "coords": [
             [
               34.790525,
@@ -31123,17 +33314,17 @@
             ]
           ],
           "miles": 0.29,
-          "minutes": 5,
+          "minutes": 10,
           "gain_ft": 0,
           "geometry_confidence": "approximate",
           "source": "OSM creek line; walk the bed and banks, no path."
         },
         {
           "type": "pan",
-          "label": "Pan the LOWER reach (flatter, inside of bends)",
+          "label": "Last pan — the LOWER reach (flatter, inside of bends)",
           "lat": 34.7935,
           "lng": -83.98112,
-          "minutes": 150,
+          "minutes": 90,
           "state": "amber",
           "legality": {
             "panning": {
@@ -31164,197 +33355,14 @@
           "note": "Still 500 m from the road end at 34.79824,-83.97825."
         },
         {
-          "type": "walk",
-          "label": "LOWER back up to CAMP-U",
-          "coords": [
-            [
-              34.793438,
-              -83.981129
-            ],
-            [
-              34.793266,
-              -83.981262
-            ],
-            [
-              34.793133,
-              -83.981521
-            ],
-            [
-              34.79303,
-              -83.981588
-            ],
-            [
-              34.792896,
-              -83.981805
-            ],
-            [
-              34.79283,
-              -83.981977
-            ],
-            [
-              34.792524,
-              -83.982327
-            ],
-            [
-              34.792512,
-              -83.982539
-            ],
-            [
-              34.792455,
-              -83.982721
-            ],
-            [
-              34.79218,
-              -83.9829
-            ],
-            [
-              34.792054,
-              -83.983095
-            ],
-            [
-              34.792031,
-              -83.983191
-            ],
-            [
-              34.791816,
-              -83.983347
-            ],
-            [
-              34.791548,
-              -83.983431
-            ],
-            [
-              34.791199,
-              -83.98364
-            ],
-            [
-              34.790955,
-              -83.983998
-            ],
-            [
-              34.790702,
-              -83.984367
-            ],
-            [
-              34.790525,
-              -83.984617
-            ]
-          ],
-          "miles": 0.29,
-          "minutes": 10,
-          "gain_ft": 125,
-          "geometry_confidence": "approximate",
-          "source": "OSM creek line, reversed."
-        },
-        {
           "type": "meal",
-          "label": "Dinner at camp",
-          "minutes": 60
-        }
-      ]
-    },
-    {
-      "day": 6,
-      "date": "2026-10-20",
-      "title": "Walk the creek out to the road, on to Owltown Gap, drive to Vogel",
-      "optional": false,
-      "note": "Walk down the creek to the road, then the road to truck 2 at Owltown Gap. Drive to WOLF-X for truck 1, then both trucks to Vogel. Hot dinner and showers tonight.",
-      "start": {
-        "ref": "camp_u",
-        "label": "CAMP-U (upper East Fork Coosa Creek, road-free reach)",
-        "lat": 34.79056,
-        "lng": -83.98457,
-        "time": "07:30"
-      },
-      "end": {
-        "ref": "vogel_basecamp",
-        "label": "Vogel State Park — base camp (walk-in site P)",
-        "lat": 34.765883,
-        "lng": -83.925416
-      },
-      "legs": [
-        {
-          "type": "meal",
-          "label": "Breakfast at camp",
-          "minutes": 40
-        },
-        {
-          "type": "camp",
-          "label": "Break camp at CAMP-U, pack up",
-          "minutes": 45
+          "label": "Lunch at the LOWER reach",
+          "minutes": 30
         },
         {
           "type": "walk",
-          "label": "Down East Fork Coosa Creek to where the road starts",
+          "label": "LOWER on down the creek to where the road starts",
           "coords": [
-            [
-              34.790525,
-              -83.984617
-            ],
-            [
-              34.790702,
-              -83.984367
-            ],
-            [
-              34.790955,
-              -83.983998
-            ],
-            [
-              34.791199,
-              -83.98364
-            ],
-            [
-              34.791548,
-              -83.983431
-            ],
-            [
-              34.791816,
-              -83.983347
-            ],
-            [
-              34.792031,
-              -83.983191
-            ],
-            [
-              34.792054,
-              -83.983095
-            ],
-            [
-              34.79218,
-              -83.9829
-            ],
-            [
-              34.792455,
-              -83.982721
-            ],
-            [
-              34.792512,
-              -83.982539
-            ],
-            [
-              34.792524,
-              -83.982327
-            ],
-            [
-              34.79283,
-              -83.981977
-            ],
-            [
-              34.792896,
-              -83.981805
-            ],
-            [
-              34.79303,
-              -83.981588
-            ],
-            [
-              34.793133,
-              -83.981521
-            ],
-            [
-              34.793266,
-              -83.981262
-            ],
             [
               34.793438,
               -83.981129
@@ -31472,8 +33480,8 @@
               -83.977502
             ]
           ],
-          "miles": 0.69,
-          "minutes": 20,
+          "miles": 0.4,
+          "minutes": 10,
           "gain_ft": 0,
           "geometry_confidence": "approximate",
           "source": "OSM creek line; walk the bed and banks, no path."
@@ -34481,6 +36489,50 @@
         }
       ],
       "access_confidence": "unconfirmed"
+    },
+    {
+      "day": 6,
+      "date": "2026-10-20",
+      "title": "Free day — no fixed route (see the Playground tab)",
+      "optional": false,
+      "start": {
+        "ref": "vogel_basecamp",
+        "label": "Vogel State Park — base camp (walk-in site P)",
+        "lat": 34.765883,
+        "lng": -83.925416,
+        "time": "08:00"
+      },
+      "end": {
+        "ref": "vogel_basecamp",
+        "label": "Vogel State Park — base camp (walk-in site P)",
+        "lat": 34.765883,
+        "lng": -83.925416
+      },
+      "note": "Free day. Options and drive times are in the Playground tab; nothing here is fixed.",
+      "legs": [
+        {
+          "type": "meal",
+          "label": "Breakfast at camp (Vogel)",
+          "minutes": 40
+        },
+        {
+          "type": "tour",
+          "at_ref": "vogel_basecamp",
+          "label": "Free day — pick from the Playground tab",
+          "minutes": 480,
+          "note": "Nothing booked. The hub's Playground tab has the ready-made Tuesday plans (waterfall loop, Blairsville/Helen/Hiawassee, markets and festivals, a rain plan) and the hike-area layer if anyone wants another creek. Last full day: this is also the slack day if the hike runs long or the weather moves."
+        },
+        {
+          "type": "meal",
+          "label": "Lunch — out or at camp",
+          "minutes": 45
+        },
+        {
+          "type": "meal",
+          "label": "Dinner at camp (Vogel)",
+          "minutes": 60
+        }
+      ]
     },
     {
       "day": 7,

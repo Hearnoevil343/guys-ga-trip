@@ -13,9 +13,33 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "index.html"
 
+# The Rundown tab is an iframe on RUNDOWN.html. If RUNDOWN.md is newer, that
+# tab would ship a stale story (ISSUES #3) — stop, do not build around it.
+_md, _html = ROOT / "RUNDOWN.md", ROOT / "RUNDOWN.html"
+if not _html.exists() or _md.stat().st_mtime > _html.stat().st_mtime + 1:
+    raise SystemExit(
+        "RUNDOWN.html is older than RUNDOWN.md (or missing).\n"
+        "The Rundown tab would ship a stale build. Run:  python tools/build_rundown.py"
+    )
+
 # --- buy list table from BUY_LIST.md ---------------------------------------
+# The Start card's "Gear:" number. BUY_LIST.md has no "**Total ..." line any
+# more -- the totals moved into two tables, which left the card blank
+# (ISSUES #5). Both tables have a "| **Solid** |" row with five cells, so read
+# them by which heading they sit under, and fail loudly if neither is found.
 rows, total = [], ""
+_gear_total = _trip_total = ""
+_heading = ""
 for line in (ROOT / "BUY_LIST.md").read_text(encoding="utf-8").splitlines():
+    if line.startswith("## "):
+        _heading = line[3:].strip().lower()
+    if line.startswith("| **Solid**"):
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) >= 2 and cells[-1].startswith("$"):
+            if _heading.startswith("at a glance"):
+                _gear_total = cells[-1]
+            elif _heading.startswith("trip total"):
+                _trip_total = cells[-1]
     if line.startswith("**Total"):
         total = line.strip("*")
     if line.startswith("|") and not line.startswith("|---") and "Order first?" not in line:
@@ -534,14 +558,23 @@ No permit needed for hand panning on National Forest land (36 CFR 228.4). A grou
 <li><b>Park rules:</b> park hours 7:30 AM-9:00 PM. No glass in the park: plastic vials only.</li>
 </ul></details>
 
-<details class="who"><summary>Sat Oct 17 &mdash; West Fork Wolf Creek &middot; test pan, 3 h</summary>
+<details class="who"><summary>Sat Oct 17 &mdash; West Fork Wolf Creek &middot; test pan, 2 h</summary>
 <ul>
-<li><b>Where:</b> at and just below the FS 107 crossing on the Coosa Backcountry Trail (our camp). National Forest from the source down to 34.79131, -83.91724. Do not pan below that point.</li>
+<li><b>Where:</b> at and just below the FS 107 crossing (WOLF-X), where truck 1 parks. National Forest from the source down to 34.79131, -83.91724. Do not pan below that point. This is <b>not</b> a camp &mdash; night 1 is up the trail at Calf Stump Branch.</li>
+<li><b>Also:</b> last water a vehicle can reach. Fill 2 L each here &mdash; there is nothing on the 1,375 ft climb to Calf Stomp Gap.</li>
 <li><b>Gold record:</b> none. It is a guess from geology: the creek sits between the Coosa Creek placers and the old placers near Crumley Creek. Finding nothing here is a normal result.</li>
 <li><b>Expect:</b> a steep creek with bedrock. Little gravel, so the gold (if any) is in cracks, not in bars.</li>
 <li><b>Try first:</b> bedrock cracks that run across the current, the pocket at the foot of each small drop, and gravel packed behind boulders. Scrape cracks clean with the trowel tip and pan that.</li>
 <li><b>Method:</b> sample, do not settle. Two pans per spot, then move 20&ndash;30 yards. Only stay where a pan shows black sand plus color.</li>
 <li><b>Status:</b> allowed under the general National Forest rule; no creek-specific rule found. Ranger call still open (Blue Ridge RD 706-745-6928).</li>
+</ul></details>
+
+<details class="who"><summary>Sat&ndash;Mon Oct 17&ndash;19 &mdash; Calf Stump Branch &middot; night 1, 1.5 h evening + 1.5 h morning</summary>
+<ul>
+<li><b>Where:</b> where the Coosa Backcountry Trail crosses Calf Stump Branch, 0.4 mi past Calf Stomp Gap (34.78244, -83.95858). About 400 m from the nearest road.</li>
+<li><b>Gold record:</b> none. Like West Fork Wolf Creek this is geology, not history. Finding nothing is a normal result.</li>
+<li><b>Expect:</b> a small headwater branch. October is the driest month and the flow here is UNCONFIRMED &mdash; it may be a trickle.</li>
+<li><b>Try first:</b> bedrock cracks across the current and the pocket at the foot of each small drop. Pan <i>downstream</i> of wherever the group draws drinking water.</li>
 </ul></details>
 
 <details class="who"><summary>Sun&ndash;Mon Oct 18&ndash;19 &mdash; East Fork Coosa Creek &middot; the main event</summary>
@@ -552,10 +585,12 @@ No permit needed for hand panning on National Forest land (36 CFR 228.4). A grou
 <li><b>Why these stops:</b> the creek is steep at its source, flattens near 34.798, -83.976, then steepens again below the two confluences. Fast water that slows down drops its gold, and a side creek joining adds another drop zone.</li>
 </ul>
 <table><tr><th>Stop</th><th>When</th><th>Where</th><th>Try</th></tr>
-<tr><td>Roaring Fork confluence</td><td>Sun, 1.5 h</td><td>34.80168, -83.96778</td><td>The gravel bar just below where the two creeks meet, and the slack-water side of the junction.</td></tr>
-<tr><td>Camp, Jones Branch confluence</td><td>Sun, 1.5 h</td><td>34.79771, -83.97759</td><td>Same pattern below the junction. Upstream of camp is the flat reach: inside bends and any exposed bedrock.</td></tr>
-<tr><td>Boundary stop on Bowers Road</td><td>Mon, 1.5 h</td><td>near 34.80270, -83.96034</td><td>Last public water, about 35 m off the road. Stay upstream of the private line.</td></tr>
+<tr><td>CAMP-U (night 2)</td><td>Sun evening, 1.5 h</td><td>34.79056, -83.98457</td><td>First look at the bed. Bedrock cracks across the current; the tail of each pool, not its deep middle. Headwater reach &mdash; October flow UNCONFIRMED.</td></tr>
+<tr><td>CAMP-U (the long session)</td><td>Mon morning, 2 h</td><td>34.79056, -83.98457</td><td>Work the same reach properly: clean the cracks to the bottom, and the tight layer where gravel sits on bedrock.</td></tr>
+<tr><td>LOWER reach &mdash; the last pan</td><td>Mon, 1.5 h</td><td>34.79350, -83.98112</td><td>Flatter water: the inside of bends and the upstream end of each gravel bar. Still 500 m above the road end.</td></tr>
+<tr><td>Up to DROP-IN and the source</td><td>optional side trip</td><td>34.789506, -83.985797</td><td>The steep headwater, 350&ndash;720 ft/mi. 0.44 mi and +210 ft from camp on a daypack. In the Playground tab as a branch.</td></tr>
 </table>
+<p><small>Rebuilt 2026-10-08 for the 3-day / 2-night hike. The old stops &mdash; the Jones Branch camp and the Bowers Road boundary stop &mdash; belonged to the road route dropped on 2026-10-05; both sat beside a drivable road.</small></p>
 <p><b>Status:</b> allowed under the general National Forest rule; no creek-specific rule found. Ranger call still open (Coosa Bald National Scenic Area; Blue Ridge RD 706-745-6928).</p>
 </details>
 
@@ -608,9 +643,329 @@ No permit needed for hand panning on National Forest land (36 CFR 228.4). A grou
 </ul></details>
 """ + PAN_NOTE
 
+# ---------------------------------------------------------------------------
+# --- "Fish & crawdads" tab, rendered from research/fishing-crawdads.md -----
+# Cheat sheet first (one card per numbered line), every other section behind a
+# drill-in. The .md is the source of truth: edit it and re-run, never edit the
+# HTML here.
+# ---------------------------------------------------------------------------
+import markdown as _md_mod
+
+def _md(t):
+    return _md_mod.markdown(t, extensions=["tables", "sane_lists"])
+
+def fishing_html():
+    src = (ROOT / "research" / "fishing-crawdads.md").read_text(encoding="utf-8")
+    # strip the H1 and keep the provenance paragraph under it
+    body = src.split("\n", 1)[1]
+    head, _, rest = body.partition("\n## ")
+    provenance = head.strip()
+    secs = ("## " + rest).split("\n## ")
+    secs = [secs[0][3:]] + secs[1:] if secs[0].startswith("## ") else secs
+    out = ['<div class="card"><b>Cheap-man\'s fishing and crawdad guide.</b> '
+           + _md(provenance.replace("\n", " ").strip()).replace("<p>", "").replace("</p>", "") + "</div>"]
+    detail = []
+    for sec in secs:
+        title, _, text = sec.partition("\n")
+        title = title.strip()
+        text = text.strip()
+        if title.lower().startswith("cheat sheet"):
+            out.append('<h3 class="sec-h">Cheat sheet &mdash; the ten lines that matter</h3>')
+            out.append('<div class="cheat">')
+            for line in text.splitlines():
+                line = line.strip()
+                if not line or not line[0].isdigit():
+                    continue
+                item = line.split(".", 1)[1].strip() if "." in line else line
+                out.append('<div class="card cheatcard">' + _md(item).replace("<p>", "").replace("</p>", "") + "</div>")
+            out.append("</div>")
+        else:
+            opened = " open" if title.lower().startswith("unconfirmed") else ""
+            detail.append(f'<details class="who"{opened}><summary>{html.escape(title)}</summary>{_md(text)}</details>')
+    out.append('<h3 class="sec-h">The detail &mdash; tap a line to open it</h3>')
+    out.append('<p><small>Every fact below carries the URL it came from and a quote off that page as fetched on 2026-10-08. '
+               'Anything not fetched and quoted says <b>UNCONFIRMED</b>. The one that matters most: whether a crawdad trap '
+               'counts as a banned minnow trap in trout water &mdash; call GA DNR 706-557-3213 before setting one '
+               '(<a href="CALLS.md" target="_blank">CALLS.md</a> #6).</small></p>')
+    out += detail
+    out.append('<div class="card"><b>What we are bringing:</b> two cheap mini rods, two crawdad traps, '
+               'and two people holding Georgia licences (Jordan, 2026-10-08).</div>')
+    return "\n".join(out)
+
+fishing_section = fishing_html()
+
+# ---------------------------------------------------------------------------
+# --- "Playground" tab -------------------------------------------------------
+# Two layers, as decided 2026-10-08: (a) the towns around Vogel with ready-made
+# free-day plans; (b) the hike area itself, every creek/trail/road/junction with
+# the branch options at each camp and junction. Both read their data from files
+# and are embedded in the page, so the whole tab works offline in the APK.
+# ---------------------------------------------------------------------------
+PG_PLACES = json.loads((ROOT / "research" / "playground.json").read_text(encoding="utf-8"))
+PG_PLANS = json.loads((ROOT / "research" / "playground-plans.json").read_text(encoding="utf-8"))
+PG_AREA = json.loads((ROOT / "map" / "data" / "playground-area.json").read_text(encoding="utf-8"))
+PG_BY_ID = {r["id"]: r for r in PG_PLACES}
+
+CAT_LABEL = {
+    "waterfall": "Waterfalls", "overlook": "Overlooks and high points", "history": "Gold mines and museums",
+    "town": "Towns", "food": "Food", "grocery": "Groceries", "gas": "Gas", "market": "Markets and orchards",
+    "festival": "Festivals", "park": "Parks and scenic areas", "swim": "Water and swimming",
+    "brewery-winery": "Breweries and wineries", "outfitter": "Outfitters", "service": "Services, health, laundry",
+}
+CAT_ORDER = ["waterfall", "overlook", "history", "town", "festival", "park", "market", "food",
+             "grocery", "gas", "swim", "brewery-winery", "outfitter", "service"]
+
+
+def _conf(c):
+    if c == "quoted":
+        return '<span class="chip ok" title="Hours and details were quoted off the page on 2026-10-08">quoted</span>'
+    return '<span class="chip warn" title="Not quoted off a page: check before you drive">unconfirmed</span>'
+
+
+def _place_row(r):
+    links = []
+    if r.get("gmaps"):
+        links.append(f'<a href="{html.escape(r["gmaps"])}" target="_blank">map</a>')
+    if r.get("website"):
+        links.append(f'<a href="{html.escape(r["website"])}" target="_blank">site</a>')
+    if r.get("phone"):
+        links.append(f'<a href="tel:{html.escape(r["phone"])}">{html.escape(r["phone"])}</a>')
+    drive = r.get("drive_min_from_vogel")
+    drive_s = "&mdash;" if drive is None else (f'{drive} min' if drive else "at camp")
+    extra = ""
+    if r.get("cost"):
+        extra += f'<div><small><b>Cost:</b> {html.escape(r["cost"])}</small></div>'
+    if r.get("notes"):
+        extra += f'<div><small>{html.escape(r["notes"])}</small></div>'
+    if r.get("source_quote"):
+        extra += (f'<div><small><b>Quoted:</b> &ldquo;{html.escape(r["source_quote"])}&rdquo; '
+                  f'&mdash; <a href="{html.escape(r.get("source_url") or "#")}" target="_blank">source</a></small></div>')
+    return (f'<tr><td>{drive_s}</td><td><b>{html.escape(r["name"])}</b> {_conf(r.get("confidence"))}'
+            f'<div><small>{html.escape(r.get("one_liner") or "")}</small></div>'
+            f'<details class="mini"><summary>details</summary>'
+            f'<div><small><b>Hours:</b> {html.escape(r.get("hours") or "unknown")}</small></div>'
+            f'<div><small><b>Address:</b> {html.escape(r.get("address") or "&mdash;")}</small></div>'
+            f'{extra}</details></td>'
+            f'<td>{" &middot; ".join(links) or "&mdash;"}</td></tr>')
+
+
+def _plan_html(pl):
+    rec = ' <span class="chip ok">recommended</span>' if pl.get("recommended") else ""
+    rows = []
+    for st in pl.get("steps", []):
+        place = PG_BY_ID.get(st.get("place") or "")
+        link = ""
+        if place and place.get("gmaps"):
+            link = f' <a href="{html.escape(place["gmaps"])}" target="_blank">map</a>'
+        rows.append(f'<tr><td>{html.escape(st.get("time") or "")}</td><td>{html.escape(st["what"])}{link}</td></tr>')
+    sw = ""
+    if pl.get("swaps"):
+        items = []
+        for st in pl["swaps"]:
+            place = PG_BY_ID.get(st.get("place") or "")
+            link = f' <a href="{html.escape(place["gmaps"])}" target="_blank">map</a>' if place and place.get("gmaps") else ""
+            items.append(f'<li>{html.escape(st["what"])}{link}</li>')
+        sw = "<p><b>Swap in:</b></p><ul>" + "".join(items) + "</ul>"
+    cl = ""
+    if pl.get("closed"):
+        cl = ("<p><b>Closed &mdash; do not drive out:</b></p><ul>"
+              + "".join(f'<li>{html.escape(st["what"])}</li>' for st in pl["closed"]) + "</ul>")
+    wn = ""
+    if pl.get("warnings"):
+        wn = ("<p><b>Watch out:</b></p><ul>"
+              + "".join(f'<li>{html.escape(w)}</li>' for w in pl["warnings"]) + "</ul>")
+    return (f'<details class="who"><summary>{html.escape(pl["when"])} &mdash; {html.escape(pl["title"])}{rec}</summary>'
+            f'<p>{html.escape(pl["summary"])}</p>'
+            f'<table><tr><th>When</th><th>What</th></tr>{"".join(rows)}</table>{sw}{cl}{wn}</details>')
+
+
+BRANCH_CHIP = {
+    "bail-out": '<span class="chip warn">bail-out</span>',
+    "side creek": '<span class="chip pan">side creek</span>',
+    "longer day": '<span class="chip">longer</span>',
+    "shorter day": '<span class="chip">shorter</span>',
+}
+
+
+def _branch_html(b):
+    kind = b["kind"]
+    chip = BRANCH_CHIP.get(kind, '<span class="chip ok">the plan</span>' if kind.startswith("the plan") else f'<span class="chip">{html.escape(kind)}</span>')
+    flags = ""
+    if b.get("non_fs_vertices"):
+        flags += (f' <span class="chip warn" title="{b["non_fs_vertices"]} mapped points fall on non-Forest-Service ground">'
+                  'crosses private</span>')
+    if b.get("state_parks"):
+        flags += f' <span class="chip">{html.escape(", ".join(b["state_parks"]))} &mdash; no panning</span>'
+    return (f'<tr><td>{chip}{flags}</td><td><b>{html.escape(b["label"])}</b>'
+            f'<div><small>Ends at: {html.escape(b.get("ends_at") or "&mdash;")}</small></div>'
+            + (f'<div><small><b>Water:</b> {html.escape(b["water"])}</small></div>' if b.get("water") else "")
+            + (f'<div><small>{html.escape(b["note"])}</small></div>' if b.get("note") else "")
+            + f'</td><td class="num">{b["miles"]} mi</td><td class="num">+{b["gain_ft"]} ft</td>'
+            f'<td class="num">{b["minutes"]} min</td><td class="num">{"packs" if b["mode"] == "pack" else "daypack"}</td></tr>')
+
+
+NODE_TYPE_LABEL = {"camp": "Camp", "junction": "Junction", "trailhead": "Trailhead",
+                   "gap": "Gap", "pan": "Pan spot", "boundary": "Boundary"}
+
+
+def playground_html():
+    places_by_cat = {}
+    for r in PG_PLACES:
+        places_by_cat.setdefault(r["category"], []).append(r)
+    town_blocks = []
+    for cat in CAT_ORDER + [c for c in places_by_cat if c not in CAT_ORDER]:
+        rows = places_by_cat.get(cat) or []
+        if not rows:
+            continue
+        rows = sorted(rows, key=lambda r: (r.get("drive_min_from_vogel") if r.get("drive_min_from_vogel") is not None else 999))
+        town_blocks.append(
+            f'<details class="who"><summary>{html.escape(CAT_LABEL.get(cat, cat))} '
+            f'<small>({len(rows)})</small></summary>'
+            f'<table><tr><th>From Vogel</th><th>Place</th><th>Links</th></tr>'
+            + "".join(_place_row(r) for r in rows) + "</table></details>")
+
+    plans = "".join(_plan_html(pl) for pl in PG_PLANS["plans"])
+
+    # --- hike-area layer ---
+    by_node = {}
+    for b in PG_AREA["branches"]:
+        by_node.setdefault(b["node"], []).append(b)
+    node_blocks = []
+    for n in PG_AREA["nodes"]:
+        bs = by_node.get(n["id"]) or []
+        count = f' <small>{len(bs)} way{"s" if len(bs) != 1 else ""} on</small>' if bs else ""
+        tbl = ""
+        if bs:
+            order = {"the plan": 0}
+            bs = sorted(bs, key=lambda b: (0 if b["kind"].startswith("the plan") else 1, b["kind"], b["miles"]))
+            tbl = ('<table class="branches"><tr><th>Kind</th><th>Where it goes</th><th>Dist</th><th>Climb</th><th>Time</th><th>Pack</th></tr>'
+                   + "".join(_branch_html(b) for b in bs) + "</table>")
+        gm = f'https://www.google.com/maps/search/?api=1&query={n["lat"]}%2C{n["lng"]}'
+        node_blocks.append(
+            f'<details class="who"><summary><b>{html.escape(NODE_TYPE_LABEL.get(n["type"], n["type"]))}:</b> '
+            f'{html.escape(n["label"])}{count}</summary>'
+            f'<p><small>{n["lat"]}, {n["lng"]} &middot; <a href="{gm}" target="_blank">map</a></small></p>'
+            f'<p>{html.escape(n.get("note") or "")}</p>{tbl}</details>')
+
+    feat_by_kind = {}
+    for f in PG_AREA["features"]:
+        feat_by_kind.setdefault(f["kind"], []).append(f)
+    feat_blocks = []
+    for kind in ["creek", "trail", "forest road", "road"]:
+        fs_ = feat_by_kind.get(kind) or []
+        if not fs_:
+            continue
+        fs_ = sorted(fs_, key=lambda f: f["meters_from_route"])
+        rows = []
+        for f in fs_:
+            tags = []
+            if f.get("ref"):
+                tags.append(html.escape(f["ref"]))
+            if f.get("surface"):
+                tags.append(html.escape(f["surface"]))
+            if f.get("tracktype"):
+                tags.append(html.escape(f["tracktype"]))
+            if f.get("access"):
+                tags.append("access: " + html.escape(f["access"]))
+            flag = ""
+            if f.get("on_non_fs"):
+                flag = ' <span class="chip warn">crosses private</span>'
+            if f.get("state_parks"):
+                flag += f' <span class="chip">{html.escape(", ".join(f["state_parks"]))}</span>'
+            d = f["meters_from_route"]
+            near = "on the route" if d <= 40 else (f"{d} m off" if d < 1609 else f"{round(d/1609.344, 1)} mi off")
+            gm = f'https://www.google.com/maps/search/?api=1&query={f["mid"][0]}%2C{f["mid"][1]}'
+            rows.append(f'<tr><td><b>{html.escape(f["name"])}</b>{flag}'
+                        + (f'<div><small>{" &middot; ".join(tags)}</small></div>' if tags else "")
+                        + f'</td><td class="num">{f["miles_in_area"]} mi</td><td>{near}</td>'
+                        f'<td><a href="{gm}" target="_blank">map</a></td></tr>')
+        label = {"creek": "Creeks and branches", "trail": "Trails and paths",
+                 "forest road": "Forest roads and tracks", "road": "Roads"}[kind]
+        feat_blocks.append(f'<details class="who"><summary>{label} <small>({len(fs_)})</small></summary>'
+                           f'<table><tr><th>Name</th><th>In the area</th><th>From the route</th><th></th></tr>'
+                           + "".join(rows) + "</table></details>")
+
+    water = PG_AREA["water"]
+    water_rows = "".join(
+        f'<tr><td><b>{html.escape(w["name"])}</b></td><td>{html.escape(w["at"])}</td><td>{html.escape(w["note"])}</td></tr>'
+        for w in water["camps"])
+    crossings = ", ".join(html.escape(w["name"]) for w in water["route_crossings"]) or "none mapped"
+
+    store_blocks = []
+    for t in PG_AREA["trailhead_stores"]:
+        rows = "".join(
+            f'<tr><td>{html.escape(n["name"])} {_conf(n.get("confidence"))}</td><td>{html.escape(n["category"])}</td>'
+            f'<td class="num">{n["miles_straight"]} mi</td>'
+            f'<td><small>{html.escape(n.get("hours") or "unknown")}</small></td>'
+            f'<td>{(f"<a href=" + chr(34) + html.escape(n["gmaps"]) + chr(34) + " target=" + chr(34) + "_blank" + chr(34) + ">map</a>") if n.get("gmaps") else "&mdash;"}</td></tr>'
+            for n in t["nearest"])
+        store_blocks.append(f'<details class="who"><summary>{html.escape(t["label"])}</summary>'
+                            f'<p><small>Straight-line distance, not drive time &mdash; these are mountain roads.</small></p>'
+                            f'<table><tr><th>Nearest</th><th>What</th><th>Line of sight</th><th>Hours</th><th></th></tr>'
+                            + rows + "</table></details>")
+
+    return f"""
+<div class="layers" id="pg-layers">
+<button class="lyr on" data-l="pg-towns">Towns &amp; free days</button><button class="lyr" data-l="pg-area">The hike area</button>
+</div>
+
+<div class="layer on" id="pg-towns">
+<div class="card"><b>Everything within reach of Vogel</b>, and a ready-made plan for each piece of free time.
+Nothing here is booked. {len(PG_PLACES)} places, each with hours, cost, a phone number and a Google Maps link.
+<b>quoted</b> means the hours were read off that page on 2026-10-08; <b>unconfirmed</b> means check before you drive.</div>
+
+<h3 class="sec-h">Ready-made plans</h3>
+{plans}
+
+<h3 class="sec-h">Every place, by kind</h3>
+{"".join(town_blocks)}
+</div>
+
+<div class="layer" id="pg-area">
+<div class="card"><b>The hike area as a playground.</b> The locked route stays the route &mdash; this is here so it can be
+branched on the fly. At each camp and junction: the bail-out to the nearest road, a longer or shorter day, and the side
+creeks, each with distance, climb, walking time and water. Distances are measured on real OpenStreetMap geometry; climb
+and time use the same elevation and Tobler model as the day plan, so they compare with it directly.
+<b>Condition of anything off the planned route is UNCONFIRMED</b> &mdash; these are mapped lines, not trail reports. And
+panning everywhere here is AMBER: no ranger has confirmed any creek (<a href="CALLS.md" target="_blank">CALLS.md</a> #1).</div>
+
+<h3 class="sec-h">Camps, junctions and trailheads &mdash; and the ways on from each</h3>
+{"".join(node_blocks)}
+
+<h3 class="sec-h">Water</h3>
+<table><tr><th>Source</th><th>At</th><th>Note</th></tr>{water_rows}</table>
+<p><small>Named streams the planned route actually touches: {crossings}. Treat everything.</small></p>
+
+<h3 class="sec-h">Nearest store, gas and food to each trailhead</h3>
+{"".join(store_blocks)}
+
+<h3 class="sec-h">Everything named in the area</h3>
+<p><small>{len(PG_AREA["features"])} named creeks, trails, forest roads and roads with geometry inside the area box
+({PG_AREA["area"]["minLat"]}&ndash;{PG_AREA["area"]["maxLat"]} N, {PG_AREA["area"]["minLng"]}&ndash;{PG_AREA["area"]["maxLng"]} W).
+Sorted by how far each one sits from the planned route.</small></p>
+{"".join(feat_blocks)}
+</div>
+"""
+
+playground_section = playground_html()
+
+if not total:
+    if _gear_total:
+        total = f"{_gear_total} per person for the gear (all-Value picks)"
+        if _trip_total:
+            total += f", {_trip_total} per person for the whole trip"
+    else:
+        raise SystemExit(
+            "Could not read a gear total out of BUY_LIST.md.\n"
+            "Expected a '| **Solid** | ... |' row under '## At a glance'. "
+            "Re-run tools/build_buy_list.py, or fix this parser -- do not ship a blank 'Gear:' card (ISSUES #5)."
+        )
+
 file_rows = "".join(f'<tr><td><a href="{f}" target="_blank">{f.rsplit('/', 1)[-1]}</a></td><td>{d}</td></tr>' for f, d in files)
 
-page = f"""<!doctype html><html><head><meta charset="utf-8"><title>GA Gold Trip - Oct 15-21 2026</title>
+page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GA Gold Trip - Oct 15-21 2026</title>
 <style>
 body{{margin:0;font:15px/1.5 Calibri,Segoe UI,sans-serif;color:#222;background:#f6f7f4}}
 header{{background:#2F5233;color:#fff;padding:12px 20px}} header h1{{margin:0;font-size:20px}}
@@ -630,11 +985,33 @@ details.who{{background:#fff;border:1px solid #ccc;border-radius:8px;margin:8px 
 table.who{{margin-bottom:12px}} table.who td.c{{text-align:center;width:70px}} td.c.has,td.c.free{{color:#2F5233;font-weight:bold;background:#eef6ea}} td.c.buy,.rb{{color:#a04000;font-weight:bold;background:#fdebd9}} td.c.skip{{color:#999}} td.c.nolist{{color:#bbb}}
 td.g{{font-size:13px;color:#555;width:110px}} td.g.ok{{color:#2F5233}} td.g.hole{{color:#fff;background:#b03a2e;font-weight:bold}} ul.holes{{margin:4px 0 8px}}
 body.holes-only tr.fine{{display:none}}
+/* Fish & crawdads + Playground */
+.cheat{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px}}
+.card.cheatcard{{margin:0;border-left:4px solid #2F5233}}
+.chip{{display:inline-block;font-size:11px;line-height:1.6;padding:0 7px;border-radius:9px;background:#e8eae4;color:#444;white-space:nowrap;vertical-align:1px}}
+.chip.ok{{background:#d9ead3;color:#24521f}} .chip.warn{{background:#fdebd9;color:#8a3b00}} .chip.pan{{background:#dde8f5;color:#1d4572}}
+.layers{{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}}
+.layers button.lyr{{background:#fff;border:1px solid #2F5233;color:#2F5233;padding:7px 14px;border-radius:16px;cursor:pointer;font-size:14px}}
+.layers button.lyr.on{{background:#2F5233;color:#fff;font-weight:bold}}
+.layer{{display:none}} .layer.on{{display:block}}
+details.mini{{margin:2px 0}} details.mini summary{{cursor:pointer;color:#2F5233;font-size:12px}}
+td.num{{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}}
+table.branches td:nth-child(1){{min-width:110px}} table.branches td:nth-child(2){{min-width:260px}}
+/* Phone layout: the 9-button tab bar wraps instead of forcing a 650px page,
+   and the wide tables scroll inside their own box rather than the page. */
+@media (max-width:760px){{
+ header h1{{font-size:16px}} header{{padding:10px 16px}}
+ nav{{flex-wrap:wrap;padding:0 8px 6px;gap:3px}} nav button{{padding:8px 11px;font-size:13px;border-radius:6px;flex:1 1 auto}}
+ section{{padding:14px 16px}}
+ table{{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}}
+ .cheat{{grid-template-columns:1fr}}
+ iframe{{height:calc(100vh - 170px)}}
+}}
 </style></head><body>
 <header><h1>Georgia Gold Trip &mdash; Oct 15&ndash;21, 2026 &middot; Vogel State Park base camp</h1></header>
 <nav id="tabs">
 <button data-t="start" class="on">Start</button><button data-t="rundown">Rundown</button>
-<button data-t="map">Map</button><button data-t="pan">Panning</button><button data-t="buy">Buy list</button><button data-t="gear">Who has what</button><button data-t="files">Files</button></nav>
+<button data-t="map">Map</button><button data-t="pan">Panning</button><button data-t="play">Playground</button><button data-t="fish">Fish &amp; crawdads</button><button data-t="buy">Buy list</button><button data-t="gear">Who has what</button><button data-t="files">Files</button></nav>
 
 <section id="start" class="on">
 <div class="card"><b>The trip:</b> 5 people, Site P walk-in (2 tents, 2 vehicles), arrive Thu Oct 15, leave Wed Oct 21.
@@ -642,9 +1019,10 @@ Panning at drive-up creeks + Consolidated Gold Mine tour + Dahlonega, plus one 3
 <div class="card"><b>The hike:</b> 3 days / 2 nights, Sat Oct 17 &ndash; Mon Oct 19, Coosa Backcountry Trail to West Fork Wolf Creek, then East Fork Coosa Creek, out at Owltown Gap. Not yet ranger-confirmed legal.</div>
 <div class="card"><b>Dates that matter:</b> firearms deer season opens Oct 17 (blaze orange). Gold Rush Days Oct 17&ndash;18 (visit Dahlonega Fri 16).
 Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = hand pan + trowel only.</div>
-<div class="card"><b>Gear:</b> {html.escape(total)} &middot; base weight 12.8 lb, 18.0 lb loaded. Order the tent + quilt first (2&ndash;4 wk).</div>
+<div class="card"><b>Gear:</b> {html.escape(total)}. Your own picks re-compute weight and cost in the <b>Buy list</b> tab's totals card &mdash; that card is the number to trust. Order the tent + quilt first (2&ndash;4 wk).</div>
 <div class="card"><b>Still to do:</b> phone calls (Vogel, Blue Ridge Ranger District, GA DNR, Consolidated, Lumpkin Co, LDMA), then re-check fire bans/water/roads in early Oct.</div>
-<p>Use the tabs above. Rundown = full guide, Map = where everything is, Buy list = what to order and when, Who has what = everyone's gear and the holes.</p>
+<div class="card"><b>Free time:</b> Thu 15 afternoon, Mon 19 evening, all of Tue 20 and Wed 21 morning. Ready-made plans for each, plus a rain plan, are in the <b>Playground</b> tab.</div>
+<p>Use the tabs above. Rundown = full guide, Map = where everything is, Panning = the creeks and how to read one, Playground = everywhere else you could go plus the hike area's branch options, Fish &amp; crawdads = rods, traps, licences and the law, Buy list = what to order and when, Who has what = everyone's gear and the holes.</p>
 </section>
 
 <section id="rundown"><iframe src="RUNDOWN.html"></iframe></section>
@@ -674,17 +1052,35 @@ Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = ha
 <p><b>Export my list:</b> <button onclick="copyList()">Copy</button> <button onclick="downloadList()">Download</button></p>
 </section>
 
+<section id="play">{playground_section}</section>
+<section id="fish">{fishing_section}</section>
+
 <section id="gear">{roster_section}</section>
 
 <section id="files"><table><tr><th>File</th><th>What it is</th></tr>{file_rows}</table></section>
 
 <script>
-document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{{
+const TABS=[...document.querySelectorAll('#tabs button')].map(b=>b.dataset.t);
+function showTab(t){{
+ if(!TABS.includes(t))return false;
  document.querySelectorAll('#tabs button,section').forEach(e=>e.classList.remove('on'));
- b.classList.add('on');document.getElementById(b.dataset.t).classList.add('on');
- location.hash=b.dataset.t;}});
+ document.querySelector('[data-t='+t+']').classList.add('on');
+ document.getElementById(t).classList.add('on');
+ window.scrollTo(0,0);
+ return true;}}
+// Hash form is "#t/<tab>": not an element id, so the browser has nothing to
+// scroll to and the header stays put. "#buy" still works for old links.
+function tabFromHash(){{const h=location.hash.replace(/^#/,'');return h.startsWith('t/')?h.slice(2):h;}}
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{{
+ if(showTab(b.dataset.t))location.hash='t/'+b.dataset.t;}});
+window.addEventListener('hashchange',()=>{{showTab(tabFromHash()||'start');}});
 document.getElementById('holes-only')?.addEventListener('change',e=>document.body.classList.toggle('holes-only',e.target.checked));
-const h=location.hash.slice(1);if(h){{const b=document.querySelector('[data-t='+h+']');if(b)b.click();}}
+showTab(tabFromHash()||'start');
+// Playground's two layers: controls sit inside the tab, nothing floats.
+document.querySelectorAll('#pg-layers .lyr').forEach(b=>b.onclick=()=>{{
+ document.querySelectorAll('#pg-layers .lyr').forEach(e=>e.classList.remove('on'));
+ document.querySelectorAll('#play .layer').forEach(e=>e.classList.remove('on'));
+ b.classList.add('on');document.getElementById(b.dataset.l).classList.add('on');}});
 </script><script>{picker_js}</script></body></html>"""
 
 OUT.write_text(page, encoding="utf-8")

@@ -1,6 +1,6 @@
 # Fishing and crawdads on the trip creeks (cheap-man's guide)
 
-Researched 2026-10-08 (Opus agent). Every fact carries the URL it came from and a short verbatim quote from the page as fetched that day. Anything not fetched and quoted is marked **UNCONFIRMED**. Notes marked "my assumption" or "my arithmetic" are mine, not from a source.
+Researched 2026-10-08. Every fact carries the URL it came from and a short verbatim quote from the page as fetched that day. Anything not fetched and quoted is marked **UNCONFIRMED**. Notes marked "my assumption" or "my arithmetic" are mine, not from a source.
 
 ## Cheat sheet (phone)
 

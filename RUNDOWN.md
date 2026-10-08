@@ -25,13 +25,13 @@ Base camp: Vogel State Park, walk-in site P. 5 adults (3 newer campers). This is
 
 ## 0. Trip at a glance
 
-**Dates:** Arrive Vogel State Park Thu Oct 15, 1:00 PM. Depart Wed Oct 21, noon. Keep the night of Oct 20 (the group is back from the hike Tue afternoon).
+**Dates:** Arrive Vogel State Park Thu Oct 15, 1:00 PM. Depart Wed Oct 21, noon. Keep the night of Oct 20 (the group is back from the hike Mon afternoon, so Tue Oct 20 is a free day at Vogel).
 
 **Site limits (walk-in site P):** 6 people max, 2 tents max, 2 vehicles at the site + overflow parking nearby for the rest.
 
 **Key date warnings:**
 - **Muzzleloader (primitive weapons) deer season: Oct 10–16** — overlaps your first two days.
-- **Firearms deer season opens Sat Oct 17**, runs through Jan 10, 2027 — overlaps the rest of the trip. Wear blaze orange on any National Forest/WMA land from Oct 17 on (and it's smart even before that).
+- **Firearms deer season opens Sat Oct 17** (date not re-confirmed from a Georgia DNR page — wear orange regardless), runs through Jan 10, 2027 — overlaps the rest of the trip. Wear blaze orange on any National Forest/WMA land from Oct 17 on (and it's smart even before that).
 - **Dahlonega Gold Rush Days: Sat–Sun Oct 17–18.** ~200,000 people over the weekend. Downtown parking is gone; it's shuttle-lot-only (Lumpkin County High School, UNG campus). Avoid this weekend for the "real" Dahlonega/mine day — or do a short costumed shuttle-in visit Saturday morning if anyone wants the festival.
 - **Archery deer season** is open the whole trip (opened Sept 12) — lower-key, no blaze orange legally required for archery, but you'll be sharing the woods with bowhunters throughout.
 
@@ -42,7 +42,7 @@ Base camp: Vogel State Park, walk-in site P. 5 adults (3 newer campers). This is
 4. **Consolidated Gold Mine — 706-864-8473** — ask if their most veteran guide (possibly Greg Sheppard) is working the week of Oct 15–21, and get current tour pricing.
 5. **Lumpkin County Parks & Rec — 706-864-3622** — confirm panning is still a tolerated activity at Yahoola Creek Park.
 
-**Must-buy items** (see §8 for the full list): insulated waterproof panning gloves, 3mm neoprene socks, blaze orange vest/hat for everyone, a 15–20°F-rated sleeping bag for whoever does the overnight, a rented satellite messenger (no reliable cell service in the backcountry), firewood (buy local — don't bring outside wood), gold pans/classifiers/snuffer bottles/vials for the group panning station.
+**Must-buy items** (see §8 for the full list): insulated waterproof panning gloves, 3mm neoprene socks, blaze orange vest/hat for everyone, a 30°F-rated sleeping bag or quilt for whoever does the overnight (§7 Weather: 30°F is enough for the forecast low, and the Buy list defaults to 30°F), a rented satellite messenger (no reliable cell service in the backcountry), firewood (buy local — don't bring outside wood), gold pans/classifiers/snuffer bottles/vials for the group panning station.
 
 ---
 
@@ -56,11 +56,11 @@ Every day below now budgets real time for breakfast/lunch/dinner and for camp se
 Arrival day is light on purpose: everyone is tired from the drive. No panning today.
 - **1:00 PM:** Arrive Vogel, check in, haul gear to walk-in site P.
 - **2:00–3:15 PM:** Set up base camp (tents, bear-proof food hang on the site's steel posts, kitchen area).
-- **Afternoon:** Rest. Optional short walk to **Trahlyta Falls** inside Vogel, below the lake dam (distance unverified; short and flat on the park map).
+- **Afternoon:** Rest, then drive to **Helton Creek Falls** (3.9 mi / 13 min, Helton Creek Road / FS 118 gravel; 0.13 mi of steps and boardwalk to a lower and an upper falls, about 30 min there). National Forest day-use site, no panning. **Vogel's own lake-loop walk to Trahlyta Falls is CLOSED** — Lake Trahlyta is drained for dam repairs and the loop trail and the waterfall are closed (gastateparks.org/Vogel, re-fetched 2026-10-08); all campsites and other park facilities are open.
 - **~6:50 PM:** Dinner at camp. Sunset is about 7:05 PM.
 - **~7:50 PM:** Drive to **Brasstown Bald** parking lot (~27 min, highest point in Georgia). Explore Georgia: "The parking lot is open at night, and the lights from the visitors center are turned off." Not yet confirmed with the Forest Service. Stargaze about 1.5 h, back at camp around 10:15 PM. Waxing crescent moon, sets mid-evening.
 - **Bring:** warm layers (cold and windy up top), camp chairs, red-light headlamps, a blanket.
-- **Backup:** Hogpen Gap overlook on GA-348 (north-facing, roadside), or Lake Trahlyta's shore inside Vogel if the group would rather not drive.
+- **Backup:** Hogpen Gap overlook on GA-348 (north-facing, roadside). Lake Trahlyta's shore is not a backup this year — the lake is drained.
 
 ### Fri Oct 16 — Dahlonega in costume
 - **Morning:** Prospector outfits on. Drive to Dahlonega (~25–30 min via US-19/129).
@@ -70,14 +70,15 @@ Arrival day is light on purpose: everyone is tired from the drive. No panning to
 - **Dinner** in town — Foothill Grill, Bear Necessities Cafe, or Picnic Cafe (all casual, good for a group of 5).
 - **Rain/backup:** This whole day is already the rain-day pick — Consolidated is underground.
 
-### Sat Oct 17 – Tue Oct 20 — The hike: 4 days / 3 nights, East Fork Coosa Creek
-Full detail in §3. Decided 2026-10-02: this replaces both earlier options (the 4-day "long" and the 2-day "short"). Cooper Creek is dropped. Route locked by Jordan 2026-10-05. Truck 2 is staged at Owltown Gap Friday evening.
+### Sat Oct 17 – Mon Oct 19 — The hike: 3 days / 2 nights, East Fork Coosa Creek
+Full detail in §3. Decided 2026-10-02: this replaces both earlier options (the 4-day "long" and the 2-day "short"). Cooper Creek is dropped. Route locked by Jordan 2026-10-05, reshaped to 3 days / 2 nights by Jordan 2026-10-08. Truck 2 is staged at Owltown Gap Friday evening.
 - **Sat Oct 17 —** **Hike day 1.** Truck 1 to WOLF-X (FS 107, 4.2 mi). Pan West Fork Wolf Creek (2 h). Coosa Backcountry Trail up over Calf Stomp Gap (2.5 mi, +1,375 ft) and 0.4 mi on to Calf Stump Branch (34.78244, -83.95858, ~400 m from the nearest road). Camp, pan in the evening. Creek has no gold record and October flow is unconfirmed. Deer season opens: blaze orange.
 - **Sun Oct 18 —** **Hike day 2.** Morning pan at Calf Stump Branch (1.5 h). Back 0.4 mi to Calf Stomp Gap (the only retraced stretch), Roaring Fork Trail west (1.9 mi), off-trail drop to the road-free upper East Fork Coosa Creek: CAMP-U. Camp, pan. 2.75 mi.
-- **Mon Oct 19 —** **Full day at CAMP-U.** Daypacks. Pan the upper reach (DROP-IN) and the lower reach (LOWER). Second night at CAMP-U.
-- **Tue Oct 20 —** **Hike out.** Down the creek 0.7 mi to where the road starts (34.79824, -83.97825), the road (Duncan Ridge Conn) 0.7 mi to Bowers Road, Bowers Road (FS 298) 1.5 mi to truck 2 at Owltown Gap. Bowers Road crosses private land near 34.8064; public use unconfirmed (CALLS). Drive truck 2 to WOLF-X for truck 1 (24 min), both to Vogel (11 min). 2.9 mi walking.
+- **Mon Oct 19 —** **Hike day 3, out.** Morning pan at CAMP-U (2 h). Break camp, 0.3 mi down the creek to LOWER, last pan (1.5 h) and lunch, then 0.4 mi on down the creek to where the road starts (34.79824, -83.97825), the road (Duncan Ridge Conn) 0.7 mi to Bowers Road, Bowers Road (FS 298) 1.5 mi to truck 2 at Owltown Gap. 2.9 mi walking. Bowers Road crosses private land near 34.8064; public use unconfirmed (CALLS). Drive truck 2 to WOLF-X for truck 1 (24 min), both to Vogel (11 min). Hot dinner and showers at Vogel.
 - **Rain/backup:** if the forecast turns genuinely unsafe (flash-flood risk in a narrow headwater), shorten to one night, or make Saturday a day at WOLF-X and come back to Vogel, rather than camp in a flooding drainage. Day-trip fallback: Frogtown.
 
+### Tue Oct 20 — Free day
+Nothing booked. The hub's **Playground** tab has the ready-made plans: a waterfall loop, Blairsville / Helen / Hiawassee, markets and festivals with hours and drive times, and a rain plan — plus the hike-area layer if anyone wants another creek. This is also the slack day if the hike runs long or the weather moves.
 - **Rain:** stay put under the canopy, or Helen's indoor options (research/dahlonega.md).
 
 ### Wed Oct 21 — Pack out
@@ -186,9 +187,9 @@ Drive times and coordinates below are pulled from `map/data/spots.json` (the mos
 
 ---
 
-## 3. The hike — East Fork Coosa Creek, 4 days / 3 nights (Sat Oct 17 – Tue Oct 20)
+## 3. The hike — East Fork Coosa Creek, 3 days / 2 nights (Sat Oct 17 – Mon Oct 19)
 
-**Nothing in this section is ranger-confirmed. Every creek stop is AMBER on the map.** Full spec and sources: `research/backcountry-route-design.md`. Numbers come straight from `map/data/days.json` (map day buttons 3, 4, 5).
+**Nothing in this section is ranger-confirmed. Every creek stop is AMBER on the map.** Full spec and sources: `research/backcountry-route-design.md`. Numbers come straight from `map/data/days.json` (map day buttons 3, 4, 5), rebuilt 2026-10-08.
 
 ### Why this drainage
 **Gold record (primary source):** Georgia Geological Survey Bulletin 19, S.P. Jones, 1909, pp. 237-239: "the deposits have been mined from near the headwaters of the stream high up on a mountain side, for a distance of several miles ... The entire output of the Coosa Creek placers has been variously estimated at from a half to a million pennyweights of gold. ... its purity is as great as .980." Also: "The placers along Coosa Creek have yielded large amounts of gold and the mountain slopes of that region deserve careful prospecting." USGS MRDS: Coosa Creek Placer Mine, Past Producer, deposit size Medium (dep_id 10084699). Upper-creek gold is in "the bed of the creek only" — work bedrock cracks and bend insides, not banks.
@@ -199,25 +200,25 @@ Drive times and coordinates below are pulled from `map/data/spots.json` (the mos
 
 Noontootla / Three Forks was dropped: it has a record (Bulletin 19 pp. 277-278) but the named lots are downstream and mostly private, the National Forest reach is upstream of the gold, camping there depends on the FS-58 order we cannot obtain, and it is a 111-minute drive each way.
 
-### The route (locked 2026-10-05 by Jordan — a one-way loop, trails only)
+### The route (locked 2026-10-05 by Jordan, reshaped to 3 days / 2 nights 2026-10-08 — one-way, trails only)
 Rule from Jordan: hike trails, not roads, and camp where nobody can drive up. The earlier route (camp at the FS 107 crossing, forest roads down to a camp beside Duncan Ridge Conn, out Bowers Road to a staged truck) broke that rule at every stop, so it is gone. The East Fork has a road within 100 m of it from the Owltown side all the way up to 34.79824, -83.97825; above that point it is road-free to its source, and that is where we camp. Numbers below are from `days.json`.
 - **Sat Oct 17 — Vogel → WOLF-X → Calf Stump Branch.** **Hike day 1.** Truck 1 to WOLF-X (FS 107, 4.2 mi). Pan West Fork Wolf Creek (2 h). Coosa Backcountry Trail up over Calf Stomp Gap (2.5 mi, +1,375 ft) and 0.4 mi on to Calf Stump Branch (34.78244, -83.95858, ~400 m from the nearest road). Camp, pan in the evening. Creek has no gold record and October flow is unconfirmed. Deer season opens: blaze orange.
 - **Sun Oct 18 — Calf Stump Branch → CAMP-U.** **Hike day 2.** Morning pan at Calf Stump Branch (1.5 h). Back 0.4 mi to Calf Stomp Gap (the only retraced stretch), Roaring Fork Trail west (1.9 mi), off-trail drop to the road-free upper East Fork Coosa Creek: CAMP-U. Camp, pan. 2.75 mi.
-- **Mon Oct 19 — CAMP-U.** **Full day at CAMP-U.** Daypacks. Pan the upper reach (DROP-IN) and the lower reach (LOWER). Second night at CAMP-U. Do not go below 34.79824, -83.97825 to pan: a road runs beside the creek there.
-- **Tue Oct 20 — CAMP-U → Owltown Gap → Vogel.** **Hike out.** Down the creek 0.7 mi to where the road starts (34.79824, -83.97825), the road (Duncan Ridge Conn) 0.7 mi to Bowers Road, Bowers Road (FS 298) 1.5 mi to truck 2 at Owltown Gap. Bowers Road crosses private land near 34.8064; public use unconfirmed (CALLS). Drive truck 2 to WOLF-X for truck 1 (24 min), both to Vogel (11 min). 2.9 mi walking.
+- **Mon Oct 19 — CAMP-U → Owltown Gap → Vogel.** **Hike day 3, out.** Morning pan at CAMP-U (2 h). Break camp, 0.3 mi down the creek to LOWER, last pan there (1.5 h) and lunch, then 0.4 mi on down the creek to where the road starts (34.79824, -83.97825), the road (Duncan Ridge Conn) 0.7 mi to Bowers Road, Bowers Road (FS 298) 1.5 mi to truck 2 at Owltown Gap. 2.9 mi walking. Do not go below 34.79824, -83.97825 to pan: a road runs beside the creek there. Bowers Road crosses private land near 34.8064; public use unconfirmed (CALLS). Drive truck 2 to WOLF-X for truck 1 (24 min), both to Vogel (11 min).
 - **Water:** CAMP-U is about one creek-mile below the source. October is the driest month and the flow is unconfirmed. If it is a trickle, move camp down toward 34.7958, -83.9792 (still Forest Service, still 300 m from the road end).
 - **Private land:** the map now draws real Forest Service ownership (purple = private). Nothing on this route touches it; the build fails if it ever does.
-- **Totals:** ~8.6 mi walking, 8 h 30 min of planned panning, 3 nights out. Food carried: Sat lunch through Tue lunch (3 breakfasts, 4 lunches, 3 dinners) — see `MASTER_LIST.md`.
+- **Totals:** 8.6 mi walking (2.94 + 2.75 + 2.94), 10 h of planned panning, **2 nights out**. Food carried: Sat lunch through Mon lunch — **2 breakfasts, 3 lunches, 2 dinners** — see `MASTER_LIST.md`.
 
 ### Rules that apply (all AMBER)
 - **Panning:** "Recreational panning for gold in most stream beds is allowed. Special permission, permits, or fees are not required as long as significant stream disturbance does not occur and when only a small hand shovel or trowel and a pan are used. In-stream sluices and suction dredges are NOT allowed." — USFS Chattahoochee-Oconee FAQ (https://www.fs.usda.gov/r08/chattahoochee-oconee/about-area/faqs). "Most stream beds" is not creek-specific: no ranger has confirmed this creek. Call Blue Ridge RD 706-745-6928.
 - **Camping:** dispersed camping on general National Forest land. The Forest Supervisor's Orders page lists no order naming Coosa Creek, Coosa Bald, Calf Stomp, Wolf Creek or Duncan Ridge. The Coosa Bald National Scenic Area statute (16 USC 460ggg-1) withdraws the area from mineral leasing only; it is silent on camping and panning. Forest-wide order CO-08-03-00-26-01: max 8 people / 2 vehicles per site and a food-storage rule (agent-read, wording UNCONFIRMED). 14-day stay limit. Coosa Backcountry Trail overnight permit from Vogel: UNCONFIRMED — ask Vogel 706-745-2628.
-- **WMA / hunting:** which WMA covers Coosa Creek is UNCONFIRMED. The firearms deer opener date is UNCONFIRMED (Georgia DNR pages blocked our fetch) — wear orange regardless.
+- **WMA / hunting:** which WMA covers Coosa Creek is UNCONFIRMED. The whole guide plans on **Sat Oct 17** as the firearms deer opener, but that date has never been read off a Georgia DNR page (their pages blocked our fetch) — wear orange from Oct 17 regardless, and treat the whole trip as deer season.
 - **Water:** the creek at every camp; treat it. **Bears:** no canister order applies (AT order CO-16-02 is Mar 1-Jun 1, Jarrard-Neel Gap only); hang food or use canisters. **Fires:** stoves only.
 - **Access UNCONFIRMED (call-gated):** Bowers Road (FS 298) crosses private land between 34.8064 and Owltown Gap — confirm it is open to the public and that a truck can be left at Owltown Gap. Whether Big Grassy Knob Road / FS 108 / FS 107 are gated is unknown.
 - **Vehicles:** the group has 3 vehicles, 2 of them Ford F-150s (off-road capable) — the two F-150s can shuttle all five people to/from either trailhead in a single run, no second trip needed, and both can handle the FS roads themselves. Whether the specific gates (Bowers Road/FS 298, FS 107, FS 108, Big Grassy Knob Road) are open is still a ranger call, not a vehicle-capability question — see the access-unconfirmed note above and CALLS.md #1.
 
-### BACKUP — Rock Creek dispersed area (Fannin Co.)
+### BACKUP — Rock Creek dispersed area (Fannin Co.), the one named backup
+If East Fork Coosa Creek falls through, this is the backup. Noontootla / Three Forks and Dockery Lake were dropped on 2026-09-21 and are **not** the backup, whatever §4 and §12 said before.
 
 - **Distance/access:** ~35–45 min via GA-180/US-19-129 to Suches, then GA-60 N; Skeenah Gap Rd south 7.8 mi, left on Hwy 60 S 3.4 mi, right on Rock Creek Rd (gravel, follows the creek past the GA DNR Rock Creek trout hatchery).
 - **Legality caveat:** This is fundamentally a **drive-to dispersed camping road**, not a hike-in trailhead — to make it a true backcountry overnight, park where the maintained gravel ends and hike upstream (distance **UNVERIFIED**, likely 1–3 mi). It sits within Blue Ridge WMA (20,900 ac) — a WMA license or GA Lands Pass may be required for everyone on-site even if not hunting; **confirm this applies here specifically.**
@@ -235,7 +236,7 @@ Rule from Jordan: hike trails, not roads, and camp where nobody can drive up. Th
 ### Tier C spots (distance-stretch, use only if the closer list falls through)
 Cartecay River (Gilmer, ~85 min, thin gold record), Coleman River Scenic Area (Rabun, ~90 min, panning status in a Scenic Area unconfirmed), Warwoman Creek/Dell (Rabun, ~95 min, forum-only source), Wildcat Creek — the drive-up version, not the overnight headwaters (Rabun, ~90 min, no record found), Amicalola Creek below the falls SP boundary (~60 min, stay clear of the park line), Toccoa River/Deep Hole (Fannin, ~65 min, gold record unverified), Owl Creek near Helen (~35 min, single 2011 forum mention, no coordinates), Sarah's Creek (Rabun, ~100 min, past the practical drive limit), Calhoun Mine ruins (history stop, ~42 min, access unverified — look, don't dig).
 
-**Explicitly not recommended:** Noontootla Creek as a drive-up panning target (special-regulation trout fishery — courtesy caution even though it's not a legal ban; it's the backup overnight location if East Fork Coosa Creek falls through, so streambank disturbance there matters even more).
+**Explicitly not recommended:** Noontootla Creek as a drive-up panning target (special-regulation trout fishery — courtesy caution even though it's not a legal ban; it was dropped as an overnight on 2026-09-21 — the backup is Rock Creek, see §3 — so streambank disturbance there still matters).
 
 ### Club claims / pay-to-pan day operations
 - **LDMA Loud Mine Camp** (575 Abb Helton Rd, Cleveland, ~48 min): Private club claim on documented rich stream/bench-deposit ground. Normally requires LDMA membership, but their public **"Gold Diggin's Spooktacular" event runs Oct 13–17, 2026** (paid registration, capped at 75 participants) — overlaps the first two days of your trip. Different tool rules may apply on a club claim (possibly sluice/highbanker allowed) — confirm equipment rules for the event specifically before counting on this.
@@ -367,7 +368,7 @@ Cell coverage at Vogel and especially in the backcountry is **UNVERIFIED but sho
 Full detail and the priced CSV breakdown live in `research/gear.md` — this section summarizes it. Prices are Sept 2026 estimates; treat "EST" tags in the source file as placeholders to confirm before buying. **Use `Gear_Picker.xlsx`** (in the project folder and Downloads) to choose Budget/Value/Premium items with live weight/cost totals: typical all-Value overnight base weight ≈ **12.8 lb** (≈ 18 lb with food and water); all-Budget ≈ **17.8 lb** (≈ 23 lb) with all-Budget cost ≈ **$940**.
 
 ### Base-camp group list (car/truck supported, split across 5 people, ~$800–870 total / ~$160–175 per person)
-- **Kitchen:** 2-burner propane stove, propane canisters, cookware set, 2 coolers (lockable/strapped for bears), water jugs, dish tub + biodegradable soap, folding table.
+- **Kitchen:** 2-burner propane stove, propane canisters, cookware set, 1 cooler, 48-quart wheeled (lockable/strapped for bears) — one is what the gear model counts for 5 people; add a second only if someone already owns one, water jugs, dish tub + biodegradable soap, folding table.
 - **Shelter extras:** 10×10 pop-up canopy, extra tarp + paracord/stakes.
 - **Lighting:** 2 rechargeable lanterns.
 - **Chairs:** 5 folding camp chairs (cheap enough to buy one each rather than split).
@@ -380,15 +381,15 @@ Full detail and the priced CSV breakdown live in `research/gear.md` — this sec
 
 ### Jordan's personal kit (worn + overnight pack + creek kit)
 - **Worn (no cotton):** hiking shoes, quick-dry pants, wicking shirt, wool socks (3-pack), blaze-orange beanie. **~$102 total.**
-- **Overnight pack** (personal gear, plus this person's per-person share of group/shared items like tent/stove/filter/first aid/satellite messenger — see the Group/shared gear section of BUY_LIST.md for full group costs): backpack, tent (shared with tentmate, /2), 15–20°F sleeping bag, insulated sleeping pad, rain jacket, insulation layer, base layer (doubles as sleep clothes), stove/pot/filter (group, /5), Ursack food storage (group, /5), first aid (group, /5), satellite messenger rental (**rent, don't buy** — $100/week split 5 ways vs. $300 to buy), offline maps (free CalTopo printout), headlamp, knife, emergency bundle, trowel, hygiene kit, blaze orange vest. **~$385 per person, base weight ≈14.1 lb.**
+- **Overnight pack** (personal gear, plus this person's per-person share of group/shared items like tent/stove/filter/first aid/satellite messenger — see the Group/shared gear section of BUY_LIST.md for full group costs): backpack, tent (1-person tent, one per hiker — see the Buy list), 30°F sleeping bag or quilt, insulated sleeping pad, rain jacket, insulation layer, base layer (doubles as sleep clothes), stove/pot/filter (group, /5), Ursack food storage (group, /5), first aid (group, /5), satellite messenger rental (**rent, don't buy** — $100/week split 5 ways vs. $300 to buy), offline maps (free CalTopo printout), headlamp, knife, emergency bundle, trowel, hygiene kit, blaze orange vest. **~$385 per person, base weight ≈14.1 lb.**
 - **Creek kit** (carried on the overnight): gold pan, classifier, insulated waterproof panning gloves, 3mm neoprene socks, snuffer bottle, 2 vials, crevice tool, knee pad. **~$110, ≈3.4 lb.**
-- **Total pack weight leaving camp** (base weight + ~5–6 lb food for 2 nights + 1L water): **≈25 lb.** Total must-have personal cost: **~$600.**
+- **Total pack weight leaving camp** (base weight + ~4–5 lb food for 2 nights + 1L water): read the Buy list's live totals card — it computes weight and cost from your actual picks and is the only number that tracks what you bought. All-Value default: about **18 lb worn + pack**. Cost: the same card (all-Value gear about $2,383/person, trip total about $2,605/person). The "~$600" in earlier drafts covered must-have personal items only.
 - **Cheapest levers:** rent (don't buy) the satellite messenger, borrow tent/bag/pack from a friend if possible before buying, buy used gear (REI Re/Gear, gear swaps) for the big three, skip the "nice to have" rows (pillow, power bank, knee pad, mesh bag, camp towel — saves ~$53), use free CalTopo instead of a paid mapping app.
 
 ### Friends' one-page packing list (simple version — non-campers)
 **Worn (no cotton):** hiking shoes/boots, quick-dry pants, a wicking shirt, wool socks, a warm hat that's blaze orange (or a separate blaze orange vest/hat — required during firearms season).
 
-**Overnight pack (Sat–Tue hike):** your share of the tent (confirm with your tentmate who carries what), a 15–20°F sleeping bag, an insulated sleeping pad, a rain jacket, an insulation layer (fleece or light puffy), a base layer set (doubles as sleep clothes), one spare dry pair of wool socks, headlamp + batteries, knife, whistle/compass/emergency blanket, TP kit, blaze orange vest, your food for the hike, 3 nights (~7–8 lb), 1 L water capacity.
+**Overnight pack (Sat–Mon hike):** your tent (the Buy list defaults to a 1-person tent each), a 30°F sleeping bag or quilt, an insulated sleeping pad, a rain jacket, an insulation layer (fleece or light puffy), a base layer set (doubles as sleep clothes), one spare dry pair of wool socks, headlamp + batteries, knife, whistle/compass/emergency blanket, TP kit, blaze orange vest, your food for the hike, 2 nights (~5–6 lb), 1 L water capacity.
 
 **Cold-water creek gear (needed daily at base camp too):** insulated waterproof panning gloves, 3mm neoprene socks + old sneakers/water shoes for the creek (not your hiking boots), dry-change clothes for after panning, and your own gold pan if you want one.
 
@@ -398,7 +399,7 @@ Full detail and the priced CSV breakdown live in `research/gear.md` — this sec
 
 ### Kitchen & water
 
-All figures below are **estimates** — sized for the hike: 5 people, 4 days / 3 nights (Sat Oct 17 – Tue Oct 20) as a buying/packing
+All figures below are **estimates** — sized for the hike: 5 people, 3 days / 2 nights (Sat Oct 17 – Mon Oct 19) as a buying/packing
 buffer, not a measured burn rate.
 
 - **Backcountry stove fuel (isobutane canisters):** budget roughly 1 oz of fuel per person per
@@ -409,19 +410,19 @@ buffer, not a measured burn rate.
   group.
 - **Water — liters/person/day:** plan **3–4 L per person per day** (drinking + rehydrating meals
   + coffee/cocoa), toward the low end if it's cool and low-exertion, the high end on hike-in/out
-  days. For 5 people × 3 days that's **45–60 L filtered/treated** over the stretch — nobody
+  days. For 5 people × 3 days that's **45–60 L filtered/treated** over the hike — nobody
   carries that; refill from the creek continuously instead.
 - **Filter + backup:** primary filter is the shared Sawyer Squeeze (see gear list). Carry
   **backup purification tablets (Aquatabs or Potable Aqua)** in case the filter clogs or
   freezes — cheap, packs flat, already on the gear-checkin "group items" list.
-- **Simple 3-night backcountry meal plan** (label estimates — swap for whatever's on sale/on
+- **Simple 2-night backcountry meal plan** (Sat lunch through Mon lunch: 2 breakfasts, 3 lunches, 2 dinners) (label estimates — swap for whatever's on sale/on
   hand; per-person, no-cook lunches keep the stove load down):
   - **Night 1 dinner:** dehydrated backpacking meal (e.g. Mountain House) + hot drink.
   - **Day 2 breakfast:** instant oatmeal + coffee/cocoa.
   - **Day 2 lunch:** tortilla wraps w/ tuna or peanut butter, jerky, trail mix (no cook).
   - **Day 2 dinner:** dehydrated backpacking meal + hot drink.
   - **Day 3 breakfast:** instant oatmeal + coffee/cocoa.
-  - **Day 3 lunch (hike-out):** tortilla wraps + jerky/trail mix, eaten on the move (no cook).
+  - **Day 3 lunch (hike-out, Mon, at the LOWER reach):** tortilla wraps + jerky/trail mix (no cook).
   - Snacks throughout: trail mix, bars, jerky — no cooking required.
 
 ### Cold-water panning tips (recap)
@@ -513,7 +514,7 @@ Figures pulled from `dahlonega.md` (activity pricing) and `gear.md` (gear pricin
 
 **`map/data/overnight-wide.json` / `map/data/core.json`** — Structured overnight-candidate and base-camp/trailhead coordinates used in §3 (Three Forks trailhead coordinates, Rock Creek and Dockery-adjacent candidate data, Vogel/Coosa trailhead points).
 
-**Trip-lead decisions (see task brief)** — override the research wherever they disagree: site P limits, hunting-date framing, the Coosa Backcountry Trail correction, the Frogtown Creek correction, the PRIMARY/BACKUP overnight assignment (Three Forks / Dockery Lake / Rock Creek), and the full day-by-day draft plan used as the skeleton for §1.
+**Trip-lead decisions (see task brief)** — override the research wherever they disagree: site P limits, hunting-date framing, the Coosa Backcountry Trail correction, the Frogtown Creek correction, the PRIMARY/BACKUP overnight assignment (primary East Fork Coosa Creek, backup Rock Creek — Three Forks and Dockery Lake are dropped), and the full day-by-day draft plan used as the skeleton for §1.
 
 ### Contradictions found between research files that could not be fully resolved (flagged, not silently picked)
 - **Overnight primary pick disagreed across all three research passes** (Coosa Backcountry Trail → Dockery Lake Trail → Three Forks/Noontootla), each correcting or second-guessing the last. Resolved here only by the trip lead's explicit override, not by the research converging on its own.
@@ -524,11 +525,22 @@ Figures pulled from `dahlonega.md` (activity pricing) and `gear.md` (gear pricin
 ### UNVERIFIED items Jordan should double-check before the trip
 1. Vogel walk-in site P's actual vehicle capacity and second-tent policy (the trip-lead numbers above — 2 vehicles + overflow, 2 tents — should still be confirmed against what the park itself says at check-in).
 2. Whether hand panning is legal on East Fork Coosa Creek and West Fork Wolf Creek, whether Bowers Road / FS 107 / FS 108 are open, and the firearms deer opener date — none has a ranger or DNR confirmation (`CALLS.md`).
-3. Whether the Dockery Lake Trail's 3.0-mi backup campsite sits outside the Blood Mountain Wilderness boundary.
+3. ~~Dockery Lake Trail's 3.0-mi backup campsite vs. the Blood Mountain Wilderness boundary~~ — closed 2026-10-08: Dockery Lake is not the backup and not on the plan. The backup is Rock Creek (§3).
 4. Public/legal access status of the historic Coosa Mine site ~4 mi south of Blairsville.
 5. Whether panning is separately restricted for non-anglers inside the Chestatee WMA (Waters Creek/Dicks Creek).
 6. Whether Yahoola Creek Park's panning tolerance is a real, current park policy or just a pattern in visitor reviews.
 7. Cell coverage at Vogel and the backcountry sites — treated as unreliable but not independently confirmed.
 8. Current 2026 pricing for Crisson Gold Mine, Consolidated Gold Mine, and the LDMA Spooktacular event registration fee.
 9. Whether Greg Sheppard (or an equivalent veteran guide) is still actively giving tours at Consolidated Gold Mine.
+
+### UNVERIFIED items added 2026-10-08 (fishing, crawdads, free-day places)
+These come from research passes whose claims have not been re-fetched first-hand. Everything in the
+**Fish & crawdads** and **Playground** tabs that is marked *unconfirmed* traces back to this list.
+10. **Whether a crawdad trap counts as a "minnow trap"**, which is banned in Georgia designated trout waters. All our creeks (Wolf, Coosa, Calf Stump, Yahoola) are trout waters. If it does, it is hand-catching only. Call GA DNR Wildlife Conservation Section **706-557-3213** (`CALLS.md` #6).
+11. **Licence prices and where to buy** — nonresident fishing $10 + $3.50 per extra day, trout licence $10 + $2 per day, plus a $3 fee; Vogel visitor-centre kiosk or online. Not re-fetched.
+12. **Trout limit of 8 per day**, year-round season on our creeks, no bait restriction, no live minnows. Not re-fetched.
+13. **The 2026 Georgia campfire ban was lifted May 4, 2026.** Re-check with Blue Ridge RD **706-745-6928** before the trip — an October ban would change the base-camp fire plan.
+14. **Festival dates:** Gold Rush Days Oct 17–18; Helen Oktoberfest Oct 1 – Nov 1 nightly; Georgia Mountain Fall Festival (Hiawassee) Oct 9–11 and 15–17; Sorghum in the Mountains (Meeks Park) Oct 10–18, daily vs weekends-only unconfirmed. The old Blairsville Sorghum Festival site still shows 2024.
+15. **Lake Winfield Scott beach and campground closed**; no laundromat found near Vogel; crissongoldmine.com served a security-warning page when checked.
+16. **Dead links:** one confirmed dead (Petzl TIKKINA, fixed 2026-10-08). The 56 REI, 27 Shopify-store and 56 Amazon links could not be confirmed either way by script (bot blocking) — spot-check a few on a phone before ordering.
 10. Exact WMA hunt-calendar details for Blue Ridge/Cooper's Creek/Chestatee for the specific trip week (preliminary regs can shift before finalization).

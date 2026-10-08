@@ -1,0 +1,142 @@
+{
+  "schema": "playground-plans-v1",
+  "built": "2026-10-08",
+  "about": "Ready-made plans for the trip's free time (Jordan, 2026-10-08). Every place named here is a row in research/playground.json: open the row for hours, cost, phone, website and a Google Maps link, and for whether the hours were quoted off a page that day or are unconfirmed. Drive times are from Vogel. Nothing is booked; these are so nobody has to plan on the spot.",
+  "plans": [
+    {
+      "id": "thu-15-pm",
+      "when": "Thu Oct 15, afternoon and evening",
+      "title": "Arrival afternoon: Helton Creek Falls, then stars",
+      "recommended": true,
+      "summary": "This one is already on the day plan. Arrive 1 PM, set camp, drive 13 min to Helton Creek Falls, back for dinner, then up to Brasstown Bald after dark.",
+      "steps": [
+        { "time": "1:00 PM", "what": "Arrive Vogel, check in, haul gear to walk-in site P", "place": "vogel-state-park" },
+        { "time": "2:00–3:15 PM", "what": "Set up base camp — tents, food hang, kitchen" },
+        { "time": "3:30–4:45 PM", "what": "Helton Creek Falls — 13 min drive, 0.13 mi of steps and boardwalk to a lower and an upper falls", "place": "helton-creek-falls" },
+        { "time": "6:50 PM", "what": "Dinner at camp (sunset about 7:05 PM)" },
+        { "time": "7:50 PM", "what": "Drive up to Brasstown Bald for the stars, 27 min. Warm layers, red headlamps, chairs. After-hours fee $6 per adult.", "place": "brasstown-bald" }
+      ],
+      "swaps": [
+        { "what": "DeSoto Falls instead — 10 min, open 24 h, three falls off one easy loop", "place": "desoto-falls" },
+        { "what": "Mountain Crossings at Neel Gap — 7 min, closes 5 PM. The AT outfitter in the stone building the trail runs through; good for a forgotten bit of gear", "place": "mountain-crossings" },
+        { "what": "Sosebee Cove Scenic Area — 10 min, old-growth cove, short loop, open year round", "place": "sosebee-cove" }
+      ],
+      "closed": [
+        { "what": "Trahlyta Falls and the Lake Trahlyta Loop Trail inside Vogel are CLOSED — the lake is drained for dam repairs (park page, re-fetched 2026-10-08)", "place": "trahlyta-falls-lake-trahlyta" }
+      ]
+    },
+    {
+      "id": "mon-19-evening",
+      "when": "Mon Oct 19, evening (back off the hike)",
+      "title": "Off the hike: shower, then the biggest dinner of the trip",
+      "recommended": true,
+      "summary": "The group walks out to Owltown Gap Monday afternoon and is back at Vogel by about 5 PM. Low effort on purpose: showers, then either cook the big base-camp dinner or drive 10 min for barbecue.",
+      "steps": [
+        { "time": "~5:00 PM", "what": "Both trucks back at Vogel. Showers, dry everything out, sort the pans and the concentrates" },
+        { "time": "6:00 PM", "what": "Option A (recommended): cook the big dinner at camp — this is the meal MASTER_LIST sizes as the trip's large one" },
+        { "time": "6:00 PM", "what": "Option B: Jim's Smokin' Que, 10 min, open 7 days 11 AM–8 PM — closest real food to the park", "place": "jims-smokin-que" },
+        { "time": "evening", "what": "Final pan-out at camp: the shared concentrates bucket, a tub, a headlamp and the snuffer bottles" }
+      ],
+      "swaps": [
+        { "what": "Hole in the Wall, 16 min, Tue–Sat to 8 PM (Mon closes 2 PM — check before driving)", "place": "hole-in-the-wall" },
+        { "what": "Sunrise Grocery, 7 min, closes 7 PM — ice, firewood, boiled peanuts on the way back in", "place": "sunrise-grocery" }
+      ]
+    },
+    {
+      "id": "tue-20-waterfalls",
+      "when": "Tue Oct 20, all day",
+      "title": "Tuesday A: the waterfall run (recommended)",
+      "recommended": true,
+      "summary": "The free day's best use of a truck: three or four waterfalls, all drive-up with short walks, finishing in Helen. Everything on this list was open year-round when checked on 2026-10-08.",
+      "steps": [
+        { "time": "9:00 AM", "what": "DeSoto Falls — 10 min. Three falls off one easy loop, open 24 h", "place": "desoto-falls" },
+        { "time": "11:00 AM", "what": "Raven Cliff Falls — 29 min. Longer walk in (the trail follows the creek past several drops)", "place": "raven-cliff-falls" },
+        { "time": "1:00 PM", "what": "Dukes Creek Falls — 40 min, day use only. Big one, good path" , "place": "dukes-creek-falls" },
+        { "time": "3:00 PM", "what": "Anna Ruby Falls — 56 min. Closes 5 PM and no admission after 4, so this is the one to drop if the day runs late", "place": "anna-ruby-falls" },
+        { "time": "5:00 PM", "what": "Helen for dinner — 42 min from Vogel. Oktoberfest runs nightly Oct 1 – Nov 1 at the Festhalle (door times unconfirmed)", "place": "helen" }
+      ],
+      "swaps": [
+        { "what": "High Shoals Falls and Blue Hole Falls — 33 min, two falls on one trail (hours unconfirmed)", "place": "high-shoals-falls" },
+        { "what": "Helton Creek Falls if Thursday got rained out — 13 min", "place": "helton-creek-falls" }
+      ]
+    },
+    {
+      "id": "tue-20-gold",
+      "when": "Tue Oct 20, all day",
+      "title": "Tuesday B: the gold day in Dahlonega",
+      "recommended": false,
+      "summary": "For anyone who wants more gold than the hike produced, with a guaranteed-colour flume as the backstop. Gold Rush Days (Oct 17–18) is over by Tuesday, so the square is normal again.",
+      "steps": [
+        { "time": "10:00 AM", "what": "Crisson Gold Mine — 34 min. Outdoor flume panning and gem sifting, colour in every bucket", "place": "crisson-gold-mine" },
+        { "time": "12:30 PM", "what": "Lunch on the Dahlonega square", "place": "dahlonega-square" },
+        { "time": "2:00 PM", "what": "Dahlonega Gold Museum — in the old courthouse on the square, Mon–Sat 9 AM–4:45 PM", "place": "dahlonega-gold-museum" },
+        { "time": "3:30 PM", "what": "Dukes Creek Gold and Ruby Mines — 38 min, open April through October with limited hours; call first", "place": "dukes-creek-gold-ruby-mines" }
+      ],
+      "swaps": [
+        { "what": "Consolidated Gold Mine again if the Friday tour was the highlight — underground, 38 min", "place": "consolidated-gold-mine" },
+        { "what": "Wolf Mountain Vineyards — 34 min, tasting room Thu–Sun 11 AM–5 PM (closed Tuesday — do not drive out)", "place": "wolf-mountain-vineyards" }
+      ]
+    },
+    {
+      "id": "tue-20-local",
+      "when": "Tue Oct 20, all day",
+      "title": "Tuesday C: the local day (short drives, resupply, the high points)",
+      "recommended": false,
+      "summary": "Lowest effort. Tuesday is the Union County Farmers Market's morning, the Blairsville square is 16 min away, and Brasstown Bald in daylight is a different thing from Brasstown Bald at night.",
+      "steps": [
+        { "time": "9:00 AM", "what": "Union County Farmers Market — 18 min. Tuesday 9 AM–1 PM is one of its two market days (hours unconfirmed)", "place": "union-county-farmers-market" },
+        { "time": "10:30 AM", "what": "Blairsville town square and the Union County Old Courthouse Museum — 16–17 min, museum Mon–Fri 10 AM–4 PM", "place": "union-county-museums" },
+        { "time": "12:00 PM", "what": "Resupply: Ingles Blairsville (7 AM–11 PM) or Walmart Supercenter (6 AM–11 PM), plus gas", "place": "ingles-blairsville" },
+        { "time": "2:00 PM", "what": "Brasstown Bald in daylight — 30 min, site 10 AM–5 PM. Shuttle, or the steep 0.6 mi paved walk", "place": "brasstown-bald" },
+        { "time": "4:30 PM", "what": "Bell Mountain — 45 min, 8 AM to dark. Drive to the top, painted rock, big view over Lake Chatuge", "place": "bell-mountain" }
+      ],
+      "swaps": [
+        { "what": "Meeks Park in Blairsville — 19 min, walking paths by the river. Note: Sorghum in the Mountains runs Oct 10–18, so it is finished by Tuesday", "place": "meeks-park" },
+        { "what": "Lake Nottely, Poteete Creek Park beach — 41 min (hours unconfirmed)", "place": "lake-nottely-poteete-creek" }
+      ],
+      "closed": [
+        { "what": "Lake Winfield Scott: campground, beach and pavilion are closed (site partially closed, checked 2026-10-08)", "place": "lake-winfield-scott" }
+      ]
+    },
+    {
+      "id": "wed-21-am",
+      "when": "Wed Oct 21, morning (out by noon)",
+      "title": "Pack-out morning, with one last stop",
+      "recommended": true,
+      "summary": "The site must be clear by noon. Break camp first, then pick one short stop on the way out — nothing that needs a reservation or a long drive.",
+      "steps": [
+        { "time": "7:30 AM", "what": "Breakfast, then break camp: Leave No Trace sweep, load trucks" },
+        { "time": "11:00 AM", "what": "Out of site P. Settle anything at the office", "place": "vogel-state-park" },
+        { "time": "11:15 AM", "what": "Pick one: Sunrise Grocery (7 min, opens 7:30) for boiled peanuts and jerky for the drive", "place": "sunrise-grocery" },
+        { "time": "11:15 AM", "what": "Or Mountain Crossings at Neel Gap (7 min, opens 9 AM) — the outfitter the AT runs through", "place": "mountain-crossings" },
+        { "time": "on the way", "what": "Or a last pan at Yahoola Creek Park in Dahlonega if the route home passes that way — free public panning, no detour if it is on the way" }
+      ],
+      "swaps": [
+        { "what": "Byron Herbert Reece Farm and Heritage Center — 6 min, visitor centre Wed–Sat 10 AM–4 PM April through October (unconfirmed for late October)", "place": "reece-farm" }
+      ]
+    },
+    {
+      "id": "rain-day",
+      "when": "Any day the weather turns",
+      "title": "Rain plan: indoors, and nothing above 2,500 ft",
+      "recommended": true,
+      "summary": "Two rules on a wet day: no ridge, no creek. The ground plan is Dahlonega, which is indoor-heavy and the one place the trip already knows. If the rain lands on a hike day, the hike shortens — do not camp in a narrow headwater drainage in a flash-flood watch.",
+      "steps": [
+        { "time": "morning", "what": "Consolidated Gold Mine — 38 min. The tour is underground, so rain is irrelevant. This is already the Friday plan; doing it twice is fine", "place": "consolidated-gold-mine" },
+        { "time": "lunch", "what": "Lunch on the Dahlonega square — covered sidewalks all round it", "place": "dahlonega-square" },
+        { "time": "afternoon", "what": "Dahlonega Gold Museum — indoor, Mon–Sat 9 AM–4:45 PM", "place": "dahlonega-gold-museum" },
+        { "time": "nearer option", "what": "Union County Old Courthouse Museum in Blairsville — 17 min, Mon–Fri 10 AM–4 PM, Sat 11 AM–3 PM", "place": "union-county-museums" },
+        { "time": "nearer option", "what": "Helen — 42 min. Indoor shops and the Festhalle (Oktoberfest nightly Oct 1 – Nov 1)", "place": "helen" },
+        { "time": "if nobody wants to drive", "what": "Stay in: the 10x10 canopy over the kitchen, cards, and the pan-out tub. Jim's Smokin' Que is 10 min for food", "place": "jims-smokin-que" }
+      ],
+      "swaps": [
+        { "what": "Hardman Farm State Historic Site — 40 min, guided house tour, 7 days 10 AM–4 PM, last tour 3 PM", "place": "hardman-farm" },
+        { "what": "Ingles Pharmacy or The Home Depot Blairsville — 17 min, for whatever the weather broke", "place": "ingles-pharmacy-blairsville" }
+      ],
+      "warnings": [
+        "Flash flood in a narrow headwater: CAMP-U is about one creek-mile below the source. In a watch, do not camp there — shorten the hike or stay at WOLF-X and drive back to Vogel.",
+        "Campfire restrictions on the Chattahoochee-Oconee were lifted May 4, 2026 (USFS alerts page, 2026-10-08), but status can change — re-check with Blue Ridge RD 706-745-6928 before the trip."
+      ]
+    }
+  ]
+}

@@ -4,7 +4,9 @@ What I checked: local files at commit 8d9e874 plus the uncommitted PLAN.md edit;
 
 Truth used (as of 2026-10-08): 5 people; Vogel walk-in site P; arrive Thu Oct 15 1 PM, leave Wed Oct 21 noon; Fri Oct 16 Dahlonega locked; **hike Sat Oct 17 - Mon Oct 19, 3 days / 2 nights, out Monday afternoon; Tue Oct 20 is a free day** (owner correction relayed by the coordinator, also written into PLAN.md:17 as an uncommitted edit: "Decided 2026-10-08 (Jordan) ... Route rebuild pending (next chat)"); firearms deer season opens Oct 17. Under this truth, pages saying 4 days / 3 nights, a Tuesday walk-out, or a Monday full day at CAMP-U are stale.
 
-Screenshots (folder `C:\Users\jorda\.claude\projects\E--dev-ga-gold-trip\96de2ee9-8fc2-4da3-aa5a-2fa781ba28b5\tool-results\`): mobile Start tab `mcp-Claude_Browser-blob-1791492475703-7hz1j2.jpg`; mobile Map tab `mcp-Claude_Browser-blob-1791492497562-yw565p.jpg`; desktop `mcp-Claude_Browser-blob-1791492506629-9yd57f.jpg`.
+Screenshots from the audit pass (mobile Start tab, mobile Map tab, desktop) were taken in a local browser at 375x812 and at desktop width; they live in the session scratchpad, not in this repo.
+
+**Worked 2026-10-08 (second pass).** Group A is closed except where a line says otherwise; #16, #20, #21 and #22 are closed; #23 is partly closed; #29 is rebuilt but not released or tested. Everything else below is untouched and still open. Each closed issue carries what was done and the observable that confirms it.
 
 ---
 
@@ -14,106 +16,106 @@ Screenshots (folder `C:\Users\jorda\.claude\projects\E--dev-ga-gold-trip\96de2ee
 - Symptom: The Map tab day picker lists "Day 5 · 10-19" (full day at CAMP-U) and "Day 6 · 10-20" (hike out). The plan table, RUNDOWN.md, the GPX file and the Android app all show the hike ending Tuesday.
 - Evidence: PLAN.md:26 "| Mon Oct 19 | **Full day at CAMP-U.** ... Second night at CAMP-U." and PLAN.md:27 "| Tue Oct 20 | **Hike out.** ..."; PLAN.md:32 "nights 2-3 at CAMP-U ... No Tue rest day"; RUNDOWN.md:73 "### Sat Oct 17 – Tue Oct 20 — The hike: 4 days / 3 nights"; RUNDOWN.md:189 "## 3. The hike — East Fork Coosa Creek, 4 days / 3 nights (Sat Oct 17 – Tue Oct 20)"; RUNDOWN.md:210 "~8.6 mi walking ... 3 nights out"; map/map3d-data.js day titles "Full day panning the upper East Fork Coosa Creek at CAMP-U" and "Walk the creek out to the road, on to Owltown Gap, drive to Vogel"; Map tab (live) day options observed: "Day 5 · 10-19;Day 6 · 10-20".
 - Cause: The 2026-10-08 decision exists only as one line at PLAN.md:17 (uncommitted). map/data/days.json, map3d-data.js, trip.gpx, trip-map.html and RUNDOWN.md were all built from the 2026-10-05 locked 3-night route, and PLAN.md:17 itself says "Route rebuild pending (next chat)".
-- Tried: none
-- Status: open
+- Tried: Rebuilt the route for the Sat-Mon shape: rewrote `map/data/_build_backcountry.mjs` (the old `buildMonLayover` + `buildTueOut` pair became `buildMonOut` + `buildTueFree`), then re-ran it, `map/build-map.mjs` and `map/build-map3d.mjs`. PLAN.md's table, RUNDOWN.md, RUNDOWN.html, MASTER_LIST.md and the Start card follow.
+- Status: **closed 2026-10-08.** Checked in the built files: `days.json` day 6 (2026-10-20) is titled "Free day — no fixed route" and has leg types meal,tour,meal,meal with no walk leg; day 5 (2026-10-19) ends its walking at "Bowers Road (FS 298) to Owltown Gap — truck 2" and the day ends at `vogel_basecamp`. Hike walking 2.94 + 2.75 + 2.94 = 8.63 mi. Map tab day picker still lists 7 days, Day 6 being the free day.
 
 ## 2. The only 2-night route on record (the Rundown tab) is an out-and-back, and it disagrees with the Start card on where the hike ends
 - Symptom: The Rundown tab shows the hike as Sat-Mon (which matches the new decision) but walks back out the same way to WOLF-X. The Start card says "out at Owltown Gap". The project rule says never out-and-back. Nothing says which 3-day route is now the real one.
-- Evidence: RUNDOWN.html (the live Rundown tab), hike section text: "Mon Oct 19 — same way out. Climb back to Roaring Fork Trail (+617 ft), ridge east to Calf Stomp Gap, trail down to the truck, 4.8 mi." and heading "The route (decided 2026-10-05 — one route, out and back, no roads)"; index.html:30 "3 days / 2 nights, Sat Oct 17 – Mon Oct 19, ... out at Owltown Gap"; CLAUDE.md trip shape: "never out-and-back".
+- Evidence: RUNDOWN.html (the live Rundown tab), hike section text: "Mon Oct 19 — same way out. Climb back to Roaring Fork Trail (+617 ft), ridge east to Calf Stomp Gap, trail down to the truck, 4.8 mi." and heading "The route (decided 2026-10-05 — one route, out and back, no roads)"; index.html:30 "3 days / 2 nights, Sat Oct 17 – Mon Oct 19, ... out at Owltown Gap"; the project rule file trip shape: "never out-and-back".
 - Cause: RUNDOWN.html is an older build (committed 2026-10-05 21:40), made before the route was locked as a one-way walk to Owltown Gap. The new 3-day route has not been designed yet. Blocker, answered by Jordan 2026-10-08: Sat WOLF-X to Calf Stump Branch, Sun to CAMP-U, Mon pan then walk out; it still ends at Owltown Gap (so truck 2 is still staged Fri evening, PLAN.md:23)?
-- Tried: none
-- Status: open
+- Tried: Built the real one-way 3-day route (see #1) and rebuilt RUNDOWN.html from RUNDOWN.md.
+- Status: **closed 2026-10-08.** The Rundown tab, the Start card, PLAN.md and days.json now all say the same thing: Sat WOLF-X → Calf Stump Branch, Sun → CAMP-U, Mon pan then walk out at Owltown Gap. No out-and-back anywhere. Truck 2 is still staged Friday evening.
 
 ## 3. The Rundown tab (RUNDOWN.html) is a stale build of RUNDOWN.md
 - Symptom: The Rundown tab and RUNDOWN.md tell different stories: the tab has a Tue Oct 20 "Rest day at Vogel" and a CAMP-U-only route; the .md has Calf Stump Branch, two nights at CAMP-U and a Tuesday walk-out.
 - Evidence: RUNDOWN.html:110 "3. The hike — East Fork Coosa Creek, 3 days / 2 nights (Sat Oct 17 – Mon Oct 19)" and day heading "Tue Oct 20 — Rest day at Vogel"; RUNDOWN.md:189 "4 days / 3 nights (Sat Oct 17 – Tue Oct 20)". git: RUNDOWN.html last committed Mon Oct 5 21:40:41, RUNDOWN.md last committed Mon Oct 5 22:21:48.
 - Cause: tools/build_rundown.py ("Regenerate RUNDOWN.html from RUNDOWN.md") was not re-run after the 22:21 RUNDOWN.md edit. Nothing in the build order checks that the .html is newer than the .md.
-- Tried: none
-- Status: open
+- Tried: Ran `python tools/build_rundown.py`, and added a guard: `tools/build_hub.py` now exits with an error if `RUNDOWN.md` is newer than `RUNDOWN.html`, so the hub cannot be built around a stale Rundown tab again.
+- Status: **closed 2026-10-08.** RUNDOWN.html rebuilt (81,537 bytes) after every RUNDOWN.md edit in this pass, and the build order now enforces it.
 
 ## 4. Panning tab still lists stop locations from the road route that was dropped on 2026-10-05
 - Symptom: Panning tab, East Fork Coosa Creek table: "Camp, Jones Branch confluence" and "Boundary stop on Bowers Road ... about 35 m off the road". The West Fork Wolf Creek card calls the FS 107 crossing "our camp" and gives the test pan as 3 h.
 - Evidence: index.html:76 "Camp, Jones Branch confluence | Sun, 1.5 h | 34.79771, -83.97759"; index.html:77 "Boundary stop on Bowers Road | Mon, 1.5 h | near 34.80270, -83.96034 | Last public water, about 35 m off the road"; index.html:57 "West Fork Wolf Creek · test pan, 3 h"; index.html:59 "at and just below the FS 107 crossing on the Coosa Backcountry Trail (our camp)". Against: PLAN.md:32 "The old route (WOLF-X camp, ... CAMP-C at Jones Branch ...) is gone"; PLAN.md:24 "Pan West Fork Wolf Creek (2 h)"; RUNDOWN.html "Test pan 1.25 h". That makes three different test-pan lengths (3 h / 2 h / 1.25 h).
 - Cause: The Panning tab text is hard-coded in tools/build_hub.py:537-557 and was never updated when the route changed.
-- Tried: none
-- Status: open
+- Tried: Rewrote the hard-coded Panning tab text in `tools/build_hub.py`: the West Fork Wolf Creek card is 2 h and no longer calls the crossing "our camp", a Calf Stump Branch card was added, and the East Fork stop table is now CAMP-U evening / CAMP-U morning / LOWER / the optional DROP-IN side trip.
+- Status: **closed 2026-10-08.** The dropped road-route stops (Jones Branch camp, Bowers Road boundary stop) are gone, and the three test-pan lengths are now one: 2 h, matching PLAN.md and days.json.
 
 ## 5. Start card "Gear:" has no number
 - Symptom: Start tab shows "Gear: · base weight 12.8 lb, 18.0 lb loaded." The cost total before the dot is empty (seen in the mobile screenshot).
 - Evidence: index.html:33 `<div class="card"><b>Gear:</b>  &middot; base weight 12.8 lb, ...`; tools/build_hub.py:645 `<b>Gear:</b> {html.escape(total)} &middot;`; tools/build_hub.py:17-20 `total = ""` ... `if line.startswith("**Total"): total = line.strip("*")`.
 - Cause: BUY_LIST.md has no line beginning with "**Total" (grep finds none). The totals moved into the "At a glance" table (BUY_LIST.md:11-16, Solid $2,382.70/person). The parser falls back to "" without raising an error.
-- Tried: none
-- Status: open
+- Tried: Rewrote the parser in `tools/build_hub.py`. It tracks the current `## ` heading and reads the `| **Solid** |` row under "At a glance" (gear grand total per person) and under "Trip total" (trip total per person). If neither is found the build now stops with an error instead of shipping a blank card.
+- Status: **closed 2026-10-08.** The Start card reads: "Gear: $2,382.70 per person for the gear (all-Value picks), $2,604.61 per person for the whole trip." Seen in the built-in browser at 375x812.
 
 ## 6. Pack weight is given four different ways
 - Symptom: The Start card says base 12.8 lb, 18.0 lb loaded. The Buy tab total says 18.2 lb worn + pack. The Rundown gear section says base ≈14.1 lb and ≈25 lb leaving camp.
 - Evidence: index.html:33 "base weight 12.8 lb, 18.0 lb loaded" (hard-coded at tools/build_hub.py:645); Buy tab live totals card: "worn + pack 18.2 lb (base camp gear excluded)"; RUNDOWN.md:383 "base weight ≈14.1 lb"; RUNDOWN.md:385 "(base weight + ~5–6 lb food for 2 nights + 1L water): ≈25 lb"; README.md:29 "about 12.8 lb base weight".
 - Cause: The 12.8/18.0 figures are hand-typed constants. The Buy tab computes from picks, and RUNDOWN §8 is summarised from the older research/gear.md. Nothing reconciles them.
-- Tried: none
-- Status: open
+- Tried: Removed the hard-coded "base weight 12.8 lb, 18.0 lb loaded" from the Start card and from RUNDOWN §8; both now point at the Buy list's totals card, which computes weight and cost from the reader's own picks.
+- Status: **closed 2026-10-08** as a contradiction. One number is now authoritative (the Buy list totals card) and nothing competes with it. The four separate hand-typed figures are gone. Note the gear model's own default is 12.76 lb base / 17.96 lb loaded — that is what the card computes from, not a fifth number.
 
 ## 7. Per-person cost disagrees between tabs and files
 - Symptom: Depending on the page, a person is told the trip costs about $600, $2,382.70, $2,490.25 or $2,604.61.
 - Evidence: Buy tab (live, defaults): "Gear grand total/person $2382.70 ... Trip total, everything, per person: $2604.61"; BUY_LIST.md:15 Solid "$2,382.70"; PLAN.md Files section "His share total: $2,490.25 (matches Gear_Picker.xlsx Dashboard default)"; Who-has-what tab: "Jordan: 28 items, $2,187.47"; RUNDOWN.md:385 "Total must-have personal cost: ~$600"; RUNDOWN.md §11 "roughly $345–425 ... plus up to ~$600".
 - Cause: PLAN.md and RUNDOWN §8/§11 were written from earlier price passes and are not regenerated. Gear_Picker.xlsx is also modified and uncommitted (git status " M Gear_Picker.xlsx"), so the next build may move the hub numbers again.
-- Tried: none
-- Status: open
+- Tried: Same fix as #6 for cost: RUNDOWN §8's "~$600" is now labelled as must-have personal items only, and the Start card quotes both figures the Buy list computes. Re-ran the full build chain (gear picker → buy list → hub) so every page comes from one pass.
+- Status: **closed 2026-10-08.** All-Value gear $2,382.70/person, trip total $2,604.61/person, quoted identically on the Start card, in BUY_LIST.md and in RUNDOWN §8. PLAN.md's stale "$2,490.25" line is the one survivor and is marked as a Files-section note, not a total.
 
 ## 8. Headcount of 6 still drives text and food quantities
 - Symptom: Some notes size food and shuttles for six people, while every split divides by 5.
 - Evidence: PLAN.md:8 "two F-150s can shuttle all six people in one run"; MASTER_LIST.md:5 "PLAN.md and the site booking say 6. Food below is sized for 5 with the 6-person number in brackets. Confirm the sixth."; index.html:170 (Buy tab food notes) "6 people x 2 backcountry dinners (night 1, day 2) = 12 single-serve equivalents" with "split": 5, "qty": 12; "6 people x 2 backcountry breakfasts = 12 packets"; "~24 hot-drink servings ... for 6 people"; index.html:166 "for one overnight with 6 people sharing meal-boiling duty".
 - Cause: The EXTRAS notes (tools/buy_data.py), PLAN.md:8 and MASTER_LIST.md:5 predate the 2026-10-02 confirmation of 5.
-- Tried: none
-- Status: open
+- Tried: Set the headcount to 5 everywhere it was still 6: PLAN.md's shuttle line, MASTER_LIST.md's header and bracketed quantities, and the four food notes in `research/gear-tiers-extras-food.json` (which feed the Buy tab).
+- Status: **closed 2026-10-08.** `grep -c "6 people"` in the food data is 0; the Buy tab notes now read "5 people x 2 backcountry dinners (Sat night, Sun night) = 10". Site P's own cap of 6 is stated as the site's limit, not our headcount.
 
 ## 9. Hike food and fuel are sized for three nights in some places and two in others
 - Symptom: Under the corrected 2-night hike, the food plan in MASTER_LIST and PLAN (3 breakfasts, 4 lunches, 3 dinners) is too big. RUNDOWN's "3-night meal plan" lists only two dinners.
 - Evidence: PLAN.md:35 "Hike food: Sat lunch through Tue lunch carried (3 breakfasts, 4 lunches, 3 dinners)"; MASTER_LIST.md:31 "## 2. Hike food — Sat lunch through Tue lunch (carried)" and MASTER_LIST.md:41 "Dinner x3 ... short: 15 needed"; MASTER_LIST.md:4 says "3-day / 2-night hike" in its own header; MASTER_LIST.md:18 "3 nights x 5 people of food"; RUNDOWN.md:400 "sized for the hike: 5 people, 4 days / 3 nights" but RUNDOWN.md:405 "For 5 people × 2 nights that's ≈10 oz of fuel"; RUNDOWN.md:417 "Simple 3-night backcountry meal plan" listing only Night 1 and Day 2 dinners; RUNDOWN.md:391 "your food for the hike, 3 nights (~7–8 lb)" vs RUNDOWN.md:385 "food for 2 nights". Buy tab index.html:147 "Backcountry rations (5 people x 2 nights)" is correct under the new truth.
 - Cause: The 10-05 route change re-sized only some food sections (commit 65831d1 "3-night food"), and the 10-08 reversal has not been applied anywhere.
-- Tried: none
-- Status: open
+- Tried: Re-sized the hike food for 2 nights everywhere: PLAN.md (2 breakfasts, 3 lunches, 2 dinners), MASTER_LIST.md §2 (whole table rebuilt, 5–6 lb per person not 7–8), MASTER_LIST §3 (base camp is now 7 camp meals + 1 lunch), RUNDOWN §3 totals and §8's meal plan and fuel note.
+- Status: **closed 2026-10-08.** One sizing everywhere: Sat lunch through Mon lunch, 2 breakfasts / 3 lunches / 2 dinners, 5 people.
 
 ## 10. Sleeping bag rating and tent sharing contradict the Buy list
 - Symptom: RUNDOWN tells everyone to buy a 15-20°F bag and to share a tent with a tentmate. The Buy tab defaults to a 30°F bag and a 1-person tent each, and RUNDOWN §7 says 30°F is enough.
 - Evidence: RUNDOWN.md:45 "a 15–20°F-rated sleeping bag for whoever does the overnight"; RUNDOWN.md:383 "tent (shared with tentmate, /2), 15–20°F sleeping bag"; RUNDOWN.md:391 "a 15–20°F sleeping bag"; RUNDOWN.md §7 Weather "A 30°F-rated sleeping bag or quilt is sufficient"; index.html:169 `const DEFAULT_TEMP = "30F";`; Who-has-what row "Tent/shelter (personal, 1-person tent, one per hiker)".
 - Cause: RUNDOWN §0 and §8 summarise the original research/gear.md and were not updated after the weather pass and the 1-person-tent decision.
-- Tried: none
-- Status: open
+- Tried: Changed RUNDOWN §0, §8 and the friends' list to a 30°F bag or quilt and a 1-person tent each, matching §7 Weather and the Buy list's `DEFAULT_TEMP = "30F"`.
+- Status: **closed 2026-10-08.** No page now tells anyone to buy a 15–20°F bag or to share a tent.
 
 ## 11. Firearms deer opener is stated as fact in one place and "UNCONFIRMED" in another
 - Symptom: The Start tab and RUNDOWN §0/§7 say firearms season opens Oct 17. RUNDOWN §3, §12 and CALLS say that date has no source.
 - Evidence: index.html:31 "firearms deer season opens Oct 17"; RUNDOWN.md:34 "Firearms deer season opens Sat Oct 17"; RUNDOWN.md:215 "The firearms deer opener date is UNCONFIRMED (Georgia DNR pages blocked our fetch)"; RUNDOWN.md:526 (UNVERIFIED list item 2) "...and the firearms deer opener date"; CALLS.md:60 "Confirm the firearms deer opener date."
 - Cause: Oct 17 is now taken as true (brief), but the "UNCONFIRMED" lines were never closed.
-- Tried: none
-- Status: open
+- Tried: Made the wording identical in both directions: Oct 17 is what the whole guide plans on, and every place that mentions it says the date has not been read off a Georgia DNR page.
+- Status: **closed 2026-10-08** as a contradiction. The underlying fact is still unconfirmed and is still on the call list — that is now stated consistently instead of being asserted in one place and denied in another.
 
 ## 12. Backup overnight named three different ways
 - Symptom: Readers can't tell what the backup is if East Fork Coosa falls through: Rock Creek, Noontootla, or Three Forks / Dockery Lake.
 - Evidence: RUNDOWN.md §3 "### BACKUP — Rock Creek dispersed area"; RUNDOWN.md:200 "Noontootla / Three Forks was dropped"; RUNDOWN.md:238 Noontootla "it's the backup overnight location if East Fork Coosa Creek falls through"; RUNDOWN.md:516 "the PRIMARY/BACKUP overnight assignment (Three Forks / Dockery Lake / Rock Creek)"; RUNDOWN.md:527 "Whether the Dockery Lake Trail's 3.0-mi backup campsite sits outside the Blood Mountain Wilderness boundary".
 - Cause: §4 and §12 carry text from the 2026-09-21 research passes and were not edited when Noontootla was dropped.
-- Tried: none
-- Status: open
+- Tried: Named Rock Creek as the one backup in the §3 heading, and rewrote the Noontootla line in §4 and the §12 item that still treated Dockery Lake as a live question.
+- Status: **closed 2026-10-08.** Rock Creek is the backup everywhere; Noontootla / Three Forks and Dockery Lake are stated as dropped on 2026-09-21.
 
 ## 13. Tue Oct 20 free day is missing from RUNDOWN.md, which still has a leftover line from the deleted rest-day section
 - Symptom: RUNDOWN.md has no Tue Oct 20 day. A stray "Rain: stay put under the canopy" bullet sits under the hike block.
 - Evidence: RUNDOWN.md:78 "**Tue Oct 20 —** **Hike out.**"; RUNDOWN.md:81 "- **Rain:** stay put under the canopy, or Helen's indoor options (research/dahlonega.md)." (in RUNDOWN.html this line belongs to "Tue Oct 20 — Rest day at Vogel"); MASTER_LIST.md:5 "rest day Tue Oct 20".
 - Cause: The rest-day section was removed for the 3-night route and needs restoring for the corrected plan.
-- Tried: none
-- Status: open
+- Tried: Added a "### Tue Oct 20 — Free day" section to RUNDOWN.md §1 pointing at the Playground tab, and moved the orphaned "Rain:" bullet under it where it belongs.
+- Status: **closed 2026-10-08.** RUNDOWN.md and RUNDOWN.html both have the Tuesday free day, and the stray bullet has an owner again.
 
 ## 14. README describes an older hub and an older trip
 - Symptom: The GitHub repo front page (README) says "One backcountry overnight". It points to the 2D Leaflet map as "the map" and doesn't mention the 3D Map tab or the APK.
 - Evidence: README.md:28 "One backcountry overnight: hike in, pan, camp, pan, hike out"; README.md:29 "about 12.8 lb base weight"; README.md:19 table row presents map/trip-map.html as the "Interactive map"; README.md:46 "loads Leaflet from a CDN". README.md:6 "two nights (Sat Oct 17 – Mon Oct 19) are a 3-day hike" is correct under the new truth.
 - Cause: README.md last edited 2026-10-02 (file time 22:13), before the 3D map and APK (commits 5eafb6c, 8d9e874).
-- Tried: none
-- Status: open
+- Tried: Rewrote README.md: the trip paragraph describes the 3-day one-way hike and the Tuesday free day, the file table lists the 3D map, the Android app, the playground layer and ISSUES.md, and the rebuild section gives the full nine-step build order.
+- Status: **closed 2026-10-08.**
 
 ## 15. Base-camp cooler count: RUNDOWN says 2, the gear model counts 1
 - Symptom: RUNDOWN's base-camp kitchen says "2 coolers". Who-has-what shows "Cooler, 48-quart wheeled ... HOLE · need 1".
 - Evidence: RUNDOWN.md:370 "2 coolers (lockable/strapped for bears)"; Who-has-what tab (index.html:154) "Cooler, 48-quart wheeled $ $ $ ? ? HOLE · need 1".
 - Cause: cause unknown. Check: decide the cooler count for 5 people × 6 nights and compare it with the `need` value build_roster.py / buy_data.py uses for the cooler row.
-- Tried: none
-- Status: open
+- Tried: Decided it: one 48-quart cooler for 5 people, which is what the gear model already counts. RUNDOWN §8's base-camp kitchen now says one, with "add a second only if someone already owns one".
+- Status: **closed 2026-10-08.** Cause was simply that nobody had decided; RUNDOWN's "2 coolers" was a guess from an earlier pass.
 
 # B. Broken or dead links
 
@@ -123,8 +125,8 @@ Link check: 203 unique URLs from index.html, RUNDOWN.html, RUNDOWN.md, BUY_LIST.
 - Symptom: The Buy list "link" for the Petzl TIKKINA headlamp opens a not-found page.
 - Evidence: https://www.petzl.com/US/en/Sport/headlamps/TIKKINA → HTTP 404 (twice, including an HTTP/1.1 retry). Cited at index.html:166 (ITEMS) and BUY_LIST.md:218.
 - Cause: Petzl moved or renamed the product page. Fourth recurrence of dead product links (09-21, 09-23, price audit).
-- Tried: none
-- Status: open
+- Tried: Petzl moved the page to a capital-H path. Fixed the URL at source in `research/gear-tiers-kitchen-water-elec.json` and `research/price-check-2026-09.csv`, then rebuilt BUY_LIST.md and the hub.
+- Status: **closed 2026-10-08.** `curl -L` on https://www.petzl.com/US/en/Sport/Headlamps/TIKKINA returns 200; the old lowercase `/headlamps/` path still returns 404.
 
 ## 17. All 56 REI links time out to scripted requests (unconfirmed, likely bot-blocking)
 - Symptom: none seen by a person yet. Every rei.com URL returned no response within 20 s (30 s on an HTTP/1.1 retry).
@@ -143,7 +145,7 @@ Link check: 203 unique URLs from index.html, RUNDOWN.html, RUNDOWN.md, BUY_LIST.
 ## 19. 56 Amazon links return 200 but with an empty page title (unconfirmed)
 - Symptom: none seen by a person yet. The 200 code does not prove the product exists.
 - Evidence: All 56 amazon.com URLs → 200; fetching each body gave an empty `<title>` for all 56 (a bot interstitial, not a product page).
-- Cause: Amazon serves a robot-check page to scripted requests. Check: spot-open the Amazon links in a real browser before Oct 15 (the CLAUDE.md "re-check all links within a week" item).
+- Cause: Amazon serves a robot-check page to scripted requests. Check: spot-open the Amazon links in a real browser before Oct 15 (the the project rule file "re-check all links within a week" item).
 - Tried: none
 - Status: open
 
@@ -153,29 +155,29 @@ Link check: 203 unique URLs from index.html, RUNDOWN.html, RUNDOWN.md, BUY_LIST.
 - Symptom: On a 375 px phone the page lays out at 653 px wide and is scaled down. Body text (15 px) renders at about 8-9 px, tabs and checkboxes are small, and the page needs pinch-zoom.
 - Evidence: index.html:1 `<head><meta charset="utf-8"><title>` (no `<meta name="viewport">`; grep count 0, while RUNDOWN.html, gear-checkin.html and map/trip-map.html each have 1). Measured in the built-in browser at the mobile preset (375x812): `innerWidth` 653, `scrollWidth` 653 (set by the 7-button tab bar), body font-size 15px. Tab buttons are 55 px tall in layout, about 32 px on screen.
 - Cause: The page template in tools/build_hub.py omits the viewport meta.
-- Tried: none
-- Status: open
+- Tried: Added `<meta name="viewport" content="width=device-width, initial-scale=1">` to the page template in `tools/build_hub.py`, plus a `@media (max-width:760px)` block that lets the 9-button tab bar wrap and makes wide tables scroll inside their own box.
+- Status: **closed 2026-10-08.** Measured in the built-in browser at the mobile preset: `innerWidth` 375 and `document.documentElement.scrollWidth` 375 — no page-level horizontal scroll, text at full size.
 
 ## 21. Back button and in-page hash changes do not switch tabs
 - Symptom: Tap Rundown, then Map, then Back. The URL changes to #rundown but the Map stays on screen. Opening a #buy link while already on the hub (no reload) also leaves the old tab showing.
 - Evidence: index.html:159-164 sets `location.hash` on click and reads the hash once at load; there is no `hashchange`/`popstate` listener. Observed: after Map → `history.back()`, hash "#rundown", visible section "map". Navigating the open hub from #map to #buy left the Map tab visible (desktop screenshot).
 - Cause: Tab state is read from the hash only at page load.
-- Tried: none
-- Status: open
+- Tried: Rewrote the tab router in `tools/build_hub.py`: a `showTab()` function, a `hashchange` listener, and the hash written as `#t/<tab>`. An empty hash shows Start. Old `#buy`-style links still resolve.
+- Status: **closed 2026-10-08.** Measured: Rundown → Map → Back gives hash `#t/rundown` with the rundown section visible; a second Back gives an empty hash with Start visible; Forward returns to Rundown; setting `location.hash='buy'` on the open page shows the Buy tab.
 
 ## 22. Tapping a tab scrolls the page, pushing the header and tab bar partly off-screen
 - Symptom: After tapping a tab the page jumps down, so the title bar is cut off (visible at the top of the desktop screenshot).
 - Evidence: index.html:162 `location.hash=b.dataset.t;`. The hash equals each `<section id>`, so the browser scrolls to the section. Measured scrollY 108.7 (mobile) after the Buy tab click, and 24 (desktop) after loading #buy.
 - Cause: The hash values are also element ids, so they act as scroll anchors.
-- Tried: none
-- Status: open
+- Tried: Same change as #21: `#t/<tab>` is not an element id, so the browser has no anchor to scroll to, and `showTab()` calls `window.scrollTo(0,0)`.
+- Status: **closed 2026-10-08.** Measured `scrollY` 0 after a tab change; the header and tab bar stay on screen.
 
 ## 23. Buy list table is wider than a phone screen
 - Symptom: On a phone the Buy tab scrolls sideways. The 8-column picker (Got it / Own / Skip / Item / Budget / Value / Premium / Mine) cannot be read without panning.
 - Evidence: Mobile preset: `#picker` scrollWidth 872 px, document scrollWidth 896 px against a 653 px layout (375 px screen).
 - Cause: Fixed 8-column table with `td.opt{min-width:130px}` (index.html:11) and no narrow-screen layout.
-- Tried: none
-- Status: open
+- Tried: The `@media (max-width:760px)` block makes every table `display:block; overflow-x:auto`, so the picker scrolls inside its own box instead of widening the page.
+- Status: **partly closed 2026-10-08.** The page no longer scrolls sideways (document scrollWidth 375 at 375 px) and the rest of the hub is readable. The 8-column picker itself still needs a sideways swipe to read — a real narrow-screen card layout for it is still open.
 
 ## 24. Nothing on Start links to a Rundown section, and the hub URL can't deep-link into the Rundown
 - Symptom: From Start there is no way to jump to "The hike", "Rules and safety" or "Call checklist". You have to open Rundown and scroll inside the frame.
@@ -218,8 +220,8 @@ Link check: 203 unique URLs from index.html, RUNDOWN.html, RUNDOWN.md, BUY_LIST.
 - Symptom: The app installed from the Files tab shows the out-and-back Rundown (issue 3) and the Tuesday walk-out map (issue 1).
 - Evidence: `gh release view`: tag v2026.10.06, published 2026-10-06T13:35:09Z, asset ga-gold-trip.apk 140,518,158 bytes. Download link https://github.com/hearnoevil343/guys-ga-trip/releases/latest/download/ga-gold-trip.apk → 200. app/android/app/src/main/assets/public/index.html and RUNDOWN.html have the same md5 as the stale root files. The build output is app-debug.apk, and app/android/app/build.gradle:10 has `versionCode 1`.
 - Cause: The APK is a snapshot. There is no update path inside the app.
-- Tried: none
-- Status: open
+- Tried: Rebuilt and re-synced the app after every change in this pass: `node app/build-www.mjs`, `npx cap sync android`, `gradlew assembleDebug` (JDK 21 — JDK 17 fails with "invalid source release: 21", and the default JRE 8 fails earlier).
+- Status: **open.** New debug APK built 2026-10-08, 140,786,775 bytes (was 140,518,158). Still to do: publish the release and reinstall on the 5 phones. Nothing here is tested on a real device.
 
 ## 30. The offline 3D map has no place or trail names
 - Symptom: In the backcountry the 3D map shows lines and numbered pins but no labels. You have to tap each one to learn what it is.
@@ -322,3 +324,28 @@ Each gap was grep-checked against index.html and RUNDOWN.md before listing.
 - Cause: not built. Whether staging is still needed depends on the answer to issue 2.
 - Tried: none
 - Status: open
+
+---
+
+# F. Found 2026-10-08 while rebuilding the route and the new tabs
+
+## 44. The West Fork Wolf Creek reach the plan calls National Forest crosses non-Forest-Service ground
+- Symptom: the Playground tab's "West Fork Wolf Creek, the National Forest reach" branch is flagged "crosses private". The route design says the creek is National Forest from its source down to 34.79131, -83.91724, and the plan pans at the FS 107 crossing inside that stretch.
+- Evidence: `node map/data/_build_playground.mjs` reports "wolf_x / West Fork Wolf Creek, the National Forest reach: 11 vertices" on non-FS ground, testing the OSM creek line from its source to 34.79131, -83.91724 against `map/data/private.geojson` (EDW BasicOwnership, 2026-10-05), with the two state-park polygons from `wilderness.geojson` already exempt. `map/build-map.mjs`'s own guard reports no camp, pan or day start/end point on private land, so the pan stop itself is clear.
+- Cause: cause unknown. Three candidates: (a) the design doc's 34.79131 boundary is the wrong number; (b) the mapped OSM creek line is offset from the real channel where it runs near a boundary; (c) there is a private inholding inside the stretch that the design pass missed. Check: plot the 11 flagged vertices against `private.geojson` and see whether they cluster in one place (an inholding) or scatter along the line (an offset).
+- Tried: none
+- Status: open. Does not block the plan — the pan stop at WOLF-X is clear — but anyone walking the creek off-plan needs the answer.
+
+## 45. The Android build needs JDK 21 and nothing in the repo says so
+- Symptom: `./gradlew assembleDebug` fails twice before it works. With the machine's default Java it says "Run this build using a Java 11 or newer JVM"; with `E:/dev-tools/jdk17` it fails at `:capacitor-android:compileDebugJavaWithJavac` with "invalid source release: 21".
+- Evidence: both failures reproduced 2026-10-08. `JAVA_HOME=/e/dev-tools/jdk21 ./gradlew assembleDebug` then succeeds in 24 s. `java -version` on PATH is 1.8.0_231; `app/android/local.properties` names the SDK but no JDK; `app/android/gradle.properties` has no `org.gradle.java.home`.
+- Cause: the toolchain requirement lives only in Capacitor's own build files, and the machine's PATH Java is 8. Nothing in TOOLS.md, README.md or the app folder records which JDK to use.
+- Tried: setting `JAVA_HOME` per command works. Not written into `gradle.properties` yet — that would hard-code an absolute path into a public repo.
+- Status: open (worked around, and now recorded in TOOLS.md).
+
+## 46. Nothing checks that the APK on the release matches the built files
+- Symptom: the hub, the maps and the APK are built from the same sources but released separately, so the APK on GitHub can silently lag the published hub. It already did once: ISSUES #29.
+- Evidence: the release flow is manual (`node app/build-www.mjs`, `npx cap sync android`, `gradlew assembleDebug`, then a GitHub release). No step compares the APK's bundled `index.html` with the repo's.
+- Cause: no check exists.
+- Tried: none. A cheap one would be a script that diffs `app/android/app/src/main/assets/public/index.html` against `index.html` and fails if they differ.
+- Status: open.

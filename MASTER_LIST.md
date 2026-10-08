@@ -2,8 +2,9 @@
 
 Built from `ROSTER.md` (3 of 5 lists in: Jordan, Nik, Nathan; Hilton and Jarred still owe theirs)
 and the decided plan: base camp at Vogel Thu Oct 15 – Wed Oct 21, **3-day / 2-night hike Sat Oct
-17 – Mon Oct 19**, rest day Tue Oct 20. Headcount: the roster says **5**; PLAN.md and the site
-booking say 6. Food below is sized for 5 with the 6-person number in brackets. Confirm the sixth.
+17 – Mon Oct 19**, free day Tue Oct 20. Headcount: **5**, confirmed by Jordan 2026-10-02 — the
+earlier 6-person brackets are gone. Food below is sized for 5. (Site P's own occupancy limit is 6;
+that is the site's cap, not our headcount.)
 
 Owned-and-covered group gear (do not buy): 2 base-camp tents, two-burner propane stove, camp pan,
 lantern x2, clothesline, 3 backpacking stoves, 3 x 750 ml pots, 2 x 8 oz fuel canisters, 2 Katadyn
@@ -15,7 +16,7 @@ crevice tools, loupes, trowels). Full table: `ROSTER.md`.
 
 | Item | Why / note | Price (picker) |
 |---|---|---|
-| Bear-proof food storage | 3 nights x 5 people of food is ~17 person-days. One Ursack Major holds ~5. **Buy 2**, or 1 Ursack + a hang bag on Jordan's paracord. No canister order applies in October. | $149.95 ea |
+| Bear-proof food storage | 2 nights x 5 people of food is ~11 person-days. One Ursack Major holds ~5. **Buy 2**, or 1 Ursack + a hang bag on Jordan's paracord. No canister order applies in October. | $149.95 ea |
 | Satellite messenger | No cell on the Coosa Backcountry Trail. Rent or buy. | $199.00 |
 | Nat Geo Chattahoochee-Oconee paper map x2 | One per hiking pair leader. | $59.80 |
 | Repair kit: Tenacious Tape + pad patch + duct tape + zip ties | Jordan's "repair kit" row is a different item; confirm his covers this. | $23.95 |
@@ -28,26 +29,28 @@ crevice tools, loupes, trowels). Full table: `ROSTER.md`.
 
 Group total (roster) **$1,025.34**, about **$205 each at 5** (plus the canister and a second Ursack).
 
-## 2. Hike food — Sat lunch through Tue lunch (carried)
+## 2. Hike food — Sat lunch through Mon lunch (carried)
 
-Breakfast at Vogel Sat, dinner at Vogel Tue. Carried: 3 breakfasts, 4 lunches, 3 dinners, 4 days of
-snacks. Plan on 1.5–2 lb per person per day: **7–8 lb each**, not the 3 lb in `research/gear.md`
-(that was sized for one night).
+**Re-sized 2026-10-08** for the 3-day / 2-night hike (was 4 days / 3 nights). Breakfast at Vogel
+Sat, dinner at Vogel Mon. Carried: **2 breakfasts, 3 lunches, 2 dinners, 3 days of snacks**. Plan on
+1.5–2 lb per person per day: **5–6 lb each**, not the 3 lb in `research/gear.md` (sized for one
+night) and not the 7–8 lb this table said when the hike was three nights.
 
-| Meal | Per person | x5 total [x6] | Buy-list row | Enough? |
+| Meal | Per person | x5 total | Buy-list row | Enough? |
 |---|---|---|---|---|
-| Breakfast x3 | 2 oatmeal packets + 1 coffee | 30 oatmeal, 15 coffee [36, 18] | Quaker 52 ct; Starbucks VIA 2 x 12 | yes |
-| Lunch x4 | 1 tortilla + PB or tuna, jerky | 20 tortillas, 13 PB, 7 tuna [24, 16, 8] | Mission 16 ct; Justin's 10-pack; StarKist 2 x 4 | **2 tortilla packs, 2 PB packs** |
-| Dinner x3 | 1 Mountain House 2-serving pouch | 15 pouches [18] | 12 pouches | **short: 15 needed (18 at 6)**. Nathan owns some: count his first |
-| Snacks x4 days | 2 bars, 3 oz trail mix, 1.5 oz jerky | 40 bars, 60 oz mix, 10 oz jerky [48, 72, 12] | Clif 2 x 12; Kirkland 4 lb; Jack Link's 3-pack | **bars short: buy 4 boxes**; mix short at 6 |
+| Breakfast x2 (Sun, Mon) | 2 oatmeal packets + 1 coffee | 20 oatmeal, 10 coffee | Quaker 52 ct; Starbucks VIA 2 x 12 | yes |
+| Lunch x3 (Sat, Sun, Mon) | 1 tortilla + PB or tuna, jerky | 15 tortillas, 10 PB, 5 tuna | Mission 16 ct; Justin's 10-pack; StarKist 2 x 4 | yes (1 tortilla pack, 1 PB pack) |
+| Dinner x2 (Sat, Sun) | 1 Mountain House 2-serving pouch | 10 pouches | 12 pouches | yes, 2 spare. Nathan owns some: count his first |
+| Snacks x3 days | 2 bars, 3 oz trail mix, 1.5 oz jerky | 30 bars, 45 oz mix, 7.5 oz jerky | Clif 2 x 12; Kirkland 4 lb; Jack Link's 3-pack | yes (24 bars in 2 boxes + base-camp spares; buy a 3rd box if you want slack) |
 
 Water: filter at camp (the creek at CAMP-U; headwater, October flow unconfirmed — fill up at WOLF-X before the climb, 2 L each), Aquatabs backup.
 Pack the food by day in gallon zip bags; everything with a smell goes in the Ursack/hang at night.
 
-## 3. Base camp food — 6 camp meals + 2 trail lunches
+## 3. Base camp food — 7 camp meals + 1 lunch
 
-Thu dinner, Fri breakfast (Fri dinner in Dahlonega), Sat breakfast, Tue dinner (make it the big one),
-Wed breakfast. The picker's "car-camp grocery run" ($140
+Re-counted 2026-10-08 for the Sat–Mon hike: Thu dinner, Fri breakfast (Fri lunch and dinner in
+Dahlonega), Sat breakfast, **Mon dinner (make it the big one — the group is back off the hike)**,
+Tue breakfast, Tue lunch (out or at camp, free day), Tue dinner, Wed breakfast. The picker's "car-camp grocery run" ($140
 est.) covers it: eggs, bacon/sausage, bread, pancake mix, hot dogs/burgers, condiments, chips, foil,
 ice, coffee, snacks. Buy in Blairsville (Ingles) Thu on the way in; ice again Tue. Food and coolers
 sleep in the truck cabs, not the tents (Vogel is developed; vehicle storage is the rule).

@@ -92,3 +92,7 @@ The order that governs that overnight. Ask by name:
   (e.g. Carry Anywhere Commode or a webbing-strap DIY stool — see
   `C:\dev\scratchpad\camp-toilet-chair.md`), or skip it and just dig catholes
   with the shared trowel + pack out waste in the WAG bags now on the buy list.
+
+## 6. GA DNR Wildlife Conservation Section — 706-557-3213 (added 2026-10-08)
+- Do the two crawdad traps count as "minnow traps", which are banned in designated trout waters? All our creeks (Wolf, Coosa, Calf Stump, Yahoola) are trout waters. If yes: hand catching only. Also: is a license needed to take crayfish by hand, and the daily limit. Source trail: research/fishing-crawdads.md.
+- Vogel State Park 706-745-2628: does Lake Trahlyta refill and the loop trail/falls reopen by Oct 15? (Park page 2026-10-08: drained, trail and falls closed.)

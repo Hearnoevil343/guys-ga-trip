@@ -14,6 +14,9 @@
   the Consolidated Gold Mine tour (on the
   square) — pick a spot when you're there, nothing pre-booked.
 
+- **Decided 2026-10-08 (Jordan): the hike is Sat Oct 17 – Mon Oct 19, 3 days / 2 nights, out Monday afternoon.** The Tue Oct 20 walk-out row below is stale; Tue Oct 20 is a free day. Fri Oct 16 is locked as written. Route rebuild pending (next chat). Confirmed 2026-10-08 (Jordan): still one-way, start WOLF-X, out at Owltown Gap; Sat WOLF-X -> Calf Stump Branch, Sun -> CAMP-U, Mon pan the morning at CAMP-U then walk out to Owltown Gap.
+- **Playground (Jordan, 2026-10-08):** two layers. (a) Towns: markets, food, gas, waterfalls, overlooks, festivals near Vogel with hours and Google Maps links, plus ready-made free-day plans (Thu 15 pm, Mon 19 evening, all Tue 20, Wed 21 am, rain). (b) The hike area itself (Coosa Bald / Duncan Ridge / Wolf Creek / East Fork Coosa): every named creek, trail, junction, gap, forest road, known campsite and water source, nearest store to each trailhead, so the group can go off-plan at will. The locked plan stays; the playground sits beside it. The 2-night WOLF-X -> Calf Stump -> CAMP-U -> Owltown Gap path is the one main path; the hike-area layer exists so it can be branched or adapted on the fly: at each camp and junction show the branches (bail-out to the nearest road, a longer or shorter day, a side creek to pan) with distance, climb, time and water, all readable offline.
+
 ## The week (decided 2026-10-02; geometry: map\data\days.json, built by map\data\_build_days.mjs then _build_backcountry.mjs)
 | Day | Plan | Pan? |
 |---|---|---|

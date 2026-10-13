@@ -985,7 +985,8 @@ PLACES = [
     ("LOWER reach - the last pan (Mon)", 34.7935, -83.98112, ""),
     ("Where the road starts, East Fork Coosa Creek", 34.79824, -83.97825, "Duncan Ridge Conn begins here."),
     ("Duncan Ridge Conn / Bowers Road junction", 34.80137, -83.96678, ""),
-    ("Owltown Gap (Bowers Road / FS 298)", 34.81143, -83.94952, "Truck 2 is staged here Friday evening."),
+    ("BOWERS-FS - truck 2 (Bowers Road / FS 298, first Forest Service ground)", 34.80382, -83.95267, "Truck 2 is staged here Friday evening, 0.68 mi down Bowers Road from Owltown Gap."),
+    ("Owltown Gap (Bowers Road leaves the paved Owltown Rd)", 34.81143, -83.94952, "Residential bend, no lot. Truck 2 is not left here."),
 ]
 
 # Phone numbers for the emergency card. Public page: no personal numbers here
@@ -1062,7 +1063,7 @@ WATER = [
      "34.7958, -83.9792, where it gathers more. The LOWER reach (34.7935, -83.98112), 0.3 mi down, "
      "is the first place with reliably more water."),
     ("Mon, walking out", "The creek to the road start, then nothing",
-     "Last fill at LOWER. Bowers Road out to Owltown Gap is 1.5 mi of road with no water. 1 L each is enough."),
+     "Last fill at LOWER. Bowers Road out to truck 2 is 0.8 mi of road with no water. 1 L each is enough."),
     ("Every camp", "Treat everything", "Filter first, Aquatabs as the backup. Nobody drinks straight from a headwater."),
 ]
 
@@ -1072,7 +1073,7 @@ FRIDAY = [
         "Check both trucks' fuel: Blairsville is the last gas before FS 107",
     ]),
     ("Evening, back at Vogel (before dark - dark is 7:25 PM)", [
-        "Stage truck 2 at Owltown Gap (34.81143, -83.94952), drive back in truck 1",
+        "Stage truck 2 at BOWERS-FS (34.80382, -83.95267): down Bowers Road / FS 298 from Owltown Gap 0.68 mi to the first Forest Service ground, not at the gap itself (houses, no lot). Drive back in truck 1",
         "Leave nothing visible in truck 2; it sits there until Monday afternoon",
         "Photograph truck 2's parking spot and the gate on the way out",
     ]),
@@ -1147,7 +1148,7 @@ def trip_card_html():
     out.append(
         '<p><b>What to say on the call:</b> "Union County, Chattahoochee National Forest, near Vogel '
         'State Park." Then read the decimal coordinates digit by digit. Then the nearest road: FS 107 '
-        'for night 1 and the way in, Bowers Road / FS 298 at Owltown Gap for night 2 and the way out.</p>')
+        'for night 1 and the way in, Bowers Road / FS 298 below Owltown Gap for night 2 and the way out.</p>')
     out.append(
         '<p><b>Nearest hospital:</b> Union General, Blairsville - about 25 minutes from Vogel, about '
         '40 from WOLF-X. <b>Nearest road to CAMP-U:</b> about 670 m, across a 500 ft slope - it is '
@@ -1411,7 +1412,7 @@ table.branches td:nth-child(1){{min-width:110px}} table.branches td:nth-child(2)
 <section id="start" class="on">
 <div class="card"><b>The trip:</b> 5 people, Site P walk-in (2 tents, 2 vehicles), arrive Thu Oct 15, leave Wed Oct 21.
 Panning at drive-up creeks + Consolidated Gold Mine tour + Dahlonega, plus one 3-day hike (Sat&ndash;Mon 17&ndash;19).</div>
-<div class="card"><b>The hike:</b> 3 days / 2 nights, Sat Oct 17 &ndash; Mon Oct 19, Coosa Backcountry Trail to West Fork Wolf Creek, then East Fork Coosa Creek, out at Owltown Gap. Not yet ranger-confirmed legal.</div>
+<div class="card"><b>The hike:</b> 3 days / 2 nights, Sat Oct 17 &ndash; Mon Oct 19, Coosa Backcountry Trail to West Fork Wolf Creek, then East Fork Coosa Creek, out by Bowers Road below Owltown Gap. Not yet ranger-confirmed legal.</div>
 <div class="card"><b>Dates that matter:</b> firearms deer season opens Oct 17 (blaze orange). Gold Rush Days Oct 17&ndash;18 (visit Dahlonega Fri 16).
 Panning banned in Wilderness, state parks, Smithgall Woods; National Forest = hand pan + trowel only.</div>
 <div class="card"><b>Gear:</b> {html.escape(total)}. Your own picks re-compute weight and cost in the <b>Buy list</b> tab's totals card &mdash; that card is the number to trust. Order the tent + quilt first (2&ndash;4 wk).</div>

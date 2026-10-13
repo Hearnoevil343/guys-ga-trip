@@ -17,6 +17,12 @@ see `research\backcountry-route-design.md`. Ask these first:**
 - Can a truck be left at the **Coosa Backcountry Trail crossing of FS 107** Sat
   Oct 17 morning through Mon Oct 19 afternoon (2 nights)? (FS 107 itself is open —
   Jordan, first-hand, 2026-10-05.)
+- Is **Bowers Road (FS 298)** open to the public and ungated for its first 0.68 mi
+  below Owltown Gap, where it crosses private land (down to about 34.8041, -83.9527)?
+  We want to leave a truck Fri Oct 16 evening through Mon Oct 19 afternoon just past
+  that stretch, at the first Forest Service ground (34.80382, -83.95267), clear of the
+  roadway. (Added 2026-10-12: Owltown Gap itself is a residential bend with no lot, so
+  the truck is not left there.)
 - Which WMA covers Coosa Creek / Coosa Bald, and are there hunts Oct 17-19?
 - ~~Is panning actually prohibited in designated Wilderness?~~ **ANSWERED — confirmed by Jordan, 2026-09-21: yes, panning is banned in designated Wilderness.** No official USFS page states this (still true), but it no longer needs a ranger call.
 

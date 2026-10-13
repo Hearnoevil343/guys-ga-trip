@@ -7,7 +7,7 @@
     "group_factor": 0.85,
     "note": "Six people move slower than one. Speed factors are applied to Tobler's speed (kmh_effective = kmh_tobler * group_factor * pack_or_daypack_factor), not to time directly, so a slower group takes MORE time, not less. Times are moving time only; pan and tour windows are separate stationary legs. Minutes rounded to the nearest 5. start/end lat/lng on each day are taken directly from the first/last leg's real coordinates (or the day's only stationary point when it has no drive/walk legs), not looked up separately, so the chain-consistency check compares real coordinates.",
     "drive_timing_model": "Every drive leg is fetched from OSRM with steps=true and grouped into named road segments. Each segment's OSM way is looked up (api.openstreetmap.org small-bbox, nearest way within 150m, preferring a name match) and classified: PAVED (surface=asphalt|paved|concrete, or highway=primary|secondary|tertiary|residential) trusts OSRM's own duration for that segment. UNPAVED (surface=gravel|dirt|unpaved|compacted|ground, or highway=track|unclassified with no paved surface tag) is re-timed at a flat 15 mph — a deliberately conservative real-world speed for a truck on maintained-but-rough Forest Service gravel, chosen because OSRM's default highway=track penalty came out to 3-6 mph (walking pace) on roads this group will actually drive (e.g. Noontoola Road, Blue Ridge Road near Three Forks; Chattahoochee River Road, Poplar Stump Road near FS-44). UNDETERMINABLE (no OSM way found nearby) keeps OSRM's duration unless OSRM's own implied speed was already under 10 mph, in which case it's also re-timed at 15 mph but flagged confidence 'low'. Distance is always OSRM's real routed distance — only duration is ever adjusted, per segment, never the path. Each drive leg keeps both minutes (adjusted) and minutes_osrm_raw (original OSRM total) plus a full retimed_steps audit trail (per-segment name, surface tag, OSRM mph vs. mph used, confidence). timing_confidence on the leg is 'estimated' if any segment was re-timed, else 'exact'. Cross-check the two longest re-timed legs (Vogel<->Three Forks, and Day 4's Tesnatee/Upper-Chattahoochee/Dukes loop) against Google Maps before the trip — this is a same-order-of-magnitude estimate for rough forest road, not a survey.",
-    "backcountry_note": "map/data/_build_backcountry.mjs builds the single decided route (2026-10-05 area and camps, reshaped 2026-10-08 to 3 days / 2 nights): day 1 = set camp + Helton Creek Falls (Vogel lake loop and Trahlyta Falls closed) + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle) plus the Friday-evening truck-2 staging at Owltown Gap, day 3 (Sat Oct 17) = truck to WOLF-X, pan, Coosa Backcountry Trail over Calf Stomp Gap to camp at Calf Stump Branch, day 4 (Sun Oct 18) = morning pan, Roaring Fork Trail, off-trail drop to CAMP-U, day 5 (Mon Oct 19) = morning pan at CAMP-U then walk out down the creek, Duncan Ridge Conn and Bowers Road to truck 2 at Owltown Gap and drive to Vogel, day 6 (Tue Oct 20) = free day at Vogel with no fixed route (the hub Playground tab holds the options), day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json)."
+    "backcountry_note": "map/data/_build_backcountry.mjs builds the single decided route (2026-10-05 area and camps, reshaped 2026-10-08 to 3 days / 2 nights): day 1 = set camp + Helton Creek Falls (Vogel lake loop and Trahlyta Falls closed) + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle) plus the Friday-evening truck-2 staging at BOWERS-FS on Bowers Road (Forest Service ground below Owltown Gap, owner 2026-10-12), day 3 (Sat Oct 17) = truck to WOLF-X, pan, Coosa Backcountry Trail over Calf Stomp Gap to camp at Calf Stump Branch, day 4 (Sun Oct 18) = morning pan, Roaring Fork Trail, off-trail drop to CAMP-U, day 5 (Mon Oct 19) = morning pan at CAMP-U then walk out down the creek, Duncan Ridge Conn and Bowers Road to truck 2 at BOWERS-FS and drive to Vogel, day 6 (Tue Oct 20) = free day at Vogel with no fixed route (the hub Playground tab holds the options), day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json)."
   },
   "days": [
     {
@@ -25577,7 +25577,7 @@
         },
         {
           "type": "drive",
-          "label": "Evening: stage truck 2 at Owltown Gap (both trucks)",
+          "label": "Evening: stage truck 2 at BOWERS-FS on Bowers Road, 0.68 mi below Owltown Gap (both trucks)",
           "coords": [
             [
               34.765678,
@@ -27381,15 +27381,151 @@
             ],
             [
               34.811433,
-              -83.94952
+              -83.949522
+            ],
+            [
+              34.811386,
+              -83.949591
+            ],
+            [
+              34.811133,
+              -83.949982
+            ],
+            [
+              34.810871,
+              -83.950575
+            ],
+            [
+              34.810501,
+              -83.950967
+            ],
+            [
+              34.810347,
+              -83.951045
+            ],
+            [
+              34.809997,
+              -83.95108
+            ],
+            [
+              34.80958,
+              -83.951404
+            ],
+            [
+              34.809338,
+              -83.951431
+            ],
+            [
+              34.809136,
+              -83.951208
+            ],
+            [
+              34.809054,
+              -83.95102
+            ],
+            [
+              34.808955,
+              -83.950908
+            ],
+            [
+              34.808783,
+              -83.950972
+            ],
+            [
+              34.808651,
+              -83.951117
+            ],
+            [
+              34.80846,
+              -83.951163
+            ],
+            [
+              34.808403,
+              -83.951092
+            ],
+            [
+              34.808308,
+              -83.950972
+            ],
+            [
+              34.808125,
+              -83.95061
+            ],
+            [
+              34.807984,
+              -83.950535
+            ],
+            [
+              34.807835,
+              -83.950608
+            ],
+            [
+              34.807522,
+              -83.95078
+            ],
+            [
+              34.807187,
+              -83.951069
+            ],
+            [
+              34.807041,
+              -83.951388
+            ],
+            [
+              34.807079,
+              -83.951881
+            ],
+            [
+              34.807013,
+              -83.952075
+            ],
+            [
+              34.806585,
+              -83.952171
+            ],
+            [
+              34.806266,
+              -83.952598
+            ],
+            [
+              34.80605,
+              -83.952657
+            ],
+            [
+              34.805771,
+              -83.952603
+            ],
+            [
+              34.805293,
+              -83.952885
+            ],
+            [
+              34.805015,
+              -83.952913
+            ],
+            [
+              34.804953,
+              -83.95292
+            ],
+            [
+              34.804621,
+              -83.952762
+            ],
+            [
+              34.804394,
+              -83.952654
+            ],
+            [
+              34.803823,
+              -83.952665
             ]
           ],
-          "miles": 8.7,
-          "minutes": 18,
-          "minutes_osrm_raw": 18,
+          "miles": 9.4,
+          "minutes": 21,
+          "minutes_osrm_raw": 21,
           "geometry_confidence": "exact",
-          "timing_confidence": "exact",
-          "timing_model": "OSRM steps=true checked by real road surface; every segment paved or already >= 10 mph, no re-timing needed.",
+          "timing_confidence": "estimated",
+          "timing_model": "OSRM steps=true re-timed by real road surface; 1 unpaved/track segment(s) re-timed at 15 mph.",
           "retimed_steps": [
             {
               "name": "(unnamed)",
@@ -27488,17 +27624,169 @@
                 "highway": "residential",
                 "surface": null
               }
+            },
+            {
+              "name": "Bowers Road",
+              "ref": "FS 298",
+              "miles": 0.68,
+              "surface": "unpaved",
+              "retimed": true,
+              "confidence": "medium",
+              "mph_osrm": 15.5,
+              "mph_used": 15,
+              "osm_tags": {
+                "highway": "unclassified",
+                "surface": null
+              }
             }
           ],
-          "source": "OSRM driving route, steps=true (router.project-osrm.org public demo server); surface re-time per findRoadTagsNear (api.openstreetmap.org small-bbox), fetched 2026-09-21."
+          "source": "OSRM driving route, steps=true (router.project-osrm.org public demo server); surface re-time per findRoadTagsNear (api.openstreetmap.org small-bbox), fetched 2026-09-21.",
+          "access_confidence": "unconfirmed",
+          "access_note": "Bowers Road (FS 298) crosses private land for its first 0.68 mi below Owltown Gap (down to about 34.8041, -83.9527): whether the public may drive that stretch is UNCONFIRMED — on the call list. Truck 2 sits just past it at BOWERS-FS on Forest Service ground; the walk from the junction to the truck is all Forest Service."
         },
         {
           "type": "drive",
-          "label": "Owltown Gap back to Vogel (truck 1)",
+          "label": "BOWERS-FS back to Vogel (truck 1)",
           "coords": [
             [
+              34.803823,
+              -83.952665
+            ],
+            [
+              34.804394,
+              -83.952654
+            ],
+            [
+              34.804621,
+              -83.952762
+            ],
+            [
+              34.804953,
+              -83.95292
+            ],
+            [
+              34.805015,
+              -83.952913
+            ],
+            [
+              34.805293,
+              -83.952885
+            ],
+            [
+              34.805771,
+              -83.952603
+            ],
+            [
+              34.80605,
+              -83.952657
+            ],
+            [
+              34.806266,
+              -83.952598
+            ],
+            [
+              34.806585,
+              -83.952171
+            ],
+            [
+              34.807013,
+              -83.952075
+            ],
+            [
+              34.807079,
+              -83.951881
+            ],
+            [
+              34.807041,
+              -83.951388
+            ],
+            [
+              34.807187,
+              -83.951069
+            ],
+            [
+              34.807522,
+              -83.95078
+            ],
+            [
+              34.807835,
+              -83.950608
+            ],
+            [
+              34.807984,
+              -83.950535
+            ],
+            [
+              34.808125,
+              -83.95061
+            ],
+            [
+              34.808308,
+              -83.950972
+            ],
+            [
+              34.808403,
+              -83.951092
+            ],
+            [
+              34.80846,
+              -83.951163
+            ],
+            [
+              34.808651,
+              -83.951117
+            ],
+            [
+              34.808783,
+              -83.950972
+            ],
+            [
+              34.808955,
+              -83.950908
+            ],
+            [
+              34.809054,
+              -83.95102
+            ],
+            [
+              34.809136,
+              -83.951208
+            ],
+            [
+              34.809338,
+              -83.951431
+            ],
+            [
+              34.80958,
+              -83.951404
+            ],
+            [
+              34.809997,
+              -83.95108
+            ],
+            [
+              34.810347,
+              -83.951045
+            ],
+            [
+              34.810501,
+              -83.950967
+            ],
+            [
+              34.810871,
+              -83.950575
+            ],
+            [
+              34.811133,
+              -83.949982
+            ],
+            [
+              34.811386,
+              -83.949591
+            ],
+            [
               34.811433,
-              -83.94952
+              -83.949522
             ],
             [
               34.811434,
@@ -29281,13 +29569,27 @@
               -83.925062
             ]
           ],
-          "miles": 8.7,
-          "minutes": 18,
-          "minutes_osrm_raw": 18,
+          "miles": 9.4,
+          "minutes": 21,
+          "minutes_osrm_raw": 21,
           "geometry_confidence": "exact",
-          "timing_confidence": "exact",
-          "timing_model": "OSRM steps=true checked by real road surface; every segment paved or already >= 10 mph, no re-timing needed.",
+          "timing_confidence": "estimated",
+          "timing_model": "OSRM steps=true re-timed by real road surface; 1 unpaved/track segment(s) re-timed at 15 mph.",
           "retimed_steps": [
+            {
+              "name": "Bowers Road",
+              "ref": "FS 298",
+              "miles": 0.68,
+              "surface": "unpaved",
+              "retimed": true,
+              "confidence": "medium",
+              "mph_osrm": 15.5,
+              "mph_used": 15,
+              "osm_tags": {
+                "highway": "unclassified",
+                "surface": null
+              }
+            },
             {
               "name": "Owltown Road",
               "ref": null,
@@ -29387,10 +29689,13 @@
               }
             }
           ],
-          "source": "OSRM driving route, steps=true (router.project-osrm.org public demo server); surface re-time per findRoadTagsNear (api.openstreetmap.org small-bbox), fetched 2026-09-21."
+          "source": "OSRM driving route, steps=true (router.project-osrm.org public demo server); surface re-time per findRoadTagsNear (api.openstreetmap.org small-bbox), fetched 2026-09-21.",
+          "access_confidence": "unconfirmed",
+          "access_note": "Bowers Road (FS 298) crosses private land for its first 0.68 mi below Owltown Gap (down to about 34.8041, -83.9527): whether the public may drive that stretch is UNCONFIRMED — on the call list. Truck 2 sits just past it at BOWERS-FS on Forest Service ground; the walk from the junction to the truck is all Forest Service."
         }
       ],
-      "note": "Evening: leave truck 2 at Owltown Gap for Monday's walk-out. Pack the hike packs tonight: Sat leaves at 07:30."
+      "note": "Evening: leave truck 2 at BOWERS-FS (Bowers Road / FS 298, first Forest Service ground 0.68 mi below Owltown Gap; not at the gap, which is a residential bend with no lot) for Monday's walk-out. Pack the hike packs tonight: Sat leaves at 07:30.",
+      "access_confidence": "unconfirmed"
     },
     {
       "day": 3,
@@ -29410,7 +29715,7 @@
         "lat": 34.782438,
         "lng": -83.958583
       },
-      "note": "Truck 1 stays at WOLF-X until Monday. Truck 2 is already at Owltown Gap (staged Friday evening). Deer season opens today: blaze orange on everyone.",
+      "note": "Truck 1 stays at WOLF-X until Monday. Truck 2 is already at BOWERS-FS on Bowers Road (staged Friday evening). Deer season opens today: blaze orange on everyone.",
       "legs": [
         {
           "type": "meal",
@@ -33174,7 +33479,7 @@
     {
       "day": 5,
       "date": "2026-10-19",
-      "title": "Morning pan at CAMP-U, walk out to Owltown Gap, drive to Vogel",
+      "title": "Morning pan at CAMP-U, walk out to truck 2 on Bowers Road, drive to Vogel",
       "optional": false,
       "start": {
         "ref": "camp_u",
@@ -33189,7 +33494,7 @@
         "lat": 34.765883,
         "lng": -83.925416
       },
-      "note": "Last day out: pan the morning at camp, then walk out. Down the creek to the road, the road to truck 2 at Owltown Gap, drive to WOLF-X for truck 1, both trucks to Vogel. Hot dinner and showers tonight. Food carried is Sat lunch through this lunch: 2 breakfasts, 3 lunches, 2 dinners.",
+      "note": "Last day out: pan the morning at camp, then walk out. Down the creek to the road, the road to truck 2 at BOWERS-FS (Bowers Road, Forest Service ground, 0.68 mi below Owltown Gap), drive to WOLF-X for truck 1, both trucks to Vogel. Hot dinner and showers tonight. Food carried is Sat lunch through this lunch: 2 breakfasts, 3 lunches, 2 dinners.",
       "legs": [
         {
           "type": "meal",
@@ -33659,7 +33964,7 @@
         },
         {
           "type": "walk",
-          "label": "Bowers Road (FS 298) to Owltown Gap — truck 2",
+          "label": "Bowers Road (FS 298) to BOWERS-FS — truck 2 (all Forest Service ground)",
           "coords": [
             [
               34.801371,
@@ -33712,6 +34017,21 @@
             [
               34.803823,
               -83.952665
+            ]
+          ],
+          "miles": 0.84,
+          "minutes": 25,
+          "gain_ft": 112,
+          "geometry_confidence": "exact",
+          "source": "Real OSM way geometry, Bowers Road (research/_coosa_osm.geojson); Forest Service ground checked against map/data/private.geojson 2026-10-12."
+        },
+        {
+          "type": "drive",
+          "label": "BOWERS-FS up Bowers Road and over Owltown Gap to WOLF-X (truck 2) to collect truck 1",
+          "coords": [
+            [
+              34.803823,
+              -83.952665
             ],
             [
               34.804394,
@@ -33723,7 +34043,7 @@
             ],
             [
               34.804953,
-              -83.952919
+              -83.95292
             ],
             [
               34.805015,
@@ -33823,7 +34143,7 @@
             ],
             [
               34.809997,
-              -83.951079
+              -83.95108
             ],
             [
               34.810347,
@@ -33848,23 +34168,6 @@
             [
               34.811433,
               -83.949522
-            ]
-          ],
-          "miles": 1.52,
-          "minutes": 40,
-          "gain_ft": 108,
-          "geometry_confidence": "exact",
-          "source": "Real OSM way geometry, Bowers Road (research/_coosa_osm.geojson).",
-          "access_confidence": "unconfirmed",
-          "access_note": "Bowers Road (FS 298) crosses private land between 34.8064 and Owltown Gap: public use of that stretch UNCONFIRMED — on the call list."
-        },
-        {
-          "type": "drive",
-          "label": "Owltown Gap to WOLF-X (truck 2) to collect truck 1",
-          "coords": [
-            [
-              34.811433,
-              -83.94952
             ],
             [
               34.811434,
@@ -35339,13 +35642,27 @@
               -83.924856
             ]
           ],
-          "miles": 7.6,
-          "minutes": 24,
-          "minutes_osrm_raw": 24,
+          "miles": 8.3,
+          "minutes": 27,
+          "minutes_osrm_raw": 27,
           "geometry_confidence": "exact",
-          "timing_confidence": "exact",
-          "timing_model": "OSRM steps=true checked by real road surface; every segment paved or already >= 10 mph, no re-timing needed.",
+          "timing_confidence": "estimated",
+          "timing_model": "OSRM steps=true re-timed by real road surface; 1 unpaved/track segment(s) re-timed at 15 mph.",
           "retimed_steps": [
+            {
+              "name": "Bowers Road",
+              "ref": "FS 298",
+              "miles": 0.68,
+              "surface": "unpaved",
+              "retimed": true,
+              "confidence": "medium",
+              "mph_osrm": 15.5,
+              "mph_used": 15,
+              "osm_tags": {
+                "highway": "unclassified",
+                "surface": null
+              }
+            },
             {
               "name": "Owltown Road",
               "ref": null,
@@ -35432,7 +35749,8 @@
             }
           ],
           "source": "OSRM driving route, steps=true (router.project-osrm.org public demo server); surface re-time per findRoadTagsNear (api.openstreetmap.org small-bbox), fetched 2026-09-21.",
-          "access_note": "FS 107 (West Wolf Creek Road) is open to vehicles — owner, first-hand, 2026-10-05. Park clear of the roadway at the trail crossing; USFS allows roadside parking up to 14 days."
+          "access_confidence": "unconfirmed",
+          "access_note": "Bowers Road (FS 298) crosses private land for its first 0.68 mi below Owltown Gap (down to about 34.8041, -83.9527): whether the public may drive that stretch is UNCONFIRMED — on the call list. Truck 2 sits just past it at BOWERS-FS on Forest Service ground; the walk from the junction to the truck is all Forest Service. FS 107 (West Wolf Creek Road) is open to vehicles — owner, first-hand, 2026-10-05. Park clear of the roadway at the trail crossing; USFS allows roadside parking up to 14 days."
         },
         {
           "type": "drive",

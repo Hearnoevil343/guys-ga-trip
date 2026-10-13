@@ -1,6 +1,6 @@
 {
   "schema": "playground-area-v1",
-  "built": "2026-10-08",
+  "built": "2026-10-13",
   "area": {
     "minLat": 34.72,
     "maxLat": 34.86,
@@ -99,11 +99,19 @@
     },
     {
       "id": "owltown_gap",
-      "label": "Owltown Gap (Bowers Road / FS 298 trailhead)",
+      "label": "Owltown Gap (where Bowers Road / FS 298 leaves the paved road)",
       "lat": 34.81143,
       "lng": -83.94952,
+      "type": "junction",
+      "note": "A residential bend on paved Owltown Rd with houses on it and no lot. Truck 2 is NOT left here (owner, 2026-10-12): it sits 0.68 mi down Bowers Road at BOWERS-FS."
+    },
+    {
+      "id": "bowers_fs",
+      "label": "BOWERS-FS — truck 2 (Bowers Road / FS 298, first Forest Service ground)",
+      "lat": 34.80382,
+      "lng": -83.95267,
       "type": "trailhead",
-      "note": "Where truck 2 is staged Friday evening and where the hike ends Monday."
+      "note": "Where truck 2 is staged Friday evening and where the hike ends Monday. Park clear of the roadway; USFS allows roadside parking up to 14 days."
     },
     {
       "id": "ef_fs_boundary",
@@ -8286,7 +8294,7 @@
       "miles": 1.92,
       "gain_ft": 154,
       "minutes": 60,
-      "ends_at": "Duncan Ridge Conn / Bowers Road junction — then 1.5 mi of Bowers Road to truck 2 at Owltown Gap",
+      "ends_at": "Duncan Ridge Conn / Bowers Road junction — then 0.8 mi of Bowers Road to truck 2 at BOWERS-FS",
       "water": "none on the road — carry it.",
       "note": "The fastest way off the ridge to a road a truck can meet you on, and it lands on the same exit the hike already uses. Forest roads: whether the gates are open is a ranger call (CALLS.md #1). This was the 2026-10-05 route that got dropped for walking roads — fine as a bail-out, not as the plan.",
       "non_fs_vertices": 0,
@@ -13102,15 +13110,15 @@
     {
       "node": "conn_bowers_jct",
       "kind": "the plan (day 3)",
-      "label": "Bowers Road (FS 298) to Owltown Gap",
+      "label": "Bowers Road (FS 298) to truck 2 at BOWERS-FS",
       "mode": "pack",
-      "miles": 1.52,
-      "gain_ft": 108,
-      "minutes": 40,
-      "ends_at": "Owltown Gap — truck 2",
+      "miles": 0.84,
+      "gain_ft": 112,
+      "minutes": 25,
+      "ends_at": "BOWERS-FS — truck 2, the first Forest Service ground on Bowers Road below Owltown Gap",
       "water": "none on the road.",
-      "note": "Bowers Road crosses private land between 34.8064 and Owltown Gap: public use of that stretch UNCONFIRMED, on the call list (CALLS.md #1).",
-      "non_fs_vertices": 34,
+      "note": "All Forest Service ground from the junction to the truck. Above the truck, Bowers Road crosses private land for 0.68 mi up to Owltown Gap: whether the public may drive that stretch is UNCONFIRMED, on the call list (CALLS.md #1).",
+      "non_fs_vertices": 0,
       "state_parks": [],
       "geometry_source": "Real OSM way geometry (research/_coosa_osm.geojson, ODbL).",
       "coords": [
@@ -13165,142 +13173,6 @@
         [
           34.80382,
           -83.95267
-        ],
-        [
-          34.80439,
-          -83.95265
-        ],
-        [
-          34.80462,
-          -83.95276
-        ],
-        [
-          34.80495,
-          -83.95292
-        ],
-        [
-          34.80501,
-          -83.95291
-        ],
-        [
-          34.80529,
-          -83.95288
-        ],
-        [
-          34.80577,
-          -83.9526
-        ],
-        [
-          34.80605,
-          -83.95266
-        ],
-        [
-          34.80627,
-          -83.9526
-        ],
-        [
-          34.80659,
-          -83.95217
-        ],
-        [
-          34.80701,
-          -83.95207
-        ],
-        [
-          34.80708,
-          -83.95188
-        ],
-        [
-          34.80704,
-          -83.95139
-        ],
-        [
-          34.80719,
-          -83.95107
-        ],
-        [
-          34.80752,
-          -83.95078
-        ],
-        [
-          34.80783,
-          -83.95061
-        ],
-        [
-          34.80798,
-          -83.95053
-        ],
-        [
-          34.80812,
-          -83.95061
-        ],
-        [
-          34.80831,
-          -83.95097
-        ],
-        [
-          34.8084,
-          -83.95109
-        ],
-        [
-          34.80846,
-          -83.95116
-        ],
-        [
-          34.80865,
-          -83.95112
-        ],
-        [
-          34.80878,
-          -83.95097
-        ],
-        [
-          34.80895,
-          -83.95091
-        ],
-        [
-          34.80905,
-          -83.95102
-        ],
-        [
-          34.80914,
-          -83.95121
-        ],
-        [
-          34.80934,
-          -83.95143
-        ],
-        [
-          34.80958,
-          -83.9514
-        ],
-        [
-          34.81,
-          -83.95108
-        ],
-        [
-          34.81035,
-          -83.95104
-        ],
-        [
-          34.8105,
-          -83.95097
-        ],
-        [
-          34.81087,
-          -83.95058
-        ],
-        [
-          34.81113,
-          -83.94998
-        ],
-        [
-          34.81139,
-          -83.94959
-        ],
-        [
-          34.81143,
-          -83.94952
         ]
       ]
     },
@@ -13881,7 +13753,7 @@
         34.8223,
         -83.91862
       ],
-      "meters_from_route": 2747,
+      "meters_from_route": 3499,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -15050,14 +14922,14 @@
       ]
     },
     {
-      "node": "owltown_gap",
-      "label": "Owltown Gap (Bowers Road / FS 298 trailhead)",
+      "node": "bowers_fs",
+      "label": "BOWERS-FS — truck 2 (Bowers Road / FS 298, first Forest Service ground)",
       "nearest": [
         {
           "name": "Valero, Gainesville Hwy",
           "category": "gas",
           "hours": "unknown (fetched 2026-10-08)",
-          "miles_straight": 2.7,
+          "miles_straight": 3,
           "drive_min_from_vogel": 9,
           "gmaps": "https://www.google.com/maps/search/?api=1&query=Valero%2C%20Gainesville%20Hwy%2C%205315%20Gainesville%20Hwy%2C%20Blairsville%2C%20GA%2030512",
           "website": "https://locations.valero.com/en-us/LocationDetails/Index/5315-GAINESVILLE-HWY/0000013078",
@@ -15068,7 +14940,7 @@
           "name": "Jim's Smokin' Que",
           "category": "food",
           "hours": "Now Open 7 Days a Week, 11AM – 8PM (fetched 2026-10-08)",
-          "miles_straight": 2.7,
+          "miles_straight": 3,
           "drive_min_from_vogel": 10,
           "gmaps": "https://www.google.com/maps/search/?api=1&query=Jim%27s%20Smokin%27%20Que%2C%204971%20Gainesville%20Hwy%2C%20Blairsville%2C%20GA%2030512",
           "website": "https://www.jimssmokinque.com/",
@@ -15079,7 +14951,7 @@
           "name": "Laundry inside Vogel State Park",
           "category": "service",
           "hours": "unknown (fetched 2026-10-08)",
-          "miles_straight": 3.5,
+          "miles_straight": 3.1,
           "drive_min_from_vogel": 2,
           "gmaps": "https://www.google.com/maps/search/?api=1&query=Laundry%20inside%20Vogel%20State%20Park%2C%20Vogel%20State%20Park%2C%20405%20Vogel%20State%20Park%20Road%2C%20Blairsville%2C%20GA%2030512",
           "website": null,

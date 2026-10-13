@@ -6,7 +6,8 @@
 // Trail west, off-trail drop to the road-free upper East Fork Coosa Creek
 // (CAMP-U). RESHAPED 2026-10-08 (owner): the hike is 3 days / 2 nights — Mon
 // Oct 19 pan the morning at CAMP-U then walk out down the creek, Duncan Ridge
-// Conn and Bowers Road to truck 2 at Owltown Gap (staged Fri evening); Tue
+// Conn and Bowers Road to truck 2 at BOWERS-FS, the first Forest Service
+// ground on Bowers Road below Owltown Gap (staged Fri evening); Tue
 // Oct 20 is a free day with no fixed route.
 //
 // Run AFTER map/data/_build_days.mjs. On the first run after _build_days.mjs
@@ -56,7 +57,14 @@ function polyMiles(line) { let d = 0; for (let i = 0; i < line.length - 1; i++) 
 
 const POINTS = {
   vogel_basecamp: { lat: 34.765883, lng: -83.925416, label: 'Vogel State Park — base camp (walk-in site P)' },
-  owltown_gap: { lat: 34.81143, lng: -83.94952, label: 'Owltown Gap (Bowers Road / FS 298 trailhead)' },
+  owltown_gap: { lat: 34.81143, lng: -83.94952, label: 'Owltown Gap (where Bowers Road / FS 298 leaves the paved Owltown Rd)' },
+  // BOWERS-FS (owner, 2026-10-12: both trucks sit on Forest Service ground, not
+  // at the gap, which is a residential bend with houses and no lot). This is the
+  // first Bowers Road vertex on Forest Service ground coming down from the gap:
+  // vertices 0-33 of the OSM way (1,097 m, 0.68 mi) fall inside private.geojson,
+  // vertex 34 and everything on to the Duncan Ridge Conn junction are FS.
+  // Checked 2026-10-12 against research/_coosa_osm.geojson + map/data/private.geojson.
+  bowers_fs: { lat: 34.80382, lng: -83.95267, label: 'BOWERS-FS — truck 2 (Bowers Road / FS 298, first Forest Service ground below Owltown Gap)' },
   // OSM: tourism=information node 4173263790 "Helton Creek Falls" on Helton Creek Road (trailhead board); waterway=waterfall node 7589363460. Nominatim, fetched 2026-10-02.
   brasstown_parking: { lat: 34.869027, lng: -83.81045, label: 'Brasstown Bald parking lot (OSM way 268844595)' },
   helton_trailhead: { lat: 34.753214, lng: -83.894488, label: 'Helton Creek Falls trailhead (Helton Creek Road / FS 118)' },
@@ -370,20 +378,20 @@ const CALF_STUMP_WATER_NOTE = 'Small headwater branch; October is the driest mon
 
 // Walk-out (owner's call 2026-10-05): down the creek from CAMP-U to where the
 // road starts (LEAVES_CREEK), then the road to the JUNCTION and Bowers Road
-// (FS 298) to Owltown Gap, where truck 2 is staged.
+// (FS 298) to BOWERS-FS, where truck 2 is staged (not Owltown Gap itself).
 function wayBetween(line, a, b) {
   const ia = nearestVertexOnWay(a[0], a[1], line).index, ib = nearestVertexOnWay(b[0], b[1], line).index;
   const pts = line.slice(Math.min(ia, ib), Math.max(ia, ib) + 1);
   return ia <= ib ? pts : pts.slice().reverse();
 }
 const JUNCTION = [34.80137, -83.96678];
-const OWLTOWN = [POINTS.owltown_gap.lat, POINTS.owltown_gap.lng];
+const TRUCK2 = [POINTS.bowers_fs.lat, POINTS.bowers_fs.lng];
 const outCreek = creekSlice(CAMP_U, LEAVES_CREEK);
 const outConn = wayBetween(namedLine('Duncan Ridge Conn'), LEAVES_CREEK, JUNCTION);
-const outBowers = wayBetween(namedLine('Bowers Road'), JUNCTION, OWLTOWN);
-console.log(`Walk-out: creek ${polyMiles(outCreek).toFixed(2)} mi, Duncan Ridge Conn ${polyMiles(outConn).toFixed(2)} mi (starts ${dist(outConn[0], LEAVES_CREEK).toFixed(0)} m from road end, ends ${dist(outConn[outConn.length - 1], JUNCTION).toFixed(0)} m from JUNCTION), Bowers Road ${polyMiles(outBowers).toFixed(2)} mi (starts ${dist(outBowers[0], JUNCTION).toFixed(0)} m from JUNCTION, ends ${dist(outBowers[outBowers.length - 1], OWLTOWN).toFixed(0)} m from Owltown Gap).`);
-const BOWERS_NOTE = 'Bowers Road (FS 298) crosses private land between 34.8064 and Owltown Gap: public use of that stretch UNCONFIRMED — on the call list.';
-const OWLTOWN_PT = { lat: POINTS.owltown_gap.lat, lng: POINTS.owltown_gap.lng, label: POINTS.owltown_gap.label };
+const outBowers = wayBetween(namedLine('Bowers Road'), JUNCTION, TRUCK2);
+console.log(`Walk-out: creek ${polyMiles(outCreek).toFixed(2)} mi, Duncan Ridge Conn ${polyMiles(outConn).toFixed(2)} mi (starts ${dist(outConn[0], LEAVES_CREEK).toFixed(0)} m from road end, ends ${dist(outConn[outConn.length - 1], JUNCTION).toFixed(0)} m from JUNCTION), Bowers Road ${polyMiles(outBowers).toFixed(2)} mi (starts ${dist(outBowers[0], JUNCTION).toFixed(0)} m from JUNCTION, ends ${dist(outBowers[outBowers.length - 1], TRUCK2).toFixed(0)} m from BOWERS-FS).`);
+const BOWERS_NOTE = 'Bowers Road (FS 298) crosses private land for its first 0.68 mi below Owltown Gap (down to about 34.8041, -83.9527): whether the public may drive that stretch is UNCONFIRMED — on the call list. Truck 2 sits just past it at BOWERS-FS on Forest Service ground; the walk from the junction to the truck is all Forest Service.';
+const TRUCK2_PT = { lat: POINTS.bowers_fs.lat, lng: POINTS.bowers_fs.lng, label: POINTS.bowers_fs.label };
 
 async function buildSatIn() {
   console.log('\n=== Oct 17 — truck to WOLF-X, pan, trail over Calf Stomp Gap to Calf Stump Branch ===');
@@ -403,7 +411,7 @@ async function buildSatIn() {
     day: 3, date: '2026-10-17', title: 'Truck to WOLF-X, pan, hike over Calf Stomp Gap, camp at Calf Stump Branch', optional: false,
     start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '07:30' },
     end: CAMP_CS_END,
-    note: 'Truck 1 stays at WOLF-X until Monday. Truck 2 is already at Owltown Gap (staged Friday evening). Deer season opens today: blaze orange on everyone.',
+    note: 'Truck 1 stays at WOLF-X until Monday. Truck 2 is already at BOWERS-FS on Bowers Road (staged Friday evening). Deer season opens today: blaze orange on everyone.',
     legs,
   };
 }
@@ -435,10 +443,10 @@ async function buildSunToCampU() {
 
 // Mon Oct 19 — rebuilt 2026-10-08 (Jordan): the hike is 3 days / 2 nights.
 // Pan the morning at CAMP-U, break camp, walk out down the creek (one pan stop
-// at LOWER on the way), the road and Bowers Road to truck 2 at Owltown Gap.
+// at LOWER on the way), the road and Bowers Road to truck 2 at BOWERS-FS.
 // The old Mon full-day-at-CAMP-U + Tue walk-out pair is gone.
 async function buildMonOut() {
-  console.log('\n=== Oct 19 — morning pan at CAMP-U, walk out to Owltown Gap, drive to Vogel ===');
+  console.log('\n=== Oct 19 — morning pan at CAMP-U, walk out to BOWERS-FS, drive to Vogel ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp', 40));
   legs.push(panLeg({ label: 'Morning pan at CAMP-U (bed of the creek only)', lat: CAMP_U[0], lng: CAMP_U[1], minutes: 120, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
@@ -449,15 +457,15 @@ async function buildMonOut() {
   legs.push(mealLeg('Lunch at the LOWER reach', 30));
   legs.push(await walkLeg('LOWER on down the creek to where the road starts', lowerToLeaves, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * PACK_FACTOR * 0.8, 'oct19_out_creek'));
   legs.push(await walkLeg('Road beside the creek (Duncan Ridge Conn) down to the Bowers Road junction', outConn, 'exact', 'Real OSM way geometry, Duncan Ridge Conn (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct19_conn'));
-  legs.push(await walkLeg('Bowers Road (FS 298) to Owltown Gap — truck 2', outBowers, 'exact', 'Real OSM way geometry, Bowers Road (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct19_bowers', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE }));
-  legs.push(await driveLeg('Owltown Gap to WOLF-X (truck 2) to collect truck 1', OWLTOWN_PT, WOLF_X_PT, 'owltown_wolfx', { access_note: FS107_NOTE }));
+  legs.push(await walkLeg('Bowers Road (FS 298) to BOWERS-FS — truck 2 (all Forest Service ground)', outBowers, 'exact', 'Real OSM way geometry, Bowers Road (research/_coosa_osm.geojson); Forest Service ground checked against map/data/private.geojson 2026-10-12.', GROUP_FACTOR * PACK_FACTOR, 'oct19_bowers_fs'));
+  legs.push(await driveLeg('BOWERS-FS up Bowers Road and over Owltown Gap to WOLF-X (truck 2) to collect truck 1', TRUCK2_PT, WOLF_X_PT, 'bowersfs_wolfx', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE + ' ' + FS107_NOTE }));
   legs.push(await driveLeg('WOLF-X to Vogel (both trucks)', WOLF_X_PT, POINTS.vogel_basecamp, 'wolfx_vogel', { access_note: FS107_NOTE }));
   legs.push(mealLeg('Dinner at camp (Vogel)', 60));
   return {
-    day: 5, date: '2026-10-19', title: 'Morning pan at CAMP-U, walk out to Owltown Gap, drive to Vogel', optional: false,
+    day: 5, date: '2026-10-19', title: 'Morning pan at CAMP-U, walk out to truck 2 on Bowers Road, drive to Vogel', optional: false,
     start: { ...CAMP_U_END, time: '07:30' },
     end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
-    note: 'Last day out: pan the morning at camp, then walk out. Down the creek to the road, the road to truck 2 at Owltown Gap, drive to WOLF-X for truck 1, both trucks to Vogel. Hot dinner and showers tonight. Food carried is Sat lunch through this lunch: 2 breakfasts, 3 lunches, 2 dinners.',
+    note: 'Last day out: pan the morning at camp, then walk out. Down the creek to the road, the road to truck 2 at BOWERS-FS (Bowers Road, Forest Service ground, 0.68 mi below Owltown Gap), drive to WOLF-X for truck 1, both trucks to Vogel. Hot dinner and showers tonight. Food carried is Sat lunch through this lunch: 2 breakfasts, 3 lunches, 2 dinners.',
     legs,
   };
 }
@@ -546,8 +554,9 @@ async function buildDay1Stars() {
 
 async function buildDay2() {
   const day2 = findDay(2);
-  // 2026-10-05 (owner): the hike ends at Owltown Gap, so Friday evening both
-  // trucks stage truck 2 there and come back in truck 1.
+  // 2026-10-05 (owner): the hike ends on Bowers Road, so Friday evening both
+  // trucks stage truck 2 there and come back in truck 1. 2026-10-12 (owner):
+  // on Forest Service ground, so at BOWERS-FS, not at the gap.
   // Owner's call 2026-10-02: mine tour + river panning only, no museum. Lunch
   // stays on the square (the museum's coordinates), so the drives still chain.
   day2.legs = day2.legs.filter(l => !(l.type === 'tour' && l.at_ref === 'dahlonega-gold-museum'));
@@ -556,9 +565,9 @@ async function buildDay2() {
     if (l.label === 'Gold Museum to Yahoola Creek Park') l.label = 'Downtown Dahlonega to Yahoola Creek Park';
   }
   day2.title = 'Dahlonega: mine tour, lunch, pan Yahoola Creek';
-  day2.legs.push(await driveLeg('Evening: stage truck 2 at Owltown Gap (both trucks)', POINTS.vogel_basecamp, OWLTOWN_PT, 'vogel_owltown'));
-  day2.legs.push(await driveLeg('Owltown Gap back to Vogel (truck 1)', OWLTOWN_PT, POINTS.vogel_basecamp, 'owltown_vogel'));
-  day2.note = 'Evening: leave truck 2 at Owltown Gap for Monday\'s walk-out. Pack the hike packs tonight: Sat leaves at 07:30.';
+  day2.legs.push(await driveLeg('Evening: stage truck 2 at BOWERS-FS on Bowers Road, 0.68 mi below Owltown Gap (both trucks)', POINTS.vogel_basecamp, TRUCK2_PT, 'vogel_bowersfs', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE }));
+  day2.legs.push(await driveLeg('BOWERS-FS back to Vogel (truck 1)', TRUCK2_PT, POINTS.vogel_basecamp, 'bowersfs_vogel', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE }));
+  day2.note = 'Evening: leave truck 2 at BOWERS-FS (Bowers Road / FS 298, first Forest Service ground 0.68 mi below Owltown Gap; not at the gap, which is a residential bend with no lot) for Monday\'s walk-out. Pack the hike packs tonight: Sat leaves at 07:30.';
   return day2;
 }
 
@@ -600,7 +609,7 @@ const { variants: _droppedVariants, ...existingRest } = existing;
 const daysJson = { ...existingRest, days: routeDays };
 daysJson.assumptions = {
   ...existing.assumptions,
-  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-05 area and camps, reshaped 2026-10-08 to 3 days / 2 nights): day 1 = set camp + Helton Creek Falls (Vogel lake loop and Trahlyta Falls closed) + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle) plus the Friday-evening truck-2 staging at Owltown Gap, day 3 (Sat Oct 17) = truck to WOLF-X, pan, Coosa Backcountry Trail over Calf Stomp Gap to camp at Calf Stump Branch, day 4 (Sun Oct 18) = morning pan, Roaring Fork Trail, off-trail drop to CAMP-U, day 5 (Mon Oct 19) = morning pan at CAMP-U then walk out down the creek, Duncan Ridge Conn and Bowers Road to truck 2 at Owltown Gap and drive to Vogel, day 6 (Tue Oct 20) = free day at Vogel with no fixed route (the hub Playground tab holds the options), day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
+  backcountry_note: 'map/data/_build_backcountry.mjs builds the single decided route (2026-10-05 area and camps, reshaped 2026-10-08 to 3 days / 2 nights): day 1 = set camp + Helton Creek Falls (Vogel lake loop and Trahlyta Falls closed) + Brasstown Bald stargazing, day 2 from _build_days.mjs (no museum, no shuttle) plus the Friday-evening truck-2 staging at BOWERS-FS on Bowers Road (Forest Service ground below Owltown Gap, owner 2026-10-12), day 3 (Sat Oct 17) = truck to WOLF-X, pan, Coosa Backcountry Trail over Calf Stomp Gap to camp at Calf Stump Branch, day 4 (Sun Oct 18) = morning pan, Roaring Fork Trail, off-trail drop to CAMP-U, day 5 (Mon Oct 19) = morning pan at CAMP-U then walk out down the creek, Duncan Ridge Conn and Bowers Road to truck 2 at BOWERS-FS and drive to Vogel, day 6 (Tue Oct 20) = free day at Vogel with no fixed route (the hub Playground tab holds the options), day 7 from _build_days.mjs. No `variants` array any more. Re-running _build_days.mjs regenerates the pre-hike baseline — always re-run _build_backcountry.mjs right after it (it snapshots the baseline to _days_baseline.json).',
 };
 
 fs.writeFileSync(daysPath, JSON.stringify(daysJson, null, 2));

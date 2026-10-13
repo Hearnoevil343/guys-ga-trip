@@ -191,6 +191,10 @@ const LOWER_PAN = [34.79350, -83.98112];
 const LEAVES_CREEK = [34.79824, -83.97825];
 const CONN_BOWERS_JCT = [34.80137, -83.96678];
 const OWLTOWN_GAP = [34.81143, -83.94952];
+// BOWERS-FS: truck 2's spot, the first Bowers Road vertex on Forest Service ground
+// below the gap (owner, 2026-10-12: vehicles on FS ground). Same number as
+// POINTS.bowers_fs in _build_backcountry.mjs.
+const TRUCK2_BOWERS = [34.80382, -83.95267];
 const VOGEL = [34.765883, -83.925416];
 const FS_BOUNDARY_EF = [34.80637, -83.95980];
 
@@ -349,7 +353,7 @@ const bgOut = sliceBetween(bigGrassy, bgNearGap, bgFarEnd);
 await branch({
   node: 'calf_stomp_gap', kind: 'bail-out', label: 'Calf Stomp Road (FS 108) and Big Grassy Knob Road out to the Bowers Road junction',
   line: [...gapToBg, ...bgOut.slice(1)],
-  mode: 'pack', ends_at: 'Duncan Ridge Conn / Bowers Road junction — then 1.5 mi of Bowers Road to truck 2 at Owltown Gap',
+  mode: 'pack', ends_at: 'Duncan Ridge Conn / Bowers Road junction — then 0.8 mi of Bowers Road to truck 2 at BOWERS-FS',
   water: 'none on the road — carry it.',
   note: 'The fastest way off the ridge to a road a truck can meet you on, and it lands on the same exit the hike already uses. Forest roads: whether the gates are open is a ranger call (CALLS.md #1). This was the 2026-10-05 route that got dropped for walking roads — fine as a bail-out, not as the plan.',
 });
@@ -442,11 +446,11 @@ await branch({
 
 // --- Bowers junction ---
 await branch({
-  node: 'conn_bowers_jct', kind: 'the plan (day 3)', label: 'Bowers Road (FS 298) to Owltown Gap',
-  line: sliceBetween(bowers, CONN_BOWERS_JCT, OWLTOWN_GAP), mode: 'pack',
-  ends_at: 'Owltown Gap — truck 2',
+  node: 'conn_bowers_jct', kind: 'the plan (day 3)', label: 'Bowers Road (FS 298) to truck 2 at BOWERS-FS',
+  line: sliceBetween(bowers, CONN_BOWERS_JCT, TRUCK2_BOWERS), mode: 'pack',
+  ends_at: 'BOWERS-FS — truck 2, the first Forest Service ground on Bowers Road below Owltown Gap',
   water: 'none on the road.',
-  note: 'Bowers Road crosses private land between 34.8064 and Owltown Gap: public use of that stretch UNCONFIRMED, on the call list (CALLS.md #1).',
+  note: 'All Forest Service ground from the junction to the truck. Above the truck, Bowers Road crosses private land for 0.68 mi up to Owltown Gap: whether the public may drive that stretch is UNCONFIRMED, on the call list (CALLS.md #1).',
 });
 await branch({
   node: 'conn_bowers_jct', kind: 'side creek', label: 'Jones Branch, the confluence just upstream',
@@ -518,7 +522,8 @@ const nodes = [
   { id: 'lower', label: 'LOWER reach — the last pan', lat: LOWER_PAN[0], lng: LOWER_PAN[1], type: 'pan', note: 'Flatter water, inside of bends. Still 500 m above the road end.' },
   { id: 'creek_road_end', label: 'Where the road starts (34.79824, -83.97825)', lat: LEAVES_CREEK[0], lng: LEAVES_CREEK[1], type: 'junction', note: 'Duncan Ridge Conn begins here and runs beside the creek. Nothing below this point is road-free. This is the nearest a vehicle can get to CAMP-U.' },
   { id: 'conn_bowers_jct', label: 'Duncan Ridge Conn / Bowers Road junction', lat: CONN_BOWERS_JCT[0], lng: CONN_BOWERS_JCT[1], type: 'junction', note: 'Jones Branch and Roaring Fork join the East Fork near here.' },
-  { id: 'owltown_gap', label: 'Owltown Gap (Bowers Road / FS 298 trailhead)', lat: OWLTOWN_GAP[0], lng: OWLTOWN_GAP[1], type: 'trailhead', note: 'Where truck 2 is staged Friday evening and where the hike ends Monday.' },
+  { id: 'owltown_gap', label: 'Owltown Gap (where Bowers Road / FS 298 leaves the paved road)', lat: OWLTOWN_GAP[0], lng: OWLTOWN_GAP[1], type: 'junction', note: 'A residential bend on paved Owltown Rd with houses on it and no lot. Truck 2 is NOT left here (owner, 2026-10-12): it sits 0.68 mi down Bowers Road at BOWERS-FS.' },
+  { id: 'bowers_fs', label: 'BOWERS-FS — truck 2 (Bowers Road / FS 298, first Forest Service ground)', lat: TRUCK2_BOWERS[0], lng: TRUCK2_BOWERS[1], type: 'trailhead', note: 'Where truck 2 is staged Friday evening and where the hike ends Monday. Park clear of the roadway; USFS allows roadside parking up to 14 days.' },
   { id: 'ef_fs_boundary', label: 'East Fork Forest Service boundary (34.80637, -83.95980)', lat: FS_BOUNDARY_EF[0], lng: FS_BOUNDARY_EF[1], type: 'boundary', note: 'DO NOT PAN BELOW THIS POINT. Below it the East Fork is private for most of the way to the mouth.' },
 ];
 

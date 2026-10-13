@@ -169,7 +169,9 @@ All walking with full packs (pack_factor) except the layover (daypack).
   Owltown Gap truck. ~2.3 mi. Drive to Vogel (OSRM). Night at Vogel; Wed Oct 21 depart
   day unchanged.
 - Shuttle: Fri evening, stage truck 2 at Owltown Gap (two trucks out, one back; 18 min
-  each way). Put this as a note on the Sat day, and as a drive leg pair at the end of the
+  each way). **Correction 2026-10-12 (Jordan):** not at the gap, which is a residential
+  bend on paved Owltown Rd with no lot; truck 2 goes 0.68 mi down Bowers Road to the
+  first Forest Service ground, 34.80382, -83.95267 (BOWERS-FS). 21 min each way. Put this as a note on the Sat day, and as a drive leg pair at the end of the
   existing Fri Oct 16 day.
 - Oct 15 and 16 days: keep the existing days.json content unchanged.
 

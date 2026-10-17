@@ -1,6 +1,6 @@
 {
   "schema": "playground-area-v1",
-  "built": "2026-10-13",
+  "built": "2026-10-17",
   "area": {
     "minLat": 34.72,
     "maxLat": 34.86,
@@ -31,7 +31,7 @@
       "lat": 34.78632159144092,
       "lng": -83.92484777901997,
       "type": "trailhead",
-      "note": "Where truck 1 parks. FS 107 (West Wolf Creek Road) is open to vehicles — owner, first-hand, 2026-10-05. Last water before the climb: fill 2 L each."
+      "note": "Day 1 walks in to here from the Vogel trailhead over Burnett Gap, 3.37 mi (changed 2026-10-17) — no truck is left here. FS 107 (West Wolf Creek Road) is open to vehicles — owner, first-hand, 2026-10-05. Last water before the climb: fill 2 L each."
     },
     {
       "id": "locust_stake_gap",
@@ -133,7 +133,7 @@
       "minutes": 35,
       "ends_at": "Burnett Gap",
       "water": "Wolf Creek at the park; nothing on the climb.",
-      "note": "Not used on this trip — Saturday starts by truck at WOLF-X. Here for anyone who wants to walk the whole loop from the park.",
+      "note": "This is day 1 as of 2026-10-17 (owner): Saturday walks out of camp over Burnett Gap instead of driving to WOLF-X.",
       "non_fs_vertices": 0,
       "state_parks": [
         "Vogel State Park"
@@ -3026,7 +3026,7 @@
       "minutes": 85,
       "ends_at": "Wolf Pen Gap Road (paved)",
       "water": "West Fork Wolf Creek beside the road for the first stretch.",
-      "note": "FS 107 is open to vehicles (owner, first-hand, 2026-10-05), so truck 1 sits here all weekend — this is a walk only if the truck is gone.",
+      "note": "FS 107 is open to vehicles (owner, first-hand, 2026-10-05), but no truck is left here any more (changed 2026-10-17): this is the quickest way to a drivable road if someone has to get out.",
       "non_fs_vertices": 0,
       "state_parks": [],
       "geometry_source": "Real OSM way geometry (research/_coosa_osm.geojson, ODbL).",
@@ -13360,7 +13360,7 @@
         34.72759,
         -83.9458
       ],
-      "meters_from_route": 3456,
+      "meters_from_route": 2931,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -13411,7 +13411,7 @@
         34.76331,
         -83.93372
       ],
-      "meters_from_route": 341,
+      "meters_from_route": 4,
       "on_non_fs": false,
       "state_parks": [
         "Vogel State Park"
@@ -13515,7 +13515,7 @@
         34.74261,
         -83.96864
       ],
-      "meters_from_route": 4033,
+      "meters_from_route": 3340,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -13566,7 +13566,7 @@
         34.78319,
         -83.9141
       ],
-      "meters_from_route": 893,
+      "meters_from_route": 717,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13651,7 +13651,7 @@
         34.7555,
         -83.96915
       ],
-      "meters_from_route": 2221,
+      "meters_from_route": 1372,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13685,7 +13685,7 @@
         34.77503,
         -83.92066
       ],
-      "meters_from_route": 998,
+      "meters_from_route": 505,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13804,7 +13804,7 @@
         34.74004,
         -83.95863
       ],
-      "meters_from_route": 3229,
+      "meters_from_route": 2607,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -13889,7 +13889,7 @@
         34.78566,
         -83.9287
       ],
-      "meters_from_route": 32,
+      "meters_from_route": 30,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13957,7 +13957,7 @@
         34.77878,
         -83.90906
       ],
-      "meters_from_route": 179,
+      "meters_from_route": 72,
       "on_non_fs": true,
       "state_parks": [
         "Vogel State Park"
@@ -13976,7 +13976,7 @@
         34.74085,
         -83.96996
       ],
-      "meters_from_route": 4703,
+      "meters_from_route": 4015,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14180,7 +14180,7 @@
         34.77219,
         -83.94351
       ],
-      "meters_from_route": 21,
+      "meters_from_route": 0,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -14248,7 +14248,7 @@
         34.73852,
         -83.97214
       ],
-      "meters_from_route": 4370,
+      "meters_from_route": 3666,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14318,7 +14318,7 @@
         34.76266,
         -83.94684
       ],
-      "meters_from_route": 137,
+      "meters_from_route": 17,
       "on_non_fs": true,
       "state_parks": [
         "Vogel State Park"
@@ -14354,7 +14354,7 @@
         34.76023,
         -83.93658
       ],
-      "meters_from_route": 828,
+      "meters_from_route": 0,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14371,7 +14371,7 @@
         34.7635,
         -83.93037
       ],
-      "meters_from_route": 248,
+      "meters_from_route": 0,
       "on_non_fs": false,
       "state_parks": [
         "Vogel State Park"
@@ -14424,7 +14424,7 @@
         34.73842,
         -83.92554
       ],
-      "meters_from_route": 2730,
+      "meters_from_route": 2505,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14441,7 +14441,7 @@
         34.73509,
         -83.97278
       ],
-      "meters_from_route": 5335,
+      "meters_from_route": 4643,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14458,7 +14458,7 @@
         34.74032,
         -83.95358
       ],
-      "meters_from_route": 3816,
+      "meters_from_route": 3124,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14526,7 +14526,7 @@
         34.75136,
         -83.93834
       ],
-      "meters_from_route": 718,
+      "meters_from_route": 0,
       "on_non_fs": true,
       "state_parks": [
         "Vogel State Park"
@@ -14579,7 +14579,7 @@
         34.73216,
         -83.93739
       ],
-      "meters_from_route": 3408,
+      "meters_from_route": 2974,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14596,7 +14596,7 @@
         34.73552,
         -83.97224
       ],
-      "meters_from_route": 5157,
+      "meters_from_route": 4506,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14613,7 +14613,7 @@
         34.74052,
         -83.97273
       ],
-      "meters_from_route": 4763,
+      "meters_from_route": 4108,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14630,7 +14630,7 @@
         34.75972,
         -83.93512
       ],
-      "meters_from_route": 1102,
+      "meters_from_route": 417,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14664,7 +14664,7 @@
         34.74077,
         -83.95419
       ],
-      "meters_from_route": 3822,
+      "meters_from_route": 3122,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14681,7 +14681,7 @@
         34.74072,
         -83.95536
       ],
-      "meters_from_route": 3107,
+      "meters_from_route": 2456,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14698,7 +14698,7 @@
         34.76241,
         -83.94794
       ],
-      "meters_from_route": 2061,
+      "meters_from_route": 947,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14768,7 +14768,7 @@
         34.73717,
         -83.95155
       ],
-      "meters_from_route": 3831,
+      "meters_from_route": 3219,
       "on_non_fs": false,
       "state_parks": []
     }
@@ -14788,10 +14788,18 @@
       {
         "name": "West Fork Wolf Creek",
         "at": "wolf_x",
-        "note": "Last water a truck can reach. Fill 2 L each here — there is none on the 1,375 ft climb to Calf Stomp Gap."
+        "note": "First water on the walk in from Vogel (nothing on the ridge over Burnett Gap) and the last before the climb. Fill 2 L each here — there is none on the 1,375 ft climb to Calf Stomp Gap."
       }
     ],
     "route_crossings": [
+      {
+        "name": "Burnett Branch",
+        "meters_from_route": 4,
+        "mid": [
+          34.76331,
+          -83.93372
+        ]
+      },
       {
         "name": "Calf Stump Branch",
         "meters_from_route": 16,
@@ -14826,7 +14834,7 @@
       },
       {
         "name": "West Fork Wolf Creek",
-        "meters_from_route": 32,
+        "meters_from_route": 30,
         "mid": [
           34.78566,
           -83.9287

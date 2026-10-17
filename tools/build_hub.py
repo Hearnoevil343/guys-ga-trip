@@ -560,7 +560,7 @@ No permit needed for hand panning on National Forest land (36 CFR 228.4). A grou
 
 <details class="who"><summary>Sat Oct 17 &mdash; West Fork Wolf Creek &middot; test pan, 2 h</summary>
 <ul>
-<li><b>Where:</b> at and just below the FS 107 crossing (WOLF-X), where truck 1 parks. National Forest from the source down to 34.7906, -83.9190. Do not pan below that point. This is <b>not</b> a camp &mdash; night 1 is up the trail at Calf Stump Branch.</li>
+<li><b>Where:</b> at and just below the FS 107 crossing (WOLF-X), 3.37 mi in on foot from the Vogel trailhead over Burnett Gap (changed 2026-10-17; no truck is left here). National Forest from the source down to 34.7906, -83.9190. Do not pan below that point. This is <b>not</b> a camp &mdash; night 1 is up the trail at Calf Stump Branch.</li>
 <li><b>Also:</b> last water a vehicle can reach. Fill 2 L each here &mdash; there is nothing on the 1,375 ft climb to Calf Stomp Gap.</li>
 <li><b>Gold record:</b> none. It is a guess from geology: the creek sits between the Coosa Creek placers and the old placers near Crumley Creek. Finding nothing here is a normal result.</li>
 <li><b>Expect:</b> a steep creek with bedrock. Little gravel, so the gold (if any) is in cracks, not in bars.</li>
@@ -976,7 +976,7 @@ PLACES = [
      "7485 Vogel State Park Rd, Blairsville GA 30512. Park office 8 AM-5 PM, park open 7 AM-10 PM."),
     ("Coosa Backcountry Trailhead (Vogel)", 34.7638, -83.9263, "Where the hike could be exited on foot to the park."),
     ("WOLF-X - FS 107 / West Fork Wolf Creek crossing", 34.78632, -83.92485,
-     "Truck 1 parks here all weekend. Last point a vehicle reaches on the way in."),
+     "Walked in from the Vogel trailhead over Burnett Gap, 3.37 mi (changed 2026-10-17). Last point a vehicle could reach on the way in, but no truck is left here."),
     ("Calf Stomp Gap (CBT / FS 108 / Roaring Fork Trail)", 34.78595, -83.95356,
      "The junction both hike days pass through. FS 108 drops north from here."),
     ("Calf Stump Branch camp - NIGHT 1 (Sat)", 34.78244, -83.95858, "About 400 m from the nearest road."),
@@ -1070,7 +1070,7 @@ WATER = [
 FRIDAY = [
     ("Before leaving for Dahlonega", [
         "Load the hike packs in the trucks - they get packed tonight, not Saturday morning",
-        "Check both trucks' fuel: Blairsville is the last gas before FS 107",
+        "Check both trucks' fuel: Blairsville is the last gas before the forest roads",
     ]),
     ("Evening, back at Vogel (before dark - dark is 7:25 PM)", [
         "Stage truck 2 at BOWERS-FS (34.80382, -83.95267): down Bowers Road / FS 298 from Owltown Gap 0.68 mi to the first Forest Service ground, not at the gap itself (houses, no lot). Drive back in truck 1",
@@ -1284,7 +1284,8 @@ def trip_card_html():
         out.append(f'<tr><td><b>{e(when)}</b></td><td>{e(where)}</td><td>{e(plan)}</td></tr>')
     out.append('</table>')
     out.append(
-        '<p><b>Carry:</b> 2 L each leaving WOLF-X and leaving Calf Stump Branch; 1 L each walking out '
+        '<p><b>Carry:</b> 2 L each leaving camp Saturday morning (nothing on the ridge over Burnett '
+        'Gap), 2 L each leaving WOLF-X and leaving Calf Stump Branch; 1 L each walking out '
         'Monday. <b>Treat:</b> filter, Aquatabs as backup. <b>Both creek camps are headwaters and '
         'October flow is unconfirmed</b> &mdash; that is the one thing on this hike most likely to '
         'force a change, and both fallbacks are above.</p>')
@@ -1322,7 +1323,8 @@ def trip_card_html():
         '<p><b>Still open on Friday if the calls have not been made:</b> the Coosa Backcountry Trail '
         'overnight permit, and whether Bowers Road (FS 298) and the Duncan Ridge Connector are open to '
         'vehicles and to public foot use. If the answer to Bowers Road is no, the walk-out changes: '
-        'back the way you came to WOLF-X, and truck 2 does not need staging at all.</p>')
+        'back the way you came, over Calf Stomp Gap and down the Coosa Backcountry Trail to Vogel on '
+        'foot, and truck 2 does not need staging at all.</p>')
     out.append('</details>')
 
     return "\n".join(out)

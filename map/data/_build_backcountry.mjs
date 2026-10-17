@@ -9,6 +9,13 @@
 // Conn and Bowers Road to truck 2 at BOWERS-FS, the first Forest Service
 // ground on Bowers Road below Owltown Gap (staged Fri evening); Tue
 // Oct 20 is a free day with no fixed route.
+// CHANGED 2026-10-17 (owner, in the field on the morning of hike day 1): Sat
+// Oct 17 is walked, not driven — site P to the Vogel Coosa Backcountry
+// Trailhead, then the trail counter-clockwise over Burnett Gap (survey mile
+// 1.02) down to WOLF-X (mile 3.37). Truck 1 stays in the Vogel lot, so Monday
+// truck 2 drives straight from BOWERS-FS to Vogel instead of collecting truck
+// 1 at WOLF-X. The WOLF-X pan stays at 120 min: the rebuilt day still ends
+// dinner at 17:35 from a 07:30 start, well before the 19:05 sunset.
 //
 // Run AFTER map/data/_build_days.mjs. On the first run after _build_days.mjs
 // this script copies that pristine output to map/data/_days_baseline.json and
@@ -57,6 +64,9 @@ function polyMiles(line) { let d = 0; for (let i = 0; i < line.length - 1; i++) 
 
 const POINTS = {
   vogel_basecamp: { lat: 34.765883, lng: -83.925416, label: 'Vogel State Park — base camp (walk-in site P)' },
+  // Mile 0 of the Coosa Backcountry Trail loop, about 250 m from site P
+  // (same point as the vogel_trailhead node in map/data/playground-area.json).
+  vogel_trailhead: { lat: 34.7638, lng: -83.9263, label: 'Vogel Coosa Backcountry Trailhead (CBT mile 0)' },
   owltown_gap: { lat: 34.81143, lng: -83.94952, label: 'Owltown Gap (where Bowers Road / FS 298 leaves the paved Owltown Rd)' },
   // BOWERS-FS (owner, 2026-10-12: both trucks sit on Forest Service ground, not
   // at the gap, which is a residential bend with houses and no lot). This is the
@@ -149,7 +159,8 @@ function trailSlice(iLo, iHi, cutLo, cutHi) {
   return pts;
 }
 
-const trailSatSeg = trailSlice(0, wolfXCut.index, { index: -1, point: trail[0] }, wolfXCut); // trailhead -> WOLF-X
+const trailheadToBurnett = trailSlice(0, burnettGapCut.index, { index: -1, point: trail[0] }, burnettGapCut); // trailhead -> Burnett Gap
+const burnettToWolfX = trailSlice(burnettGapCut.index, wolfXCut.index, burnettGapCut, wolfXCut); // Burnett Gap -> WOLF-X
 const trailSunSeg = trailSlice(wolfXCut.index, calfStompGapCut.index, wolfXCut, calfStompGapCut); // WOLF-X -> Calf Stomp Gap
 
 // ---------------------------------------------------------------------------
@@ -334,7 +345,11 @@ function panLeg({ label, lat, lng, minutes, gold, atMile, note }) {
   if (note) leg.note = note;
   return leg;
 }
-const FS107_NOTE = 'FS 107 (West Wolf Creek Road) is open to vehicles — owner, first-hand, 2026-10-05. Park clear of the roadway at the trail crossing; USFS allows roadside parking up to 14 days.';
+const CBT_SAT_SOURCE = 'Real OSM way geometry, merged Coosa Backcountry Trail chain, cut at the 1.02mi (Burnett Gap) and 3.37mi (WOLF-X) survey mile-markers (research/coosa-geometry-survey.md Task 6).';
+const SITE_P_NOTE = 'No OSM way joins site P to the backcountry trailhead (the survey found the same ~0.35 mi of park connector path unmapped): straight line, about 250 m on park paths. Green blazes from the trailhead board.';
+const BURNETT_BAILOUT_NOTE = 'Bail-out at Burnett Gap: the Burnett Creek Trail drops north 1.86 mi to Burnett Creek Road (FS 261), a forest road a truck can reach — mapped path only, condition UNCONFIRMED. Quickest way off the ridge on the Vogel side.';
+const WOLF_X_WATER_NOTE = 'First water since the park: nothing on the ridge from the trailhead over Burnett Gap. Fill 2 L each here before the Calf Stomp climb.';
+const VOGEL_PERMIT_NOTE = 'Backcountry camping on the Coosa Trail is BY PERMIT, first come-first served (gastateparks.org/Vogel/Trails, fetched 2026-09-21). Get it at the Visitor Center before walking out. Truck 1 sits in the Vogel trailhead lot on a ParkPass; whether multi-day overnight parking there is allowed is UNCONFIRMED (same desk, same question).';
 const RFT_UNCONFIRMED_NOTE = 'Roaring Fork Trail is mapped in OpenStreetMap (way 978262922, highway=path, surface=ground) but no trail report, sign or Forest Service listing was found: on-the-ground condition UNCONFIRMED. Ridge walk, 3,300-3,500 ft. If it is overgrown or gone, follow the ridge crest west by compass — same line.';
 const DROP_NOTE = 'OFF-TRAIL. No path: a straight line down the slope, about 0.4 mi and 550 ft of descent (steep, ~25%). Pick the line down the spur, not a hollow. Full packs: slow, poles out. The whole slope is Forest Service land.';
 const WATER_RISK_NOTE = 'Headwater reach, about 1 creek-mile below the source at ~2,900 ft. October is the driest month: flow UNCONFIRMED. If the creek is a trickle here, move down to LOWER (34.7935,-83.9811) or on toward 34.7958,-83.9792 — still Forest Service, still 300 m from the road end.';
@@ -342,20 +357,9 @@ const WATER_RISK_NOTE = 'Headwater reach, about 1 creek-mile below the source at
 // ---------------------------------------------------------------------------
 // 5. Build each new backcountry day.
 // ---------------------------------------------------------------------------
-const WOLF_X_PT = { lat: WOLF_X[0], lng: WOLF_X[1], label: 'West Fork Wolf Creek / FS 107 crossing (WOLF-X) — truck' };
 const CAMP_U_END = { ref: 'camp_u', label: 'CAMP-U (upper East Fork Coosa Creek, road-free reach)', lat: round6(CAMP_U[0]), lng: round6(CAMP_U[1]) };
 const RFT_SOURCE = 'Real OSM way geometry, Roaring Fork Trail (way 978262922, highway=path, surface=ground; research/_coosa_osm.geojson, ODbL), from Calf Stomp Gap west along the ridge to the vertex nearest DROP-IN.';
 const CBT_SUN_SOURCE = 'Real OSM way geometry, merged Coosa Backcountry Trail chain, cut at the 3.37mi (WOLF-X) and 5.91mi (Calf Stomp Gap/FS108 junction) survey mile-markers; Calf Stomp Gap end agrees with the design doc\'s explicit coordinate (34.7862007,-83.9537995) within 35 m.';
-
-// Vogel -> WOLF-X by truck. OSRM may stop short of the crossing if it will not
-// route the FS 107 track; a short approximate stitch covers the rest.
-async function driveToWolfX(label, cacheKey) {
-  const d = await driveLeg(label, POINTS.vogel_basecamp, WOLF_X_PT, cacheKey, { access_note: FS107_NOTE });
-  const last = d.coords[d.coords.length - 1];
-  const gapM = dist(last, WOLF_X);
-  console.log(`    drive end -> WOLF-X gap: ${gapM.toFixed(0)} m`);
-  return { leg: d, gapM, last };
-}
 
 // Calf Stump Branch: the first creek past Calf Stomp Gap on the Coosa
 // Backcountry Trail (OSM stream crossing at 34.78244,-83.95858, ~0.4 mi past
@@ -394,13 +398,13 @@ const BOWERS_NOTE = 'Bowers Road (FS 298) crosses private land for its first 0.6
 const TRUCK2_PT = { lat: POINTS.bowers_fs.lat, lng: POINTS.bowers_fs.lng, label: POINTS.bowers_fs.label };
 
 async function buildSatIn() {
-  console.log('\n=== Oct 17 — truck to WOLF-X, pan, trail over Calf Stomp Gap to Calf Stump Branch ===');
+  console.log('\n=== Oct 17 — walk from Vogel over Burnett Gap, pan, trail over Calf Stomp Gap to Calf Stump Branch ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp (Vogel)', 40));
-  const { leg: driveIn, gapM, last } = await driveToWolfX('Vogel to WOLF-X via FS 107 (truck 1)', 'vogel_wolfx');
-  legs.push(driveIn);
-  if (gapM > 100) legs.push(await walkLeg('Parking to the trail crossing', [last, WOLF_X], 'approximate', `OSRM stopped ${gapM.toFixed(0)} m short of the crossing (FS 107 track); straight line.`, GROUP_FACTOR, 'oct17_parkgap'));
-  legs.push(panLeg({ label: 'Pan West Fork Wolf Creek at the crossing', lat: WOLF_X[0], lng: WOLF_X[1], minutes: 120, gold: WOLF_X_GOLD }));
+  legs.push(await walkLeg('Site P to the Coosa Backcountry Trailhead', [[POINTS.vogel_basecamp.lat, POINTS.vogel_basecamp.lng], [POINTS.vogel_trailhead.lat, POINTS.vogel_trailhead.lng]], 'approximate', SITE_P_NOTE, GROUP_FACTOR * PACK_FACTOR, 'oct17_sitep', { note: VOGEL_PERMIT_NOTE }));
+  legs.push(await walkLeg('Trailhead up to Burnett Gap (Coosa Backcountry Trail, green blaze)', trailheadToBurnett, 'exact', CBT_SAT_SOURCE, GROUP_FACTOR * PACK_FACTOR, 'oct17_burnett', { note: BURNETT_BAILOUT_NOTE }));
+  legs.push(await walkLeg('Burnett Gap down to WOLF-X, the West Fork Wolf Creek / FS 107 crossing', burnettToWolfX, 'exact', CBT_SAT_SOURCE, GROUP_FACTOR * PACK_FACTOR, 'oct17_wolfx'));
+  legs.push(panLeg({ label: 'Pan West Fork Wolf Creek at the crossing', lat: WOLF_X[0], lng: WOLF_X[1], minutes: 120, gold: WOLF_X_GOLD, note: WOLF_X_WATER_NOTE }));
   legs.push(mealLeg('Lunch at WOLF-X', 30));
   legs.push(await walkLeg('WOLF-X up to Calf Stomp Gap via Locust Stake Gap (Coosa Backcountry Trail)', trailSunSeg, 'exact', CBT_SUN_SOURCE, GROUP_FACTOR * PACK_FACTOR, 'oct17_cbt'));
   legs.push(await walkLeg('Calf Stomp Gap on to Calf Stump Branch (Coosa Backcountry Trail)', gapToCalfStump, 'exact', 'Real OSM way geometry, merged Coosa Backcountry Trail chain, from the Calf Stomp Gap cut to the vertex nearest the Calf Stump Branch crossing.', GROUP_FACTOR * PACK_FACTOR, 'oct17_cs'));
@@ -408,10 +412,10 @@ async function buildSatIn() {
   legs.push(panLeg({ label: 'Pan Calf Stump Branch (evening)', lat: CAMP_CS[0], lng: CAMP_CS[1], minutes: 90, gold: CALF_STUMP_GOLD, note: CALF_STUMP_WATER_NOTE }));
   legs.push(mealLeg('Dinner at camp', 60));
   return {
-    day: 3, date: '2026-10-17', title: 'Truck to WOLF-X, pan, hike over Calf Stomp Gap, camp at Calf Stump Branch', optional: false,
+    day: 3, date: '2026-10-17', title: 'Walk from Vogel over Burnett Gap, pan West Fork Wolf Creek, over Calf Stomp Gap, camp at Calf Stump Branch', optional: false,
     start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '07:30' },
     end: CAMP_CS_END,
-    note: 'Truck 1 stays at WOLF-X until Monday. Truck 2 is already at BOWERS-FS on Bowers Road (staged Friday evening). Deer season opens today: blaze orange on everyone.',
+    note: 'Changed 2026-10-17 (owner): the day is walked from camp, not driven to WOLF-X. Longest day of the trip with full packs. Backcountry permit at the Visitor Center before walking out. Truck 1 stays in the Vogel trailhead lot (ParkPass); truck 2 is already at BOWERS-FS on Bowers Road (staged Friday evening). No water between the park and WOLF-X: carry 2 L each. Deer season opens today: blaze orange on everyone.',
     legs,
   };
 }
@@ -458,14 +462,13 @@ async function buildMonOut() {
   legs.push(await walkLeg('LOWER on down the creek to where the road starts', lowerToLeaves, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * PACK_FACTOR * 0.8, 'oct19_out_creek'));
   legs.push(await walkLeg('Road beside the creek (Duncan Ridge Conn) down to the Bowers Road junction', outConn, 'exact', 'Real OSM way geometry, Duncan Ridge Conn (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct19_conn'));
   legs.push(await walkLeg('Bowers Road (FS 298) to BOWERS-FS — truck 2 (all Forest Service ground)', outBowers, 'exact', 'Real OSM way geometry, Bowers Road (research/_coosa_osm.geojson); Forest Service ground checked against map/data/private.geojson 2026-10-12.', GROUP_FACTOR * PACK_FACTOR, 'oct19_bowers_fs'));
-  legs.push(await driveLeg('BOWERS-FS up Bowers Road and over Owltown Gap to WOLF-X (truck 2) to collect truck 1', TRUCK2_PT, WOLF_X_PT, 'bowersfs_wolfx', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE + ' ' + FS107_NOTE }));
-  legs.push(await driveLeg('WOLF-X to Vogel (both trucks)', WOLF_X_PT, POINTS.vogel_basecamp, 'wolfx_vogel', { access_note: FS107_NOTE }));
+  legs.push(await driveLeg('BOWERS-FS up Bowers Road and over Owltown Gap straight to Vogel (truck 2)', TRUCK2_PT, POINTS.vogel_basecamp, 'bowersfs_vogel', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE }));
   legs.push(mealLeg('Dinner at camp (Vogel)', 60));
   return {
     day: 5, date: '2026-10-19', title: 'Morning pan at CAMP-U, walk out to truck 2 on Bowers Road, drive to Vogel', optional: false,
     start: { ...CAMP_U_END, time: '07:30' },
     end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
-    note: 'Last day out: pan the morning at camp, then walk out. Down the creek to the road, the road to truck 2 at BOWERS-FS (Bowers Road, Forest Service ground, 0.68 mi below Owltown Gap), drive to WOLF-X for truck 1, both trucks to Vogel. Hot dinner and showers tonight. Food carried is Sat lunch through this lunch: 2 breakfasts, 3 lunches, 2 dinners.',
+    note: 'Last day out: pan the morning at camp, then walk out. Down the creek to the road, the road to truck 2 at BOWERS-FS (Bowers Road, Forest Service ground, 0.68 mi below Owltown Gap), then straight to Vogel — truck 1 is already in the Vogel lot (changed 2026-10-17; the day-1 drive to WOLF-X is gone). Hot dinner and showers tonight. Food carried is Sat lunch through this lunch: 2 breakfasts, 3 lunches, 2 dinners.',
     legs,
   };
 }

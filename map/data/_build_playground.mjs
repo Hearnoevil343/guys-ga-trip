@@ -293,7 +293,7 @@ await branch({
   node: 'vogel_trailhead', kind: 'the plan', label: 'Coosa Backcountry Trail up to Burnett Gap',
   line: cbtSlice(0, CBT_MI.burnett_gap), mode: 'pack', ends_at: 'Burnett Gap',
   water: 'Wolf Creek at the park; nothing on the climb.',
-  note: 'Not used on this trip — Saturday starts by truck at WOLF-X. Here for anyone who wants to walk the whole loop from the park.',
+  note: 'This is day 1 as of 2026-10-17 (owner): Saturday walks out of camp over Burnett Gap instead of driving to WOLF-X.',
 });
 
 // --- Burnett Gap ---
@@ -317,7 +317,7 @@ await branch({
   line: sliceToFarEnd(fs107, WOLF_X), mode: 'pack',
   ends_at: 'Wolf Pen Gap Road (paved)',
   water: 'West Fork Wolf Creek beside the road for the first stretch.',
-  note: 'FS 107 is open to vehicles (owner, first-hand, 2026-10-05), so truck 1 sits here all weekend — this is a walk only if the truck is gone.',
+  note: 'FS 107 is open to vehicles (owner, first-hand, 2026-10-05), but no truck is left here any more (changed 2026-10-17): this is the quickest way to a drivable road if someone has to get out.',
 });
 // National Forest from the source down to 34.7906, -83.9190 (design doc).
 const WF_FS_LIMIT = [34.7906, -83.9190];
@@ -513,7 +513,7 @@ console.log(`\nNamed features in the area box: ${features.length}`);
 const nodes = [
   { id: 'vogel_trailhead', label: 'Coosa Backcountry Trailhead (Vogel State Park)', lat: TRAILHEAD[0], lng: TRAILHEAD[1], type: 'trailhead', note: 'Mile 0 of the 12.9 mi Coosa Backcountry Trail loop. Park inside Vogel (ParkPass).' },
   { id: 'burnett_gap', label: 'Burnett Gap (CBT mile 1.02)', lat: BURNETT_GAP[0], lng: BURNETT_GAP[1], type: 'gap', note: 'Burnett Creek Trail drops north from here to Burnett Creek Road.' },
-  { id: 'wolf_x', label: 'WOLF-X — West Fork Wolf Creek / FS 107 crossing (CBT mile 3.37)', lat: WOLF_X[0], lng: WOLF_X[1], type: 'trailhead', note: 'Where truck 1 parks. FS 107 (West Wolf Creek Road) is open to vehicles — owner, first-hand, 2026-10-05. Last water before the climb: fill 2 L each.' },
+  { id: 'wolf_x', label: 'WOLF-X — West Fork Wolf Creek / FS 107 crossing (CBT mile 3.37)', lat: WOLF_X[0], lng: WOLF_X[1], type: 'trailhead', note: 'Day 1 walks in to here from the Vogel trailhead over Burnett Gap, 3.37 mi (changed 2026-10-17) — no truck is left here. FS 107 (West Wolf Creek Road) is open to vehicles — owner, first-hand, 2026-10-05. Last water before the climb: fill 2 L each.' },
   { id: 'locust_stake_gap', label: 'Locust Stake Gap (CBT mile 4.71)', lat: LOCUST_STAKE_GAP[0], lng: LOCUST_STAKE_GAP[1], type: 'gap', note: 'On the climb from WOLF-X to Calf Stomp Gap. No water, no junction.' },
   { id: 'calf_stomp_gap', label: 'Calf Stomp Gap (CBT mile 5.91)', lat: CALF_STOMP_GAP[0], lng: CALF_STOMP_GAP[1], type: 'junction', note: 'The hub of the area: Coosa Backcountry Trail, Calf Stomp Road (FS 108) and Roaring Fork Trail all meet here. The design-doc coordinate agrees with the mapped trail within 35 m.' },
   { id: 'camp_cs', label: 'Calf Stump Branch camp — night 1', lat: CAMP_CS[0], lng: CAMP_CS[1], type: 'camp', note: 'On the Coosa Backcountry Trail 0.4 mi past Calf Stomp Gap, where it crosses Calf Stump Branch. About 400 m from the nearest road. Water: the branch (headwater, October flow UNCONFIRMED).' },
@@ -538,7 +538,7 @@ for (const f of features) {
 const campWater = [
   { name: 'Calf Stump Branch', at: 'camp_cs', note: 'Night 1 water. Small headwater branch; October is the driest month and flow is UNCONFIRMED. Fill 2 L each at WOLF-X before the climb in case it is dry.' },
   { name: 'East Fork Coosa Creek', at: 'camp_u', note: 'Night 2 water, about one creek-mile below the source at ~2,900 ft. Flow UNCONFIRMED. Fallback: move down toward 34.7958, -83.9792.' },
-  { name: 'West Fork Wolf Creek', at: 'wolf_x', note: 'Last water a truck can reach. Fill 2 L each here — there is none on the 1,375 ft climb to Calf Stomp Gap.' },
+  { name: 'West Fork Wolf Creek', at: 'wolf_x', note: 'First water on the walk in from Vogel (nothing on the ridge over Burnett Gap) and the last before the climb. Fill 2 L each here — there is none on the 1,375 ft climb to Calf Stomp Gap.' },
 ];
 
 // Nearest store / gas / food to each trailhead, from research/playground.json.

@@ -502,3 +502,10 @@ Each gap was grep-checked against index.html and RUNDOWN.md before listing.
 - Tried: nothing — it is a counter question, and the Visitor Center is 200 m from site P.
 - Fix: ask both at the Visitor Center desk before walking out (706-745-2628; office 8 AM-5 PM). Same desk also answers the long-standing panning-inside-the-park question.
 - Status: open, on the critical path for 2026-10-17. Both notes are carried on the day-1 legs in the hub.
+
+## 50. Which forest roads may legally be driven was never checked against the MVUM
+- Symptom: asked from the field 2026-10-17 whether Big Grassy Knob Road is drivable and legal. No file in the project had ever consulted the Motor Vehicle Use Map — the one document that decides it. CALLS.md #1 still carries "whether Big Grassy Knob Road / FS 108 / FS 107 are gated is unknown" as a ranger question.
+- Evidence: Forest Service MVUM roads layer queried live 2026-10-17 (apps.fs.usda.gov EDW_MVUM_01 layer 4) over the box containing Big Grassy Knob Road end to end: only FS 395, FS 39 and FS 298 exist there. Big Grassy Knob Road's nearest designated centreline is 700 m away; Calf Stomp Road's is 467 m. Bowers Road matches FS 298 "Bowers Cove" within 2 m; FS 107 "West Wolf Creek" is designated open yearlong, maintenance level 3 (suitable for passenger cars). Seasonal dates for FS 298 (3/15-1/15) read from the printed 2025 Blue Ridge MVUM atlas, map dated 10/01/2024.
+- Cause: the project treated road access as a phone call to a ranger. It is published data.
+- Fix: written up in `research/mvum-roads-2026-10-17.md`. **Big Grassy Knob Road and Calf Stomp Road (FS 108) are not designated for motor vehicle use — walking only (both are entirely on Forest Service ground; 63/63 and 239/239 vertices).** FS 107 and FS 298 are designated and open on the trip dates.
+- Status: **closed 2026-10-17 for the Forest Service half.** The private 0.68 mi of Bowers Road below Owltown Gap is outside the National Forest road system, so the MVUM says nothing about it: #48 stays open, and that is the only road question left on the exit.

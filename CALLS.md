@@ -17,6 +17,7 @@ see `research\backcountry-route-design.md`. Ask these first:**
 - Can a truck be left at the **Coosa Backcountry Trail crossing of FS 107** Sat
   Oct 17 morning through Mon Oct 19 afternoon (2 nights)? (FS 107 itself is open —
   Jordan, first-hand, 2026-10-05.)
+- **ANSWERED 2026-10-17 from the official MVUM, no call needed** (see research/mvum-roads-2026-10-17.md): FS 107 is designated open yearlong and rated for passenger cars; FS 298 Bowers Cove is designated open seasonally 3/15-1/15, so open on Oct 17-19, high clearance; **Big Grassy Knob Road and Calf Stomp Road / FS 108 are NOT on the MVUM at all — not legal to drive, walking only.** The private 0.68 mi of Bowers Road below Owltown Gap is outside the Forest Service road system and is still unanswered.
 - Is **Bowers Road (FS 298)** open to the public and ungated for its first 0.68 mi
   below Owltown Gap, where it crosses private land (down to about 34.8041, -83.9527)?
   We want to leave a truck Fri Oct 16 evening through Mon Oct 19 afternoon just past

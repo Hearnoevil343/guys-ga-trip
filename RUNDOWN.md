@@ -87,6 +87,9 @@ Full detail in §3. Decided 2026-10-02: this replaces both earlier options (the 
 - **Mon Oct 19 —** **Hike day 3, out.** Morning pan at CAMP-U (2 h). Break camp, 0.3 mi down the creek to LOWER, last pan (1.5 h) and lunch, then 0.4 mi on down the creek to where the road starts (34.79824, -83.97825), the road (Duncan Ridge Conn) 0.7 mi to Bowers Road, Bowers Road (FS 298) 0.8 mi to truck 2 at BOWERS-FS (all Forest Service ground). 2.3 mi walking. Above the truck, Bowers Road crosses private land for 0.68 mi up to Owltown Gap; driving that stretch is unconfirmed (CALLS). Drive truck 2 up over Owltown Gap straight to Vogel (21 min) — truck 1 is already there (changed 2026-10-17; the WOLF-X retrieval leg is gone). Hot dinner and showers at Vogel.
 - **Rain/backup:** if the forecast turns genuinely unsafe (flash-flood risk in a narrow headwater), shorten to one night, or make Saturday a there-and-back walk to WOLF-X and sleep at Vogel, rather than camp in a flooding drainage. Day-trip fallback: Frogtown.
 
+### Mon Oct 19 and Tue Oct 20 — Free days
+Changed 2026-10-18 (Jordan, back at Vogel): the hike ended early — no gold worth staying for near Calf Stomp Gap — so Monday is a free day too. Leave camp 8:00 AM (10:00 also works, it only costs the last stop of whichever plan you pick). If truck 2 is still at BOWERS-FS, collect it first: 21 min each way, both trucks home by 9 AM from an 8 AM start.
+
 ### Tue Oct 20 — Free day
 Nothing booked. The hub's **Playground** tab has the ready-made plans: a waterfall loop, Blairsville / Helen / Hiawassee, markets and festivals with hours and drive times, and a rain plan — plus the hike-area layer if anyone wants another creek. This is also the slack day if the hike runs long or the weather moves.
 - **Rain:** stay put under the canopy, or Helen's indoor options (research/dahlonega.md).

@@ -394,6 +394,7 @@ const outCreek = creekSlice(CAMP_U, LEAVES_CREEK);
 const outConn = wayBetween(namedLine('Duncan Ridge Conn'), LEAVES_CREEK, JUNCTION);
 const outBowers = wayBetween(namedLine('Bowers Road'), JUNCTION, TRUCK2);
 console.log(`Walk-out: creek ${polyMiles(outCreek).toFixed(2)} mi, Duncan Ridge Conn ${polyMiles(outConn).toFixed(2)} mi (starts ${dist(outConn[0], LEAVES_CREEK).toFixed(0)} m from road end, ends ${dist(outConn[outConn.length - 1], JUNCTION).toFixed(0)} m from JUNCTION), Bowers Road ${polyMiles(outBowers).toFixed(2)} mi (starts ${dist(outBowers[0], JUNCTION).toFixed(0)} m from JUNCTION, ends ${dist(outBowers[outBowers.length - 1], TRUCK2).toFixed(0)} m from BOWERS-FS).`);
+const MON_FREE_NOTE = 'Nothing booked. The hub\'s Playground tab has the ready-made plans (waterfall loop, Blairsville/Helen/Hiawassee, markets and festivals, a rain plan) and the hike-area layer if anyone wants another creek. Changed 2026-10-18 (owner): the hike ended early, so this is a free day instead of the walk-out. IF TRUCK 2 IS STILL AT BOWERS-FS, collect it first: Vogel to BOWERS-FS and back is 21 min each way, both trucks home by 9 AM from an 8 AM start.';
 const BOWERS_NOTE = 'Bowers Road (FS 298) crosses private land for its first 0.68 mi below Owltown Gap (down to about 34.8041, -83.9527): whether the public may drive that stretch is UNCONFIRMED — on the call list. Truck 2 sits just past it at BOWERS-FS on Forest Service ground; the walk from the junction to the truck is all Forest Service.';
 const TRUCK2_PT = { lat: POINTS.bowers_fs.lat, lng: POINTS.bowers_fs.lng, label: POINTS.bowers_fs.label };
 
@@ -449,34 +450,25 @@ async function buildSunToCampU() {
 // Pan the morning at CAMP-U, break camp, walk out down the creek (one pan stop
 // at LOWER on the way), the road and Bowers Road to truck 2 at BOWERS-FS.
 // The old Mon full-day-at-CAMP-U + Tue walk-out pair is gone.
-async function buildMonOut() {
-  console.log('\n=== Oct 19 — morning pan at CAMP-U, walk out to BOWERS-FS, drive to Vogel ===');
+async function buildMonFree() {
+  console.log('\n=== Oct 19 — free day at Vogel (changed 2026-10-18: the hike ended early) ===');
   const legs = [];
-  legs.push(mealLeg('Breakfast at camp', 40));
-  legs.push(panLeg({ label: 'Morning pan at CAMP-U (bed of the creek only)', lat: CAMP_U[0], lng: CAMP_U[1], minutes: 120, gold: COOSA_GOLD, note: WATER_RISK_NOTE }));
-  legs.push(campLeg('Break camp at CAMP-U, pack up', 45));
-  legs.push(await walkLeg('CAMP-U down the creek to the LOWER reach', campToLower, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * PACK_FACTOR * 0.8, 'oct19_out_lower'));
-  legs.push(panLeg({ label: 'Last pan — the LOWER reach (flatter, inside of bends)', lat: LOWER_PAN[0], lng: LOWER_PAN[1], minutes: 90, gold: COOSA_GOLD,
-    note: 'Still 500 m from the road end at 34.79824,-83.97825.' }));
-  legs.push(mealLeg('Lunch at the LOWER reach', 30));
-  legs.push(await walkLeg('LOWER on down the creek to where the road starts', lowerToLeaves, 'approximate', 'OSM creek line; walk the bed and banks, no path.', GROUP_FACTOR * PACK_FACTOR * 0.8, 'oct19_out_creek'));
-  legs.push(await walkLeg('Road beside the creek (Duncan Ridge Conn) down to the Bowers Road junction', outConn, 'exact', 'Real OSM way geometry, Duncan Ridge Conn (research/_coosa_osm.geojson).', GROUP_FACTOR * PACK_FACTOR, 'oct19_conn'));
-  legs.push(await walkLeg('Bowers Road (FS 298) to BOWERS-FS — truck 2 (all Forest Service ground)', outBowers, 'exact', 'Real OSM way geometry, Bowers Road (research/_coosa_osm.geojson); Forest Service ground checked against map/data/private.geojson 2026-10-12.', GROUP_FACTOR * PACK_FACTOR, 'oct19_bowers_fs'));
-  legs.push(await driveLeg('BOWERS-FS up Bowers Road and over Owltown Gap straight to Vogel (truck 2)', TRUCK2_PT, POINTS.vogel_basecamp, 'bowersfs_vogel', { access_confidence: 'unconfirmed', access_note: BOWERS_NOTE }));
+  legs.push(mealLeg('Breakfast at camp (Vogel)', 40));
+  legs.push({
+    type: 'tour', at_ref: 'vogel_basecamp', label: 'Free day — pick from the Playground tab', minutes: 480,
+    note: MON_FREE_NOTE,
+  });
+  legs.push(mealLeg('Lunch — out or at camp', 45));
   legs.push(mealLeg('Dinner at camp (Vogel)', 60));
   return {
-    day: 5, date: '2026-10-19', title: 'Morning pan at CAMP-U, walk out to truck 2 on Bowers Road, drive to Vogel', optional: false,
-    start: { ...CAMP_U_END, time: '07:30' },
+    day: 5, date: '2026-10-19', title: 'Free day — no fixed route (see the Playground tab)', optional: false,
+    start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '08:00' },
     end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
-    note: 'Last day out: pan the morning at camp, then walk out. Down the creek to the road, the road to truck 2 at BOWERS-FS (Bowers Road, Forest Service ground, 0.68 mi below Owltown Gap), then straight to Vogel — truck 1 is already in the Vogel lot (changed 2026-10-17; the day-1 drive to WOLF-X is gone). Hot dinner and showers tonight. Food carried is Sat lunch through this lunch: 2 breakfasts, 3 lunches, 2 dinners.',
+    note: 'Free day at base camp. Changed 2026-10-18 (owner): the group came off the hike early — no gold worth staying for near Calf Stomp Gap — so Monday is the second free day, not the CAMP-U pan and walk-out. Leave camp 8:00 AM; 10:00 works too and only costs the last stop of whichever plan you pick. Nothing is booked.',
     legs,
   };
 }
 
-// Tue Oct 20 — free day (Jordan, 2026-10-08: the hike ends Monday afternoon and
-// Tuesday is free). No fixed route: the hub's Playground tab carries the
-// ready-made plans (towns, waterfalls, markets, rain plan) and the hike-area
-// layer for anyone who wants to go back in.
 async function buildTueFree() {
   console.log('\n=== Oct 20 — free day at Vogel (no fixed route) ===');
   const legs = [];
@@ -581,7 +573,7 @@ const day1 = await buildDay1Stars();
 const day2 = await buildDay2();
 const oct17 = await buildSatIn();
 const oct18 = await buildSunToCampU();
-const oct19 = await buildMonOut();
+const oct19 = await buildMonFree();
 const oct20 = await buildTueFree();
 
 const routeDays = [day1, day2, oct17, oct18, oct19, oct20, day7];

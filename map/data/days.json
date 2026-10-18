@@ -34679,7 +34679,7 @@
     {
       "day": 5,
       "date": "2026-10-19",
-      "title": "Free day — no fixed route (see the Playground tab)",
+      "title": "Break camp, leave Vogel for home",
       "optional": false,
       "start": {
         "ref": "vogel_basecamp",
@@ -34694,7 +34694,7 @@
         "lat": 34.765883,
         "lng": -83.925416
       },
-      "note": "Free day at base camp. Changed 2026-10-18 (owner): the group came off the hike early — no gold worth staying for near Calf Stomp Gap — so Monday is the second free day, not the CAMP-U pan and walk-out. Leave camp 8:00 AM; 10:00 works too and only costs the last stop of whichever plan you pick. Nothing is booked.",
+      "note": "Changed 2026-10-18 (owner): the hike ended early and the group goes home Monday instead of staying to Wednesday. Breakfast, break camp, away. As built: breakfast 8:00, break camp 8:40, rolling about 10:10 — that is the 10 AM option. For the 8 AM option, start breakfast at 6:00. The Tue Oct 20 and Wed Oct 21 cards below are no longer used; they are left in place rather than deleted. No drive-home route is drawn: the project never recorded where home is.",
       "legs": [
         {
           "type": "meal",
@@ -34702,21 +34702,16 @@
           "minutes": 40
         },
         {
+          "type": "camp",
+          "label": "Break camp, pack out, load both trucks",
+          "minutes": 90
+        },
+        {
           "type": "tour",
           "at_ref": "vogel_basecamp",
-          "label": "Free day — pick from the Playground tab",
-          "minutes": 480,
-          "note": "Nothing booked. The hub's Playground tab has the ready-made plans (waterfall loop, Blairsville/Helen/Hiawassee, markets and festivals, a rain plan) and the hike-area layer if anyone wants another creek. Changed 2026-10-18 (owner): the hike ended early, so this is a free day instead of the walk-out. IF TRUCK 2 IS STILL AT BOWERS-FS, collect it first: Vogel to BOWERS-FS and back is 21 min each way, both trucks home by 9 AM from an 8 AM start."
-        },
-        {
-          "type": "meal",
-          "label": "Lunch — out or at camp",
-          "minutes": 45
-        },
-        {
-          "type": "meal",
-          "label": "Dinner at camp (Vogel)",
-          "minutes": 60
+          "label": "Leave Vogel for home",
+          "minutes": 30,
+          "note": "As built this day rolls at about 10:10 — breakfast 8:00, break camp 8:40, loaded and away by 10:10. To be GONE at 8:00 instead, start breakfast at 6:00 and break camp at 6:40. BEFORE YOU LEAVE: if truck 2 is still at BOWERS-FS on Bowers Road, collect it first — Vogel to BOWERS-FS is 21 min each way, so leaving at 8:00 means both trucks loaded and gone by about 9:00. Check site P for gear, the bear hang and the fire ring. Optional last pan on the way if the route goes through Dahlonega: Yahoola Creek Park, or the Chestatee River at the US-19 bridge — both already cleared as legal in RUNDOWN.md. Vogel checkout is noon; leaving Monday gives back the Tue and Wed nights."
         }
       ]
     },

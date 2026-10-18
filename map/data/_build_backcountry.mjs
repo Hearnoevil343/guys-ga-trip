@@ -394,7 +394,7 @@ const outCreek = creekSlice(CAMP_U, LEAVES_CREEK);
 const outConn = wayBetween(namedLine('Duncan Ridge Conn'), LEAVES_CREEK, JUNCTION);
 const outBowers = wayBetween(namedLine('Bowers Road'), JUNCTION, TRUCK2);
 console.log(`Walk-out: creek ${polyMiles(outCreek).toFixed(2)} mi, Duncan Ridge Conn ${polyMiles(outConn).toFixed(2)} mi (starts ${dist(outConn[0], LEAVES_CREEK).toFixed(0)} m from road end, ends ${dist(outConn[outConn.length - 1], JUNCTION).toFixed(0)} m from JUNCTION), Bowers Road ${polyMiles(outBowers).toFixed(2)} mi (starts ${dist(outBowers[0], JUNCTION).toFixed(0)} m from JUNCTION, ends ${dist(outBowers[outBowers.length - 1], TRUCK2).toFixed(0)} m from BOWERS-FS).`);
-const MON_FREE_NOTE = 'Nothing booked. The hub\'s Playground tab has the ready-made plans (waterfall loop, Blairsville/Helen/Hiawassee, markets and festivals, a rain plan) and the hike-area layer if anyone wants another creek. Changed 2026-10-18 (owner): the hike ended early, so this is a free day instead of the walk-out. IF TRUCK 2 IS STILL AT BOWERS-FS, collect it first: Vogel to BOWERS-FS and back is 21 min each way, both trucks home by 9 AM from an 8 AM start.';
+const MON_HOME_NOTE = 'As built this day rolls at about 10:10 — breakfast 8:00, break camp 8:40, loaded and away by 10:10. To be GONE at 8:00 instead, start breakfast at 6:00 and break camp at 6:40. BEFORE YOU LEAVE: if truck 2 is still at BOWERS-FS on Bowers Road, collect it first — Vogel to BOWERS-FS is 21 min each way, so leaving at 8:00 means both trucks loaded and gone by about 9:00. Check site P for gear, the bear hang and the fire ring. Optional last pan on the way if the route goes through Dahlonega: Yahoola Creek Park, or the Chestatee River at the US-19 bridge — both already cleared as legal in RUNDOWN.md. Vogel checkout is noon; leaving Monday gives back the Tue and Wed nights.';
 const BOWERS_NOTE = 'Bowers Road (FS 298) crosses private land for its first 0.68 mi below Owltown Gap (down to about 34.8041, -83.9527): whether the public may drive that stretch is UNCONFIRMED — on the call list. Truck 2 sits just past it at BOWERS-FS on Forest Service ground; the walk from the junction to the truck is all Forest Service.';
 const TRUCK2_PT = { lat: POINTS.bowers_fs.lat, lng: POINTS.bowers_fs.lng, label: POINTS.bowers_fs.label };
 
@@ -450,21 +450,20 @@ async function buildSunToCampU() {
 // Pan the morning at CAMP-U, break camp, walk out down the creek (one pan stop
 // at LOWER on the way), the road and Bowers Road to truck 2 at BOWERS-FS.
 // The old Mon full-day-at-CAMP-U + Tue walk-out pair is gone.
-async function buildMonFree() {
-  console.log('\n=== Oct 19 — free day at Vogel (changed 2026-10-18: the hike ended early) ===');
+async function buildMonHome() {
+  console.log('\n=== Oct 19 — break camp and drive home (changed 2026-10-18) ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp (Vogel)', 40));
+  legs.push(campLeg('Break camp, pack out, load both trucks', 90));
   legs.push({
-    type: 'tour', at_ref: 'vogel_basecamp', label: 'Free day — pick from the Playground tab', minutes: 480,
-    note: MON_FREE_NOTE,
+    type: 'tour', at_ref: 'vogel_basecamp', label: 'Leave Vogel for home', minutes: 30,
+    note: MON_HOME_NOTE,
   });
-  legs.push(mealLeg('Lunch — out or at camp', 45));
-  legs.push(mealLeg('Dinner at camp (Vogel)', 60));
   return {
-    day: 5, date: '2026-10-19', title: 'Free day — no fixed route (see the Playground tab)', optional: false,
+    day: 5, date: '2026-10-19', title: 'Break camp, leave Vogel for home', optional: false,
     start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '08:00' },
     end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
-    note: 'Free day at base camp. Changed 2026-10-18 (owner): the group came off the hike early — no gold worth staying for near Calf Stomp Gap — so Monday is the second free day, not the CAMP-U pan and walk-out. Leave camp 8:00 AM; 10:00 works too and only costs the last stop of whichever plan you pick. Nothing is booked.',
+    note: 'Changed 2026-10-18 (owner): the hike ended early and the group goes home Monday instead of staying to Wednesday. Breakfast, break camp, away. As built: breakfast 8:00, break camp 8:40, rolling about 10:10 — that is the 10 AM option. For the 8 AM option, start breakfast at 6:00. The Tue Oct 20 and Wed Oct 21 cards below are no longer used; they are left in place rather than deleted. No drive-home route is drawn: the project never recorded where home is.',
     legs,
   };
 }
@@ -573,7 +572,7 @@ const day1 = await buildDay1Stars();
 const day2 = await buildDay2();
 const oct17 = await buildSatIn();
 const oct18 = await buildSunToCampU();
-const oct19 = await buildMonFree();
+const oct19 = await buildMonHome();
 const oct20 = await buildTueFree();
 
 const routeDays = [day1, day2, oct17, oct18, oct19, oct20, day7];

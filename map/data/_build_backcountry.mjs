@@ -79,6 +79,9 @@ const POINTS = {
   brasstown_parking: { lat: 34.869027, lng: -83.81045, label: 'Brasstown Bald parking lot (OSM way 268844595)' },
   helton_trailhead: { lat: 34.753214, lng: -83.894488, label: 'Helton Creek Falls trailhead (Helton Creek Road / FS 118)' },
   helton_falls: { lat: 34.752715, lng: -83.895684, label: 'Helton Creek Falls' },
+  desoto_falls: { lat: 34.70556, lng: -83.91778, label: 'DeSoto Falls Recreation Area (US-129) — trailhead for the lower and upper falls' },
+  dahlonega_gold_museum: { lat: 34.53262, lng: -83.98492, label: 'Dahlonega Gold Museum State Historic Site (the square)' },
+  yahoola_park: { lat: 34.52777, lng: -83.95940, label: 'Yahoola Creek Park, Dahlonega' },
 };
 
 // ---------------------------------------------------------------------------
@@ -394,7 +397,7 @@ const outCreek = creekSlice(CAMP_U, LEAVES_CREEK);
 const outConn = wayBetween(namedLine('Duncan Ridge Conn'), LEAVES_CREEK, JUNCTION);
 const outBowers = wayBetween(namedLine('Bowers Road'), JUNCTION, TRUCK2);
 console.log(`Walk-out: creek ${polyMiles(outCreek).toFixed(2)} mi, Duncan Ridge Conn ${polyMiles(outConn).toFixed(2)} mi (starts ${dist(outConn[0], LEAVES_CREEK).toFixed(0)} m from road end, ends ${dist(outConn[outConn.length - 1], JUNCTION).toFixed(0)} m from JUNCTION), Bowers Road ${polyMiles(outBowers).toFixed(2)} mi (starts ${dist(outBowers[0], JUNCTION).toFixed(0)} m from JUNCTION, ends ${dist(outBowers[outBowers.length - 1], TRUCK2).toFixed(0)} m from BOWERS-FS).`);
-const MON_HOME_NOTE = 'As built this day rolls at about 10:10 — breakfast 8:00, break camp 8:40, loaded and away by 10:10. To be GONE at 8:00 instead, start breakfast at 6:00 and break camp at 6:40. BEFORE YOU LEAVE: if truck 2 is still at BOWERS-FS on Bowers Road, collect it first — Vogel to BOWERS-FS is 21 min each way, so leaving at 8:00 means both trucks loaded and gone by about 9:00. Check site P for gear, the bear hang and the fire ring. Optional last pan on the way if the route goes through Dahlonega: Yahoola Creek Park, or the Chestatee River at the US-19 bridge — both already cleared as legal in RUNDOWN.md. Vogel checkout is noon; leaving Monday gives back the Tue and Wed nights.';
+const MON_HOME_NOTE = 'BEFORE YOU LEAVE VOGEL: if truck 2 is still at BOWERS-FS on Bowers Road, collect it first — 21 min each way from Vogel. Check site P for gear, the bear hang and the fire ring. Vogel checkout is noon. More on the way home if there is time and it is in the right direction: the Chestatee River at the US-19 bridge (last pan, legal, 10 min south of the square on US-19), Consolidated Gold Mine (underground tour, 5 min east of the square), Amicalola Falls State Park (tallest falls in Georgia, 729 ft, about 35 min west of Dahlonega on GA-52 — worth it only if home is west or south-west). Leaving Monday gives back the Tue and Wed nights at Vogel.';
 const BOWERS_NOTE = 'Bowers Road (FS 298) crosses private land for its first 0.68 mi below Owltown Gap (down to about 34.8041, -83.9527): whether the public may drive that stretch is UNCONFIRMED — on the call list. Truck 2 sits just past it at BOWERS-FS on Forest Service ground; the walk from the junction to the truck is all Forest Service.';
 const TRUCK2_PT = { lat: POINTS.bowers_fs.lat, lng: POINTS.bowers_fs.lng, label: POINTS.bowers_fs.label };
 
@@ -446,24 +449,40 @@ async function buildSunToCampU() {
   };
 }
 
-// Mon Oct 19 — rebuilt 2026-10-08 (Jordan): the hike is 3 days / 2 nights.
-// Pan the morning at CAMP-U, break camp, walk out down the creek (one pan stop
-// at LOWER on the way), the road and Bowers Road to truck 2 at BOWERS-FS.
-// The old Mon full-day-at-CAMP-U + Tue walk-out pair is gone.
+// Mon Oct 19 — reworked 2026-10-19 (owner): not a straight drive. Break camp,
+// then stops on the way home: DeSoto Falls for a bit, Dahlonega for a bit
+// (Gold Museum, the square, lunch, a last pan at Yahoola Creek Park), then home.
+// Home is still not recorded, so the last leg is a note, not a drawn route.
 async function buildMonHome() {
-  console.log('\n=== Oct 19 — break camp and drive home (changed 2026-10-18) ===');
+  console.log('\n=== Oct 19 — break camp, DeSoto Falls, Dahlonega, home (reworked 2026-10-19) ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp (Vogel)', 40));
   legs.push(campLeg('Break camp, pack out, load both trucks', 90));
+  legs.push(await driveLeg('Vogel to DeSoto Falls (US-129 south)', POINTS.vogel_basecamp, POINTS.desoto_falls, 'mon_vogel_desoto'));
   legs.push({
-    type: 'tour', at_ref: 'vogel_basecamp', label: 'Leave Vogel for home', minutes: 30,
+    type: 'tour', at_ref: 'desoto_falls', label: 'DeSoto Falls — walk to the lower and upper falls', minutes: 90,
+    note: 'One trail from the parking lot, across Frogtown Creek, then a fork: left to the lower falls (about 0.25 mi), right to the upper falls (about 0.75 mi). Both and back is about 2 mi, easy grade. Day-use fee is paid at the lot. Frogtown Creek here is hand-pan legal (RUNDOWN.md section 3) if anyone wants a quick pan at the bridge; this card budgets a walk, not a pan.',
+  });
+  legs.push(await driveLeg('DeSoto Falls to Dahlonega (Gold Museum, the square)', POINTS.desoto_falls, POINTS.dahlonega_gold_museum, 'mon_desoto_dahlonega'));
+  legs.push({
+    type: 'tour', at_ref: 'dahlonega_gold_museum', label: 'Dahlonega — Gold Museum and the square', minutes: 75,
+    note: 'The museum is in the old courthouse in the middle of the square (state historic site, small fee). The square around it is the stop: shops, a few restaurants, the Dahlonega Gold Museum film. If the mine tour is wanted instead, Consolidated Gold Mine is 5 min east of the square (about 2 h with the flume panning) — swap it in and drop the Yahoola pan to land home at the same time.',
+  });
+  legs.push(mealLeg('Lunch on the Dahlonega square', 60));
+  legs.push(await driveLeg('Dahlonega square to Yahoola Creek Park', POINTS.dahlonega_gold_museum, POINTS.yahoola_park, 'mon_dahlonega_yahoola'));
+  legs.push({
+    type: 'pan', at_ref: 'yahoola_park', label: 'Last pan — Yahoola Creek Park', minutes: 60,
+    note: 'City park, already cleared as legal in RUNDOWN.md. One hour, then dry off and go. Skip it if the day is running late; it is the easiest stop to drop.',
+  });
+  legs.push({
+    type: 'tour', at_ref: 'yahoola_park', label: 'Leave Dahlonega for home', minutes: 15,
     note: MON_HOME_NOTE,
   });
   return {
-    day: 5, date: '2026-10-19', title: 'Break camp, leave Vogel for home', optional: false,
+    day: 5, date: '2026-10-19', title: 'Break camp; DeSoto Falls, Dahlonega, then home', optional: false,
     start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '08:00' },
-    end: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng },
-    note: 'Changed 2026-10-18 (owner): the hike ended early and the group goes home Monday instead of staying to Wednesday. Breakfast, break camp, away. As built: breakfast 8:00, break camp 8:40, rolling about 10:10 — that is the 10 AM option. For the 8 AM option, start breakfast at 6:00. The Tue Oct 20 and Wed Oct 21 cards below are no longer used; they are left in place rather than deleted. No drive-home route is drawn: the project never recorded where home is.',
+    end: { ref: 'yahoola_park', label: POINTS.yahoola_park.label, lat: POINTS.yahoola_park.lat, lng: POINTS.yahoola_park.lng },
+    note: 'Reworked 2026-10-19 (owner): the drive home is a day out, not a straight shot. Break camp, DeSoto Falls for a bit, Dahlonega for a bit (museum, square, lunch, a last pan), then home. The stops are all on or just off US-129 / US-19 south of Vogel, so there is no detour if home is south or west of Dahlonega. The drive from Dahlonega to home is not drawn: the project never recorded where home is. The Tue Oct 20 and Wed Oct 21 cards below are no longer used.',
     legs,
   };
 }

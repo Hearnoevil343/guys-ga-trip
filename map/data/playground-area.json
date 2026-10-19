@@ -1,6 +1,6 @@
 {
   "schema": "playground-area-v1",
-  "built": "2026-10-17",
+  "built": "2026-10-19",
   "area": {
     "minLat": 34.72,
     "maxLat": 34.86,
@@ -13481,7 +13481,7 @@
         34.83198,
         -83.98719
       ],
-      "meters_from_route": 3561,
+      "meters_from_route": 4283,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13498,7 +13498,7 @@
         34.81507,
         -83.9578
       ],
-      "meters_from_route": 0,
+      "meters_from_route": 108,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13600,7 +13600,7 @@
         34.81139,
         -83.98564
       ],
-      "meters_from_route": 1092,
+      "meters_from_route": 1688,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13634,7 +13634,7 @@
         34.82044,
         -84.01712
       ],
-      "meters_from_route": 3653,
+      "meters_from_route": 3942,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13668,7 +13668,7 @@
         34.79826,
         -83.98229
       ],
-      "meters_from_route": 0,
+      "meters_from_route": 881,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -13736,7 +13736,7 @@
         34.81138,
         -84.0236
       ],
-      "meters_from_route": 3873,
+      "meters_from_route": 3908,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13753,7 +13753,7 @@
         34.8223,
         -83.91862
       ],
-      "meters_from_route": 3499,
+      "meters_from_route": 3580,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -13770,7 +13770,7 @@
         34.7929,
         -83.9671
       ],
-      "meters_from_route": 6,
+      "meters_from_route": 66,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -13821,7 +13821,7 @@
         34.83329,
         -84.00364
       ],
-      "meters_from_route": 4240,
+      "meters_from_route": 4916,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -14078,7 +14078,7 @@
         34.79625,
         -83.95159
       ],
-      "meters_from_route": 0,
+      "meters_from_route": 386,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14197,7 +14197,7 @@
         34.80708,
         -83.95188
       ],
-      "meters_from_route": 0,
+      "meters_from_route": 1585,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -14231,7 +14231,7 @@
         34.79898,
         -83.98477
       ],
-      "meters_from_route": 0,
+      "meters_from_route": 642,
       "on_non_fs": false,
       "state_parks": []
     },
@@ -14265,7 +14265,7 @@
         34.8271,
         -84.0114
       ],
-      "meters_from_route": 3918,
+      "meters_from_route": 4107,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -14282,7 +14282,7 @@
         34.8351,
         -84.01465
       ],
-      "meters_from_route": 4111,
+      "meters_from_route": 4547,
       "on_non_fs": true,
       "state_parks": []
     },
@@ -14806,30 +14806,6 @@
         "mid": [
           34.79275,
           -83.95609
-        ]
-      },
-      {
-        "name": "East Fork Coosa Creek",
-        "meters_from_route": 0,
-        "mid": [
-          34.81507,
-          -83.9578
-        ]
-      },
-      {
-        "name": "Jones Branch",
-        "meters_from_route": 0,
-        "mid": [
-          34.79826,
-          -83.98229
-        ]
-      },
-      {
-        "name": "Roaring Fork",
-        "meters_from_route": 6,
-        "mid": [
-          34.7929,
-          -83.9671
         ]
       },
       {

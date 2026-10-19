@@ -1039,7 +1039,7 @@ MEALS = [
     ("Mon Oct 19", "Breakfast", "Whatever is left in the cooler, coffee",
      "Eat at 8:00, break camp 8:40: DeSoto Falls, Chestatee pan and Amicalola Falls before home."),
     ("Mon Oct 19", "Lunch", "In Dahlonega, on the way through", "Between DeSoto Falls and the Chestatee bridge pan. Not pre-booked."),
-    ("Mon Oct 19", "Dinner", "On the road or at home", "Trip ends Monday (changed 2026-10-18). Tue and Wed rows below are not used."),
+    ("Mon Oct 19", "Dinner", "On the road, I-75 around Valdosta or Lake City", "Trip ends Monday (changed 2026-10-18); home is Tampa, door about midnight to 2 AM. Tue and Wed rows below are not used."),
     ("Tue Oct 20", "Breakfast", "Eggs, bacon, pancakes, coffee", "Free day, no clock."),
     ("Tue Oct 20", "Lunch", "Out (Blairsville, Helen or Hiawassee) or sandwiches at camp",
      "Depends which free-day plan the group picks - see the Playground tab."),

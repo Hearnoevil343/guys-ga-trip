@@ -82,6 +82,7 @@ const POINTS = {
   desoto_falls: { lat: 34.70556, lng: -83.91778, label: 'DeSoto Falls Recreation Area (US-129) — trailhead for the lower and upper falls' },
   dahlonega_gold_museum: { lat: 34.53262, lng: -83.98492, label: 'Dahlonega Gold Museum State Historic Site (the square)' },
   chestatee_us19: { lat: 34.46203, lng: -83.96187, label: 'Upper Chestatee River at the US-19 bridge (pull-off; pin is the river centroid from spots.json, confirm the bridge on-site)' },
+  home_tampa: { lat: 27.9506, lng: -82.4572, label: 'Home — Tampa, FL (city-center pin, not an address)' },
   amicalola_falls: { lat: 34.5577, lng: -84.2466, label: 'Amicalola Falls State Park — visitor center (approximate pin, 418 Amicalola Falls State Park Rd, Dawsonville)' },
 };
 
@@ -398,7 +399,7 @@ const outCreek = creekSlice(CAMP_U, LEAVES_CREEK);
 const outConn = wayBetween(namedLine('Duncan Ridge Conn'), LEAVES_CREEK, JUNCTION);
 const outBowers = wayBetween(namedLine('Bowers Road'), JUNCTION, TRUCK2);
 console.log(`Walk-out: creek ${polyMiles(outCreek).toFixed(2)} mi, Duncan Ridge Conn ${polyMiles(outConn).toFixed(2)} mi (starts ${dist(outConn[0], LEAVES_CREEK).toFixed(0)} m from road end, ends ${dist(outConn[outConn.length - 1], JUNCTION).toFixed(0)} m from JUNCTION), Bowers Road ${polyMiles(outBowers).toFixed(2)} mi (starts ${dist(outBowers[0], JUNCTION).toFixed(0)} m from JUNCTION, ends ${dist(outBowers[outBowers.length - 1], TRUCK2).toFixed(0)} m from BOWERS-FS).`);
-const MON_HOME_NOTE = 'BEFORE YOU LEAVE VOGEL: if truck 2 is still at BOWERS-FS on Bowers Road, collect it first — 21 min each way from Vogel; add about 45 min to every time on this card. Check site P for gear, the bear hang and the fire ring. Vogel checkout is noon. Amicalola is west of Dahlonega on GA-52: if home is east or north of there, drop it and go home from the Chestatee bridge. Leaving Monday gives back the Tue and Wed nights at Vogel.';
+const MON_HOME_NOTE = 'Home is Tampa: Amicalola Falls to Dawsonville, GA-400 south through Atlanta, I-75 south. One fuel and food stop around Valdosta or Lake City splits the run. The time here is driving only, no stops, OSRM speeds. BEFORE YOU LEAVE VOGEL: if truck 2 is still at BOWERS-FS on Bowers Road, collect it first — 21 min each way; add about 45 min to every time on this card. Check site P for gear, the bear hang and the fire ring. Vogel checkout is noon. To be home earlier, drop the Chestatee pan (saves 1 h 15 with its drive) or Amicalola (saves about 2 h).';
 const BOWERS_NOTE = 'Bowers Road (FS 298) crosses private land for its first 0.68 mi below Owltown Gap (down to about 34.8041, -83.9527): whether the public may drive that stretch is UNCONFIRMED — on the call list. Truck 2 sits just past it at BOWERS-FS on Forest Service ground; the walk from the junction to the truck is all Forest Service.';
 const TRUCK2_PT = { lat: POINTS.bowers_fs.lat, lng: POINTS.bowers_fs.lng, label: POINTS.bowers_fs.label };
 
@@ -477,15 +478,12 @@ async function buildMonHome() {
     type: 'tour', at_ref: 'amicalola_falls', label: 'Amicalola Falls — the tallest falls in Georgia (729 ft)', minutes: 90,
     note: 'Parking is $5 per vehicle at the visitor center. Easiest view: drive up to the reflection-pool lot and walk the short paved West Ridge trail to the bridge at the base of the falls, or take the 175-step stairs to the mid-falls bridge. The full 604-step staircase to the top is the long version. No panning anywhere in the park (state park rule).',
   });
-  legs.push({
-    type: 'tour', at_ref: 'amicalola_falls', label: 'Leave Amicalola Falls for home', minutes: 15,
-    note: MON_HOME_NOTE,
-  });
+  legs.push(await driveLeg('Amicalola Falls to home (Tampa) — GA-400, I-75', POINTS.amicalola_falls, POINTS.home_tampa, 'mon_amicalola_tampa', { note: MON_HOME_NOTE }));
   return {
     day: 5, date: '2026-10-19', title: 'Break camp; DeSoto Falls, Chestatee pan, Amicalola Falls, then home', optional: false,
     start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '08:00' },
-    end: { ref: 'amicalola_falls', label: POINTS.amicalola_falls.label, lat: POINTS.amicalola_falls.lat, lng: POINTS.amicalola_falls.lng },
-    note: 'Reworked 2026-10-19 (owner): the drive home is a day out with stops the group has not done yet. Consolidated Gold Mine and Yahoola Creek Park are out (already visited; no gold at Yahoola). DeSoto Falls, lunch in Dahlonega on the way through, a new pan at the Chestatee River US-19 bridge, Amicalola Falls, then home. The drive home from Amicalola is not drawn: the project never recorded where home is. The Tue Oct 20 and Wed Oct 21 cards below are no longer used.',
+    end: { ref: 'home_tampa', label: POINTS.home_tampa.label, lat: POINTS.home_tampa.lat, lng: POINTS.home_tampa.lng },
+    note: 'Reworked 2026-10-19 (owner): the drive home is a day out with stops the group has not done yet. Consolidated Gold Mine and Yahoola Creek Park are out (already visited; no gold at Yahoola). DeSoto Falls, lunch in Dahlonega on the way through, a new pan at the Chestatee River US-19 bridge, Amicalola Falls, then home. Home is Tampa, FL (owner, 2026-10-19): Amicalola sits right on the way to GA-400 and I-75, so nothing here is a detour. The drive home is drawn to a Tampa city-center pin, not an address. The Tue Oct 20 and Wed Oct 21 cards below are no longer used.',
     legs,
   };
 }

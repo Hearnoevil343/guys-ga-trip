@@ -81,7 +81,8 @@ const POINTS = {
   helton_falls: { lat: 34.752715, lng: -83.895684, label: 'Helton Creek Falls' },
   desoto_falls: { lat: 34.70556, lng: -83.91778, label: 'DeSoto Falls Recreation Area (US-129) — trailhead for the lower and upper falls' },
   dahlonega_gold_museum: { lat: 34.53262, lng: -83.98492, label: 'Dahlonega Gold Museum State Historic Site (the square)' },
-  yahoola_park: { lat: 34.52777, lng: -83.95940, label: 'Yahoola Creek Park, Dahlonega' },
+  chestatee_us19: { lat: 34.46203, lng: -83.96187, label: 'Upper Chestatee River at the US-19 bridge (pull-off; pin is the river centroid from spots.json, confirm the bridge on-site)' },
+  amicalola_falls: { lat: 34.5577, lng: -84.2466, label: 'Amicalola Falls State Park — visitor center (approximate pin, 418 Amicalola Falls State Park Rd, Dawsonville)' },
 };
 
 // ---------------------------------------------------------------------------
@@ -397,7 +398,7 @@ const outCreek = creekSlice(CAMP_U, LEAVES_CREEK);
 const outConn = wayBetween(namedLine('Duncan Ridge Conn'), LEAVES_CREEK, JUNCTION);
 const outBowers = wayBetween(namedLine('Bowers Road'), JUNCTION, TRUCK2);
 console.log(`Walk-out: creek ${polyMiles(outCreek).toFixed(2)} mi, Duncan Ridge Conn ${polyMiles(outConn).toFixed(2)} mi (starts ${dist(outConn[0], LEAVES_CREEK).toFixed(0)} m from road end, ends ${dist(outConn[outConn.length - 1], JUNCTION).toFixed(0)} m from JUNCTION), Bowers Road ${polyMiles(outBowers).toFixed(2)} mi (starts ${dist(outBowers[0], JUNCTION).toFixed(0)} m from JUNCTION, ends ${dist(outBowers[outBowers.length - 1], TRUCK2).toFixed(0)} m from BOWERS-FS).`);
-const MON_HOME_NOTE = 'BEFORE YOU LEAVE VOGEL: if truck 2 is still at BOWERS-FS on Bowers Road, collect it first — 21 min each way from Vogel. Check site P for gear, the bear hang and the fire ring. Vogel checkout is noon. More on the way home if there is time and it is in the right direction: the Chestatee River at the US-19 bridge (last pan, legal, 10 min south of the square on US-19), Consolidated Gold Mine (underground tour, 5 min east of the square), Amicalola Falls State Park (tallest falls in Georgia, 729 ft, about 35 min west of Dahlonega on GA-52 — worth it only if home is west or south-west). Leaving Monday gives back the Tue and Wed nights at Vogel.';
+const MON_HOME_NOTE = 'BEFORE YOU LEAVE VOGEL: if truck 2 is still at BOWERS-FS on Bowers Road, collect it first — 21 min each way from Vogel; add about 45 min to every time on this card. Check site P for gear, the bear hang and the fire ring. Vogel checkout is noon. Amicalola is west of Dahlonega on GA-52: if home is east or north of there, drop it and go home from the Chestatee bridge. Leaving Monday gives back the Tue and Wed nights at Vogel.';
 const BOWERS_NOTE = 'Bowers Road (FS 298) crosses private land for its first 0.68 mi below Owltown Gap (down to about 34.8041, -83.9527): whether the public may drive that stretch is UNCONFIRMED — on the call list. Truck 2 sits just past it at BOWERS-FS on Forest Service ground; the walk from the junction to the truck is all Forest Service.';
 const TRUCK2_PT = { lat: POINTS.bowers_fs.lat, lng: POINTS.bowers_fs.lng, label: POINTS.bowers_fs.label };
 
@@ -449,40 +450,42 @@ async function buildSunToCampU() {
   };
 }
 
-// Mon Oct 19 — reworked 2026-10-19 (owner): not a straight drive. Break camp,
-// then stops on the way home: DeSoto Falls for a bit, Dahlonega for a bit
-// (Gold Museum, the square, lunch, a last pan at Yahoola Creek Park), then home.
-// Home is still not recorded, so the last leg is a note, not a drawn route.
+// Mon Oct 19 — reworked 2026-10-19 (owner): stops on the way home, nothing the
+// group has already done. Consolidated Gold Mine and Yahoola Creek Park are out
+// (both done earlier in the trip, no gold at Yahoola). DeSoto Falls, lunch in
+// Dahlonega on the way through, a new pan spot (Chestatee River at the US-19
+// bridge), Amicalola Falls, then home. Home is not recorded: last leg is a note.
 async function buildMonHome() {
-  console.log('\n=== Oct 19 — break camp, DeSoto Falls, Dahlonega, home (reworked 2026-10-19) ===');
+  console.log('\n=== Oct 19 — break camp, DeSoto Falls, Chestatee pan, Amicalola Falls, home (reworked 2026-10-19) ===');
   const legs = [];
   legs.push(mealLeg('Breakfast at camp (Vogel)', 40));
   legs.push(campLeg('Break camp, pack out, load both trucks', 90));
   legs.push(await driveLeg('Vogel to DeSoto Falls (US-129 south)', POINTS.vogel_basecamp, POINTS.desoto_falls, 'mon_vogel_desoto'));
   legs.push({
     type: 'tour', at_ref: 'desoto_falls', label: 'DeSoto Falls — walk to the lower and upper falls', minutes: 90,
-    note: 'One trail from the parking lot, across Frogtown Creek, then a fork: left to the lower falls (about 0.25 mi), right to the upper falls (about 0.75 mi). Both and back is about 2 mi, easy grade. Day-use fee is paid at the lot. Frogtown Creek here is hand-pan legal (RUNDOWN.md section 3) if anyone wants a quick pan at the bridge; this card budgets a walk, not a pan.',
+    note: 'One trail from the parking lot, across Frogtown Creek, then a fork: left to the lower falls (about 0.25 mi), right to the upper falls (about 0.75 mi). Both and back is about 2 mi, easy grade. Day-use fee is paid at the lot.',
   });
-  legs.push(await driveLeg('DeSoto Falls to Dahlonega (Gold Museum, the square)', POINTS.desoto_falls, POINTS.dahlonega_gold_museum, 'mon_desoto_dahlonega'));
+  legs.push(await driveLeg('DeSoto Falls to Dahlonega (lunch on the way through)', POINTS.desoto_falls, POINTS.dahlonega_gold_museum, 'mon_desoto_dahlonega'));
+  legs.push(mealLeg('Lunch in Dahlonega, on the way through', 45));
+  legs.push(await driveLeg('Dahlonega to the Chestatee River at the US-19 bridge', POINTS.dahlonega_gold_museum, POINTS.chestatee_us19, 'mon_dahlonega_chestatee'));
   legs.push({
-    type: 'tour', at_ref: 'dahlonega_gold_museum', label: 'Dahlonega — Gold Museum and the square', minutes: 75,
-    note: 'The museum is in the old courthouse in the middle of the square (state historic site, small fee). The square around it is the stop: shops, a few restaurants, the Dahlonega Gold Museum film. If the mine tour is wanted instead, Consolidated Gold Mine is 5 min east of the square (about 2 h with the flume panning) — swap it in and drop the Yahoola pan to land home at the same time.',
+    type: 'pan', at_ref: 'chestatee_us19', label: 'Pan the Chestatee River at the US-19 bridge (new spot)', minutes: 60,
+    note: 'Not panned yet this trip. Roadside pull-off near the bridge, short scramble down to a wide gravel bar; hand-pan legal per RUNDOWN.md. The pin is the river centroid from spots.json, not the bridge itself: find the pull-off on US-19 south of Dahlonega on-site. Skip it if the day runs late.',
   });
-  legs.push(mealLeg('Lunch on the Dahlonega square', 60));
-  legs.push(await driveLeg('Dahlonega square to Yahoola Creek Park', POINTS.dahlonega_gold_museum, POINTS.yahoola_park, 'mon_dahlonega_yahoola'));
+  legs.push(await driveLeg('Chestatee bridge to Amicalola Falls State Park', POINTS.chestatee_us19, POINTS.amicalola_falls, 'mon_chestatee_amicalola'));
   legs.push({
-    type: 'pan', at_ref: 'yahoola_park', label: 'Last pan — Yahoola Creek Park', minutes: 60,
-    note: 'City park, already cleared as legal in RUNDOWN.md. One hour, then dry off and go. Skip it if the day is running late; it is the easiest stop to drop.',
+    type: 'tour', at_ref: 'amicalola_falls', label: 'Amicalola Falls — the tallest falls in Georgia (729 ft)', minutes: 90,
+    note: 'Parking is $5 per vehicle at the visitor center. Easiest view: drive up to the reflection-pool lot and walk the short paved West Ridge trail to the bridge at the base of the falls, or take the 175-step stairs to the mid-falls bridge. The full 604-step staircase to the top is the long version. No panning anywhere in the park (state park rule).',
   });
   legs.push({
-    type: 'tour', at_ref: 'yahoola_park', label: 'Leave Dahlonega for home', minutes: 15,
+    type: 'tour', at_ref: 'amicalola_falls', label: 'Leave Amicalola Falls for home', minutes: 15,
     note: MON_HOME_NOTE,
   });
   return {
-    day: 5, date: '2026-10-19', title: 'Break camp; DeSoto Falls, Dahlonega, then home', optional: false,
+    day: 5, date: '2026-10-19', title: 'Break camp; DeSoto Falls, Chestatee pan, Amicalola Falls, then home', optional: false,
     start: { ref: 'vogel_basecamp', label: POINTS.vogel_basecamp.label, lat: POINTS.vogel_basecamp.lat, lng: POINTS.vogel_basecamp.lng, time: '08:00' },
-    end: { ref: 'yahoola_park', label: POINTS.yahoola_park.label, lat: POINTS.yahoola_park.lat, lng: POINTS.yahoola_park.lng },
-    note: 'Reworked 2026-10-19 (owner): the drive home is a day out, not a straight shot. Break camp, DeSoto Falls for a bit, Dahlonega for a bit (museum, square, lunch, a last pan), then home. The stops are all on or just off US-129 / US-19 south of Vogel, so there is no detour if home is south or west of Dahlonega. The drive from Dahlonega to home is not drawn: the project never recorded where home is. The Tue Oct 20 and Wed Oct 21 cards below are no longer used.',
+    end: { ref: 'amicalola_falls', label: POINTS.amicalola_falls.label, lat: POINTS.amicalola_falls.lat, lng: POINTS.amicalola_falls.lng },
+    note: 'Reworked 2026-10-19 (owner): the drive home is a day out with stops the group has not done yet. Consolidated Gold Mine and Yahoola Creek Park are out (already visited; no gold at Yahoola). DeSoto Falls, lunch in Dahlonega on the way through, a new pan at the Chestatee River US-19 bridge, Amicalola Falls, then home. The drive home from Amicalola is not drawn: the project never recorded where home is. The Tue Oct 20 and Wed Oct 21 cards below are no longer used.',
     legs,
   };
 }
